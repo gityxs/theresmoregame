@@ -44621,7 +44621,7 @@
                                                                 children: [(0, Ce.jsx)("div", {
                                                                     className: "flex flex-wrap bg-black relative",
                                                                     children: (0, Ce.jsx)(zr, {
-                                                                        dataSrc: "./" + ("localhost" === window.location.hostname ? "./" : "") + "/images/" + r + ".webp"
+                                                                        dataSrc: "./" + ("localhost" === window.location.hostname ? "./" : "") + "images/" + r + ".webp"
                                                                     })
                                                                 }), (0, Ce.jsx)("div", {
                                                                     className: "flex flex-wrap",
