@@ -15439,7 +15439,7 @@
                         })), v(this, "_loadGA", (function (e, r) {
                             if ("undefined" !== typeof window && "undefined" !== typeof document && !t._hasLoadedGA) {
                                 var n = document.createElement("script");
-                                n.async = !0, n.src = "https://www.googletagmanager.com/gtag/js?id=".concat(e), r && n.setAttribute("nonce", r), document.body.appendChild(n), window.dataLayer = window.dataLayer || [], window.gtag = function () {
+                                n.async = !0, n.src = "https://www.googletag1manager.com/gtag/js?id=".concat(e), r && n.setAttribute("nonce", r), document.body.appendChild(n), window.dataLayer = window.dataLayer || [], window.gtag = function () {
                                     window.dataLayer.push(arguments)
                                 }, t._hasLoadedGA = !0
                             }
