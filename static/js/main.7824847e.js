@@ -1,4 +1,4 @@
-/*!For license information please see main.2cb2fcc0.js.LICENSE.txt*/ ! function () {
+/*!For license information please see main.7824847e.js.LICENSE.txt*/ ! function () {
     var e = {
             1231: function (e, t, r) {
                 "use strict";
@@ -3144,7 +3144,7 @@
                         dip_fallen_angel_army_2: "The Fallen Angel demons army",
                         dip_improve_relationships: "Improve relationships",
                         dip_improve_relationships_abbr: "Improve",
-                        dip_improve_relationships_description: "We will do our best to improve relations with the target nation",
+                        dip_improve_relationships_description: "We will do our best to improve relations with the target nation, The more resources you spend on improving relations the more the benefits will be",
                         dip_insult: "Insult",
                         dip_insult_description: "Son of a Theresmorian goat, your smell precedes you! This should make our relationships worse",
                         dip_alliance: "Alliance",
@@ -3173,29 +3173,29 @@
                         dip_relationship_neutral: "Relationships neutral",
                         dip_relationship_neutral_description: "This faction does not love or hate us",
                         dip_enso_multitude: "Enso Multitude",
-                        dip_enso_multitude_description: "In the Far East there is a civilization that can rival us for primacy on Theresmore. They call themselves Enso, the enlightened ones, the very force of the universe. Their symbol is a circle, they have almond-shaped eyes and their complexion is yellowish. They invented gunpowder and their warriors are fierce in battle and swarm like a multitude over the unfortunate enemy armies. They keep vast stores of Natronite of which they are very jealous; maybe it would be better to make friends with them",
+                        dip_enso_multitude_description: "In the Far East there is a civilization that can rival us for primacy on Theresmore. They call themselves Enso, the enlightened ones, the very force of the universe. Their symbol is a circle, they have almond-shaped eyes and their complexion is yellowish. They invented gunpowder and their warriors are fierce in battle and swarm like a multitude over the unfortunate enemy armies. They keep vast stores of Natronite of which they are very jealous; maybe it would be better to make friends with them.",
                         dip_nightdale_protectorate: "Nightdale Protectorate",
-                        dip_nightdale_protectorate_description: "The northern tribes are united under the protectorate of Nightdale, proud warriors, they show no fear against their enemies",
+                        dip_nightdale_protectorate_description: "The northern tribes are united under the protectorate of Nightdale, proud warriors, they show no fear against their enemies.",
                         dip_scalerock_tribes: "Scalerock Tribes",
-                        dip_scalerock_tribes_description: "In the high peaks of the Scalerock Mountains, there are tribes of draconians. They live in caves carved into the rock and fly over the high peaks to swoop down on their unsuspecting enemies. Descendants of dragons have retained their intelligence and craftsmanship in creating objects. They know natronite, perhaps from an ancestral legacy, and are greedy for it beyond measure",
+                        dip_scalerock_tribes_description: "In the high peaks of the Scalerock Mountains, there are tribes of draconians. They live in caves carved into the rock and fly over the high peaks to swoop down on their unsuspecting enemies. Descendants of dragons have retained their intelligence and craftsmanship in creating objects. They know natronite, perhaps from an ancestral legacy, and are greedy for it beyond measure.",
                         dip_sssarkat_empire: "Sssarkat Empire",
-                        dip_sssarkat_empire_description: "In the warm waters beyond the realm of Zultan are salamander-like creatures that live mostly underwater. They are repositories of a vanished ancient civilization and populate its ruins by making use of remaining technology. They often visit the mainland and some of their villages can be found on the sunny shores",
+                        dip_sssarkat_empire_description: "In the warm waters beyond the realm of Zultan are salamander-like creatures that live mostly underwater. They are repositories of a vanished ancient civilization and populate its ruins by making use of remaining technology. They often visit the mainland and some of their villages can be found on the sunny shores.",
                         dip_theresmore_wanders: "Theresmore Wanders",
-                        dip_theresmore_wanders_description: "In the boundless plains to the east there are nomadic tribes called the wanders, we don't know how many they are and what their real strength is. The territories to the east are mostly unknown",
+                        dip_theresmore_wanders_description: "In the boundless plains to the east there are nomadic tribes called the wanders, we don't know how many they are and what their real strength is. The territories to the east are mostly unknown.",
                         dip_western_kingdom: "Western Kingdom",
-                        dip_western_kingdom_description: "The kingdom of the west is a feudal monarchy, protected by its large castles and it\u2019s formidable on the battlefield thanks to its cavalry",
+                        dip_western_kingdom_description: "The kingdom of the west is a feudal monarchy, protected by its large castles and it\u2019s formidable on the battlefield thanks to its cavalry.",
                         dip_zultan_emirate: "Zultan Emirate",
-                        dip_zultan_emirate_description: "Along the deserts of the south flourishing commercial cities have sprung up, the largest of these being Zultan whose oligarchy controls a vast area",
+                        dip_zultan_emirate_description: "Along the deserts of the south flourishing commercial cities have sprung up, the largest of these being Zultan whose oligarchy controls a vast area.",
                         dip_king_kobold_nation: "King Kobold Nation",
-                        dip_king_kobold_nation_description: "These little bipedal lizards have never been at our level. We chased them back to the dust from whence they came",
+                        dip_king_kobold_nation_description: "These little bipedal lizards have never been at our level. We chased them back to the dust from whence they came.",
                         ene_ancient_burial_place: "Ancient burial place",
-                        ene_ancient_burial_place_description: "A place long forgotten, now the abode of the dead",
+                        ene_ancient_burial_place_description: "A place long forgotten, few undeads roaming around. A few dozen of soldiers will exterminate them",
                         ene_ancient_hideout: "Ancient hideout",
-                        ene_ancient_hideout_description: "Bandits have occupied this old hideout",
+                        ene_ancient_hideout_description: "Bandits have occupied this old hideout, a few dozen of soldiers should eliminate them",
                         ene_harpy_nest: "Harpy Nest",
                         ene_harpy_nest_description: "The harpies' nest from where they attract unsuspecting travelers",
                         ene_bandit_camp: "Bandit Camp",
-                        ene_bandit_camp_description: "Along the road and in the woods to cut up merchants and passersby",
+                        ene_bandit_camp_description: "Along the road and in the woods to cut up merchants and passersby, a few dozen of soldiers will take care of them",
                         ene_barbarian_camp: "Barbarian camp",
                         ene_barbarian_camp_description: "A peaceful tribe of barbarian. Beware: don't poke the bear",
                         ene_barbarian_village: "Barbarian Village",
@@ -3213,7 +3213,7 @@
                         ene_burning_pit: "Burning Pit",
                         ene_burning_pit_description: "The subsoil of Theresmore is infested with demons, fortunately these are small in size",
                         ene_cave_bats: "Cave of bats",
-                        ene_cave_bats_description: "A cave infested with vampire bats",
+                        ene_cave_bats_description: "A cave infested with vampire bats, some spearmen will eliminate them",
                         ene_citadel_dead: "Citadel of the dead",
                         ene_citadel_dead_description: "An abandoned citadel haunted by the dead (and wyverns)",
                         ene_construction_site: "Construction site",
@@ -3231,7 +3231,7 @@
                         ene_gloomy_werewolf_forest: "Gloomy werewolf forest",
                         ene_gloomy_werewolf_forest_description: "The forest of the werewolf is so full of obstacles that even the best equipped of armies would have difficulty",
                         ene_goblin_lair: "Goblin Lair",
-                        ene_goblin_lair_description: "Goblins are dodgy creatures, they have little weaponry but poison the tips of their arrows",
+                        ene_goblin_lair_description: "Goblins are dodgy creatures, they have little weaponry but poison the tips of their arrows. A few dozen of soldiers will be safe enough",
                         ene_gorgon_cave: "Gorgon cave",
                         ene_gorgon_cave_description: "The gorgon petrifies with its gaze and lurks in an intricate cave system fraught with danger",
                         ene_gnoll_camp: "Gnoll camp",
@@ -3239,7 +3239,7 @@
                         ene_gnoll_raiding_party: "Gnoll Raiding Party",
                         ene_gnoll_raiding_party_description: "These human-hyena hybrids take the worst from both species",
                         ene_haunted_library: "Haunted library",
-                        ene_haunted_library_description: "An old library, now ghosts guard it",
+                        ene_haunted_library_description: "An old library, now ghosts guard it. A few dozen of soldiers will haunt them down",
                         ene_hell_hole: "Hell Hole",
                         ene_hell_hole_description: "A hole in the ground that leads to a large cave. The entrance to hell",
                         ene_hydra_pit: "Hydra pit",
@@ -3249,7 +3249,7 @@
                         ene_kobold_city: "Kobold City",
                         ene_kobold_city_description: "A kobold city right under our feet, who knew?",
                         ene_kobold_looters: "Kobold looters",
-                        ene_kobold_looters_description: "From their small encampment they raid the nearby countryside",
+                        ene_kobold_looters_description: "From their small encampment they raid the nearby countryside, let's drive them off with a few soldiers",
                         ene_kobold_underground_tunnels: "Kobold tunnels",
                         ene_kobold_underground_tunnels_description: "Kobolds dig their burrows deep, they are weak but very numerous",
                         ene_markanat_forest: "Forest of Markanat",
@@ -3265,19 +3265,19 @@
                         ene_naga_nest: "Naga Nest",
                         ene_naga_nest_description: "They won't let us take their precious food sources without bloodshed",
                         ene_nasty_pillagers: "Nasty pillagers",
-                        ene_nasty_pillagers_description: "These dirty raiders had set aside some small wealth",
+                        ene_nasty_pillagers_description: "These dirty raiders had set aside some small wealth, let's send a few soldiers to dispatch them",
                         ene_necromancer_crypt: "Necromancer Crypt",
                         ene_necromancer_crypt_description: "The dreary home of a mad necromancer. Beware of the undead!",
                         ene_north_sacred_place: "North sacred place",
                         ene_north_sacred_place_description: "There is a place in the north where the power of Theresmore is alive in the air, elementals guard it",
                         ene_old_herd: "Old herd",
-                        ene_old_herd_description: "An old rat-infested pasture",
+                        ene_old_herd_description: "An old rat-infested pasture, a dozen soldiers should be enough",
                         ene_old_storage_room: "Old storage room",
-                        ene_old_storage_room_description: "An old storage room in which spiders have nested",
+                        ene_old_storage_room_description: "An old storage room in which spiders have nested, a dozen of spearmen will conquer this place",
                         ene_prisoner_wagon: "Prisoner wagon",
-                        ene_prisoner_wagon_description: "A wagon in which bandits trapped civilians",
+                        ene_prisoner_wagon_description: "A wagon in which bandits trapped civilians, a few spearman with archers will eliminate them",
                         ene_rat_cellar: "Rat cellar",
-                        ene_rat_cellar_description: "A cellar infested with ravenous rats",
+                        ene_rat_cellar_description: "A cellar infested with ravenous rats, let's bring some spearmen",
                         ene_rusted_warehouse: "Rusted warehouse",
                         ene_rusted_warehouse_description: "An abandoned farmhouse that will become a good warehouse",
                         ene_skullface_encampment: "Skullface encampment",
@@ -3301,7 +3301,7 @@
                         ene_west_sacred_place: "West sacred place",
                         ene_west_sacred_place_description: "There is a place in the west where the power of Theresmore is alive in the air, elementals guard it",
                         ene_wolf_pack: "Wolf pack",
-                        ene_wolf_pack_description: "A pack of vicious wolves attack passing flocks",
+                        ene_wolf_pack_description: "A pack of vicious wolves attack passing flocks, a few dozen of soldiers should contain the pack",
                         ene_wyvern_nest: "Wyvern Nest",
                         ene_wyvern_nest_description: "These terrible creatures resemble dragons and are often mistaken for them",
                         fai_accept_druid: "Accept the Druid",
@@ -3719,7 +3719,7 @@
                         log_dip_zultan_emirate: "Our scouts went into the deserts of the south discovering a rich kingdom whose flourishing trade crosses all Theresmore",
                         log_dip_king_kobold_nation: "After conquering the underground Kobolds a message came to you: I MAUGRITH KING OF THE KOBOLD WILL DESTROY YOUR CITY",
                         log_dip_barbarian_horde: "Our scouts have discovered that a horde of barbarians is approaching our valley. Their king claims the blood of his people that we have spilled. WE ARE AT WAR",
-                        log_dip_relationship_neutral: "Our relationships are now neutral with this faction",
+                        log_dip_relationship_neutral: "Our relationships are now neutral with this faction. If we improve relations we can ally, if we worsen them we can declare war",
                         log_dip_relationship_positive: "Our relationships are now positive with this faction",
                         log_dip_relationship_negative: "Our relationships are now negative with this faction",
                         log_ene_ancient_burial_place: "Our scout found a haunted burial site, where did I put my sacred symbol?",
@@ -3842,14 +3842,14 @@
                         log_tec_agricolture: "Being able to feed the population has always been the biggest problem for early human settlements. We can now build Farm",
                         log_tec_alchemical_reactions: "With saltpetre and mana, we can transmute matter and increase our productions",
                         log_tec_astronomy: "By building observatories we will be able to train Skymancers",
-                        log_tec_archery: "We can start train archers and scouts, it will consume food but will provide us with protection and we can send explorers to understand Theresmore and its mysteries",
+                        log_tec_archery: "We can start train archers and scouts, it will consume food but will provide us with protection and we can send scouts to understand Theresmore and its mysteries. The army is divided into categories, each of which has advantages against another. Tank is strong against Cavarly, Cavarly is strong against Ranged, Ranged is strong against Shock, Shock is strong against Tank",
                         log_tec_ancient_stockpile: "We can explore the ancient vault and guard its secrets",
                         log_tec_architecture: "We can now build the Carpenter workshop and the Mansion",
                         log_tec_bandit_chief: "Skullface is somewhere in the neighboring provinces, we have to send our scouts and find him",
                         log_tec_banking: "Now we can build the Bank",
                         log_tec_barbarian_tribes: "Our scouts can now push further into the wastelands in search of even larger barbarian villages",
                         log_tec_biology: "Better than servitude?",
-                        log_tec_breeding: "We can now train light chivalry, a good and fast assault unit. Now we can build Stable",
+                        log_tec_breeding: "We can now train light cavalry, a good and fast assault unit. Now we can build Stable",
                         log_tec_bronze_working: "We can train spearmen and warriors, our army can both defend and attack effectively. Now we can build Barracks",
                         log_tec_canava_mercenary: "Now we can recruit the Canava Guard, an elite mercenary troop from the nearby village",
                         log_tec_chemistry: "Chemistry in Theresmore is more a matter for alchemists. Now we can build Alchemical laboratory",
@@ -3895,7 +3895,7 @@
                         log_tec_housing: "We can now build Common house",
                         log_tec_knighthood: "Knightly orders are the core of human nobility of Theresmore",
                         log_tec_kobold_nation: "Now we have to send our scouts to find the nation of Kobolds, but beware: I do not think they will be very friendly",
-                        log_tec_iron_working: "We can now train heavy warriors, the first shock troop in Theresmore",
+                        log_tec_iron_working: "We can now train heavy warriors",
                         log_tec_land_mine: "Let's undermine the territories around the city, let those damn goblins come back, pieces of wolfrider will fly everywhere",
                         log_tec_order_of_clerics: "With the construction of a few conclaves we will have access to higher spells",
                         log_tec_pentagram_tome: "The tome is written in a demonic language and the pentagram on the ground was used to subdue all those people in the village. We need to translate the tome; let's have our clergymen study it",
@@ -3936,7 +3936,7 @@
                         log_tec_safe_roads: "We can now build the tax revenue checkpoints",
                         log_tec_shores_theresmore: "We have identified a place far from the borders of other kingdoms where we can build a harbor, now we can research the Harbor Project",
                         log_tec_siege_techniques: "We can now train trebuchet",
-                        log_tec_steeling: "A new resource made of other metals can now be produced and we can train men at arms a great melee troop",
+                        log_tec_steeling: "A new resource made of other metals can now be produced and we can build the Steelworks",
                         log_tec_storage: "Now we can build the Store",
                         log_tec_storage_district: "Enough of these caps! Now we can build the Storage facility and the Large warehouse",
                         log_tec_storing_valuable_materials: "We can now build the Guarded warehouse",
@@ -15439,7 +15439,7 @@
                         })), v(this, "_loadGA", (function (e, r) {
                             if ("undefined" !== typeof window && "undefined" !== typeof document && !t._hasLoadedGA) {
                                 var n = document.createElement("script");
-                                n.async = !0, n.src = "https://www.googletag1manager.com/gtag/js?id=".concat(e), r && n.setAttribute("nonce", r), document.body.appendChild(n), window.dataLayer = window.dataLayer || [], window.gtag = function () {
+                                n.async = !0, n.src = "https://www.googletagma1nager.com/gtag/js?id=".concat(e), r && n.setAttribute("nonce", r), document.body.appendChild(n), window.dataLayer = window.dataLayer || [], window.gtag = function () {
                                     window.dataLayer.push(arguments)
                                 }, t._hasLoadedGA = !0
                             }
@@ -20187,7 +20187,7 @@
             })
         }, r.nmd = function (e) {
             return e.paths = [], e.children || (e.children = []), e
-        }, r.p = "/",
+        }, r.p = "./",
         function () {
             var e = {
                 179: 0
@@ -24842,14 +24842,14 @@
                             checkAvailableAd: s.aD
                         });
                         var n = document.createElement("script");
-                        n.setAttribute("async", ""), n.setAttribute("data-ad-client", "ca-pub-9303485539661341"), n.setAttribute("data-ad-frequency-hint", "60s"), n.setAttribute("src", "https://pagead2.googlesyndi3223cation.com/pagead/js/adsbygoogle.js"), {
+                        n.setAttribute("async", ""), n.setAttribute("data-ad-client", "ca-pub-9303485539661341"), n.setAttribute("data-ad-frequency-hint", "60s"), n.setAttribute("src", "https://pagead2.googlesyndi11cation.com/pagead/js/adsbygoogle.js"), {
                             NODE_ENV: "production",
                             PUBLIC_URL: "./",
                             WDS_SOCKET_HOST: void 0,
                             WDS_SOCKET_PATH: void 0,
                             WDS_SOCKET_PORT: void 0,
                             FAST_REFRESH: !0,
-                            REACT_APP_VERSION: "0.42.0"
+                            REACT_APP_VERSION: "0.42.1"
                         }.REACT_APP_DEV && n.setAttribute("data-adbreak-test", "on"), window.document.head.appendChild(n), window.adConfig({
                             preloadAdBreaks: "on",
                             sound: "on"
@@ -24913,7 +24913,7 @@
                 WDS_SOCKET_PATH: void 0,
                 WDS_SOCKET_PORT: void 0,
                 FAST_REFRESH: !0,
-                REACT_APP_VERSION: "0.42.0"
+                REACT_APP_VERSION: "0.42.1"
             }.REACT_APP_DEV ? "G-ML4EM1RS0Y" : "G-Z39X9GG6TF");
             var Ve = [{
                     id: "ancestor_farmer",
@@ -26730,7 +26730,7 @@
                     esp: 6,
                     army: [{
                         id: "bandit",
-                        value: 22
+                        value: 17
                     }],
                     gen: [{
                         type: "resource",
@@ -26747,7 +26747,7 @@
                     esp: 2,
                     army: [{
                         id: "bandit",
-                        value: 12
+                        value: 9
                     }],
                     gen: [{
                         type: "resource",
@@ -26843,7 +26843,7 @@
                     esp: 12,
                     army: [{
                         id: "basilisk",
-                        value: 8
+                        value: 7
                     }],
                     gen: [{
                         type: "resource",
@@ -27533,7 +27533,7 @@
                         value: 1
                     }, {
                         id: "naga",
-                        value: 24
+                        value: 32
                     }],
                     gen: [{
                         type: "resource",
@@ -27634,7 +27634,7 @@
                     esp: 4,
                     army: [{
                         id: "dirty_rat",
-                        value: 31
+                        value: 18
                     }],
                     gen: [{
                         type: "cap",
@@ -27705,7 +27705,7 @@
                         value: 1
                     }, {
                         id: "bandit",
-                        value: 30
+                        value: 42
                     }],
                     gen: [{
                         type: "resource",
@@ -27727,10 +27727,10 @@
                     esp: 8,
                     army: [{
                         id: "snake",
-                        value: 14
+                        value: 9
                     }, {
                         id: "giant_snake",
-                        value: 6
+                        value: 4
                     }],
                     gen: [{
                         type: "resource",
@@ -27747,19 +27747,19 @@
                     esp: 8,
                     army: [{
                         id: "spider",
-                        value: 42
+                        value: 32
                     }, {
                         id: "giant_spider",
-                        value: 12
+                        value: 8
                     }],
                     gen: [{
                         type: "resource",
                         id: "wood",
-                        value: 2
+                        value: 1.5
                     }, {
                         type: "resource",
                         id: "building_material",
-                        value: .2
+                        value: .1
                     }]
                 }, {
                     id: "son_atamar",
@@ -27871,7 +27871,7 @@
                     esp: 2,
                     army: [{
                         id: "wolf",
-                        value: 18
+                        value: 11
                     }],
                     gen: [{
                         type: "resource",
@@ -27898,11 +27898,11 @@
                     }]
                 }, {
                     id: "cave_bats",
-                    found: [33, 34, 35, 36, 37, 38, 39, 40],
+                    found: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 33, 34, 35, 36, 37, 38, 39, 40],
                     esp: 1,
                     army: [{
                         id: "vampire_bat",
-                        value: 12
+                        value: 2
                     }],
                     gen: [{
                         type: "resource",
@@ -27915,11 +27915,11 @@
                     }]
                 }, {
                     id: "kobold_looters",
-                    found: [17, 18, 19, 20, 21, 22, 23, 24],
+                    found: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32],
                     esp: 1,
                     army: [{
                         id: "kobold",
-                        value: 7
+                        value: 2
                     }],
                     gen: [{
                         type: "resource",
@@ -27928,11 +27928,11 @@
                     }]
                 }, {
                     id: "nasty_pillagers",
-                    found: [25, 26, 27, 28, 29, 30, 31, 32],
+                    found: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 30, 31, 32],
                     esp: 1,
                     army: [{
                         id: "pillager",
-                        value: 7
+                        value: 2
                     }],
                     gen: [{
                         type: "resource",
@@ -27941,11 +27941,11 @@
                     }]
                 }, {
                     id: "prisoner_wagon",
-                    found: [1, 2, 3, 4, 5, 6, 7, 8],
+                    found: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 30, 31, 32],
                     esp: 1,
                     army: [{
                         id: "bandit",
-                        value: 5
+                        value: 2
                     }],
                     gen: [{
                         type: "population",
@@ -27954,11 +27954,11 @@
                     }]
                 }, {
                     id: "rat_cellar",
-                    found: [9, 10, 11, 12, 13, 14, 15, 16],
+                    found: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 30, 31, 32],
                     esp: 1,
                     army: [{
                         id: "dirty_rat",
-                        value: 15
+                        value: 3
                     }],
                     gen: [{
                         type: "resource",
@@ -28716,7 +28716,7 @@
                             WDS_SOCKET_PATH: void 0,
                             WDS_SOCKET_PORT: void 0,
                             FAST_REFRESH: !0,
-                            REACT_APP_VERSION: "0.42.0"
+                            REACT_APP_VERSION: "0.42.1"
                         }.REACT_APP_DEV ? 1e3 : 6e4, this.progressScout = 0, this.progressAttack = 0, this.progressSpy = 0, this.dCombat = !1, this.exploreInProgress = !1, this.attackInProgress = !1, this.spyInProgress = !1, this.lastBattleLog = [], this._foundKingdom = !1, this._foundEnemyCount = 0, this.MainStore = t, (0, s.rC)(this, {
                             dCombat: s.LO,
                             selectedTab: s.LO,
@@ -34237,7 +34237,7 @@
                                         var r = Math.floor(Math.random() * t.length);
                                         this._startAttack(t[r].id), this.showAttackProgress && this.MainStore.addNotification("attack_incoming", "key", "red", !1)
                                     } else {
-                                        1 === (0, Le.Vf)(3) && this.MainStore.addNotification("remember_save", "backup")
+                                        1 === (0, Le.Vf)(5) && this.MainStore.addNotification("remember_save", "backup")
                                     }
                                 }
                             } else {
@@ -41866,7 +41866,7 @@
             var Et = function () {
                     function e() {
                         var t = this;
-                        (0, a.Z)(this, e), this.version = (0, Le.JC)("0.42.0"), this.intervalMs = 250, this.intervalRandomAttackDice = 8800, this.lastInterval = 0, this.save = l(2e3, this.saveThrottle), this.ads = !1, this.isPWA = !1, this.isTWA = !1, this.idxs = (0, n.Z)({}, (0, Le.qn)("idxs", Ot)), this.run = (0, n.Z)({}, (0, Le.qn)("run", Tt)), this.achievements = (0, Le.qn)("ach", []), this.stats = (0, Le.qn)("stats", []), this.legacies = (0, Le.qn)("leg", []), this.selectedTab = 0, this.logs = (0, Le.qn)("logs", []), this.logData = !1, this.sD = !1, this.softResetInProgress = !1, this.firstStart = !0, this.keyPress = "", this.confirmShow = !1, this.confirmTitle = "", this.confirmText = "", this.confirmType = "", this.confirmCancel = void 0, this.confirmOk = void 0, this.imageNotificationShow = !1, this.imageNotificationKey = "", this.imageNotificationTitle = "", this.imageNotificationText = "", this.imageNotificationType = "", this.showSupport = !1, this.AchievementsStore = void 0, this.AdsStore = void 0, this.AncestorsStore = void 0, this.ArmyStore = void 0, this.BuildingsStore = void 0, this.DiplomacyStore = void 0, this.LegacyStore = void 0, this.MagicStore = void 0, this.MarketStore = void 0, this.ModifiersStore = void 0, this.PopulationStore = void 0, this.ReqGenStore = void 0, this.ResourcesStore = void 0, this.SettingsStore = void 0, this.StatsStore = void 0, this.TechsStore = void 0, this.swRegistration = void 0, this.workerInstance = void 0, this.defaultNumberFormat = new Intl.NumberFormat, this.bigNumberFormat = new Intl.NumberFormat(void 0, {
+                        (0, a.Z)(this, e), this.version = (0, Le.JC)("0.42.1"), this.intervalMs = 250, this.intervalRandomAttackDice = 8800, this.lastInterval = 0, this.save = l(2e3, this.saveThrottle), this.ads = !1, this.isPWA = !1, this.isTWA = !1, this.idxs = (0, n.Z)({}, (0, Le.qn)("idxs", Ot)), this.run = (0, n.Z)({}, (0, Le.qn)("run", Tt)), this.achievements = (0, Le.qn)("ach", []), this.stats = (0, Le.qn)("stats", []), this.legacies = (0, Le.qn)("leg", []), this.selectedTab = 0, this.logs = (0, Le.qn)("logs", []), this.logData = !1, this.sD = !1, this.softResetInProgress = !1, this.firstStart = !0, this.keyPress = "", this.confirmShow = !1, this.confirmTitle = "", this.confirmText = "", this.confirmType = "", this.confirmCancel = void 0, this.confirmOk = void 0, this.imageNotificationShow = !1, this.imageNotificationKey = "", this.imageNotificationTitle = "", this.imageNotificationText = "", this.imageNotificationType = "", this.showSupport = !1, this.AchievementsStore = void 0, this.AdsStore = void 0, this.AncestorsStore = void 0, this.ArmyStore = void 0, this.BuildingsStore = void 0, this.DiplomacyStore = void 0, this.LegacyStore = void 0, this.MagicStore = void 0, this.MarketStore = void 0, this.ModifiersStore = void 0, this.PopulationStore = void 0, this.ReqGenStore = void 0, this.ResourcesStore = void 0, this.SettingsStore = void 0, this.StatsStore = void 0, this.TechsStore = void 0, this.swRegistration = void 0, this.workerInstance = void 0, this.defaultNumberFormat = new Intl.NumberFormat, this.bigNumberFormat = new Intl.NumberFormat(void 0, {
                             minimumFractionDigits: 1
                         }), this.twoNumberFormat = new Intl.NumberFormat(void 0, {
                             minimumFractionDigits: 2,
@@ -42091,7 +42091,7 @@
                                 WDS_SOCKET_PATH: void 0,
                                 WDS_SOCKET_PORT: void 0,
                                 FAST_REFRESH: !0,
-                                REACT_APP_VERSION: "0.42.0"
+                                REACT_APP_VERSION: "0.42.1"
                             }).REACT_APP_DEV && (E(".", (function () {
                                 e.AdsStore.checkAvailableAd()
                             })), E(",", (function () {
@@ -42100,7 +42100,9 @@
                                 keyup: !0
                             }, (function (t) {
                                 "keydown" === t.type ? E.shift ? e.keyPress = "shift" : E.ctrl && (e.keyPress = "ctrl") : e.keyPress = ""
-                            }))
+                            })), window.onfocus = function () {
+                                e.keyPress = ""
+                            }
                         }
                     }, {
                         key: "_initInterval",
@@ -42562,7 +42564,7 @@
                                             WDS_SOCKET_PATH: void 0,
                                             WDS_SOCKET_PORT: void 0,
                                             FAST_REFRESH: !0,
-                                            REACT_APP_VERSION: "0.42.0"
+                                            REACT_APP_VERSION: "0.42.1"
                                         }.REACT_APP_DEV ? (0, Ce.jsx)("button", {
                                             type: "button",
                                             className: "py-1.5 px-3 text-red-600",
@@ -43372,7 +43374,19 @@
                                                 className: "inline-block ml-2 lg:py-px px-2 rounded-full font-bold text-xs leading-6 lg:leading-4 bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
                                                 children: d.length
                                             }) : null]
-                                        }), l ? (0, Ce.jsxs)(or.O, {
+                                        }), i.length > 1 ? (0, Ce.jsxs)(or.O, {
+                                            className: function (e) {
+                                                var t = e.selected;
+                                                return (0, Le.AK)(f, t ? h : y)
+                                            },
+                                            children: [(0, Ce.jsx)(Se(), {
+                                                path: Me.kMq,
+                                                className: "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1" + (a > 0 ? " hidden xl:inline" : "")
+                                            }), (0, Ae.K)("population"), a > 0 ? (0, Ce.jsx)("span", {
+                                                className: "inline-block ml-2 lg:py-px px-2 rounded-full font-bold text-xs leading-6 lg:leading-4 bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
+                                                children: a
+                                            }) : null]
+                                        }) : null, l ? (0, Ce.jsxs)(or.O, {
                                             className: function (e) {
                                                 var t = e.selected;
                                                 return (0, Le.AK)(f, t ? h : y)
@@ -43402,18 +43416,6 @@
                                                 path: Me.L_H,
                                                 className: "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1"
                                             }), (0, Ae.K)("diplomacy")]
-                                        }) : null, i.length > 1 ? (0, Ce.jsxs)(or.O, {
-                                            className: function (e) {
-                                                var t = e.selected;
-                                                return (0, Le.AK)(f, t ? h : y)
-                                            },
-                                            children: [(0, Ce.jsx)(Se(), {
-                                                path: Me.kMq,
-                                                className: "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1" + (a > 0 ? " hidden xl:inline" : "")
-                                            }), (0, Ae.K)("population"), a > 0 ? (0, Ce.jsx)("span", {
-                                                className: "inline-block ml-2 lg:py-px px-2 rounded-full font-bold text-xs leading-6 lg:leading-4 bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
-                                                children: a
-                                            }) : null]
                                         }) : null, c ? (0, Ce.jsxs)(or.O, {
                                             className: function (e) {
                                                 var t = e.selected;
@@ -43430,7 +43432,14 @@
                                         children: (0, Ce.jsx)(cr, {})
                                     }), (0, Ce.jsx)(or.O.Panel, {
                                         children: (0, Ce.jsx)(hr, {})
-                                    }), l ? (0, Ce.jsx)(or.O.Panel, {
+                                    }), i.length > 1 ? (0, Ce.jsx)(or.O.Panel, {
+                                        children: (0, Ce.jsx)(o.Suspense, {
+                                            fallback: (0, Ce.jsx)("div", {
+                                                className: "h-screen lg:hidden"
+                                            }),
+                                            children: (0, Ce.jsx)(vr, {})
+                                        })
+                                    }) : null, l ? (0, Ce.jsx)(or.O.Panel, {
                                         children: (0, Ce.jsx)(o.Suspense, {
                                             fallback: (0, Ce.jsx)("div", {
                                                 className: "h-screen lg:hidden"
@@ -43450,13 +43459,6 @@
                                                 className: "h-screen lg:hidden"
                                             }),
                                             children: (0, Ce.jsx)(mr, {})
-                                        })
-                                    }) : null, i.length > 1 ? (0, Ce.jsx)(or.O.Panel, {
-                                        children: (0, Ce.jsx)(o.Suspense, {
-                                            fallback: (0, Ce.jsx)("div", {
-                                                className: "h-screen lg:hidden"
-                                            }),
-                                            children: (0, Ce.jsx)(vr, {})
                                         })
                                     }) : null, c ? (0, Ce.jsx)(or.O.Panel, {
                                         children: (0, Ce.jsx)(o.Suspense, {
@@ -43650,6 +43652,9 @@
                     }), "")
                 },
                 Or = [{
+                    version: "0.42.1",
+                    changes: ["Rebalancing early enemies", "Added logs and tooltips with early game tips", "Fixed import save on mobile", "Fixed ctrl hotkey", "Fixed closeable notifications with images", "Fixed typos"]
+                }, {
                     version: "0.42",
                     changes: ["Rewards system", "Major balance of diplomacy", "Added a few new enemies"]
                 }, {
@@ -43983,40 +43988,38 @@
                                                                                 className: "icon mr-1 mt-[1px]"
                                                                             }), (0, Ae.K)("load_from_clipboard")]
                                                                         })]
-                                                                    }), this.state.showPaste ? (0, Ce.jsxs)(Ce.Fragment, {
+                                                                    }), this.state.showPaste ? u.tq ? (0, Ce.jsxs)("div", {
+                                                                        className: "w-full p-0 block my-3 text-center",
                                                                         children: [(0, Ce.jsx)("div", {
-                                                                            className: "select-text w-full p-0 hidden lg:block",
-                                                                            children: (0, Ce.jsx)("div", {
-                                                                                tabIndex: 0,
-                                                                                className: "select-text flex-1 flex-col text-center my-5 p-5 rounded-xl border-2 border-dashed border-gray-400 dark:border-mydark-200 cursor-pointer " + (this.state.pasteFocus ? "border-blue-500 dark:border-blue-500" : ""),
-                                                                                onPaste: this.onPaste,
-                                                                                onClick: this.onPasteClick,
-                                                                                onBlur: this.onPasteBlur,
-                                                                                ref: function (t) {
-                                                                                    e.pastezone = t
-                                                                                },
-                                                                                children: (0, Ce.jsx)("p", {
-                                                                                    className: "select-text",
-                                                                                    children: this.state.pasteMessage
-                                                                                })
-                                                                            })
-                                                                        }), (0, Ce.jsxs)("div", {
-                                                                            className: "w-full p-0 block lg:hidden my-3 text-center",
-                                                                            children: [(0, Ce.jsx)("div", {
-                                                                                className: "my-2",
-                                                                                children: (0, Ae.K)("load_from_textarea_description")
-                                                                            }), (0, Ce.jsx)("textarea", {
-                                                                                value: this.state.valueTextarea,
-                                                                                onChange: this.handleChangeTextarea,
-                                                                                rows: 5,
-                                                                                className: "select-text w-full shadow-sm border focus:border-blue-500 block text-sm border-gray-400 rounded-lg resize-none bg-white dark:bg-mydark-300"
-                                                                            }), (0, Ce.jsx)("button", {
-                                                                                type: "button",
-                                                                                className: "btn btn-green mt-2 w-3/4 lg:w-2/3 mx-auto",
-                                                                                onClick: this.handleLoadTextarea,
-                                                                                children: (0, Ae.K)("load_from_textarea")
-                                                                            })]
+                                                                            className: "my-2",
+                                                                            children: (0, Ae.K)("load_from_textarea_description")
+                                                                        }), (0, Ce.jsx)("textarea", {
+                                                                            value: this.state.valueTextarea,
+                                                                            onChange: this.handleChangeTextarea,
+                                                                            rows: 5,
+                                                                            className: "select-text w-full shadow-sm border focus:border-blue-500 block text-sm border-gray-400 rounded-lg resize-none bg-white dark:bg-mydark-300"
+                                                                        }), (0, Ce.jsx)("button", {
+                                                                            type: "button",
+                                                                            className: "btn btn-green mt-2 w-3/4 lg:w-2/3 mx-auto",
+                                                                            onClick: this.handleLoadTextarea,
+                                                                            children: (0, Ae.K)("load_from_textarea")
                                                                         })]
+                                                                    }) : (0, Ce.jsx)("div", {
+                                                                        className: "select-text w-full p-0 block",
+                                                                        children: (0, Ce.jsx)("div", {
+                                                                            tabIndex: 0,
+                                                                            className: "select-text flex-1 flex-col text-center my-5 p-5 rounded-xl border-2 border-dashed border-gray-400 dark:border-mydark-200 cursor-pointer " + (this.state.pasteFocus ? "border-blue-500 dark:border-blue-500" : ""),
+                                                                            onPaste: this.onPaste,
+                                                                            onClick: this.onPasteClick,
+                                                                            onBlur: this.onPasteBlur,
+                                                                            ref: function (t) {
+                                                                                e.pastezone = t
+                                                                            },
+                                                                            children: (0, Ce.jsx)("p", {
+                                                                                className: "select-text",
+                                                                                children: this.state.pasteMessage
+                                                                            })
+                                                                        })
                                                                     }) : null, "" !== this.state.saveMessage ? (0, Ce.jsx)("div", {
                                                                         className: "flex-1 flex-col text-center my-5 py-5 border-2 border-transparent",
                                                                         children: (0, Ce.jsx)("p", {
@@ -44046,14 +44049,14 @@
                                                                             }), (0, Ce.jsxs)("div", {
                                                                                 className: "w-full text-center text-gray-500 cursor-pointer text-sm",
                                                                                 onClick: this.showChangelog,
-                                                                                children: ["v ", "0.42.0", {
+                                                                                children: ["v ", "0.42.1", {
                                                                                     NODE_ENV: "production",
                                                                                     PUBLIC_URL: "./",
                                                                                     WDS_SOCKET_HOST: void 0,
                                                                                     WDS_SOCKET_PATH: void 0,
                                                                                     WDS_SOCKET_PORT: void 0,
                                                                                     FAST_REFRESH: !0,
-                                                                                    REACT_APP_VERSION: "0.42.0"
+                                                                                    REACT_APP_VERSION: "0.42.1"
                                                                                 }.REACT_APP_DEV ? " dev" : ""]
                                                                             })]
                                                                         })
@@ -44592,7 +44595,7 @@
                                 children: (0, Ce.jsxs)(It.V, {
                                     as: "div",
                                     className: "relative z-50",
-                                    onClose: this.handleClose,
+                                    onClose: function () {},
                                     children: [(0, Ce.jsx)(Pt.Z, {}), (0, Ce.jsx)("div", {
                                         className: "fixed z-10 inset-0 overflow-y-auto",
                                         children: (0, Ce.jsx)("div", {
@@ -44621,7 +44624,7 @@
                                                                 children: [(0, Ce.jsx)("div", {
                                                                     className: "flex flex-wrap bg-black relative",
                                                                     children: (0, Ce.jsx)(zr, {
-                                                                        dataSrc: "./" + ("localhost" === window.location.hostname ? "./" : "") + "images/" + r + ".webp"
+                                                                        dataSrc: "./" + ("localhost" === window.location.hostname ? "./" : "") + "/images/" + r + ".webp"
                                                                     })
                                                                 }), (0, Ce.jsx)("div", {
                                                                     className: "flex flex-wrap",
@@ -44679,7 +44682,7 @@
                                     WDS_SOCKET_PATH: void 0,
                                     WDS_SOCKET_PORT: void 0,
                                     FAST_REFRESH: !0,
-                                    REACT_APP_VERSION: "0.42.0"
+                                    REACT_APP_VERSION: "0.42.1"
                                 }.REACT_APP_DEV ? (0, Ce.jsx)(o.Suspense, {
                                     fallback: null,
                                     children: (0, Ce.jsx)(Kr, {})
@@ -44712,7 +44715,7 @@
                     if ("serviceWorker" in navigator) {
                         if (new URL("./", window.location.href).origin !== window.location.origin) return;
                         window.addEventListener("load", (function () {
-                            var t = "".concat("./", "service-worker.js");
+                            var t = "".concat("./", "./service-worker.js");
                             Yr ? (! function (e, t) {
                                 fetch(e, {
                                     headers: {
