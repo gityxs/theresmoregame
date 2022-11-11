@@ -894,7 +894,7 @@ var cnItems = {
     "Great crossbows": "伟大的弩",
     "Great Seeker eyesight": "伟大的探索者视力",
     "Great Warrior fury": "大战士狂怒",
-    "Guarded warehouse": "看守仓库",
+    "Guarded warehouse": "有人看守的仓库",
     "Gunpowder": "火药",
     "Half priests and half soldiers, they will serve the human cause in Theresmore": "半祭司半士兵，他们将在特雷斯莫尔为人类事业服务",
     "Help for refugees": "对难民的帮助",
