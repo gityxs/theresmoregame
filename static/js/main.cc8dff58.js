@@ -1,4 +1,4 @@
-/*!For license information please see main.7824847e.js.LICENSE.txt*/ ! function () {
+/*!For license information please see main.cc8dff58.js.LICENSE.txt*/ ! function () {
     var e = {
             1231: function (e, t, r) {
                 "use strict";
@@ -2913,7 +2913,7 @@
                         ancestor_warrior_description: "Your ancestors knew how to make war, great leaders of warrior tribes",
                         bui_academy_of_freethinkers: "Academy of Freethinkers",
                         bui_academy_of_freethinkers_description: "Freethinkers will bring us into the modern age",
-                        bui_academy_of_freethinkers_part: "Academy of Freethinkers Part",
+                        bui_academy_of_freethinkers_part: "A. of Freethinkers Part",
                         bui_academy_of_freethinkers_part_description: "A part of the Academy of Freethinkers",
                         bui_alchemic_laboratory: "Alchemical laboratory",
                         bui_alchemic_laboratory_description: "Produce alchemist for saltpetre",
@@ -3144,7 +3144,7 @@
                         dip_fallen_angel_army_2: "The Fallen Angel demons army",
                         dip_improve_relationships: "Improve relationships",
                         dip_improve_relationships_abbr: "Improve",
-                        dip_improve_relationships_description: "We will do our best to improve relations with the target nation, The more resources you spend on improving relations the more the benefits will be",
+                        dip_improve_relationships_description: "We will do our best to improve relations with the target nation. The more resources you spend on improving relations the more the benefits will be",
                         dip_insult: "Insult",
                         dip_insult_description: "Son of a Theresmorian goat, your smell precedes you! This should make our relationships worse",
                         dip_alliance: "Alliance",
@@ -3217,7 +3217,7 @@
                         ene_citadel_dead: "Citadel of the dead",
                         ene_citadel_dead_description: "An abandoned citadel haunted by the dead (and wyverns)",
                         ene_construction_site: "Construction site",
-                        ene_construction_site_description: "Mercenary have taken up residence in this vast space. Let's drive them out",
+                        ene_construction_site_description: "Mercenaries have taken up residence in this vast space. Let's drive them out",
                         ene_deserters_den: "Deserter Den",
                         ene_deserters_den_description: "The den of deserters, they respect only the god of money by now",
                         ene_demoness_castle: "Demoness castle",
@@ -3296,7 +3296,7 @@
                         ene_troll_cave_description: "A smelly cave that trolls call home, driving out the occupants will be a serious problem",
                         ene_vampire_crypt: "Vampire crypt",
                         ene_vampire_crypt_description: "A crypt forgotten by time, apparently now home to vampires or servants of them",
-                        ene_vampire_lair: "Vampire liar",
+                        ene_vampire_lair: "Vampire lair",
                         ene_vampire_lair_description: "The home of a vampire, a terrible enemy capable of instilling fear in even the most valiant soldiers",
                         ene_west_sacred_place: "West sacred place",
                         ene_west_sacred_place_description: "There is a place in the west where the power of Theresmore is alive in the air, elementals guard it",
@@ -3308,6 +3308,8 @@
                         fai_accept_druid_description: "Accepting the druid and his beliefs as an integral part of our society, he will become high priest",
                         fai_acolyte_hymn: "Acolyte hymn",
                         fai_acolyte_hymn_description: "The chant of the devout rises to the gods",
+                        fai_army_faith: "Army of faith",
+                        fai_army_faith_description: "Armies of faith will burn our enemies",
                         fai_banish_druid: "Banish the Druid",
                         fai_banish_druid_description: "Banish the Druid from the city, we don't need gurus",
                         fai_blessing_city: "City great blessing",
@@ -3336,6 +3338,8 @@
                         fai_praise_gods_description: "We must please the gods so they will listen to us",
                         fai_blessing: "Blessing",
                         fai_blessing_description: "The first form of power of the gods in Theresmore: blessings",
+                        fai_holy_light: "Holy light",
+                        fai_holy_light_description: "Now we can bless our warriors with light",
                         fai_prayer_for_the_great_seeker: "The Great Seeker",
                         fai_prayer_for_the_great_seeker_description: "A prayer for the Great Seeker, that our hunters never lose the trail",
                         fai_great_seeker_2: "Great Seeker eyesight",
@@ -3706,6 +3710,8 @@
                         log_bui_1_stable: "Horses for the army and cows for the market. The village is thriving",
                         log_bui_1_steelworks: "Now we can produce steel for our army",
                         log_bui_1_temple: "Through our faith the ancient gods will hear us",
+                        log_bui_7_temple: "With all these temples we can ask for a blessing for our warriors",
+                        log_bui_13_temple: "An army of faith is ready to take action",
                         log_bui_1_tower_mana: "Now with the four Power Spell we can build the Mausoleum and offer to the gods what they will ask for in sacrifice. This will lead us to Ascension",
                         log_bui_1_university: "Our professors through magical elements can now synthesize crystals",
                         log_cap_5000_food: "We must exploit the abundance of our lands",
@@ -3751,7 +3757,7 @@
                         log_ene_death_16: "Your scout died falling out of a tree",
                         log_ene_death_17: "Your scout died petrified by a basilisk",
                         log_ene_death_18: "Your scout died fighting a three-headed ostrich",
-                        log_ene_death_19: "Your scout is dead killed by an assassin",
+                        log_ene_death_19: "Your scout was killed by an assassin",
                         log_ene_death_20: "Your scout died while eating gnoll meat",
                         log_ene_death_21: "Your scout has been turned into a zombie by a necromancer",
                         log_ene_death_22: "Your scout was beaten to death by deserters",
@@ -3835,7 +3841,7 @@
                         log_fai_sacred_place: "We can now send our scouts to discover the sacred places around Theresmore. Conquering them, we can channel all the mana into a Tower and cast the 4 Spells of Power. This will be our goal for the prestige of Ascension",
                         log_fai_strange_lamp: "Handling the lamp, it activated and a Djinn came out, thanking us for freeing him: he flew away with a loud laugh. We should send our scouts to look for his home",
                         log_fai_the_aid: "To solve the refugees problem we will have to create a new district, it will cost us a lot in terms of resources, but we can then make something out of the work of all these people",
-                        log_spy_full: "The spy mission has succeeded, the enemy has",
+                        log_spy_full: "The spy mission has succeeded, the enemy has:",
                         log_spy_up50: "The spy mission was a partial success, here is what was discovered about the enemy:",
                         log_spy_down50: "The spy mission was a failure, no information was recovered. You must send more spies for higher probability of success",
                         log_spy_death: "Spies killed in action:",
@@ -3874,6 +3880,7 @@
                         log_tec_feudalism: "Feudalism opened the door to a new concept of society, where the estates and fiefdoms of small and large lords prospered undisturbed. Now we can build the Fiefdom",
                         log_tec_financial_markets: "Now we can build the credit union and accumulate even more gold",
                         log_tec_field_artillery: "Now we can train cannons, who knows if they can shoot down giants as well?",
+                        log_tec_flame_atamar: "Now we can choose what to do with the Flame: ATTENTION one choice will exclude the other!",
                         log_tec_flight: "Natronite-fueled hot air balloons will serve as lookouts",
                         log_tec_flintlock_musket: "We can now train line infantry",
                         log_tec_food_conservation: "We can now build the Grocery",
@@ -4112,9 +4119,9 @@
                         not_new_kingdom: "You've discovered a new kingdom",
                         not_new_kingdom_title: "New kingdom",
                         not_5_large_warehouse: "Finally a little more space",
-                        not_5_large_warehouse_title: "5 Large Warehouse",
+                        not_5_large_warehouse_title: "5 Large Storehouse",
                         not_15_large_warehouse: "Finally a lot more space",
-                        not_15_large_warehouse_title: "15 Large Warehouse",
+                        not_15_large_warehouse_title: "15 Large Storehouse",
                         not_5_lumberjack_camp: "Tree after tree",
                         not_5_lumberjack_camp_title: "5 Lumberjack Camp",
                         not_15_lumberjack_camp: "Lumber Passion",
@@ -4399,6 +4406,8 @@
                         tec_espionage_description: "Some of our scouts might specialize in the art of espionage",
                         tec_establish_boundaries: "Establish boundaries",
                         tec_establish_boundaries_description: "We need to create defined boundaries for our realm",
+                        tec_exhibit_flame: "Exhibit the Flame",
+                        tec_exhibit_flame_description: "We can exhibit the Flame of Atamar in the city center to enrich it enormously",
                         tec_exterminate_competition: "Erase competitors",
                         tec_exterminate_competition_description: "We will produce so much gold to exterminate the competition",
                         tec_fairs_and_markets: "Fairs and markets",
@@ -4417,6 +4426,8 @@
                         tec_fine_woods_description: "Our carvers are specializing more and more",
                         tec_fine_marbles: "Fine marbles",
                         tec_fine_marbles_description: "The processing of precious marbles is attracting manpower ",
+                        tec_flame_atamar: "The Flame of Atamar",
+                        tec_flame_atamar_description: "Now that we have conquered Zultan we must study the Flame of Atamar",
                         tec_flight: "Flight",
                         tec_flight_description: "The first timid hint of flight",
                         tec_flintlock_musket: "Flintlock musket",
@@ -4461,6 +4472,8 @@
                         tec_harbor_project_description: "We prepare a blueprint for a large port to explore and exploit the great sea",
                         tec_holy_fury: "Holy Fury",
                         tec_holy_fury_description: "The gods have given us battle angels",
+                        tec_infuse_flame: "Infuse the Flame",
+                        tec_infuse_flame_description: "Infuse the flame to aid our army",
                         tec_iron_working: "Iron working",
                         tec_iron_working_description: "Iron is a much stronger material than bronze, its uses will be multiple",
                         tec_land_mine: "Land mine",
@@ -4869,6 +4882,8 @@
                         uni_priest: "Priest",
                         uni_priest_description: "In the rear to encourage and bless the soldiers",
                         uni_priest_plural: "Priests",
+                        uni_vampire: "Vampire",
+                        uni_vampire_plural: "Vampires",
                         uni_vampire_bat: "Vampire bat",
                         uni_vampire_bat_plural: "Vampire bats",
                         uni_vampire_servant: "Vampire servant",
@@ -4914,7 +4929,7 @@
                         return i
                     },
                     $Qg: function () {
-                        return oe
+                        return se
                     },
                     AV$: function () {
                         return S
@@ -4947,7 +4962,7 @@
                         return I
                     },
                     Hne: function () {
-                        return ue
+                        return ce
                     },
                     J1f: function () {
                         return ee
@@ -4962,16 +4977,16 @@
                         return p
                     },
                     MxW: function () {
-                        return fe
+                        return he
                     },
                     PZJ: function () {
                         return g
                     },
                     S8v: function () {
-                        return se
+                        return le
                     },
                     SGh: function () {
-                        return pe
+                        return fe
                     },
                     Shd: function () {
                         return v
@@ -4980,7 +4995,7 @@
                         return K
                     },
                     UEB: function () {
-                        return ye
+                        return me
                     },
                     UHA: function () {
                         return B
@@ -5016,7 +5031,7 @@
                         return f
                     },
                     _MI: function () {
-                        return he
+                        return ye
                     },
                     _VZ: function () {
                         return T
@@ -5046,10 +5061,13 @@
                         return x
                     },
                     g7x: function () {
-                        return me
+                        return _e
                     },
                     geb: function () {
                         return Z
+                    },
+                    h27: function () {
+                        return oe
                     },
                     h_8: function () {
                         return q
@@ -5061,7 +5079,7 @@
                         return ae
                     },
                     iKI: function () {
-                        return ce
+                        return de
                     },
                     iZA: function () {
                         return d
@@ -5079,7 +5097,7 @@
                         return w
                     },
                     lEW: function () {
-                        return de
+                        return pe
                     },
                     ns6: function () {
                         return F
@@ -5091,7 +5109,7 @@
                         return H
                     },
                     p$j: function () {
-                        return le
+                        return ue
                     },
                     pCE: function () {
                         return ne
@@ -5172,17 +5190,18 @@
                     ne = "M21,11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1L21,5V11M12,21C15.75,20 19,15.54 19,11.22V6.3L12,3.18V21Z",
                     ae = "M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1M12 8.89C13.6 8.89 14.89 10.18 14.89 11.78S13.6 14.67 12 14.67 9.11 13.37 9.11 11.78 10.41 8.89 12 8.89M12 6L13.38 8C12.96 7.82 12.5 7.73 12 7.73S11.05 7.82 10.62 8L12 6M7 8.89L9.4 8.69C9.06 9 8.74 9.34 8.5 9.76C8.25 10.18 8.1 10.62 8 11.08L7 8.89M7 14.67L8.03 12.5C8.11 12.93 8.27 13.38 8.5 13.8C8.75 14.23 9.06 14.59 9.4 14.88L7 14.67M17 8.89L16 11.08C15.9 10.62 15.74 10.18 15.5 9.76C15.26 9.34 14.95 9 14.6 8.68L17 8.89M17 14.67L14.6 14.87C14.94 14.58 15.25 14.22 15.5 13.8C15.74 13.38 15.89 12.93 15.97 12.5L17 14.67M12 17.55L10.61 15.57C11.04 15.72 11.5 15.82 12 15.82C12.5 15.82 12.95 15.72 13.37 15.57L12 17.55Z",
                     ie = "M12 1L21 5V11C21 16.5 17.2 21.7 12 23C6.8 21.7 3 16.5 3 11V5L12 1M12 3.2L5 6.3V11.2C5 15.5 8.2 20 12 21C15.8 20 19 15.5 19 11.2V6.3L12 3.2M12 5.5L14 7.1L13 13H15V15H13V18H11V15H9V13H11L10 7.1L12 5.5Z",
-                    oe = "M8,15A2,2 0 0,1 6,13A2,2 0 0,1 8,11A2,2 0 0,1 10,13A2,2 0 0,1 8,15M10.5,17L12,14L13.5,17H10.5M16,15A2,2 0 0,1 14,13A2,2 0 0,1 16,11A2,2 0 0,1 18,13A2,2 0 0,1 16,15M22,11A10,10 0 0,0 12,1A10,10 0 0,0 2,11C2,13.8 3.2,16.3 5,18.1V22H19V18.1C20.8,16.3 22,13.8 22,11M17,20H15V18H13V20H11V18H9V20H7V17.2C5.2,15.7 4,13.5 4,11A8,8 0 0,1 12,3A8,8 0 0,1 20,11C20,13.5 18.8,15.8 17,17.2V20Z",
-                    se = "M2,22V20C2,20 7,18 12,18C17,18 22,20 22,20V22H2M11.3,9.1C10.1,5.2 4,6.1 4,6.1C4,6.1 4.2,13.9 9.9,12.7C9.5,9.8 8,9 8,9C10.8,9 11,12.4 11,12.4V17C11.3,17 11.7,17 12,17C12.3,17 12.7,17 13,17V12.8C13,12.8 13,8.9 16,7.9C16,7.9 14,10.9 14,12.9C21,13.6 21,4 21,4C21,4 12.1,3 11.3,9.1Z",
-                    le = "M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z",
-                    ue = "M6.2,2.44L18.1,14.34L20.22,12.22L21.63,13.63L19.16,16.1L22.34,19.28C22.73,19.67 22.73,20.3 22.34,20.69L21.63,21.4C21.24,21.79 20.61,21.79 20.22,21.4L17,18.23L14.56,20.7L13.15,19.29L15.27,17.17L3.37,5.27V2.44H6.2M15.89,10L20.63,5.26V2.44H17.8L13.06,7.18L15.89,10M10.94,15L8.11,12.13L5.9,14.34L3.78,12.22L2.37,13.63L4.84,16.1L1.66,19.29C1.27,19.68 1.27,20.31 1.66,20.7L2.37,21.41C2.76,21.8 3.39,21.8 3.78,21.41L7,18.23L9.44,20.7L10.85,19.29L8.73,17.17L10.94,15Z",
-                    ce = "M5,4H19A3,3 0 0,1 22,7V11H15V10H9V11H2V7A3,3 0 0,1 5,4M11,11H13V13H11V11M2,12H9V13L11,15H13L15,13V12H22V20H2V12Z",
-                    de = "M18 2C17.1 2 16 3 16 4H8C8 3 6.9 2 6 2H2V11C2 12 3 13 4 13H6.2C6.6 15 7.9 16.7 11 17V19.08C8 19.54 8 22 8 22H16C16 22 16 19.54 13 19.08V17C16.1 16.7 17.4 15 17.8 13H20C21 13 22 12 22 11V2H18M6 11H4V4H6V11M20 11H18V4H20V11Z",
-                    pe = "M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z",
-                    fe = "M3,16H12V21H3V16M2,10H8V15H2V10M9,10H15V15H9V10M16,10H22V15H16V10M13,16H21V21H13V16M3,4H11V9H3V4M12,4H21V9H12V4Z",
-                    he = "M6 19H8V21H6V19M12 3L2 8V21H4V13H20V21H22V8L12 3M8 11H4V9H8V11M14 11H10V9H14V11M20 11H16V9H20V11M6 15H8V17H6V15M10 15H12V17H10V15M10 19H12V21H10V19M14 19H16V21H14V19Z",
-                    ye = "M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z",
-                    me = "M21 22H3V20H21V22M19 19H5L11.1 2.6C11.3 2.2 11.6 2 12 2L18 5H13.9L19 19M10 7.5L11.04 7.97L11.5 9L11.97 7.97L13 7.5L11.97 7.03L11.5 6L11.04 7.03L10 7.5M13 15L10.94 14.07L10 12L9.07 14.07L7 15L9.07 15.93L10 18L10.94 15.93L13 15M13.97 11.97L15 11.5L13.97 11.03L13.5 10L13.04 11.03L12 11.5L13.04 11.97L13.5 13L13.97 11.97M15.97 15.97L17 15.5L15.97 15.03L15.5 14L15.04 15.03L14 15.5L15.04 15.97L15.5 17L15.97 15.97Z"
+                    oe = "M15.8,18.5L21.8,20.1L21.4,22L12,19.5L2.6,22L2.1,20.1L8.1,18.5L2,16.9L2.5,15L11.9,17.5L21.3,15L21.8,16.9L15.8,18.5M18,8C18,9.8 17.2,11.3 16,12.4V15H14V13.7L14,13H13V15H11V13H10V13.7L10,15H8V12.4C6.8,11.3 6,9.8 6,8A6,6 0 0,1 12,2A6,6 0 0,1 18,8M11,7.5C11,6.7 10.3,6 9.5,6C8.7,6 8,6.7 8,7.5C8,8.3 8.7,9 9.5,9C10.3,9 11,8.3 11,7.5M13,11L12,9L11,11H13M16,7.5C16,6.7 15.3,6 14.5,6C13.7,6 13,6.7 13,7.5C13,8.3 13.7,9 14.5,9C15.3,9 16,8.3 16,7.5Z",
+                    se = "M8,15A2,2 0 0,1 6,13A2,2 0 0,1 8,11A2,2 0 0,1 10,13A2,2 0 0,1 8,15M10.5,17L12,14L13.5,17H10.5M16,15A2,2 0 0,1 14,13A2,2 0 0,1 16,11A2,2 0 0,1 18,13A2,2 0 0,1 16,15M22,11A10,10 0 0,0 12,1A10,10 0 0,0 2,11C2,13.8 3.2,16.3 5,18.1V22H19V18.1C20.8,16.3 22,13.8 22,11M17,20H15V18H13V20H11V18H9V20H7V17.2C5.2,15.7 4,13.5 4,11A8,8 0 0,1 12,3A8,8 0 0,1 20,11C20,13.5 18.8,15.8 17,17.2V20Z",
+                    le = "M2,22V20C2,20 7,18 12,18C17,18 22,20 22,20V22H2M11.3,9.1C10.1,5.2 4,6.1 4,6.1C4,6.1 4.2,13.9 9.9,12.7C9.5,9.8 8,9 8,9C10.8,9 11,12.4 11,12.4V17C11.3,17 11.7,17 12,17C12.3,17 12.7,17 13,17V12.8C13,12.8 13,8.9 16,7.9C16,7.9 14,10.9 14,12.9C21,13.6 21,4 21,4C21,4 12.1,3 11.3,9.1Z",
+                    ue = "M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z",
+                    ce = "M6.2,2.44L18.1,14.34L20.22,12.22L21.63,13.63L19.16,16.1L22.34,19.28C22.73,19.67 22.73,20.3 22.34,20.69L21.63,21.4C21.24,21.79 20.61,21.79 20.22,21.4L17,18.23L14.56,20.7L13.15,19.29L15.27,17.17L3.37,5.27V2.44H6.2M15.89,10L20.63,5.26V2.44H17.8L13.06,7.18L15.89,10M10.94,15L8.11,12.13L5.9,14.34L3.78,12.22L2.37,13.63L4.84,16.1L1.66,19.29C1.27,19.68 1.27,20.31 1.66,20.7L2.37,21.41C2.76,21.8 3.39,21.8 3.78,21.41L7,18.23L9.44,20.7L10.85,19.29L8.73,17.17L10.94,15Z",
+                    de = "M5,4H19A3,3 0 0,1 22,7V11H15V10H9V11H2V7A3,3 0 0,1 5,4M11,11H13V13H11V11M2,12H9V13L11,15H13L15,13V12H22V20H2V12Z",
+                    pe = "M18 2C17.1 2 16 3 16 4H8C8 3 6.9 2 6 2H2V11C2 12 3 13 4 13H6.2C6.6 15 7.9 16.7 11 17V19.08C8 19.54 8 22 8 22H16C16 22 16 19.54 13 19.08V17C16.1 16.7 17.4 15 17.8 13H20C21 13 22 12 22 11V2H18M6 11H4V4H6V11M20 11H18V4H20V11Z",
+                    fe = "M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z",
+                    he = "M3,16H12V21H3V16M2,10H8V15H2V10M9,10H15V15H9V10M16,10H22V15H16V10M13,16H21V21H13V16M3,4H11V9H3V4M12,4H21V9H12V4Z",
+                    ye = "M6 19H8V21H6V19M12 3L2 8V21H4V13H20V21H22V8L12 3M8 11H4V9H8V11M14 11H10V9H14V11M20 11H16V9H20V11M6 15H8V17H6V15M10 15H12V17H10V15M10 19H12V21H10V19M14 19H16V21H14V19Z",
+                    me = "M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z",
+                    _e = "M21 22H3V20H21V22M19 19H5L11.1 2.6C11.3 2.2 11.6 2 12 2L18 5H13.9L19 19M10 7.5L11.04 7.97L11.5 9L11.97 7.97L13 7.5L11.97 7.03L11.5 6L11.04 7.03L10 7.5M13 15L10.94 14.07L10 12L9.07 14.07L7 15L9.07 15.93L10 18L10.94 15.93L13 15M13.97 11.97L15 11.5L13.97 11.03L13.5 10L13.04 11.03L12 11.5L13.04 11.97L13.5 13L13.97 11.97M15.97 15.97L17 15.5L15.97 15.03L15.5 14L15.04 15.03L14 15.5L15.04 15.97L15.5 17L15.97 15.97Z"
             },
             8561: function (e, t, r) {
                 e.exports = function (e) {
@@ -15439,7 +15458,7 @@
                         })), v(this, "_loadGA", (function (e, r) {
                             if ("undefined" !== typeof window && "undefined" !== typeof document && !t._hasLoadedGA) {
                                 var n = document.createElement("script");
-                                n.async = !0, n.src = "https://www.googletagma1nager.com/gtag/js?id=".concat(e), r && n.setAttribute("nonce", r), document.body.appendChild(n), window.dataLayer = window.dataLayer || [], window.gtag = function () {
+                                n.async = !0, n.src = "https://www.googletagman111ager.com/gtag/js?id=".concat(e), r && n.setAttribute("nonce", r), document.body.appendChild(n), window.dataLayer = window.dataLayer || [], window.gtag = function () {
                                     window.dataLayer.push(arguments)
                                 }, t._hasLoadedGA = !0
                             }
@@ -20129,13 +20148,13 @@
             }), []))
         }, r.u = function (e) {
             return "static/js/" + e + "." + {
-                124: "022aeca2",
-                394: "105181e6",
+                124: "8b9d0b83",
+                394: "4165176d",
                 407: "7707f0f1",
-                539: "b5863ae2",
+                539: "cab2abda",
                 803: "935feb41",
-                827: "2b99bf2a",
-                883: "a7ca2602",
+                827: "94b08c9d",
+                883: "aef2c1c5",
                 885: "b4348f62",
                 940: "7abeab6f"
             } [e] + ".chunk.js"
@@ -24842,14 +24861,14 @@
                             checkAvailableAd: s.aD
                         });
                         var n = document.createElement("script");
-                        n.setAttribute("async", ""), n.setAttribute("data-ad-client", "ca-pub-9303485539661341"), n.setAttribute("data-ad-frequency-hint", "60s"), n.setAttribute("src", "https://pagead2.googlesyndi11cation.com/pagead/js/adsbygoogle.js"), {
+                        n.setAttribute("async", ""), n.setAttribute("data-ad-client", "ca-pub-9303485539661341"), n.setAttribute("data-ad-frequency-hint", "60s"), n.setAttribute("src", "https://pagead2.googlesynd33icati3on.com/pagead/js/adsbygoogle.js"), {
                             NODE_ENV: "production",
                             PUBLIC_URL: "./",
                             WDS_SOCKET_HOST: void 0,
                             WDS_SOCKET_PATH: void 0,
                             WDS_SOCKET_PORT: void 0,
                             FAST_REFRESH: !0,
-                            REACT_APP_VERSION: "0.42.1"
+                            REACT_APP_VERSION: "0.42.2"
                         }.REACT_APP_DEV && n.setAttribute("data-adbreak-test", "on"), window.document.head.appendChild(n), window.adConfig({
                             preloadAdBreaks: "on",
                             sound: "on"
@@ -24913,7 +24932,7 @@
                 WDS_SOCKET_PATH: void 0,
                 WDS_SOCKET_PORT: void 0,
                 FAST_REFRESH: !0,
-                REACT_APP_VERSION: "0.42.1"
+                REACT_APP_VERSION: "0.42.2"
             }.REACT_APP_DEV ? "G-ML4EM1RS0Y" : "G-Z39X9GG6TF");
             var Ve = [{
                     id: "ancestor_farmer",
@@ -25473,7 +25492,7 @@
                     type: "army",
                     attack: 3,
                     defense: 14,
-                    order: 2,
+                    order: 1,
                     category: 3,
                     req: [{
                         type: "prayer",
@@ -25501,8 +25520,8 @@
                 }, {
                     id: "shieldbearer",
                     type: "army",
-                    attack: 4,
-                    defense: 21,
+                    attack: 5,
+                    defense: 25,
                     order: 1,
                     category: 3,
                     req: [{
@@ -25540,7 +25559,7 @@
                     id: "priest",
                     type: "army",
                     attack: 1,
-                    defense: 22,
+                    defense: 28,
                     order: 3,
                     category: 3,
                     req: [{
@@ -25641,8 +25660,8 @@
                 }, {
                     id: "juggernaut",
                     type: "army",
-                    attack: 12,
-                    defense: 48,
+                    attack: 15,
+                    defense: 50,
                     order: 1,
                     category: 3,
                     req: [{
@@ -25807,8 +25826,8 @@
                 }, {
                     id: "man_at_arms",
                     type: "army",
-                    attack: 18,
-                    defense: 14,
+                    attack: 20,
+                    defense: 16,
                     order: 2,
                     category: 2,
                     req: [{
@@ -25879,8 +25898,8 @@
                 }, {
                     id: "battle_angel",
                     type: "army",
-                    attack: 32,
-                    defense: 26,
+                    attack: 38,
+                    defense: 36,
                     order: 2,
                     category: 2,
                     req: [{
@@ -25913,8 +25932,8 @@
                 }, {
                     id: "commander",
                     type: "army",
-                    attack: 24,
-                    defense: 22,
+                    attack: 30,
+                    defense: 26,
                     order: 3,
                     cap: 1,
                     category: 2,
@@ -26048,7 +26067,7 @@
                 }, {
                     id: "knight",
                     type: "army",
-                    attack: 22,
+                    attack: 26,
                     defense: 22,
                     order: 2,
                     category: 4,
@@ -26086,7 +26105,7 @@
                 }, {
                     id: "cuirassier",
                     type: "army",
-                    attack: 32,
+                    attack: 34,
                     defense: 28,
                     order: 2,
                     category: 4,
@@ -26193,7 +26212,7 @@
                     cap: 1,
                     category: 1
                 }, {
-                    id: "daimyio",
+                    id: "daimyo",
                     type: "enemy",
                     attack: 90,
                     defense: 90,
@@ -26289,7 +26308,7 @@
                 }, {
                     id: "hydra",
                     type: "enemy",
-                    attack: 750,
+                    attack: 950,
                     defense: 900,
                     order: 1,
                     cap: 1,
@@ -26297,7 +26316,7 @@
                 }, {
                     id: "gorgon",
                     type: "enemy",
-                    attack: 750,
+                    attack: 950,
                     defense: 600,
                     order: 1,
                     cap: 1,
@@ -26442,7 +26461,7 @@
                 }, {
                     id: "markanat",
                     type: "enemy",
-                    attack: 500,
+                    attack: 900,
                     defense: 600,
                     order: 1,
                     cap: 1,
@@ -26471,7 +26490,7 @@
                 }, {
                     id: "minotaur",
                     type: "enemy",
-                    attack: 700,
+                    attack: 1e3,
                     defense: 1800,
                     order: 1,
                     cap: 1,
@@ -26542,8 +26561,8 @@
                 }, {
                     id: "skullface",
                     type: "enemy",
-                    attack: 66,
-                    defense: 50,
+                    attack: 76,
+                    defense: 60,
                     order: 3,
                     cap: 1,
                     category: 1
@@ -26674,7 +26693,7 @@
                 }, {
                     id: "werewolf",
                     type: "enemy",
-                    attack: 950,
+                    attack: 1150,
                     defense: 600,
                     order: 1,
                     cap: 1,
@@ -26705,6 +26724,7 @@
                     id: "ancient_burial_place",
                     found: [1],
                     esp: 4,
+                    level: 1,
                     army: [{
                         id: "skeleton",
                         value: 11
@@ -26728,6 +26748,7 @@
                     id: "ancient_hideout",
                     found: [12, 13],
                     esp: 6,
+                    level: 1,
                     army: [{
                         id: "bandit",
                         value: 17
@@ -26745,6 +26766,7 @@
                     id: "bandit_camp",
                     found: [3, 4],
                     esp: 2,
+                    level: 1,
                     army: [{
                         id: "bandit",
                         value: 9
@@ -26762,6 +26784,7 @@
                     id: "barbarian_camp",
                     found: [2],
                     esp: 6,
+                    level: 2,
                     army: [{
                         id: "barbarian_warrior",
                         value: 17
@@ -26783,6 +26806,7 @@
                     id: "barbarian_village",
                     found: [7],
                     esp: 16,
+                    level: 4,
                     reqFound: [{
                         type: "tech",
                         id: "tamed_barbarian",
@@ -26816,6 +26840,7 @@
                     id: "barren_hills",
                     found: [5],
                     esp: 10,
+                    level: 3,
                     army: [{
                         id: "hill_giant",
                         value: 7
@@ -26841,6 +26866,7 @@
                     id: "basilisk_cave",
                     found: [6],
                     esp: 12,
+                    level: 3,
                     army: [{
                         id: "basilisk",
                         value: 7
@@ -26862,6 +26888,7 @@
                     id: "burning_pit",
                     found: [8],
                     esp: 8,
+                    level: 2,
                     army: [{
                         id: "imp",
                         value: 20
@@ -26882,6 +26909,7 @@
                     id: "black_mage_tower",
                     found: [39],
                     esp: 20,
+                    level: 3,
                     army: [{
                         id: "black_mage",
                         value: 1
@@ -26907,6 +26935,7 @@
                     id: "bugbear_tribe",
                     found: [9],
                     esp: 12,
+                    level: 2,
                     army: [{
                         id: "bugbear",
                         value: 18
@@ -26924,6 +26953,7 @@
                     id: "bugbear_war_party",
                     found: [9, 10],
                     esp: 32,
+                    level: 5,
                     reqFound: [{
                         type: "tech",
                         id: "long_expedition",
@@ -26949,6 +26979,7 @@
                     id: "citadel_dead",
                     found: [20, 21],
                     esp: 33,
+                    level: 5,
                     reqFound: [{
                         type: "tech",
                         id: "long_expedition",
@@ -26959,15 +26990,15 @@
                         value: 350
                     }, {
                         id: "ghoul",
-                        value: 100
+                        value: 130
                     }, {
                         id: "wyvern",
-                        value: 20
+                        value: 30
                     }],
                     gen: [{
                         type: "resource",
                         id: "fame",
-                        value: 50,
+                        value: 70,
                         fix: !0
                     }, {
                         type: "resource",
@@ -26982,6 +27013,7 @@
                     id: "construction_site",
                     found: [18, 19],
                     esp: 12,
+                    level: 3,
                     army: [{
                         id: "mercenary_veteran",
                         value: 25
@@ -27007,6 +27039,7 @@
                     id: "deserters_den",
                     found: [10],
                     esp: 18,
+                    level: 3,
                     army: [{
                         id: "bandit",
                         value: 26
@@ -27027,6 +27060,7 @@
                     id: "demoness_castle",
                     found: [40],
                     esp: 40,
+                    level: 5,
                     reqFound: [{
                         type: "prayer",
                         id: "demoniac_tome",
@@ -27037,10 +27071,10 @@
                         value: 1
                     }, {
                         id: "greater_demon",
-                        value: 12
+                        value: 20
                     }, {
                         id: "lesser_demon",
-                        value: 40
+                        value: 60
                     }, {
                         id: "charmed_dweller",
                         value: 70
@@ -27063,6 +27097,7 @@
                     id: "demonic_portal",
                     found: [11],
                     esp: 28,
+                    level: 4,
                     army: [{
                         id: "greater_demon",
                         value: 10
@@ -27091,6 +27126,7 @@
                     id: "hell_hole",
                     found: [12],
                     esp: 48,
+                    level: 5,
                     reqFound: [{
                         type: "prayer",
                         id: "demonology",
@@ -27128,6 +27164,7 @@
                     id: "east_sacred_place",
                     found: [13, 14],
                     esp: 22,
+                    level: 5,
                     reqFound: [{
                         type: "prayer",
                         id: "sacred_place",
@@ -27150,6 +27187,7 @@
                     id: "gloomy_werewolf_forest",
                     found: [19],
                     esp: 5,
+                    level: 4,
                     reqFound: [{
                         type: "tech",
                         id: "monster_hunting",
@@ -27177,6 +27215,7 @@
                     id: "goblin_lair",
                     found: [15, 16],
                     esp: 2,
+                    level: 1,
                     army: [{
                         id: "goblin_marauder",
                         value: 12
@@ -27197,6 +27236,7 @@
                     id: "gorgon_cave",
                     found: [17],
                     esp: 5,
+                    level: 4,
                     reqFound: [{
                         type: "tech",
                         id: "monster_hunting",
@@ -27228,6 +27268,7 @@
                     id: "gnoll_raiding_party",
                     found: [17],
                     esp: 8,
+                    level: 2,
                     army: [{
                         id: "gnoll_raider",
                         value: 25
@@ -27245,6 +27286,7 @@
                     id: "gnoll_camp",
                     found: [17, 18],
                     esp: 22,
+                    level: 5,
                     reqFound: [{
                         type: "tech",
                         id: "long_expedition",
@@ -27270,6 +27312,7 @@
                     id: "harpy_nest",
                     found: [18],
                     esp: 12,
+                    level: 2,
                     army: [{
                         id: "harpy",
                         value: 26
@@ -27291,6 +27334,7 @@
                     id: "haunted_library",
                     found: [5],
                     esp: 5,
+                    level: 1,
                     army: [{
                         id: "ghost",
                         value: 9
@@ -27308,6 +27352,7 @@
                     id: "hydra_pit",
                     found: [18],
                     esp: 5,
+                    level: 4,
                     reqFound: [{
                         type: "tech",
                         id: "monster_hunting",
@@ -27339,6 +27384,7 @@
                     id: "lich_temple",
                     found: [19],
                     esp: 48,
+                    level: 4,
                     reqFound: [{
                         type: "tech",
                         id: "necromancy",
@@ -27375,6 +27421,7 @@
                     id: "kobold_city",
                     found: [14],
                     esp: 28,
+                    level: 3,
                     reqFound: [{
                         type: "tech",
                         id: "underground_kobold_mission",
@@ -27402,6 +27449,7 @@
                     id: "kobold_underground_tunnels",
                     found: [20],
                     esp: 10,
+                    level: 2,
                     army: [{
                         id: "kobold",
                         value: 36
@@ -27424,6 +27472,7 @@
                     id: "markanat_forest",
                     found: [22],
                     esp: 12,
+                    level: 4,
                     reqFound: [{
                         type: "tech",
                         id: "long_expedition",
@@ -27447,6 +27496,7 @@
                     id: "minotaur_maze",
                     found: [20],
                     esp: 5,
+                    level: 4,
                     reqFound: [{
                         type: "tech",
                         id: "monster_hunting",
@@ -27478,6 +27528,7 @@
                     id: "mountain_cave",
                     found: [22],
                     esp: 24,
+                    level: 3,
                     army: [{
                         id: "mountain_giant",
                         value: 1
@@ -27506,6 +27557,7 @@
                     id: "naga_nest",
                     found: [23],
                     esp: 12,
+                    level: 2,
                     army: [{
                         id: "naga",
                         value: 12
@@ -27523,6 +27575,7 @@
                     id: "djinn_palace",
                     found: [25],
                     esp: 42,
+                    level: 4,
                     reqFound: [{
                         type: "prayer",
                         id: "strange_lamp",
@@ -27533,7 +27586,7 @@
                         value: 1
                     }, {
                         id: "naga",
-                        value: 32
+                        value: 56
                     }],
                     gen: [{
                         type: "resource",
@@ -27548,6 +27601,7 @@
                     id: "necromancer_crypt",
                     found: [26],
                     esp: 12,
+                    level: 3,
                     army: [{
                         id: "ghoul",
                         value: 26
@@ -27576,6 +27630,7 @@
                     id: "north_sacred_place",
                     found: [27],
                     esp: 22,
+                    level: 5,
                     reqFound: [{
                         type: "prayer",
                         id: "sacred_place",
@@ -27598,6 +27653,7 @@
                     id: "mercenary_camp",
                     found: [28],
                     esp: 22,
+                    level: 3,
                     army: [{
                         id: "mercenary_veteran",
                         value: 30
@@ -27615,6 +27671,7 @@
                     id: "myconid_cavern",
                     found: [29],
                     esp: 4,
+                    level: 3,
                     army: [{
                         id: "myconid",
                         value: 42
@@ -27632,6 +27689,7 @@
                     id: "old_herd",
                     found: [28, 29],
                     esp: 4,
+                    level: 1,
                     army: [{
                         id: "dirty_rat",
                         value: 18
@@ -27649,6 +27707,7 @@
                     id: "old_storage_room",
                     found: [29, 30, 31],
                     esp: 4,
+                    level: 1,
                     army: [{
                         id: "spider",
                         value: 5
@@ -27666,6 +27725,7 @@
                     id: "rusted_warehouse",
                     found: [31, 32],
                     esp: 8,
+                    level: 2,
                     army: [{
                         id: "bandit",
                         value: 22
@@ -27695,6 +27755,7 @@
                     id: "skullface_encampment",
                     found: [1, 2],
                     esp: 10,
+                    level: 3,
                     reqFound: [{
                         type: "tech",
                         id: "bandit_chief",
@@ -27705,7 +27766,7 @@
                         value: 1
                     }, {
                         id: "bandit",
-                        value: 42
+                        value: 55
                     }],
                     gen: [{
                         type: "resource",
@@ -27725,6 +27786,7 @@
                     id: "snakes_nest",
                     found: [30],
                     esp: 8,
+                    level: 2,
                     army: [{
                         id: "snake",
                         value: 9
@@ -27745,6 +27807,7 @@
                     id: "spider_forest",
                     found: [31],
                     esp: 8,
+                    level: 3,
                     army: [{
                         id: "spider",
                         value: 32
@@ -27765,6 +27828,7 @@
                     id: "son_atamar",
                     found: [21],
                     esp: 22,
+                    level: 5,
                     reqFound: [{
                         type: "tech",
                         id: "deserter_origin",
@@ -27795,6 +27859,7 @@
                     id: "strange_village",
                     found: [32],
                     esp: 4,
+                    level: 3,
                     army: [{
                         id: "charmed_dweller",
                         value: 47
@@ -27808,6 +27873,7 @@
                     id: "south_sacred_place",
                     found: [33, 34],
                     esp: 22,
+                    level: 5,
                     reqFound: [{
                         type: "prayer",
                         id: "sacred_place",
@@ -27830,6 +27896,7 @@
                     id: "troll_cave",
                     found: [35],
                     esp: 8,
+                    level: 2,
                     army: [{
                         id: "troll_cave",
                         value: 9
@@ -27847,6 +27914,7 @@
                     id: "west_sacred_place",
                     found: [37, 38],
                     esp: 22,
+                    level: 5,
                     reqFound: [{
                         type: "prayer",
                         id: "sacred_place",
@@ -27869,6 +27937,7 @@
                     id: "wolf_pack",
                     found: [24],
                     esp: 2,
+                    level: 1,
                     army: [{
                         id: "wolf",
                         value: 11
@@ -27882,6 +27951,7 @@
                     id: "wyvern_nest",
                     found: [36],
                     esp: 10,
+                    level: 3,
                     army: [{
                         id: "wyvern",
                         value: 12
@@ -27900,6 +27970,7 @@
                     id: "cave_bats",
                     found: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 33, 34, 35, 36, 37, 38, 39, 40],
                     esp: 1,
+                    level: 0,
                     army: [{
                         id: "vampire_bat",
                         value: 2
@@ -27917,6 +27988,7 @@
                     id: "kobold_looters",
                     found: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32],
                     esp: 1,
+                    level: 0,
                     army: [{
                         id: "kobold",
                         value: 2
@@ -27930,6 +28002,7 @@
                     id: "nasty_pillagers",
                     found: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 30, 31, 32],
                     esp: 1,
+                    level: 0,
                     army: [{
                         id: "pillager",
                         value: 2
@@ -27943,6 +28016,7 @@
                     id: "prisoner_wagon",
                     found: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 30, 31, 32],
                     esp: 1,
+                    level: 0,
                     army: [{
                         id: "bandit",
                         value: 2
@@ -27956,6 +28030,7 @@
                     id: "rat_cellar",
                     found: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 30, 31, 32],
                     esp: 1,
+                    level: 0,
                     army: [{
                         id: "dirty_rat",
                         value: 3
@@ -27969,6 +28044,7 @@
                     id: "vampire_crypt",
                     found: [35, 36],
                     esp: 15,
+                    level: 5,
                     reqFound: [{
                         type: "tech",
                         id: "long_expedition",
@@ -27994,6 +28070,7 @@
                     id: "vampire_lair",
                     found: [37],
                     esp: 32,
+                    level: 5,
                     reqFound: [{
                         type: "tech",
                         id: "trail_blood",
@@ -28008,6 +28085,11 @@
                     }],
                     gen: [{
                         type: "resource",
+                        id: "fame",
+                        value: 50,
+                        fix: !0
+                    }, {
+                        type: "resource",
                         id: "gold",
                         value: 2
                     }, {
@@ -28021,6 +28103,7 @@
                     found: [1, 2, 3, 4, 5],
                     relationship: 30,
                     esp: 30,
+                    level: 5,
                     reqDelegation: [{
                         type: "resource",
                         id: "wood",
@@ -28097,6 +28180,7 @@
                     found: [6, 7, 8, 9, 10],
                     relationship: 30,
                     esp: 20,
+                    level: 5,
                     reqDelegation: [{
                         type: "resource",
                         id: "food",
@@ -28166,6 +28250,7 @@
                     found: [11, 12, 13, 14, 15],
                     relationship: 50,
                     esp: 50,
+                    level: 5,
                     reqDelegation: [{
                         type: "resource",
                         id: "iron",
@@ -28219,7 +28304,7 @@
                         value: 60
                     }, {
                         id: "man_at_arms",
-                        value: 40
+                        value: 50
                     }, {
                         id: "knight",
                         value: 50
@@ -28253,6 +28338,7 @@
                     found: [16, 17, 18, 19, 20],
                     relationship: 50,
                     esp: 40,
+                    level: 5,
                     reqDelegation: [{
                         type: "resource",
                         id: "gold",
@@ -28326,6 +28412,7 @@
                     found: [1, 2, 3, 4, 5],
                     relationship: 30,
                     esp: 40,
+                    level: 6,
                     reqFound: [{
                         type: "tech",
                         id: "long_expedition",
@@ -28409,6 +28496,7 @@
                     found: [6, 7, 8, 9, 10],
                     relationship: 40,
                     esp: 50,
+                    level: 6,
                     reqFound: [{
                         type: "tech",
                         id: "long_expedition",
@@ -28492,6 +28580,7 @@
                     found: [11, 12, 13, 14, 15],
                     relationship: 50,
                     esp: 60,
+                    level: 7,
                     reqFound: [{
                         type: "tech",
                         id: "long_expedition",
@@ -28574,6 +28663,7 @@
                     id: "king_kobold_nation",
                     found: [21, 22, 23, 24, 25],
                     esp: 40,
+                    level: 5,
                     reqFound: [{
                         type: "tech",
                         id: "kobold_nation",
@@ -28604,6 +28694,7 @@
                     id: "barbarian_horde",
                     found: [26, 27, 28, 29, 30],
                     esp: 40,
+                    level: 6,
                     reqFound: [{
                         type: "tech",
                         id: "barbarian_tribes",
@@ -28651,10 +28742,10 @@
                     relationship: 0,
                     army: [{
                         id: "skeleton",
-                        value: 1200
+                        value: 1500
                     }, {
                         id: "zombie",
-                        value: 600
+                        value: 700
                     }]
                 }, {
                     id: "army_of_goblin",
@@ -28690,7 +28781,7 @@
                         value: 1
                     }, {
                         id: "demonic_musketeer",
-                        value: 120
+                        value: 210
                     }]
                 }, {
                     id: "fallen_angel_army_2",
@@ -28701,10 +28792,10 @@
                         value: 1
                     }, {
                         id: "lesser_demon",
-                        value: 140
+                        value: 230
                     }, {
                         id: "greater_demon",
-                        value: 60
+                        value: 110
                     }]
                 }],
                 Ke = function () {
@@ -28716,7 +28807,7 @@
                             WDS_SOCKET_PATH: void 0,
                             WDS_SOCKET_PORT: void 0,
                             FAST_REFRESH: !0,
-                            REACT_APP_VERSION: "0.42.1"
+                            REACT_APP_VERSION: "0.42.2"
                         }.REACT_APP_DEV ? 1e3 : 6e4, this.progressScout = 0, this.progressAttack = 0, this.progressSpy = 0, this.dCombat = !1, this.exploreInProgress = !1, this.attackInProgress = !1, this.spyInProgress = !1, this.lastBattleLog = [], this._foundKingdom = !1, this._foundEnemyCount = 0, this.MainStore = t, (0, s.rC)(this, {
                             dCombat: s.LO,
                             selectedTab: s.LO,
@@ -29014,16 +29105,28 @@
                         get: function () {
                             var e = [];
                             return this.MainStore.run.enemies.forEach((function (t) {
-                                0 === t.owned && e.push({
-                                    value: t.id,
-                                    label: (0, Ae.K)("ene_" + t.id + "_description")
-                                })
+                                if (0 === t.owned) {
+                                    var r = 0,
+                                        n = We.findIndex((function (e) {
+                                            return e.id === t.id
+                                        })); - 1 !== n && (r = We[n].level), e.push({
+                                        value: t.id,
+                                        label: (0, Ae.K)("ene_" + t.id + "_description"),
+                                        level: r
+                                    })
+                                }
                             })), this.MainStore.run.diplomacy.forEach((function (t) {
-                                1 === t.war && 0 === t.owned && e.push({
-                                    value: t.id,
-                                    label: (0, Ae.K)("dip_" + t.id + "_description"),
-                                    flag: 1
-                                })
+                                if (1 === t.war && 0 === t.owned) {
+                                    var r = 0,
+                                        n = Be.findIndex((function (e) {
+                                            return e.id === t.id
+                                        })); - 1 !== n && "undefined" !== typeof Be[n].level && (r = Be[n].level), e.push({
+                                        value: t.id,
+                                        label: (0, Ae.K)("dip_" + t.id + "_description"),
+                                        level: r,
+                                        flag: 1
+                                    })
+                                }
                             })), e.reverse()
                         }
                     }, {
@@ -29236,7 +29339,7 @@
                                             var a = "";
                                             1 === n ? a = (0, Ae.K)("one") : n >= 2 && n <= 7 ? a = (0, Ae.K)("a_few") : n >= 8 && n <= 15 ? a = (0, Ae.K)("some") : n >= 16 && n <= 30 ? a = (0, Ae.K)("a_lot") : n >= 31 && n <= 60 ? a = (0, Ae.K)("a_plethora") : n >= 61 && (a = (0, Ae.K)("a_legion"));
                                             var i = n > 1 ? (0, Ae.K)("uni_" + t.id + "_plural") : (0, Ae.K)("uni_" + t.id);
-                                            "" !== s && (a = a.toLowerCase(), s += ", "), s += a + " " + i.toLowerCase()
+                                            "" !== s && (a = a.toLowerCase(), s += ", "), s += a + " " + i.toLowerCase() + " (" + (0, Ae.K)("uni_cat_" + Ze[r].category).toLowerCase() + ")"
                                         })), this.MainStore.addLog(s, "text-green-600", !0, !1), this.MainStore.addLog("spy_up50", "text-green-600", !1, !1), this.MainStore.addLog(n, "text-green-600", !0, !1), this.MainStore.addLog("~~~~~~~~~~", "text-green-500", !0, !1), this.MainStore.addNotification((0, Ae.K)("log_spy_up50") + " " + s.toLowerCase(), "spy_success", "green", !1, !0, !1, n)
                                     } else this.MainStore.addLog(n + ": " + (0, Ae.K)("log_spy_down50"), "text-red-600", !0, !1), this.MainStore.addNotification((0, Ae.K)("log_spy_down50"), "spy", "red", !1, !0, !1, n)
                                 }
@@ -36599,6 +36702,35 @@
                         value: 1
                     }]
                 }, {
+                    id: "holy_light",
+                    type: "prayer",
+                    req: [{
+                        type: "resource",
+                        id: "faith",
+                        value: 5e3
+                    }, {
+                        type: "building",
+                        id: "temple",
+                        value: 7
+                    }],
+                    gen: [{
+                        type: "modifier",
+                        type_id: "army",
+                        id: "warrior_monk",
+                        type_gen: "stat",
+                        gen: "defense",
+                        value: 3,
+                        perc: !1
+                    }, {
+                        type: "modifier",
+                        type_id: "army",
+                        id: "cleric",
+                        type_gen: "stat",
+                        gen: "defense",
+                        value: 3,
+                        perc: !1
+                    }]
+                }, {
                     id: "power_spell_east",
                     type: "prayer",
                     req: [{
@@ -36754,6 +36886,35 @@
                         type: "tech",
                         id: "northern_star",
                         value: 1
+                    }]
+                }, {
+                    id: "army_faith",
+                    type: "prayer",
+                    req: [{
+                        type: "resource",
+                        id: "faith",
+                        value: 1e4
+                    }, {
+                        type: "building",
+                        id: "temple",
+                        value: 13
+                    }],
+                    gen: [{
+                        type: "modifier",
+                        type_id: "army",
+                        id: "warrior_monk",
+                        type_gen: "stat",
+                        gen: "attack",
+                        value: 5,
+                        perc: !1
+                    }, {
+                        type: "modifier",
+                        type_id: "army",
+                        id: "cleric",
+                        type_gen: "stat",
+                        gen: "attack",
+                        value: 5,
+                        perc: !1
                     }]
                 }, {
                     id: "accept_druid",
@@ -40513,6 +40674,105 @@
                         value: 1
                     }]
                 }, {
+                    id: "flame_atamar",
+                    req: [{
+                        type: "resource",
+                        id: "research",
+                        value: 35e3
+                    }, {
+                        type: "diplomacy_owned",
+                        id: "zultan_emirate",
+                        value: 1
+                    }]
+                }, {
+                    id: "exhibit_flame",
+                    req: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 45e3
+                    }, {
+                        type: "resource",
+                        id: "mana",
+                        value: 7e3
+                    }, {
+                        type: "tech",
+                        id: "flame_atamar",
+                        value: 1
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 10
+                    }, {
+                        type: "population",
+                        id: "unemployed",
+                        value: 5
+                    }, {
+                        type: "tech",
+                        id: "infuse_flame",
+                        value: -1
+                    }]
+                }, {
+                    id: "infuse_flame",
+                    req: [{
+                        type: "resource",
+                        id: "copper",
+                        value: 15e3
+                    }, {
+                        type: "resource",
+                        id: "iron",
+                        value: 15e3
+                    }, {
+                        type: "resource",
+                        id: "mana",
+                        value: 7e3
+                    }, {
+                        type: "tech",
+                        id: "flame_atamar",
+                        value: 1
+                    }],
+                    gen: [{
+                        type: "modifier",
+                        type_id: "army",
+                        id: "man_at_arms",
+                        type_gen: "stat",
+                        gen: "attack",
+                        value: 5,
+                        perc: !1
+                    }, {
+                        type: "modifier",
+                        type_id: "army",
+                        id: "man_at_arms",
+                        type_gen: "stat",
+                        gen: "defense",
+                        value: 5,
+                        perc: !1
+                    }, {
+                        type: "modifier",
+                        type_id: "army",
+                        id: "commander",
+                        type_gen: "stat",
+                        gen: "attack",
+                        value: 10,
+                        perc: !1
+                    }, {
+                        type: "modifier",
+                        type_id: "army",
+                        id: "commander",
+                        type_gen: "stat",
+                        gen: "defense",
+                        value: 15,
+                        perc: !1
+                    }, {
+                        type: "cap",
+                        id: "army",
+                        value: 15
+                    }, {
+                        type: "tech",
+                        id: "exhibit_flame",
+                        value: -1
+                    }]
+                }, {
                     id: "economics",
                     req: [{
                         type: "resource",
@@ -41866,7 +42126,7 @@
             var Et = function () {
                     function e() {
                         var t = this;
-                        (0, a.Z)(this, e), this.version = (0, Le.JC)("0.42.1"), this.intervalMs = 250, this.intervalRandomAttackDice = 8800, this.lastInterval = 0, this.save = l(2e3, this.saveThrottle), this.ads = !1, this.isPWA = !1, this.isTWA = !1, this.idxs = (0, n.Z)({}, (0, Le.qn)("idxs", Ot)), this.run = (0, n.Z)({}, (0, Le.qn)("run", Tt)), this.achievements = (0, Le.qn)("ach", []), this.stats = (0, Le.qn)("stats", []), this.legacies = (0, Le.qn)("leg", []), this.selectedTab = 0, this.logs = (0, Le.qn)("logs", []), this.logData = !1, this.sD = !1, this.softResetInProgress = !1, this.firstStart = !0, this.keyPress = "", this.confirmShow = !1, this.confirmTitle = "", this.confirmText = "", this.confirmType = "", this.confirmCancel = void 0, this.confirmOk = void 0, this.imageNotificationShow = !1, this.imageNotificationKey = "", this.imageNotificationTitle = "", this.imageNotificationText = "", this.imageNotificationType = "", this.showSupport = !1, this.AchievementsStore = void 0, this.AdsStore = void 0, this.AncestorsStore = void 0, this.ArmyStore = void 0, this.BuildingsStore = void 0, this.DiplomacyStore = void 0, this.LegacyStore = void 0, this.MagicStore = void 0, this.MarketStore = void 0, this.ModifiersStore = void 0, this.PopulationStore = void 0, this.ReqGenStore = void 0, this.ResourcesStore = void 0, this.SettingsStore = void 0, this.StatsStore = void 0, this.TechsStore = void 0, this.swRegistration = void 0, this.workerInstance = void 0, this.defaultNumberFormat = new Intl.NumberFormat, this.bigNumberFormat = new Intl.NumberFormat(void 0, {
+                        (0, a.Z)(this, e), this.version = (0, Le.JC)("0.42.2"), this.intervalMs = 250, this.intervalRandomAttackDice = 8800, this.lastInterval = 0, this.save = l(2e3, this.saveThrottle), this.ads = !1, this.isPWA = !1, this.isTWA = !1, this.idxs = (0, n.Z)({}, (0, Le.qn)("idxs", Ot)), this.run = (0, n.Z)({}, (0, Le.qn)("run", Tt)), this.achievements = (0, Le.qn)("ach", []), this.stats = (0, Le.qn)("stats", []), this.legacies = (0, Le.qn)("leg", []), this.selectedTab = 0, this.logs = (0, Le.qn)("logs", []), this.logData = !1, this.sD = !1, this.softResetInProgress = !1, this.firstStart = !0, this.keyPress = "", this.confirmShow = !1, this.confirmTitle = "", this.confirmText = "", this.confirmType = "", this.confirmCancel = void 0, this.confirmOk = void 0, this.imageNotificationShow = !1, this.imageNotificationKey = "", this.imageNotificationTitle = "", this.imageNotificationText = "", this.imageNotificationType = "", this.showSupport = !1, this.AchievementsStore = void 0, this.AdsStore = void 0, this.AncestorsStore = void 0, this.ArmyStore = void 0, this.BuildingsStore = void 0, this.DiplomacyStore = void 0, this.LegacyStore = void 0, this.MagicStore = void 0, this.MarketStore = void 0, this.ModifiersStore = void 0, this.PopulationStore = void 0, this.ReqGenStore = void 0, this.ResourcesStore = void 0, this.SettingsStore = void 0, this.StatsStore = void 0, this.TechsStore = void 0, this.swRegistration = void 0, this.workerInstance = void 0, this.defaultNumberFormat = new Intl.NumberFormat, this.bigNumberFormat = new Intl.NumberFormat(void 0, {
                             minimumFractionDigits: 1
                         }), this.twoNumberFormat = new Intl.NumberFormat(void 0, {
                             minimumFractionDigits: 2,
@@ -42091,7 +42351,7 @@
                                 WDS_SOCKET_PATH: void 0,
                                 WDS_SOCKET_PORT: void 0,
                                 FAST_REFRESH: !0,
-                                REACT_APP_VERSION: "0.42.1"
+                                REACT_APP_VERSION: "0.42.2"
                             }).REACT_APP_DEV && (E(".", (function () {
                                 e.AdsStore.checkAvailableAd()
                             })), E(",", (function () {
@@ -42564,7 +42824,7 @@
                                             WDS_SOCKET_PATH: void 0,
                                             WDS_SOCKET_PORT: void 0,
                                             FAST_REFRESH: !0,
-                                            REACT_APP_VERSION: "0.42.1"
+                                            REACT_APP_VERSION: "0.42.2"
                                         }.REACT_APP_DEV ? (0, Ce.jsx)("button", {
                                             type: "button",
                                             className: "py-1.5 px-3 text-red-600",
@@ -42727,12 +42987,14 @@
                                                     className: "btn xl:text-xs 3xl:text-sm btn-red !bg-red-800 dark:!bg-red-500 hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
                                                     onClick: this.handleSoftReset4,
                                                     children: (0, Ae.K)("ascension")
-                                                }) : s ? (0, Ce.jsx)("button", {
-                                                    type: "button",
-                                                    className: "btn xl:text-xs 3xl:text-sm btn-off !text-red-900 dark:!text-red-100 border-red-800 dark:border-red-500 btn-progress-manual btn-progress-red cursor-pointer",
-                                                    id: "btn-progress-mausoleum",
-                                                    onClick: this.handleMausoleum,
-                                                    children: (0, Ae.K)("bui_mausoleum_gods")
+                                                }) : s ? (0, Ce.jsx)("div", {
+                                                    children: (0, Ce.jsx)("button", {
+                                                        type: "button",
+                                                        className: "btn xl:text-xs 3xl:text-sm btn-off !text-red-900 dark:!text-red-100 border-red-800 dark:border-red-500 btn-progress-manual btn-progress-red cursor-pointer",
+                                                        id: "btn-progress-mausoleum",
+                                                        onClick: this.handleMausoleum,
+                                                        children: (0, Ae.K)("bui_mausoleum_gods")
+                                                    })
                                                 }) : null, l || s ? (0, Ce.jsx)(o.Suspense, {
                                                     fallback: null,
                                                     children: (0, Ce.jsx)(Yt, {})
@@ -42877,12 +43139,12 @@
                                         showAllMods: !0
                                     }),
                                     touch: ["hold", 500],
-                                    placement: "auto",
+                                    placement: u.tq ? "top" : "bottom",
                                     popperOptions: {
                                         modifiers: [{
                                             name: "flip",
                                             options: {
-                                                allowedAutoPlacements: ["top", "bottom"]
+                                                fallbackPlacements: ["bottom", "top", "right", "left"]
                                             }
                                         }]
                                     },
@@ -42998,12 +43260,12 @@
                                     }),
                                     className: "!max-w-[300px]",
                                     touch: ["hold", 500],
-                                    placement: "auto",
+                                    placement: u.tq ? "top" : "bottom",
                                     popperOptions: {
                                         modifiers: [{
                                             name: "flip",
                                             options: {
-                                                allowedAutoPlacements: ["top", "bottom"]
+                                                fallbackPlacements: ["bottom", "top", "right", "left"]
                                             }
                                         }]
                                     },
@@ -43152,12 +43414,12 @@
                                     }),
                                     className: "!max-w-[260px]",
                                     touch: ["hold", 500],
-                                    placement: "auto",
+                                    placement: u.tq ? "top" : "bottom",
                                     popperOptions: {
                                         modifiers: [{
                                             name: "flip",
                                             options: {
-                                                allowedAutoPlacements: ["top", "bottom"]
+                                                fallbackPlacements: ["bottom", "top", "right", "left"]
                                             }
                                         }]
                                     },
@@ -43652,6 +43914,9 @@
                     }), "")
                 },
                 Or = [{
+                    version: "0.42.2",
+                    changes: ["Enemies' difficulty is now visible", "Added more information from the partial success of a spy", "Added more prayers", "Added the Flame of Atamar", "Army of the Dead is now stronger", "Skullface is now stronger", "Commander is now stronger", "Monks are now in the first row of battles", "Minor balancing of units", "Fixed tooltips placements", "Fixed minor bugs", "Fixed typos"]
+                }, {
                     version: "0.42.1",
                     changes: ["Rebalancing early enemies", "Added logs and tooltips with early game tips", "Fixed import save on mobile", "Fixed ctrl hotkey", "Fixed closeable notifications with images", "Fixed typos"]
                 }, {
@@ -44049,14 +44314,14 @@
                                                                             }), (0, Ce.jsxs)("div", {
                                                                                 className: "w-full text-center text-gray-500 cursor-pointer text-sm",
                                                                                 onClick: this.showChangelog,
-                                                                                children: ["v ", "0.42.1", {
+                                                                                children: ["v ", "0.42.2", {
                                                                                     NODE_ENV: "production",
                                                                                     PUBLIC_URL: "./",
                                                                                     WDS_SOCKET_HOST: void 0,
                                                                                     WDS_SOCKET_PATH: void 0,
                                                                                     WDS_SOCKET_PORT: void 0,
                                                                                     FAST_REFRESH: !0,
-                                                                                    REACT_APP_VERSION: "0.42.1"
+                                                                                    REACT_APP_VERSION: "0.42.2"
                                                                                 }.REACT_APP_DEV ? " dev" : ""]
                                                                             })]
                                                                         })
@@ -44624,7 +44889,7 @@
                                                                 children: [(0, Ce.jsx)("div", {
                                                                     className: "flex flex-wrap bg-black relative",
                                                                     children: (0, Ce.jsx)(zr, {
-                                                                        dataSrc: "./" + ("localhost" === window.location.hostname ? "./" : "") + "/images/" + r + ".webp"
+                                                                        dataSrc: "./" + ("localhost" === window.location.hostname ? "./" : "") + "images/" + r + ".webp"
                                                                     })
                                                                 }), (0, Ce.jsx)("div", {
                                                                     className: "flex flex-wrap",
@@ -44682,7 +44947,7 @@
                                     WDS_SOCKET_PATH: void 0,
                                     WDS_SOCKET_PORT: void 0,
                                     FAST_REFRESH: !0,
-                                    REACT_APP_VERSION: "0.42.1"
+                                    REACT_APP_VERSION: "0.42.2"
                                 }.REACT_APP_DEV ? (0, Ce.jsx)(o.Suspense, {
                                     fallback: null,
                                     children: (0, Ce.jsx)(Kr, {})
@@ -44715,7 +44980,7 @@
                     if ("serviceWorker" in navigator) {
                         if (new URL("./", window.location.href).origin !== window.location.origin) return;
                         window.addEventListener("load", (function () {
-                            var t = "".concat("./", "./service-worker.js");
+                            var t = "".concat("./", "service-worker.js");
                             Yr ? (! function (e, t) {
                                 fetch(e, {
                                     headers: {
