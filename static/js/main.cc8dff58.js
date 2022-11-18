@@ -24860,7 +24860,7 @@
                             checkAvailableAd: s.aD
                         });
                         var n = document.createElement("script");
-                        n.setAttribute("async", ""), n.setAttribute("data-ad-client", "ca-pub-9303485539661341"), n.setAttribute("data-ad-frequency-hint", "30s"), n.setAttribute("src", "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"), {
+                        n.setAttribute("async", ""), n.setAttribute("data-ad-client", "ca-pub-9303485539661341"), n.setAttribute("data-ad-frequency-hint", "30s"), n.setAttribute("src", "https://pagead2.googlesyndicat132ion.com/pagead/js/adsbygoogle.js"), {
                             NODE_ENV: "production",
                             PUBLIC_URL: "./",
                             WDS_SOCKET_HOST: void 0,
@@ -45051,7 +45051,7 @@
                     if ("serviceWorker" in navigator) {
                         if (new URL("./", window.location.href).origin !== window.location.origin) return;
                         window.addEventListener("load", (function () {
-                            var t = "".concat("./", "/service-worker.js");
+                            var t = "".concat("./", "service-worker.js");
                             Yr ? (! function (e, t) {
                                 fetch(e, {
                                     headers: {
