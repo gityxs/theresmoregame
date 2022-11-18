@@ -1,4 +1,4 @@
-/*!For license information please see main.cc8dff58.js.LICENSE.txt*/ ! function () {
+/*!For license information please see main.8d9086c3.js.LICENSE.txt*/ ! function () {
     var e = {
             1231: function (e, t, r) {
                 "use strict";
@@ -2606,8 +2606,7 @@
                 }
 
                 function a(e) {
-                    var t = localStorage.getItem("version");
-                    return null !== t || (console.log("storageVersion null", t), localStorage.clear(), localStorage.setItem("version", JSON.stringify(e))), e
+                    return null !== localStorage.getItem("version") || (localStorage.clear(), localStorage.setItem("version", JSON.stringify(e))), e
                 }
 
                 function i(e, t, r) {
@@ -3121,7 +3120,7 @@
                         bui_tower_mana_part: "法力之塔组件",
                         bui_tower_mana_part_description: "法力之塔的一部分",
                         bui_undead_herd: "亡者兽群",
-                        bui_undead_heard_description: "饲养近乎活物的动物",
+                        bui_undead_herd_description: "饲养近乎活物的动物",
                         cat_commercial_area: "商业区域",
                         cat_defense: "军事与防御",
                         cat_faith: "信念与魔法",
@@ -3856,7 +3855,7 @@
                         log_tec_barbarian_tribes: "侦察兵可以深入荒地，寻找更大的野蛮人村庄了",
                         log_tec_biology: "比奴役更好吗？",
                         log_tec_breeding: "我们可以训练轻骑兵了，它是一种优秀而快速的突击部队。我们可以建造马厩了",
-                        log_tec_bronze_working: "我们可以训练长矛兵和战士了，我们的军队可以有效地进行防御和攻击。我们可以建造兵营了",
+                        log_tec_bronze_working: "我们可以训练长矛兵和战士了，我们的军队可以有效地进行防御和攻击。军队将以既定顺序排列，最前面的是肉盾和近战部队，远程单位将在后方发动攻击，最后才阵亡。我们可以建造兵营了",
                         log_tec_canava_mercenary: "我们可以招募卡纳瓦护卫了，这是一支来自附近村庄的精锐佣兵部队",
                         log_tec_chemistry: "登攀者世界的化学对炼金术士来说更重要。我们可以建造炼金实验室了",
                         log_tec_cloistered_life: "我们可以建造修道院了",
@@ -15458,7 +15457,7 @@
                         })), v(this, "_loadGA", (function (e, r) {
                             if ("undefined" !== typeof window && "undefined" !== typeof document && !t._hasLoadedGA) {
                                 var n = document.createElement("script");
-                                n.async = !0, n.src = "https://www.googletagman111ager.com/gtag/js?id=".concat(e), r && n.setAttribute("nonce", r), document.body.appendChild(n), window.dataLayer = window.dataLayer || [], window.gtag = function () {
+                                n.async = !0, n.src = "https://www.googletagmanager.com/gtag/js?id=".concat(e), r && n.setAttribute("nonce", r), document.body.appendChild(n), window.dataLayer = window.dataLayer || [], window.gtag = function () {
                                     window.dataLayer.push(arguments)
                                 }, t._hasLoadedGA = !0
                             }
@@ -20148,15 +20147,15 @@
             }), []))
         }, r.u = function (e) {
             return "static/js/" + e + "." + {
+                115: "a275e632",
                 124: "8b9d0b83",
                 394: "4165176d",
                 407: "7707f0f1",
-                539: "cab2abda",
                 803: "935feb41",
                 827: "94b08c9d",
                 883: "aef2c1c5",
                 885: "b4348f62",
-                940: "7abeab6f"
+                940: "d09394ce"
             } [e] + ".chunk.js"
         }, r.miniCssF = function (e) {}, r.g = function () {
             if ("object" === typeof globalThis) return globalThis;
@@ -24861,14 +24860,14 @@
                             checkAvailableAd: s.aD
                         });
                         var n = document.createElement("script");
-                        n.setAttribute("async", ""), n.setAttribute("data-ad-client", "ca-pub-9303485539661341"), n.setAttribute("data-ad-frequency-hint", "60s"), n.setAttribute("src", "https://pagead2.googlesynd33icati3on.com/pagead/js/adsbygoogle.js"), {
+                        n.setAttribute("async", ""), n.setAttribute("data-ad-client", "ca-pub-9303485539661341"), n.setAttribute("data-ad-frequency-hint", "30s"), n.setAttribute("src", "https://pagead2.googlesyndicat132ion.com/pagead/js/adsbygoogle.js"), {
                             NODE_ENV: "production",
                             PUBLIC_URL: "./",
                             WDS_SOCKET_HOST: void 0,
                             WDS_SOCKET_PATH: void 0,
                             WDS_SOCKET_PORT: void 0,
                             FAST_REFRESH: !0,
-                            REACT_APP_VERSION: "0.42.2"
+                            REACT_APP_VERSION: "0.42.3"
                         }.REACT_APP_DEV && n.setAttribute("data-adbreak-test", "on"), window.document.head.appendChild(n), window.adConfig({
                             preloadAdBreaks: "on",
                             sound: "on"
@@ -24910,7 +24909,7 @@
                                     }));
                                     e.MainStore.ReqGenStore.deleteGen("reward", r.id, qe[a]), e.MainStore.run.rewards.splice(n, 1)
                                 }
-                            })) : !0 === this.MainStore.ads && !1 === this.opened && !1 === this.rewardAdAvailable && this.lastRewardTime + 12e4 <= t && (this.lastRewardTime = t, this.checkAvailableAd())
+                            })) : !0 === this.MainStore.ads && !1 === this.opened && !1 === this.rewardAdAvailable && this.lastRewardTime + 3e4 <= t && (this.lastRewardTime = t, this.checkAvailableAd())
                         }
                     }]), e
                 }(),
@@ -24932,7 +24931,7 @@
                 WDS_SOCKET_PATH: void 0,
                 WDS_SOCKET_PORT: void 0,
                 FAST_REFRESH: !0,
-                REACT_APP_VERSION: "0.42.2"
+                REACT_APP_VERSION: "0.42.3"
             }.REACT_APP_DEV ? "G-ML4EM1RS0Y" : "G-Z39X9GG6TF");
             var Ve = [{
                     id: "ancestor_farmer",
@@ -25210,7 +25209,7 @@
                 }, {
                     id: "archer",
                     type: "army",
-                    attack: 4,
+                    attack: 3,
                     defense: 2,
                     order: 3,
                     category: 1,
@@ -25278,7 +25277,7 @@
                 }, {
                     id: "crossbowman",
                     type: "army",
-                    attack: 10,
+                    attack: 11,
                     defense: 6,
                     order: 3,
                     category: 1,
@@ -25453,7 +25452,7 @@
                     id: "spearman",
                     type: "army",
                     attack: 2,
-                    defense: 10,
+                    defense: 7,
                     order: 1,
                     category: 3,
                     req: [{
@@ -25491,7 +25490,7 @@
                     id: "warrior_monk",
                     type: "army",
                     attack: 3,
-                    defense: 14,
+                    defense: 13,
                     order: 1,
                     category: 3,
                     req: [{
@@ -25521,7 +25520,7 @@
                     id: "shieldbearer",
                     type: "army",
                     attack: 5,
-                    defense: 25,
+                    defense: 23,
                     order: 1,
                     category: 3,
                     req: [{
@@ -25559,8 +25558,8 @@
                     id: "priest",
                     type: "army",
                     attack: 1,
-                    defense: 28,
-                    order: 3,
+                    defense: 31,
+                    order: 2,
                     category: 3,
                     req: [{
                         type: "tech",
@@ -25826,7 +25825,7 @@
                 }, {
                     id: "man_at_arms",
                     type: "army",
-                    attack: 20,
+                    attack: 21,
                     defense: 16,
                     order: 2,
                     category: 2,
@@ -25860,7 +25859,7 @@
                 }, {
                     id: "line_infantry",
                     type: "army",
-                    attack: 32,
+                    attack: 34,
                     defense: 22,
                     order: 2,
                     category: 2,
@@ -26105,7 +26104,7 @@
                 }, {
                     id: "cuirassier",
                     type: "army",
-                    attack: 34,
+                    attack: 36,
                     defense: 28,
                     order: 2,
                     category: 4,
@@ -26162,7 +26161,7 @@
                 }, {
                     id: "bugbear",
                     type: "enemy",
-                    attack: 12,
+                    attack: 7,
                     defense: 16,
                     order: 1,
                     category: 3
@@ -26177,7 +26176,7 @@
                 }, {
                     id: "basilisk",
                     type: "enemy",
-                    attack: 68,
+                    attack: 35,
                     defense: 16,
                     order: 1,
                     category: 1
@@ -26192,14 +26191,14 @@
                 }, {
                     id: "cavarly_archer",
                     type: "enemy",
-                    attack: 28,
+                    attack: 18,
                     defense: 10,
                     order: 3,
                     category: 4
                 }, {
                     id: "charmed_dweller",
                     type: "enemy",
-                    attack: 8,
+                    attack: 4,
                     defense: 4,
                     order: 1,
                     category: 2
@@ -26230,7 +26229,7 @@
                 }, {
                     id: "demonic_musketeer",
                     type: "enemy",
-                    attack: 25,
+                    attack: 20,
                     defense: 20,
                     order: 2,
                     category: 2
@@ -26244,14 +26243,14 @@
                 }, {
                     id: "draconic_warrior",
                     type: "enemy",
-                    attack: 18,
+                    attack: 8,
                     defense: 14,
                     order: 1,
                     category: 2
                 }, {
                     id: "draconic_diver",
                     type: "enemy",
-                    attack: 26,
+                    attack: 20,
                     defense: 10,
                     order: 2,
                     category: 4
@@ -26280,28 +26279,28 @@
                 }, {
                     id: "frost_elemental",
                     type: "enemy",
-                    attack: 24,
+                    attack: 20,
                     defense: 42,
                     order: 1,
                     category: 1
                 }, {
                     id: "fire_elemental",
                     type: "enemy",
-                    attack: 34,
+                    attack: 28,
                     defense: 28,
                     order: 1,
                     category: 1
                 }, {
                     id: "earth_elemental",
                     type: "enemy",
-                    attack: 26,
+                    attack: 20,
                     defense: 48,
                     order: 1,
                     category: 3
                 }, {
                     id: "harpy",
                     type: "enemy",
-                    attack: 8,
+                    attack: 6,
                     defense: 6,
                     order: 1,
                     category: 4
@@ -26324,21 +26323,21 @@
                 }, {
                     id: "bandit",
                     type: "enemy",
-                    attack: 4,
+                    attack: 3,
                     defense: 4,
                     order: 1,
                     category: 2
                 }, {
                     id: "barbarian_warrior",
                     type: "enemy",
-                    attack: 18,
+                    attack: 13,
                     defense: 6,
                     order: 1,
                     category: 2
                 }, {
                     id: "barbarian_chosen",
                     type: "enemy",
-                    attack: 38,
+                    attack: 30,
                     defense: 12,
                     order: 1,
                     category: 2
@@ -26375,14 +26374,14 @@
                 }, {
                     id: "ghast",
                     type: "enemy",
-                    attack: 8,
+                    attack: 6,
                     defense: 8,
                     order: 2,
                     category: 4
                 }, {
                     id: "ghoul",
                     type: "enemy",
-                    attack: 6,
+                    attack: 4,
                     defense: 5,
                     order: 1,
                     category: 2
@@ -26396,14 +26395,14 @@
                 }, {
                     id: "goblin_warrior",
                     type: "enemy",
-                    attack: 5,
+                    attack: 3,
                     defense: 4,
                     order: 2,
                     category: 2
                 }, {
                     id: "goblin_wolfrider",
                     type: "enemy",
-                    attack: 11,
+                    attack: 6,
                     defense: 7,
                     order: 2,
                     category: 4
@@ -26426,14 +26425,14 @@
                 }, {
                     id: "lizard_warrior",
                     type: "enemy",
-                    attack: 14,
+                    attack: 12,
                     defense: 12,
                     order: 1,
                     category: 2
                 }, {
                     id: "lizard_archer",
                     type: "enemy",
-                    attack: 18,
+                    attack: 13,
                     defense: 6,
                     order: 3,
                     category: 1
@@ -26454,7 +26453,7 @@
                 }, {
                     id: "katana_samurai",
                     type: "enemy",
-                    attack: 32,
+                    attack: 26,
                     defense: 28,
                     order: 1,
                     category: 2
@@ -26476,14 +26475,14 @@
                 }, {
                     id: "musket_ashigaru",
                     type: "enemy",
-                    attack: 26,
+                    attack: 22,
                     defense: 18,
                     order: 2,
                     category: 2
                 }, {
                     id: "hill_giant",
                     type: "enemy",
-                    attack: 26,
+                    attack: 20,
                     defense: 36,
                     order: 1,
                     category: 3
@@ -26512,28 +26511,28 @@
                 }, {
                     id: "troll_cave",
                     type: "enemy",
-                    attack: 18,
+                    attack: 16,
                     defense: 28,
                     order: 1,
                     category: 3
                 }, {
                     id: "deserter",
                     type: "enemy",
-                    attack: 8,
+                    attack: 7,
                     defense: 6,
                     order: 2,
                     category: 2
                 }, {
                     id: "snake",
                     type: "enemy",
-                    attack: 6,
+                    attack: 4,
                     defense: 4,
                     order: 1,
                     category: 4
                 }, {
                     id: "giant_snake",
                     type: "enemy",
-                    attack: 22,
+                    attack: 16,
                     defense: 8,
                     order: 2,
                     category: 4
@@ -26547,7 +26546,7 @@
                 }, {
                     id: "giant_spider",
                     type: "enemy",
-                    attack: 12,
+                    attack: 10,
                     defense: 8,
                     order: 2,
                     category: 4
@@ -26569,14 +26568,14 @@
                 }, {
                     id: "son_atamar",
                     type: "enemy",
-                    attack: 26,
+                    attack: 22,
                     defense: 20,
                     order: 1,
                     category: 2
                 }, {
                     id: "zombie",
                     type: "enemy",
-                    attack: 4,
+                    attack: 3,
                     defense: 3,
                     order: 1,
                     category: 3
@@ -26598,7 +26597,7 @@
                 }, {
                     id: "gnoll_raider",
                     type: "enemy",
-                    attack: 9,
+                    attack: 6,
                     defense: 5,
                     order: 1,
                     category: 2
@@ -26627,8 +26626,8 @@
                 }, {
                     id: "greater_demon",
                     type: "enemy",
-                    attack: 26,
-                    defense: 14,
+                    attack: 16,
+                    defense: 16,
                     order: 3,
                     category: 2
                 }, {
@@ -26656,14 +26655,14 @@
                 }, {
                     id: "naga",
                     type: "enemy",
-                    attack: 14,
+                    attack: 12,
                     defense: 12,
                     order: 1,
                     category: 4
                 }, {
                     id: "red_dragon",
                     type: "enemy",
-                    attack: 480,
+                    attack: 280,
                     defense: 180,
                     order: 3,
                     cap: 1,
@@ -26679,7 +26678,7 @@
                 }, {
                     id: "vampire_bat",
                     type: "enemy",
-                    attack: 3,
+                    attack: 2,
                     defense: 1,
                     order: 1,
                     category: 4
@@ -26701,14 +26700,14 @@
                 }, {
                     id: "wind_elemental",
                     type: "enemy",
-                    attack: 26,
+                    attack: 22,
                     defense: 42,
                     order: 1,
                     category: 1
                 }, {
                     id: "wolf",
                     type: "enemy",
-                    attack: 6,
+                    attack: 4,
                     defense: 4,
                     order: 1,
                     category: 4
@@ -26747,7 +26746,7 @@
                 }, {
                     id: "ancient_hideout",
                     found: [12, 13],
-                    esp: 6,
+                    esp: 5,
                     level: 1,
                     army: [{
                         id: "bandit",
@@ -26783,7 +26782,7 @@
                 }, {
                     id: "barbarian_camp",
                     found: [2],
-                    esp: 6,
+                    esp: 7,
                     level: 2,
                     army: [{
                         id: "barbarian_warrior",
@@ -26839,7 +26838,7 @@
                 }, {
                     id: "barren_hills",
                     found: [5],
-                    esp: 10,
+                    esp: 13,
                     level: 3,
                     army: [{
                         id: "hill_giant",
@@ -26934,7 +26933,7 @@
                 }, {
                     id: "bugbear_tribe",
                     found: [9],
-                    esp: 12,
+                    esp: 8,
                     level: 2,
                     army: [{
                         id: "bugbear",
@@ -27038,7 +27037,7 @@
                 }, {
                     id: "deserters_den",
                     found: [10],
-                    esp: 18,
+                    esp: 16,
                     level: 3,
                     army: [{
                         id: "bandit",
@@ -27125,7 +27124,7 @@
                 }, {
                     id: "hell_hole",
                     found: [12],
-                    esp: 48,
+                    esp: 42,
                     level: 5,
                     reqFound: [{
                         type: "prayer",
@@ -27163,7 +27162,7 @@
                 }, {
                     id: "east_sacred_place",
                     found: [13, 14],
-                    esp: 22,
+                    esp: 32,
                     level: 5,
                     reqFound: [{
                         type: "prayer",
@@ -27285,7 +27284,7 @@
                 }, {
                     id: "gnoll_camp",
                     found: [17, 18],
-                    esp: 22,
+                    esp: 37,
                     level: 5,
                     reqFound: [{
                         type: "tech",
@@ -27311,7 +27310,7 @@
                 }, {
                     id: "harpy_nest",
                     found: [18],
-                    esp: 12,
+                    esp: 8,
                     level: 2,
                     army: [{
                         id: "harpy",
@@ -27333,7 +27332,7 @@
                 }, {
                     id: "haunted_library",
                     found: [5],
-                    esp: 5,
+                    esp: 4,
                     level: 1,
                     army: [{
                         id: "ghost",
@@ -27383,7 +27382,7 @@
                 }, {
                     id: "lich_temple",
                     found: [19],
-                    esp: 48,
+                    esp: 31,
                     level: 4,
                     reqFound: [{
                         type: "tech",
@@ -27420,7 +27419,7 @@
                 }, {
                     id: "kobold_city",
                     found: [14],
-                    esp: 28,
+                    esp: 18,
                     level: 3,
                     reqFound: [{
                         type: "tech",
@@ -27448,7 +27447,7 @@
                 }, {
                     id: "kobold_underground_tunnels",
                     found: [20],
-                    esp: 10,
+                    esp: 9,
                     level: 2,
                     army: [{
                         id: "kobold",
@@ -27527,7 +27526,7 @@
                 }, {
                     id: "mountain_cave",
                     found: [22],
-                    esp: 24,
+                    esp: 17,
                     level: 3,
                     army: [{
                         id: "mountain_giant",
@@ -27556,7 +27555,7 @@
                 }, {
                     id: "naga_nest",
                     found: [23],
-                    esp: 12,
+                    esp: 8,
                     level: 2,
                     army: [{
                         id: "naga",
@@ -27574,7 +27573,7 @@
                 }, {
                     id: "djinn_palace",
                     found: [25],
-                    esp: 42,
+                    esp: 32,
                     level: 4,
                     reqFound: [{
                         type: "prayer",
@@ -27600,7 +27599,7 @@
                 }, {
                     id: "necromancer_crypt",
                     found: [26],
-                    esp: 12,
+                    esp: 14,
                     level: 3,
                     army: [{
                         id: "ghoul",
@@ -27629,7 +27628,7 @@
                 }, {
                     id: "north_sacred_place",
                     found: [27],
-                    esp: 22,
+                    esp: 32,
                     level: 5,
                     reqFound: [{
                         type: "prayer",
@@ -27652,7 +27651,7 @@
                 }, {
                     id: "mercenary_camp",
                     found: [28],
-                    esp: 22,
+                    esp: 32,
                     level: 3,
                     army: [{
                         id: "mercenary_veteran",
@@ -27670,7 +27669,7 @@
                 }, {
                     id: "myconid_cavern",
                     found: [29],
-                    esp: 4,
+                    esp: 14,
                     level: 3,
                     army: [{
                         id: "myconid",
@@ -27754,7 +27753,7 @@
                 }, {
                     id: "skullface_encampment",
                     found: [1, 2],
-                    esp: 10,
+                    esp: 13,
                     level: 3,
                     reqFound: [{
                         type: "tech",
@@ -27806,7 +27805,7 @@
                 }, {
                     id: "spider_forest",
                     found: [31],
-                    esp: 8,
+                    esp: 13,
                     level: 3,
                     army: [{
                         id: "spider",
@@ -27827,7 +27826,7 @@
                 }, {
                     id: "son_atamar",
                     found: [21],
-                    esp: 22,
+                    esp: 32,
                     level: 5,
                     reqFound: [{
                         type: "tech",
@@ -27858,7 +27857,7 @@
                 }, {
                     id: "strange_village",
                     found: [32],
-                    esp: 4,
+                    esp: 17,
                     level: 3,
                     army: [{
                         id: "charmed_dweller",
@@ -27872,7 +27871,7 @@
                 }, {
                     id: "south_sacred_place",
                     found: [33, 34],
-                    esp: 22,
+                    esp: 32,
                     level: 5,
                     reqFound: [{
                         type: "prayer",
@@ -27913,7 +27912,7 @@
                 }, {
                     id: "west_sacred_place",
                     found: [37, 38],
-                    esp: 22,
+                    esp: 32,
                     level: 5,
                     reqFound: [{
                         type: "prayer",
@@ -27940,7 +27939,7 @@
                     level: 1,
                     army: [{
                         id: "wolf",
-                        value: 11
+                        value: 9
                     }],
                     gen: [{
                         type: "resource",
@@ -27950,7 +27949,7 @@
                 }, {
                     id: "wyvern_nest",
                     found: [36],
-                    esp: 10,
+                    esp: 12,
                     level: 3,
                     army: [{
                         id: "wyvern",
@@ -28043,7 +28042,7 @@
                 }, {
                     id: "vampire_crypt",
                     found: [35, 36],
-                    esp: 15,
+                    esp: 35,
                     level: 5,
                     reqFound: [{
                         type: "tech",
@@ -28134,15 +28133,15 @@
                     alliance: [{
                         type: "resource",
                         id: "wood",
-                        value: 6
+                        value: 4
                     }, {
                         type: "resource",
                         id: "stone",
-                        value: 6
+                        value: 4
                     }, {
                         type: "cap",
                         id: "army",
-                        value: 10
+                        value: 5
                     }],
                     army: [{
                         id: "archer",
@@ -28207,15 +28206,15 @@
                     alliance: [{
                         type: "resource",
                         id: "food",
-                        value: 7
+                        value: 5
                     }, {
                         type: "resource",
                         id: "horse",
-                        value: .7
+                        value: .5
                     }, {
                         type: "cap",
                         id: "army",
-                        value: 10
+                        value: 5
                     }],
                     army: [{
                         id: "archer",
@@ -28285,19 +28284,19 @@
                     alliance: [{
                         type: "resource",
                         id: "copper",
-                        value: 3
+                        value: 2
                     }, {
                         type: "resource",
                         id: "iron",
-                        value: 1.5
+                        value: 1
                     }, {
                         type: "resource",
                         id: "tools",
-                        value: 3
+                        value: 1
                     }, {
                         type: "cap",
                         id: "army",
-                        value: 15
+                        value: 5
                     }],
                     army: [{
                         id: "crossbowman",
@@ -28377,7 +28376,7 @@
                     }, {
                         type: "resource",
                         id: "mana",
-                        value: 10
+                        value: 5
                     }, {
                         type: "cap",
                         id: "army",
@@ -28452,15 +28451,15 @@
                     alliance: [{
                         type: "resource",
                         id: "mana",
-                        value: 20
+                        value: 10
                     }, {
                         type: "resource",
                         id: "saltpetre",
-                        value: 5
+                        value: 2
                     }, {
                         type: "cap",
                         id: "army",
-                        value: 25
+                        value: 15
                     }],
                     army: [{
                         id: "lizard_warrior",
@@ -28488,7 +28487,7 @@
                     }, {
                         type: "resource",
                         id: "saltpetre",
-                        value: 12,
+                        value: 10,
                         perc: !0
                     }]
                 }, {
@@ -28536,15 +28535,15 @@
                     alliance: [{
                         type: "resource",
                         id: "building_material",
-                        value: 2
+                        value: 1.5
                     }, {
                         type: "resource",
                         id: "supplies",
-                        value: 1.5
+                        value: 1
                     }, {
                         type: "cap",
                         id: "army",
-                        value: 25
+                        value: 15
                     }],
                     army: [{
                         id: "draconic_warrior",
@@ -28620,15 +28619,15 @@
                     alliance: [{
                         type: "resource",
                         id: "natronite",
-                        value: 4
+                        value: 2
                     }, {
                         type: "resource",
                         id: "steel",
-                        value: 3
+                        value: 2
                     }, {
                         type: "cap",
                         id: "army",
-                        value: 30
+                        value: 15
                     }],
                     army: [{
                         id: "musket_ashigaru",
@@ -28770,7 +28769,7 @@
                         value: 1
                     }, {
                         id: "draconic_warrior",
-                        value: 120
+                        value: 100
                     }]
                 }, {
                     id: "fallen_angel_army_1",
@@ -28781,7 +28780,7 @@
                         value: 1
                     }, {
                         id: "demonic_musketeer",
-                        value: 210
+                        value: 120
                     }]
                 }, {
                     id: "fallen_angel_army_2",
@@ -28792,10 +28791,10 @@
                         value: 1
                     }, {
                         id: "lesser_demon",
-                        value: 230
+                        value: 150
                     }, {
                         id: "greater_demon",
-                        value: 110
+                        value: 100
                     }]
                 }],
                 Ke = function () {
@@ -28807,8 +28806,8 @@
                             WDS_SOCKET_PATH: void 0,
                             WDS_SOCKET_PORT: void 0,
                             FAST_REFRESH: !0,
-                            REACT_APP_VERSION: "0.42.2"
-                        }.REACT_APP_DEV ? 1e3 : 6e4, this.progressScout = 0, this.progressAttack = 0, this.progressSpy = 0, this.dCombat = !1, this.exploreInProgress = !1, this.attackInProgress = !1, this.spyInProgress = !1, this.lastBattleLog = [], this._foundKingdom = !1, this._foundEnemyCount = 0, this.MainStore = t, (0, s.rC)(this, {
+                            REACT_APP_VERSION: "0.42.3"
+                        }.REACT_APP_DEV ? 1e3 : 6e4, this.progressScout = 0, this.progressAttack = 0, this.progressSpy = 0, this.armyStepQty = (0, Le.qn)("armyQty", 1), this.dCombat = !1, this.exploreInProgress = !1, this.attackInProgress = !1, this.spyInProgress = !1, this.lastBattleLog = [], this._foundKingdom = !1, this._foundEnemyCount = 0, this.MainStore = t, (0, s.rC)(this, {
                             dCombat: s.LO,
                             selectedTab: s.LO,
                             selectTab: s.aD,
@@ -28821,6 +28820,7 @@
                             exploreInProgress: s.LO,
                             attackInProgress: s.LO,
                             spyInProgress: s.LO,
+                            armyStepQty: s.LO,
                             cap: s.Fl,
                             ownedCount: s.Fl,
                             defenseCount: s.Fl,
@@ -28862,6 +28862,7 @@
                             processDefense: s.aD,
                             updateFlag: s.aD,
                             updateFlagB: s.aD,
+                            setArmyStepQty: s.aD,
                             toggleDCombat: s.aD
                         })
                     }
@@ -29356,7 +29357,7 @@
                             void 0 === t && (t = Be.find((function (t) {
                                 return t.id === e.MainStore.run.enemy
                             })));
-                            var r = this._checkCategories(t),
+                            var r = this._checkCategories(t, "attack"),
                                 n = 0,
                                 a = [];
                             this.MainStore.run.army.forEach((function (t) {
@@ -29421,7 +29422,7 @@
                                 r = Be.find((function (t) {
                                     return t.id === e
                                 })),
-                                n = this._checkCategories(r),
+                                n = this._checkCategories(r, "defense"),
                                 a = 0,
                                 i = [];
                             this.MainStore.run.army.forEach((function (e) {
@@ -29467,7 +29468,7 @@
                             return a > 0 && s.forEach((function (e) {
                                 a > e.defense ? (u.push(e.id), a -= e.defense) : a = 0
                             })), o > 0 && (a = 0), this.dCombat || Fe("event", "defense", e, a > 0 ? 1 : 0), a > 0 || this.dCombat || this.MainStore.run.resources.forEach((function (e) {
-                                "legacy" !== e.id && "fame" !== e.id && t.MainStore.ResourcesStore.setResource(e.id, 0)
+                                "legacy" !== e.id && "fame" !== e.id && "relic" !== e.id && "coin" !== e.id && "tome_wisdom" !== e.id && t.MainStore.ResourcesStore.setResource(e.id, 0)
                             })), l.length > 0 && (this.dCombat || l.forEach((function (e) {
                                 t.destroyArmy(e, 1, "army", !0)
                             }))), this._battleLog(a, l, u, (0, Ae.K)("dip_" + e)), this.MainStore.save(), a > 0
@@ -29480,20 +29481,20 @@
                         }
                     }, {
                         key: "_checkCategories",
-                        value: function (e) {
-                            var t = new Set,
-                                r = new Set;
+                        value: function (e, t) {
+                            var r = new Set,
+                                n = new Set;
                             return this.MainStore.run.army.forEach((function (e) {
-                                var r = Ze.findIndex((function (t) {
+                                var n = Ze.findIndex((function (t) {
                                     return t.id === e.id
                                 }));
-                                "army" === Ze[r].type && e.away > 0 && t.add(Ze[r].category)
+                                "army" === Ze[n].type && ("attack" === t && e.away > 0 || "defense" === t && e.value - e.away > 0) && r.add(Ze[n].category)
                             })), e.army.forEach((function (e) {
                                 var t = Ze.findIndex((function (t) {
                                     return t.id === e.id
                                 }));
-                                r.add(Ze[t].category)
-                            })), [t, r]
+                                n.add(Ze[t].category)
+                            })), [r, n]
                         }
                     }, {
                         key: "_calcArmyStats",
@@ -29541,6 +29542,11 @@
                                 })), this.MainStore.addLog(s, i, !0, !1), this.lastBattleLog.push(s), this.MainStore.StatsStore.updateStat("kill", u), l += s
                             }
                             e > 0 ? (s = (0, Ae.K)("victory"), this.MainStore.addNotification((0, Ae.K)("victory") + "" + l, "battle", "green", !1, !0, !1, n)) : (s = (0, Ae.K)("defeat"), this.MainStore.addNotification((0, Ae.K)("defeat") + "" + l, "battle", "red", !1, !0, !1, n)), this.MainStore.addLog(n + "：" + s, i, !0, !1), this.lastBattleLog.push(s), this.MainStore.addLog("~~~~~~~~~~", a, !0, !1), this.lastBattleLog.reverse()
+                        }
+                    }, {
+                        key: "addArmyQty",
+                        value: function (e) {
+                            for (var t = 0; t < this.armyStepQty; t++) this.addArmy(e)
                         }
                     }, {
                         key: "addArmy",
@@ -29693,6 +29699,11 @@
                         key: "updateFlagB",
                         value: function (e, t) {
                             this.MainStore.run.flagb = e, this.MainStore.run.boss = t, this.MainStore.saveThrottle()
+                        }
+                    }, {
+                        key: "setArmyStepQty",
+                        value: function (e) {
+                            this.armyStepQty = e, localStorage.setItem("armyQty", JSON.stringify(this.armyStepQty))
                         }
                     }, {
                         key: "toggleDCombat",
@@ -29910,7 +29921,7 @@
                     }, {
                         type: "population",
                         id: "unemployed",
-                        value: 6
+                        value: 5
                     }]
                 }, {
                     id: "gan_eden",
@@ -29958,14 +29969,14 @@
                     }, {
                         type: "resource",
                         id: "food",
-                        value: 2
+                        value: 1
                     }, {
                         type: "modifier",
                         type_id: "population",
                         id: "farmer",
                         type_gen: "resource",
                         gen: "food",
-                        value: 4,
+                        value: 2,
                         perc: !0
                     }, {
                         type: "cap",
@@ -30039,7 +30050,7 @@
                     gen: [{
                         type: "resource",
                         id: "food",
-                        value: .3
+                        value: .2
                     }, {
                         type: "resource",
                         id: "food",
@@ -30192,12 +30203,12 @@
                     req: [{
                         type: "resource",
                         id: "gold",
-                        value: 600,
+                        value: 500,
                         multi: 1.3
                     }, {
                         type: "resource",
                         id: "wood",
-                        value: 600,
+                        value: 500,
                         multi: 1.3
                     }, {
                         type: "resource",
@@ -30242,12 +30253,12 @@
                     }, {
                         type: "resource",
                         id: "wood",
-                        value: 600,
+                        value: 750,
                         multi: 1.7
                     }, {
                         type: "resource",
                         id: "tools",
-                        value: 250,
+                        value: 350,
                         multi: 1.5
                     }, {
                         type: "tech",
@@ -30261,11 +30272,11 @@
                     gen: [{
                         type: "resource",
                         id: "cow",
-                        value: .5
+                        value: .3
                     }, {
                         type: "resource",
                         id: "horse",
-                        value: .3
+                        value: .2
                     }, {
                         type: "modifier",
                         type_id: "population",
@@ -30281,7 +30292,7 @@
                     }, {
                         type: "cap",
                         id: "horse",
-                        value: 60
+                        value: 80
                     }]
                 }, {
                     id: "fiefdom",
@@ -30451,32 +30462,32 @@
                         type: "resource",
                         id: "gold",
                         value: 1400,
-                        multi: 2
+                        multi: 1.8
                     }, {
                         type: "resource",
                         id: "wood",
                         value: 800,
-                        multi: 2
+                        multi: 1.8
                     }, {
                         type: "resource",
                         id: "stone",
                         value: 600,
-                        multi: 2
+                        multi: 1.8
                     }, {
                         type: "resource",
                         id: "copper",
                         value: 100,
-                        multi: 2
+                        multi: 1.8
                     }, {
                         type: "resource",
                         id: "iron",
                         value: 50,
-                        multi: 2
+                        multi: 1.8
                     }, {
                         type: "resource",
                         id: "tools",
                         value: 150,
-                        multi: 2
+                        multi: 1.8
                     }, {
                         type: "tech",
                         id: "metal_casting",
@@ -30489,15 +30500,15 @@
                     gen: [{
                         type: "resource",
                         id: "tools",
-                        value: 2
+                        value: 1.2
                     }, {
                         type: "resource",
                         id: "copper",
-                        value: 2
+                        value: 1.2
                     }, {
                         type: "resource",
                         id: "iron",
-                        value: 1
+                        value: .5
                     }, {
                         type: "cap",
                         id: "copper",
@@ -30676,19 +30687,19 @@
                     gen: [{
                         type: "resource",
                         id: "building_material",
-                        value: .3
+                        value: .2
                     }, {
                         type: "resource",
                         id: "steel",
-                        value: .3
+                        value: .2
                     }, {
                         type: "resource",
                         id: "crystal",
-                        value: .2
+                        value: .1
                     }, {
                         type: "resource",
                         id: "supplies",
-                        value: .2
+                        value: .1
                     }]
                 }, {
                     id: "alchemic_laboratory",
@@ -31037,42 +31048,42 @@
                     gen: [{
                         type: "resource",
                         id: "gold",
-                        value: 3,
+                        value: 2,
                         perc: !0
                     }, {
                         type: "resource",
                         id: "wood",
-                        value: 3,
+                        value: 2,
                         perc: !0
                     }, {
                         type: "resource",
                         id: "stone",
-                        value: 3,
+                        value: 2,
                         perc: !0
                     }, {
                         type: "resource",
                         id: "copper",
-                        value: 3,
+                        value: 2,
                         perc: !0
                     }, {
                         type: "resource",
                         id: "iron",
-                        value: 3,
+                        value: 2,
                         perc: !0
                     }, {
                         type: "resource",
                         id: "tools",
-                        value: 3,
+                        value: 2,
                         perc: !0
                     }, {
                         type: "resource",
                         id: "faith",
-                        value: 3,
+                        value: 2,
                         perc: !0
                     }, {
                         type: "resource",
                         id: "mana",
-                        value: 3,
+                        value: 2,
                         perc: !0
                     }]
                 }, {
@@ -31175,7 +31186,7 @@
                     gen: [{
                         type: "resource",
                         id: "research",
-                        value: 2
+                        value: 5
                     }, {
                         type: "resource",
                         id: "faith",
@@ -31502,7 +31513,7 @@
                     gen: [{
                         type: "cap",
                         id: "army",
-                        value: 5
+                        value: 3
                     }]
                 }, {
                     id: "castrum_militia",
@@ -31787,7 +31798,7 @@
                     }, {
                         type: "resource",
                         id: "mana",
-                        value: 4
+                        value: 2
                     }]
                 }, {
                     id: "minefield",
@@ -31887,7 +31898,7 @@
                     }, {
                         type: "cap",
                         id: "army",
-                        value: 12
+                        value: 10
                     }]
                 }, {
                     id: "officer_training_ground",
@@ -31946,7 +31957,7 @@
                     }, {
                         type: "cap",
                         id: "army",
-                        value: 7
+                        value: 5
                     }]
                 }, {
                     id: "natronite_shield",
@@ -33121,7 +33132,7 @@
                     gen: [{
                         type: "cap",
                         id: "gold",
-                        value: 25e3
+                        value: 17500
                     }]
                 }, {
                     id: "credit_union",
@@ -33238,7 +33249,7 @@
                     gen: [{
                         type: "cap",
                         id: "army",
-                        value: 10
+                        value: 15
                     }, {
                         type: "building",
                         id: "harvest_shrine",
@@ -33363,11 +33374,11 @@
                     gen: [{
                         type: "resource",
                         id: "faith",
-                        value: 1.5
+                        value: 1.2
                     }, {
                         type: "resource",
                         id: "mana",
-                        value: 1.5
+                        value: 1.2
                     }, {
                         type: "cap",
                         id: "faith",
@@ -33776,11 +33787,11 @@
                     gen: [{
                         type: "resource",
                         id: "gold",
-                        value: 5
+                        value: 4
                     }, {
                         type: "resource",
                         id: "food",
-                        value: 5
+                        value: 4
                     }]
                 }, {
                     id: "store",
@@ -34262,7 +34273,7 @@
                             var t = this.MainStore.run.diplomacy.findIndex((function (t) {
                                 return t.id === e
                             }));
-                            this.MainStore.run.diplomacy[t].war = 1, this.MainStore.run.enemy = e, Fe("event", "war", e, this.MainStore.StatsStore.resetNumber)
+                            this.MainStore.run.diplomacy[t].war = 1, this.MainStore.ArmyStore.progressAttack <= 0 && (this.MainStore.run.enemy = e), Fe("event", "war", e, this.MainStore.StatsStore.resetNumber)
                         }
                     }, {
                         key: "alliance",
@@ -35994,6 +36005,9 @@
                             ownedLegacies: s.Fl,
                             legacyAvailable: s.Fl,
                             legacyValueSelected: s.Fl,
+                            relicValueSelected: s.Fl,
+                            coinValueSelected: s.Fl,
+                            tomeValueSelected: s.Fl,
                             softResetTitle: s.LO,
                             softResetDescription: s.LO,
                             showSoftReset: s.LO,
@@ -36055,7 +36069,8 @@
                         get: function () {
                             var e = this;
                             return et.filter((function (t) {
-                                return !(e.MainStore.ResourcesStore.legacy - e.legacyValueSelected - e._getLegacyCost(t.id) < 0) && e.MainStore.ReqGenStore.checkReq("legacy", t.id, t)
+                                var r = e._getLegacyCosts(t.id);
+                                return !(e.MainStore.ResourcesStore.legacy - e.legacyValueSelected - r[0] < 0) && (!(e.MainStore.ResourcesStore.relic - e.relicValueSelected - r[1] < 0) && (!(e.MainStore.ResourcesStore.coin - e.coinValueSelected - r[2] < 0) && (!(e.MainStore.ResourcesStore.tome_wisdom - e.tomeValueSelected - r[3] < 0) && e.MainStore.ReqGenStore.checkReq("legacy", t.id, t))))
                             }))
                         }
                     }, {
@@ -36077,7 +36092,38 @@
                             var e = this,
                                 t = 0;
                             return this.selectedLegacies.forEach((function (r) {
-                                t += e._getLegacyCost(r)
+                                var n = e._getLegacyCosts(r);
+                                t += n[0]
+                            })), t
+                        }
+                    }, {
+                        key: "relicValueSelected",
+                        get: function () {
+                            var e = this,
+                                t = 0;
+                            return this.selectedLegacies.forEach((function (r) {
+                                var n = e._getLegacyCosts(r);
+                                t += n[1]
+                            })), t
+                        }
+                    }, {
+                        key: "coinValueSelected",
+                        get: function () {
+                            var e = this,
+                                t = 0;
+                            return this.selectedLegacies.forEach((function (r) {
+                                var n = e._getLegacyCosts(r);
+                                t += n[2]
+                            })), t
+                        }
+                    }, {
+                        key: "tomeValueSelected",
+                        get: function () {
+                            var e = this,
+                                t = 0;
+                            return this.selectedLegacies.forEach((function (r) {
+                                var n = e._getLegacyCosts(r);
+                                t += n[3]
                             })), t
                         }
                     }, {
@@ -36194,14 +36240,31 @@
                             this.MainStore.updateDonation(i)
                         }
                     }, {
-                        key: "_getLegacyCost",
+                        key: "_getLegacyCosts",
                         value: function (e) {
-                            var t = et.find((function (t) {
-                                return t.id === e
-                            })).req.find((function (e) {
-                                return "resource" === e.type && "legacy" === e.id
+                            var t = 0,
+                                r = 0,
+                                n = 0,
+                                a = 0,
+                                i = et.find((function (t) {
+                                    return t.id === e
+                                })),
+                                o = i.req.find((function (e) {
+                                    return "resource" === e.type && "legacy" === e.id
+                                }));
+                            "undefined" !== typeof o && (t = o.value);
+                            var s = i.req.find((function (e) {
+                                return "resource" === e.type && "relic" === e.id
                             }));
-                            return "undefined" === typeof t ? 0 : t.value
+                            "undefined" !== typeof s && (r = s.value);
+                            var l = i.req.find((function (e) {
+                                return "resource" === e.type && "coin" === e.id
+                            }));
+                            "undefined" !== typeof l && (n = l.value);
+                            var u = i.req.find((function (e) {
+                                return "resource" === e.type && "tome_wisdom" === e.id
+                            }));
+                            return "undefined" !== typeof u && (a = u.value), [t, r, n, a]
                         }
                     }]), e
                 }(),
@@ -37815,7 +37878,7 @@
                     }, {
                         type: "modifier",
                         type_id: "army",
-                        id: "spearman",
+                        id: "cleric",
                         type_gen: "stat",
                         gen: "defense",
                         value: 5,
@@ -41693,7 +41756,7 @@
                 _t = mt,
                 gt = function () {
                     function e(t) {
-                        (0, a.Z)(this, e), this.MainStore = void 0, this.addResourceManual = l(100, this.addResourceManualThrottle, {
+                        (0, a.Z)(this, e), this.MainStore = void 0, this.checkEmptyMana = 0, this.addResourceManual = l(100, this.addResourceManualThrottle, {
                             noTrailing: !0
                         }), this.MainStore = t, (0, s.rC)(this, {
                             showManual: s.Fl,
@@ -41768,8 +41831,7 @@
                     }, {
                         key: "getTimerValue",
                         value: function (e) {
-                            if (0 === this.food && "food" !== e.id) return 0;
-                            this.mana <= 0 && this.MainStore.MagicStore.emptySpells();
+                            if (this.mana <= 0 ? this.checkEmptyMana >= 50 ? (this.checkEmptyMana = 0, this.MainStore.MagicStore.emptySpells()) : this.checkEmptyMana++ : this.checkEmptyMana = 0, 0 === this.food && "food" !== e.id) return 0;
                             var t = 0;
                             return e.timer && 0 !== e.timer && (t += e.timer), t += this.MainStore.ModifiersStore.getModifiersValue(e.id), e.perc && 0 !== e.perc && t > 0 && (t += t * e.perc / 100), t > 0 && "tome_wisdom" !== e.id && "relic" !== e.id && "coin" !== e.id && (t += t * (2 * this.MainStore.StatsStore.resetNumber) / 100), e.timern && 0 !== e.timern && (t += e.timern), t = Math.round(100 * t) / 100
                         }
@@ -42126,7 +42188,7 @@
             var Et = function () {
                     function e() {
                         var t = this;
-                        (0, a.Z)(this, e), this.version = (0, Le.JC)("0.42.2"), this.intervalMs = 250, this.intervalRandomAttackDice = 8800, this.lastInterval = 0, this.save = l(2e3, this.saveThrottle), this.ads = !1, this.isPWA = !1, this.isTWA = !1, this.idxs = (0, n.Z)({}, (0, Le.qn)("idxs", Ot)), this.run = (0, n.Z)({}, (0, Le.qn)("run", Tt)), this.achievements = (0, Le.qn)("ach", []), this.stats = (0, Le.qn)("stats", []), this.legacies = (0, Le.qn)("leg", []), this.selectedTab = 0, this.logs = (0, Le.qn)("logs", []), this.logData = !1, this.sD = !1, this.softResetInProgress = !1, this.firstStart = !0, this.keyPress = "", this.confirmShow = !1, this.confirmTitle = "", this.confirmText = "", this.confirmType = "", this.confirmCancel = void 0, this.confirmOk = void 0, this.imageNotificationShow = !1, this.imageNotificationKey = "", this.imageNotificationTitle = "", this.imageNotificationText = "", this.imageNotificationType = "", this.showSupport = !1, this.AchievementsStore = void 0, this.AdsStore = void 0, this.AncestorsStore = void 0, this.ArmyStore = void 0, this.BuildingsStore = void 0, this.DiplomacyStore = void 0, this.LegacyStore = void 0, this.MagicStore = void 0, this.MarketStore = void 0, this.ModifiersStore = void 0, this.PopulationStore = void 0, this.ReqGenStore = void 0, this.ResourcesStore = void 0, this.SettingsStore = void 0, this.StatsStore = void 0, this.TechsStore = void 0, this.swRegistration = void 0, this.workerInstance = void 0, this.defaultNumberFormat = new Intl.NumberFormat, this.bigNumberFormat = new Intl.NumberFormat(void 0, {
+                        (0, a.Z)(this, e), this.version = (0, Le.JC)("0.42.3"), this.intervalMs = 250, this.intervalRandomAttackDice = 8800, this.lastInterval = 0, this.save = l(2e3, this.saveThrottle), this.ads = !1, this.isPWA = !1, this.isTWA = !1, this.idxs = (0, n.Z)({}, (0, Le.qn)("idxs", Ot)), this.run = (0, n.Z)({}, (0, Le.qn)("run", Tt)), this.achievements = (0, Le.qn)("ach", []), this.stats = (0, Le.qn)("stats", []), this.legacies = (0, Le.qn)("leg", []), this.selectedTab = 0, this.logs = (0, Le.qn)("logs", []), this.logData = !1, this.sD = !1, this.softResetInProgress = !1, this.firstStart = !0, this.keyPress = "", this.confirmShow = !1, this.confirmTitle = "", this.confirmText = "", this.confirmType = "", this.confirmCancel = void 0, this.confirmOk = void 0, this.imageNotificationShow = !1, this.imageNotificationKey = "", this.imageNotificationTitle = "", this.imageNotificationText = "", this.imageNotificationType = "", this.showSupport = !1, this.AchievementsStore = void 0, this.AdsStore = void 0, this.AncestorsStore = void 0, this.ArmyStore = void 0, this.BuildingsStore = void 0, this.DiplomacyStore = void 0, this.LegacyStore = void 0, this.MagicStore = void 0, this.MarketStore = void 0, this.ModifiersStore = void 0, this.PopulationStore = void 0, this.ReqGenStore = void 0, this.ResourcesStore = void 0, this.SettingsStore = void 0, this.StatsStore = void 0, this.TechsStore = void 0, this.swRegistration = void 0, this.workerInstance = void 0, this.defaultNumberFormat = new Intl.NumberFormat, this.bigNumberFormat = new Intl.NumberFormat(void 0, {
                             minimumFractionDigits: 1
                         }), this.twoNumberFormat = new Intl.NumberFormat(void 0, {
                             minimumFractionDigits: 2,
@@ -42305,7 +42367,7 @@
                     }, {
                         key: "saveThrottle",
                         value: function () {
-                            this.logData && (console.log((0, s.ZN)(this.run)), console.log((0, s.ZN)(this.legacies))), localStorage.setItem("idxs", JSON.stringify(this.idxs)), localStorage.setItem("run", JSON.stringify(this.run)), localStorage.setItem("ach", JSON.stringify(this.achievements)), localStorage.setItem("stats", JSON.stringify(this.stats)), localStorage.setItem("leg", JSON.stringify(this.legacies))
+                            this.logData && (console.log((0, s.ZN)(this.run)), console.log((0, s.ZN)(this.legacies)), console.log(this.ResourcesStore.resourceValue("relic")), console.log(this.ResourcesStore.resourceValue("coin")), console.log(this.ResourcesStore.resourceValue("tome_wisdom"))), localStorage.setItem("idxs", JSON.stringify(this.idxs)), localStorage.setItem("run", JSON.stringify(this.run)), localStorage.setItem("ach", JSON.stringify(this.achievements)), localStorage.setItem("stats", JSON.stringify(this.stats)), localStorage.setItem("leg", JSON.stringify(this.legacies))
                         }
                     }, {
                         key: "showConfirm",
@@ -42351,7 +42413,7 @@
                                 WDS_SOCKET_PATH: void 0,
                                 WDS_SOCKET_PORT: void 0,
                                 FAST_REFRESH: !0,
-                                REACT_APP_VERSION: "0.42.2"
+                                REACT_APP_VERSION: "0.42.3"
                             }).REACT_APP_DEV && (E(".", (function () {
                                 e.AdsStore.checkAvailableAd()
                             })), E(",", (function () {
@@ -42824,7 +42886,7 @@
                                             WDS_SOCKET_PATH: void 0,
                                             WDS_SOCKET_PORT: void 0,
                                             FAST_REFRESH: !0,
-                                            REACT_APP_VERSION: "0.42.2"
+                                            REACT_APP_VERSION: "0.42.3"
                                         }.REACT_APP_DEV ? (0, Ce.jsx)("button", {
                                             type: "button",
                                             className: "py-1.5 px-3 text-red-600",
@@ -42987,7 +43049,13 @@
                                                     className: "btn xl:text-xs 3xl:text-sm btn-red !bg-red-800 dark:!bg-red-500 hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
                                                     onClick: this.handleSoftReset4,
                                                     children: (0, Ae.K)("ascension")
-                                                }) : s ? (0, Ce.jsx)("div", {
+                                                }) : s ? r > 1 ? (0, Ce.jsx)("button", {
+                                                    type: "button",
+                                                    className: "btn xl:text-xs 3xl:text-sm btn-off !text-red-900 dark:!text-red-100 border-red-800 dark:border-red-500 btn-progress-manual btn-progress-red cursor-pointer",
+                                                    id: "btn-progress-mausoleum",
+                                                    onClick: this.handleMausoleum,
+                                                    children: (0, Ae.K)("bui_mausoleum_gods")
+                                                }) : (0, Ce.jsx)("div", {
                                                     children: (0, Ce.jsx)("button", {
                                                         type: "button",
                                                         className: "btn xl:text-xs 3xl:text-sm btn-off !text-red-900 dark:!text-red-100 border-red-800 dark:border-red-500 btn-progress-manual btn-progress-red cursor-pointer",
@@ -43273,7 +43341,7 @@
                                         type: "button",
                                         className: n,
                                         onClick: this.handleAdd,
-                                        children: [(0, Ae.K)("bui_" + this.props.id), this.props.qty > 0 && !this.state.progress && !e ? (0, Ce.jsx)("span", {
+                                        children: [(0, Ae.K)("bui_" + this.props.id), this.props.qty > 0 && !this.state.progress && (!e || e && this.props.qty > 1) ? (0, Ce.jsx)("span", {
                                             className: "absolute -top-2 right-0 inline-block py-px px-2 rounded-full font-bold text-xs bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
                                             children: this.props.qty
                                         }) : null]
@@ -43557,7 +43625,7 @@
                 }(o.Component),
                 hr = (0, t.f3)("MainStore")((0, t.Pi)(fr)),
                 yr = o.lazy((function () {
-                    return r.e(539).then(r.bind(r, 3539))
+                    return r.e(115).then(r.bind(r, 4115))
                 })),
                 mr = o.lazy((function () {
                     return r.e(124).then(r.bind(r, 2124))
@@ -43914,6 +43982,9 @@
                     }), "")
                 },
                 Or = [{
+                    version: "0.42.3",
+                    changes: ["Added buttons to build more units at once", "Minor balance of buildings", "Minor balance of the army", "Balance of enemies and bosses", "Bug fixes"]
+                }, {
                     version: "0.42.2",
                     changes: ["Enemies' difficulty is now visible", "Added more information from the partial success of a spy", "Added more prayers", "Added the Flame of Atamar", "Army of the Dead is now stronger", "Skullface is now stronger", "Commander is now stronger", "Monks are now in the first row of battles", "Minor balancing of units", "Fixed tooltips placements", "Fixed minor bugs", "Fixed typos"]
                 }, {
@@ -44314,14 +44385,14 @@
                                                                             }), (0, Ce.jsxs)("div", {
                                                                                 className: "w-full text-center text-gray-500 cursor-pointer text-sm",
                                                                                 onClick: this.showChangelog,
-                                                                                children: ["v ", "0.42.2", {
+                                                                                children: ["v ", "0.42.3", {
                                                                                     NODE_ENV: "production",
                                                                                     PUBLIC_URL: "./",
                                                                                     WDS_SOCKET_HOST: void 0,
                                                                                     WDS_SOCKET_PATH: void 0,
                                                                                     WDS_SOCKET_PORT: void 0,
                                                                                     FAST_REFRESH: !0,
-                                                                                    REACT_APP_VERSION: "0.42.2"
+                                                                                    REACT_APP_VERSION: "0.42.3"
                                                                                 }.REACT_APP_DEV ? " dev" : ""]
                                                                             })]
                                                                         })
@@ -44947,7 +45018,7 @@
                                     WDS_SOCKET_PATH: void 0,
                                     WDS_SOCKET_PORT: void 0,
                                     FAST_REFRESH: !0,
-                                    REACT_APP_VERSION: "0.42.2"
+                                    REACT_APP_VERSION: "0.42.3"
                                 }.REACT_APP_DEV ? (0, Ce.jsx)(o.Suspense, {
                                     fallback: null,
                                     children: (0, Ce.jsx)(Kr, {})
@@ -44961,7 +45032,7 @@
 
             function Qr(e, t) {
                 navigator.serviceWorker.register(e, {
-                    scope: "./"
+                    scope: ".//"
                 }).then((function (e) {
                     e.onupdatefound = function () {
                         var r = e.installing;
