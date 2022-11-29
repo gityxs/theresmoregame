@@ -1,4 +1,4 @@
-/*!For license information please see main.8d9086c3.js.LICENSE.txt*/ ! function () {
+/*!For license information please see main.66374c23.js.LICENSE.txt*/ ! function () {
     var e = {
             1231: function (e, t, r) {
                 "use strict";
@@ -210,12 +210,12 @@
                     return e ? (e.nodeName || "").toLowerCase() : null
                 }
 
-                function _(e) {
+                function g(e) {
                     return ((l(e) ? e.ownerDocument : e.document) || window.document).documentElement
                 }
 
-                function g(e) {
-                    return h(_(e)).left + y(e).scrollLeft
+                function _(e) {
+                    return h(g(e)).left + y(e).scrollLeft
                 }
 
                 function v(e) {
@@ -239,7 +239,7 @@
                                 n = f(t.height) / e.offsetHeight || 1;
                             return 1 !== r || 1 !== n
                         }(t),
-                        i = _(t),
+                        i = g(t),
                         o = h(e, a),
                         l = {
                             scrollLeft: 0,
@@ -255,7 +255,7 @@
                             scrollTop: t.scrollTop
                         } : y(e);
                         var t
-                    }(t)), u(t) ? ((c = h(t, !0)).x += t.clientLeft, c.y += t.clientTop) : i && (c.x = g(i))), {
+                    }(t)), u(t) ? ((c = h(t, !0)).x += t.clientLeft, c.y += t.clientTop) : i && (c.x = _(i))), {
                         x: o.left + l.scrollLeft - c.x,
                         y: o.top + l.scrollTop - c.y,
                         width: o.width,
@@ -276,7 +276,7 @@
                 }
 
                 function x(e) {
-                    return "html" === m(e) ? e : e.assignedSlot || e.parentNode || (c(e) ? e.host : null) || _(e)
+                    return "html" === m(e) ? e : e.assignedSlot || e.parentNode || (c(e) ? e.host : null) || g(e)
                 }
 
                 function S(e) {
@@ -326,10 +326,10 @@
                     P = "end",
                     R = "viewport",
                     D = "popper",
-                    F = L.reduce((function (e, t) {
+                    V = L.reduce((function (e, t) {
                         return e.concat([t + "-" + q, t + "-" + P])
                     }), []),
-                    V = [].concat(L, [I]).reduce((function (e, t) {
+                    F = [].concat(L, [I]).reduce((function (e, t) {
                         return e.concat([t, t + "-" + q, t + "-" + P])
                     }), []),
                     H = ["beforeRead", "read", "afterRead", "beforeMain", "main", "afterMain", "beforeWrite", "write", "afterWrite"];
@@ -585,15 +585,15 @@
                         h = o.x,
                         y = void 0 === h ? 0 : h,
                         m = o.y,
-                        g = void 0 === m ? 0 : m,
+                        _ = void 0 === m ? 0 : m,
                         b = "function" === typeof d ? d({
                             x: y,
-                            y: g
+                            y: _
                         }) : {
                             x: y,
-                            y: g
+                            y: _
                         };
-                    y = b.x, g = b.y;
+                    y = b.x, _ = b.y;
                     var w = o.hasOwnProperty("x"),
                         k = o.hasOwnProperty("y"),
                         x = j,
@@ -603,7 +603,7 @@
                         var A = T(r),
                             C = "clientHeight",
                             I = "clientWidth";
-                        if (A === s(r) && "static" !== v(A = _(r)).position && "absolute" === l && (C = "scrollHeight", I = "scrollWidth"), a === O || (a === j || a === N) && i === P) S = E, g -= (p && A === M && M.visualViewport ? M.visualViewport.height : A[C]) - n.height, g *= u ? 1 : -1;
+                        if (A === s(r) && "static" !== v(A = g(r)).position && "absolute" === l && (C = "scrollHeight", I = "scrollWidth"), a === O || (a === j || a === N) && i === P) S = E, _ -= (p && A === M && M.visualViewport ? M.visualViewport.height : A[C]) - n.height, _ *= u ? 1 : -1;
                         if (a === j || (a === O || a === E) && i === P) x = N, y -= (p && A === M && M.visualViewport ? M.visualViewport.width : A[I]) - n.width, y *= u ? 1 : -1
                     }
                     var L, q = Object.assign({
@@ -619,12 +619,12 @@
                             }
                         }({
                             x: y,
-                            y: g
+                            y: _
                         }) : {
                             x: y,
-                            y: g
+                            y: _
                         };
-                    return y = R.x, g = R.y, u ? Object.assign({}, q, ((L = {})[S] = k ? "0" : "", L[x] = w ? "0" : "", L.transform = (M.devicePixelRatio || 1) <= 1 ? "translate(" + y + "px, " + g + "px)" : "translate3d(" + y + "px, " + g + "px, 0)", L)) : Object.assign({}, q, ((t = {})[S] = k ? g + "px" : "", t[x] = w ? y + "px" : "", t.transform = "", t))
+                    return y = R.x, _ = R.y, u ? Object.assign({}, q, ((L = {})[S] = k ? "0" : "", L[x] = w ? "0" : "", L.transform = (M.devicePixelRatio || 1) <= 1 ? "translate(" + y + "px, " + _ + "px)" : "translate3d(" + y + "px, " + _ + "px, 0)", L)) : Object.assign({}, q, ((t = {})[S] = k ? _ + "px" : "", t[x] = w ? y + "px" : "", t.transform = "", t))
                 }
                 var ee = {
                     name: "applyStyles",
@@ -683,7 +683,7 @@
                                 n = e.name,
                                 a = r.offset,
                                 i = void 0 === a ? [0, 0] : a,
-                                o = V.reduce((function (e, r) {
+                                o = F.reduce((function (e, r) {
                                     return e[r] = function (e, t, r) {
                                         var n = U(e),
                                             a = [j, O].indexOf(n) >= 0 ? -1 : 1,
@@ -755,7 +755,7 @@
                 function le(e, t) {
                     return t === R ? se(function (e) {
                         var t = s(e),
-                            r = _(e),
+                            r = g(e),
                             n = t.visualViewport,
                             a = r.clientWidth,
                             i = r.clientHeight,
@@ -764,19 +764,19 @@
                         return n && (a = n.width, i = n.height, /^((?!chrome|android).)*safari/i.test(navigator.userAgent) || (o = n.offsetLeft, l = n.offsetTop)), {
                             width: a,
                             height: i,
-                            x: o + g(e),
+                            x: o + _(e),
                             y: l
                         }
                     }(e)) : l(t) ? function (e) {
                         var t = h(e);
                         return t.top = t.top + e.clientTop, t.left = t.left + e.clientLeft, t.bottom = t.top + e.clientHeight, t.right = t.left + e.clientWidth, t.width = e.clientWidth, t.height = e.clientHeight, t.x = t.left, t.y = t.top, t
                     }(t) : se(function (e) {
-                        var t, r = _(e),
+                        var t, r = g(e),
                             n = y(e),
                             a = null == (t = e.ownerDocument) ? void 0 : t.body,
                             i = d(r.scrollWidth, r.clientWidth, a ? a.scrollWidth : 0, a ? a.clientWidth : 0),
                             o = d(r.scrollHeight, r.clientHeight, a ? a.scrollHeight : 0, a ? a.clientHeight : 0),
-                            s = -n.scrollLeft + g(e),
+                            s = -n.scrollLeft + _(e),
                             l = -n.scrollTop;
                         return "rtl" === v(a || r).direction && (s += d(r.clientWidth, a ? a.clientWidth : 0) - i), {
                             width: i,
@@ -784,7 +784,7 @@
                             x: s,
                             y: l
                         }
-                    }(_(e)))
+                    }(g(e)))
                 }
 
                 function ue(e, t, r) {
@@ -834,11 +834,11 @@
                         f = void 0 !== p && p,
                         y = r.padding,
                         m = void 0 === y ? 0 : y,
-                        g = ce("number" !== typeof m ? m : de(m, L)),
+                        _ = ce("number" !== typeof m ? m : de(m, L)),
                         v = d === D ? "reference" : D,
                         b = e.rects.popper,
                         w = e.elements[f ? v : d],
-                        k = ue(l(w) ? w : w.contextElement || _(e.elements.popper), o, u),
+                        k = ue(l(w) ? w : w.contextElement || g(e.elements.popper), o, u),
                         x = h(e.elements.reference),
                         S = X({
                             reference: x,
@@ -849,10 +849,10 @@
                         M = se(Object.assign({}, b, S)),
                         A = d === D ? M : x,
                         C = {
-                            top: k.top - A.top + g.top,
-                            bottom: A.bottom - k.bottom + g.bottom,
-                            left: k.left - A.left + g.left,
-                            right: A.right - k.right + g.right
+                            top: k.top - A.top + _.top,
+                            bottom: A.bottom - k.bottom + _.bottom,
+                            left: k.left - A.left + _.left,
+                            right: A.right - k.right + _.right
                         },
                         T = e.modifiersData.offset;
                     if (d === D && T) {
@@ -888,8 +888,8 @@
                             h = r.tether,
                             y = void 0 === h || h,
                             m = r.tetherOffset,
-                            _ = void 0 === m ? 0 : m,
-                            g = pe(t, {
+                            g = void 0 === m ? 0 : m,
+                            _ = pe(t, {
                                 boundary: l,
                                 rootBoundary: u,
                                 padding: f,
@@ -903,9 +903,9 @@
                             M = t.modifiersData.popperOffsets,
                             A = t.rects.reference,
                             C = t.rects.popper,
-                            I = "function" === typeof _ ? _(Object.assign({}, t.rects, {
+                            I = "function" === typeof g ? g(Object.assign({}, t.rects, {
                                 placement: t.placement
-                            })) : _,
+                            })) : g,
                             L = "number" === typeof I ? {
                                 mainAxis: I,
                                 altAxis: I
@@ -920,12 +920,12 @@
                             };
                         if (M) {
                             if (i) {
-                                var D, F = "y" === x ? O : j,
-                                    V = "y" === x ? E : N,
+                                var D, V = "y" === x ? O : j,
+                                    F = "y" === x ? E : N,
                                     H = "y" === x ? "height" : "width",
                                     z = M[x],
-                                    Z = z + g[F],
-                                    W = z - g[V],
+                                    Z = z + _[V],
+                                    W = z - _[F],
                                     B = y ? -C[H] / 2 : 0,
                                     K = b === q ? A[H] : C[H],
                                     G = b === q ? -C[H] : -A[H],
@@ -940,8 +940,8 @@
                                         bottom: 0,
                                         left: 0
                                     },
-                                    ee = J[F],
-                                    te = J[V],
+                                    ee = J[V],
+                                    te = J[F],
                                     re = fe(0, A[H], $[H]),
                                     ne = w ? A[H] / 2 - B - re - ee - L.mainAxis : K - re - ee - L.mainAxis,
                                     ae = w ? -A[H] / 2 + B + re + te + L.mainAxis : G + re + te + L.mainAxis,
@@ -957,16 +957,16 @@
                                     he = "x" === x ? E : N,
                                     ye = M[S],
                                     me = "y" === S ? "height" : "width",
-                                    _e = ye + g[de],
-                                    ge = ye - g[he],
+                                    ge = ye + _[de],
+                                    _e = ye - _[he],
                                     ve = -1 !== [O, j].indexOf(v),
                                     be = null != (ce = null == P ? void 0 : P[S]) ? ce : 0,
-                                    we = ve ? _e : ye - A[me] - C[me] - be + L.altAxis,
-                                    ke = ve ? ye + A[me] + C[me] - be - L.altAxis : ge,
+                                    we = ve ? ge : ye - A[me] - C[me] - be + L.altAxis,
+                                    ke = ve ? ye + A[me] + C[me] - be - L.altAxis : _e,
                                     xe = y && ve ? function (e, t, r) {
                                         var n = fe(e, t, r);
                                         return n > r ? r : n
-                                    }(we, ye, ke) : fe(y ? we : _e, ye, y ? ke : ge);
+                                    }(we, ye, ke) : fe(y ? we : ge, ye, y ? ke : _e);
                                 M[S] = xe, R[S] = xe - ye
                             }
                             t.modifiersData[n] = R
@@ -999,11 +999,11 @@
                                 h = r.rects.reference[u] + r.rects.reference[l] - o[l] - r.rects.popper[u],
                                 y = o[l] - r.rects.reference[l],
                                 m = T(i),
-                                _ = m ? "y" === l ? m.clientHeight || 0 : m.clientWidth || 0 : 0,
-                                g = h / 2 - y / 2,
+                                g = m ? "y" === l ? m.clientHeight || 0 : m.clientWidth || 0 : 0,
+                                _ = h / 2 - y / 2,
                                 v = c[p],
-                                b = _ - d[u] - c[f],
-                                w = _ / 2 - d[u] / 2 + g,
+                                b = g - d[u] - c[f],
+                                w = g / 2 - d[u] / 2 + _,
                                 x = fe(v, w, b),
                                 S = l;
                             r.modifiersData[n] = ((t = {})[S] = x, t.centerOffset = x - w, t)
@@ -1031,12 +1031,12 @@
                     }
                 }
 
-                function _e(e) {
+                function ge(e) {
                     return [O, N, E, j].some((function (t) {
                         return e[t] >= 0
                     }))
                 }
-                var ge = K({
+                var _e = K({
                         defaultModifiers: [{
                             name: "eventListeners",
                             enabled: !0,
@@ -1122,11 +1122,11 @@
                                     r = e.options,
                                     n = e.name;
                                 if (!t.modifiersData[n]._skip) {
-                                    for (var a = r.mainAxis, i = void 0 === a || a, o = r.altAxis, s = void 0 === o || o, l = r.fallbackPlacements, u = r.padding, c = r.boundary, d = r.rootBoundary, p = r.altBoundary, f = r.flipVariations, h = void 0 === f || f, y = r.allowedAutoPlacements, m = t.options.placement, _ = U(m), g = l || (_ === m || !h ? [ne(m)] : function (e) {
+                                    for (var a = r.mainAxis, i = void 0 === a || a, o = r.altAxis, s = void 0 === o || o, l = r.fallbackPlacements, u = r.padding, c = r.boundary, d = r.rootBoundary, p = r.altBoundary, f = r.flipVariations, h = void 0 === f || f, y = r.allowedAutoPlacements, m = t.options.placement, g = U(m), _ = l || (g === m || !h ? [ne(m)] : function (e) {
                                             if (U(e) === I) return [];
                                             var t = ne(e);
                                             return [ie(e), t, ie(t)]
-                                        }(m)), v = [m].concat(g).reduce((function (e, r) {
+                                        }(m)), v = [m].concat(_).reduce((function (e, r) {
                                             return e.concat(U(r) === I ? function (e, t) {
                                                 void 0 === t && (t = {});
                                                 var r = t,
@@ -1136,9 +1136,9 @@
                                                     o = r.padding,
                                                     s = r.flipVariations,
                                                     l = r.allowedAutoPlacements,
-                                                    u = void 0 === l ? V : l,
+                                                    u = void 0 === l ? F : l,
                                                     c = Y(n),
-                                                    d = c ? s ? F : F.filter((function (e) {
+                                                    d = c ? s ? V : V.filter((function (e) {
                                                         return Y(e) === c
                                                     })) : L,
                                                     p = d.filter((function (e) {
@@ -1227,8 +1227,8 @@
                                     }),
                                     l = me(o, n),
                                     u = me(s, a, i),
-                                    c = _e(l),
-                                    d = _e(u);
+                                    c = ge(l),
+                                    d = ge(u);
                                 t.modifiersData[r] = {
                                     referenceClippingOffsets: l,
                                     popperEscapeOffsets: u,
@@ -1325,13 +1325,13 @@
                     }(e) ? je(e) : Array.isArray(e) ? e : je(document.querySelectorAll(e))
                 }
 
-                function Fe(e, t) {
+                function Ve(e, t) {
                     e.forEach((function (e) {
                         e && (e.style.transitionDuration = t + "ms")
                     }))
                 }
 
-                function Ve(e, t) {
+                function Fe(e, t) {
                     e.forEach((function (e) {
                         e && e.setAttribute("data-state", t)
                     }))
@@ -1529,12 +1529,12 @@
                         h = !1,
                         y = [],
                         m = Te(G, c.interactiveDebounce),
-                        _ = ot++,
-                        g = (u = c.plugins).filter((function (e, t) {
+                        g = ot++,
+                        _ = (u = c.plugins).filter((function (e, t) {
                             return u.indexOf(e) === t
                         })),
                         v = {
-                            id: _,
+                            id: g,
                             reference: e,
                             popper: Le(),
                             popperInstance: null,
@@ -1546,7 +1546,7 @@
                                 isMounted: !1,
                                 isShown: !1
                             },
-                            plugins: g,
+                            plugins: _,
                             clearDelayTimeouts: function () {
                                 clearTimeout(r), clearTimeout(n), cancelAnimationFrame(a)
                             },
@@ -1584,12 +1584,12 @@
                                 if (T().hasAttribute("disabled")) return;
                                 if (I("onShow", [v], !1), !1 === v.props.onShow(v)) return;
                                 v.state.isVisible = !0, C() && (w.style.visibility = "visible");
-                                j(), V(), v.state.isMounted || (w.style.transition = "none");
+                                j(), F(), v.state.isMounted || (w.style.transition = "none");
                                 if (C()) {
                                     var i = E(),
                                         o = i.box,
                                         l = i.content;
-                                    Fe([o, l], 0)
+                                    Ve([o, l], 0)
                                 }
                                 s = function () {
                                         var e;
@@ -1598,7 +1598,7 @@
                                                 var t = E(),
                                                     r = t.box,
                                                     n = t.content;
-                                                Fe([r, n], a), Ve([r, n], "visible")
+                                                Ve([r, n], a), Fe([r, n], "visible")
                                             }
                                             L(), q(), Ee(lt, v), null == (e = v.popperInstance) || e.forceUpdate(), I("onMount", [v]), v.props.animation && C() && function (e, t) {
                                                 z(e, t)
@@ -1628,7 +1628,7 @@
                                     var a = E(),
                                         i = a.box,
                                         o = a.content;
-                                    v.props.animation && (Fe([i, o], n), Ve([i, o], "hidden"))
+                                    v.props.animation && (Ve([i, o], n), Fe([i, o], "hidden"))
                                 }
                                 L(), q(), v.props.animation ? C() && function (e, t) {
                                     z(e, (function () {
@@ -1668,7 +1668,7 @@
                         w = b.popper,
                         k = b.onUpdate;
                     w.setAttribute("data-tippy-root", ""), w.id = "tippy-" + v.id, v.popper = w, e._tippy = v, w._tippy = v;
-                    var x = g.map((function (e) {
+                    var x = _.map((function (e) {
                             return e.fn(v)
                         })),
                         S = e.hasAttribute("aria-expanded");
@@ -1769,18 +1769,18 @@
                         f = !0
                     }
 
-                    function F() {
+                    function V() {
                         f = !1
                     }
 
-                    function V() {
+                    function F() {
                         var e = O();
-                        e.addEventListener("mousedown", R, !0), e.addEventListener("touchend", R, xe), e.addEventListener("touchstart", F, xe), e.addEventListener("touchmove", D, xe)
+                        e.addEventListener("mousedown", R, !0), e.addEventListener("touchend", R, xe), e.addEventListener("touchstart", V, xe), e.addEventListener("touchmove", D, xe)
                     }
 
                     function H() {
                         var e = O();
-                        e.removeEventListener("mousedown", R, !0), e.removeEventListener("touchend", R, xe), e.removeEventListener("touchstart", F, xe), e.removeEventListener("touchmove", D, xe)
+                        e.removeEventListener("mousedown", R, !0), e.removeEventListener("touchend", R, xe), e.removeEventListener("touchstart", V, xe), e.removeEventListener("touchmove", D, xe)
                     }
 
                     function z(e, t) {
@@ -1952,7 +1952,7 @@
                                 element: l,
                                 padding: 3
                             }
-                        }), d.push.apply(d, (null == r ? void 0 : r.modifiers) || []), v.popperInstance = ge(u, w, Object.assign({}, r, {
+                        }), d.push.apply(d, (null == r ? void 0 : r.modifiers) || []), v.popperInstance = _e(u, w, Object.assign({}, r, {
                             placement: n,
                             onFirstUpdate: s,
                             modifiers: d
@@ -1968,7 +1968,7 @@
                     }
 
                     function ee(e) {
-                        v.clearDelayTimeouts(), e && I("onTrigger", [v, e]), V();
+                        v.clearDelayTimeouts(), e && I("onTrigger", [v, e]), F();
                         var t = N(!0),
                             n = M(),
                             a = n[0],
@@ -2051,24 +2051,24 @@
                     return ht && document.createElement("div")
                 }
 
-                function _t(e, t) {
+                function gt(e, t) {
                     if (e === t) return !0;
                     if ("object" === typeof e && null != e && "object" === typeof t && null != t) {
                         if (Object.keys(e).length !== Object.keys(t).length) return !1;
                         for (var r in e) {
                             if (!t.hasOwnProperty(r)) return !1;
-                            if (!_t(e[r], t[r])) return !1
+                            if (!gt(e[r], t[r])) return !1
                         }
                         return !0
                     }
                     return !1
                 }
 
-                function gt(e) {
+                function _t(e) {
                     var t = [];
                     return e.forEach((function (e) {
                         t.find((function (t) {
-                            return _t(e, t)
+                            return gt(e, t)
                         })) || t.push(e)
                     })), t
                 }
@@ -2077,7 +2077,7 @@
                     var r, n;
                     return Object.assign({}, t, {
                         popperOptions: Object.assign({}, e.popperOptions, t.popperOptions, {
-                            modifiers: gt([].concat((null == (r = e.popperOptions) ? void 0 : r.modifiers) || [], (null == (n = t.popperOptions) ? void 0 : n.modifiers) || []))
+                            modifiers: _t([].concat((null == (r = e.popperOptions) ? void 0 : r.modifiers) || [], (null == (n = t.popperOptions) ? void 0 : n.modifiers) || []))
                         })
                     })
                 }
@@ -2132,8 +2132,8 @@
                             h = void 0 !== a,
                             y = void 0 !== i,
                             m = (0, o.useState)(!1),
-                            _ = m[0],
-                            g = m[1],
+                            g = m[0],
+                            _ = m[1],
                             v = (0, o.useState)({}),
                             b = v[0],
                             w = v[1],
@@ -2185,7 +2185,7 @@
                                     content: n,
                                     props: C,
                                     setSingletonContent: S
-                                }), g(!0),
+                                }), _(!0),
                                 function () {
                                     r.destroy(), null == i || i.cleanup(r)
                                 }
@@ -2230,7 +2230,7 @@
                             ref: function (e) {
                                 M.ref = e, yt(r.ref, e)
                             }
-                        }) : null, _ && (0, pt.createPortal)(s ? s(function (e) {
+                        }) : null, g && (0, pt.createPortal)(s ? s(function (e) {
                             var t = {
                                 "data-placement": e.placement
                             };
@@ -2282,8 +2282,11 @@
                     o = r(7277),
                     s = r(7313),
                     l = r(8519),
-                    u = r(6417),
-                    c = function (e) {
+                    u = r(8561),
+                    c = r.n(u),
+                    d = r(8966),
+                    p = r(6417),
+                    f = function (e) {
                         (0, i.Z)(r, e);
                         var t = (0, o.Z)(r);
 
@@ -2297,61 +2300,88 @@
                                     t = "undefined" !== typeof this.props.reqTooltipData && this.props.reqTooltipData.length > 0 && !this.props.owned,
                                     r = "undefined" !== typeof this.props.genTooltipData && this.props.genTooltipData.length > 0,
                                     n = "undefined" !== typeof this.props.modTooltipData && this.props.modTooltipData.length > 0;
-                                return (0, u.jsxs)(u.Fragment, {
-                                    children: [(0, u.jsx)("p", {
+                                return (0, p.jsxs)(p.Fragment, {
+                                    children: [(0, p.jsx)("p", {
                                         className: "3xl:pt-2 text-base font-bold" + (this.props.titleClasses ? this.props.titleClasses : ""),
                                         children: this.props.title
-                                    }), this.props.description ? (0, u.jsx)("p", {
+                                    }), this.props.attack || this.props.defense ? (0, p.jsxs)("div", {
+                                        className: "px-1 3xl:px-3 text-center whitespace-nowrap",
+                                        children: [this.props.attack ? (0, p.jsxs)("span", {
+                                            className: "mx-3",
+                                            children: [(0, p.jsxs)("span", {
+                                                className: "text-red-500",
+                                                children: [(0, p.jsx)(c(), {
+                                                    path: d.Hne,
+                                                    className: "icon inline -mt-0.5 mr-1 !w-3.5"
+                                                }), this.props.attack]
+                                            }), this.props.attackMod > 0 ? (0, p.jsxs)("span", {
+                                                className: "text-green-600 dark:text-green-500",
+                                                children: [" +", this.props.attackMod]
+                                            }) : null]
+                                        }) : null, this.props.defense ? (0, p.jsxs)("span", {
+                                            className: "mx-3",
+                                            children: [(0, p.jsxs)("span", {
+                                                className: "text-blue-500",
+                                                children: [(0, p.jsx)(c(), {
+                                                    path: d.pCE,
+                                                    className: "icon inline -mt-0.5 mr-1 !w-3.5"
+                                                }), this.props.defense]
+                                            }), this.props.defenseMod > 0 ? (0, p.jsxs)("span", {
+                                                className: "text-green-600 dark:text-green-500",
+                                                children: [" +", this.props.defenseMod]
+                                            }) : null]
+                                        }) : null]
+                                    }) : null, this.props.description ? (0, p.jsx)("p", {
                                         className: "px-3 3xl:py-2",
                                         children: this.props.description
-                                    }) : null, t || r || n ? (0, u.jsxs)("div", {
+                                    }) : null, t || r || n ? (0, p.jsxs)("div", {
                                         className: "px-1 3xl:px-3 3xl:pb-3" + (this.props.containerClasses ? this.props.containerClasses : ""),
-                                        children: [t ? (0, u.jsx)("table", {
+                                        children: [t ? (0, p.jsx)("table", {
                                             className: "min-w-full my-2 lg:mt-3",
-                                            children: (0, u.jsx)("tbody", {
+                                            children: (0, p.jsx)("tbody", {
                                                 className: "text-sm",
                                                 children: this.props.reqTooltipData.map((function (t, r) {
                                                     var n = r % 2 === 0 ? "bg-red-200 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-red-900" : "bg-red-100 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-red-800";
-                                                    return n += -1 !== t.value.indexOf("(") ? " font-bold text-red-900 dark:text-red-50 whitespace-nowrap" : "", (0, u.jsxs)("tr", {
+                                                    return n += -1 !== t.value.indexOf("(") ? " font-bold text-red-900 dark:text-red-50 whitespace-nowrap" : "", (0, p.jsxs)("tr", {
                                                         className: n,
-                                                        children: [(0, u.jsx)("td", {
+                                                        children: [(0, p.jsx)("td", {
                                                             className: "px-4 3xl:py-1 text-left whitespace-nowrap",
                                                             children: t.label
-                                                        }), (0, u.jsx)("td", {
+                                                        }), (0, p.jsx)("td", {
                                                             className: "px-4 3xl:py-1 text-right",
                                                             children: t.value
                                                         })]
                                                     }, "tooltip_req_" + e.props.prefix + "_" + e.props.id + r)
                                                 }))
                                             })
-                                        }) : null, r ? (0, u.jsx)("table", {
+                                        }) : null, r ? (0, p.jsx)("table", {
                                             className: "min-w-full my-2 lg:mt-3",
-                                            children: (0, u.jsx)("tbody", {
+                                            children: (0, p.jsx)("tbody", {
                                                 className: "text-sm",
                                                 children: this.props.genTooltipData.map((function (t, r) {
-                                                    return (0, u.jsxs)("tr", {
+                                                    return (0, p.jsxs)("tr", {
                                                         className: r % 2 === 0 ? "bg-green-300/60 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-green-900" : "bg-green-200 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-green-800",
-                                                        children: [(0, u.jsx)("td", {
+                                                        children: [(0, p.jsx)("td", {
                                                             className: "px-4 3xl:py-1 text-left whitespace-nowrap",
                                                             children: t.label
-                                                        }), (0, u.jsx)("td", {
+                                                        }), (0, p.jsx)("td", {
                                                             className: (0, l.AK)(t.value.indexOf("-") >= 0 ? "text-red-500" : "", "px-4 3xl:py-1 text-right"),
                                                             children: t.value
                                                         })]
                                                     }, "tooltip_gen_" + e.props.prefix + "_" + e.props.id + r)
                                                 }))
                                             })
-                                        }) : null, n ? (0, u.jsx)("table", {
+                                        }) : null, n ? (0, p.jsx)("table", {
                                             className: "min-w-full my-2 lg:mt-3",
-                                            children: (0, u.jsx)("tbody", {
+                                            children: (0, p.jsx)("tbody", {
                                                 className: "text-sm",
                                                 children: this.props.modTooltipData.map((function (t, r) {
-                                                    return (0, u.jsxs)("tr", {
+                                                    return (0, p.jsxs)("tr", {
                                                         className: (0, l.AK)(1 !== t.flag && !0 !== e.props.showAllMods ? "lg:hidden" : "", r % 2 === 0 ? "bg-gray-100 dark:bg-mydark-400" : "bg-gray-200 dark:bg-mydark-300"),
-                                                        children: [(0, u.jsx)("td", {
+                                                        children: [(0, p.jsx)("td", {
                                                             className: (0, l.AK)("-" === t.value ? "text-red-500" : "", "px-4 3xl:py-1 text-left whitespace-nowrap"),
                                                             children: t.label
-                                                        }), (0, u.jsx)("td", {
+                                                        }), (0, p.jsx)("td", {
                                                             className: (0, l.AK)(t.value.indexOf("-") >= 0 ? "text-red-500" : "", "px-4 3xl:py-1 text-right whitespace-nowrap"),
                                                             children: t.value
                                                         })]
@@ -2364,7 +2394,1735 @@
                             }
                         }]), r
                     }(s.Component);
-                t.Z = c
+                t.Z = f
+            },
+            4671: function (e, t, r) {
+                "use strict";
+                r.d(t, {
+                    b: function () {
+                        return n
+                    }
+                });
+                var n = [{
+                    id: "settlement_defenses",
+                    type: "settlement",
+                    attack: 1,
+                    defense: 50,
+                    order: 0,
+                    category: 0
+                }, {
+                    id: "scout",
+                    type: "recon",
+                    attack: 2,
+                    defense: 2,
+                    order: 3,
+                    category: 0,
+                    req: [{
+                        type: "tech",
+                        id: "archery",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 400
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 200
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 200
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 100
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -.1
+                    }]
+                }, {
+                    id: "explorer",
+                    type: "recon",
+                    attack: 5,
+                    defense: 5,
+                    order: 3,
+                    category: 0,
+                    req: [{
+                        type: "tech",
+                        id: "guild",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 1e3
+                    }, {
+                        type: "resource",
+                        id: "supplies",
+                        value: 100
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 400
+                    }, {
+                        type: "resource",
+                        id: "supplies",
+                        value: 20
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -.2
+                    }]
+                }, {
+                    id: "spy",
+                    type: "spy",
+                    attack: 7,
+                    defense: 3,
+                    order: 3,
+                    category: 0,
+                    req: [{
+                        type: "tech",
+                        id: "espionage",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 1e3
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 100
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -.1
+                    }]
+                }, {
+                    id: "archer",
+                    type: "army",
+                    attack: 3,
+                    defense: 2,
+                    order: 3,
+                    category: 1,
+                    req: [{
+                        type: "tech",
+                        id: "archery",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 200
+                    }, {
+                        type: "resource",
+                        id: "wood",
+                        value: 100
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 20
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 20
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -.2
+                    }]
+                }, {
+                    id: "battering_ram",
+                    type: "army",
+                    attack: 14,
+                    defense: 2,
+                    order: 3,
+                    category: 1,
+                    req: [{
+                        type: "tech",
+                        id: "warfare",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 800
+                    }, {
+                        type: "resource",
+                        id: "wood",
+                        value: 1e3
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 80
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 50
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "gold",
+                        value: -4
+                    }]
+                }, {
+                    id: "crossbowman",
+                    type: "army",
+                    attack: 11,
+                    defense: 6,
+                    order: 3,
+                    category: 1,
+                    req: [{
+                        type: "tech",
+                        id: "crossbow",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 1e3
+                    }, {
+                        type: "resource",
+                        id: "wood",
+                        value: 400
+                    }, {
+                        type: "resource",
+                        id: "supplies",
+                        value: 50
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 40
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 40
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -.5
+                    }]
+                }, {
+                    id: "trebuchet",
+                    type: "army",
+                    attack: 28,
+                    defense: 3,
+                    order: 3,
+                    category: 1,
+                    req: [{
+                        type: "tech",
+                        id: "siege_techniques",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 1200
+                    }, {
+                        type: "resource",
+                        id: "wood",
+                        value: 2e3
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 100
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 100
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "gold",
+                        value: -5
+                    }]
+                }, {
+                    id: "arquebusier",
+                    type: "army",
+                    attack: 16,
+                    defense: 7,
+                    order: 3,
+                    category: 1,
+                    req: [{
+                        type: "tech",
+                        id: "gunpowder",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 1500
+                    }, {
+                        type: "resource",
+                        id: "saltpetre",
+                        value: 100
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 80
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 40
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -.9
+                    }]
+                }, {
+                    id: "bombard",
+                    type: "army",
+                    attack: 42,
+                    defense: 4,
+                    order: 3,
+                    category: 1,
+                    req: [{
+                        type: "tech",
+                        id: "military_science",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 2e3
+                    }, {
+                        type: "resource",
+                        id: "steel",
+                        value: 200
+                    }, {
+                        type: "resource",
+                        id: "saltpetre",
+                        value: 200
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 200
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "gold",
+                        value: -7
+                    }]
+                }, {
+                    id: "cannon",
+                    type: "army",
+                    attack: 88,
+                    defense: 8,
+                    order: 3,
+                    category: 1,
+                    req: [{
+                        type: "tech",
+                        id: "field_artillery",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 5e3
+                    }, {
+                        type: "resource",
+                        id: "saltpetre",
+                        value: 1e3
+                    }, {
+                        type: "resource",
+                        id: "steel",
+                        value: 500
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 500
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "gold",
+                        value: -15
+                    }]
+                }, {
+                    id: "spearman",
+                    type: "army",
+                    attack: 2,
+                    defense: 7,
+                    order: 1,
+                    category: 3,
+                    req: [{
+                        type: "tech",
+                        id: "bronze_working",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 200
+                    }, {
+                        type: "resource",
+                        id: "wood",
+                        value: 150
+                    }, {
+                        type: "resource",
+                        id: "copper",
+                        value: 50
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 30
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 25
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -.2
+                    }]
+                }, {
+                    id: "warrior_monk",
+                    type: "army",
+                    attack: 3,
+                    defense: 13,
+                    order: 1,
+                    category: 3,
+                    req: [{
+                        type: "prayer",
+                        id: "prayer_for_the_ancient_monk",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "faith",
+                        value: 800
+                    }, {
+                        type: "resource",
+                        id: "mana",
+                        value: 400
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "food",
+                        value: 10
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -.4
+                    }]
+                }, {
+                    id: "shieldbearer",
+                    type: "army",
+                    attack: 5,
+                    defense: 23,
+                    order: 1,
+                    category: 3,
+                    req: [{
+                        type: "tech",
+                        id: "bronze_working",
+                        value: 1
+                    }, {
+                        type: "legacy",
+                        id: "shieldbearer",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 350
+                    }, {
+                        type: "resource",
+                        id: "wood",
+                        value: 350
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 30
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 30
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -.4
+                    }]
+                }, {
+                    id: "priest",
+                    type: "army",
+                    attack: 1,
+                    defense: 31,
+                    order: 2,
+                    category: 3,
+                    req: [{
+                        type: "tech",
+                        id: "religion",
+                        value: 1
+                    }, {
+                        type: "legacy",
+                        id: "priest",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 800
+                    }, {
+                        type: "resource",
+                        id: "faith",
+                        value: 800
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "food",
+                        value: 80
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: -1
+                    }]
+                }, {
+                    id: "sacred_golem",
+                    type: "army",
+                    attack: 8,
+                    defense: 22,
+                    order: 1,
+                    category: 3,
+                    req: [{
+                        type: "prayer",
+                        id: "create_sacred_golem",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "stone",
+                        value: 2e3
+                    }, {
+                        type: "resource",
+                        id: "faith",
+                        value: 1e3
+                    }, {
+                        type: "resource",
+                        id: "mana",
+                        value: 800
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "mana",
+                        value: 100
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "mana",
+                        value: -1
+                    }]
+                }, {
+                    id: "cleric",
+                    type: "army",
+                    attack: 8,
+                    defense: 24,
+                    order: 2,
+                    category: 3,
+                    req: [{
+                        type: "tech",
+                        id: "order_of_clerics",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "faith",
+                        value: 1800
+                    }, {
+                        type: "resource",
+                        id: "crystal",
+                        value: 200
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "food",
+                        value: 60
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -1
+                    }]
+                }, {
+                    id: "juggernaut",
+                    type: "army",
+                    attack: 15,
+                    defense: 50,
+                    order: 1,
+                    category: 3,
+                    req: [{
+                        type: "tech",
+                        id: "bronze_working",
+                        value: 1
+                    }, {
+                        type: "legacy",
+                        id: "juggernaut",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 600
+                    }, {
+                        type: "resource",
+                        id: "cow",
+                        value: 600
+                    }, {
+                        type: "resource",
+                        id: "mana",
+                        value: 400
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "food",
+                        value: 150
+                    }, {
+                        type: "resource",
+                        id: "mana",
+                        value: 150
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -2
+                    }, {
+                        type: "resource",
+                        id: "mana",
+                        value: -1
+                    }]
+                }, {
+                    id: "warrior",
+                    type: "army",
+                    attack: 8,
+                    defense: 8,
+                    order: 2,
+                    category: 2,
+                    req: [{
+                        type: "tech",
+                        id: "bronze_working",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 400
+                    }, {
+                        type: "resource",
+                        id: "copper",
+                        value: 200
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 40
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 40
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -.4
+                    }]
+                }, {
+                    id: "mercenary_veteran",
+                    type: "army",
+                    attack: 12,
+                    defense: 8,
+                    order: 1,
+                    category: 2,
+                    req: [{
+                        type: "tech",
+                        id: "mercenary_bands",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 2500
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 150
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "gold",
+                        value: -5
+                    }]
+                }, {
+                    id: "heavy_warrior",
+                    type: "army",
+                    attack: 12,
+                    defense: 12,
+                    order: 2,
+                    category: 2,
+                    req: [{
+                        type: "tech",
+                        id: "iron_working",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 800
+                    }, {
+                        type: "resource",
+                        id: "iron",
+                        value: 300
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 70
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 70
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -.6
+                    }]
+                }, {
+                    id: "canava_guard",
+                    type: "army",
+                    attack: 15,
+                    defense: 15,
+                    order: 2,
+                    category: 2,
+                    req: [{
+                        type: "tech",
+                        id: "canava_mercenary",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 2e3
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 50
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "gold",
+                        value: -6
+                    }]
+                }, {
+                    id: "man_at_arms",
+                    type: "army",
+                    attack: 21,
+                    defense: 16,
+                    order: 2,
+                    category: 2,
+                    req: [{
+                        type: "tech",
+                        id: "plate_armor",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 1500
+                    }, {
+                        type: "resource",
+                        id: "steel",
+                        value: 250
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 120
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 80
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -.8
+                    }]
+                }, {
+                    id: "line_infantry",
+                    type: "army",
+                    attack: 34,
+                    defense: 22,
+                    order: 2,
+                    category: 2,
+                    req: [{
+                        type: "tech",
+                        id: "flintlock_musket",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 2500
+                    }, {
+                        type: "resource",
+                        id: "saltpetre",
+                        value: 500
+                    }, {
+                        type: "resource",
+                        id: "supplies",
+                        value: 250
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 250
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 120
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -1.4
+                    }]
+                }, {
+                    id: "battle_angel",
+                    type: "army",
+                    attack: 38,
+                    defense: 36,
+                    order: 2,
+                    category: 2,
+                    req: [{
+                        type: "tech",
+                        id: "holy_fury",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "faith",
+                        value: 2e3
+                    }, {
+                        type: "resource",
+                        id: "mana",
+                        value: 600
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "faith",
+                        value: 100
+                    }, {
+                        type: "resource",
+                        id: "mana",
+                        value: 100
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "mana",
+                        value: -1
+                    }]
+                }, {
+                    id: "commander",
+                    type: "army",
+                    attack: 30,
+                    defense: 26,
+                    order: 3,
+                    cap: 1,
+                    category: 2,
+                    req: [{
+                        type: "tech",
+                        id: "warfare",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 2500
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 200
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 120
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -2
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: -10
+                    }]
+                }, {
+                    id: "tamed_djinn",
+                    type: "army",
+                    attack: 40,
+                    defense: 40,
+                    order: 2,
+                    cap: 1,
+                    category: 2,
+                    req: [{
+                        type: "prayer",
+                        id: "desire_war",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "mana",
+                        value: 1e3
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "mana",
+                        value: 100
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "mana",
+                        value: -5
+                    }]
+                }, {
+                    id: "general",
+                    type: "army",
+                    attack: 60,
+                    defense: 100,
+                    order: 3,
+                    cap: 1,
+                    category: 2,
+                    req: [{
+                        type: "building",
+                        id: "officer_training_ground",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 15e3
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 1e3
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 500
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -10
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: -30
+                    }]
+                }, {
+                    id: "light_cavarly",
+                    type: "army",
+                    attack: 10,
+                    defense: 4,
+                    order: 2,
+                    category: 4,
+                    req: [{
+                        type: "tech",
+                        id: "breeding",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 400
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 300
+                    }, {
+                        type: "resource",
+                        id: "horse",
+                        value: 25
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 60
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 40
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -.5
+                    }]
+                }, {
+                    id: "knight",
+                    type: "army",
+                    attack: 26,
+                    defense: 22,
+                    order: 2,
+                    category: 4,
+                    req: [{
+                        type: "tech",
+                        id: "knighthood",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 3e3
+                    }, {
+                        type: "resource",
+                        id: "steel",
+                        value: 250
+                    }, {
+                        type: "resource",
+                        id: "horse",
+                        value: 50
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 120
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 100
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -1.2
+                    }]
+                }, {
+                    id: "cataphract",
+                    type: "army",
+                    attack: 18,
+                    defense: 48,
+                    order: 2,
+                    category: 4,
+                    req: [{
+                        type: "tech",
+                        id: "persuade_nobility",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 2e3
+                    }, {
+                        type: "resource",
+                        id: "steel",
+                        value: 500
+                    }, {
+                        type: "resource",
+                        id: "horse",
+                        value: 75
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 150
+                    }, {
+                        type: "resource",
+                        id: "supplies",
+                        value: 50
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -.8
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: -.8
+                    }]
+                }, {
+                    id: "cuirassier",
+                    type: "army",
+                    attack: 36,
+                    defense: 28,
+                    order: 2,
+                    category: 4,
+                    req: [{
+                        type: "tech",
+                        id: "cuirassiers",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 5e3
+                    }, {
+                        type: "resource",
+                        id: "steel",
+                        value: 500
+                    }, {
+                        type: "resource",
+                        id: "horse",
+                        value: 200
+                    }, {
+                        type: "resource",
+                        id: "saltpetre",
+                        value: 200
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 200
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 200
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -2
+                    }]
+                }, {
+                    id: "archdemon",
+                    type: "enemy",
+                    attack: 90,
+                    defense: 52,
+                    order: 3,
+                    category: 2
+                }, {
+                    id: "archlich",
+                    type: "enemy",
+                    attack: 120,
+                    defense: 90,
+                    order: 3,
+                    cap: 1,
+                    category: 1
+                }, {
+                    id: "bugbear",
+                    type: "enemy",
+                    attack: 7,
+                    defense: 16,
+                    order: 1,
+                    category: 3
+                }, {
+                    id: "bugbear_chieftain",
+                    type: "enemy",
+                    attack: 44,
+                    defense: 32,
+                    order: 2,
+                    cap: 1,
+                    category: 2
+                }, {
+                    id: "basilisk",
+                    type: "enemy",
+                    attack: 35,
+                    defense: 16,
+                    order: 1,
+                    category: 1
+                }, {
+                    id: "black_mage",
+                    type: "enemy",
+                    attack: 52,
+                    defense: 22,
+                    order: 3,
+                    cap: 1,
+                    category: 1
+                }, {
+                    id: "cavarly_archer",
+                    type: "enemy",
+                    attack: 18,
+                    defense: 10,
+                    order: 3,
+                    category: 4
+                }, {
+                    id: "charmed_dweller",
+                    type: "enemy",
+                    attack: 4,
+                    defense: 4,
+                    order: 1,
+                    category: 2
+                }, {
+                    id: "cult_master",
+                    type: "enemy",
+                    attack: 80,
+                    defense: 55,
+                    order: 3,
+                    cap: 1,
+                    category: 1
+                }, {
+                    id: "daimyo",
+                    type: "enemy",
+                    attack: 90,
+                    defense: 90,
+                    order: 3,
+                    cap: 1,
+                    category: 1
+                }, {
+                    id: "demoness",
+                    type: "enemy",
+                    attack: 50,
+                    defense: 80,
+                    order: 3,
+                    cap: 1,
+                    category: 1
+                }, {
+                    id: "demonic_musketeer",
+                    type: "enemy",
+                    attack: 20,
+                    defense: 20,
+                    order: 2,
+                    category: 2
+                }, {
+                    id: "dirty_rat",
+                    type: "enemy",
+                    attack: 1,
+                    defense: 1,
+                    order: 1,
+                    category: 4
+                }, {
+                    id: "draconic_warrior",
+                    type: "enemy",
+                    attack: 8,
+                    defense: 14,
+                    order: 1,
+                    category: 2
+                }, {
+                    id: "draconic_diver",
+                    type: "enemy",
+                    attack: 20,
+                    defense: 10,
+                    order: 2,
+                    category: 4
+                }, {
+                    id: "draconic_mage",
+                    type: "enemy",
+                    attack: 32,
+                    defense: 10,
+                    order: 3,
+                    category: 1
+                }, {
+                    id: "draconic_leader",
+                    type: "enemy",
+                    attack: 80,
+                    defense: 65,
+                    order: 3,
+                    category: 1
+                }, {
+                    id: "eternal_guardian",
+                    type: "enemy",
+                    attack: 22,
+                    defense: 84,
+                    order: 1,
+                    category: 3
+                }, {
+                    id: "fallen_angel",
+                    type: "enemy",
+                    attack: 150,
+                    defense: 100,
+                    order: 3,
+                    cap: 1,
+                    category: 2
+                }, {
+                    id: "frost_elemental",
+                    type: "enemy",
+                    attack: 20,
+                    defense: 42,
+                    order: 1,
+                    category: 1
+                }, {
+                    id: "fire_elemental",
+                    type: "enemy",
+                    attack: 28,
+                    defense: 28,
+                    order: 1,
+                    category: 1
+                }, {
+                    id: "gargoyle",
+                    type: "enemy",
+                    attack: 8,
+                    defense: 28,
+                    order: 1,
+                    category: 3
+                }, {
+                    id: "golem",
+                    type: "enemy",
+                    attack: 11,
+                    defense: 42,
+                    order: 1,
+                    category: 3
+                }, {
+                    id: "korrigan_slinger",
+                    type: "enemy",
+                    attack: 3,
+                    defense: 2,
+                    order: 2,
+                    category: 1
+                }, {
+                    id: "korrigan_swindler",
+                    type: "enemy",
+                    attack: 3,
+                    defense: 5,
+                    order: 1,
+                    category: 2
+                }, {
+                    id: "earth_elemental",
+                    type: "enemy",
+                    attack: 20,
+                    defense: 48,
+                    order: 1,
+                    category: 3
+                }, {
+                    id: "harpy",
+                    type: "enemy",
+                    attack: 6,
+                    defense: 6,
+                    order: 1,
+                    category: 4
+                }, {
+                    id: "hobgoblin_archer",
+                    type: "enemy",
+                    attack: 11,
+                    defense: 4,
+                    order: 3,
+                    category: 1
+                }, {
+                    id: "hobgoblin_chieftain",
+                    type: "enemy",
+                    attack: 20,
+                    defense: 34,
+                    order: 2,
+                    cap: 1,
+                    category: 2
+                }, {
+                    id: "hobgoblin_grunt",
+                    type: "enemy",
+                    attack: 6,
+                    defense: 12,
+                    order: 1,
+                    category: 3
+                }, {
+                    id: "hydra",
+                    type: "enemy",
+                    attack: 950,
+                    defense: 900,
+                    order: 1,
+                    cap: 1,
+                    category: 4
+                }, {
+                    id: "gorgon",
+                    type: "enemy",
+                    attack: 950,
+                    defense: 600,
+                    order: 1,
+                    cap: 1,
+                    category: 2
+                }, {
+                    id: "bandit",
+                    type: "enemy",
+                    attack: 3,
+                    defense: 4,
+                    order: 1,
+                    category: 2
+                }, {
+                    id: "barbarian_warrior",
+                    type: "enemy",
+                    attack: 13,
+                    defense: 6,
+                    order: 1,
+                    category: 2
+                }, {
+                    id: "barbarian_chosen",
+                    type: "enemy",
+                    attack: 30,
+                    defense: 12,
+                    order: 1,
+                    category: 2
+                }, {
+                    id: "barbarian_drummer",
+                    type: "enemy",
+                    attack: 6,
+                    defense: 18,
+                    order: 2,
+                    category: 3
+                }, {
+                    id: "barbarian_leader",
+                    type: "enemy",
+                    attack: 48,
+                    defense: 22,
+                    order: 1,
+                    category: 2
+                }, {
+                    id: "barbarian_king",
+                    type: "enemy",
+                    attack: 76,
+                    defense: 56,
+                    order: 3,
+                    cap: 1,
+                    category: 2
+                }, {
+                    id: "djinn",
+                    type: "enemy",
+                    attack: 46,
+                    defense: 36,
+                    order: 2,
+                    cap: 1,
+                    category: 1
+                }, {
+                    id: "ghast",
+                    type: "enemy",
+                    attack: 6,
+                    defense: 8,
+                    order: 2,
+                    category: 4
+                }, {
+                    id: "ghoul",
+                    type: "enemy",
+                    attack: 4,
+                    defense: 5,
+                    order: 1,
+                    category: 2
+                }, {
+                    id: "goblin_marauder",
+                    type: "enemy",
+                    attack: 3,
+                    defense: 3,
+                    order: 1,
+                    category: 1
+                }, {
+                    id: "goblin_warrior",
+                    type: "enemy",
+                    attack: 3,
+                    defense: 4,
+                    order: 2,
+                    category: 2
+                }, {
+                    id: "goblin_wolfrider",
+                    type: "enemy",
+                    attack: 6,
+                    defense: 7,
+                    order: 2,
+                    category: 4
+                }, {
+                    id: "goblin_overlord",
+                    type: "enemy",
+                    attack: 20,
+                    defense: 15,
+                    order: 3,
+                    cap: 1,
+                    category: 2
+                }, {
+                    id: "lich",
+                    type: "enemy",
+                    attack: 60,
+                    defense: 50,
+                    order: 3,
+                    cap: 1,
+                    category: 1
+                }, {
+                    id: "lizard_warrior",
+                    type: "enemy",
+                    attack: 12,
+                    defense: 12,
+                    order: 1,
+                    category: 2
+                }, {
+                    id: "lizard_archer",
+                    type: "enemy",
+                    attack: 13,
+                    defense: 6,
+                    order: 3,
+                    category: 1
+                }, {
+                    id: "lizard_shaman",
+                    type: "enemy",
+                    attack: 22,
+                    defense: 32,
+                    order: 3,
+                    category: 1
+                }, {
+                    id: "lizard_commander",
+                    type: "enemy",
+                    attack: 50,
+                    defense: 75,
+                    order: 3,
+                    category: 1
+                }, {
+                    id: "katana_samurai",
+                    type: "enemy",
+                    attack: 26,
+                    defense: 28,
+                    order: 1,
+                    category: 2
+                }, {
+                    id: "markanat",
+                    type: "enemy",
+                    attack: 900,
+                    defense: 600,
+                    order: 1,
+                    cap: 1,
+                    category: 4
+                }, {
+                    id: "myconid",
+                    type: "enemy",
+                    attack: 3,
+                    defense: 10,
+                    order: 1,
+                    category: 3
+                }, {
+                    id: "musket_ashigaru",
+                    type: "enemy",
+                    attack: 22,
+                    defense: 18,
+                    order: 2,
+                    category: 2
+                }, {
+                    id: "hill_giant",
+                    type: "enemy",
+                    attack: 20,
+                    defense: 36,
+                    order: 1,
+                    category: 3
+                }, {
+                    id: "minotaur",
+                    type: "enemy",
+                    attack: 1e3,
+                    defense: 1800,
+                    order: 1,
+                    cap: 1,
+                    category: 3
+                }, {
+                    id: "mountain_giant",
+                    type: "enemy",
+                    attack: 34,
+                    defense: 42,
+                    order: 3,
+                    category: 3
+                }, {
+                    id: "pillager",
+                    type: "enemy",
+                    attack: 3,
+                    defense: 5,
+                    order: 1,
+                    category: 2
+                }, {
+                    id: "troll_cave",
+                    type: "enemy",
+                    attack: 16,
+                    defense: 28,
+                    order: 1,
+                    category: 3
+                }, {
+                    id: "deserter",
+                    type: "enemy",
+                    attack: 7,
+                    defense: 6,
+                    order: 2,
+                    category: 2
+                }, {
+                    id: "snake",
+                    type: "enemy",
+                    attack: 4,
+                    defense: 4,
+                    order: 1,
+                    category: 4
+                }, {
+                    id: "giant_snake",
+                    type: "enemy",
+                    attack: 16,
+                    defense: 8,
+                    order: 2,
+                    category: 4
+                }, {
+                    id: "spider",
+                    type: "enemy",
+                    attack: 3,
+                    defense: 2,
+                    order: 1,
+                    category: 4
+                }, {
+                    id: "giant_spider",
+                    type: "enemy",
+                    attack: 10,
+                    defense: 8,
+                    order: 2,
+                    category: 4
+                }, {
+                    id: "skeleton",
+                    type: "enemy",
+                    attack: 2,
+                    defense: 2,
+                    order: 1,
+                    category: 3
+                }, {
+                    id: "skeletal_knight",
+                    type: "enemy",
+                    attack: 18,
+                    defense: 22,
+                    order: 1,
+                    category: 2
+                }, {
+                    id: "skullface",
+                    type: "enemy",
+                    attack: 76,
+                    defense: 60,
+                    order: 3,
+                    cap: 1,
+                    category: 1
+                }, {
+                    id: "son_atamar",
+                    type: "enemy",
+                    attack: 22,
+                    defense: 20,
+                    order: 1,
+                    category: 2
+                }, {
+                    id: "zombie",
+                    type: "enemy",
+                    attack: 3,
+                    defense: 3,
+                    order: 1,
+                    category: 3
+                }, {
+                    id: "ghost",
+                    type: "enemy",
+                    attack: 5,
+                    defense: 5,
+                    order: 2,
+                    category: 4
+                }, {
+                    id: "gnoll_leader",
+                    type: "enemy",
+                    attack: 23,
+                    defense: 18,
+                    order: 2,
+                    cap: 1,
+                    category: 2
+                }, {
+                    id: "gnoll_raider",
+                    type: "enemy",
+                    attack: 6,
+                    defense: 5,
+                    order: 1,
+                    category: 2
+                }, {
+                    id: "necromancer",
+                    type: "enemy",
+                    attack: 28,
+                    defense: 15,
+                    order: 3,
+                    cap: 1,
+                    category: 1
+                }, {
+                    id: "imp",
+                    type: "enemy",
+                    attack: 3,
+                    defense: 1,
+                    order: 2,
+                    category: 1
+                }, {
+                    id: "lesser_demon",
+                    type: "enemy",
+                    attack: 8,
+                    defense: 8,
+                    order: 1,
+                    category: 3
+                }, {
+                    id: "greater_demon",
+                    type: "enemy",
+                    attack: 16,
+                    defense: 16,
+                    order: 3,
+                    category: 2
+                }, {
+                    id: "kobold",
+                    type: "enemy",
+                    attack: 3,
+                    defense: 2,
+                    order: 1,
+                    category: 2
+                }, {
+                    id: "kobold_champion",
+                    type: "enemy",
+                    attack: 5,
+                    defense: 12,
+                    order: 1,
+                    category: 3
+                }, {
+                    id: "kobold_king",
+                    type: "enemy",
+                    attack: 42,
+                    defense: 48,
+                    order: 1,
+                    cap: 1,
+                    category: 2
+                }, {
+                    id: "naga",
+                    type: "enemy",
+                    attack: 12,
+                    defense: 12,
+                    order: 1,
+                    category: 4
+                }, {
+                    id: "red_dragon",
+                    type: "enemy",
+                    attack: 280,
+                    defense: 180,
+                    order: 3,
+                    cap: 1,
+                    category: 4
+                }, {
+                    id: "vampire",
+                    type: "enemy",
+                    attack: 80,
+                    defense: 90,
+                    order: 3,
+                    cap: 1,
+                    category: 2
+                }, {
+                    id: "vampire_bat",
+                    type: "enemy",
+                    attack: 2,
+                    defense: 1,
+                    order: 1,
+                    category: 4
+                }, {
+                    id: "vampire_servant",
+                    type: "enemy",
+                    attack: 15,
+                    defense: 32,
+                    order: 1,
+                    category: 3
+                }, {
+                    id: "werewolf",
+                    type: "enemy",
+                    attack: 1150,
+                    defense: 600,
+                    order: 1,
+                    cap: 1,
+                    category: 1
+                }, {
+                    id: "wind_elemental",
+                    type: "enemy",
+                    attack: 22,
+                    defense: 42,
+                    order: 1,
+                    category: 1
+                }, {
+                    id: "wolf",
+                    type: "enemy",
+                    attack: 4,
+                    defense: 4,
+                    order: 1,
+                    category: 4
+                }, {
+                    id: "wyvern",
+                    type: "enemy",
+                    attack: 32,
+                    defense: 28,
+                    order: 2,
+                    category: 4
+                }]
             },
             4303: function (e, t, r) {
                 "use strict";
@@ -2930,6 +4688,8 @@
                         bui_bank_description: "城市的生钱机器",
                         bui_builder_district: "建筑工区域",
                         bui_builder_district_description: "让建筑工可以联合起来",
+                        bui_books: "书籍",
+                        bui_books_description: "灵魂图书馆的一部分",
                         bui_canava_trading: "卡纳瓦贸易站",
                         bui_canava_trading_description: "将邻近村庄的市场连结成网以获取利润",
                         bui_carpenter_workshop: "木匠工坊",
@@ -3004,6 +4764,8 @@
                         bui_industrial_plant_description: "将有效推动生产",
                         bui_large_warehouse: "大型库房",
                         bui_large_warehouse_description: "可以存储大量货物",
+                        bui_library_souls: "灵魂图书馆",
+                        bui_library_souls_description: "阅读图书馆的书籍后，不幸的学者们失去了部分灵魂，变成了部分为亡灵的生物",
                         bui_library_of_theresmore: "登攀者世界图书馆",
                         bui_library_of_theresmore_description: "保存着远古的知识",
                         bui_lumberjack_camp: "伐木工营地",
@@ -3076,6 +4838,8 @@
                         bui_residential_block_description: "公寓区域，可以尽可能多地容纳住户",
                         bui_school: "学校",
                         bui_school_description: "人不应当像走兽一般地活着，应当追求知识和美德",
+                        bui_souls: "灵魂",
+                        bui_souls_description: "学者们的灵魂被灵魂图书馆吸收了",
                         bui_spiritual_garden: "精神花园",
                         bui_spiritual_garden_description: "与大自然接触的宁静之地",
                         bui_stable: "马厩",
@@ -3227,10 +4991,14 @@
                         ene_djinn_palace_description: "灯神的居所，几个娜迦守卫着入口。战斗将十分艰辛",
                         ene_east_sacred_place: "东部圣地",
                         ene_east_sacred_place_description: "东部有一个地方，登攀者世界的力量在空气中活跃着，有元素守护着它",
+                        ene_eternal_halls: "永恒大殿",
+                        ene_eternal_halls_description: "永恒大殿是西部王国人民的圣地，它被石头守卫保护着",
                         ene_gloomy_werewolf_forest: "阴暗狼人之森",
                         ene_gloomy_werewolf_forest_description: "狼人的森林里布满障碍，即使是装备最好的部队也没法轻易胜利",
                         ene_goblin_lair: "地精巢穴",
                         ene_goblin_lair_description: "地精是相当狡猾的生物，它们几乎没有武器，但会在箭头下毒。几十个士兵就够安全了",
+                        ene_golem_cave: "魔像洞穴",
+                        ene_golem_cave_description: "充满魔像的洞穴。小心了，它们可能会活动起来，守卫洞穴",
                         ene_gorgon_cave: "蛇发女妖巢穴",
                         ene_gorgon_cave_description: "蛇发女妖的凝视会让人石化，它潜伏在一个充满危险的洞穴里，里面地形错综复杂",
                         ene_gnoll_camp: "豺狼人营地",
@@ -3241,6 +5009,10 @@
                         ene_haunted_library_description: "一座古老的图书馆，现在由鬼魂来守卫了。几十名士兵就可以击退它们",
                         ene_hell_hole: "地狱之洞",
                         ene_hell_hole_description: "位于地面的一个洞，通往一个大洞穴。它是地狱的入口",
+                        ene_hobgoblin_chieftain: "淘气鬼酋长",
+                        ene_hobgoblin_chieftain_description: "一小队淘气鬼，由它们的酋长带领",
+                        ene_hobgoblin_encampment: "淘气鬼营地",
+                        ene_hobgoblin_encampment_description: "满是淘气鬼士兵的营地，它们的资源会很有用",
                         ene_hydra_pit: "多头蛇之坑",
                         ene_hydra_pit_description: "多头蛇之坑，它的五个头像军团一样战斗",
                         ene_lich_temple: "巫妖寺庙",
@@ -3251,6 +5023,8 @@
                         ene_kobold_looters_description: "它们从小营地袭击附近的村庄，让我们用几个士兵将它们赶走",
                         ene_kobold_underground_tunnels: "狗头人隧道",
                         ene_kobold_underground_tunnels_description: "狗头人深挖它们的地洞，它们很弱小，但数量众多",
+                        ene_korrigan_dolmen: "科里根矮妖石屋",
+                        ene_korrigan_dolmen_description: "这些卑鄙的小动物喜欢在石屋附近捕食路人",
                         ene_markanat_forest: "玛卡纳特森林",
                         ene_markanat_forest_description: "玛卡纳特的水淹丛林，它是一只不允许任何人接近的巨型蜘蛛",
                         ene_mercenary_camp: "佣兵营地",
@@ -3291,16 +5065,20 @@
                         ene_south_sacred_place_description: "南部有一个地方，登攀者世界的力量在空气中活跃着，有元素守护着它",
                         ene_strange_village: "奇怪的村庄",
                         ene_strange_village_description: "一个居民目光呆滞的村庄，他们攻击性很强",
+                        ene_temple_gargoyle: "石像鬼寺庙",
+                        ene_temple_gargoyle_description: "丛林中的远古寺庙被一些石像鬼守卫着",
                         ene_troll_cave: "巨魔洞穴",
                         ene_troll_cave_description: "一个被巨魔称作家的恶臭洞穴，要将它赶走恐怕是个比较大的问题",
                         ene_vampire_crypt: "吸血鬼地穴",
                         ene_vampire_crypt_description: "被时间遗忘的一个地穴，现在是吸血鬼和它们下仆的家了",
                         ene_vampire_lair: "吸血鬼老巢",
-                        ene_vampire_lair_description: "吸血鬼的家，它是非常可怕的敌人，即使最英勇的士兵也会感到恐惧",
+                        ene_vampire_lair_description: "吸血鬼的家，她是非常可怕的敌人，即使最英勇的士兵也会感到恐惧",
                         ene_west_sacred_place: "西部圣地",
                         ene_west_sacred_place_description: "西部有一个地方，登攀者世界的力量在空气中活跃着，有元素守护着它",
                         ene_wolf_pack: "狼群",
                         ene_wolf_pack_description: "一群凶恶的狼，会攻击过路的羊群，几十名士兵应该可以把它们包圆了",
+                        ene_worn_down_crypt: "破旧的地穴",
+                        ene_worn_down_crypt_description: "在一片阴森森林的一个偏僻的犄角旮旯，有个通往一个破旧地穴的入口，但被一群骷髅骑士守卫着",
                         ene_wyvern_nest: "双足飞龙巢穴",
                         ene_wyvern_nest_description: "这些可怕的生物很像龙，也经常被误认为是龙",
                         fai_accept_druid: "接受德鲁伊",
@@ -3411,6 +5189,7 @@
                         fai_mana_energy_shield_description: "使用法力盾强化城墙",
                         fai_minor_blessing: "小祝福",
                         fai_minor_blessing_description: "神明赐予我们一些小祝福",
+                        fai_mirune_blessing: "米露涅的祝福",
                         fai_mother_earth_blessing: "大地母亲的祝福",
                         fai_mother_earth_blessing_description: "用丰收的礼物填满我们吧",
                         fai_mother_earth_grace: "大地母亲的恩典",
@@ -3448,6 +5227,8 @@
                         fai_spell_cancel: "取消咒语",
                         fai_study_undead_creatures: "研究亡者生物",
                         fai_study_undead_creatures_description: "我们击败了足够多的亡灵，可以研究它们的特征了",
+                        fai_temple_mirune: "米露涅的寺庙",
+                        fai_temple_mirune_description: "森林里的寺庙是献给森林女神米露涅的。让我们清扫这里，向她致敬",
                         fai_temple_ritual: "寺庙仪式",
                         fai_temple_ritual_description: "寺庙的简单仪式",
                         fai_the_aid: "解决危机",
@@ -3557,6 +5338,8 @@
                         leg_craftmen_description: "可以生产研究材料",
                         leg_craftmen_II: "工匠 II",
                         leg_craftmen_II_description: "您的补给方面碰到什么麻烦了吗？",
+                        leg_craftmen_III: "工匠 III",
+                        leg_craftmen_III_description: "补给方面不会再有什么问题了",
                         leg_deep_pockets: "聚宝盆",
                         leg_deep_pockets_description: "可以存放大量黄金",
                         leg_deep_pockets_II: "聚宝盆 II",
@@ -3571,12 +5354,16 @@
                         leg_enhanced_axes_II_description: "为伐木工提供更好的斧头",
                         leg_enhanced_axes_III: "强化斧头 III",
                         leg_enhanced_axes_III_description: "为伐木工提供钛斧",
+                        leg_enhanced_axes_IV: "强化斧头 IV",
+                        leg_enhanced_axes_IV_description: "为伐木工提供史诗级的斧头",
                         leg_enhanced_pickaxes: "强化镐子",
                         leg_enhanced_pickaxes_description: "为矿工改善镐子",
                         leg_enhanced_pickaxes_II: "强化镐子 II",
                         leg_enhanced_pickaxes_II_description: "为矿工提供更好的镐子",
                         leg_enhanced_pickaxes_III: "强化镐子 III",
                         leg_enhanced_pickaxes_III_description: "为矿工提供钛镐",
+                        leg_enhanced_pickaxes_IV: "强化镐子 IV",
+                        leg_enhanced_pickaxes_IV_description: "为矿工提供史诗级的镐子",
                         leg_free_hands: "增员",
                         leg_free_hands_description: "我们需要更多的人口！",
                         leg_free_hands_II: "增员 II",
@@ -3599,6 +5386,8 @@
                         leg_irrigation_techniques_II_description: "再度改善技术还可以生产更多食物",
                         leg_irrigation_techniques_III: "灌溉技术 III",
                         leg_irrigation_techniques_III_description: "如同威尼斯一般的运河",
+                        leg_irrigation_techniques_IV: "灌溉技术 IV",
+                        leg_irrigation_techniques_IV_description: "农业技术在我们面前不再有任何秘密",
                         leg_library_theresmore: "登攀者世界图书馆",
                         leg_library_theresmore_description: "解锁登攀者世界图书馆",
                         leg_militia_recruitment: "招募民兵",
@@ -3625,6 +5414,8 @@
                         leg_renowned_stonemasons_II_description: "采石场的工人再次变得更有经验",
                         leg_renowned_stonemasons_III: "著名石匠 III",
                         leg_renowned_stonemasons_III_description: "非常老练的采石场工人！",
+                        leg_renowned_stonemasons_IV: "著名石匠 IV",
+                        leg_renowned_stonemasons_IV_description: "采石场的大师！",
                         leg_resource_cap: "资源上限",
                         leg_resource_cap_description: "可以为仓库提供帮助",
                         leg_resource_cap_II: "资源上限 II",
@@ -3686,6 +5477,7 @@
                         log_bui_15_farm: "农业的发展产生了新的地主",
                         log_bui_1_grocery: "用食物和牲畜就可以制造出补给品了",
                         log_bui_1_industrial_plant: "在工业厂房中，工匠会变为工人",
+                        log_bui_1_library_souls: "学者们变成了部分为亡灵的生物，所以会有大量食物产生。他们不再需要吃饭，也不再需要睡觉了",
                         log_bui_5_lumberjack_camp: "一个木雕师社区正在兴起",
                         log_bui_15_lumberjack_camp: "我们的木制品质量极高，让其他很多王国都眼红",
                         log_bui_1_mansion: "要结束封建时代，我们必须建造更多的大学、食品杂货店、钢铁厂、木匠工坊和宅邸。这样才是真正的城市！",
@@ -3774,6 +5566,7 @@
                         log_ene_deserters_den: "侦察兵发现了逃兵和强盗的巢穴",
                         log_ene_djinn_palace: "侦察兵发现了灯神的踪迹，它建造了一座宏伟的玻璃宫殿，并有几个娜迦在守卫着",
                         log_ene_east_sacred_place: "侦察兵发现了东部圣地！",
+                        log_ene_eternal_halls: "侦察兵发现了永恒大殿，征服它，向西部王国的人民证明我们的价值",
                         log_ene_hell_hole: "侦察兵发现了前往地底的入口，恶魔在洞穴中游荡，我们可能无法想象会碰到什么样的怪物。要小心！",
                         log_ene_loot: "侦察兵带回了他能找到的一切东西",
                         log_ene_no_loot: "侦察兵探索了许久，空手而归",
@@ -3783,15 +5576,19 @@
                         log_ene_cave_bats: "侦察兵发现了一个满是吸血蝙蝠的洞穴",
                         log_ene_gloomy_werewolf_forest: "侦察兵发现了传说怪物狼人藏身的森林",
                         log_ene_goblin_lair: "侦察兵发现了地精的巢穴，我们得赶走这些恶臭的家伙们，占领它们的领地",
+                        log_ene_golem_cave: "侦察兵发现了充满魔像的洞穴，贸然靠近可能危及生命",
                         log_ene_gorgon_cave: "侦察兵发现了传说怪物蛇发女妖藏身的巢穴",
                         log_ene_gnoll_camp: "侦察兵发现了豺狼人的大营地，它们由一位首领统领",
                         log_ene_gnoll_raiding_party: "侦察兵发现了豺狼人的一支突袭队正在漫无目的地游荡",
                         log_ene_haunted_library: "侦察兵发现了一个闹鬼的图书馆，我们能获得其中的知识吗？",
+                        log_ene_hobgoblin_chieftain: "侦察兵发现了一名淘气鬼酋长，它带领着一队部下",
+                        log_ene_hobgoblin_encampment: "侦察兵发现了一个满是淘气鬼士兵的营地",
                         log_ene_hydra_pit: "侦察兵发现了传说怪物五个头的多头蛇藏身的坑",
                         log_ene_lich_temple: "侦察兵发现了死灵法师来自哪里，那是一名巫妖的寺庙",
                         log_ene_kobold_city: "侦察兵发现了一座满是狗头人的城市。它会不会是某个更大国家的一部分？",
                         log_ene_kobold_looters: "侦察兵发现了一小群狗头人掠夺者",
                         log_ene_kobold_underground_tunnels: "侦察兵发现了一个充斥着狗头人的地下隧道，让我们把它们赶走吧",
+                        log_ene_korrigan_dolmen: "侦察兵发现了一圈石屋，科里根矮妖们守卫着那里",
                         log_ene_naga_nest: "侦察兵发现了娜迦老巢。在远处您就能听到被当成食物来源的动物叫声",
                         log_ene_nasty_pillagers: "侦察兵发现周围有一小群掠夺者，让我们把他们赶走把",
                         log_ene_necromancer_crypt: "侦察兵发现了一位死灵法师的家，里面到出都是食尸鬼和恶魂",
@@ -3812,11 +5609,13 @@
                         log_ene_son_atamar: "侦察兵在一个被摧毁的旧农场中发现了阿塔玛之子的聚集地",
                         log_ene_south_sacred_place: "侦察兵发现了南部圣地！",
                         log_ene_strange_village: "侦察兵发现了一个奇怪的村庄，他遭到了居民的袭击，那些居民的攻击性看起来很奇怪，就像是着魔了一样",
+                        log_ene_temple_gargoyle: "侦察兵在一片茂密的森林中发现了一座寺庙，石像鬼们在看守着它",
                         log_ene_troll_cave: "侦察兵发现了一个巨魔洞穴，最好等到我们足够强大以后再来考虑",
                         log_ene_vampire_crypt: "侦察兵发现了一个吸血鬼地穴，我们需要进行调查",
-                        log_ene_vampire_lair: "侦察兵发现了吸血鬼，它的能力对登攀者世界的每位自由公民都是一种威胁",
+                        log_ene_vampire_lair: "侦察兵发现了吸血鬼，她的能力对登攀者世界的每位自由公民都是一种威胁",
                         log_ene_west_sacred_place: "侦察兵发现了西部圣地！",
                         log_ene_wolf_pack: "侦察兵发现了一大群狼",
+                        log_ene_worn_down_crypt: "侦察兵在一片阴森森林的一个偏僻的犄角旮旯，发现了一个通往破旧地穴的入口。一些骷髅骑士守卫着它。",
                         log_ene_wyvern_nest: "侦察兵发现了双足飞龙的巢穴。这些长得像龙的生物很强大，领地意识很强",
                         log_fam_30: "您的领导力受到全城的认可",
                         log_fam_70: "我们的城市正在扩张，逐渐成为了附近山谷的参照物",
@@ -3840,6 +5639,7 @@
                         log_fai_sacred_place: "我们可以派侦察兵去探究登攀者世界上的圣地了。征服它们，将所有的法力导入一座塔内，并施放四条力量咒语，这就是我们通往飞升转生的目标",
                         log_fai_strange_lamp: "拿起灯以后，它启动了，灯神出现了，它感谢了我们还给它自由，然后就大笑着飞走了。我们应该派侦察兵去寻找它的家",
                         log_fai_the_aid: "为了解决难民的问题，我们必须建立新的区域，这会花费大量资源，但我们会从这些人的工作中有所收获",
+                        log_fai_temple_mirune: "森林女神米露涅赐予我们一条强大的咒语。我们可以施放它了",
                         log_spy_full: "间谍的任务成功了，敌人为：",
                         log_spy_up50: "间谍的任务成功了一半，敌人的信息为：",
                         log_spy_down50: "间谍的任务失败了，未发现任何信息。我们需要派遣更多间谍以提高成功率",
@@ -3886,6 +5686,7 @@
                         log_tec_fortification: "我们可以建造栅栏和城墙了",
                         log_tec_large_storage_space: "我们可以建造大型库房了",
                         log_tec_large_defensive_project: "我们可以建造超级大炮了",
+                        log_tec_library_of_souls: "图书馆的缺失很严重，但在一定时间的研究后，很容易推断出它是邪恶魔法的成果。学习这些知识的人可以将部分灵魂献给水井，以此摆脱肉体凡胎的束缚",
                         log_tec_lonely_druid: "城市里出现了一个不知哪里来的德鲁伊，声称要与登攀者世界的人类充满和谐和爱地交流。他反对现代化和随意开采资源。他的信仰很有吸引力，越来越多的人开始听他的话",
                         log_tec_long_expedition: "侦察兵又有了新死法，他们会发现什么？",
                         log_tec_glorious_parade: "在这场盛大的庆祝活动中，您耀武扬威地走在街上，虽然入夜已深，但庆祝活动似乎根本还不想结束。邻近省份的每个角落都有人涌向这座城市，只是为了看一眼屠龙勇士！(尽快它当时其实是逃跑了)",
@@ -3927,6 +5728,8 @@
                         log_tec_municipal_administration: "我们可以建造市政厅了",
                         log_tec_natrocity: "我们可以建造光之城了",
                         log_tec_natronite_storage: "要小心处理钠红石。我们可以建造钠红石仓库了",
+                        log_tec_persuade_nobility: "我们可以招募甲胄骑兵了",
+                        log_tec_persuade_people: "我们必须找到永恒大殿，并击败守卫。派出探险家吧",
                         log_tec_plate_armor: "我们可以招募超重装战士了",
                         log_tec_plenty_valley: "我们可以建造丰饶之谷了",
                         log_tec_pottery: "通过研究第一批工艺，我们可以制造工具了。我们可以建造工匠作坊了",
@@ -3950,6 +5753,7 @@
                         log_tec_tamed_barbarian: "我们必须利用侦查员了解更多关于这些野蛮人的信息，这样才能把我们的文明输出给他们！",
                         log_tec_the_scourge: "难民们讲述了整个村庄被一只飞行怪物烧毁的故事，大批无家可归的人正沿着西部边境，向着城市涌来",
                         log_tec_trail_blood: "我们发现了血迹。我们还得派侦察兵去寻找吸血鬼",
+                        log_tec_trail_power: "我们赢得了王国的认可。我们可以考虑说服贵族，或者是赢得民心。请谨慎选择，您只能选择其一",
                         log_tec_training_militia: "我们可以招募城堡民兵了",
                         log_tec_warfare: "熟悉兵法韬略后，我们的国度将出现伟大的统帅",
                         log_tec_wood_cutting: "我们可以建造伐木工营地了",
@@ -3985,6 +5789,10 @@
                         not_fallen_angel_army_2_dif_2_title: "从无望难度堕天使的攻击下生还",
                         not_harbor_district: "航海",
                         not_harbor_district_title: "海湾区",
+                        not_persuade_nobility: "政治献金",
+                        not_persuade_nobility_title: "说服贵族",
+                        not_loved_people: "人民的拥戴",
+                        not_loved_people_title: "赢得民心",
                         not_5_alchemic_laboratory: "疯狂科学家",
                         not_5_alchemic_laboratory_title: "5个炼金实验室",
                         not_15_alchemic_laboratory: "点金之手",
@@ -4483,6 +6291,8 @@
                         tec_large_storage_space_description: "我们所需的一切空间",
                         tec_large_pastures: "大型牧场",
                         tec_large_pastures_description: "与游荡者的协定让我们更好地了解他们的繁育技术",
+                        tec_library_of_souls: "灵魂图书馆",
+                        tec_library_of_souls_description: "地穴原来是一座古老的图书馆，它的中央是一口电光石火般的水井。它的倒影中映着许多不同面容的鬼魂。只有最顽强的凡人才敢挑战图书馆的禁忌知识",
                         tec_liturgical_rites: "法力仪式",
                         tec_liturgical_rites_description: "随着法力仪式的确立，我们将可以探索新的咒语",
                         tec_local_products: "土特产",
@@ -4491,6 +6301,8 @@
                         tec_lonely_druid_description: "人群开始在一个孤独的德鲁伊身边聚集起来",
                         tec_long_expedition: "长途探险",
                         tec_long_expedition_description: "利用新型机械，我们可以探索更远的地方了",
+                        tec_loved_people: "人民的拥戴",
+                        tec_loved_people_description: "西部人民们终于认为我们才是合法的统治者。是时候享受奖励了",
                         tec_plate_armor: "板甲",
                         tec_plate_armor_description: "全副武装地出现在战场上",
                         tec_preparation_war: "准备作战",
@@ -4601,6 +6413,10 @@
                         tec_storage_district_description: "我们总是需要更多空间",
                         tec_storing_valuable_materials: "存放贵重材料",
                         tec_storing_valuable_materials_description: "我们需要一个有人值守的地方存放贵重材料",
+                        tec_persuade_nobility: "说服贵族",
+                        tec_persuade_nobility_description: "我们需要大量黄金才能“说服”贵族，但我们可以招募西部的强大骑士了",
+                        tec_persuade_people: "赢得民心",
+                        tec_persuade_people_description: "为了赢得人们的拥戴，我们需要做出英雄行为。只有战胜可怕的敌人，才能让他们彻底认同",
                         tec_plenty_valley: "丰饶之谷",
                         tec_plenty_valley_description: "我们的土地生产极丰富的资源，不应该浪费它",
                         tec_tamed_barbarian: "驯服野蛮人",
@@ -4615,6 +6431,8 @@
                         tec_underground_kobold_mission_description: "狗头人的隧道向几个方向伸出分支，我们必须探索它们",
                         tec_trail_blood: "血迹",
                         tec_trail_blood_description: "吸血鬼地穴里并没有棺材，我们必须到别处去寻找",
+                        tec_trail_power: "力量之路",
+                        tec_trail_power_description: "我们征服了西部王国，但人民仍然对我们充满敌意。我们得想想办法",
                         tec_training_militia: "训练民兵",
                         tec_training_militia_description: "我们已经知晓登攀者世界有多么无情了，我们需要建立一支民兵部队",
                         tec_warfare: "战争",
@@ -4654,6 +6472,9 @@
                         uni_cannon: "加农炮",
                         uni_cannon_description: "野战炮的炮火将在敌人的耳朵和噩梦中回响",
                         uni_cannon_plural: "加农炮",
+                        uni_cataphract: "甲胄骑兵",
+                        uni_cataphract_description: "西部王国的贵族们是全副武装的骑士",
+                        uni_cataphract_plural: "甲胄骑兵",
                         uni_charmed_dweller: "着魔的居民",
                         uni_charmed_dweller_description: "一个目光呆滞的村民",
                         uni_charmed_dweller_plural: "着魔的居民",
@@ -4670,6 +6491,8 @@
                         uni_draconic_mage_plural: "龙人巫师",
                         uni_draconic_leader: "龙人首领",
                         uni_draconic_leader_plural: "龙人首领",
+                        uni_eternal_guardian: "永恒守卫",
+                        uni_eternal_guardian_plural: "永恒守卫",
                         uni_harpy: "鹰身女妖",
                         uni_harpy_description: "鹰身女妖会使用歌声魅惑人类，并吞噬靠太近的可怜虫",
                         uni_harpy_plural: "鹰身女妖",
@@ -4736,6 +6559,8 @@
                         uni_frost_elemental: "冰元素",
                         uni_frost_elemental_description: "冰元素会在自身周围产生冰之光环",
                         uni_frost_elemental_plural: "冰元素",
+                        uni_gargoyle: "石像鬼",
+                        uni_gargoyle_plural: "石像鬼",
                         uni_general: "将军",
                         uni_general_description: "光杆司令",
                         uni_general_plural: "将军",
@@ -4755,6 +6580,8 @@
                         uni_goblin_overlord_plural: "地精大王",
                         uni_goblin_wolfrider: "地精狼骑兵",
                         uni_goblin_wolfrider_plural: "地精狼骑兵",
+                        uni_golem: "魔像",
+                        uni_golem_plural: "魔像",
                         uni_gorgon: "蛇发女妖",
                         uni_gorgon_plural: "蛇发女妖",
                         uni_ghast: "恶魂",
@@ -4773,12 +6600,22 @@
                         uni_greater_demon: "高等恶魔",
                         uni_greater_demon_descriprion: "被地狱吐出来的高等恶魔",
                         uni_greater_demon_plural: "高等恶魔",
+                        uni_korrigan_slinger: "科里根矮妖投石者",
+                        uni_korrigan_slinger_plural: "科里根矮妖投石者",
+                        uni_korrigan_swindler: "科里根矮妖欺诈者",
+                        uni_korrigan_swindler_plural: "科里根矮妖欺诈者",
                         uni_juggernaut: "主宰",
                         uni_juggernaut_description: "亡者巨型怪物",
                         uni_juggernaut_plural: "主宰",
                         uni_hill_giant: "山巨人",
                         uni_hill_giant_description: "错误迈上了荒山，把大树当棍棒用",
                         uni_hill_giant_plural: "山巨人",
+                        uni_hobgoblin_archer: "淘气鬼弓箭手",
+                        uni_hobgoblin_archer_plural: "淘气鬼弓箭手",
+                        uni_hobgoblin_chieftain: "淘气鬼酋长",
+                        uni_hobgoblin_chieftain_plural: "淘气鬼酋长",
+                        uni_hobgoblin_grunt: "淘气鬼士兵",
+                        uni_hobgoblin_grunt_plural: "淘气鬼士兵",
                         uni_hydra: "多头蛇",
                         uni_hydra_plural: "多头蛇",
                         uni_lich: "巫妖",
@@ -4857,6 +6694,8 @@
                         uni_shieldbearer: "持盾卫士",
                         uni_shieldbearer_description: "大盾牌，大防御",
                         uni_shieldbearer_plural: "持盾卫士",
+                        uni_skeletal_knight: "骷髅骑士",
+                        uni_skeletal_knight_plural: "骷髅骑士",
                         uni_skeleton: "骷髅",
                         uni_skeleton_description: "一堆可以移动的骨头，会使用武器",
                         uni_skeleton_plural: "骷髅",
@@ -4925,281 +6764,285 @@
                 "use strict";
                 r.d(t, {
                     $J3: function () {
-                        return i
+                        return o
                     },
                     $Qg: function () {
-                        return se
+                        return le
                     },
                     AV$: function () {
-                        return S
+                        return M
                     },
                     Ake: function () {
-                        return E
+                        return N
                     },
                     BGt: function () {
-                        return $
+                        return J
                     },
                     C$b: function () {
-                        return te
+                        return re
                     },
                     DkV: function () {
-                        return A
+                        return C
                     },
                     E1P: function () {
-                        return L
+                        return q
                     },
                     FBh: function () {
-                        return P
+                        return R
                     },
                     Fjp: function () {
-                        return j
-                    },
-                    Gir: function () {
-                        return D
-                    },
-                    H7z: function () {
                         return I
                     },
+                    Gir: function () {
+                        return V
+                    },
+                    H7z: function () {
+                        return L
+                    },
                     Hne: function () {
-                        return ce
+                        return de
                     },
                     J1f: function () {
-                        return ee
+                        return te
+                    },
+                    KkW: function () {
+                        return i
                     },
                     L_H: function () {
                         return n
                     },
                     MUM: function () {
-                        return U
+                        return Y
                     },
                     M_e: function () {
-                        return p
-                    },
-                    MxW: function () {
-                        return he
-                    },
-                    PZJ: function () {
-                        return g
-                    },
-                    S8v: function () {
-                        return le
-                    },
-                    SGh: function () {
-                        return fe
-                    },
-                    Shd: function () {
-                        return v
-                    },
-                    SlK: function () {
-                        return K
-                    },
-                    UEB: function () {
-                        return me
-                    },
-                    UHA: function () {
-                        return B
-                    },
-                    UeY: function () {
-                        return ie
-                    },
-                    VG3: function () {
-                        return W
-                    },
-                    Vrx: function () {
-                        return b
-                    },
-                    XT1: function () {
-                        return re
-                    },
-                    XWK: function () {
-                        return V
-                    },
-                    YFH: function () {
-                        return c
-                    },
-                    YKm: function () {
-                        return m
-                    },
-                    Z8d: function () {
-                        return l
-                    },
-                    ZkO: function () {
-                        return O
-                    },
-                    _5E: function () {
                         return f
                     },
-                    _MI: function () {
+                    MxW: function () {
                         return ye
                     },
+                    PZJ: function () {
+                        return v
+                    },
+                    S8v: function () {
+                        return ue
+                    },
+                    SGh: function () {
+                        return he
+                    },
+                    Shd: function () {
+                        return b
+                    },
+                    SlK: function () {
+                        return G
+                    },
+                    UEB: function () {
+                        return ge
+                    },
+                    UHA: function () {
+                        return K
+                    },
+                    UeY: function () {
+                        return oe
+                    },
+                    VG3: function () {
+                        return B
+                    },
+                    Vrx: function () {
+                        return w
+                    },
+                    XT1: function () {
+                        return ne
+                    },
+                    XWK: function () {
+                        return H
+                    },
+                    YFH: function () {
+                        return d
+                    },
+                    YKm: function () {
+                        return g
+                    },
+                    Z8d: function () {
+                        return u
+                    },
+                    ZkO: function () {
+                        return E
+                    },
+                    _5E: function () {
+                        return h
+                    },
+                    _MI: function () {
+                        return me
+                    },
                     _VZ: function () {
-                        return T
+                        return O
                     },
                     bGv: function () {
-                        return Q
+                        return X
                     },
                     bWf: function () {
-                        return u
+                        return c
                     },
                     bp3: function () {
                         return _
                     },
                     btf: function () {
-                        return h
+                        return y
                     },
                     epm: function () {
-                        return C
+                        return T
                     },
                     fOx: function () {
-                        return Y
+                        return Q
                     },
                     f_y: function () {
-                        return X
+                        return $
                     },
                     fjy: function () {
-                        return x
+                        return S
                     },
                     g7x: function () {
                         return _e
                     },
                     geb: function () {
-                        return Z
+                        return W
                     },
                     h27: function () {
-                        return oe
+                        return se
                     },
                     h_8: function () {
-                        return q
+                        return P
                     },
                     hb5: function () {
-                        return y
+                        return m
                     },
                     hhU: function () {
-                        return ae
+                        return ie
                     },
                     iKI: function () {
-                        return de
+                        return pe
                     },
                     iZA: function () {
-                        return d
+                        return p
                     },
                     jZI: function () {
                         return a
                     },
                     kMq: function () {
-                        return z
+                        return Z
                     },
                     kaV: function () {
-                        return M
+                        return A
                     },
                     kvM: function () {
-                        return w
+                        return k
                     },
                     lEW: function () {
-                        return pe
+                        return fe
                     },
                     ns6: function () {
                         return F
                     },
                     nvf: function () {
-                        return N
+                        return j
                     },
                     oHt: function () {
-                        return H
+                        return z
                     },
                     p$j: function () {
-                        return ue
+                        return ce
                     },
                     pCE: function () {
-                        return ne
+                        return ae
                     },
                     qX5: function () {
-                        return J
+                        return ee
                     },
                     r8w: function () {
-                        return k
+                        return x
                     },
                     sMo: function () {
-                        return R
+                        return D
                     },
                     ss0: function () {
-                        return o
-                    },
-                    tZK: function () {
                         return s
                     },
+                    tZK: function () {
+                        return l
+                    },
                     v5B: function () {
-                        return G
+                        return U
                     }
                 });
                 var n = "M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z",
                     a = "M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z",
-                    i = "M12,17L7,12H10V8H14V12H17L12,17M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z",
-                    o = "M12,7L17,12H14V16H10V12H7L12,7M12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20Z",
-                    s = "M12,2L22,8C22,12 20,14 16,15L13,10L9,6L12,2M4.11,19.84L2.12,18.33L9.19,9L11,10.81L4.11,19.84Z",
-                    l = "M16.67,4H15V2H9V4H7.33A1.33,1.33 0 0,0 6,5.33V20.67C6,21.4 6.6,22 7.33,22H16.67A1.33,1.33 0 0,0 18,20.67V5.33C18,4.6 17.4,4 16.67,4Z",
-                    u = "M17.5 14.33C18.29 14.33 19.13 14.41 20 14.57V16.07C19.38 15.91 18.54 15.83 17.5 15.83C15.6 15.83 14.11 16.16 13 16.82V15.13C14.17 14.6 15.67 14.33 17.5 14.33M13 12.46C14.29 11.93 15.79 11.67 17.5 11.67C18.29 11.67 19.13 11.74 20 11.9V13.4C19.38 13.24 18.54 13.16 17.5 13.16C15.6 13.16 14.11 13.5 13 14.15M17.5 10.5C15.6 10.5 14.11 10.82 13 11.5V9.84C14.23 9.28 15.73 9 17.5 9C18.29 9 19.13 9.08 20 9.23V10.78C19.26 10.59 18.41 10.5 17.5 10.5M21 18.5V7C19.96 6.67 18.79 6.5 17.5 6.5C15.45 6.5 13.62 7 12 8V19.5C13.62 18.5 15.45 18 17.5 18C18.69 18 19.86 18.16 21 18.5M17.5 4.5C19.85 4.5 21.69 5 23 6V20.56C23 20.68 22.95 20.8 22.84 20.91C22.73 21 22.61 21.08 22.5 21.08C22.39 21.08 22.31 21.06 22.25 21.03C20.97 20.34 19.38 20 17.5 20C15.45 20 13.62 20.5 12 21.5C10.66 20.5 8.83 20 6.5 20C4.84 20 3.25 20.36 1.75 21.07C1.72 21.08 1.68 21.08 1.63 21.1C1.59 21.11 1.55 21.12 1.5 21.12C1.39 21.12 1.27 21.08 1.16 21C1.05 20.89 1 20.78 1 20.65V6C2.34 5 4.18 4.5 6.5 4.5C8.83 4.5 10.66 5 12 6C13.34 5 15.17 4.5 17.5 4.5Z",
-                    c = "M19.03 6.03L20 7L22 2L17 4L17.97 4.97L16.15 6.79C10.87 2.16 3.3 3.94 2.97 4L2 4.26L2.5 6.2L3.29 6L10.12 12.82L6.94 16H5L2 19L4 20L5 22L8 19V17.06L11.18 13.88L18 20.71L17.81 21.5L19.74 22L20 21.03C20.06 20.7 21.84 13.13 17.21 7.85L19.03 6.03M4.5 5.78C6.55 5.5 11.28 5.28 14.73 8.21L10.82 12.12L4.5 5.78M18.22 19.5L11.88 13.18L15.79 9.27C18.72 12.72 18.5 17.45 18.22 19.5Z",
-                    d = "M14,12H10V10H14M14,16H10V14H14M20,8H17.19C16.74,7.22 16.12,6.55 15.37,6.04L17,4.41L15.59,3L13.42,5.17C12.96,5.06 12.5,5 12,5C11.5,5 11.04,5.06 10.59,5.17L8.41,3L7,4.41L8.62,6.04C7.88,6.55 7.26,7.22 6.81,8H4V10H6.09C6.04,10.33 6,10.66 6,11V12H4V14H6V15C6,15.34 6.04,15.67 6.09,16H4V18H6.81C7.85,19.79 9.78,21 12,21C14.22,21 16.15,19.79 17.19,18H20V16H17.91C17.96,15.67 18,15.34 18,15V14H20V12H18V11C18,10.66 17.96,10.33 17.91,10H20V8Z",
-                    p = "M12 2C17.5 2 22 6.5 22 12S17.5 22 12 22 2 17.5 2 12 6.5 2 12 2M12 4C10.1 4 8.4 4.6 7.1 5.7L18.3 16.9C19.3 15.5 20 13.8 20 12C20 7.6 16.4 4 12 4M16.9 18.3L5.7 7.1C4.6 8.4 4 10.1 4 12C4 16.4 7.6 20 12 20C13.9 20 15.6 19.4 16.9 18.3Z",
-                    f = "M17.45,15.18L22,7.31V19L22,21H2V3H4V15.54L9.5,6L16,9.78L20.24,2.45L21.97,3.45L16.74,12.5L10.23,8.75L4.31,19H6.57L10.96,11.44L17.45,15.18Z",
-                    h = "M22,21H2V3H4V19H6V10H10V19H12V6H16V19H18V14H22V21Z",
-                    y = "M12,3C17.5,3 22,6.58 22,11C22,15.42 17.5,19 12,19C10.76,19 9.57,18.82 8.47,18.5C5.55,21 2,21 2,21C4.33,18.67 4.7,17.1 4.75,16.5C3.05,15.07 2,13.13 2,11C2,6.58 6.5,3 12,3M11,14V16H13V14H11M11,12H13V6H11V12Z",
-                    m = "M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z",
+                    i = "M19.5,3.09L20.91,4.5L16.41,9H20V11H13V4H15V7.59L19.5,3.09M20.91,19.5L19.5,20.91L15,16.41V20H13V13H20V15H16.41L20.91,19.5M4.5,3.09L9,7.59V4H11V11H4V9H7.59L3.09,4.5L4.5,3.09M3.09,19.5L7.59,15H4V13H11V20H9V16.41L4.5,20.91L3.09,19.5Z",
+                    o = "M12,17L7,12H10V8H14V12H17L12,17M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z",
+                    s = "M12,7L17,12H14V16H10V12H7L12,7M12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20Z",
+                    l = "M12,2L22,8C22,12 20,14 16,15L13,10L9,6L12,2M4.11,19.84L2.12,18.33L9.19,9L11,10.81L4.11,19.84Z",
+                    u = "M16.67,4H15V2H9V4H7.33A1.33,1.33 0 0,0 6,5.33V20.67C6,21.4 6.6,22 7.33,22H16.67A1.33,1.33 0 0,0 18,20.67V5.33C18,4.6 17.4,4 16.67,4Z",
+                    c = "M17.5 14.33C18.29 14.33 19.13 14.41 20 14.57V16.07C19.38 15.91 18.54 15.83 17.5 15.83C15.6 15.83 14.11 16.16 13 16.82V15.13C14.17 14.6 15.67 14.33 17.5 14.33M13 12.46C14.29 11.93 15.79 11.67 17.5 11.67C18.29 11.67 19.13 11.74 20 11.9V13.4C19.38 13.24 18.54 13.16 17.5 13.16C15.6 13.16 14.11 13.5 13 14.15M17.5 10.5C15.6 10.5 14.11 10.82 13 11.5V9.84C14.23 9.28 15.73 9 17.5 9C18.29 9 19.13 9.08 20 9.23V10.78C19.26 10.59 18.41 10.5 17.5 10.5M21 18.5V7C19.96 6.67 18.79 6.5 17.5 6.5C15.45 6.5 13.62 7 12 8V19.5C13.62 18.5 15.45 18 17.5 18C18.69 18 19.86 18.16 21 18.5M17.5 4.5C19.85 4.5 21.69 5 23 6V20.56C23 20.68 22.95 20.8 22.84 20.91C22.73 21 22.61 21.08 22.5 21.08C22.39 21.08 22.31 21.06 22.25 21.03C20.97 20.34 19.38 20 17.5 20C15.45 20 13.62 20.5 12 21.5C10.66 20.5 8.83 20 6.5 20C4.84 20 3.25 20.36 1.75 21.07C1.72 21.08 1.68 21.08 1.63 21.1C1.59 21.11 1.55 21.12 1.5 21.12C1.39 21.12 1.27 21.08 1.16 21C1.05 20.89 1 20.78 1 20.65V6C2.34 5 4.18 4.5 6.5 4.5C8.83 4.5 10.66 5 12 6C13.34 5 15.17 4.5 17.5 4.5Z",
+                    d = "M19.03 6.03L20 7L22 2L17 4L17.97 4.97L16.15 6.79C10.87 2.16 3.3 3.94 2.97 4L2 4.26L2.5 6.2L3.29 6L10.12 12.82L6.94 16H5L2 19L4 20L5 22L8 19V17.06L11.18 13.88L18 20.71L17.81 21.5L19.74 22L20 21.03C20.06 20.7 21.84 13.13 17.21 7.85L19.03 6.03M4.5 5.78C6.55 5.5 11.28 5.28 14.73 8.21L10.82 12.12L4.5 5.78M18.22 19.5L11.88 13.18L15.79 9.27C18.72 12.72 18.5 17.45 18.22 19.5Z",
+                    p = "M14,12H10V10H14M14,16H10V14H14M20,8H17.19C16.74,7.22 16.12,6.55 15.37,6.04L17,4.41L15.59,3L13.42,5.17C12.96,5.06 12.5,5 12,5C11.5,5 11.04,5.06 10.59,5.17L8.41,3L7,4.41L8.62,6.04C7.88,6.55 7.26,7.22 6.81,8H4V10H6.09C6.04,10.33 6,10.66 6,11V12H4V14H6V15C6,15.34 6.04,15.67 6.09,16H4V18H6.81C7.85,19.79 9.78,21 12,21C14.22,21 16.15,19.79 17.19,18H20V16H17.91C17.96,15.67 18,15.34 18,15V14H20V12H18V11C18,10.66 17.96,10.33 17.91,10H20V8Z",
+                    f = "M12 2C17.5 2 22 6.5 22 12S17.5 22 12 22 2 17.5 2 12 6.5 2 12 2M12 4C10.1 4 8.4 4.6 7.1 5.7L18.3 16.9C19.3 15.5 20 13.8 20 12C20 7.6 16.4 4 12 4M16.9 18.3L5.7 7.1C4.6 8.4 4 10.1 4 12C4 16.4 7.6 20 12 20C13.9 20 15.6 19.4 16.9 18.3Z",
+                    h = "M17.45,15.18L22,7.31V19L22,21H2V3H4V15.54L9.5,6L16,9.78L20.24,2.45L21.97,3.45L16.74,12.5L10.23,8.75L4.31,19H6.57L10.96,11.44L17.45,15.18Z",
+                    y = "M22,21H2V3H4V19H6V10H10V19H12V6H16V19H18V14H22V21Z",
+                    m = "M12,3C17.5,3 22,6.58 22,11C22,15.42 17.5,19 12,19C10.76,19 9.57,18.82 8.47,18.5C5.55,21 2,21 2,21C4.33,18.67 4.7,17.1 4.75,16.5C3.05,15.07 2,13.13 2,11C2,6.58 6.5,3 12,3M11,14V16H13V14H11M11,12H13V6H11V12Z",
+                    g = "M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z",
                     _ = "M12,18L7,13H10V9H14V13H17M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z",
-                    g = "M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H9.18C9.6,1.84 10.7,1 12,1C13.3,1 14.4,1.84 14.82,3H19M12,8L7,13H10V17H14V13H17L12,8M12,3A1,1 0 0,0 11,4A1,1 0 0,0 12,5A1,1 0 0,0 13,4A1,1 0 0,0 12,3Z",
-                    v = "M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z",
-                    b = "M22,24L16.75,19L17.38,21H4.5A2.5,2.5 0 0,1 2,18.5V3.5A2.5,2.5 0 0,1 4.5,1H19.5A2.5,2.5 0 0,1 22,3.5V24M12,6.8C9.32,6.8 7.44,7.95 7.44,7.95C8.47,7.03 10.27,6.5 10.27,6.5L10.1,6.33C8.41,6.36 6.88,7.53 6.88,7.53C5.16,11.12 5.27,14.22 5.27,14.22C6.67,16.03 8.75,15.9 8.75,15.9L9.46,15C8.21,14.73 7.42,13.62 7.42,13.62C7.42,13.62 9.3,14.9 12,14.9C14.7,14.9 16.58,13.62 16.58,13.62C16.58,13.62 15.79,14.73 14.54,15L15.25,15.9C15.25,15.9 17.33,16.03 18.73,14.22C18.73,14.22 18.84,11.12 17.12,7.53C17.12,7.53 15.59,6.36 13.9,6.33L13.73,6.5C13.73,6.5 15.53,7.03 16.56,7.95C16.56,7.95 14.68,6.8 12,6.8M9.93,10.59C10.58,10.59 11.11,11.16 11.1,11.86C11.1,12.55 10.58,13.13 9.93,13.13C9.29,13.13 8.77,12.55 8.77,11.86C8.77,11.16 9.28,10.59 9.93,10.59M14.1,10.59C14.75,10.59 15.27,11.16 15.27,11.86C15.27,12.55 14.75,13.13 14.1,13.13C13.46,13.13 12.94,12.55 12.94,11.86C12.94,11.16 13.45,10.59 14.1,10.59Z",
-                    w = "M12 16C13.1 16 14 16.9 14 18S13.1 20 12 20 10 19.1 10 18 10.9 16 12 16M12 10C13.1 10 14 10.9 14 12S13.1 14 12 14 10 13.1 10 12 10.9 10 12 10M12 4C13.1 4 14 4.9 14 6S13.1 8 12 8 10 7.1 10 6 10.9 4 12 4M6 16C7.1 16 8 16.9 8 18S7.1 20 6 20 4 19.1 4 18 4.9 16 6 16M6 10C7.1 10 8 10.9 8 12S7.1 14 6 14 4 13.1 4 12 4.9 10 6 10M6 4C7.1 4 8 4.9 8 6S7.1 8 6 8 4 7.1 4 6 4.9 4 6 4M18 16C19.1 16 20 16.9 20 18S19.1 20 18 20 16 19.1 16 18 16.9 16 18 16M18 10C19.1 10 20 10.9 20 12S19.1 14 18 14 16 13.1 16 12 16.9 10 18 10M18 4C19.1 4 20 4.9 20 6S19.1 8 18 8 16 7.1 16 6 16.9 4 18 4Z",
-                    k = "M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
-                    x = "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,14C13.75,14 15.29,14.72 16.19,15.81L14.77,17.23C14.32,16.5 13.25,16 12,16C10.75,16 9.68,16.5 9.23,17.23L7.81,15.81C8.71,14.72 10.25,14 12,14M10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5V8L10,9.5M17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5L17,8V9.5",
-                    S = "M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M13,9.94L14.06,11L15.12,9.94L16.18,11L17.24,9.94L15.12,7.82L13,9.94M8.88,9.94L9.94,11L11,9.94L8.88,7.82L6.76,9.94L7.82,11L8.88,9.94M12,17.5C14.33,17.5 16.31,16.04 17.11,14H6.89C7.69,16.04 9.67,17.5 12,17.5Z",
-                    M = "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M8.5,11A1.5,1.5 0 0,1 7,9.5A1.5,1.5 0 0,1 8.5,8A1.5,1.5 0 0,1 10,9.5A1.5,1.5 0 0,1 8.5,11M17,9.5A1.5,1.5 0 0,1 15.5,11A1.5,1.5 0 0,1 14,9.5A1.5,1.5 0 0,1 15.5,8A1.5,1.5 0 0,1 17,9.5M16,14V16H8V14H16Z",
-                    A = "M10 3H14V14H10V3M10 21V17H14V21H10Z",
-                    C = "M12,1L8,5H11V14H13V5H16M18,23H6C4.89,23 4,22.1 4,21V9A2,2 0 0,1 6,7H9V9H6V21H18V9H15V7H18A2,2 0 0,1 20,9V21A2,2 0 0,1 18,23Z",
-                    T = "M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z",
-                    O = "M14,2H6C4.89,2 4,2.89 4,4V20C4,21.11 4.89,22 6,22H18C19.11,22 20,21.11 20,20V8L14,2M12,19L8,15H10.5V12H13.5V15H16L12,19M13,9V3.5L18.5,9H13Z",
-                    E = "M7,2V13H10V22L17,10H13L17,2H7Z",
-                    N = "M22,12V20A2,2 0 0,1 20,22H4A2,2 0 0,1 2,20V12A1,1 0 0,1 1,11V8A2,2 0 0,1 3,6H6.17C6.06,5.69 6,5.35 6,5A3,3 0 0,1 9,2C10,2 10.88,2.5 11.43,3.24V3.23L12,4L12.57,3.23V3.24C13.12,2.5 14,2 15,2A3,3 0 0,1 18,5C18,5.35 17.94,5.69 17.83,6H21A2,2 0 0,1 23,8V11A1,1 0 0,1 22,12M4,20H11V12H4V20M20,20V12H13V20H20M9,4A1,1 0 0,0 8,5A1,1 0 0,0 9,6A1,1 0 0,0 10,5A1,1 0 0,0 9,4M15,4A1,1 0 0,0 14,5A1,1 0 0,0 15,6A1,1 0 0,0 16,5A1,1 0 0,0 15,4M3,8V10H11V8H3M13,8V10H21V8H13Z",
-                    j = "M1 22L2.5 17H9.5L11 22H1M13 22L14.5 17H21.5L23 22H13M6 15L7.5 10H14.5L16 15H6M23 6.05L19.14 7.14L18.05 11L16.96 7.14L13.1 6.05L16.96 4.96L18.05 1.1L19.14 4.96L23 6.05Z",
-                    I = "M20 13C20.6 13 21.1 13.2 21.5 13.6C21.8 14 22 14.5 22 15L14 18L7 16V7H8.9L16.2 9.7C16.7 9.9 17 10.3 17 10.8C17 11.1 16.9 11.4 16.7 11.6S16.1 12 15.8 12H13L11.2 11.3L10.9 12.2L13 13H20M1 7H5V18H1V7Z",
-                    L = "M20 17Q20.86 17 21.45 17.6T22.03 19L14 22L7 20V11H8.95L16.22 13.69Q17 14 17 14.81 17 15.28 16.66 15.63T15.8 16H13L11.25 15.33L10.92 16.27L13 17H20M16 3.23Q17.06 2 18.7 2 20.06 2 21 3T22 5.3Q22 6.33 21 7.76T19.03 10.15 16 13Q13.92 11.11 12.94 10.15T10.97 7.76 10 5.3Q10 3.94 10.97 3T13.31 2Q14.91 2 16 3.23M.984 11H5V22H.984V11Z",
-                    q = "M11.43 9.67C11.47 9.78 11.5 9.88 11.5 10V15.22C11.5 15.72 11.31 16.2 10.97 16.57L8.18 19.62L4.78 16.22L6 15L8.8 2.86C8.92 2.36 9.37 2 9.89 2C10.5 2 11 2.5 11 3.11V8.07C10.84 8.03 10.67 8 10.5 8C9.4 8 8.5 8.9 8.5 10V13C8.5 13.28 8.72 13.5 9 13.5S9.5 13.28 9.5 13V10C9.5 9.45 9.95 9 10.5 9C10.69 9 10.85 9.07 11 9.16C11.12 9.23 11.21 9.32 11.3 9.42C11.33 9.46 11.36 9.5 11.38 9.55C11.4 9.59 11.42 9.63 11.43 9.67M2 19L6 22L7.17 20.73L3.72 17.28L2 19M18 15L15.2 2.86C15.08 2.36 14.63 2 14.11 2C13.5 2 13 2.5 13 3.11V8.07C13.16 8.03 13.33 8 13.5 8C14.6 8 15.5 8.9 15.5 10V13C15.5 13.28 15.28 13.5 15 13.5S14.5 13.28 14.5 13V10C14.5 9.45 14.05 9 13.5 9C13.31 9 13.15 9.07 13 9.16C12.88 9.23 12.79 9.32 12.71 9.42C12.68 9.46 12.64 9.5 12.62 9.55C12.6 9.59 12.58 9.63 12.57 9.67C12.53 9.78 12.5 9.88 12.5 10V15.22C12.5 15.72 12.69 16.2 13.03 16.57L15.82 19.62L19.22 16.22L18 15M20.28 17.28L16.83 20.73L18 22L22 19L20.28 17.28Z",
-                    P = "M21.71 8.71C22.96 7.46 22.39 6 21.71 5.29L18.71 2.29C17.45 1.04 16 1.61 15.29 2.29L13.59 4H11C9.1 4 8 5 7.44 6.15L3 10.59V14.59L2.29 15.29C1.04 16.55 1.61 18 2.29 18.71L5.29 21.71C5.83 22.25 6.41 22.45 6.96 22.45C7.67 22.45 8.32 22.1 8.71 21.71L11.41 19H15C16.7 19 17.56 17.94 17.87 16.9C19 16.6 19.62 15.74 19.87 14.9C21.42 14.5 22 13.03 22 12V9H21.41L21.71 8.71M20 12C20 12.45 19.81 13 19 13L18 13L18 14C18 14.45 17.81 15 17 15L16 15L16 16C16 16.45 15.81 17 15 17H10.59L7.31 20.28C7 20.57 6.82 20.4 6.71 20.29L3.72 17.31C3.43 17 3.6 16.82 3.71 16.71L5 15.41V11.41L7 9.41V11C7 12.21 7.8 14 10 14S13 12.21 13 11H20V12M20.29 7.29L18.59 9H11V11C11 11.45 10.81 12 10 12S9 11.45 9 11V8C9 7.54 9.17 6 11 6H14.41L16.69 3.72C17 3.43 17.18 3.6 17.29 3.71L20.28 6.69C20.57 7 20.4 7.18 20.29 7.29Z",
-                    R = "M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z",
-                    D = "M11,18H13V16H11V18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,6A4,4 0 0,0 8,10H10A2,2 0 0,1 12,8A2,2 0 0,1 14,10C14,12 11,11.75 11,15H13C13,12.75 16,12.5 16,10A4,4 0 0,0 12,6Z",
+                    v = "M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H9.18C9.6,1.84 10.7,1 12,1C13.3,1 14.4,1.84 14.82,3H19M12,8L7,13H10V17H14V13H17L12,8M12,3A1,1 0 0,0 11,4A1,1 0 0,0 12,5A1,1 0 0,0 13,4A1,1 0 0,0 12,3Z",
+                    b = "M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z",
+                    w = "M22,24L16.75,19L17.38,21H4.5A2.5,2.5 0 0,1 2,18.5V3.5A2.5,2.5 0 0,1 4.5,1H19.5A2.5,2.5 0 0,1 22,3.5V24M12,6.8C9.32,6.8 7.44,7.95 7.44,7.95C8.47,7.03 10.27,6.5 10.27,6.5L10.1,6.33C8.41,6.36 6.88,7.53 6.88,7.53C5.16,11.12 5.27,14.22 5.27,14.22C6.67,16.03 8.75,15.9 8.75,15.9L9.46,15C8.21,14.73 7.42,13.62 7.42,13.62C7.42,13.62 9.3,14.9 12,14.9C14.7,14.9 16.58,13.62 16.58,13.62C16.58,13.62 15.79,14.73 14.54,15L15.25,15.9C15.25,15.9 17.33,16.03 18.73,14.22C18.73,14.22 18.84,11.12 17.12,7.53C17.12,7.53 15.59,6.36 13.9,6.33L13.73,6.5C13.73,6.5 15.53,7.03 16.56,7.95C16.56,7.95 14.68,6.8 12,6.8M9.93,10.59C10.58,10.59 11.11,11.16 11.1,11.86C11.1,12.55 10.58,13.13 9.93,13.13C9.29,13.13 8.77,12.55 8.77,11.86C8.77,11.16 9.28,10.59 9.93,10.59M14.1,10.59C14.75,10.59 15.27,11.16 15.27,11.86C15.27,12.55 14.75,13.13 14.1,13.13C13.46,13.13 12.94,12.55 12.94,11.86C12.94,11.16 13.45,10.59 14.1,10.59Z",
+                    k = "M12 16C13.1 16 14 16.9 14 18S13.1 20 12 20 10 19.1 10 18 10.9 16 12 16M12 10C13.1 10 14 10.9 14 12S13.1 14 12 14 10 13.1 10 12 10.9 10 12 10M12 4C13.1 4 14 4.9 14 6S13.1 8 12 8 10 7.1 10 6 10.9 4 12 4M6 16C7.1 16 8 16.9 8 18S7.1 20 6 20 4 19.1 4 18 4.9 16 6 16M6 10C7.1 10 8 10.9 8 12S7.1 14 6 14 4 13.1 4 12 4.9 10 6 10M6 4C7.1 4 8 4.9 8 6S7.1 8 6 8 4 7.1 4 6 4.9 4 6 4M18 16C19.1 16 20 16.9 20 18S19.1 20 18 20 16 19.1 16 18 16.9 16 18 16M18 10C19.1 10 20 10.9 20 12S19.1 14 18 14 16 13.1 16 12 16.9 10 18 10M18 4C19.1 4 20 4.9 20 6S19.1 8 18 8 16 7.1 16 6 16.9 4 18 4Z",
+                    x = "M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
+                    S = "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,14C13.75,14 15.29,14.72 16.19,15.81L14.77,17.23C14.32,16.5 13.25,16 12,16C10.75,16 9.68,16.5 9.23,17.23L7.81,15.81C8.71,14.72 10.25,14 12,14M10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5V8L10,9.5M17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5L17,8V9.5",
+                    M = "M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M13,9.94L14.06,11L15.12,9.94L16.18,11L17.24,9.94L15.12,7.82L13,9.94M8.88,9.94L9.94,11L11,9.94L8.88,7.82L6.76,9.94L7.82,11L8.88,9.94M12,17.5C14.33,17.5 16.31,16.04 17.11,14H6.89C7.69,16.04 9.67,17.5 12,17.5Z",
+                    A = "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M8.5,11A1.5,1.5 0 0,1 7,9.5A1.5,1.5 0 0,1 8.5,8A1.5,1.5 0 0,1 10,9.5A1.5,1.5 0 0,1 8.5,11M17,9.5A1.5,1.5 0 0,1 15.5,11A1.5,1.5 0 0,1 14,9.5A1.5,1.5 0 0,1 15.5,8A1.5,1.5 0 0,1 17,9.5M16,14V16H8V14H16Z",
+                    C = "M10 3H14V14H10V3M10 21V17H14V21H10Z",
+                    T = "M12,1L8,5H11V14H13V5H16M18,23H6C4.89,23 4,22.1 4,21V9A2,2 0 0,1 6,7H9V9H6V21H18V9H15V7H18A2,2 0 0,1 20,9V21A2,2 0 0,1 18,23Z",
+                    O = "M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z",
+                    E = "M14,2H6C4.89,2 4,2.89 4,4V20C4,21.11 4.89,22 6,22H18C19.11,22 20,21.11 20,20V8L14,2M12,19L8,15H10.5V12H13.5V15H16L12,19M13,9V3.5L18.5,9H13Z",
+                    N = "M7,2V13H10V22L17,10H13L17,2H7Z",
+                    j = "M22,12V20A2,2 0 0,1 20,22H4A2,2 0 0,1 2,20V12A1,1 0 0,1 1,11V8A2,2 0 0,1 3,6H6.17C6.06,5.69 6,5.35 6,5A3,3 0 0,1 9,2C10,2 10.88,2.5 11.43,3.24V3.23L12,4L12.57,3.23V3.24C13.12,2.5 14,2 15,2A3,3 0 0,1 18,5C18,5.35 17.94,5.69 17.83,6H21A2,2 0 0,1 23,8V11A1,1 0 0,1 22,12M4,20H11V12H4V20M20,20V12H13V20H20M9,4A1,1 0 0,0 8,5A1,1 0 0,0 9,6A1,1 0 0,0 10,5A1,1 0 0,0 9,4M15,4A1,1 0 0,0 14,5A1,1 0 0,0 15,6A1,1 0 0,0 16,5A1,1 0 0,0 15,4M3,8V10H11V8H3M13,8V10H21V8H13Z",
+                    I = "M1 22L2.5 17H9.5L11 22H1M13 22L14.5 17H21.5L23 22H13M6 15L7.5 10H14.5L16 15H6M23 6.05L19.14 7.14L18.05 11L16.96 7.14L13.1 6.05L16.96 4.96L18.05 1.1L19.14 4.96L23 6.05Z",
+                    L = "M20 13C20.6 13 21.1 13.2 21.5 13.6C21.8 14 22 14.5 22 15L14 18L7 16V7H8.9L16.2 9.7C16.7 9.9 17 10.3 17 10.8C17 11.1 16.9 11.4 16.7 11.6S16.1 12 15.8 12H13L11.2 11.3L10.9 12.2L13 13H20M1 7H5V18H1V7Z",
+                    q = "M20 17Q20.86 17 21.45 17.6T22.03 19L14 22L7 20V11H8.95L16.22 13.69Q17 14 17 14.81 17 15.28 16.66 15.63T15.8 16H13L11.25 15.33L10.92 16.27L13 17H20M16 3.23Q17.06 2 18.7 2 20.06 2 21 3T22 5.3Q22 6.33 21 7.76T19.03 10.15 16 13Q13.92 11.11 12.94 10.15T10.97 7.76 10 5.3Q10 3.94 10.97 3T13.31 2Q14.91 2 16 3.23M.984 11H5V22H.984V11Z",
+                    P = "M11.43 9.67C11.47 9.78 11.5 9.88 11.5 10V15.22C11.5 15.72 11.31 16.2 10.97 16.57L8.18 19.62L4.78 16.22L6 15L8.8 2.86C8.92 2.36 9.37 2 9.89 2C10.5 2 11 2.5 11 3.11V8.07C10.84 8.03 10.67 8 10.5 8C9.4 8 8.5 8.9 8.5 10V13C8.5 13.28 8.72 13.5 9 13.5S9.5 13.28 9.5 13V10C9.5 9.45 9.95 9 10.5 9C10.69 9 10.85 9.07 11 9.16C11.12 9.23 11.21 9.32 11.3 9.42C11.33 9.46 11.36 9.5 11.38 9.55C11.4 9.59 11.42 9.63 11.43 9.67M2 19L6 22L7.17 20.73L3.72 17.28L2 19M18 15L15.2 2.86C15.08 2.36 14.63 2 14.11 2C13.5 2 13 2.5 13 3.11V8.07C13.16 8.03 13.33 8 13.5 8C14.6 8 15.5 8.9 15.5 10V13C15.5 13.28 15.28 13.5 15 13.5S14.5 13.28 14.5 13V10C14.5 9.45 14.05 9 13.5 9C13.31 9 13.15 9.07 13 9.16C12.88 9.23 12.79 9.32 12.71 9.42C12.68 9.46 12.64 9.5 12.62 9.55C12.6 9.59 12.58 9.63 12.57 9.67C12.53 9.78 12.5 9.88 12.5 10V15.22C12.5 15.72 12.69 16.2 13.03 16.57L15.82 19.62L19.22 16.22L18 15M20.28 17.28L16.83 20.73L18 22L22 19L20.28 17.28Z",
+                    R = "M21.71 8.71C22.96 7.46 22.39 6 21.71 5.29L18.71 2.29C17.45 1.04 16 1.61 15.29 2.29L13.59 4H11C9.1 4 8 5 7.44 6.15L3 10.59V14.59L2.29 15.29C1.04 16.55 1.61 18 2.29 18.71L5.29 21.71C5.83 22.25 6.41 22.45 6.96 22.45C7.67 22.45 8.32 22.1 8.71 21.71L11.41 19H15C16.7 19 17.56 17.94 17.87 16.9C19 16.6 19.62 15.74 19.87 14.9C21.42 14.5 22 13.03 22 12V9H21.41L21.71 8.71M20 12C20 12.45 19.81 13 19 13L18 13L18 14C18 14.45 17.81 15 17 15L16 15L16 16C16 16.45 15.81 17 15 17H10.59L7.31 20.28C7 20.57 6.82 20.4 6.71 20.29L3.72 17.31C3.43 17 3.6 16.82 3.71 16.71L5 15.41V11.41L7 9.41V11C7 12.21 7.8 14 10 14S13 12.21 13 11H20V12M20.29 7.29L18.59 9H11V11C11 11.45 10.81 12 10 12S9 11.45 9 11V8C9 7.54 9.17 6 11 6H14.41L16.69 3.72C17 3.43 17.18 3.6 17.29 3.71L20.28 6.69C20.57 7 20.4 7.18 20.29 7.29Z",
+                    D = "M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z",
+                    V = "M11,18H13V16H11V18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,6A4,4 0 0,0 8,10H10A2,2 0 0,1 12,8A2,2 0 0,1 14,10C14,12 11,11.75 11,15H13C13,12.75 16,12.5 16,10A4,4 0 0,0 12,6Z",
                     F = "M17,16H15V22H12V17H8V22H5V16H3L10,10L17,16M6,2L10,6H9V9H7V6H5V9H3V6H2L6,2M18,3L23,8H22V12H19V9H17V12H15.34L14,10.87V8H13L18,3Z",
-                    V = "M20 8V16L17 17L13.91 11.5C13.65 11.04 12.92 11.27 13 11.81L14 21L4 17L5.15 8.94C5.64 5.53 8.56 3 12 3H20L18.42 5.37C19.36 5.88 20 6.86 20 8Z",
-                    H = "M19,4H20V1H16V4C16,4 18,8 18,12C18,16 16,19 12,19C8,19 6,16 6,12C6,8 8,4 8,4V1H4V4H5C5,4 2,8 2,14C2,19 7,23 12,23C17,23 22,19 22,14C22,8 19,4 19,4M4,13C3.4,13 3,12.6 3,12C3,11.4 3.4,11 4,11C4.6,11 5,11.4 5,12C5,12.6 4.6,13 4,13M6,19C5.4,19 5,18.6 5,18C5,17.4 5.4,17 6,17C6.6,17 7,17.4 7,18C7,18.6 6.6,19 6,19M12,22C11.4,22 11,21.6 11,21C11,20.4 11.4,20 12,20C12.6,20 13,20.4 13,21C13,21.6 12.6,22 12,22M18,19C17.4,19 17,18.6 17,18C17,17.4 17.4,17 18,17C18.6,17 19,17.4 19,18C19,18.6 18.6,19 18,19M20,13C19.4,13 19,12.6 19,12C19,11.4 19.4,11 20,11C20.6,11 21,11.4 21,12C21,12.6 20.6,13 20,13Z",
-                    z = "M5 6C3.9 6 3 6.9 3 8S3.9 10 5 10 7 9.11 7 8 6.11 6 5 6M12 4C10.9 4 10 4.89 10 6S10.9 8 12 8 14 7.11 14 6 13.11 4 12 4M19 2C17.9 2 17 2.9 17 4S17.9 6 19 6 21 5.11 21 4 20.11 2 19 2M3.5 11C2.67 11 2 11.67 2 12.5V17H3V22H7V17H8V12.5C8 11.67 7.33 11 6.5 11H3.5M10.5 9C9.67 9 9 9.67 9 10.5V15H10V20H14V15H15V10.5C15 9.67 14.33 9 13.5 9H10.5M17.5 7C16.67 7 16 7.67 16 8.5V13H17V18H21V13H22V8.5C22 7.67 21.33 7 20.5 7H17.5Z",
-                    Z = "M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
-                    W = "M12 14.27L10.64 13C9.09 11.57 7.16 10.57 5 10.18V17.13C7.61 17.47 10 18.47 12 19.95C14 18.47 16.39 17.47 19 17.13V10.18C16.84 10.57 14.91 11.57 13.36 13M19 8.15C19.65 8.05 20.32 8 21 8V19C17.5 19 14.36 20.35 12 22.54C9.64 20.35 6.5 19 3 19V8C3.68 8 4.35 8.05 5 8.15C7.69 8.56 10.1 9.78 12 11.54C13.9 9.78 16.31 8.56 19 8.15M12 6C12.27 6 12.5 5.9 12.71 5.71C12.9 5.5 13 5.27 13 5S12.9 4.5 12.71 4.29C12.5 4.11 12.27 4 12 4S11.5 4.11 11.29 4.29C11.11 4.5 11 4.74 11 5S11.11 5.5 11.29 5.71C11.5 5.9 11.74 6 12 6M14.12 7.12C13.56 7.68 12.8 8 12 8S10.44 7.68 9.88 7.12C9.32 6.56 9 5.8 9 5S9.32 3.44 9.88 2.88C10.44 2.32 11.2 2 12 2S13.56 2.32 14.12 2.88 15 4.2 15 5 14.68 6.56 14.12 7.12Z",
-                    B = "M19,13H5V11H19V13Z",
-                    K = "M14.04,12H10V11H5.5A3.5,3.5 0 0,1 2,7.5A3.5,3.5 0 0,1 5.5,4C6.53,4 7.45,4.44 8.09,5.15C8.5,3.35 10.08,2 12,2C13.92,2 15.5,3.35 15.91,5.15C16.55,4.44 17.47,4 18.5,4A3.5,3.5 0 0,1 22,7.5A3.5,3.5 0 0,1 18.5,11H14.04V12M10,16.9V15.76H5V13.76H19V15.76H14.04V16.92L20,19.08C20.58,19.29 21,19.84 21,20.5A1.5,1.5 0 0,1 19.5,22H4.5A1.5,1.5 0 0,1 3,20.5C3,19.84 3.42,19.29 4,19.08L10,16.9Z",
-                    G = "M13 7V9H15V17H17V7H13M11 13H5V11H11V13Z",
-                    U = "M13 7V9H15V17H17V7H13M11 13H9V15H7V13H5V11H7V9H9V11H11V13Z",
-                    Y = "M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z",
-                    Q = "M14.82 2.41C18.78 2.41 22 5.65 22 9.62C22 13.58 18.78 16.8 14.82 16.8C10.85 16.8 7.61 13.58 7.61 9.62C7.61 5.65 10.85 2.41 14.82 2.41M2 21.6H5.5V2.41H2V21.6Z",
-                    X = "M14.79,10.62L3.5,21.9L2.1,20.5L13.38,9.21L14.79,10.62M19.27,7.73L19.86,7.14L19.07,6.35L19.71,5.71L18.29,4.29L17.65,4.93L16.86,4.14L16.27,4.73C14.53,3.31 12.57,2.17 10.47,1.37L9.64,3.16C11.39,4.08 13,5.19 14.5,6.5L14,7L17,10L17.5,9.5C18.81,11 19.92,12.61 20.84,14.36L22.63,13.53C21.83,11.43 20.69,9.47 19.27,7.73Z",
-                    $ = "M6,5H18A1,1 0 0,1 19,6A1,1 0 0,1 18,7H6A1,1 0 0,1 5,6A1,1 0 0,1 6,5M21,2V4H3V2H21M15,8H17V22H15V8M7,8H9V22H7V8M11,8H13V22H11V8Z",
-                    J = "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z",
-                    ee = "M14.5 15.41C14.58 15.5 14.58 15.69 14.5 15.8C13.77 16.5 12.41 16.56 12 16.56C11.61 16.56 10.25 16.5 9.54 15.8C9.44 15.69 9.44 15.5 9.54 15.41C9.65 15.31 9.82 15.31 9.92 15.41C10.38 15.87 11.33 16 12 16C12.69 16 13.66 15.87 14.1 15.41C14.21 15.31 14.38 15.31 14.5 15.41M10.75 13.04C10.75 12.47 10.28 12 9.71 12C9.14 12 8.67 12.47 8.67 13.04C8.67 13.61 9.14 14.09 9.71 14.08C10.28 14.08 10.75 13.61 10.75 13.04M14.29 12C13.72 12 13.25 12.5 13.25 13.05S13.72 14.09 14.29 14.09C14.86 14.09 15.33 13.61 15.33 13.05C15.33 12.5 14.86 12 14.29 12M22 12C22 17.5 17.5 22 12 22S2 17.5 2 12C2 6.5 6.5 2 12 2S22 6.5 22 12M18.67 12C18.67 11.19 18 10.54 17.22 10.54C16.82 10.54 16.46 10.7 16.2 10.95C15.2 10.23 13.83 9.77 12.3 9.71L12.97 6.58L15.14 7.05C15.16 7.6 15.62 8.04 16.18 8.04C16.75 8.04 17.22 7.57 17.22 7C17.22 6.43 16.75 5.96 16.18 5.96C15.77 5.96 15.41 6.2 15.25 6.55L12.82 6.03C12.75 6 12.68 6.03 12.63 6.07C12.57 6.11 12.54 6.17 12.53 6.24L11.79 9.72C10.24 9.77 8.84 10.23 7.82 10.96C7.56 10.71 7.2 10.56 6.81 10.56C6 10.56 5.35 11.21 5.35 12C5.35 12.61 5.71 13.11 6.21 13.34C6.19 13.5 6.18 13.62 6.18 13.78C6.18 16 8.79 17.85 12 17.85C15.23 17.85 17.85 16.03 17.85 13.78C17.85 13.64 17.84 13.5 17.81 13.34C18.31 13.11 18.67 12.6 18.67 12Z",
-                    te = "M2 12C2 17 6 21 11 21C13.4 21 15.7 20.1 17.4 18.4L15.9 16.9C14.6 18.3 12.9 19 11 19C4.8 19 1.6 11.5 6.1 7.1S18 5.8 18 12H15L19 16H19.1L23 12H20C20 7 16 3 11 3S2 7 2 12M10 15H12V17H10V15M10 7H12V13H10V7",
-                    re = "M10.7 12.5C10.7 12.8 9.4 13.2 8.4 13.2S6.3 12.5 6.3 12.3C6.3 12 7 11.1 8.6 11C9.5 10.9 10.5 11.5 10.7 12.5M15.4 11C14.4 10.9 13.5 11.5 13.3 12.5C13.3 12.8 14.5 13.2 15.6 13.2C16.7 13.2 17.7 12.5 17.7 12.3S17 11.1 15.4 11M22 12C22 17.5 17.5 22 12 22S2 17.5 2 12 6.5 2 12 2 22 6.5 22 12M20 11.2C20 9.2 19.3 8.5 16.7 8.5C14.1 8.5 13.3 9.6 12 9.6S10 8.5 7.3 8.5 4 9.1 4 11.2C4 14.6 5.5 16.5 7.6 16.5C9.2 16.5 10.4 14.5 12 14.5S14.7 16.5 16.4 16.5C18.5 16.5 20 14.6 20 11.2Z",
-                    ne = "M21,11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1L21,5V11M12,21C15.75,20 19,15.54 19,11.22V6.3L12,3.18V21Z",
-                    ae = "M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1M12 8.89C13.6 8.89 14.89 10.18 14.89 11.78S13.6 14.67 12 14.67 9.11 13.37 9.11 11.78 10.41 8.89 12 8.89M12 6L13.38 8C12.96 7.82 12.5 7.73 12 7.73S11.05 7.82 10.62 8L12 6M7 8.89L9.4 8.69C9.06 9 8.74 9.34 8.5 9.76C8.25 10.18 8.1 10.62 8 11.08L7 8.89M7 14.67L8.03 12.5C8.11 12.93 8.27 13.38 8.5 13.8C8.75 14.23 9.06 14.59 9.4 14.88L7 14.67M17 8.89L16 11.08C15.9 10.62 15.74 10.18 15.5 9.76C15.26 9.34 14.95 9 14.6 8.68L17 8.89M17 14.67L14.6 14.87C14.94 14.58 15.25 14.22 15.5 13.8C15.74 13.38 15.89 12.93 15.97 12.5L17 14.67M12 17.55L10.61 15.57C11.04 15.72 11.5 15.82 12 15.82C12.5 15.82 12.95 15.72 13.37 15.57L12 17.55Z",
-                    ie = "M12 1L21 5V11C21 16.5 17.2 21.7 12 23C6.8 21.7 3 16.5 3 11V5L12 1M12 3.2L5 6.3V11.2C5 15.5 8.2 20 12 21C15.8 20 19 15.5 19 11.2V6.3L12 3.2M12 5.5L14 7.1L13 13H15V15H13V18H11V15H9V13H11L10 7.1L12 5.5Z",
-                    oe = "M15.8,18.5L21.8,20.1L21.4,22L12,19.5L2.6,22L2.1,20.1L8.1,18.5L2,16.9L2.5,15L11.9,17.5L21.3,15L21.8,16.9L15.8,18.5M18,8C18,9.8 17.2,11.3 16,12.4V15H14V13.7L14,13H13V15H11V13H10V13.7L10,15H8V12.4C6.8,11.3 6,9.8 6,8A6,6 0 0,1 12,2A6,6 0 0,1 18,8M11,7.5C11,6.7 10.3,6 9.5,6C8.7,6 8,6.7 8,7.5C8,8.3 8.7,9 9.5,9C10.3,9 11,8.3 11,7.5M13,11L12,9L11,11H13M16,7.5C16,6.7 15.3,6 14.5,6C13.7,6 13,6.7 13,7.5C13,8.3 13.7,9 14.5,9C15.3,9 16,8.3 16,7.5Z",
-                    se = "M8,15A2,2 0 0,1 6,13A2,2 0 0,1 8,11A2,2 0 0,1 10,13A2,2 0 0,1 8,15M10.5,17L12,14L13.5,17H10.5M16,15A2,2 0 0,1 14,13A2,2 0 0,1 16,11A2,2 0 0,1 18,13A2,2 0 0,1 16,15M22,11A10,10 0 0,0 12,1A10,10 0 0,0 2,11C2,13.8 3.2,16.3 5,18.1V22H19V18.1C20.8,16.3 22,13.8 22,11M17,20H15V18H13V20H11V18H9V20H7V17.2C5.2,15.7 4,13.5 4,11A8,8 0 0,1 12,3A8,8 0 0,1 20,11C20,13.5 18.8,15.8 17,17.2V20Z",
-                    le = "M2,22V20C2,20 7,18 12,18C17,18 22,20 22,20V22H2M11.3,9.1C10.1,5.2 4,6.1 4,6.1C4,6.1 4.2,13.9 9.9,12.7C9.5,9.8 8,9 8,9C10.8,9 11,12.4 11,12.4V17C11.3,17 11.7,17 12,17C12.3,17 12.7,17 13,17V12.8C13,12.8 13,8.9 16,7.9C16,7.9 14,10.9 14,12.9C21,13.6 21,4 21,4C21,4 12.1,3 11.3,9.1Z",
-                    ue = "M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z",
-                    ce = "M6.2,2.44L18.1,14.34L20.22,12.22L21.63,13.63L19.16,16.1L22.34,19.28C22.73,19.67 22.73,20.3 22.34,20.69L21.63,21.4C21.24,21.79 20.61,21.79 20.22,21.4L17,18.23L14.56,20.7L13.15,19.29L15.27,17.17L3.37,5.27V2.44H6.2M15.89,10L20.63,5.26V2.44H17.8L13.06,7.18L15.89,10M10.94,15L8.11,12.13L5.9,14.34L3.78,12.22L2.37,13.63L4.84,16.1L1.66,19.29C1.27,19.68 1.27,20.31 1.66,20.7L2.37,21.41C2.76,21.8 3.39,21.8 3.78,21.41L7,18.23L9.44,20.7L10.85,19.29L8.73,17.17L10.94,15Z",
-                    de = "M5,4H19A3,3 0 0,1 22,7V11H15V10H9V11H2V7A3,3 0 0,1 5,4M11,11H13V13H11V11M2,12H9V13L11,15H13L15,13V12H22V20H2V12Z",
-                    pe = "M18 2C17.1 2 16 3 16 4H8C8 3 6.9 2 6 2H2V11C2 12 3 13 4 13H6.2C6.6 15 7.9 16.7 11 17V19.08C8 19.54 8 22 8 22H16C16 22 16 19.54 13 19.08V17C16.1 16.7 17.4 15 17.8 13H20C21 13 22 12 22 11V2H18M6 11H4V4H6V11M20 11H18V4H20V11Z",
-                    fe = "M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z",
-                    he = "M3,16H12V21H3V16M2,10H8V15H2V10M9,10H15V15H9V10M16,10H22V15H16V10M13,16H21V21H13V16M3,4H11V9H3V4M12,4H21V9H12V4Z",
-                    ye = "M6 19H8V21H6V19M12 3L2 8V21H4V13H20V21H22V8L12 3M8 11H4V9H8V11M14 11H10V9H14V11M20 11H16V9H20V11M6 15H8V17H6V15M10 15H12V17H10V15M10 19H12V21H10V19M14 19H16V21H14V19Z",
-                    me = "M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z",
+                    H = "M20 8V16L17 17L13.91 11.5C13.65 11.04 12.92 11.27 13 11.81L14 21L4 17L5.15 8.94C5.64 5.53 8.56 3 12 3H20L18.42 5.37C19.36 5.88 20 6.86 20 8Z",
+                    z = "M19,4H20V1H16V4C16,4 18,8 18,12C18,16 16,19 12,19C8,19 6,16 6,12C6,8 8,4 8,4V1H4V4H5C5,4 2,8 2,14C2,19 7,23 12,23C17,23 22,19 22,14C22,8 19,4 19,4M4,13C3.4,13 3,12.6 3,12C3,11.4 3.4,11 4,11C4.6,11 5,11.4 5,12C5,12.6 4.6,13 4,13M6,19C5.4,19 5,18.6 5,18C5,17.4 5.4,17 6,17C6.6,17 7,17.4 7,18C7,18.6 6.6,19 6,19M12,22C11.4,22 11,21.6 11,21C11,20.4 11.4,20 12,20C12.6,20 13,20.4 13,21C13,21.6 12.6,22 12,22M18,19C17.4,19 17,18.6 17,18C17,17.4 17.4,17 18,17C18.6,17 19,17.4 19,18C19,18.6 18.6,19 18,19M20,13C19.4,13 19,12.6 19,12C19,11.4 19.4,11 20,11C20.6,11 21,11.4 21,12C21,12.6 20.6,13 20,13Z",
+                    Z = "M5 6C3.9 6 3 6.9 3 8S3.9 10 5 10 7 9.11 7 8 6.11 6 5 6M12 4C10.9 4 10 4.89 10 6S10.9 8 12 8 14 7.11 14 6 13.11 4 12 4M19 2C17.9 2 17 2.9 17 4S17.9 6 19 6 21 5.11 21 4 20.11 2 19 2M3.5 11C2.67 11 2 11.67 2 12.5V17H3V22H7V17H8V12.5C8 11.67 7.33 11 6.5 11H3.5M10.5 9C9.67 9 9 9.67 9 10.5V15H10V20H14V15H15V10.5C15 9.67 14.33 9 13.5 9H10.5M17.5 7C16.67 7 16 7.67 16 8.5V13H17V18H21V13H22V8.5C22 7.67 21.33 7 20.5 7H17.5Z",
+                    W = "M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
+                    B = "M12 14.27L10.64 13C9.09 11.57 7.16 10.57 5 10.18V17.13C7.61 17.47 10 18.47 12 19.95C14 18.47 16.39 17.47 19 17.13V10.18C16.84 10.57 14.91 11.57 13.36 13M19 8.15C19.65 8.05 20.32 8 21 8V19C17.5 19 14.36 20.35 12 22.54C9.64 20.35 6.5 19 3 19V8C3.68 8 4.35 8.05 5 8.15C7.69 8.56 10.1 9.78 12 11.54C13.9 9.78 16.31 8.56 19 8.15M12 6C12.27 6 12.5 5.9 12.71 5.71C12.9 5.5 13 5.27 13 5S12.9 4.5 12.71 4.29C12.5 4.11 12.27 4 12 4S11.5 4.11 11.29 4.29C11.11 4.5 11 4.74 11 5S11.11 5.5 11.29 5.71C11.5 5.9 11.74 6 12 6M14.12 7.12C13.56 7.68 12.8 8 12 8S10.44 7.68 9.88 7.12C9.32 6.56 9 5.8 9 5S9.32 3.44 9.88 2.88C10.44 2.32 11.2 2 12 2S13.56 2.32 14.12 2.88 15 4.2 15 5 14.68 6.56 14.12 7.12Z",
+                    K = "M19,13H5V11H19V13Z",
+                    G = "M14.04,12H10V11H5.5A3.5,3.5 0 0,1 2,7.5A3.5,3.5 0 0,1 5.5,4C6.53,4 7.45,4.44 8.09,5.15C8.5,3.35 10.08,2 12,2C13.92,2 15.5,3.35 15.91,5.15C16.55,4.44 17.47,4 18.5,4A3.5,3.5 0 0,1 22,7.5A3.5,3.5 0 0,1 18.5,11H14.04V12M10,16.9V15.76H5V13.76H19V15.76H14.04V16.92L20,19.08C20.58,19.29 21,19.84 21,20.5A1.5,1.5 0 0,1 19.5,22H4.5A1.5,1.5 0 0,1 3,20.5C3,19.84 3.42,19.29 4,19.08L10,16.9Z",
+                    U = "M13 7V9H15V17H17V7H13M11 13H5V11H11V13Z",
+                    Y = "M13 7V9H15V17H17V7H13M11 13H9V15H7V13H5V11H7V9H9V11H11V13Z",
+                    Q = "M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z",
+                    X = "M14.82 2.41C18.78 2.41 22 5.65 22 9.62C22 13.58 18.78 16.8 14.82 16.8C10.85 16.8 7.61 13.58 7.61 9.62C7.61 5.65 10.85 2.41 14.82 2.41M2 21.6H5.5V2.41H2V21.6Z",
+                    $ = "M14.79,10.62L3.5,21.9L2.1,20.5L13.38,9.21L14.79,10.62M19.27,7.73L19.86,7.14L19.07,6.35L19.71,5.71L18.29,4.29L17.65,4.93L16.86,4.14L16.27,4.73C14.53,3.31 12.57,2.17 10.47,1.37L9.64,3.16C11.39,4.08 13,5.19 14.5,6.5L14,7L17,10L17.5,9.5C18.81,11 19.92,12.61 20.84,14.36L22.63,13.53C21.83,11.43 20.69,9.47 19.27,7.73Z",
+                    J = "M6,5H18A1,1 0 0,1 19,6A1,1 0 0,1 18,7H6A1,1 0 0,1 5,6A1,1 0 0,1 6,5M21,2V4H3V2H21M15,8H17V22H15V8M7,8H9V22H7V8M11,8H13V22H11V8Z",
+                    ee = "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z",
+                    te = "M14.5 15.41C14.58 15.5 14.58 15.69 14.5 15.8C13.77 16.5 12.41 16.56 12 16.56C11.61 16.56 10.25 16.5 9.54 15.8C9.44 15.69 9.44 15.5 9.54 15.41C9.65 15.31 9.82 15.31 9.92 15.41C10.38 15.87 11.33 16 12 16C12.69 16 13.66 15.87 14.1 15.41C14.21 15.31 14.38 15.31 14.5 15.41M10.75 13.04C10.75 12.47 10.28 12 9.71 12C9.14 12 8.67 12.47 8.67 13.04C8.67 13.61 9.14 14.09 9.71 14.08C10.28 14.08 10.75 13.61 10.75 13.04M14.29 12C13.72 12 13.25 12.5 13.25 13.05S13.72 14.09 14.29 14.09C14.86 14.09 15.33 13.61 15.33 13.05C15.33 12.5 14.86 12 14.29 12M22 12C22 17.5 17.5 22 12 22S2 17.5 2 12C2 6.5 6.5 2 12 2S22 6.5 22 12M18.67 12C18.67 11.19 18 10.54 17.22 10.54C16.82 10.54 16.46 10.7 16.2 10.95C15.2 10.23 13.83 9.77 12.3 9.71L12.97 6.58L15.14 7.05C15.16 7.6 15.62 8.04 16.18 8.04C16.75 8.04 17.22 7.57 17.22 7C17.22 6.43 16.75 5.96 16.18 5.96C15.77 5.96 15.41 6.2 15.25 6.55L12.82 6.03C12.75 6 12.68 6.03 12.63 6.07C12.57 6.11 12.54 6.17 12.53 6.24L11.79 9.72C10.24 9.77 8.84 10.23 7.82 10.96C7.56 10.71 7.2 10.56 6.81 10.56C6 10.56 5.35 11.21 5.35 12C5.35 12.61 5.71 13.11 6.21 13.34C6.19 13.5 6.18 13.62 6.18 13.78C6.18 16 8.79 17.85 12 17.85C15.23 17.85 17.85 16.03 17.85 13.78C17.85 13.64 17.84 13.5 17.81 13.34C18.31 13.11 18.67 12.6 18.67 12Z",
+                    re = "M2 12C2 17 6 21 11 21C13.4 21 15.7 20.1 17.4 18.4L15.9 16.9C14.6 18.3 12.9 19 11 19C4.8 19 1.6 11.5 6.1 7.1S18 5.8 18 12H15L19 16H19.1L23 12H20C20 7 16 3 11 3S2 7 2 12M10 15H12V17H10V15M10 7H12V13H10V7",
+                    ne = "M10.7 12.5C10.7 12.8 9.4 13.2 8.4 13.2S6.3 12.5 6.3 12.3C6.3 12 7 11.1 8.6 11C9.5 10.9 10.5 11.5 10.7 12.5M15.4 11C14.4 10.9 13.5 11.5 13.3 12.5C13.3 12.8 14.5 13.2 15.6 13.2C16.7 13.2 17.7 12.5 17.7 12.3S17 11.1 15.4 11M22 12C22 17.5 17.5 22 12 22S2 17.5 2 12 6.5 2 12 2 22 6.5 22 12M20 11.2C20 9.2 19.3 8.5 16.7 8.5C14.1 8.5 13.3 9.6 12 9.6S10 8.5 7.3 8.5 4 9.1 4 11.2C4 14.6 5.5 16.5 7.6 16.5C9.2 16.5 10.4 14.5 12 14.5S14.7 16.5 16.4 16.5C18.5 16.5 20 14.6 20 11.2Z",
+                    ae = "M21,11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1L21,5V11M12,21C15.75,20 19,15.54 19,11.22V6.3L12,3.18V21Z",
+                    ie = "M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1M12 8.89C13.6 8.89 14.89 10.18 14.89 11.78S13.6 14.67 12 14.67 9.11 13.37 9.11 11.78 10.41 8.89 12 8.89M12 6L13.38 8C12.96 7.82 12.5 7.73 12 7.73S11.05 7.82 10.62 8L12 6M7 8.89L9.4 8.69C9.06 9 8.74 9.34 8.5 9.76C8.25 10.18 8.1 10.62 8 11.08L7 8.89M7 14.67L8.03 12.5C8.11 12.93 8.27 13.38 8.5 13.8C8.75 14.23 9.06 14.59 9.4 14.88L7 14.67M17 8.89L16 11.08C15.9 10.62 15.74 10.18 15.5 9.76C15.26 9.34 14.95 9 14.6 8.68L17 8.89M17 14.67L14.6 14.87C14.94 14.58 15.25 14.22 15.5 13.8C15.74 13.38 15.89 12.93 15.97 12.5L17 14.67M12 17.55L10.61 15.57C11.04 15.72 11.5 15.82 12 15.82C12.5 15.82 12.95 15.72 13.37 15.57L12 17.55Z",
+                    oe = "M12 1L21 5V11C21 16.5 17.2 21.7 12 23C6.8 21.7 3 16.5 3 11V5L12 1M12 3.2L5 6.3V11.2C5 15.5 8.2 20 12 21C15.8 20 19 15.5 19 11.2V6.3L12 3.2M12 5.5L14 7.1L13 13H15V15H13V18H11V15H9V13H11L10 7.1L12 5.5Z",
+                    se = "M15.8,18.5L21.8,20.1L21.4,22L12,19.5L2.6,22L2.1,20.1L8.1,18.5L2,16.9L2.5,15L11.9,17.5L21.3,15L21.8,16.9L15.8,18.5M18,8C18,9.8 17.2,11.3 16,12.4V15H14V13.7L14,13H13V15H11V13H10V13.7L10,15H8V12.4C6.8,11.3 6,9.8 6,8A6,6 0 0,1 12,2A6,6 0 0,1 18,8M11,7.5C11,6.7 10.3,6 9.5,6C8.7,6 8,6.7 8,7.5C8,8.3 8.7,9 9.5,9C10.3,9 11,8.3 11,7.5M13,11L12,9L11,11H13M16,7.5C16,6.7 15.3,6 14.5,6C13.7,6 13,6.7 13,7.5C13,8.3 13.7,9 14.5,9C15.3,9 16,8.3 16,7.5Z",
+                    le = "M8,15A2,2 0 0,1 6,13A2,2 0 0,1 8,11A2,2 0 0,1 10,13A2,2 0 0,1 8,15M10.5,17L12,14L13.5,17H10.5M16,15A2,2 0 0,1 14,13A2,2 0 0,1 16,11A2,2 0 0,1 18,13A2,2 0 0,1 16,15M22,11A10,10 0 0,0 12,1A10,10 0 0,0 2,11C2,13.8 3.2,16.3 5,18.1V22H19V18.1C20.8,16.3 22,13.8 22,11M17,20H15V18H13V20H11V18H9V20H7V17.2C5.2,15.7 4,13.5 4,11A8,8 0 0,1 12,3A8,8 0 0,1 20,11C20,13.5 18.8,15.8 17,17.2V20Z",
+                    ue = "M2,22V20C2,20 7,18 12,18C17,18 22,20 22,20V22H2M11.3,9.1C10.1,5.2 4,6.1 4,6.1C4,6.1 4.2,13.9 9.9,12.7C9.5,9.8 8,9 8,9C10.8,9 11,12.4 11,12.4V17C11.3,17 11.7,17 12,17C12.3,17 12.7,17 13,17V12.8C13,12.8 13,8.9 16,7.9C16,7.9 14,10.9 14,12.9C21,13.6 21,4 21,4C21,4 12.1,3 11.3,9.1Z",
+                    ce = "M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z",
+                    de = "M6.2,2.44L18.1,14.34L20.22,12.22L21.63,13.63L19.16,16.1L22.34,19.28C22.73,19.67 22.73,20.3 22.34,20.69L21.63,21.4C21.24,21.79 20.61,21.79 20.22,21.4L17,18.23L14.56,20.7L13.15,19.29L15.27,17.17L3.37,5.27V2.44H6.2M15.89,10L20.63,5.26V2.44H17.8L13.06,7.18L15.89,10M10.94,15L8.11,12.13L5.9,14.34L3.78,12.22L2.37,13.63L4.84,16.1L1.66,19.29C1.27,19.68 1.27,20.31 1.66,20.7L2.37,21.41C2.76,21.8 3.39,21.8 3.78,21.41L7,18.23L9.44,20.7L10.85,19.29L8.73,17.17L10.94,15Z",
+                    pe = "M5,4H19A3,3 0 0,1 22,7V11H15V10H9V11H2V7A3,3 0 0,1 5,4M11,11H13V13H11V11M2,12H9V13L11,15H13L15,13V12H22V20H2V12Z",
+                    fe = "M18 2C17.1 2 16 3 16 4H8C8 3 6.9 2 6 2H2V11C2 12 3 13 4 13H6.2C6.6 15 7.9 16.7 11 17V19.08C8 19.54 8 22 8 22H16C16 22 16 19.54 13 19.08V17C16.1 16.7 17.4 15 17.8 13H20C21 13 22 12 22 11V2H18M6 11H4V4H6V11M20 11H18V4H20V11Z",
+                    he = "M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z",
+                    ye = "M3,16H12V21H3V16M2,10H8V15H2V10M9,10H15V15H9V10M16,10H22V15H16V10M13,16H21V21H13V16M3,4H11V9H3V4M12,4H21V9H12V4Z",
+                    me = "M6 19H8V21H6V19M12 3L2 8V21H4V13H20V21H22V8L12 3M8 11H4V9H8V11M14 11H10V9H14V11M20 11H16V9H20V11M6 15H8V17H6V15M10 15H12V17H10V15M10 19H12V21H10V19M14 19H16V21H14V19Z",
+                    ge = "M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z",
                     _e = "M21 22H3V20H21V22M19 19H5L11.1 2.6C11.3 2.2 11.6 2 12 2L18 5H13.9L19 19M10 7.5L11.04 7.97L11.5 9L11.97 7.97L13 7.5L11.97 7.03L11.5 6L11.04 7.03L10 7.5M13 15L10.94 14.07L10 12L9.07 14.07L7 15L9.07 15.93L10 18L10.94 15.93L13 15M13.97 11.97L15 11.5L13.97 11.03L13.5 10L13.04 11.03L12 11.5L13.04 11.97L13.5 13L13.97 11.97M15.97 15.97L17 15.5L15.97 15.03L15.5 14L15.04 15.03L14 15.5L15.04 15.97L15.5 17L15.97 15.97Z"
             },
             8561: function (e, t, r) {
@@ -5278,8 +7121,8 @@
                                 h = void 0 === f ? null : f,
                                 y = e.vertical,
                                 m = void 0 === y ? null : y,
-                                _ = e.rotate,
-                                g = void 0 === _ ? null : _,
+                                g = e.rotate,
+                                _ = void 0 === g ? null : g,
                                 v = e.spin,
                                 b = void 0 === v ? null : v,
                                 w = e.style,
@@ -5306,7 +7149,7 @@
                                         color: null === p ? t.props.color : p,
                                         horizontal: null === h ? t.props.horizontal : h,
                                         vertical: null === m ? t.props.vertical : m,
-                                        rotate: null === g ? t.props.rotate : g,
+                                        rotate: null === _ ? t.props.rotate : _,
                                         spin: null === b ? t.props.spin : b,
                                         inStack: !0
                                     };
@@ -5374,9 +7217,9 @@
                                 h = e.color,
                                 y = void 0 === h ? "currentColor" : h,
                                 m = e.horizontal,
-                                _ = void 0 !== m && m,
-                                g = e.vertical,
-                                v = void 0 !== g && g,
+                                g = void 0 !== m && m,
+                                _ = e.vertical,
+                                v = void 0 !== _ && _,
                                 b = e.rotate,
                                 w = void 0 === b ? 0 : b,
                                 k = e.spin,
@@ -5396,7 +7239,7 @@
                                 }(e, ["path", "id", "title", "description", "size", "color", "horizontal", "vertical", "rotate", "spin", "style", "inStack"]),
                                 O = {},
                                 E = [];
-                            null !== f && (C ? E.push("scale(" + f + ")") : (M.width = "string" == typeof f ? f : 1.5 * f + "rem", M.height = M.width)), _ && E.push("scaleX(-1)"), v && E.push("scaleY(-1)"), 0 !== w && E.push("rotate(" + w + "deg)"), null !== y && (O.fill = y);
+                            null !== f && (C ? E.push("scale(" + f + ")") : (M.width = "string" == typeof f ? f : 1.5 * f + "rem", M.height = M.width)), g && E.push("scaleX(-1)"), v && E.push("scaleY(-1)"), 0 !== w && E.push("rotate(" + w + "deg)"), null !== y && (O.fill = y);
                             var N = n.createElement("path", u({
                                     d: r,
                                     style: O
@@ -5411,20 +7254,20 @@
                             }))));
                             var I, L = j,
                                 q = !0 === x || "number" != typeof x ? 2 : x,
-                                P = !C && (_ || v);
+                                P = !C && (g || v);
                             if (q < 0 && (P = !P), x && (L = n.createElement("g", {
                                     style: {
                                         animation: "spin" + (P ? "-inverse" : "") + " linear " + Math.abs(q) + "s infinite",
                                         transformOrigin: "center"
                                     }
-                                }, j, !(_ || v || 0 !== w) && n.createElement("rect", {
+                                }, j, !(g || v || 0 !== w) && n.createElement("rect", {
                                     width: "24",
                                     height: "24",
                                     fill: "transparent"
                                 }))), C) return L;
                             var R, D = "icon_labelledby_" + i,
-                                F = "icon_describedby_" + i;
-                            if (s) I = d ? D + " " + F : D;
+                                V = "icon_describedby_" + i;
+                            if (s) I = d ? D + " " + V : D;
                             else if (R = "presentation", d) throw new Error("title attribute required when description is set");
                             return n.createElement("svg", u({
                                 ref: t,
@@ -5435,7 +7278,7 @@
                             }, T), s && n.createElement("title", {
                                 id: D
                             }, s), d && n.createElement("desc", {
-                                id: F
+                                id: V
                             }, d), !C && x && (P ? n.createElement("style", null, "@keyframes spin-inverse { from { transform: rotate(0deg) } to { transform: rotate(-360deg) } }") : n.createElement("style", null, "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }")), L)
                         }));
                     d.displayName = "Icon", d.propTypes = {
@@ -5600,35 +7443,35 @@
                                 h = 3,
                                 y = "",
                                 m = [],
-                                _ = {
+                                g = {
                                     val: n(0),
                                     position: r,
                                     index: 1
                                 };
                             for (a = 0; a < 3; a += 1) d[a] = a;
-                            for (o = 0, l = Math.pow(2, 2), u = 1; u != l;) s = _.val & _.position, _.position >>= 1, 0 == _.position && (_.position = r, _.val = n(_.index++)), o |= (s > 0 ? 1 : 0) * u, u <<= 1;
+                            for (o = 0, l = Math.pow(2, 2), u = 1; u != l;) s = g.val & g.position, g.position >>= 1, 0 == g.position && (g.position = r, g.val = n(g.index++)), o |= (s > 0 ? 1 : 0) * u, u <<= 1;
                             switch (o) {
                                 case 0:
-                                    for (o = 0, l = Math.pow(2, 8), u = 1; u != l;) s = _.val & _.position, _.position >>= 1, 0 == _.position && (_.position = r, _.val = n(_.index++)), o |= (s > 0 ? 1 : 0) * u, u <<= 1;
+                                    for (o = 0, l = Math.pow(2, 8), u = 1; u != l;) s = g.val & g.position, g.position >>= 1, 0 == g.position && (g.position = r, g.val = n(g.index++)), o |= (s > 0 ? 1 : 0) * u, u <<= 1;
                                     c = e(o);
                                     break;
                                 case 1:
-                                    for (o = 0, l = Math.pow(2, 16), u = 1; u != l;) s = _.val & _.position, _.position >>= 1, 0 == _.position && (_.position = r, _.val = n(_.index++)), o |= (s > 0 ? 1 : 0) * u, u <<= 1;
+                                    for (o = 0, l = Math.pow(2, 16), u = 1; u != l;) s = g.val & g.position, g.position >>= 1, 0 == g.position && (g.position = r, g.val = n(g.index++)), o |= (s > 0 ? 1 : 0) * u, u <<= 1;
                                     c = e(o);
                                     break;
                                 case 2:
                                     return ""
                             }
                             for (d[3] = c, i = c, m.push(c);;) {
-                                if (_.index > t) return "";
-                                for (o = 0, l = Math.pow(2, h), u = 1; u != l;) s = _.val & _.position, _.position >>= 1, 0 == _.position && (_.position = r, _.val = n(_.index++)), o |= (s > 0 ? 1 : 0) * u, u <<= 1;
+                                if (g.index > t) return "";
+                                for (o = 0, l = Math.pow(2, h), u = 1; u != l;) s = g.val & g.position, g.position >>= 1, 0 == g.position && (g.position = r, g.val = n(g.index++)), o |= (s > 0 ? 1 : 0) * u, u <<= 1;
                                 switch (c = o) {
                                     case 0:
-                                        for (o = 0, l = Math.pow(2, 8), u = 1; u != l;) s = _.val & _.position, _.position >>= 1, 0 == _.position && (_.position = r, _.val = n(_.index++)), o |= (s > 0 ? 1 : 0) * u, u <<= 1;
+                                        for (o = 0, l = Math.pow(2, 8), u = 1; u != l;) s = g.val & g.position, g.position >>= 1, 0 == g.position && (g.position = r, g.val = n(g.index++)), o |= (s > 0 ? 1 : 0) * u, u <<= 1;
                                         d[f++] = e(o), c = f - 1, p--;
                                         break;
                                     case 1:
-                                        for (o = 0, l = Math.pow(2, 16), u = 1; u != l;) s = _.val & _.position, _.position >>= 1, 0 == _.position && (_.position = r, _.val = n(_.index++)), o |= (s > 0 ? 1 : 0) * u, u <<= 1;
+                                        for (o = 0, l = Math.pow(2, 16), u = 1; u != l;) s = g.val & g.position, g.position >>= 1, 0 == g.position && (g.position = r, g.val = n(g.index++)), o |= (s > 0 ? 1 : 0) * u, u <<= 1;
                                         d[f++] = e(o), c = f - 1, p--;
                                         break;
                                     case 2:
@@ -5778,7 +7621,7 @@
                 function m() {
                     return y
                 }
-                var _ = function (e, t) {
+                var g = function (e, t) {
                     var r = "function" === typeof Symbol && e[Symbol.iterator];
                     if (!r) return e;
                     var n, a, i = r.call(e),
@@ -5800,7 +7643,7 @@
                     return o
                 };
 
-                function g(e) {
+                function _(e) {
                     return "observer".concat(e)
                 }
                 var v = function () {};
@@ -5811,20 +7654,20 @@
 
                 function w(e, t) {
                     if (void 0 === t && (t = "observed"), m()) return e();
-                    var r = _(a.useState(b), 1)[0],
-                        i = _(a.useState(), 2)[1],
+                    var r = g(a.useState(b), 1)[0],
+                        i = g(a.useState(), 2)[1],
                         o = function () {
                             return i([])
                         },
                         l = a.useRef(null);
-                    if (!l.current) var u = new n.le(g(t), (function () {
+                    if (!l.current) var u = new n.le(_(t), (function () {
                             c.mounted ? o() : c.changedBeforeMount = !0
                         })),
                         c = f(l, u, r);
                     var d, p, y = l.current.reaction;
                     if (a.useDebugValue(y, s), a.useEffect((function () {
                             return h(l), l.current ? (l.current.mounted = !0, l.current.changedBeforeMount && (l.current.changedBeforeMount = !1, o())) : (l.current = {
-                                    reaction: new n.le(g(t), (function () {
+                                    reaction: new n.le(_(t), (function () {
                                         o()
                                     })),
                                     mounted: !0,
@@ -5952,7 +7795,7 @@
                     }
                 }
 
-                function F(e, t, r) {
+                function V(e, t, r) {
                     var n = function (e, t) {
                         var r = e[q] = e[q] || {},
                             n = r[t] = r[t] || {};
@@ -5962,19 +7805,19 @@
                     var a = Object.getOwnPropertyDescriptor(e, t);
                     if (!a || !a[P]) {
                         var i = e[t],
-                            o = V(e, t, a ? a.enumerable : void 0, n, i);
+                            o = F(e, t, a ? a.enumerable : void 0, n, i);
                         Object.defineProperty(e, t, o)
                     }
                 }
 
-                function V(e, t, r, n, a) {
+                function F(e, t, r, n, a) {
                     var i, o = D(a, n);
                     return (i = {})[P] = !0, i.get = function () {
                         return o
                     }, i.set = function (a) {
                         if (this === e) o = D(a, n);
                         else {
-                            var i = V(this, t, r, n, a);
+                            var i = F(this, t, r, n, a);
                             Object.defineProperty(this, t, i)
                         }
                     }, i.configurable = !0, i.enumerable = r, i
@@ -6004,9 +7847,9 @@
                     }
                     return t.render = function () {
                         return this.render = m() ? n : U.call(this, n), this.render()
-                    }, F(t, "componentDidMount", (function () {
+                    }, V(t, "componentDidMount", (function () {
                         this[Z] = !1, this.render[H] || a.Component.prototype.forceUpdate.call(this)
-                    })), F(t, "componentWillUnmount", (function () {
+                    })), V(t, "componentWillUnmount", (function () {
                         if (!m()) {
                             var e = this.render[H];
                             if (e) e.dispose(), this.render[H] = null;
@@ -6194,10 +8037,10 @@
                         return K
                     },
                     jQ: function () {
-                        return Vt
+                        return Ft
                     },
                     le: function () {
-                        return _t
+                        return gt
                     },
                     mJ: function () {
                         return at
@@ -6248,11 +8091,11 @@
                 }
                 var m = function () {};
 
-                function _(e) {
+                function g(e) {
                     return "function" === typeof e
                 }
 
-                function g(e) {
+                function _(e) {
                     switch (typeof e) {
                         case "string":
                         case "symbol":
@@ -6375,7 +8218,7 @@
                     return n
                 }
 
-                function F(e, t) {
+                function V(e, t) {
                     var r = "undefined" !== typeof Symbol && e[Symbol.iterator] || e["@@iterator"];
                     if (r) return (r = r.call(e)).next.bind(r);
                     if (Array.isArray(e) || (r = function (e, t) {
@@ -6398,7 +8241,7 @@
                     }
                     throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
                 }
-                var V = Symbol("mobx-stored-annotations");
+                var F = Symbol("mobx-stored-annotations");
 
                 function H(e) {
                     return Object.assign((function (t, r) {
@@ -6407,10 +8250,10 @@
                 }
 
                 function z(e, t, r) {
-                    E(e, V) || k(e, V, L({}, e[V])),
+                    E(e, F) || k(e, F, L({}, e[F])),
                         function (e) {
                             return e.annotationType_ === Q
-                        }(r) || (e[V][t] = r)
+                        }(r) || (e[F][t] = r)
                 }
                 var Z = Symbol("mobx administration"),
                     W = function () {
@@ -6639,8 +8482,8 @@
                     return e || ye
                 }
                 Object.freeze(ye);
-                var _e = le("observable"),
-                    ge = le("observable.ref", {
+                var ge = le("observable"),
+                    _e = le("observable.ref", {
                         enhancer: Y
                     }),
                     ve = le("observable.shallow", {
@@ -6665,7 +8508,7 @@
                             return an(e, t) ? t : e
                         }
                     }),
-                    we = H(_e);
+                    we = H(ge);
 
                 function ke(e) {
                     return !0 === e.deep ? U : !1 === e.deep ? Y : function (e) {
@@ -6675,8 +8518,8 @@
                 }
 
                 function xe(e, t, r) {
-                    if (!g(t)) return $t(e) ? e : b(e) ? Ae.object(e, t, r) : Array.isArray(e) ? Ae.array(e, t) : M(e) ? Ae.map(e, t) : A(e) ? Ae.set(e, t) : "object" === typeof e && null !== e ? e : Ae.box(e, t);
-                    z(e, t, _e)
+                    if (!_(t)) return $t(e) ? e : b(e) ? Ae.object(e, t, r) : Array.isArray(e) ? Ae.array(e, t) : M(e) ? Ae.map(e, t) : A(e) ? Ae.set(e, t) : "object" === typeof e && null !== e ? e : Ae.box(e, t);
+                    z(e, t, ge)
                 }
                 Object.assign(xe, we);
                 var Se, Me, Ae = o(xe, {
@@ -6686,7 +8529,7 @@
                         },
                         array: function (e, t) {
                             var r = me(t);
-                            return (!1 === ut.useProxies || !1 === r.proxy ? Jr : _r)(e, ke(r), r.name)
+                            return (!1 === ut.useProxies || !1 === r.proxy ? Jr : gr)(e, ke(r), r.name)
                         },
                         map: function (e, t) {
                             var r = me(t);
@@ -6697,12 +8540,12 @@
                             return new qr(e, ke(r), r.name)
                         },
                         object: function (e, t, r) {
-                            return Ht(!1 === ut.useProxies || !1 === (null == r ? void 0 : r.proxy) ? Vr({}, r) : function (e, t) {
+                            return Ht(!1 === ut.useProxies || !1 === (null == r ? void 0 : r.proxy) ? Fr({}, r) : function (e, t) {
                                 var r, n;
-                                return h(), e = Vr(e, t), null != (n = (r = e[Z]).proxy_) ? n : r.proxy_ = new Proxy(e, ir)
+                                return h(), e = Fr(e, t), null != (n = (r = e[Z]).proxy_) ? n : r.proxy_ = new Proxy(e, ir)
                             }({}, r), e, t)
                         },
-                        ref: H(ge),
+                        ref: H(_e),
                         shallow: H(ve),
                         deep: we,
                         struct: H(be)
@@ -6713,7 +8556,7 @@
                         equals: G.structural
                     }),
                     Ee = function (e, t) {
-                        if (g(t)) return z(e, t, Te);
+                        if (_(t)) return z(e, t, Te);
                         if (b(e)) return H(ie(Ce, e));
                         var r = b(t) ? t : {};
                         return r.get = e, r.name || (r.name = e.name || ""), new Ke(r)
@@ -6745,7 +8588,7 @@
                             s = !t || !o;
                         ft();
                         var l = ut.allowStateChanges;
-                        s && (tt(), l = Fe(!0));
+                        s && (tt(), l = Ve(!0));
                         var u = nt(!0),
                             c = {
                                 runAsAction_: s,
@@ -6767,7 +8610,7 @@
                         ! function (e) {
                             je !== e.actionId_ && n(30);
                             je = e.parentActionId_, void 0 !== e.error_ && (ut.suppressReactionErrors = !0);
-                            Ve(e.prevAllowStateChanges_), at(e.prevAllowStateReads_), ht(), e.runAsAction_ && rt(e.prevDerivation_);
+                            Fe(e.prevAllowStateChanges_), at(e.prevAllowStateReads_), ht(), e.runAsAction_ && rt(e.prevDerivation_);
                             0;
                             ut.suppressReactionErrors = !1
                         }(o)
@@ -6775,20 +8618,20 @@
                 }
 
                 function De(e, t) {
-                    var r = Fe(e);
+                    var r = Ve(e);
                     try {
                         return t()
                     } finally {
-                        Ve(r)
+                        Fe(r)
                     }
                 }
 
-                function Fe(e) {
+                function Ve(e) {
                     var t = ut.allowStateChanges;
                     return ut.allowStateChanges = e, t
                 }
 
-                function Ve(e) {
+                function Fe(e) {
                     ut.allowStateChanges = e
                 }
                 Ne = Symbol.toPrimitive;
@@ -6905,7 +8748,7 @@
                             return n && (this.value_ = r), n
                         }, t.computeValue_ = function (e) {
                             this.isComputing_ = !0;
-                            var t, r = Fe(!1);
+                            var t, r = Ve(!1);
                             if (e) t = $e(this, this.derivation, this.scope_);
                             else if (!0 === ut.disableErrorBoundaries) t = this.derivation.call(this.scope_);
                             else try {
@@ -6913,7 +8756,7 @@
                             } catch (n) {
                                 t = new Ue(n)
                             }
-                            return Ve(r), this.isComputing_ = !1, t
+                            return Fe(r), this.isComputing_ = !1, t
                         }, t.suspend_ = function () {
                             this.keepAlive_ || (Je(this), this.value_ = void 0)
                         }, t.observe_ = function (e, t) {
@@ -7102,7 +8945,7 @@
                         e.dependenciesState_ === We.UP_TO_DATE_ && e.onBecomeStale_(), e.dependenciesState_ = We.STALE_
                     })))
                 }
-                var _t = function () {
+                var gt = function () {
                     function e(e, t, r, n) {
                         void 0 === e && (e = "Reaction"), this.name_ = void 0, this.onInvalidate_ = void 0, this.errorHandler_ = void 0, this.requiresObservable_ = void 0, this.observing_ = [], this.newObserving_ = [], this.dependenciesState_ = We.NOT_TRACKING_, this.diffValue_ = 0, this.runId_ = 0, this.unboundDepsCount_ = 0, this.isDisposed_ = !1, this.isScheduled_ = !1, this.isTrackPending_ = !1, this.isRunning_ = !1, this.isTracing_ = Be.NONE, this.name_ = e, this.onInvalidate_ = t, this.errorHandler_ = r, this.requiresObservable_ = n
                     }
@@ -7166,12 +9009,12 @@
                             }(this, e)
                     }, e
                 }();
-                var gt = function (e) {
+                var _t = function (e) {
                     return e()
                 };
 
                 function vt() {
-                    ut.inBatch > 0 || ut.isRunningReactions || gt(bt)
+                    ut.inBatch > 0 || ut.isRunningReactions || _t(bt)
                 }
 
                 function bt() {
@@ -7182,7 +9025,7 @@
                     }
                     ut.isRunningReactions = !1
                 }
-                var wt = S("Reaction", _t);
+                var wt = S("Reaction", gt);
                 var kt = "action",
                     xt = "autoAction",
                     St = "<unnamed action>",
@@ -7200,7 +9043,7 @@
 
                 function Ot(e) {
                     return function (t, r) {
-                        return _(t) ? Pe(t.name || St, t, e) : _(r) ? Pe(t, r, e) : g(r) ? z(t, r, e ? Ct : Mt) : g(t) ? H(X(e ? xt : kt, {
+                        return g(t) ? Pe(t.name || St, t, e) : g(r) ? Pe(t, r, e) : _(r) ? z(t, r, e ? Ct : Mt) : _(t) ? H(X(e ? xt : kt, {
                             name: t,
                             autoAction: e
                         })) : void 0
@@ -7211,20 +9054,20 @@
                 var Nt = Ot(!0);
 
                 function jt(e) {
-                    return _(e) && !0 === e.isMobxAction
+                    return g(e) && !0 === e.isMobxAction
                 }
 
                 function It(e, t) {
                     var r, n;
                     void 0 === t && (t = d);
                     var a, i = null != (r = null == (n = t) ? void 0 : n.name) ? r : "Autorun";
-                    if (!t.scheduler && !t.delay) a = new _t(i, (function () {
+                    if (!t.scheduler && !t.delay) a = new gt(i, (function () {
                         this.track(l)
                     }), t.onError, t.requiresObservable);
                     else {
                         var o = qt(t),
                             s = !1;
-                        a = new _t(i, (function () {
+                        a = new gt(i, (function () {
                             s || (s = !0, o((function () {
                                 s = !1, a.isDisposed_ || a.track(l)
                             })))
@@ -7254,7 +9097,7 @@
 
                 function Dt(e, t, r, n) {
                     var a = "function" === typeof n ? en(t, r) : en(t),
-                        i = _(n) ? n : r,
+                        i = g(n) ? n : r,
                         o = e + "L";
                     return a[o] ? a[o].add(i) : a[o] = new Set([i]),
                         function () {
@@ -7262,9 +9105,9 @@
                             e && (e.delete(i), 0 === e.size && delete a[o])
                         }
                 }
-                var Ft = "always";
+                var Vt = "always";
 
-                function Vt(e) {
+                function Ft(e) {
                     !0 === e.isolateGlobalState && function () {
                         if ((ut.pendingReactions.length || ut.inBatch || ut.isRunningReactions) && n(36), lt = !0, st) {
                             var e = i();
@@ -7273,14 +9116,14 @@
                     }();
                     var t = e.useProxies,
                         r = e.enforceActions;
-                    if (void 0 !== t && (ut.useProxies = t === Ft || "never" !== t && "undefined" !== typeof Proxy), "ifavailable" === t && (ut.verifyProxies = !0), void 0 !== r) {
-                        var a = r === Ft ? Ft : "observed" === r;
-                        ut.enforceActions = a, ut.allowStateChanges = !0 !== a && a !== Ft
+                    if (void 0 !== t && (ut.useProxies = t === Vt || "never" !== t && "undefined" !== typeof Proxy), "ifavailable" === t && (ut.verifyProxies = !0), void 0 !== r) {
+                        var a = r === Vt ? Vt : "observed" === r;
+                        ut.enforceActions = a, ut.allowStateChanges = !0 !== a && a !== Vt
                     } ["computedRequiresReaction", "reactionRequiresObservable", "observableRequiresReaction", "disableErrorBoundaries", "safeDescriptors"].forEach((function (t) {
                         t in e && (ut[t] = !!e[t])
                     })), ut.allowStateReads = !ut.observableRequiresReaction, e.reactionScheduler && function (e) {
-                        var t = gt;
-                        gt = function (r) {
+                        var t = _t;
+                        _t = function (r) {
                             return e((function () {
                                 return t(r)
                             }))
@@ -7290,7 +9133,7 @@
 
                 function Ht(e, t, r, n) {
                     var a = N(t),
-                        i = Vr(e, n)[Z];
+                        i = Fr(e, n)[Z];
                     ft();
                     try {
                         T(a).forEach((function (e) {
@@ -7323,7 +9166,7 @@
                         bound: !0
                     }),
                     Ut = Object.assign((function (e, t) {
-                        if (g(t)) return z(e, t, Kt);
+                        if (_(t)) return z(e, t, Kt);
                         var r = e,
                             n = r.name || "<unnamed flow>",
                             a = function () {
@@ -7358,7 +9201,7 @@
                                         }
 
                                         function c(e) {
-                                            if (!_(null == e ? void 0 : e.then)) return e.done ? t(e.value) : (s = Promise.resolve(e.value)).then(l, u);
+                                            if (!g(null == e ? void 0 : e.then)) return e.done ? t(e.value) : (s = Promise.resolve(e.value)).then(l, u);
                                             e.then(c, r)
                                         }
                                         e = r, l(void 0)
@@ -7378,7 +9221,7 @@
                     }), Kt);
 
                 function Yt(e) {
-                    _(e.cancel) && e.cancel()
+                    g(e.cancel) && e.cancel()
                 }
 
                 function Qt(e) {
@@ -7465,11 +9308,11 @@
                     },
                     set: function (e, t, r) {
                         var n;
-                        return !!g(t) && (null == (n = ar(e).set_(t, r, !0)) || n)
+                        return !!_(t) && (null == (n = ar(e).set_(t, r, !0)) || n)
                     },
                     deleteProperty: function (e, t) {
                         var r;
-                        return !!g(t) && (null == (r = ar(e).delete_(t, !0)) || r)
+                        return !!_(t) && (null == (r = ar(e).delete_(t, !0)) || r)
                     },
                     defineProperty: function (e, t, r) {
                         var n;
@@ -7525,12 +9368,12 @@
                 }
 
                 function pr(e, t, r) {
-                    var n = Vr(e, r)[Z];
+                    var n = Fr(e, r)[Z];
                     ft();
                     try {
                         0,
                         null != t || (t = function (e) {
-                            return E(e, V) || k(e, V, L({}, e[V])), e[V]
+                            return E(e, F) || k(e, F, L({}, e[F])), e[F]
                         }(e)),
                         T(t).forEach((function (e) {
                             return n.make_(e, t[e])
@@ -7546,7 +9389,7 @@
                     yr = {
                         get: function (e, t) {
                             var r = e[Z];
-                            return t === Z ? r : "length" === t ? r.getArrayLength_() : "string" !== typeof t || isNaN(t) ? E(gr, t) ? gr[t] : e[t] : r.get_(parseInt(t))
+                            return t === Z ? r : "length" === t ? r.getArrayLength_() : "string" !== typeof t || isNaN(t) ? E(_r, t) ? _r[t] : e[t] : r.get_(parseInt(t))
                         },
                         set: function (e, t, r) {
                             var n = e[Z];
@@ -7675,18 +9518,18 @@
                         }, e
                     }();
 
-                function _r(e, t, r, n) {
+                function gr(e, t, r, n) {
                     void 0 === r && (r = "ObservableArray"), void 0 === n && (n = !1), h();
                     var a = new mr(r, t, n, !1);
                     x(a.values_, Z, a);
                     var i = new Proxy(a.values_, yr);
                     if (a.proxy_ = i, e && e.length) {
-                        var o = Fe(!0);
-                        a.spliceWithArray_(0, 0, e), Ve(o)
+                        var o = Ve(!0);
+                        a.spliceWithArray_(0, 0, e), Fe(o)
                     }
                     return i
                 }
-                var gr = {
+                var _r = {
                     clear: function () {
                         return this.splice(0)
                     },
@@ -7743,7 +9586,7 @@
                 };
 
                 function vr(e, t) {
-                    "function" === typeof Array.prototype[e] && (gr[e] = t(e))
+                    "function" === typeof Array.prototype[e] && (_r[e] = t(e))
                 }
 
                 function br(e) {
@@ -7790,7 +9633,7 @@
                 var Er, Nr, jr = function () {
                         function e(e, t, r) {
                             var a = this;
-                            void 0 === t && (t = U), void 0 === r && (r = "ObservableMap"), this.enhancer_ = void 0, this.name_ = void 0, this[Z] = Cr, this.data_ = void 0, this.hasMap_ = void 0, this.keysAtom_ = void 0, this.interceptors_ = void 0, this.changeListeners_ = void 0, this.dehancer = void 0, this.enhancer_ = t, this.name_ = r, _(Map) || n(18), this.keysAtom_ = K("ObservableMap.keys()"), this.data_ = new Map, this.hasMap_ = new Map, De(!0, (function () {
+                            void 0 === t && (t = U), void 0 === r && (r = "ObservableMap"), this.enhancer_ = void 0, this.name_ = void 0, this[Z] = Cr, this.data_ = void 0, this.hasMap_ = void 0, this.keysAtom_ = void 0, this.interceptors_ = void 0, this.changeListeners_ = void 0, this.dehancer = void 0, this.enhancer_ = t, this.name_ = r, g(Map) || n(18), this.keysAtom_ = K("ObservableMap.keys()"), this.data_ = new Map, this.hasMap_ = new Map, De(!0, (function () {
                                 a.merge(e)
                             }))
                         }
@@ -7912,7 +9755,7 @@
                         }, t[xr] = function () {
                             return this.entries()
                         }, t.forEach = function (e, t) {
-                            for (var r, n = F(this); !(r = n()).done;) {
+                            for (var r, n = V(this); !(r = n()).done;) {
                                 var a = r.value,
                                     i = a[0],
                                     o = a[1];
@@ -7942,7 +9785,7 @@
                             var e = this;
                             nr((function () {
                                 et((function () {
-                                    for (var t, r = F(e.keys()); !(t = r()).done;) {
+                                    for (var t, r = V(e.keys()); !(t = r()).done;) {
                                         var n = t.value;
                                         e.delete(n)
                                     }
@@ -7960,7 +9803,7 @@
                                             return t
                                         }
                                         return n(21, e)
-                                    }(e), i = new Map, o = !1, s = F(t.data_.keys()); !(r = s()).done;) {
+                                    }(e), i = new Map, o = !1, s = V(t.data_.keys()); !(r = s()).done;) {
                                     var l = r.value;
                                     if (!a.has(l))
                                         if (t.delete(l)) o = !0;
@@ -7969,7 +9812,7 @@
                                             i.set(l, u)
                                         }
                                 }
-                                for (var c, d = F(a.entries()); !(c = d()).done;) {
+                                for (var c, d = V(a.entries()); !(c = d()).done;) {
                                     var p = c.value,
                                         f = p[0],
                                         h = p[1],
@@ -7982,12 +9825,12 @@
                                 if (!o)
                                     if (t.data_.size !== i.size) t.keysAtom_.reportChanged();
                                     else
-                                        for (var _ = t.data_.keys(), g = i.keys(), v = _.next(), w = g.next(); !v.done;) {
+                                        for (var g = t.data_.keys(), _ = i.keys(), v = g.next(), w = _.next(); !v.done;) {
                                             if (v.value !== w.value) {
                                                 t.keysAtom_.reportChanged();
                                                 break
                                             }
-                                            v = _.next(), w = g.next()
+                                            v = g.next(), w = _.next()
                                         }
                                 t.data_ = i
                             })), this
@@ -8016,7 +9859,7 @@
                 Er = Symbol.iterator, Nr = Symbol.toStringTag;
                 var qr = function () {
                         function e(e, t, r) {
-                            void 0 === t && (t = U), void 0 === r && (r = "ObservableSet"), this.name_ = void 0, this[Z] = Lr, this.data_ = new Set, this.atom_ = void 0, this.changeListeners_ = void 0, this.interceptors_ = void 0, this.dehancer = void 0, this.enhancer_ = void 0, this.name_ = r, _(Set) || n(22), this.atom_ = K(this.name_), this.enhancer_ = function (e, n) {
+                            void 0 === t && (t = U), void 0 === r && (r = "ObservableSet"), this.name_ = void 0, this[Z] = Lr, this.data_ = new Set, this.atom_ = void 0, this.changeListeners_ = void 0, this.interceptors_ = void 0, this.dehancer = void 0, this.enhancer_ = void 0, this.name_ = r, g(Set) || n(22), this.atom_ = K(this.name_), this.enhancer_ = function (e, n) {
                                 return t(e, n, r)
                             }, e && this.replace(e)
                         }
@@ -8027,14 +9870,14 @@
                             var e = this;
                             nr((function () {
                                 et((function () {
-                                    for (var t, r = F(e.data_.values()); !(t = r()).done;) {
+                                    for (var t, r = V(e.data_.values()); !(t = r()).done;) {
                                         var n = t.value;
                                         e.delete(n)
                                     }
                                 }))
                             }))
                         }, t.forEach = function (e, t) {
-                            for (var r, n = F(this); !(r = n()).done;) {
+                            for (var r, n = V(this); !(r = n()).done;) {
                                 var a = r.value;
                                 e.call(t, a, a, this)
                             }
@@ -8148,7 +9991,7 @@
                     Pr = S("ObservableSet", qr),
                     Rr = Object.create(null),
                     Dr = "remove",
-                    Fr = function () {
+                    Vr = function () {
                         function e(e, t, r, n) {
                             void 0 === t && (t = new Map), void 0 === n && (n = de), this.target_ = void 0, this.values_ = void 0, this.name_ = void 0, this.defaultAnnotation_ = void 0, this.keysAtom_ = void 0, this.changeListeners_ = void 0, this.interceptors_ = void 0, this.proxy_ = void 0, this.isPlainObject_ = void 0, this.appliedAnnotations_ = void 0, this.pendingKeys_ = void 0, this.target_ = e, this.values_ = t, this.name_ = r, this.defaultAnnotation_ = n, this.keysAtom_ = new W("ObservableObject.keys"), this.isPlainObject_ = b(this.target_)
                         }
@@ -8200,7 +10043,7 @@
                             if (!0 === t && (t = this.defaultAnnotation_), !1 !== t) {
                                 if (Br(this, t, e), !(e in this.target_)) {
                                     var r;
-                                    if (null != (r = this.target_[V]) && r[e]) return;
+                                    if (null != (r = this.target_[F]) && r[e]) return;
                                     n(1, t.annotationType_, this.name_ + "." + e.toString())
                                 }
                                 for (var a = this.target_; a && a !== u;) {
@@ -8364,17 +10207,17 @@
                         }, e
                     }();
 
-                function Vr(e, t) {
+                function Fr(e, t) {
                     var r;
                     if (E(e, Z)) return e;
                     var n = null != (r = null == t ? void 0 : t.name) ? r : "ObservableObject",
-                        a = new Fr(e, new Map, String(n), function (e) {
+                        a = new Vr(e, new Map, String(n), function (e) {
                             var t;
                             return e ? null != (t = e.defaultDecorator) ? t : pe(e) : void 0
                         }(t));
                     return k(e, Z, a), e
                 }
-                var Hr = S("ObservableObjectAdministration", Fr);
+                var Hr = S("ObservableObjectAdministration", Vr);
 
                 function zr(e) {
                     return Rr[e] || (Rr[e] = {
@@ -8393,7 +10236,7 @@
 
                 function Wr(e, t, r) {
                     var n;
-                    null == (n = e.target_[V]) || delete n[r]
+                    null == (n = e.target_[F]) || delete n[r]
                 }
 
                 function Br(e, t, r) {}
@@ -8406,8 +10249,8 @@
                         void 0 === n && (n = "ObservableArray"), void 0 === a && (a = !1), i = e.call(this) || this;
                         var o = new mr(n, r, a, !0);
                         if (o.proxy_ = R(i), x(R(i), Z, o), t && t.length) {
-                            var s = Fe(!0);
-                            i.spliceWithArray(0, 0, t), Ve(s)
+                            var s = Ve(!0);
+                            i.spliceWithArray(0, 0, t), Fe(s)
                         }
                         return i
                     }
@@ -8490,7 +10333,7 @@
                             return a || n(27, t, rn(e)), a
                         }
                         if (B(e) || Ge(e) || wt(e)) return e
-                    } else if (_(e) && wt(e[Z])) return e[Z];
+                    } else if (g(e) && wt(e[Z])) return e[Z];
                     n(28)
                 }
 
@@ -8507,7 +10350,7 @@
                     }
                     return r.name_
                 }
-                Object.entries(gr).forEach((function (e) {
+                Object.entries(_r).forEach((function (e) {
                     var t = e[0],
                         r = e[1];
                     "concat" !== t && k(Qr.prototype, t, r)
@@ -8547,7 +10390,7 @@
                         if ("object" != typeof e || "object" != typeof t) return !1;
                         var l = e.constructor,
                             u = t.constructor;
-                        if (l !== u && !(_(l) && l instanceof l && _(u) && u instanceof u) && "constructor" in e && "constructor" in t) return !1
+                        if (l !== u && !(g(l) && l instanceof l && g(u) && u instanceof u) && "constructor" in e && "constructor" in t) return !1
                     }
                     if (0 === r) return !1;
                     r < 0 && (r = -1), a = a || [];
@@ -8686,7 +10529,7 @@
                         parseUserAgent: y
                     });
 
-                function _(e, t) {
+                function g(e, t) {
                     var r = Object.keys(e);
                     if (Object.getOwnPropertySymbols) {
                         var n = Object.getOwnPropertySymbols(e);
@@ -8697,12 +10540,12 @@
                     return r
                 }
 
-                function g(e) {
-                    return g = "function" === typeof Symbol && "symbol" === typeof Symbol.iterator ? function (e) {
+                function _(e) {
+                    return _ = "function" === typeof Symbol && "symbol" === typeof Symbol.iterator ? function (e) {
                         return typeof e
                     } : function (e) {
                         return e && "function" === typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e
-                    }, g(e)
+                    }, _(e)
                 }
 
                 function v(e, t) {
@@ -8843,20 +10686,20 @@
                         var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "none";
                         return e || t
                     },
-                    F = function () {
+                    V = function () {
                         return !("undefined" === typeof window || !window.navigator && !navigator) && (window.navigator || navigator)
                     },
-                    V = function (e) {
-                        var t = F();
+                    F = function (e) {
+                        var t = V();
                         return t && t.platform && (-1 !== t.platform.indexOf(e) || "MacIntel" === t.platform && t.maxTouchPoints > 1 && !window.MSStream)
                     },
                     H = function (e, t, r, n) {
                         return function (e) {
                             for (var t = 1; t < arguments.length; t++) {
                                 var r = null != arguments[t] ? arguments[t] : {};
-                                t % 2 ? _(Object(r), !0).forEach((function (t) {
+                                t % 2 ? g(Object(r), !0).forEach((function (t) {
                                     b(e, t, r[t])
-                                })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : _(Object(r)).forEach((function (t) {
+                                })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r)) : g(Object(r)).forEach((function (t) {
                                     Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(r, t))
                                 }))
                             }
@@ -8964,11 +10807,11 @@
                     me = function (e) {
                         return e.name === q.SamsungBrowser
                     },
-                    _e = function (e) {
+                    ge = function (e) {
                         var t = e.version;
                         return D(t)
                     },
-                    ge = function (e) {
+                    _e = function (e) {
                         var t = e.major;
                         return D(t)
                     },
@@ -8985,7 +10828,7 @@
                         return D(t)
                     },
                     ke = function () {
-                        var e = F(),
+                        var e = V(),
                             t = e && e.userAgent && e.userAgent.toLowerCase();
                         return "string" === typeof t && /electron/.test(t)
                     },
@@ -8993,17 +10836,17 @@
                         return "string" === typeof e && -1 !== e.indexOf("Edg/")
                     },
                     Se = function () {
-                        var e = F();
+                        var e = V();
                         return e && (/iPad|iPhone|iPod/.test(e.platform) || "MacIntel" === e.platform && e.maxTouchPoints > 1) && !window.MSStream
                     },
                     Me = function () {
-                        return V("iPad")
+                        return F("iPad")
                     },
                     Ae = function () {
-                        return V("iPhone")
+                        return F("iPhone")
                     },
                     Ce = function () {
-                        return V("iPod")
+                        return F("iPod")
                     },
                     Te = function (e) {
                         return D(e)
@@ -9038,8 +10881,8 @@
                         isIE: he(n),
                         osVersion: ae(a),
                         osName: ie(a),
-                        fullBrowserVersion: _e(n),
-                        browserVersion: ge(n),
+                        fullBrowserVersion: ge(n),
+                        browserVersion: _e(n),
                         browserName: ve(n),
                         mobileVendor: Q(r),
                         mobileModel: X(r),
@@ -9071,8 +10914,8 @@
                     Pe = W(c) || Me(),
                     Re = z(c),
                     De = Z(c) || Me(),
-                    Fe = K(c),
                     Ve = K(c),
+                    Fe = K(c),
                     He = J(p),
                     ze = re(p),
                     Ze = ne(p) || Me(),
@@ -9083,8 +10926,8 @@
                     Ue = he(l),
                     Ye = ae(p),
                     Qe = ie(p),
-                    Xe = _e(l),
-                    $e = ge(l),
+                    Xe = ge(l),
+                    $e = _e(l),
                     Je = ve(l),
                     et = Q(c),
                     tt = X(c),
@@ -9103,8 +10946,8 @@
                     ht = ue(l) && !xe(f),
                     yt = ee(p),
                     mt = te(p),
-                    _t = ye(l),
-                    gt = me(l);
+                    gt = ye(l),
+                    _t = me(l);
 
                 function vt(e) {
                     var t = e || window.navigator.userAgent;
@@ -9166,9 +11009,9 @@
                 })), ["rowSpan", "start"].forEach((function (e) {
                     m[e] = new y(e, 5, !1, e.toLowerCase(), null, !1, !1)
                 }));
-                var _ = /[\-:]([a-z])/g;
+                var g = /[\-:]([a-z])/g;
 
-                function g(e) {
+                function _(e) {
                     return e[1].toUpperCase()
                 }
 
@@ -9204,13 +11047,13 @@
                     }(t) && (null === r ? e.removeAttribute(t) : e.setAttribute(t, "" + r)) : a.mustUseProperty ? e[a.propertyName] = null === r ? 3 !== a.type && "" : r : (t = a.attributeName, n = a.attributeNamespace, null === r ? e.removeAttribute(t) : (r = 3 === (a = a.type) || 4 === a && !0 === r ? "" : "" + r, n ? e.setAttributeNS(n, t, r) : e.setAttribute(t, r))))
                 }
                 "accent-height alignment-baseline arabic-form baseline-shift cap-height clip-path clip-rule color-interpolation color-interpolation-filters color-profile color-rendering dominant-baseline enable-background fill-opacity fill-rule flood-color flood-opacity font-family font-size font-size-adjust font-stretch font-style font-variant font-weight glyph-name glyph-orientation-horizontal glyph-orientation-vertical horiz-adv-x horiz-origin-x image-rendering letter-spacing lighting-color marker-end marker-mid marker-start overline-position overline-thickness paint-order panose-1 pointer-events rendering-intent shape-rendering stop-color stop-opacity strikethrough-position strikethrough-thickness stroke-dasharray stroke-dashoffset stroke-linecap stroke-linejoin stroke-miterlimit stroke-opacity stroke-width text-anchor text-decoration text-rendering underline-position underline-thickness unicode-bidi unicode-range units-per-em v-alphabetic v-hanging v-ideographic v-mathematical vector-effect vert-adv-y vert-origin-x vert-origin-y word-spacing writing-mode xmlns:xlink x-height".split(" ").forEach((function (e) {
-                    var t = e.replace(_, g);
+                    var t = e.replace(g, _);
                     m[t] = new y(t, 1, !1, e, null, !1, !1)
                 })), "xlink:actuate xlink:arcrole xlink:role xlink:show xlink:title xlink:type".split(" ").forEach((function (e) {
-                    var t = e.replace(_, g);
+                    var t = e.replace(g, _);
                     m[t] = new y(t, 1, !1, e, "http://www.w3.org/1999/xlink", !1, !1)
                 })), ["xml:base", "xml:lang", "xml:space"].forEach((function (e) {
-                    var t = e.replace(_, g);
+                    var t = e.replace(g, _);
                     m[t] = new y(t, 1, !1, e, "http://www.w3.org/XML/1998/namespace", !1, !1)
                 })), ["tabIndex", "crossOrigin"].forEach((function (e) {
                     m[e] = new y(e, 1, !1, e.toLowerCase(), null, !1, !1)
@@ -9249,11 +11092,11 @@
                     }
                     return "\n" + P + e
                 }
-                var F = !1;
+                var V = !1;
 
-                function V(e, t) {
-                    if (!e || F) return "";
-                    F = !0;
+                function F(e, t) {
+                    if (!e || V) return "";
+                    V = !0;
                     var r = Error.prepareStackTrace;
                     Error.prepareStackTrace = void 0;
                     try {
@@ -9303,7 +11146,7 @@
                                 }
                         }
                     } finally {
-                        F = !1, Error.prepareStackTrace = r
+                        V = !1, Error.prepareStackTrace = r
                     }
                     return (e = e ? e.displayName || e.name : "") ? D(e) : ""
                 }
@@ -9321,11 +11164,11 @@
                         case 0:
                         case 2:
                         case 15:
-                            return e = V(e.type, !1);
+                            return e = F(e.type, !1);
                         case 11:
-                            return e = V(e.type.render, !1);
+                            return e = F(e.type.render, !1);
                         case 1:
-                            return e = V(e.type, !0);
+                            return e = F(e.type, !0);
                         default:
                             return ""
                     }
@@ -9684,7 +11527,7 @@
                         t = t + e.charAt(0).toUpperCase() + e.substring(1), fe[t] = fe[e]
                     }))
                 }));
-                var _e = R({
+                var ge = R({
                     menuitem: !0
                 }, {
                     area: !0,
@@ -9704,9 +11547,9 @@
                     wbr: !0
                 });
 
-                function ge(e, t) {
+                function _e(e, t) {
                     if (t) {
-                        if (_e[e] && (null != t.children || null != t.dangerouslySetInnerHTML)) throw Error(i(137, e));
+                        if (ge[e] && (null != t.children || null != t.dangerouslySetInnerHTML)) throw Error(i(137, e));
                         if (null != t.dangerouslySetInnerHTML) {
                             if (null != t.children) throw Error(i(60));
                             if ("object" !== typeof t.dangerouslySetInnerHTML || !("__html" in t.dangerouslySetInnerHTML)) throw Error(i(61))
@@ -9828,15 +11671,15 @@
                 var Pe = !1,
                     Re = null,
                     De = !1,
-                    Fe = null,
-                    Ve = {
+                    Ve = null,
+                    Fe = {
                         onError: function (e) {
                             Pe = !0, Re = e
                         }
                     };
 
                 function He(e, t, r, n, a, i, o, s, l) {
-                    Pe = !1, Re = null, qe.apply(Ve, arguments)
+                    Pe = !1, Re = null, qe.apply(Fe, arguments)
                 }
 
                 function ze(e) {
@@ -10069,11 +11912,11 @@
                     return t
                 }
 
-                function _t(e, t, r) {
+                function gt(e, t, r) {
                     e.pendingLanes |= t, 536870912 !== t && (e.suspendedLanes = 0, e.pingedLanes = 0), (e = e.eventTimes)[t = 31 - ot(t)] = r
                 }
 
-                function gt(e, t) {
+                function _t(e, t) {
                     var r = e.entangledLanes |= t;
                     for (e = e.entanglements; r;) {
                         var n = 31 - ot(r),
@@ -10131,7 +11974,7 @@
                 }
 
                 function Rt(e) {
-                    var t = ga(e.target);
+                    var t = _a(e.target);
                     if (null !== t) {
                         var r = ze(t);
                         if (null !== r)
@@ -10155,16 +11998,16 @@
                     return !0
                 }
 
-                function Ft(e, t, r) {
+                function Vt(e, t, r) {
                     Dt(e) && r.delete(t)
                 }
 
-                function Vt() {
-                    At = !1, null !== Tt && Dt(Tt) && (Tt = null), null !== Ot && Dt(Ot) && (Ot = null), null !== Et && Dt(Et) && (Et = null), Nt.forEach(Ft), jt.forEach(Ft)
+                function Ft() {
+                    At = !1, null !== Tt && Dt(Tt) && (Tt = null), null !== Ot && Dt(Ot) && (Ot = null), null !== Et && Dt(Et) && (Et = null), Nt.forEach(Vt), jt.forEach(Vt)
                 }
 
                 function Ht(e, t) {
-                    e.blockedOn === t && (e.blockedOn = null, At || (At = !0, a.unstable_scheduleCallback(a.unstable_NormalPriority, Vt)))
+                    e.blockedOn === t && (e.blockedOn = null, At || (At = !0, a.unstable_scheduleCallback(a.unstable_NormalPriority, Ft)))
                 }
 
                 function zt(e) {
@@ -10239,7 +12082,7 @@
                 var Ut = null;
 
                 function Yt(e, t, r, n) {
-                    if (Ut = null, null !== (e = ga(e = we(n))))
+                    if (Ut = null, null !== (e = _a(e = we(n))))
                         if (null === (t = ze(e))) e = null;
                         else if (13 === (r = t.tag)) {
                         if (null !== (e = Ze(t))) return e;
@@ -10443,12 +12286,12 @@
                         elapsedTime: 0,
                         pseudoElement: 0
                     })),
-                    _r = R({}, lr, {
+                    gr = R({}, lr, {
                         clipboardData: function (e) {
                             return "clipboardData" in e ? e.clipboardData : window.clipboardData
                         }
                     }),
-                    gr = ar(_r),
+                    _r = ar(gr),
                     vr = ar(R({}, lr, {
                         data: 0
                     })),
@@ -10594,7 +12437,7 @@
                     Rr = String.fromCharCode(32),
                     Dr = !1;
 
-                function Fr(e, t) {
+                function Vr(e, t) {
                     switch (e) {
                         case "keyup":
                             return -1 !== jr.indexOf(t.keyCode);
@@ -10609,7 +12452,7 @@
                     }
                 }
 
-                function Vr(e) {
+                function Fr(e) {
                     return "object" === typeof (e = e.detail) && "data" in e ? e.data : null
                 }
                 var Hr = !1;
@@ -10789,8 +12632,8 @@
                 }
                 var yn = c && "documentMode" in document && 11 >= document.documentMode,
                     mn = null,
-                    _n = null,
                     gn = null,
+                    _n = null,
                     vn = !1;
 
                 function bn(e, t, r) {
@@ -10803,7 +12646,7 @@
                         anchorOffset: n.anchorOffset,
                         focusNode: n.focusNode,
                         focusOffset: n.focusOffset
-                    }, gn && ln(gn, n) || (gn = n, 0 < (n = Kn(_n, "onSelect")).length && (t = new ur("onSelect", "select", null, t, r), e.push({
+                    }, _n && ln(_n, n) || (_n = n, 0 < (n = Kn(gn, "onSelect")).length && (t = new ur("onSelect", "select", null, t, r), e.push({
                         event: t,
                         listeners: n
                     }), t.target = mn)))
@@ -10856,7 +12699,7 @@
                             if (He.apply(this, arguments), Pe) {
                                 if (!Pe) throw Error(i(198));
                                 var c = Re;
-                                Pe = !1, Re = null, De || (De = !0, Fe = c)
+                                Pe = !1, Re = null, De || (De = !0, Ve = c)
                             }
                         }(n, t, void 0, e), e.currentTarget = null
                 }
@@ -10883,17 +12726,17 @@
                                     }
                         }
                     }
-                    if (De) throw e = Fe, De = !1, Fe = null, e
+                    if (De) throw e = Ve, De = !1, Ve = null, e
                 }
 
-                function Fn(e, t) {
+                function Vn(e, t) {
                     var r = t[ya];
                     void 0 === r && (r = t[ya] = new Set);
                     var n = e + "__bubble";
                     r.has(n) || (Zn(t, e, 2, !1), r.add(n))
                 }
 
-                function Vn(e, t, r) {
+                function Fn(e, t, r) {
                     var n = 0;
                     t && (n |= 4), Zn(r, e, n, t)
                 }
@@ -10902,10 +12745,10 @@
                 function zn(e) {
                     if (!e[Hn]) {
                         e[Hn] = !0, o.forEach((function (t) {
-                            "selectionchange" !== t && (Pn.has(t) || Vn(t, !1, e), Vn(t, !0, e))
+                            "selectionchange" !== t && (Pn.has(t) || Fn(t, !1, e), Fn(t, !0, e))
                         }));
                         var t = 9 === e.nodeType ? e : e.ownerDocument;
-                        null === t || t[Hn] || (t[Hn] = !0, Vn("selectionchange", !1, t))
+                        null === t || t[Hn] || (t[Hn] = !0, Fn("selectionchange", !1, t))
                     }
                 }
 
@@ -10943,7 +12786,7 @@
                                     o = o.return
                                 }
                             for (; null !== s;) {
-                                if (null === (o = ga(s))) return;
+                                if (null === (o = _a(s))) return;
                                 if (5 === (l = o.tag) || 6 === l) {
                                     n = i = o;
                                     continue e
@@ -11024,7 +12867,7 @@
                                     case "copy":
                                     case "cut":
                                     case "paste":
-                                        l = gr;
+                                        l = _r;
                                         break;
                                     case "gotpointercapture":
                                     case "lostpointercapture":
@@ -11052,8 +12895,8 @@
                             }
                         }
                         if (0 === (7 & t)) {
-                            if (l = "mouseout" === e || "pointerout" === e, (!(s = "mouseover" === e || "pointerover" === e) || r === be || !(u = r.relatedTarget || r.fromElement) || !ga(u) && !u[ha]) && (l || s) && (s = a.window === a ? a : (s = a.ownerDocument) ? s.defaultView || s.parentWindow : window, l ? (l = n, null !== (u = (u = r.relatedTarget || r.toElement) ? ga(u) : null) && (u !== (d = ze(u)) || 5 !== u.tag && 6 !== u.tag) && (u = null)) : (l = null, u = n), l !== u)) {
-                                if (c = fr, y = "onMouseLeave", p = "onMouseEnter", h = "mouse", "pointerout" !== e && "pointerover" !== e || (c = Cr, y = "onPointerLeave", p = "onPointerEnter", h = "pointer"), d = null == l ? s : ba(l), f = null == u ? s : ba(u), (s = new c(y, h + "leave", l, r, a)).target = d, s.relatedTarget = f, y = null, ga(a) === n && ((c = new c(p, h + "enter", u, r, a)).target = f, c.relatedTarget = d, y = c), d = y, l && u) e: {
+                            if (l = "mouseout" === e || "pointerout" === e, (!(s = "mouseover" === e || "pointerover" === e) || r === be || !(u = r.relatedTarget || r.fromElement) || !_a(u) && !u[ha]) && (l || s) && (s = a.window === a ? a : (s = a.ownerDocument) ? s.defaultView || s.parentWindow : window, l ? (l = n, null !== (u = (u = r.relatedTarget || r.toElement) ? _a(u) : null) && (u !== (d = ze(u)) || 5 !== u.tag && 6 !== u.tag) && (u = null)) : (l = null, u = n), l !== u)) {
+                                if (c = fr, y = "onMouseLeave", p = "onMouseEnter", h = "mouse", "pointerout" !== e && "pointerover" !== e || (c = Cr, y = "onPointerLeave", p = "onPointerEnter", h = "pointer"), d = null == l ? s : ba(l), f = null == u ? s : ba(u), (s = new c(y, h + "leave", l, r, a)).target = d, s.relatedTarget = f, y = null, _a(a) === n && ((c = new c(p, h + "enter", u, r, a)).target = f, c.relatedTarget = d, y = c), d = y, l && u) e: {
                                     for (p = u, h = 0, f = c = l; f; f = Gn(f)) h++;
                                     for (f = 0, y = p; y; y = Gn(y)) f++;
                                     for (; 0 < h - f;) c = Gn(c),
@@ -11074,15 +12917,15 @@
                                 if (Qr) m = on;
                                 else {
                                     m = nn;
-                                    var _ = rn
+                                    var g = rn
                                 }
                             else(l = s.nodeName) && "input" === l.toLowerCase() && ("checkbox" === s.type || "radio" === s.type) && (m = an);
-                            switch (m && (m = m(e, n)) ? Wr(o, m, r, a) : (_ && _(e, s, n), "focusout" === e && (_ = s._wrapperState) && _.controlled && "number" === s.type && ee(s, "number", s.value)), _ = n ? ba(n) : window, e) {
+                            switch (m && (m = m(e, n)) ? Wr(o, m, r, a) : (g && g(e, s, n), "focusout" === e && (g = s._wrapperState) && g.controlled && "number" === s.type && ee(s, "number", s.value)), g = n ? ba(n) : window, e) {
                                 case "focusin":
-                                    (Zr(_) || "true" === _.contentEditable) && (mn = _, _n = n, gn = null);
+                                    (Zr(g) || "true" === g.contentEditable) && (mn = g, gn = n, _n = null);
                                     break;
                                 case "focusout":
-                                    gn = _n = mn = null;
+                                    _n = gn = mn = null;
                                     break;
                                 case "mousedown":
                                     vn = !0;
@@ -11098,7 +12941,7 @@
                                 case "keyup":
                                     bn(o, r, a)
                             }
-                            var g;
+                            var _;
                             if (Ir) e: {
                                 switch (e) {
                                     case "compositionstart":
@@ -11113,14 +12956,14 @@
                                 }
                                 v = void 0
                             }
-                            else Hr ? Fr(e, r) && (v = "onCompositionEnd") : "keydown" === e && 229 === r.keyCode && (v = "onCompositionStart");
-                            v && (Pr && "ko" !== r.locale && (Hr || "onCompositionStart" !== v ? "onCompositionEnd" === v && Hr && (g = er()) : ($t = "value" in (Xt = a) ? Xt.value : Xt.textContent, Hr = !0)), 0 < (_ = Kn(n, v)).length && (v = new vr(v, e, null, r, a), o.push({
+                            else Hr ? Vr(e, r) && (v = "onCompositionEnd") : "keydown" === e && 229 === r.keyCode && (v = "onCompositionStart");
+                            v && (Pr && "ko" !== r.locale && (Hr || "onCompositionStart" !== v ? "onCompositionEnd" === v && Hr && (_ = er()) : ($t = "value" in (Xt = a) ? Xt.value : Xt.textContent, Hr = !0)), 0 < (g = Kn(n, v)).length && (v = new vr(v, e, null, r, a), o.push({
                                 event: v,
-                                listeners: _
-                            }), g ? v.data = g : null !== (g = Vr(r)) && (v.data = g))), (g = qr ? function (e, t) {
+                                listeners: g
+                            }), _ ? v.data = _ : null !== (_ = Fr(r)) && (v.data = _))), (_ = qr ? function (e, t) {
                                 switch (e) {
                                     case "compositionend":
-                                        return Vr(t);
+                                        return Fr(t);
                                     case "keypress":
                                         return 32 !== t.which ? null : (Dr = !0, Rr);
                                     case "textInput":
@@ -11129,7 +12972,7 @@
                                         return null
                                 }
                             }(e, r) : function (e, t) {
-                                if (Hr) return "compositionend" === e || !Ir && Fr(e, t) ? (e = er(), Jt = $t = Xt = null, Hr = !1, e) : null;
+                                if (Hr) return "compositionend" === e || !Ir && Vr(e, t) ? (e = er(), Jt = $t = Xt = null, Hr = !1, e) : null;
                                 switch (e) {
                                     case "paste":
                                     default:
@@ -11146,7 +12989,7 @@
                             }(e, r)) && (0 < (n = Kn(n, "onBeforeInput")).length && (a = new vr("onBeforeInput", "beforeinput", null, r, a), o.push({
                                 event: a,
                                 listeners: n
-                            }), a.data = g))
+                            }), a.data = _))
                         }
                         Dn(o, t)
                     }))
@@ -11268,9 +13111,9 @@
                     ha = "__reactContainer$" + da,
                     ya = "__reactEvents$" + da,
                     ma = "__reactListeners$" + da,
-                    _a = "__reactHandles$" + da;
+                    ga = "__reactHandles$" + da;
 
-                function ga(e) {
+                function _a(e) {
                     var t = e[pa];
                     if (t) return t;
                     for (var r = e.parentNode; r;) {
@@ -11361,16 +13204,16 @@
                     r ? (e = qa(e, t, Ea), n.__reactInternalMemoizedMergedChildContext = e, Ma(Oa), Ma(Ta), Aa(Ta, e)) : Ma(Oa), Aa(Oa, r)
                 }
                 var Da = null,
-                    Fa = !1,
-                    Va = !1;
+                    Va = !1,
+                    Fa = !1;
 
                 function Ha(e) {
                     null === Da ? Da = [e] : Da.push(e)
                 }
 
                 function za() {
-                    if (!Va && null !== Da) {
-                        Va = !0;
+                    if (!Fa && null !== Da) {
+                        Fa = !0;
                         var e = 0,
                             t = vt;
                         try {
@@ -11381,11 +13224,11 @@
                                     n = n(!0)
                                 } while (null !== n)
                             }
-                            Da = null, Fa = !1
+                            Da = null, Va = !1
                         } catch (a) {
                             throw null !== Da && (Da = Da.slice(e + 1)), Ge(Je, za), a
                         } finally {
-                            vt = t, Va = !1
+                            vt = t, Fa = !1
                         }
                     }
                     return null
@@ -11533,18 +13376,18 @@
                     }
                     return t
                 }
-                var _i = Sa(null),
-                    gi = null,
+                var gi = Sa(null),
+                    _i = null,
                     vi = null,
                     bi = null;
 
                 function wi() {
-                    bi = vi = gi = null
+                    bi = vi = _i = null
                 }
 
                 function ki(e) {
-                    var t = _i.current;
-                    Ma(_i), e._currentValue = t
+                    var t = gi.current;
+                    Ma(gi), e._currentValue = t
                 }
 
                 function xi(e, t, r) {
@@ -11556,7 +13399,7 @@
                 }
 
                 function Si(e, t) {
-                    gi = e, bi = vi = null, null !== (e = e.dependencies) && null !== e.firstContext && (0 !== (e.lanes & t) && (bs = !0), e.firstContext = null)
+                    _i = e, bi = vi = null, null !== (e = e.dependencies) && null !== e.firstContext && (0 !== (e.lanes & t) && (bs = !0), e.firstContext = null)
                 }
 
                 function Mi(e) {
@@ -11567,8 +13410,8 @@
                                 memoizedValue: t,
                                 next: null
                             }, null === vi) {
-                            if (null === gi) throw Error(i(308));
-                            vi = e, gi.dependencies = {
+                            if (null === _i) throw Error(i(308));
+                            vi = e, _i.dependencies = {
                                 lanes: 0,
                                 firstContext: e
                             }
@@ -11642,7 +13485,7 @@
                 function qi(e, t, r) {
                     if (null !== (t = t.updateQueue) && (t = t.shared, 0 !== (4194240 & r))) {
                         var n = t.lanes;
-                        r |= n &= e.pendingLanes, t.lanes = r, gt(e, r)
+                        r |= n &= e.pendingLanes, t.lanes = r, _t(e, r)
                     }
                 }
 
@@ -11761,9 +13604,9 @@
                             }
                         }
                 }
-                var Fi = (new n.Component).refs;
+                var Vi = (new n.Component).refs;
 
-                function Vi(e, t, r, n) {
+                function Fi(e, t, r, n) {
                     r = null === (r = r(n, t = e.memoizedState)) || void 0 === r ? t : R({}, t, r), e.memoizedState = r, 0 === e.lanes && (e.updateQueue.baseState = r)
                 }
                 var Hi = {
@@ -11810,9 +13653,9 @@
 
                 function Bi(e, t, r, n) {
                     var a = e.stateNode;
-                    a.props = r, a.state = e.memoizedState, a.refs = Fi, Ni(e);
+                    a.props = r, a.state = e.memoizedState, a.refs = Vi, Ni(e);
                     var i = t.contextType;
-                    "object" === typeof i && null !== i ? a.context = Mi(i) : (i = ja(t) ? Ea : Ta.current, a.context = Na(e, i)), a.state = e.memoizedState, "function" === typeof (i = t.getDerivedStateFromProps) && (Vi(e, t, i, r), a.state = e.memoizedState), "function" === typeof t.getDerivedStateFromProps || "function" === typeof a.getSnapshotBeforeUpdate || "function" !== typeof a.UNSAFE_componentWillMount && "function" !== typeof a.componentWillMount || (t = a.state, "function" === typeof a.componentWillMount && a.componentWillMount(), "function" === typeof a.UNSAFE_componentWillMount && a.UNSAFE_componentWillMount(), t !== a.state && Hi.enqueueReplaceState(a, a.state, null), Ri(e, r, a, n), a.state = e.memoizedState), "function" === typeof a.componentDidMount && (e.flags |= 4194308)
+                    "object" === typeof i && null !== i ? a.context = Mi(i) : (i = ja(t) ? Ea : Ta.current, a.context = Na(e, i)), a.state = e.memoizedState, "function" === typeof (i = t.getDerivedStateFromProps) && (Fi(e, t, i, r), a.state = e.memoizedState), "function" === typeof t.getDerivedStateFromProps || "function" === typeof a.getSnapshotBeforeUpdate || "function" !== typeof a.UNSAFE_componentWillMount && "function" !== typeof a.componentWillMount || (t = a.state, "function" === typeof a.componentWillMount && a.componentWillMount(), "function" === typeof a.UNSAFE_componentWillMount && a.UNSAFE_componentWillMount(), t !== a.state && Hi.enqueueReplaceState(a, a.state, null), Ri(e, r, a, n), a.state = e.memoizedState), "function" === typeof a.componentDidMount && (e.flags |= 4194308)
                 }
 
                 function Ki(e, t, r) {
@@ -11827,7 +13670,7 @@
                                 o = "" + e;
                             return null !== t && null !== t.ref && "function" === typeof t.ref && t.ref._stringRef === o ? t.ref : (t = function (e) {
                                 var t = a.refs;
-                                t === Fi && (t = a.refs = {}), null === e ? delete t[o] : t[o] = e
+                                t === Vi && (t = a.refs = {}), null === e ? delete t[o] : t[o] = e
                             }, t._stringRef = o, t)
                         }
                         if ("string" !== typeof e) throw Error(i(284));
@@ -11947,12 +13790,12 @@
                     function y(a, i, s, l) {
                         for (var u = null, c = null, d = i, y = i = 0, m = null; null !== d && y < s.length; y++) {
                             d.index > y ? (m = d, d = null) : m = d.sibling;
-                            var _ = f(a, d, s[y], l);
-                            if (null === _) {
+                            var g = f(a, d, s[y], l);
+                            if (null === g) {
                                 null === d && (d = m);
                                 break
                             }
-                            e && d && null === _.alternate && t(a, d), i = o(_, i, y), null === c ? u = _ : c.sibling = _, c = _, d = m
+                            e && d && null === g.alternate && t(a, d), i = o(g, i, y), null === c ? u = g : c.sibling = g, c = g, d = m
                         }
                         if (y === s.length) return r(a, d), ai && $a(a, y), u;
                         if (null === d) {
@@ -11969,21 +13812,21 @@
                         var c = q(l);
                         if ("function" !== typeof c) throw Error(i(150));
                         if (null == (l = c.call(l))) throw Error(i(151));
-                        for (var d = c = null, y = s, m = s = 0, _ = null, g = l.next(); null !== y && !g.done; m++, g = l.next()) {
-                            y.index > m ? (_ = y, y = null) : _ = y.sibling;
-                            var v = f(a, y, g.value, u);
+                        for (var d = c = null, y = s, m = s = 0, g = null, _ = l.next(); null !== y && !_.done; m++, _ = l.next()) {
+                            y.index > m ? (g = y, y = null) : g = y.sibling;
+                            var v = f(a, y, _.value, u);
                             if (null === v) {
-                                null === y && (y = _);
+                                null === y && (y = g);
                                 break
                             }
-                            e && y && null === v.alternate && t(a, y), s = o(v, s, m), null === d ? c = v : d.sibling = v, d = v, y = _
+                            e && y && null === v.alternate && t(a, y), s = o(v, s, m), null === d ? c = v : d.sibling = v, d = v, y = g
                         }
-                        if (g.done) return r(a, y), ai && $a(a, m), c;
+                        if (_.done) return r(a, y), ai && $a(a, m), c;
                         if (null === y) {
-                            for (; !g.done; m++, g = l.next()) null !== (g = p(a, g.value, u)) && (s = o(g, s, m), null === d ? c = g : d.sibling = g, d = g);
+                            for (; !_.done; m++, _ = l.next()) null !== (_ = p(a, _.value, u)) && (s = o(_, s, m), null === d ? c = _ : d.sibling = _, d = _);
                             return ai && $a(a, m), c
                         }
-                        for (y = n(a, y); !g.done; m++, g = l.next()) null !== (g = h(y, a, m, g.value, u)) && (e && null !== g.alternate && y.delete(null === g.key ? m : g.key), s = o(g, s, m), null === d ? c = g : d.sibling = g, d = g);
+                        for (y = n(a, y); !_.done; m++, _ = l.next()) null !== (_ = h(y, a, m, _.value, u)) && (e && null !== _.alternate && y.delete(null === _.key ? m : _.key), s = o(_, s, m), null === d ? c = _ : d.sibling = _, d = _);
                         return e && y.forEach((function (e) {
                             return t(a, e)
                         })), ai && $a(a, m), c
@@ -12109,8 +13952,8 @@
                     ho = 0,
                     yo = null,
                     mo = null,
-                    _o = null,
-                    go = !1,
+                    go = null,
+                    _o = !1,
                     vo = !1,
                     bo = 0,
                     wo = 0;
@@ -12131,10 +13974,10 @@
                         o = 0;
                         do {
                             if (vo = !1, bo = 0, 25 <= o) throw Error(i(301));
-                            o += 1, _o = mo = null, t.updateQueue = null, po.current = us, e = r(n, a)
+                            o += 1, go = mo = null, t.updateQueue = null, po.current = us, e = r(n, a)
                         } while (vo)
                     }
-                    if (po.current = os, t = null !== mo && null !== mo.next, ho = 0, _o = mo = yo = null, go = !1, t) throw Error(i(300));
+                    if (po.current = os, t = null !== mo && null !== mo.next, ho = 0, go = mo = yo = null, _o = !1, t) throw Error(i(300));
                     return e
                 }
 
@@ -12151,7 +13994,7 @@
                         queue: null,
                         next: null
                     };
-                    return null === _o ? yo.memoizedState = _o = e : _o = _o.next = e, _o
+                    return null === go ? yo.memoizedState = go = e : go = go.next = e, go
                 }
 
                 function Co() {
@@ -12159,8 +14002,8 @@
                         var e = yo.alternate;
                         e = null !== e ? e.memoizedState : null
                     } else e = mo.next;
-                    var t = null === _o ? yo.memoizedState : _o.next;
-                    if (null !== t) _o = t, mo = e;
+                    var t = null === go ? yo.memoizedState : go.next;
+                    if (null !== t) go = t, mo = e;
                     else {
                         if (null === e) throw Error(i(310));
                         e = {
@@ -12169,9 +14012,9 @@
                             baseQueue: mo.baseQueue,
                             queue: mo.queue,
                             next: null
-                        }, null === _o ? yo.memoizedState = _o = e : _o = _o.next = e
+                        }, null === go ? yo.memoizedState = go = e : go = go.next = e
                     }
-                    return _o
+                    return go
                 }
 
                 function To(e, t) {
@@ -12256,8 +14099,8 @@
                         n = Co(),
                         a = t(),
                         o = !sn(n.memoizedState, a);
-                    if (o && (n.memoizedState = a, bs = !0), n = n.queue, Wo(qo.bind(null, r, n, e), [e]), n.getSnapshot !== t || o || null !== _o && 1 & _o.memoizedState.tag) {
-                        if (r.flags |= 2048, Fo(9, Lo.bind(null, r, n, a, t), void 0, null), null === Ol) throw Error(i(349));
+                    if (o && (n.memoizedState = a, bs = !0), n = n.queue, Wo(qo.bind(null, r, n, e), [e]), n.getSnapshot !== t || o || null !== go && 1 & go.memoizedState.tag) {
+                        if (r.flags |= 2048, Vo(9, Lo.bind(null, r, n, a, t), void 0, null), null === Ol) throw Error(i(349));
                         0 !== (30 & ho) || Io(r, t, a)
                     }
                     return a
@@ -12311,7 +14154,7 @@
                     }, t.queue = e, e = e.dispatch = rs.bind(null, yo, e), [t.memoizedState, e]
                 }
 
-                function Fo(e, t, r, n) {
+                function Vo(e, t, r, n) {
                     return e = {
                         tag: e,
                         create: t,
@@ -12324,13 +14167,13 @@
                     }, yo.updateQueue = t, t.lastEffect = e.next = e) : null === (r = t.lastEffect) ? t.lastEffect = e.next = e : (n = r.next, r.next = e, e.next = n, t.lastEffect = e), e
                 }
 
-                function Vo() {
+                function Fo() {
                     return Co().memoizedState
                 }
 
                 function Ho(e, t, r, n) {
                     var a = Ao();
-                    yo.flags |= e, a.memoizedState = Fo(1 | t, r, void 0, void 0 === n ? null : n)
+                    yo.flags |= e, a.memoizedState = Vo(1 | t, r, void 0, void 0 === n ? null : n)
                 }
 
                 function zo(e, t, r, n) {
@@ -12339,9 +14182,9 @@
                     var i = void 0;
                     if (null !== mo) {
                         var o = mo.memoizedState;
-                        if (i = o.destroy, null !== n && xo(n, o.deps)) return void(a.memoizedState = Fo(t, r, i, n))
+                        if (i = o.destroy, null !== n && xo(n, o.deps)) return void(a.memoizedState = Vo(t, r, i, n))
                     }
-                    yo.flags |= e, a.memoizedState = Fo(1 | t, r, i, n)
+                    yo.flags |= e, a.memoizedState = Vo(1 | t, r, i, n)
                 }
 
                 function Zo(e, t) {
@@ -12452,7 +14295,7 @@
                 }
 
                 function as(e, t) {
-                    vo = go = !0;
+                    vo = _o = !0;
                     var r = e.pending;
                     null === r ? t.next = t : (t.next = r.next, r.next = t), e.pending = t
                 }
@@ -12460,7 +14303,7 @@
                 function is(e, t, r) {
                     if (0 !== (4194240 & r)) {
                         var n = t.lanes;
-                        r |= n &= e.pendingLanes, t.lanes = r, gt(e, r)
+                        r |= n &= e.pendingLanes, t.lanes = r, _t(e, r)
                     }
                 }
                 var os = {
@@ -12545,7 +14388,7 @@
                                 value: r,
                                 getSnapshot: t
                             };
-                            return a.queue = o, Zo(qo.bind(null, n, o, e), [e]), n.flags |= 2048, Fo(9, Lo.bind(null, n, o, r, t), void 0, null), r
+                            return a.queue = o, Zo(qo.bind(null, n, o, e), [e]), n.flags |= 2048, Vo(9, Lo.bind(null, n, o, r, t), void 0, null), r
                         },
                         useId: function () {
                             var e = Ao(),
@@ -12568,7 +14411,7 @@
                         useLayoutEffect: Ko,
                         useMemo: Xo,
                         useReducer: Oo,
-                        useRef: Vo,
+                        useRef: Fo,
                         useState: function () {
                             return Oo(To)
                         },
@@ -12594,7 +14437,7 @@
                         useLayoutEffect: Ko,
                         useMemo: Xo,
                         useReducer: Eo,
-                        useRef: Vo,
+                        useRef: Fo,
                         useState: function () {
                             return Eo(To)
                         },
@@ -12692,7 +14535,7 @@
                     a.has(r) || (a.add(r), e = Mu.bind(null, e, t, r), t.then(e, e))
                 }
 
-                function _s(e) {
+                function gs(e) {
                     do {
                         var t;
                         if ((t = 13 === e.tag) && (t = null === (t = e.memoizedState) || null !== t.dehydrated), t) return e;
@@ -12701,7 +14544,7 @@
                     return null
                 }
 
-                function gs(e, t, r, n, a) {
+                function _s(e, t, r, n, a) {
                     return 0 === (1 & e.mode) ? (e === t ? e.flags |= 65536 : (e.flags |= 128, r.flags |= 131072, r.flags &= -52805, 1 === r.tag && (null === r.alternate ? r.tag = 17 : ((t = Ii(-1, 1)).tag = 2, Li(r, t, 1))), r.lanes |= 1), e) : (e.flags |= 65536, e.lanes = a, e)
                 }
                 var vs = b.ReactCurrentOwner,
@@ -12793,13 +14636,13 @@
                             d = "function" === typeof c || "function" === typeof o.getSnapshotBeforeUpdate;
                         d || "function" !== typeof o.UNSAFE_componentWillReceiveProps && "function" !== typeof o.componentWillReceiveProps || (s !== n || l !== u) && Wi(t, o, n, u), Ei = !1;
                         var p = t.memoizedState;
-                        o.state = p, Ri(t, n, o, a), l = t.memoizedState, s !== n || p !== l || Oa.current || Ei ? ("function" === typeof c && (Vi(t, r, c, n), l = t.memoizedState), (s = Ei || zi(t, r, s, n, p, l, u)) ? (d || "function" !== typeof o.UNSAFE_componentWillMount && "function" !== typeof o.componentWillMount || ("function" === typeof o.componentWillMount && o.componentWillMount(), "function" === typeof o.UNSAFE_componentWillMount && o.UNSAFE_componentWillMount()), "function" === typeof o.componentDidMount && (t.flags |= 4194308)) : ("function" === typeof o.componentDidMount && (t.flags |= 4194308), t.memoizedProps = n, t.memoizedState = l), o.props = n, o.state = l, o.context = u, n = s) : ("function" === typeof o.componentDidMount && (t.flags |= 4194308), n = !1)
+                        o.state = p, Ri(t, n, o, a), l = t.memoizedState, s !== n || p !== l || Oa.current || Ei ? ("function" === typeof c && (Fi(t, r, c, n), l = t.memoizedState), (s = Ei || zi(t, r, s, n, p, l, u)) ? (d || "function" !== typeof o.UNSAFE_componentWillMount && "function" !== typeof o.componentWillMount || ("function" === typeof o.componentWillMount && o.componentWillMount(), "function" === typeof o.UNSAFE_componentWillMount && o.UNSAFE_componentWillMount()), "function" === typeof o.componentDidMount && (t.flags |= 4194308)) : ("function" === typeof o.componentDidMount && (t.flags |= 4194308), t.memoizedProps = n, t.memoizedState = l), o.props = n, o.state = l, o.context = u, n = s) : ("function" === typeof o.componentDidMount && (t.flags |= 4194308), n = !1)
                     } else {
                         o = t.stateNode, ji(e, t), s = t.memoizedProps, u = t.type === t.elementType ? s : mi(t.type, s), o.props = u, d = t.pendingProps, p = o.context, "object" === typeof (l = r.contextType) && null !== l ? l = Mi(l) : l = Na(t, l = ja(r) ? Ea : Ta.current);
                         var f = r.getDerivedStateFromProps;
                         (c = "function" === typeof f || "function" === typeof o.getSnapshotBeforeUpdate) || "function" !== typeof o.UNSAFE_componentWillReceiveProps && "function" !== typeof o.componentWillReceiveProps || (s !== d || p !== l) && Wi(t, o, n, l), Ei = !1, p = t.memoizedState, o.state = p, Ri(t, n, o, a);
                         var h = t.memoizedState;
-                        s !== d || p !== h || Oa.current || Ei ? ("function" === typeof f && (Vi(t, r, f, n), h = t.memoizedState), (u = Ei || zi(t, r, u, n, p, h, l) || !1) ? (c || "function" !== typeof o.UNSAFE_componentWillUpdate && "function" !== typeof o.componentWillUpdate || ("function" === typeof o.componentWillUpdate && o.componentWillUpdate(n, h, l), "function" === typeof o.UNSAFE_componentWillUpdate && o.UNSAFE_componentWillUpdate(n, h, l)), "function" === typeof o.componentDidUpdate && (t.flags |= 4), "function" === typeof o.getSnapshotBeforeUpdate && (t.flags |= 1024)) : ("function" !== typeof o.componentDidUpdate || s === e.memoizedProps && p === e.memoizedState || (t.flags |= 4), "function" !== typeof o.getSnapshotBeforeUpdate || s === e.memoizedProps && p === e.memoizedState || (t.flags |= 1024), t.memoizedProps = n, t.memoizedState = h), o.props = n, o.state = h, o.context = l, n = u) : ("function" !== typeof o.componentDidUpdate || s === e.memoizedProps && p === e.memoizedState || (t.flags |= 4), "function" !== typeof o.getSnapshotBeforeUpdate || s === e.memoizedProps && p === e.memoizedState || (t.flags |= 1024), n = !1)
+                        s !== d || p !== h || Oa.current || Ei ? ("function" === typeof f && (Fi(t, r, f, n), h = t.memoizedState), (u = Ei || zi(t, r, u, n, p, h, l) || !1) ? (c || "function" !== typeof o.UNSAFE_componentWillUpdate && "function" !== typeof o.componentWillUpdate || ("function" === typeof o.componentWillUpdate && o.componentWillUpdate(n, h, l), "function" === typeof o.UNSAFE_componentWillUpdate && o.UNSAFE_componentWillUpdate(n, h, l)), "function" === typeof o.componentDidUpdate && (t.flags |= 4), "function" === typeof o.getSnapshotBeforeUpdate && (t.flags |= 1024)) : ("function" !== typeof o.componentDidUpdate || s === e.memoizedProps && p === e.memoizedState || (t.flags |= 4), "function" !== typeof o.getSnapshotBeforeUpdate || s === e.memoizedProps && p === e.memoizedState || (t.flags |= 1024), t.memoizedProps = n, t.memoizedState = h), o.props = n, o.state = h, o.context = l, n = u) : ("function" !== typeof o.componentDidUpdate || s === e.memoizedProps && p === e.memoizedState || (t.flags |= 4), "function" !== typeof o.getSnapshotBeforeUpdate || s === e.memoizedProps && p === e.memoizedState || (t.flags |= 1024), n = !1)
                     }
                     return Os(e, t, r, n, i, a)
                 }
@@ -12845,14 +14688,14 @@
                         children: l
                     }, 0 === (1 & a) && null !== s ? (s.childLanes = 0, s.pendingProps = l) : s = Pu(l, a, 0, null), e = qu(e, a, r, null), s.return = t, e.return = t, s.sibling = e, t.child = s, t.child.memoizedState = Ps(r), t.memoizedState = qs, e) : Ds(t, l));
                     if (null !== (o = e.memoizedState) && null !== (n = o.dehydrated)) return function (e, t, r, n, a, o, s) {
-                        if (r) return 256 & t.flags ? (t.flags &= -257, Fs(e, t, s, n = ds(Error(i(422))))) : null !== t.memoizedState ? (t.child = e.child, t.flags |= 128, null) : (o = n.fallback, a = t.mode, n = Pu({
+                        if (r) return 256 & t.flags ? (t.flags &= -257, Vs(e, t, s, n = ds(Error(i(422))))) : null !== t.memoizedState ? (t.child = e.child, t.flags |= 128, null) : (o = n.fallback, a = t.mode, n = Pu({
                             mode: "visible",
                             children: n.children
                         }, a, 0, null), (o = qu(o, a, s, null)).flags |= 2, n.return = t, o.return = t, n.sibling = o, t.child = n, 0 !== (1 & t.mode) && Qi(t, e.child, null, s), t.child.memoizedState = Ps(s), t.memoizedState = qs, o);
-                        if (0 === (1 & t.mode)) return Fs(e, t, s, null);
+                        if (0 === (1 & t.mode)) return Vs(e, t, s, null);
                         if ("$!" === a.data) {
                             if (n = a.nextSibling && a.nextSibling.dataset) var l = n.dgst;
-                            return n = l, Fs(e, t, s, n = ds(o = Error(i(419)), n, void 0))
+                            return n = l, Vs(e, t, s, n = ds(o = Error(i(419)), n, void 0))
                         }
                         if (l = 0 !== (s & e.childLanes), bs || l) {
                             if (null !== (n = Ol)) {
@@ -12894,7 +14737,7 @@
                                 }
                                 0 !== (a = 0 !== (a & (n.suspendedLanes | s)) ? 0 : a) && a !== o.retryLane && (o.retryLane = a, Oi(e, a), ru(n, e, a, -1))
                             }
-                            return yu(), Fs(e, t, s, n = ds(Error(i(421))))
+                            return yu(), Vs(e, t, s, n = ds(Error(i(421))))
                         }
                         return "$?" === a.data ? (t.flags |= 128, t.child = e.child, t = Cu.bind(null, e), a._reactRetry = t, null) : (e = o.treeContext, ni = ua(a.nextSibling), ri = t, ai = !0, ii = null, null !== e && (Ga[Ua++] = Qa, Ga[Ua++] = Xa, Ga[Ua++] = Ya, Qa = e.id, Xa = e.overflow, Ya = t), (t = Ds(t, n.children)).flags |= 4096, t)
                     }(e, t, l, a, n, o, r);
@@ -12923,11 +14766,11 @@
                     }, e.mode, 0, null)).return = e, e.child = t
                 }
 
-                function Fs(e, t, r, n) {
+                function Vs(e, t, r, n) {
                     return null !== n && hi(n), Qi(t, e.child, null, r), (e = Ds(t, t.pendingProps.children)).flags |= 2, t.memoizedState = null, e
                 }
 
-                function Vs(e, t, r) {
+                function Fs(e, t, r) {
                     e.lanes |= t;
                     var n = e.alternate;
                     null !== n && (n.lanes |= t), xi(e.return, t, r)
@@ -12952,8 +14795,8 @@
                     if (ws(e, t, n.children, r), 0 !== (2 & (n = so.current))) n = 1 & n | 2, t.flags |= 128;
                     else {
                         if (null !== e && 0 !== (128 & e.flags)) e: for (e = t.child; null !== e;) {
-                            if (13 === e.tag) null !== e.memoizedState && Vs(e, r, t);
-                            else if (19 === e.tag) Vs(e, r, t);
+                            if (13 === e.tag) null !== e.memoizedState && Fs(e, r, t);
+                            else if (19 === e.tag) Fs(e, r, t);
                             else if (null !== e.child) {
                                 e.child.return = e, e = e.child;
                                 continue
@@ -13064,43 +14907,43 @@
                                     var o = t.memoizedProps;
                                     switch (n[pa] = t, n[fa] = o, e = 0 !== (1 & t.mode), r) {
                                         case "dialog":
-                                            Fn("cancel", n), Fn("close", n);
+                                            Vn("cancel", n), Vn("close", n);
                                             break;
                                         case "iframe":
                                         case "object":
                                         case "embed":
-                                            Fn("load", n);
+                                            Vn("load", n);
                                             break;
                                         case "video":
                                         case "audio":
-                                            for (a = 0; a < qn.length; a++) Fn(qn[a], n);
+                                            for (a = 0; a < qn.length; a++) Vn(qn[a], n);
                                             break;
                                         case "source":
-                                            Fn("error", n);
+                                            Vn("error", n);
                                             break;
                                         case "img":
                                         case "image":
                                         case "link":
-                                            Fn("error", n), Fn("load", n);
+                                            Vn("error", n), Vn("load", n);
                                             break;
                                         case "details":
-                                            Fn("toggle", n);
+                                            Vn("toggle", n);
                                             break;
                                         case "input":
-                                            Q(n, o), Fn("invalid", n);
+                                            Q(n, o), Vn("invalid", n);
                                             break;
                                         case "select":
                                             n._wrapperState = {
                                                 wasMultiple: !!o.multiple
-                                            }, Fn("invalid", n);
+                                            }, Vn("invalid", n);
                                             break;
                                         case "textarea":
-                                            ae(n, o), Fn("invalid", n)
+                                            ae(n, o), Vn("invalid", n)
                                     }
-                                    for (var l in ge(r, o), a = null, o)
+                                    for (var l in _e(r, o), a = null, o)
                                         if (o.hasOwnProperty(l)) {
                                             var u = o[l];
-                                            "children" === l ? "string" === typeof u ? n.textContent !== u && (!0 !== o.suppressHydrationWarning && $n(n.textContent, u, e), a = ["children", u]) : "number" === typeof u && n.textContent !== "" + u && (!0 !== o.suppressHydrationWarning && $n(n.textContent, u, e), a = ["children", "" + u]) : s.hasOwnProperty(l) && null != u && "onScroll" === l && Fn("scroll", n)
+                                            "children" === l ? "string" === typeof u ? n.textContent !== u && (!0 !== o.suppressHydrationWarning && $n(n.textContent, u, e), a = ["children", u]) : "number" === typeof u && n.textContent !== "" + u && (!0 !== o.suppressHydrationWarning && $n(n.textContent, u, e), a = ["children", "" + u]) : s.hasOwnProperty(l) && null != u && "onScroll" === l && Vn("scroll", n)
                                         } switch (r) {
                                         case "input":
                                             K(n), J(n, o, !0);
@@ -13122,31 +14965,31 @@
                                     e: {
                                         switch (l = ve(r, n), r) {
                                             case "dialog":
-                                                Fn("cancel", e), Fn("close", e), a = n;
+                                                Vn("cancel", e), Vn("close", e), a = n;
                                                 break;
                                             case "iframe":
                                             case "object":
                                             case "embed":
-                                                Fn("load", e), a = n;
+                                                Vn("load", e), a = n;
                                                 break;
                                             case "video":
                                             case "audio":
-                                                for (a = 0; a < qn.length; a++) Fn(qn[a], e);
+                                                for (a = 0; a < qn.length; a++) Vn(qn[a], e);
                                                 a = n;
                                                 break;
                                             case "source":
-                                                Fn("error", e), a = n;
+                                                Vn("error", e), a = n;
                                                 break;
                                             case "img":
                                             case "image":
                                             case "link":
-                                                Fn("error", e), Fn("load", e), a = n;
+                                                Vn("error", e), Vn("load", e), a = n;
                                                 break;
                                             case "details":
-                                                Fn("toggle", e), a = n;
+                                                Vn("toggle", e), a = n;
                                                 break;
                                             case "input":
-                                                Q(e, n), a = Y(e, n), Fn("invalid", e);
+                                                Q(e, n), a = Y(e, n), Vn("invalid", e);
                                                 break;
                                             case "option":
                                             default:
@@ -13157,15 +15000,15 @@
                                                     wasMultiple: !!n.multiple
                                                 }, a = R({}, n, {
                                                     value: void 0
-                                                }), Fn("invalid", e);
+                                                }), Vn("invalid", e);
                                                 break;
                                             case "textarea":
-                                                ae(e, n), a = ne(e, n), Fn("invalid", e)
+                                                ae(e, n), a = ne(e, n), Vn("invalid", e)
                                         }
-                                        for (o in ge(r, a), u = a)
+                                        for (o in _e(r, a), u = a)
                                             if (u.hasOwnProperty(o)) {
                                                 var c = u[o];
-                                                "style" === o ? me(e, c) : "dangerouslySetInnerHTML" === o ? null != (c = c ? c.__html : void 0) && de(e, c) : "children" === o ? "string" === typeof c ? ("textarea" !== r || "" !== c) && pe(e, c) : "number" === typeof c && pe(e, "" + c) : "suppressContentEditableWarning" !== o && "suppressHydrationWarning" !== o && "autoFocus" !== o && (s.hasOwnProperty(o) ? null != c && "onScroll" === o && Fn("scroll", e) : null != c && v(e, o, c, l))
+                                                "style" === o ? me(e, c) : "dangerouslySetInnerHTML" === o ? null != (c = c ? c.__html : void 0) && de(e, c) : "children" === o ? "string" === typeof c ? ("textarea" !== r || "" !== c) && pe(e, c) : "number" === typeof c && pe(e, "" + c) : "suppressContentEditableWarning" !== o && "suppressHydrationWarning" !== o && "autoFocus" !== o && (s.hasOwnProperty(o) ? null != c && "onScroll" === o && Vn("scroll", e) : null != c && v(e, o, c, l))
                                             } switch (r) {
                                             case "input":
                                                 K(e), J(e, n, !1);
@@ -13334,7 +15177,7 @@
                             default:
                                 "function" !== typeof a.onClick && "function" === typeof n.onClick && (e.onclick = Jn)
                         }
-                        for (c in ge(r, n), r = null, a)
+                        for (c in _e(r, n), r = null, a)
                             if (!n.hasOwnProperty(c) && a.hasOwnProperty(c) && null != a[c])
                                 if ("style" === c) {
                                     var l = a[c];
@@ -13348,7 +15191,7 @@
                                         for (i in l) !l.hasOwnProperty(i) || u && u.hasOwnProperty(i) || (r || (r = {}), r[i] = "");
                                         for (i in u) u.hasOwnProperty(i) && l[i] !== u[i] && (r || (r = {}), r[i] = u[i])
                                     } else r || (o || (o = []), o.push(c, r)), r = u;
-                            else "dangerouslySetInnerHTML" === c ? (u = u ? u.__html : void 0, l = l ? l.__html : void 0, null != u && l !== u && (o = o || []).push(c, u)) : "children" === c ? "string" !== typeof u && "number" !== typeof u || (o = o || []).push(c, "" + u) : "suppressContentEditableWarning" !== c && "suppressHydrationWarning" !== c && (s.hasOwnProperty(c) ? (null != u && "onScroll" === c && Fn("scroll", e), o || l === u || (o = [])) : (o = o || []).push(c, u))
+                            else "dangerouslySetInnerHTML" === c ? (u = u ? u.__html : void 0, l = l ? l.__html : void 0, null != u && l !== u && (o = o || []).push(c, u)) : "children" === c ? "string" !== typeof u && "number" !== typeof u || (o = o || []).push(c, "" + u) : "suppressContentEditableWarning" !== c && "suppressHydrationWarning" !== c && (s.hasOwnProperty(c) ? (null != u && "onScroll" === c && Vn("scroll", e), o || l === u || (o = [])) : (o = o || []).push(c, u))
                         }
                         r && (o = o || []).push("style", r);
                         var c = o;
@@ -13418,7 +15261,7 @@
 
                 function il(e) {
                     var t = e.alternate;
-                    null !== t && (e.alternate = null, il(t)), e.child = null, e.deletions = null, e.sibling = null, 5 === e.tag && (null !== (t = e.stateNode) && (delete t[pa], delete t[fa], delete t[ya], delete t[ma], delete t[_a])), e.stateNode = null, e.return = null, e.dependencies = null, e.memoizedProps = null, e.memoizedState = null, e.pendingProps = null, e.stateNode = null, e.updateQueue = null
+                    null !== t && (e.alternate = null, il(t)), e.child = null, e.deletions = null, e.sibling = null, 5 === e.tag && (null !== (t = e.stateNode) && (delete t[pa], delete t[fa], delete t[ya], delete t[ma], delete t[ga])), e.stateNode = null, e.return = null, e.dependencies = null, e.memoizedProps = null, e.memoizedState = null, e.pendingProps = null, e.stateNode = null, e.updateQueue = null
                 }
 
                 function ol(e) {
@@ -13564,7 +15407,7 @@
                         case 11:
                         case 14:
                         case 15:
-                            if (yl(t, e), _l(e), 4 & n) {
+                            if (yl(t, e), gl(e), 4 & n) {
                                 try {
                                     rl(3, e, e.return), nl(3, e)
                                 } catch (m) {
@@ -13578,10 +15421,10 @@
                             }
                             break;
                         case 1:
-                            yl(t, e), _l(e), 512 & n && null !== r && Js(r, r.return);
+                            yl(t, e), gl(e), 512 & n && null !== r && Js(r, r.return);
                             break;
                         case 5:
-                            if (yl(t, e), _l(e), 512 & n && null !== r && Js(r, r.return), 32 & e.flags) {
+                            if (yl(t, e), gl(e), 512 & n && null !== r && Js(r, r.return), 32 & e.flags) {
                                 var a = e.stateNode;
                                 try {
                                     pe(a, "")
@@ -13622,7 +15465,7 @@
                             }
                             break;
                         case 6:
-                            if (yl(t, e), _l(e), 4 & n) {
+                            if (yl(t, e), gl(e), 4 & n) {
                                 if (null === e.stateNode) throw Error(i(162));
                                 a = e.stateNode, o = e.memoizedProps;
                                 try {
@@ -13633,7 +15476,7 @@
                             }
                             break;
                         case 3:
-                            if (yl(t, e), _l(e), 4 & n && null !== r && r.memoizedState.isDehydrated) try {
+                            if (yl(t, e), gl(e), 4 & n && null !== r && r.memoizedState.isDehydrated) try {
                                 zt(t.containerInfo)
                             } catch (m) {
                                 Su(e, e.return, m)
@@ -13641,13 +15484,13 @@
                             break;
                         case 4:
                         default:
-                            yl(t, e), _l(e);
+                            yl(t, e), gl(e);
                             break;
                         case 13:
-                            yl(t, e), _l(e), 8192 & (a = e.child).flags && (o = null !== a.memoizedState, a.stateNode.isHidden = o, !o || null !== a.alternate && null !== a.alternate.memoizedState || (Hl = Xe())), 4 & n && hl(e);
+                            yl(t, e), gl(e), 8192 & (a = e.child).flags && (o = null !== a.memoizedState, a.stateNode.isHidden = o, !o || null !== a.alternate && null !== a.alternate.memoizedState || (Hl = Xe())), 4 & n && hl(e);
                             break;
                         case 22:
-                            if (d = null !== r && null !== r.memoizedState, 1 & e.mode ? (Qs = (c = Qs) || d, yl(t, e), Qs = c) : yl(t, e), _l(e), 8192 & n) {
+                            if (d = null !== r && null !== r.memoizedState, 1 & e.mode ? (Qs = (c = Qs) || d, yl(t, e), Qs = c) : yl(t, e), gl(e), 8192 & n) {
                                 if (c = null !== e.memoizedState, (e.stateNode.isHidden = c) && !d && 0 !== (1 & e.mode))
                                     for ($s = e, d = e.child; null !== d;) {
                                         for (p = $s = d; null !== $s;) {
@@ -13713,12 +15556,12 @@
                             }
                             break;
                         case 19:
-                            yl(t, e), _l(e), 4 & n && hl(e);
+                            yl(t, e), gl(e), 4 & n && hl(e);
                         case 21:
                     }
                 }
 
-                function _l(e) {
+                function gl(e) {
                     var t = e.flags;
                     if (2 & t) {
                         try {
@@ -13754,7 +15597,7 @@
                     4096 & t && (e.flags &= -4097)
                 }
 
-                function gl(e, t, r) {
+                function _l(e, t, r) {
                     $s = e, vl(e, t, r)
                 }
 
@@ -13957,8 +15800,8 @@
                     Pl = 0,
                     Rl = 0,
                     Dl = 0,
-                    Fl = null,
                     Vl = null,
+                    Fl = null,
                     Hl = 0,
                     zl = 1 / 0,
                     Zl = null,
@@ -13983,7 +15826,7 @@
 
                 function ru(e, t, r, n) {
                     if (50 < Ql) throw Ql = 0, Xl = null, Error(i(185));
-                    _t(e, r, n), 0 !== (2 & Tl) && e === Ol || (e === Ol && (0 === (2 & Tl) && (Rl |= r), 4 === Ll && su(e, Nl)), nu(e, n), 1 === r && 0 === Tl && 0 === (1 & t.mode) && (zl = Xe() + 500, Fa && za()))
+                    gt(e, r, n), 0 !== (2 & Tl) && e === Ol || (e === Ol && (0 === (2 & Tl) && (Rl |= r), 4 === Ll && su(e, Nl)), nu(e, n), 1 === r && 0 === Tl && 0 === (1 & t.mode) && (zl = Xe() + 500, Va && za()))
                 }
 
                 function nu(e, t) {
@@ -13999,7 +15842,7 @@
                     if (0 === n) null !== r && Ue(r), e.callbackNode = null, e.callbackPriority = 0;
                     else if (t = n & -n, e.callbackPriority !== t) {
                         if (null != r && Ue(r), 1 === t) 0 === e.tag ? function (e) {
-                            Fa = !0, Ha(e)
+                            Va = !0, Ha(e)
                         }(lu.bind(null, e)) : Ha(lu.bind(null, e)), oa((function () {
                             0 === (6 & Tl) && za()
                         })), r = null;
@@ -14037,7 +15880,7 @@
                         Tl |= 2;
                         var o = hu();
                         for (Ol === e && Nl === t || (Zl = null, zl = Xe() + 500, pu(e, t));;) try {
-                            gu();
+                            _u();
                             break
                         } catch (l) {
                             fu(e, l)
@@ -14082,7 +15925,7 @@
                                     throw Error(i(345));
                                 case 2:
                                 case 5:
-                                    wu(e, Vl, Zl);
+                                    wu(e, Fl, Zl);
                                     break;
                                 case 3:
                                     if (su(e, n), (130023424 & n) === n && 10 < (t = Hl + 500 - Xe())) {
@@ -14091,10 +15934,10 @@
                                             eu(), e.pingedLanes |= e.suspendedLanes & a;
                                             break
                                         }
-                                        e.timeoutHandle = na(wu.bind(null, e, Vl, Zl), t);
+                                        e.timeoutHandle = na(wu.bind(null, e, Fl, Zl), t);
                                         break
                                     }
-                                    wu(e, Vl, Zl);
+                                    wu(e, Fl, Zl);
                                     break;
                                 case 4:
                                     if (su(e, n), (4194240 & n) === n) break;
@@ -14103,10 +15946,10 @@
                                         o = 1 << s, (s = t[s]) > a && (a = s), n &= ~o
                                     }
                                     if (n = a, 10 < (n = (120 > (n = Xe() - n) ? 120 : 480 > n ? 480 : 1080 > n ? 1080 : 1920 > n ? 1920 : 3e3 > n ? 3e3 : 4320 > n ? 4320 : 1960 * Sl(n / 1960)) - n)) {
-                                        e.timeoutHandle = na(wu.bind(null, e, Vl, Zl), n);
+                                        e.timeoutHandle = na(wu.bind(null, e, Fl, Zl), n);
                                         break
                                     }
-                                    wu(e, Vl, Zl);
+                                    wu(e, Fl, Zl);
                                     break;
                                 default:
                                     throw Error(i(329))
@@ -14117,12 +15960,12 @@
                 }
 
                 function iu(e, t) {
-                    var r = Fl;
-                    return e.current.memoizedState.isDehydrated && (pu(e, t).flags |= 256), 2 !== (e = mu(e, t)) && (t = Vl, Vl = r, null !== t && ou(t)), e
+                    var r = Vl;
+                    return e.current.memoizedState.isDehydrated && (pu(e, t).flags |= 256), 2 !== (e = mu(e, t)) && (t = Fl, Fl = r, null !== t && ou(t)), e
                 }
 
                 function ou(e) {
-                    null === Vl ? Vl = e : Vl.push.apply(Vl, e)
+                    null === Fl ? Fl = e : Fl.push.apply(Fl, e)
                 }
 
                 function su(e, t) {
@@ -14145,7 +15988,7 @@
                     }
                     if (1 === r) throw r = ql, pu(e, 0), su(e, t), nu(e, Xe()), r;
                     if (6 === r) throw Error(i(345));
-                    return e.finishedWork = e.current.alternate, e.finishedLanes = t, wu(e, Vl, Zl), nu(e, Xe()), null
+                    return e.finishedWork = e.current.alternate, e.finishedLanes = t, wu(e, Fl, Zl), nu(e, Xe()), null
                 }
 
                 function uu(e, t) {
@@ -14154,7 +15997,7 @@
                     try {
                         return e(t)
                     } finally {
-                        0 === (Tl = r) && (zl = Xe() + 500, Fa && za())
+                        0 === (Tl = r) && (zl = Xe() + 500, Va && za())
                     }
                 }
 
@@ -14207,7 +16050,7 @@
                             }
                             r = r.return
                         }
-                    if (Ol = e, El = e = Iu(e.current, null), Nl = jl = t, Ll = 0, ql = null, Dl = Rl = Pl = 0, Vl = Fl = null, null !== Ai) {
+                    if (Ol = e, El = e = Iu(e.current, null), Nl = jl = t, Ll = 0, ql = null, Dl = Rl = Pl = 0, Fl = Vl = null, null !== Ai) {
                         for (t = 0; t < Ai.length; t++)
                             if (null !== (n = (r = Ai[t]).interleaved)) {
                                 r.interleaved = null;
@@ -14227,14 +16070,14 @@
                     for (;;) {
                         var r = El;
                         try {
-                            if (wi(), po.current = os, go) {
+                            if (wi(), po.current = os, _o) {
                                 for (var n = yo.memoizedState; null !== n;) {
                                     var a = n.queue;
                                     null !== a && (a.pending = null), n = n.next
                                 }
-                                go = !1
+                                _o = !1
                             }
-                            if (ho = 0, _o = mo = yo = null, vo = !1, bo = 0, Al.current = null, null === r || null === r.return) {
+                            if (ho = 0, go = mo = yo = null, vo = !1, bo = 0, Al.current = null, null === r || null === r.return) {
                                 Ll = 1, ql = t, El = null;
                                 break
                             }
@@ -14251,9 +16094,9 @@
                                         var f = d.alternate;
                                         f ? (d.updateQueue = f.updateQueue, d.memoizedState = f.memoizedState, d.lanes = f.lanes) : (d.updateQueue = null, d.memoizedState = null)
                                     }
-                                    var h = _s(s);
+                                    var h = gs(s);
                                     if (null !== h) {
-                                        h.flags &= -257, gs(h, s, l, 0, t), 1 & h.mode && ms(o, c, t), u = c;
+                                        h.flags &= -257, _s(h, s, l, 0, t), 1 & h.mode && ms(o, c, t), u = c;
                                         var y = (t = h).updateQueue;
                                         if (null === y) {
                                             var m = new Set;
@@ -14267,15 +16110,15 @@
                                     }
                                     u = Error(i(426))
                                 } else if (ai && 1 & l.mode) {
-                                    var _ = _s(s);
-                                    if (null !== _) {
-                                        0 === (65536 & _.flags) && (_.flags |= 256), gs(_, s, l, 0, t), hi(cs(u, l));
+                                    var g = gs(s);
+                                    if (null !== g) {
+                                        0 === (65536 & g.flags) && (g.flags |= 256), _s(g, s, l, 0, t), hi(cs(u, l));
                                         break e
                                     }
                                 }
                                 o = u = cs(u, l),
                                 4 !== Ll && (Ll = 2),
-                                null === Fl ? Fl = [o] : Fl.push(o),
+                                null === Vl ? Vl = [o] : Vl.push(o),
                                 o = s;do {
                                     switch (o.tag) {
                                         case 3:
@@ -14283,9 +16126,9 @@
                                             break e;
                                         case 1:
                                             l = u;
-                                            var g = o.type,
+                                            var _ = o.type,
                                                 v = o.stateNode;
-                                            if (0 === (128 & o.flags) && ("function" === typeof g.getDerivedStateFromError || null !== v && "function" === typeof v.componentDidCatch && (null === Kl || !Kl.has(v)))) {
+                                            if (0 === (128 & o.flags) && ("function" === typeof _.getDerivedStateFromError || null !== v && "function" === typeof v.componentDidCatch && (null === Kl || !Kl.has(v)))) {
                                                 o.flags |= 65536, t &= -t, o.lanes |= t, Pi(o, ys(o, l, t));
                                                 break e
                                             }
@@ -14316,7 +16159,7 @@
                     Tl |= 2;
                     var n = hu();
                     for (Ol === e && Nl === t || (Zl = null, pu(e, t));;) try {
-                        _u();
+                        gu();
                         break
                     } catch (a) {
                         fu(e, a)
@@ -14325,11 +16168,11 @@
                     return Ol = null, Nl = 0, Ll
                 }
 
-                function _u() {
+                function gu() {
                     for (; null !== El;) vu(El)
                 }
 
-                function gu() {
+                function _u() {
                     for (; null !== El && !Ye();) vu(El)
                 }
 
@@ -14456,10 +16299,10 @@
                                                                 case 1:
                                                                     if (null !== y) {
                                                                         var m = y.memoizedProps,
-                                                                            _ = y.memoizedState,
-                                                                            g = t.stateNode,
-                                                                            v = g.getSnapshotBeforeUpdate(t.elementType === t.type ? m : mi(t.type, m), _);
-                                                                        g.__reactInternalSnapshotBeforeUpdate = v
+                                                                            g = y.memoizedState,
+                                                                            _ = t.stateNode,
+                                                                            v = _.getSnapshotBeforeUpdate(t.elementType === t.type ? m : mi(t.type, m), g);
+                                                                        _.__reactInternalSnapshotBeforeUpdate = v
                                                                     }
                                                                     break;
                                                                 case 3:
@@ -14479,7 +16322,7 @@
                                                         $s = t.return
                                                     }
                                             y = tl, tl = !1
-                                        }(e, r), ml(r, e), hn(ta), Wt = !!ea, ta = ea = null, e.current = r, gl(r, e, a), Qe(), Tl = l, vt = s, Cl.transition = o
+                                        }(e, r), ml(r, e), hn(ta), Wt = !!ea, ta = ea = null, e.current = r, _l(r, e, a), Qe(), Tl = l, vt = s, Cl.transition = o
                                 } else e.current = r;
                                 if (Gl && (Gl = !1, Ul = e, Yl = a), 0 === (o = e.pendingLanes) && (Kl = null), function (e) {
                                         if (it && "function" === typeof it.onCommitFiberRoot) try {
@@ -14549,8 +16392,8 @@
                                                 if (null !== m) {
                                                     y.child = null;
                                                     do {
-                                                        var _ = m.sibling;
-                                                        m.sibling = null, m = _
+                                                        var g = m.sibling;
+                                                        m.sibling = null, m = g
                                                     } while (null !== m)
                                                 }
                                             }
@@ -14565,9 +16408,9 @@
                                             case 15:
                                                 rl(9, o, o.return)
                                         }
-                                        var g = o.sibling;
-                                        if (null !== g) {
-                                            g.return = o.return, $s = g;
+                                        var _ = o.sibling;
+                                        if (null !== _) {
+                                            _.return = o.return, $s = _;
                                             break e
                                         }
                                         $s = o.return
@@ -14614,7 +16457,7 @@
                 }
 
                 function xu(e, t, r) {
-                    e = Li(e, t = hs(0, t = cs(r, t), 1), 1), t = eu(), null !== e && (_t(e, 1, t), nu(e, t))
+                    e = Li(e, t = hs(0, t = cs(r, t), 1), 1), t = eu(), null !== e && (gt(e, 1, t), nu(e, t))
                 }
 
                 function Su(e, t, r) {
@@ -14628,7 +16471,7 @@
                             if (1 === t.tag) {
                                 var n = t.stateNode;
                                 if ("function" === typeof t.type.getDerivedStateFromError || "function" === typeof n.componentDidCatch && (null === Kl || !Kl.has(n))) {
-                                    t = Li(t, e = ys(t, e = cs(r, e), 1), 1), e = eu(), null !== t && (_t(t, 1, e), nu(t, e));
+                                    t = Li(t, e = ys(t, e = cs(r, e), 1), 1), e = eu(), null !== t && (gt(t, 1, e), nu(t, e));
                                     break
                                 }
                             }
@@ -14644,7 +16487,7 @@
                 function Au(e, t) {
                     0 === t && (0 === (1 & e.mode) ? t = 1 : (t = ct, 0 === (130023424 & (ct <<= 1)) && (ct = 4194304)));
                     var r = eu();
-                    null !== (e = Oi(e, t)) && (_t(e, t, r), nu(e, r))
+                    null !== (e = Oi(e, t)) && (gt(e, t, r), nu(e, r))
                 }
 
                 function Cu(e) {
@@ -14757,12 +16600,12 @@
                     }, t
                 }
 
-                function Fu(e, t, r, n, a) {
+                function Vu(e, t, r, n, a) {
                     this.tag = t, this.containerInfo = e, this.finishedWork = this.pingCache = this.current = this.pendingChildren = null, this.timeoutHandle = -1, this.callbackNode = this.pendingContext = this.context = null, this.callbackPriority = 0, this.eventTimes = mt(0), this.expirationTimes = mt(-1), this.entangledLanes = this.finishedLanes = this.mutableReadLanes = this.expiredLanes = this.pingedLanes = this.suspendedLanes = this.pendingLanes = 0, this.entanglements = mt(0), this.identifierPrefix = n, this.onRecoverableError = a, this.mutableSourceEagerHydrationData = null
                 }
 
-                function Vu(e, t, r, n, a, i, o, s, l) {
-                    return e = new Fu(e, t, r, s, l), 1 === t ? (t = 1, !0 === i && (t |= 8)) : t = 0, i = Nu(3, null, null, t), e.current = i, i.stateNode = e, i.memoizedState = {
+                function Fu(e, t, r, n, a, i, o, s, l) {
+                    return e = new Vu(e, t, r, s, l), 1 === t ? (t = 1, !0 === i && (t |= 8)) : t = 0, i = Nu(3, null, null, t), e.current = i, i.stateNode = e, i.memoizedState = {
                         element: n,
                         isDehydrated: r,
                         cache: null,
@@ -14809,7 +16652,7 @@
                 }
 
                 function Zu(e, t, r, n, a, i, o, s, l) {
-                    return (e = Vu(r, n, !0, e, 0, i, 0, s, l)).context = zu(null), r = e.current, (i = Ii(n = eu(), a = tu(r))).callback = void 0 !== t && null !== t ? t : null, Li(r, i, a), e.current.lanes = a, _t(e, a, n), nu(e, n), e
+                    return (e = Fu(r, n, !0, e, 0, i, 0, s, l)).context = zu(null), r = e.current, (i = Ii(n = eu(), a = tu(r))).callback = void 0 !== t && null !== t ? t : null, Li(r, i, a), e.current.lanes = a, gt(e, a, n), nu(e, n), e
                 }
 
                 function Wu(e, t, r, n) {
@@ -14857,7 +16700,7 @@
                                         case 10:
                                             var n = t.type._context,
                                                 a = t.memoizedProps.value;
-                                            Aa(_i, n._currentValue), n._currentValue = a;
+                                            Aa(gi, n._currentValue), n._currentValue = a;
                                             break;
                                         case 13:
                                             if (null !== (n = t.memoizedState)) return null !== n.dehydrated ? (Aa(so, 1 & so.current), t.flags |= 128, null) : 0 !== (r & t.child.childLanes) ? Rs(e, t, r) : (Aa(so, 1 & so.current), null !== (e = Ws(e, t, r)) ? e.sibling : null);
@@ -14968,7 +16811,7 @@
                             return ws(e, t, t.pendingProps.children, r), t.child;
                         case 10:
                             e: {
-                                if (n = t.type._context, a = t.pendingProps, o = t.memoizedProps, s = a.value, Aa(_i, n._currentValue), n._currentValue = s, null !== o)
+                                if (n = t.type._context, a = t.pendingProps, o = t.memoizedProps, s = a.value, Aa(gi, n._currentValue), n._currentValue = s, null !== o)
                                     if (sn(o.value, s)) {
                                         if (o.children === a.children && !Oa.current) {
                                             t = Ws(e, t, r);
@@ -15087,7 +16930,7 @@
                                 s.call(e)
                             }
                         }
-                        var l = Vu(e, 0, !1, null, 0, !1, 0, "", Ju);
+                        var l = Fu(e, 0, !1, null, 0, !1, 0, "", Ju);
                         return e._reactRootContainer = l, e[ha] = l.current, zn(8 === e.nodeType ? e.parentNode : e), cu((function () {
                             Wu(t, l, r, n)
                         })), l
@@ -15124,7 +16967,7 @@
                             var t = e.stateNode;
                             if (t.current.memoizedState.isDehydrated) {
                                 var r = dt(t.pendingLanes);
-                                0 !== r && (gt(t, 1 | r), nu(t, Xe()), 0 === (6 & Tl) && (zl = Xe() + 500, za()))
+                                0 !== r && (_t(t, 1 | r), nu(t, Xe()), 0 === (6 & Tl) && (zl = Xe() + 500, za()))
                             }
                             break;
                         case 13:
@@ -15185,7 +17028,7 @@
                         Events: [va, ba, wa, Ae, Ce, uu]
                     },
                     rc = {
-                        findFiberByHostInstance: ga,
+                        findFiberByHostInstance: _a,
                         bundleType: 0,
                         version: "18.2.0",
                         rendererPackageName: "react-dom"
@@ -15233,7 +17076,7 @@
                     var r = !1,
                         n = "",
                         a = Uu;
-                    return null !== t && void 0 !== t && (!0 === t.unstable_strictMode && (r = !0), void 0 !== t.identifierPrefix && (n = t.identifierPrefix), void 0 !== t.onRecoverableError && (a = t.onRecoverableError)), t = Vu(e, 1, !1, null, 0, r, 0, n, a), e[ha] = t.current, zn(8 === e.nodeType ? e.parentNode : e), new Yu(t)
+                    return null !== t && void 0 !== t && (!0 === t.unstable_strictMode && (r = !0), void 0 !== t.identifierPrefix && (n = t.identifierPrefix), void 0 !== t.onRecoverableError && (a = t.onRecoverableError)), t = Fu(e, 1, !1, null, 0, r, 0, n, a), e[ha] = t.current, zn(8 === e.nodeType ? e.parentNode : e), new Yu(t)
                 }, t.findDOMNode = function (e) {
                     if (null == e) return null;
                     if (1 === e.nodeType) return e;
@@ -15358,7 +17201,7 @@
 
                 function p(e) {
                     return function (e) {
-                        if (Array.isArray(e)) return _(e)
+                        if (Array.isArray(e)) return g(e)
                     }(e) || function (e) {
                         if ("undefined" !== typeof Symbol && null != e[Symbol.iterator] || null != e["@@iterator"]) return Array.from(e)
                     }(e) || m(e) || function () {
@@ -15417,19 +17260,19 @@
 
                 function m(e, t) {
                     if (e) {
-                        if ("string" === typeof e) return _(e, t);
+                        if ("string" === typeof e) return g(e, t);
                         var r = Object.prototype.toString.call(e).slice(8, -1);
-                        return "Object" === r && e.constructor && (r = e.constructor.name), "Map" === r || "Set" === r ? Array.from(e) : "Arguments" === r || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r) ? _(e, t) : void 0
+                        return "Object" === r && e.constructor && (r = e.constructor.name), "Map" === r || "Set" === r ? Array.from(e) : "Arguments" === r || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r) ? g(e, t) : void 0
                     }
                 }
 
-                function _(e, t) {
+                function g(e, t) {
                     (null == t || t > e.length) && (t = e.length);
                     for (var r = 0, n = new Array(t); r < t; r++) n[r] = e[r];
                     return n
                 }
 
-                function g(e, t) {
+                function _(e, t) {
                     for (var r = 0; r < t.length; r++) {
                         var n = t[r];
                         n.enumerable = n.enumerable || !1, n.configurable = !0, "value" in n && (n.writable = !0), Object.defineProperty(e, n.key, n)
@@ -15457,7 +17300,7 @@
                         })), v(this, "_loadGA", (function (e, r) {
                             if ("undefined" !== typeof window && "undefined" !== typeof document && !t._hasLoadedGA) {
                                 var n = document.createElement("script");
-                                n.async = !0, n.src = "https://www.googletagmanager.com/gtag/js?id=".concat(e), r && n.setAttribute("nonce", r), document.body.appendChild(n), window.dataLayer = window.dataLayer || [], window.gtag = function () {
+                                n.async = !0, n.src = "https://www.googletagm11anager.com/gtag/js?id=".concat(e), r && n.setAttribute("nonce", r), document.body.appendChild(n), window.dataLayer = window.dataLayer || [], window.gtag = function () {
                                     window.dataLayer.push(arguments)
                                 }, t._hasLoadedGA = !0
                             }
@@ -15698,7 +17541,7 @@
                                 } else console.warn("args.label is required in outboundLink()");
                             else console.warn("hitCallback function is required")
                         }
-                    }], r && g(t.prototype, r), u && g(t, u), e
+                    }], r && _(t.prototype, r), u && _(t, u), e
                 }();
                 t.GA4 = b;
                 var w = new b;
@@ -15815,23 +17658,23 @@
                     y = Object.assign,
                     m = {};
 
-                function _(e, t, r) {
+                function g(e, t, r) {
                     this.props = e, this.context = t, this.refs = m, this.updater = r || h
                 }
 
-                function g() {}
+                function _() {}
 
                 function v(e, t, r) {
                     this.props = e, this.context = t, this.refs = m, this.updater = r || h
                 }
-                _.prototype.isReactComponent = {}, _.prototype.setState = function (e, t) {
+                g.prototype.isReactComponent = {}, g.prototype.setState = function (e, t) {
                     if ("object" !== typeof e && "function" !== typeof e && null != e) throw Error("setState(...): takes an object of state variables to update or a function which returns an object of state variables.");
                     this.updater.enqueueSetState(this, e, t, "setState")
-                }, _.prototype.forceUpdate = function (e) {
+                }, g.prototype.forceUpdate = function (e) {
                     this.updater.enqueueForceUpdate(this, e, "forceUpdate")
-                }, g.prototype = _.prototype;
-                var b = v.prototype = new g;
-                b.constructor = v, y(b, _.prototype), b.isPureReactComponent = !0;
+                }, _.prototype = g.prototype;
+                var b = v.prototype = new _;
+                b.constructor = v, y(b, g.prototype), b.isPureReactComponent = !0;
                 var w = Array.isArray,
                     k = Object.prototype.hasOwnProperty,
                     x = {
@@ -15980,7 +17823,7 @@
                         if (!A(e)) throw Error("React.Children.only expected to receive a single React element child.");
                         return e
                     }
-                }, t.Component = _, t.Fragment = a, t.Profiler = o, t.PureComponent = v, t.StrictMode = i, t.Suspense = c, t.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = L, t.cloneElement = function (e, t, n) {
+                }, t.Component = g, t.Fragment = a, t.Profiler = o, t.PureComponent = v, t.StrictMode = i, t.Suspense = c, t.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = L, t.cloneElement = function (e, t, n) {
                     if (null === e || void 0 === e) throw Error("React.cloneElement(...): The argument must be a React element, but you passed " + e + ".");
                     var a = y({}, e.props),
                         i = e.key,
@@ -16157,8 +18000,8 @@
                     h = !1,
                     y = !1,
                     m = !1,
-                    _ = "function" === typeof setTimeout ? setTimeout : null,
-                    g = "function" === typeof clearTimeout ? clearTimeout : null,
+                    g = "function" === typeof setTimeout ? setTimeout : null,
+                    _ = "function" === typeof clearTimeout ? clearTimeout : null,
                     v = "undefined" !== typeof setImmediate ? setImmediate : null;
 
                 function b(e) {
@@ -16182,7 +18025,7 @@
                 }
 
                 function k(e, r) {
-                    y = !1, m && (m = !1, g(A), A = -1), h = !0;
+                    y = !1, m && (m = !1, _(A), A = -1), h = !0;
                     var i = f;
                     try {
                         for (b(r), p = n(u); null !== p && (!(p.expirationTime > r) || e && !O());) {
@@ -16237,7 +18080,7 @@
                         j.postMessage(null)
                     }
                 } else x = function () {
-                    _(E, 0)
+                    g(E, 0)
                 };
 
                 function I(e) {
@@ -16245,7 +18088,7 @@
                 }
 
                 function L(e, r) {
-                    A = _((function () {
+                    A = g((function () {
                         e(t.unstable_now())
                     }), r)
                 }
@@ -16319,7 +18162,7 @@
                         startTime: i,
                         expirationTime: s = i + s,
                         sortIndex: -1
-                    }, i > o ? (e.sortIndex = i, r(c, e), null === n(u) && e === n(c) && (m ? (g(A), A = -1) : m = !0, L(w, i - o))) : (e.sortIndex = s, r(u, e), y || h || (y = !0, I(k))), e
+                    }, i > o ? (e.sortIndex = i, r(c, e), null === n(u) && e === n(c) && (m ? (_(A), A = -1) : m = !0, L(w, i - o))) : (e.sortIndex = s, r(u, e), y || h || (y = !0, I(k))), e
                 }, t.unstable_shouldYield = O, t.unstable_wrapCallback = function (e) {
                     var t = f;
                     return function () {
@@ -16352,8 +18195,8 @@
                         h = "version",
                         y = "architecture",
                         m = "console",
-                        _ = "mobile",
-                        g = "tablet",
+                        g = "mobile",
+                        _ = "tablet",
                         v = "smarttv",
                         b = "wearable",
                         w = "embedded",
@@ -16377,10 +18220,10 @@
                             for (var t = {}, r = 0; r < e.length; r++) t[e[r].toUpperCase()] = e[r];
                             return t
                         },
-                        F = function (e, t) {
-                            return typeof e === u && -1 !== V(t).indexOf(V(e))
+                        V = function (e, t) {
+                            return typeof e === u && -1 !== F(t).indexOf(F(e))
                         },
-                        V = function (e) {
+                        F = function (e) {
                             return e.toLowerCase()
                         },
                         H = function (e, t) {
@@ -16400,8 +18243,8 @@
                             for (var r in t)
                                 if (typeof t[r] === l && t[r].length > 0) {
                                     for (var n = 0; n < t[r].length; n++)
-                                        if (F(t[r][n], e)) return "?" === r ? i : r
-                                } else if (F(t[r], e)) return "?" === r ? i : r;
+                                        if (V(t[r][n], e)) return "?" === r ? i : r
+                                } else if (V(t[r], e)) return "?" === r ? i : r;
                             return e
                         },
                         W = {
@@ -16528,7 +18371,7 @@
                                 ],
                                 [/(ia32(?=;))/i],
                                 [
-                                    [y, V]
+                                    [y, F]
                                 ],
                                 [/((?:i[346]|x)86)[;\)]/i],
                                 [
@@ -16548,7 +18391,7 @@
                                 ],
                                 [/((?:ppc|powerpc)(?:64)?)(?: mac|;|\))/i],
                                 [
-                                    [y, /ower/, "", V]
+                                    [y, /ower/, "", F]
                                 ],
                                 [/(sun4\w)[;\)]/i],
                                 [
@@ -16556,265 +18399,265 @@
                                 ],
                                 [/((?:avr32|ia64(?=;))|68k(?=\))|\barm(?=v(?:[1-7]|[5-7]1)l?|;|eabi)|(?=atmel )avr|(?:irix|mips|sparc)(?:64)?\b|pa-risc)/i],
                                 [
-                                    [y, V]
+                                    [y, F]
                                 ]
                             ],
                             device: [
                                 [/\b(sch-i[89]0\d|shw-m380s|sm-[pt]\w{2,4}|gt-[pn]\d{2,4}|sgh-t8[56]9|nexus 10)/i],
                                 [c, [f, I],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/\b((?:s[cgp]h|gt|sm)-\w+|galaxy nexus)/i, /samsung[- ]([-\w]+)/i, /sec-(sgh\w+)/i],
                                 [c, [f, I],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/\((ip(?:hone|od)[\w ]*);/i],
                                 [c, [f, x],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/\((ipad);[-\w\),; ]+apple/i, /applecoremedia\/[\w\.]+ \((ipad)/i, /\b(ipad)\d\d?,\d\d?[;\]].+ios/i],
                                 [c, [f, x],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/\b((?:ag[rs][23]?|bah2?|sht?|btv)-a?[lw]\d{2})\b(?!.+d\/s)/i],
                                 [c, [f, T],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/(?:huawei|honor)([-\w ]+)[;\)]/i, /\b(nexus 6p|\w{2,4}-[atu]?[ln][01259x][012359][an]?)\b(?!.+d\/s)/i],
                                 [c, [f, T],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/\b(poco[\w ]+)(?: bui|\))/i, /\b; (\w+) build\/hm\1/i, /\b(hm[-_ ]?note?[_ ]?(?:\d\w)?) bui/i, /\b(redmi[\-_ ]?(?:note|k)?[\w_ ]+)(?: bui|\))/i, /\b(mi[-_ ]?(?:a\d|one|one[_ ]plus|note lte|max)?[_ ]?(?:\d?\w?)[_ ]?(?:plus|se|lite)?)(?: bui|\))/i],
                                 [
                                     [c, /_/g, " "],
                                     [f, q],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/\b(mi[-_ ]?(?:pad)(?:[\w_ ]+))(?: bui|\))/i],
                                 [
                                     [c, /_/g, " "],
                                     [f, q],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/; (\w+) bui.+ oppo/i, /\b(cph[12]\d{3}|p(?:af|c[al]|d\w|e[ar])[mt]\d0|x9007|a101op)\b/i],
                                 [c, [f, "OPPO"],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/vivo (\w+)(?: bui|\))/i, /\b(v[12]\d{3}\w?[at])(?: bui|;)/i],
                                 [c, [f, "Vivo"],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/\b(rmx[12]\d{3})(?: bui|;|\))/i],
                                 [c, [f, "Realme"],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/\b(milestone|droid(?:[2-4x]| (?:bionic|x2|pro|razr))?:?( 4g)?)\b[\w ]+build\//i, /\bmot(?:orola)?[- ](\w*)/i, /((?:moto[\w\(\) ]+|xt\d{3,4}|nexus 6)(?= bui|\)))/i],
                                 [c, [f, N],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/\b(mz60\d|xoom[2 ]{0,2}) build\//i],
                                 [c, [f, N],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/((?=lg)?[vl]k\-?\d{3}) bui| 3\.[-\w; ]{10}lg?-([06cv9]{3,4})/i],
                                 [c, [f, O],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/(lm(?:-?f100[nv]?|-[\w\.]+)(?= bui|\))|nexus [45])/i, /\blg[-e;\/ ]+((?!browser|netcast|android tv)\w+)/i, /\blg-?([\d\w]+) bui/i],
                                 [c, [f, O],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/(ideatab[-\w ]+)/i, /lenovo ?(s[56]000[-\w]+|tab(?:[\w ]+)|yt[-\d\w]{6}|tb[-\d\w]{6})/i],
                                 [c, [f, "Lenovo"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/(?:maemo|nokia).*(n900|lumia \d+)/i, /nokia[-_ ]?([-\w\.]*)/i],
                                 [
                                     [c, /_/g, " "],
                                     [f, "Nokia"],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/(pixel c)\b/i],
                                 [c, [f, C],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/droid.+; (pixel[\daxl ]{0,6})(?: bui|\))/i],
                                 [c, [f, C],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/droid.+ ([c-g]\d{4}|so[-gl]\w+|xq-a\w[4-7][12])(?= bui|\).+chrome\/(?![1-6]{0,1}\d\.))/i],
                                 [c, [f, L],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/sony tablet [ps]/i, /\b(?:sony)?sgp\w+(?: bui|\))/i],
                                 [
                                     [c, "Xperia Tablet"],
                                     [f, L],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/ (kb2005|in20[12]5|be20[12][59])\b/i, /(?:one)?(?:plus)? (a\d0\d\d)(?: b|\))/i],
                                 [c, [f, "OnePlus"],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/(alexa)webm/i, /(kf[a-z]{2}wi)( bui|\))/i, /(kf[a-z]+)( bui|\)).+silk\//i],
                                 [c, [f, k],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/((?:sd|kf)[0349hijorstuw]+)( bui|\)).+silk\//i],
                                 [
                                     [c, /(.+)/g, "Fire Phone $1"],
                                     [f, k],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/(playbook);[-\w\),; ]+(rim)/i],
-                                [c, f, [p, g]],
+                                [c, f, [p, _]],
                                 [/\b((?:bb[a-f]|st[hv])100-\d)/i, /\(bb10; (\w+)/i],
                                 [c, [f, M],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/(?:\b|asus_)(transfo[prime ]{4,10} \w+|eeepc|slider \w+|nexus 7|padfone|p00[cj])/i],
                                 [c, [f, S],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/ (z[bes]6[027][012][km][ls]|zenfone \d\w?)\b/i],
                                 [c, [f, S],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/(nexus 9)/i],
                                 [c, [f, "HTC"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/(htc)[-;_ ]{1,2}([\w ]+(?=\)| bui)|\w+)/i, /(zte)[- ]([\w ]+?)(?: bui|\/|\))/i, /(alcatel|geeksphone|nexian|panasonic|sony)[-_ ]?([-\w]*)/i],
                                 [f, [c, /_/g, " "],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/droid.+; ([ab][1-7]-?[0178a]\d\d?)/i],
                                 [c, [f, "Acer"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/droid.+; (m[1-5] note) bui/i, /\bmz-([-\w]{2,})/i],
                                 [c, [f, "Meizu"],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/\b(sh-?[altvz]?\d\d[a-ekm]?)/i],
                                 [c, [f, "Sharp"],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/(blackberry|benq|palm(?=\-)|sonyericsson|acer|asus|dell|meizu|motorola|polytron)[-_ ]?([-\w]*)/i, /(hp) ([\w ]+\w)/i, /(asus)-?(\w+)/i, /(microsoft); (lumia[\w ]+)/i, /(lenovo)[-_ ]?([-\w]+)/i, /(jolla)/i, /(oppo) ?([\w ]+) bui/i],
-                                [f, c, [p, _]],
-                                [/(archos) (gamepad2?)/i, /(hp).+(touchpad(?!.+tablet)|tablet)/i, /(kindle)\/([\w\.]+)/i, /(nook)[\w ]+build\/(\w+)/i, /(dell) (strea[kpr\d ]*[\dko])/i, /(le[- ]+pan)[- ]+(\w{1,9}) bui/i, /(trinity)[- ]*(t\d{3}) bui/i, /(gigaset)[- ]+(q\w{1,9}) bui/i, /(vodafone) ([\w ]+)(?:\)| bui)/i],
                                 [f, c, [p, g]],
+                                [/(archos) (gamepad2?)/i, /(hp).+(touchpad(?!.+tablet)|tablet)/i, /(kindle)\/([\w\.]+)/i, /(nook)[\w ]+build\/(\w+)/i, /(dell) (strea[kpr\d ]*[\dko])/i, /(le[- ]+pan)[- ]+(\w{1,9}) bui/i, /(trinity)[- ]*(t\d{3}) bui/i, /(gigaset)[- ]+(q\w{1,9}) bui/i, /(vodafone) ([\w ]+)(?:\)| bui)/i],
+                                [f, c, [p, _]],
                                 [/(surface duo)/i],
                                 [c, [f, E],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/droid [\d\.]+; (fp\du?)(?: b|\))/i],
                                 [c, [f, "Fairphone"],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/(u304aa)/i],
                                 [c, [f, "AT&T"],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/\bsie-(\w*)/i],
                                 [c, [f, "Siemens"],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/\b(rct\w+) b/i],
                                 [c, [f, "RCA"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/\b(venue[\d ]{2,7}) b/i],
                                 [c, [f, "Dell"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/\b(q(?:mv|ta)\w+) b/i],
                                 [c, [f, "Verizon"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/\b(?:barnes[& ]+noble |bn[rt])([\w\+ ]*) b/i],
                                 [c, [f, "Barnes & Noble"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/\b(tm\d{3}\w+) b/i],
                                 [c, [f, "NuVision"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/\b(k88) b/i],
                                 [c, [f, "ZTE"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/\b(nx\d{3}j) b/i],
                                 [c, [f, "ZTE"],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/\b(gen\d{3}) b.+49h/i],
                                 [c, [f, "Swiss"],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/\b(zur\d{3}) b/i],
                                 [c, [f, "Swiss"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/\b((zeki)?tb.*\b) b/i],
                                 [c, [f, "Zeki"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/\b([yr]\d{2}) b/i, /\b(dragon[- ]+touch |dt)(\w{5}) b/i],
                                 [
-                                    [f, "Dragon Touch"], c, [p, g]
+                                    [f, "Dragon Touch"], c, [p, _]
                                 ],
                                 [/\b(ns-?\w{0,9}) b/i],
                                 [c, [f, "Insignia"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/\b((nxa|next)-?\w{0,9}) b/i],
                                 [c, [f, "NextBook"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/\b(xtreme\_)?(v(1[045]|2[015]|[3469]0|7[05])) b/i],
                                 [
-                                    [f, "Voice"], c, [p, _]
+                                    [f, "Voice"], c, [p, g]
                                 ],
                                 [/\b(lvtel\-)?(v1[12]) b/i],
                                 [
-                                    [f, "LvTel"], c, [p, _]
+                                    [f, "LvTel"], c, [p, g]
                                 ],
                                 [/\b(ph-1) /i],
                                 [c, [f, "Essential"],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/\b(v(100md|700na|7011|917g).*\b) b/i],
                                 [c, [f, "Envizen"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/\b(trio[-\w\. ]+) b/i],
                                 [c, [f, "MachSpeed"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/\btu_(1491) b/i],
                                 [c, [f, "Rotor"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/(shield[\w ]+) b/i],
                                 [c, [f, "Nvidia"],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/(sprint) (\w+)/i],
-                                [f, c, [p, _]],
+                                [f, c, [p, g]],
                                 [/(kin\.[onetw]{3})/i],
                                 [
                                     [c, /\./g, " "],
                                     [f, E],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/droid.+; (cc6666?|et5[16]|mc[239][23]x?|vc8[03]x?)\)/i],
                                 [c, [f, P],
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/droid.+; (ec30|ps20|tc[2-8]\d[kx])\)/i],
                                 [c, [f, P],
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/(ouya)/i, /(nintendo) ([wids3utch]+)/i],
                                 [f, c, [p, m]],
@@ -16888,16 +18731,16 @@
                                 [/(tesla)(?: qtcarbrowser|\/[-\w\.]+)/i],
                                 [f, [p, w]],
                                 [/droid .+?; ([^;]+?)(?: bui|\) applew).+? mobile safari/i],
-                                [c, [p, _]],
-                                [/droid .+?; ([^;]+?)(?: bui|\) applew).+?(?! mobile) safari/i],
                                 [c, [p, g]],
+                                [/droid .+?; ([^;]+?)(?: bui|\) applew).+?(?! mobile) safari/i],
+                                [c, [p, _]],
                                 [/\b((tablet|tab)[;\/]|focus\/\d(?!.+mobile))/i],
                                 [
-                                    [p, g]
+                                    [p, _]
                                 ],
                                 [/(phone|mobile(?:[;\/]| safari)|pda(?=.+windows ce))/i],
                                 [
-                                    [p, _]
+                                    [p, g]
                                 ],
                                 [/(android[-\w\. ]{0,9});.+buil/i],
                                 [c, [f, "Generic"]]
@@ -16998,7 +18841,7 @@
                                 return n = typeof e === u && e.length > 255 ? H(e, 255) : e, this
                             }, this.setUA(n), this
                         };
-                    K.VERSION = "1.0.2", K.BROWSER = D([d, h, "major"]), K.CPU = D([y]), K.DEVICE = D([c, f, p, m, _, v, g, b, w]), K.ENGINE = K.OS = D([d, h]), typeof t !== s ? (e.exports && (t = e.exports = K), t.UAParser = K) : r.amdO ? (n = function () {
+                    K.VERSION = "1.0.2", K.BROWSER = D([d, h, "major"]), K.CPU = D([y]), K.DEVICE = D([c, f, p, m, g, v, _, b, w]), K.ENGINE = K.OS = D([d, h]), typeof t !== s ? (e.exports && (t = e.exports = K), t.UAParser = K) : r.amdO ? (n = function () {
                         return K
                     }.call(t, r, t, e)) === i || (e.exports = n) : typeof a !== s && (a.UAParser = K);
                     var G = typeof a !== s && (a.jQuery || a.Zepto);
@@ -17265,7 +19108,7 @@
                     return e
                 }
             },
-            5792: function (e, t, r) {
+            4925: function (e, t, r) {
                 "use strict";
 
                 function n(e, t) {
@@ -17392,9 +19235,9 @@
                     u(m, o, (function () {
                         return this
                     }));
-                    var _ = Object.getPrototypeOf,
-                        g = _ && _(_(A([])));
-                    g && g !== t && r.call(g, o) && (m = g);
+                    var g = Object.getPrototypeOf,
+                        _ = g && g(g(A([])));
+                    _ && _ !== t && r.call(_, o) && (m = _);
                     var v = y.prototype = f.prototype = Object.create(m);
 
                     function b(e) {
@@ -17716,13 +19559,13 @@
                 "use strict";
                 r.d(t, {
                     V: function () {
-                        return ge
+                        return _e
                     }
                 });
                 var n = r(7762),
                     a = r(2982),
                     i = r(885),
-                    o = r(5792),
+                    o = r(4925),
                     s = r(4942),
                     l = r(1413),
                     u = r(7313),
@@ -17745,8 +19588,8 @@
                 }
                 var y = r(6971),
                     m = r(4143),
-                    _ = r(5678),
-                    g = r(3759),
+                    g = r(5678),
+                    _ = r(3759),
                     v = r(1464),
                     b = r(7992);
 
@@ -17838,14 +19681,14 @@
                             C(null == r ? void 0 : r.defaultView, "focusout", (function (e) {
                                 !t || n.current || (n.current = e.target)
                             }), !0), O((function () {
-                                t || ((null == r ? void 0 : r.activeElement) === (null == r ? void 0 : r.body) && (0, g.C5)(n.current), n.current = null)
+                                t || ((null == r ? void 0 : r.activeElement) === (null == r ? void 0 : r.body) && (0, _.C5)(n.current), n.current = null)
                             }), [t]);
                             var a = (0, u.useRef)(!1);
                             (0, u.useEffect)((function () {
                                 return a.current = !1,
                                     function () {
                                         a.current = !0, (0, T.Y)((function () {
-                                            !a.current || ((0, g.C5)(n.current), n.current = null)
+                                            !a.current || ((0, _.C5)(n.current), n.current = null)
                                         }))
                                     }
                             }), [])
@@ -17865,7 +19708,7 @@
                                         if (null != a && a.current) {
                                             if ((null == a ? void 0 : a.current) === o) return void(i.current = o)
                                         } else if (e.contains(o)) return void(i.current = o);
-                                        null != a && a.current ? (0, g.C5)(a.current) : (0, g.jA)(e, g.TO.First) === g.fE.Error && console.warn("There are no focusable elements inside the <FocusTrap />"), i.current = null == r ? void 0 : r.activeElement
+                                        null != a && a.current ? (0, _.C5)(a.current) : (0, _.jA)(e, _.TO.First) === _.fE.Error && console.warn("There are no focusable elements inside the <FocusTrap />"), i.current = null == r ? void 0 : r.activeElement
                                     }
                                 }
                             }), [t]), i
@@ -17899,7 +19742,7 @@
                                                 i.f()
                                             }
                                             return !1
-                                        }(r, u) ? (o.current = u, (0, g.C5)(u)) : (e.preventDefault(), e.stopPropagation(), (0, g.C5)(l)) : (0, g.C5)(o.current)
+                                        }(r, u) ? (o.current = u, (0, _.C5)(u)) : (e.preventDefault(), e.stopPropagation(), (0, _.C5)(l)) : (0, _.C5)(o.current)
                                     }
                                 }
                             }), !0)
@@ -17913,29 +19756,29 @@
                             N = (0, v.z)((function () {
                                 var e, t = r.current;
                                 !t || (0, c.E)(M.current, (e = {}, (0, s.Z)(e, k.Forwards, (function () {
-                                    return (0, g.jA)(t, g.TO.First)
+                                    return (0, _.jA)(t, _.TO.First)
                                 })), (0, s.Z)(e, k.Backwards, (function () {
-                                    return (0, g.jA)(t, g.TO.Last)
+                                    return (0, _.jA)(t, _.TO.Last)
                                 })), e))
                             })),
                             j = {
                                 ref: a
                             };
-                        return u.createElement(u.Fragment, null, Boolean(4 & h) && u.createElement(_._, {
+                        return u.createElement(u.Fragment, null, Boolean(4 & h) && u.createElement(g._, {
                             as: "button",
                             type: "button",
                             onFocus: N,
-                            features: _.A.Focusable
+                            features: g.A.Focusable
                         }), (0, d.sY)({
                             ourProps: j,
                             theirProps: y,
                             defaultTag: "div",
                             name: "FocusTrap"
-                        }), Boolean(4 & h) && u.createElement(_._, {
+                        }), Boolean(4 & h) && u.createElement(g._, {
                             as: "button",
                             type: "button",
                             onFocus: N,
-                            features: _.A.Focusable
+                            features: g.A.Focusable
                         }))
                     })), {
                         features: N
@@ -17953,14 +19796,14 @@
                     !t || (null === t["aria-hidden"] ? e.removeAttribute("aria-hidden") : e.setAttribute("aria-hidden", t["aria-hidden"]), e.inert = t.inert)
                 }
                 var D = r(1168),
-                    F = (0, u.createContext)(!1);
+                    V = (0, u.createContext)(!1);
 
-                function V() {
-                    return (0, u.useContext)(F)
+                function F() {
+                    return (0, u.useContext)(V)
                 }
 
                 function H(e) {
-                    return u.createElement(F.Provider, {
+                    return u.createElement(V.Provider, {
                         value: e.force
                     }, e.children)
                 }
@@ -17974,7 +19817,7 @@
                             })), t),
                             o = A(n),
                             s = function (e) {
-                                var t = V(),
+                                var t = F(),
                                     r = (0, u.useContext)(K),
                                     n = A(e),
                                     a = (0, u.useState)((function () {
@@ -18154,7 +19997,7 @@
                                 } finally {
                                     u.f()
                                 }
-                                return !(0, g.sP)(s, g.tJ.Loose) && -1 !== s.tabIndex && r.preventDefault(), t(r, s)
+                                return !(0, _.sP)(s, _.tJ.Loose) && -1 !== s.tabIndex && r.preventDefault(), t(r, s)
                             }
                         }
                     }(0, u.useEffect)((function () {
@@ -18200,7 +20043,7 @@
                     fe = (0, d.yV)((function (e, t) {
                         var r, l = e.open,
                             h = e.onClose,
-                            g = e.initialFocus,
+                            _ = e.initialFocus,
                             b = e.__demoMode,
                             w = void 0 !== b && b,
                             k = (0, o.Z)(e, ie),
@@ -18212,8 +20055,8 @@
                         void 0 === l && null !== E && (l = (0, c.E)(E, (r = {}, (0, s.Z)(r, J.ZM.Open, !0), (0, s.Z)(r, J.ZM.Closed, !1), r)));
                         var N = (0, u.useRef)(new Set),
                             D = (0, u.useRef)(null),
-                            F = (0, p.T)(D, t),
-                            V = (0, u.useRef)(null),
+                            V = (0, p.T)(D, t),
+                            F = (0, u.useRef)(null),
                             z = A(D),
                             Z = e.hasOwnProperty("open") || null !== E,
                             W = e.hasOwnProperty("onClose");
@@ -18322,7 +20165,7 @@
                         })(D, !!oe && ae), ne((function () {
                             var e, t;
                             return [].concat((0, a.Z)(Array.from(null != (e = null == z ? void 0 : z.querySelectorAll("body > *, [data-headlessui-portal]")) ? e : []).filter((function (e) {
-                                return !(!(e instanceof HTMLElement) || e.contains(V.current) || Y.panelRef.current && e.contains(Y.panelRef.current))
+                                return !(!(e instanceof HTMLElement) || e.contains(F.current) || Y.panelRef.current && e.contains(Y.panelRef.current))
                             }))), [null != (t = Y.panelRef.current) ? t : D.current])
                         }), $, ae && !oe), C(null == z ? void 0 : z.defaultView, "keydown", (function (e) {
                             e.defaultPrevented || e.key === f.R.Escape && 0 === B && (oe || (e.preventDefault(), e.stopPropagation(), $()))
@@ -18371,20 +20214,20 @@
                             he = fe[0],
                             ye = fe[1],
                             me = "headlessui-dialog-".concat((0, y.M)()),
-                            _e = (0, u.useMemo)((function () {
+                            ge = (0, u.useMemo)((function () {
                                 return [{
                                     dialogState: B,
                                     close: $,
                                     setTitleId: ee
                                 }, Y]
                             }), [B, Y, $, ee]),
-                            ge = (0, u.useMemo)((function () {
+                            _e = (0, u.useMemo)((function () {
                                 return {
                                     open: 0 === B
                                 }
                             }), [B]),
                             ve = {
-                                ref: F,
+                                ref: V,
                                 id: me,
                                 role: "dialog",
                                 "aria-modal": 0 === B || void 0,
@@ -18409,16 +20252,16 @@
                         }, u.createElement(H, {
                             force: !0
                         }, u.createElement(U, null, u.createElement(ue.Provider, {
-                            value: _e
+                            value: ge
                         }, u.createElement(U.Group, {
                             target: D
                         }, u.createElement(H, {
                             force: !1
                         }, u.createElement(ye, {
-                            slot: ge,
+                            slot: _e,
                             name: "Dialog.Description"
                         }, u.createElement(j, {
-                            initialFocus: g,
+                            initialFocus: _,
                             containers: N,
                             features: ae ? (0, c.E)(le, {
                                 parent: j.features.RestoreFocus,
@@ -18427,14 +20270,14 @@
                         }, (0, d.sY)({
                             ourProps: ve,
                             theirProps: k,
-                            slot: ge,
+                            slot: _e,
                             defaultTag: "div",
                             features: pe,
                             visible: 0 === B,
                             name: "Dialog"
-                        })))))))), u.createElement(_._, {
-                            features: _.A.Hidden,
-                            ref: V
+                        })))))))), u.createElement(g._, {
+                            features: g.A.Hidden,
+                            ref: F
                         }))
                     })),
                     he = (0, d.yV)((function (e, t) {
@@ -18524,7 +20367,7 @@
                             name: "Dialog.Panel"
                         })
                     })),
-                    _e = (0, d.yV)((function (e, t) {
+                    ge = (0, d.yV)((function (e, t) {
                         var r = ce("Dialog.Title"),
                             n = (0, i.Z)(r, 1)[0],
                             a = n.dialogState,
@@ -18553,11 +20396,11 @@
                             name: "Dialog.Title"
                         })
                     })),
-                    ge = Object.assign(fe, {
+                    _e = Object.assign(fe, {
                         Backdrop: ye,
                         Panel: me,
                         Overlay: he,
-                        Title: _e,
+                        Title: ge,
                         Description: $
                     })
             },
@@ -18579,7 +20422,7 @@
                 });
                 var n = r(7762),
                     a = r(885),
-                    i = r(5792),
+                    i = r(4925),
                     o = r(4942),
                     s = r(2982),
                     l = r(1413),
@@ -18592,22 +20435,22 @@
                     y = r(200),
                     m = r(1267);
 
-                function _(e) {
+                function g(e) {
                     var t;
                     if (e.type) return e.type;
                     var r = null != (t = e.as) ? t : "button";
                     return "string" == typeof r && "button" === r.toLowerCase() ? "button" : void 0
                 }
 
-                function g(e, t) {
+                function _(e, t) {
                     var r = (0, u.useState)((function () {
-                            return _(e)
+                            return g(e)
                         })),
                         n = (0, a.Z)(r, 2),
                         i = n[0],
                         o = n[1];
                     return (0, y.e)((function () {
-                        o(_(e))
+                        o(g(e))
                     }), [e.type, e.as]), (0, y.e)((function () {
                         i || !t.current || t.current instanceof HTMLButtonElement && !t.current.hasAttribute("type") && o("button")
                     }), [i, t]), i
@@ -18729,14 +20572,14 @@
                             p = e.manual,
                             f = void 0 !== p && p,
                             h = e.onChange,
-                            _ = e.selectedIndex,
-                            g = void 0 === _ ? null : _,
+                            g = e.selectedIndex,
+                            _ = void 0 === g ? null : g,
                             b = (0, i.Z)(e, M),
                             k = d ? "vertical" : "horizontal",
                             x = f ? "manual" : "auto",
                             S = (0, m.T)(t),
                             A = (0, u.useReducer)(L, {
-                                selectedIndex: null != g ? g : o,
+                                selectedIndex: null != _ ? _ : o,
                                 tabs: [],
                                 panels: []
                             }),
@@ -18756,8 +20599,8 @@
                                     activation: x
                                 }, O)
                             }), [k, x, O]),
-                            F = (0, v.E)(O.selectedIndex),
-                            V = (0, u.useMemo)((function () {
+                            V = (0, v.E)(O.selectedIndex),
+                            F = (0, u.useMemo)((function () {
                                 return {
                                     registerTab: function (e) {
                                         return N({
@@ -18789,7 +20632,7 @@
                                         })
                                     },
                                     change: function (e) {
-                                        F.current !== e && P.current(e), F.current = e, N({
+                                        V.current !== e && P.current(e), V.current = e, N({
                                             type: 0,
                                             index: e
                                         })
@@ -18799,9 +20642,9 @@
                         (0, y.e)((function () {
                             N({
                                 type: 0,
-                                index: null != g ? g : o
+                                index: null != _ ? _ : o
                             })
-                        }), [g]);
+                        }), [_]);
                         var H = (0, u.useRef)({
                                 tabs: [],
                                 panels: []
@@ -18812,7 +20655,7 @@
                         return u.createElement(T.Provider, {
                             value: H
                         }, u.createElement(j.Provider, {
-                            value: V
+                            value: F
                         }, u.createElement(E.Provider, {
                             value: D
                         }, D.tabs.length <= 0 && u.createElement(w, {
@@ -18863,7 +20706,7 @@
                             o = i.orientation,
                             s = i.activation,
                             l = i.selectedIndex,
-                            _ = i.tabs,
+                            g = i.tabs,
                             v = i.panels,
                             b = I("Tab"),
                             w = O("Tab"),
@@ -18875,10 +20718,10 @@
                             return b.registerTab(k)
                         }), [b, k]);
                         var M = w.current.tabs.indexOf(a); - 1 === M && (M = w.current.tabs.push(a) - 1);
-                        var A = _.indexOf(k); - 1 === A && (A = M);
+                        var A = g.indexOf(k); - 1 === A && (A = M);
                         var C = A === l,
                             T = (0, S.z)((function (e) {
-                                var t = _.map((function (e) {
+                                var t = g.map((function (e) {
                                     return e.current
                                 })).filter(Boolean);
                                 if (e.key === f.R.Space || e.key === f.R.Enter) return e.preventDefault(), e.stopPropagation(), void b.change(A);
@@ -18924,7 +20767,7 @@
                                 onClick: j,
                                 id: a,
                                 role: "tab",
-                                type: g(e, k),
+                                type: _(e, k),
                                 "aria-controls": null == (n = null == (r = v[A]) ? void 0 : r.current) ? void 0 : n.id,
                                 "aria-selected": C,
                                 tabIndex: C ? 0 : -1
@@ -18937,7 +20780,7 @@
                             name: "Tabs.Tab"
                         })
                     })),
-                    F = (0, c.yV)((function (e, t) {
+                    V = (0, c.yV)((function (e, t) {
                         var r = N("Tab.Panels").selectedIndex,
                             n = (0, m.T)(t),
                             a = (0, u.useMemo)((function () {
@@ -18955,7 +20798,7 @@
                             name: "Tabs.Panels"
                         })
                     })),
-                    V = c.AN.RenderStrategy | c.AN.Static,
+                    F = c.AN.RenderStrategy | c.AN.Static,
                     H = (0, c.yV)((function (e, t) {
                         var r, n, a = N("Tab.Panel"),
                             i = a.selectedIndex,
@@ -18965,14 +20808,14 @@
                             p = O("Tab.Panel"),
                             f = "headlessui-tabs-panel-".concat((0, d.M)()),
                             h = (0, u.useRef)(null),
-                            _ = (0, m.T)(h, t, (function (e) {
+                            g = (0, m.T)(h, t, (function (e) {
                                 !e || l.forceRerender()
                             }));
                         (0, y.e)((function () {
                             return l.registerPanel(h)
                         }), [l, h]);
-                        var g = p.current.panels.indexOf(f); - 1 === g && (g = p.current.panels.push(f) - 1);
-                        var v = s.indexOf(h); - 1 === v && (v = g);
+                        var _ = p.current.panels.indexOf(f); - 1 === _ && (_ = p.current.panels.push(f) - 1);
+                        var v = s.indexOf(h); - 1 === v && (v = _);
                         var b = v === i,
                             w = (0, u.useMemo)((function () {
                                 return {
@@ -18981,7 +20824,7 @@
                             }), [b]),
                             k = e,
                             x = {
-                                ref: _,
+                                ref: g,
                                 id: f,
                                 role: "tabpanel",
                                 "aria-labelledby": null == (n = null == (r = o[v]) ? void 0 : r.current) ? void 0 : n.id,
@@ -18992,7 +20835,7 @@
                             theirProps: k,
                             slot: w,
                             defaultTag: "div",
-                            features: V,
+                            features: F,
                             visible: b,
                             name: "Tabs.Panel"
                         })
@@ -19000,7 +20843,7 @@
                     z = Object.assign(D, {
                         Group: P,
                         List: R,
-                        Panels: F,
+                        Panels: V,
                         Panel: H
                     })
             },
@@ -19013,7 +20856,7 @@
                 });
                 var n = r(1413),
                     a = r(885),
-                    i = r(5792),
+                    i = r(4925),
                     o = r(7762),
                     s = r(4942),
                     l = r(7313),
@@ -19025,8 +20868,8 @@
                     h = r(5485),
                     y = r(200),
                     m = r(7992),
-                    _ = r(4143),
-                    g = r(1267),
+                    g = r(4143),
+                    _ = r(1267),
                     v = r(2982);
                 var b = r(4165);
 
@@ -19264,7 +21107,7 @@
                             }), [t]), t
                         }(),
                         f = (0, m.E)(r),
-                        _ = (0, T.z)((function () {
+                        g = (0, T.z)((function () {
                             return (0, d.E)(f.current, {
                                 enter: function () {
                                     return i.current.beforeEnter()
@@ -19275,7 +21118,7 @@
                                 idle: function () {}
                             })
                         })),
-                        g = (0, T.z)((function () {
+                        _ = (0, T.z)((function () {
                             return (0, d.E)(f.current, {
                                 enter: function () {
                                     return i.current.afterEnter()
@@ -19290,10 +21133,10 @@
                         var e = k();
                         p.add(e.dispose);
                         var r = t.current;
-                        if (r && "idle" !== f.current && c.current) return e.dispose(), _(), o.current(f.current), e.add(C(r, n.current, "enter" === f.current, (function (t) {
+                        if (r && "idle" !== f.current && c.current) return e.dispose(), g(), o.current(f.current), e.add(C(r, n.current, "enter" === f.current, (function (t) {
                             var r;
                             e.dispose(), (0, d.E)(t, (r = {}, (0, s.Z)(r, A.Ended, (function () {
-                                g(), u.current(f.current)
+                                _(), u.current(f.current)
                             })), (0, s.Z)(r, A.Cancelled, (function () {})), r))
                         }))), e.dispose
                     }), [r])
@@ -19356,17 +21199,17 @@
                     }), [i, a, r])
                 }
 
-                function F() {}
+                function V() {}
                 P.displayName = "NestingContext";
-                var V = ["beforeEnter", "afterEnter", "beforeLeave", "afterLeave"];
+                var F = ["beforeEnter", "afterEnter", "beforeLeave", "afterLeave"];
 
                 function H(e) {
                     var t, r, n = {},
-                        a = (0, o.Z)(V);
+                        a = (0, o.Z)(F);
                     try {
                         for (a.s(); !(r = a.n()).done;) {
                             var i = r.value;
-                            n[i] = null != (t = e[i]) ? t : F
+                            n[i] = null != (t = e[i]) ? t : V
                         }
                     } catch (s) {
                         a.e(s)
@@ -19390,20 +21233,20 @@
                             S = e.leaveTo,
                             M = (0, i.Z)(e, E),
                             A = (0, l.useRef)(null),
-                            C = (0, g.T)(A, t),
+                            C = (0, _.T)(A, t),
                             T = (0, l.useState)("visible"),
                             N = (0, a.Z)(T, 2),
                             L = N[0],
                             q = N[1],
-                            F = M.unmount ? u.l4.Unmount : u.l4.Hidden,
-                            V = function () {
+                            V = M.unmount ? u.l4.Unmount : u.l4.Hidden,
+                            F = function () {
                                 var e = (0, l.useContext)(I);
                                 if (null === e) throw new Error("A <Transition.Child /> is used but it is missing a parent <Transition /> or <Transition.Root />.");
                                 return e
                             }(),
-                            Z = V.show,
-                            W = V.appear,
-                            B = V.initial,
+                            Z = F.show,
+                            W = F.appear,
+                            B = F.initial,
                             K = function () {
                                 var e = (0, l.useContext)(P);
                                 if (null === e) throw new Error("A <Transition.Child /> is used but it is missing a parent <Transition /> or <Transition.Root />.");
@@ -19416,7 +21259,7 @@
                         (0, l.useEffect)((function () {
                             if (Q) return G(Q)
                         }), [G, Q]), (0, l.useEffect)((function () {
-                            if (F === u.l4.Hidden && Q) {
+                            if (V === u.l4.Hidden && Q) {
                                 var e;
                                 if (Z && "visible" !== L) return void q("visible");
                                 (0, d.E)(L, (e = {}, (0, s.Z)(e, "hidden", (function () {
@@ -19425,7 +21268,7 @@
                                     return G(Q)
                                 })), e))
                             }
-                        }), [L, Q, G, U, Z, F]);
+                        }), [L, Q, G, U, Z, V]);
                         var X = (0, m.E)({
                                 enter: j(y),
                                 enterFrom: j(v),
@@ -19446,7 +21289,7 @@
                                 beforeLeave: p,
                                 afterLeave: h
                             }),
-                            J = (0, _.H)();
+                            J = (0, g.H)();
                         (0, l.useEffect)((function () {
                             if (J && "visible" === L && null === A.current) throw new Error("Did you forget to passthrough the `ref` to the actual DOM node?")
                         }), [A, L, J]);
@@ -19468,7 +21311,7 @@
                                 re.current = !1, "leave" === e && !R(ne) && (q("hidden"), U(Q))
                             }))
                         }), (0, l.useEffect)((function () {
-                            !ee || (F === u.l4.Hidden ? Y.current = null : Y.current = Z)
+                            !ee || (V === u.l4.Hidden ? Y.current = null : Y.current = Z)
                         }), [Z, ee, L]);
                         var ae = M,
                             ie = {
@@ -19494,8 +21337,8 @@
                             h = e.unmount,
                             m = (0, i.Z)(e, N),
                             v = (0, l.useRef)(null),
-                            b = (0, g.T)(v, t);
-                        (0, _.H)();
+                            b = (0, _.T)(v, t);
+                        (0, g.H)();
                         var w = (0, c.oJ)();
                         if (void 0 === o && null !== w && (o = (0, d.E)(w, (r = {}, (0, s.Z)(r, c.ZM.Open, !0), (0, s.Z)(r, c.ZM.Closed, !1), r))), ![!0, !1].includes(o)) throw new Error("A <Transition /> is used but it is missing a `show={true | false}` prop.");
                         var k = (0, l.useState)(o ? "visible" : "hidden"),
@@ -19735,7 +21578,7 @@
                     }
                 });
                 var n, a = r(1413),
-                    i = r(5792),
+                    i = r(4925),
                     o = r(6497),
                     s = ["features"],
                     l = ((n = l || {})[n.None = 1] = "None", n[n.Focusable = 2] = "Focusable", n[n.Hidden = 4] = "Hidden", n),
@@ -19860,11 +21703,11 @@
                         preventScroll: !0
                     })
                 }
-                var _ = ["textarea", "input"].join(",");
+                var g = ["textarea", "input"].join(",");
 
-                function g(e) {
+                function _(e) {
                     var t, r;
-                    return null != (r = null == (t = null == e ? void 0 : e.matches) ? void 0 : t.call(e, _)) && r
+                    return null != (r = null == (t = null == e ? void 0 : e.matches) ? void 0 : t.call(e, g)) && r
                 }
 
                 function v(e) {
@@ -19912,7 +21755,7 @@
                         }
                         null == (r = i[p]) || r.focus(u), c += s
                     } while (r !== a.activeElement);
-                    return 6 & t && g(r) && r.select(), r.hasAttribute("tabindex") || r.setAttribute("tabindex", "0"), 2
+                    return 6 & t && _(r) && r.select(), r.hasAttribute("tabindex") || r.setAttribute("tabindex", "0"), 2
                 }
             },
             8281: function (e, t, r) {
@@ -19981,7 +21824,7 @@
                 var n, a, i = r(7762),
                     o = r(4942),
                     s = r(1413),
-                    l = r(5792),
+                    l = r(4925),
                     u = r(7313),
                     c = r(8281),
                     d = ["static"],
@@ -19999,14 +21842,14 @@
                         u = e.visible,
                         f = void 0 === u || u,
                         h = e.name,
-                        y = g(r, t);
-                    if (f) return _(y, n, a, h);
+                        y = _(r, t);
+                    if (f) return g(y, n, a, h);
                     var m = null != i ? i : 0;
                     if (2 & m) {
                         var v = y.static,
                             b = void 0 !== v && v,
                             w = (0, l.Z)(y, d);
-                        if (b) return _(w, n, a, h)
+                        if (b) return g(w, n, a, h)
                     }
                     if (1 & m) {
                         var k, x = y.unmount,
@@ -20015,7 +21858,7 @@
                         return (0, c.E)(S ? 0 : 1, (k = {}, (0, o.Z)(k, 0, (function () {
                             return null
                         })), (0, o.Z)(k, 1, (function () {
-                            return _((0, s.Z)((0, s.Z)({}, M), {}, {
+                            return g((0, s.Z)((0, s.Z)({}, M), {}, {
                                 hidden: !0,
                                 style: {
                                     display: "none"
@@ -20023,10 +21866,10 @@
                             }), n, a, h)
                         })), k))
                     }
-                    return _(y, n, a, h)
+                    return g(y, n, a, h)
                 }
 
-                function _(e) {
+                function g(e) {
                     var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
                         r = arguments.length > 2 ? arguments[2] : void 0,
                         n = arguments.length > 3 ? arguments[3] : void 0,
@@ -20040,19 +21883,19 @@
                         y = void 0 !== e.ref ? (0, o.Z)({}, p, e.ref) : {},
                         m = "function" == typeof c ? c(t) : c;
                     h.className && "function" == typeof h.className && (h.className = h.className(t));
-                    var _ = {};
+                    var g = {};
                     if (s === u.Fragment && Object.keys(b(h)).length > 0) {
                         if (!(0, u.isValidElement)(m) || Array.isArray(m) && m.length > 1) throw new Error(['Passing props on "Fragment"!', "", "The current component <".concat(n, ' /> is rendering a "Fragment".'), "However we need to passthrough the following props:", Object.keys(h).map((function (e) {
                             return "  - ".concat(e)
                         })).join("\n"), "", "You can apply a few solutions:", ['Add an `as="..."` prop, to ensure that we render an actual element instead of a "Fragment".', "Render a single element as the child so that we can forward the props onto that element."].map((function (e) {
                             return "  - ".concat(e)
                         })).join("\n")].join("\n"));
-                        return (0, u.cloneElement)(m, Object.assign({}, g(m.props, b(w(h, ["ref"]))), _, y))
+                        return (0, u.cloneElement)(m, Object.assign({}, _(m.props, b(w(h, ["ref"]))), g, y))
                     }
-                    return (0, u.createElement)(s, Object.assign({}, w(h, ["ref"]), s !== u.Fragment && y, s !== u.Fragment && _), m)
+                    return (0, u.createElement)(s, Object.assign({}, w(h, ["ref"]), s !== u.Fragment && y, s !== u.Fragment && g), m)
                 }
 
-                function g() {
+                function _() {
                     for (var e = arguments.length, t = new Array(e), r = 0; r < e; r++) t[r] = arguments[r];
                     if (0 === t.length) return {};
                     if (1 === t.length) return t[0];
@@ -20147,8 +21990,8 @@
             }), []))
         }, r.u = function (e) {
             return "static/js/" + e + "." + {
-                115: "a275e632",
                 124: "8b9d0b83",
+                191: "f2bbaf6a",
                 394: "4165176d",
                 407: "7707f0f1",
                 803: "935feb41",
@@ -20381,12 +22224,12 @@
                     ctrlKey: 17,
                     altKey: 18,
                     metaKey: 91
-                }, _ = {
+                }, g = {
                     16: !1,
                     18: !1,
                     17: !1,
                     91: !1
-                }, g = {}, v = 1; v < 20; v++) h["f".concat(v)] = 111 + v;
+                }, _ = {}, v = 1; v < 20; v++) h["f".concat(v)] = 111 + v;
             var b = [],
                 w = !1,
                 k = "all",
@@ -20413,10 +22256,10 @@
                         a = t.length,
                         o = t[a - 1],
                         s = "*" === o ? "*" : S(o);
-                    if (g[s]) {
+                    if (_[s]) {
                         r || (r = A());
                         var l = a > 1 ? p(y, t) : [];
-                        g[s] = g[s].filter((function (e) {
+                        _[s] = _[s].filter((function (e) {
                             return !((!n || e.method === n) && e.scope === r && function (e, t) {
                                 for (var r = e.length >= t.length ? e : t, n = e.length >= t.length ? t : e, a = !0, i = 0; i < r.length; i++) - 1 === n.indexOf(r[i]) && (a = !1);
                                 return a
@@ -20429,31 +22272,31 @@
             function T(e, t, r, n) {
                 var a;
                 if (t.element === n && (t.scope === r || "all" === t.scope)) {
-                    for (var i in a = t.mods.length > 0, _) Object.prototype.hasOwnProperty.call(_, i) && (!_[i] && t.mods.indexOf(+i) > -1 || _[i] && -1 === t.mods.indexOf(+i)) && (a = !1);
-                    (0 !== t.mods.length || _[16] || _[18] || _[17] || _[91]) && !a && "*" !== t.shortcut || !1 === t.method(e, t) && (e.preventDefault ? e.preventDefault() : e.returnValue = !1, e.stopPropagation && e.stopPropagation(), e.cancelBubble && (e.cancelBubble = !0))
+                    for (var i in a = t.mods.length > 0, g) Object.prototype.hasOwnProperty.call(g, i) && (!g[i] && t.mods.indexOf(+i) > -1 || g[i] && -1 === t.mods.indexOf(+i)) && (a = !1);
+                    (0 !== t.mods.length || g[16] || g[18] || g[17] || g[91]) && !a && "*" !== t.shortcut || !1 === t.method(e, t) && (e.preventDefault ? e.preventDefault() : e.returnValue = !1, e.stopPropagation && e.stopPropagation(), e.cancelBubble && (e.cancelBubble = !0))
                 }
             }
 
             function O(e, t) {
-                var r = g["*"],
+                var r = _["*"],
                     n = e.keyCode || e.which || e.charCode;
                 if (E.filter.call(this, e)) {
                     if (93 !== n && 224 !== n || (n = 91), -1 === b.indexOf(n) && 229 !== n && b.push(n), ["ctrlKey", "altKey", "shiftKey", "metaKey"].forEach((function (t) {
                             var r = m[t];
                             e[t] && -1 === b.indexOf(r) ? b.push(r) : !e[t] && b.indexOf(r) > -1 ? b.splice(b.indexOf(r), 1) : "metaKey" === t && e[t] && 3 === b.length && (e.ctrlKey || e.shiftKey || e.altKey || (b = b.slice(b.indexOf(r))))
-                        })), n in _) {
-                        for (var a in _[n] = !0, y) y[a] === n && (E[a] = !0);
+                        })), n in g) {
+                        for (var a in g[n] = !0, y) y[a] === n && (E[a] = !0);
                         if (!r) return
                     }
-                    for (var i in _) Object.prototype.hasOwnProperty.call(_, i) && (_[i] = e[m[i]]);
-                    e.getModifierState && (!e.altKey || e.ctrlKey) && e.getModifierState("AltGraph") && (-1 === b.indexOf(17) && b.push(17), -1 === b.indexOf(18) && b.push(18), _[17] = !0, _[18] = !0);
+                    for (var i in g) Object.prototype.hasOwnProperty.call(g, i) && (g[i] = e[m[i]]);
+                    e.getModifierState && (!e.altKey || e.ctrlKey) && e.getModifierState("AltGraph") && (-1 === b.indexOf(17) && b.push(17), -1 === b.indexOf(18) && b.push(18), g[17] = !0, g[18] = !0);
                     var o = A();
                     if (r)
                         for (var s = 0; s < r.length; s++) r[s].scope === o && ("keydown" === e.type && r[s].keydown || "keyup" === e.type && r[s].keyup) && T(e, r[s], o, t);
-                    if (n in g)
-                        for (var l = 0; l < g[n].length; l++)
-                            if (("keydown" === e.type && g[n][l].keydown || "keyup" === e.type && g[n][l].keyup) && g[n][l].key) {
-                                for (var u = g[n][l], c = u.splitKey, d = u.key.split(c), p = [], f = 0; f < d.length; f++) p.push(S(d[f]));
+                    if (n in _)
+                        for (var l = 0; l < _[n].length; l++)
+                            if (("keydown" === e.type && _[n][l].keydown || "keyup" === e.type && _[n][l].keyup) && _[n][l].key) {
+                                for (var u = _[n][l], c = u.splitKey, d = u.key.split(c), p = [], f = 0; f < d.length; f++) p.push(S(d[f]));
                                 p.sort().join("") === b.sort().join("") && T(e, u, o, t)
                             }
                 }
@@ -20470,7 +22313,7 @@
                     u = !0,
                     c = "+",
                     h = !1;
-                for (void 0 === r && "function" === typeof t && (r = t), "[object Object]" === Object.prototype.toString.call(t) && (t.scope && (i = t.scope), t.element && (o = t.element), t.keyup && (l = t.keyup), void 0 !== t.keydown && (u = t.keydown), void 0 !== t.capture && (h = t.capture), "string" === typeof t.splitKey && (c = t.splitKey)), "string" === typeof t && (i = t); s < n.length; s++) a = [], (e = n[s].split(c)).length > 1 && (a = p(y, e)), (e = "*" === (e = e[e.length - 1]) ? "*" : S(e)) in g || (g[e] = []), g[e].push({
+                for (void 0 === r && "function" === typeof t && (r = t), "[object Object]" === Object.prototype.toString.call(t) && (t.scope && (i = t.scope), t.element && (o = t.element), t.keyup && (l = t.keyup), void 0 !== t.keydown && (u = t.keydown), void 0 !== t.capture && (h = t.capture), "string" === typeof t.splitKey && (c = t.splitKey)), "string" === typeof t && (i = t); s < n.length; s++) a = [], (e = n[s].split(c)).length > 1 && (a = p(y, e)), (e = "*" === (e = e[e.length - 1]) ? "*" : S(e)) in _ || (_[e] = []), _[e].push({
                     keyup: l,
                     keydown: u,
                     scope: i,
@@ -20492,8 +22335,8 @@
                         function (e) {
                             var t = e.keyCode || e.which || e.charCode,
                                 r = b.indexOf(t);
-                            if (r >= 0 && b.splice(r, 1), e.key && "meta" === e.key.toLowerCase() && b.splice(0, b.length), 93 !== t && 224 !== t || (t = 91), t in _)
-                                for (var n in _[t] = !1, y) y[n] === t && (E[n] = !1)
+                            if (r >= 0 && b.splice(r, 1), e.key && "meta" === e.key.toLowerCase() && b.splice(0, b.length), 93 !== t && 224 !== t || (t = 91), t in g)
+                                for (var n in g[t] = !1, y) y[n] === t && (E[n] = !1)
                         }(e)
                 }), h))
             }
@@ -20502,9 +22345,9 @@
                 getScope: A,
                 deleteScope: function (e, t) {
                     var r, n;
-                    for (var a in e || (e = A()), g)
-                        if (Object.prototype.hasOwnProperty.call(g, a))
-                            for (r = g[a], n = 0; n < r.length;) r[n].scope === e ? r.splice(n, 1) : n++;
+                    for (var a in e || (e = A()), _)
+                        if (Object.prototype.hasOwnProperty.call(_, a))
+                            for (r = _[a], n = 0; n < r.length;) r[n].scope === e ? r.splice(n, 1) : n++;
                     A() === e && M(t || "all")
                 },
                 getPressedKeyCodes: function () {
@@ -20521,16 +22364,16 @@
                 },
                 trigger: function (e) {
                     var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "all";
-                    Object.keys(g).forEach((function (r) {
-                        var n = g[r].find((function (r) {
+                    Object.keys(_).forEach((function (r) {
+                        var n = _[r].find((function (r) {
                             return r.scope === t && r.shortcut === e
                         }));
                         n && n.method && n.method()
                     }))
                 },
                 unbind: function (e) {
-                    if ("undefined" === typeof e) Object.keys(g).forEach((function (e) {
-                        return delete g[e]
+                    if ("undefined" === typeof e) Object.keys(_).forEach((function (e) {
+                        return delete _[e]
                     }));
                     else if (Array.isArray(e)) e.forEach((function (e) {
                         e.key && C(e)
@@ -20561,7 +22404,7 @@
             }
             var L = r(4942),
                 q = r(885),
-                P = r(5792),
+                P = r(4925),
                 R = r(2982);
 
             function D(e) {
@@ -20574,11 +22417,11 @@
                         for (t in e) e[t] && (n && (n += " "), n += t);
                 return n
             }
-            var F = function () {
+            var V = function () {
                     for (var e, t, r = 0, n = ""; r < arguments.length;)(e = arguments[r++]) && (t = D(e)) && (n && (n += " "), n += t);
                     return n
                 },
-                V = ["theme", "type"],
+                F = ["theme", "type"],
                 H = ["delay", "staleId"];
 
             function z(e) {
@@ -20645,16 +22488,16 @@
                         y = (0, o.useRef)(),
                         m = (0, o.useRef)(0);
 
-                    function _(e) {
+                    function g(e) {
                         if (e.target === d.current) {
                             var t = d.current;
-                            t.dispatchEvent(new Event("d")), t.removeEventListener("animationend", _), t.removeEventListener("animationcancel", _), 0 === m.current && "animationcancel" !== e.type && (t.className = y.current)
+                            t.dispatchEvent(new Event("d")), t.removeEventListener("animationend", g), t.removeEventListener("animationcancel", g), 0 === m.current && "animationcancel" !== e.type && (t.className = y.current)
                         }
                     }
 
-                    function g() {
+                    function _() {
                         var e = d.current;
-                        e.removeEventListener("animationend", g), s ? function (e, t, r) {
+                        e.removeEventListener("animationend", _), s ? function (e, t, r) {
                             void 0 === r && (r = 300);
                             var n = e.scrollHeight,
                                 a = e.style;
@@ -20668,13 +22511,13 @@
                     return (0, o.useLayoutEffect)((function () {
                         ! function () {
                             var e = d.current;
-                            y.current = e.className, e.className += " " + f, e.addEventListener("animationend", _), e.addEventListener("animationcancel", _)
+                            y.current = e.className, e.className += " " + f, e.addEventListener("animationend", g), e.addEventListener("animationcancel", g)
                         }()
                     }), []), (0, o.useEffect)((function () {
-                        p || (l ? g() : function () {
+                        p || (l ? _() : function () {
                             m.current = 1;
                             var e = d.current;
-                            e.className += " " + h, e.addEventListener("animationend", g)
+                            e.className += " " + h, e.addEventListener("animationend", _)
                         }())
                     }), [p]), o.createElement(o.Fragment, null, n)
                 }
@@ -20726,7 +22569,7 @@
                 ee = function (e) {
                     var t = e.theme,
                         r = e.type,
-                        a = (0, P.Z)(e, V);
+                        a = (0, P.Z)(e, F);
                     return o.createElement("svg", (0, n.Z)({
                         viewBox: "0 0 24 24",
                         width: "100%",
@@ -20833,11 +22676,11 @@
                             c = i.updateId,
                             p = i.data,
                             y = d.props,
-                            _ = function () {
+                            g = function () {
                                 return f(s)
                             },
-                            g = null == c;
-                        g && d.count++;
+                            _ = null == c;
+                        _ && d.count++;
                         var v, b, w = {
                             toastId: s,
                             updateId: c,
@@ -20849,7 +22692,7 @@
                             isIn: !1,
                             key: i.key || d.toastKey++,
                             type: i.type,
-                            closeToast: _,
+                            closeToast: g,
                             closeButton: i.closeButton,
                             rtl: y.rtl,
                             position: i.position || y.position,
@@ -20889,14 +22732,14 @@
                         w.iconOut = re(w), B(i.onOpen) && (w.onOpen = i.onOpen), B(i.onClose) && (w.onClose = i.onClose), w.closeButton = y.closeButton, !1 === i.closeButton || U(i.closeButton) ? w.closeButton = i.closeButton : !0 === i.closeButton && (w.closeButton = !U(y.closeButton) || y.closeButton);
                         var k = e;
                         (0, o.isValidElement)(e) && !W(e.type) ? k = (0, o.cloneElement)(e, {
-                            closeToast: _,
+                            closeToast: g,
                             toastProps: w,
                             data: p
                         }) : B(e) && (k = e({
-                            closeToast: _,
+                            closeToast: g,
                             toastProps: w,
                             data: p
-                        })), y.limit && y.limit > 0 && d.count > y.limit && g ? d.queue.push({
+                        })), y.limit && y.limit > 0 && d.count > y.limit && _ ? d.queue.push({
                             toastContent: k,
                             toastProps: w,
                             staleId: a
@@ -20978,9 +22821,9 @@
                     h = e.pauseOnHover,
                     y = e.closeToast,
                     m = e.onClick,
-                    _ = e.closeOnClick;
+                    g = e.closeOnClick;
 
-                function g(t) {
+                function _(t) {
                     if (e.draggable) {
                         d.didMove = !1, document.addEventListener("mousemove", k), document.addEventListener("mouseup", x), document.addEventListener("touchmove", k), document.addEventListener("touchend", x);
                         var r = c.current;
@@ -21039,12 +22882,12 @@
                         }
                 }), [e.pauseOnFocusLoss]);
                 var S = {
-                    onMouseDown: g,
-                    onTouchStart: g,
+                    onMouseDown: _,
+                    onTouchStart: _,
                     onMouseUp: v,
                     onTouchEnd: v
                 };
-                return f && h && (S.onMouseEnter = w, S.onMouseLeave = b), _ && (S.onClick = function (e) {
+                return f && h && (S.onMouseEnter = w, S.onMouseLeave = b), g && (S.onClick = function (e) {
                     m && m(e), d.canCloseOnClick && y()
                 }), {
                     playToast: b,
@@ -21096,22 +22939,22 @@
                         opacity: s ? 0 : 1
                     });
                 c && (y.transform = "scaleX(" + d + ")");
-                var m = F("Toastify__progress-bar", c ? "Toastify__progress-bar--controlled" : "Toastify__progress-bar--animated", "Toastify__progress-bar-theme--" + h, "Toastify__progress-bar--" + i, (0, L.Z)({}, "Toastify__progress-bar--rtl", p)),
-                    _ = B(l) ? l({
+                var m = V("Toastify__progress-bar", c ? "Toastify__progress-bar--controlled" : "Toastify__progress-bar--animated", "Toastify__progress-bar-theme--" + h, "Toastify__progress-bar--" + i, (0, L.Z)({}, "Toastify__progress-bar--rtl", p)),
+                    g = B(l) ? l({
                         rtl: p,
                         type: i,
                         defaultClassName: m
-                    }) : F(m, l),
-                    g = (0, L.Z)({}, c && d >= 1 ? "onTransitionEnd" : "onAnimationEnd", c && d < 1 ? null : function () {
+                    }) : V(m, l),
+                    _ = (0, L.Z)({}, c && d >= 1 ? "onTransitionEnd" : "onAnimationEnd", c && d < 1 ? null : function () {
                         f && a()
                     });
                 return o.createElement("div", (0, n.Z)({
                     role: "progressbar",
                     "aria-hidden": s ? "true" : "false",
                     "aria-label": "notification timer",
-                    className: _,
+                    className: g,
                     style: y
-                }, g))
+                }, _))
             }
             le.defaultProps = {
                 type: Q.DEFAULT,
@@ -21132,8 +22975,8 @@
                         h = e.closeToast,
                         y = e.transition,
                         m = e.position,
-                        _ = e.className,
-                        g = e.style,
+                        g = e.className,
+                        _ = e.style,
                         v = e.bodyClassName,
                         b = e.bodyStyle,
                         w = e.progressClassName,
@@ -21148,13 +22991,13 @@
                         E = e.isLoading,
                         N = e.iconOut,
                         j = e.theme,
-                        I = F("Toastify__toast", "Toastify__toast-theme--" + j, "Toastify__toast--" + p, (0, L.Z)({}, "Toastify__toast--rtl", A)),
-                        q = B(_) ? _({
+                        I = V("Toastify__toast", "Toastify__toast-theme--" + j, "Toastify__toast--" + p, (0, L.Z)({}, "Toastify__toast--rtl", A)),
+                        q = B(g) ? g({
                             rtl: A,
                             position: m,
                             type: p,
                             defaultClassName: I
-                        }) : F(I, _),
+                        }) : V(I, g),
                         P = !!M,
                         R = {
                             closeToast: h,
@@ -21173,17 +23016,17 @@
                         onClick: d,
                         className: q
                     }, s), {}, {
-                        style: g,
+                        style: _,
                         ref: i
                     }), o.createElement("div", (0, n.Z)((0, n.Z)({}, O && {
                         role: S
                     }), {}, {
                         className: B(v) ? v({
                             type: p
-                        }) : F("Toastify__toast-body", v),
+                        }) : V("Toastify__toast-body", v),
                         style: b
                     }), null != N && o.createElement("div", {
-                        className: F("Toastify__toast-icon", (0, L.Z)({}, "Toastify--animate-icon Toastify__zoom-enter", !E))
+                        className: V("Toastify__toast-icon", (0, L.Z)({}, "Toastify--animate-icon Toastify__zoom-enter", !E))
                     }, N), o.createElement("div", null, u)), D, (c || P) && o.createElement(le, (0, n.Z)((0, n.Z)({}, x && !P ? {
                         key: "pb-" + x
                     } : {}), {}, {
@@ -21227,12 +23070,12 @@
                         d = e.containerId;
 
                     function p(e) {
-                        var t = F("Toastify__toast-container", "Toastify__toast-container--" + e, (0, L.Z)({}, "Toastify__toast-container--rtl", c));
+                        var t = V("Toastify__toast-container", "Toastify__toast-container--" + e, (0, L.Z)({}, "Toastify__toast-container--rtl", c));
                         return B(l) ? l({
                             position: e,
                             rtl: c,
                             defaultClassName: t
-                        }) : F(t, K(l))
+                        }) : V(t, K(l))
                     }
                     return (0, o.useEffect)((function () {
                         t && (t.current = i.current)
@@ -21290,14 +23133,14 @@
                 return e && (W(e.toastId) || z(e.toastId)) ? e.toastId : ye()
             }
 
-            function _e(e, t) {
+            function ge(e, t) {
                 return fe.size > 0 ? J.emit(0, e, t) : he.push({
                     content: e,
                     options: t
                 }), t.toastId
             }
 
-            function ge(e, t) {
+            function _e(e, t) {
                 return (0, n.Z)((0, n.Z)({}, t), {}, {
                     type: t && t.type || e,
                     toastId: me(t)
@@ -21306,15 +23149,15 @@
 
             function ve(e) {
                 return function (t, r) {
-                    return _e(t, ge(e, r))
+                    return ge(t, _e(e, r))
                 }
             }
 
             function be(e, t) {
-                return _e(e, ge(Q.DEFAULT, t))
+                return ge(e, _e(Q.DEFAULT, t))
             }
             be.loading = function (e, t) {
-                return _e(e, ge(Q.DEFAULT, (0, n.Z)({
+                return ge(e, _e(Q.DEFAULT, (0, n.Z)({
                     isLoading: !0,
                     autoClose: !1,
                     closeOnClick: !1,
@@ -21355,7 +23198,7 @@
                     return u("error", o, e)
                 })), c
             }, be.success = ve(Q.SUCCESS), be.info = ve(Q.INFO), be.error = ve(Q.ERROR), be.warning = ve(Q.WARNING), be.warn = be.warning, be.dark = function (e, t) {
-                return _e(e, ge(Q.DEFAULT, (0, n.Z)({
+                return ge(e, _e(Q.DEFAULT, (0, n.Z)({
                     theme: "dark"
                 }, t)))
             }, be.dismiss = function (e) {
@@ -21383,7 +23226,7 @@
                             });
                         o.toastId !== e && (o.staleId = e);
                         var s = o.render || i;
-                        delete o.render, _e(s, o)
+                        delete o.render, ge(s, o)
                     }
                 }), 0)
             }, be.done = function (e) {
@@ -21593,6 +23436,54 @@
                             type: "resource",
                             id: "fame",
                             value: 10,
+                            perc: !0
+                        }]
+                    }]
+                }, {
+                    id: "persuade_nobility",
+                    ach: [{
+                        id: "persuade_nobility",
+                        rarity: "epic",
+                        req: [{
+                            type: "tech",
+                            id: "persuade_nobility",
+                            value: 1
+                        }],
+                        gen: [{
+                            type: "resource",
+                            id: "gold",
+                            value: 2,
+                            perc: !0
+                        }, {
+                            type: "cap",
+                            id: "army",
+                            value: 2
+                        }]
+                    }]
+                }, {
+                    id: "loved_people",
+                    ach: [{
+                        id: "loved_people",
+                        rarity: "epic",
+                        req: [{
+                            type: "tech",
+                            id: "loved_people",
+                            value: 1
+                        }],
+                        gen: [{
+                            type: "resource",
+                            id: "research",
+                            value: 2,
+                            perc: !0
+                        }, {
+                            type: "resource",
+                            id: "gold",
+                            value: 2,
+                            perc: !0
+                        }, {
+                            type: "resource",
+                            id: "food",
+                            value: 2,
                             perc: !0
                         }]
                     }]
@@ -24646,7 +26537,7 @@
                     }]
                 }, {
                     id: "reward_prod5",
-                    found: [5],
+                    found: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
                     time: 300,
                     req: [{
                         type: "tech",
@@ -24666,7 +26557,7 @@
                     }]
                 }, {
                     id: "reward_prod6",
-                    found: [6],
+                    found: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
                     time: 300,
                     req: [{
                         type: "tech",
@@ -24686,7 +26577,7 @@
                     }]
                 }, {
                     id: "reward_prod7",
-                    found: [7],
+                    found: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
                     time: 300,
                     req: [{
                         type: "tech",
@@ -24703,118 +26594,6 @@
                         id: "natronite",
                         value: 150,
                         perc: !0
-                    }]
-                }, {
-                    id: "reward_flat1",
-                    found: [8],
-                    gen: [{
-                        type: "resource",
-                        id: "wood",
-                        value: 5e4,
-                        fix: !0
-                    }, {
-                        type: "resource",
-                        id: "stone",
-                        value: 5e4,
-                        fix: !0
-                    }]
-                }, {
-                    id: "reward_flat2",
-                    found: [9],
-                    req: [{
-                        type: "tech",
-                        id: "bronze_working",
-                        value: 1
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "copper",
-                        value: 25e3,
-                        fix: !0
-                    }, {
-                        type: "resource",
-                        id: "iron",
-                        value: 25e3,
-                        fix: !0
-                    }]
-                }, {
-                    id: "reward_flat3",
-                    found: [10],
-                    req: [{
-                        type: "tech",
-                        id: "bronze_working",
-                        value: 1
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "tools",
-                        value: 25e3,
-                        fix: !0
-                    }]
-                }, {
-                    id: "reward_flat4",
-                    found: [11],
-                    req: [{
-                        type: "tech",
-                        id: "guild",
-                        value: 1
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "building_material",
-                        value: 1e4,
-                        fix: !0
-                    }, {
-                        type: "resource",
-                        id: "steel",
-                        value: 1e4,
-                        fix: !0
-                    }]
-                }, {
-                    id: "reward_flat5",
-                    found: [12],
-                    req: [{
-                        type: "tech",
-                        id: "guild",
-                        value: 1
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "crystal",
-                        value: 1e4,
-                        fix: !0
-                    }, {
-                        type: "resource",
-                        id: "supplies",
-                        value: 1e4,
-                        fix: !0
-                    }]
-                }, {
-                    id: "reward_flat6",
-                    found: [13],
-                    gen: [{
-                        type: "resource",
-                        id: "fame",
-                        value: 50,
-                        fix: !0
-                    }]
-                }, {
-                    id: "reward_flat7",
-                    found: [14],
-                    gen: [{
-                        type: "resource",
-                        id: "research",
-                        value: 1e5,
-                        fix: !0
-                    }]
-                }, {
-                    id: "reward_flat8",
-                    found: [16],
-                    gen: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 1e5,
-                        fix: !0
                     }]
                 }],
                 Pe = function () {
@@ -24860,15 +26639,7 @@
                             checkAvailableAd: s.aD
                         });
                         var n = document.createElement("script");
-                        n.setAttribute("async", ""), n.setAttribute("data-ad-client", "ca-pub-9303485539661341"), n.setAttribute("data-ad-frequency-hint", "30s"), n.setAttribute("src", "https://pagead2.googlesyndicat132ion.com/pagead/js/adsbygoogle.js"), {
-                            NODE_ENV: "production",
-                            PUBLIC_URL: "./",
-                            WDS_SOCKET_HOST: void 0,
-                            WDS_SOCKET_PATH: void 0,
-                            WDS_SOCKET_PORT: void 0,
-                            FAST_REFRESH: !0,
-                            REACT_APP_VERSION: "0.42.3"
-                        }.REACT_APP_DEV && n.setAttribute("data-adbreak-test", "on"), window.document.head.appendChild(n), window.adConfig({
+                        n.setAttribute("async", ""), n.setAttribute("data-ad-client", "ca-pub-9303485539661341"), n.setAttribute("data-ad-frequency-hint", "30s"), n.setAttribute("src", "https://pagead2.googlesyndi111cation.com/pagead/js/adsbygoogle.js"), this.MainStore.d && n.setAttribute("data-adbreak-test", "on"), window.document.head.appendChild(n), window.adConfig({
                             preloadAdBreaks: "on",
                             sound: "on"
                         })
@@ -24916,7 +26687,7 @@
                 Re = Pe,
                 De = r(7786);
 
-            function Fe(e, t, r, n) {
+            function Ve(e, t, r, n) {
                 De.ZP.event({
                     category: e,
                     action: t,
@@ -24931,9 +26702,9 @@
                 WDS_SOCKET_PATH: void 0,
                 WDS_SOCKET_PORT: void 0,
                 FAST_REFRESH: !0,
-                REACT_APP_VERSION: "0.42.3"
+                REACT_APP_VERSION: "0.43"
             }.REACT_APP_DEV ? "G-ML4EM1RS0Y" : "G-Z39X9GG6TF");
-            var Ve = [{
+            var Fe = [{
                     id: "ancestor_farmer",
                     color: "#16a34a",
                     gen: [{
@@ -25076,1649 +26847,36 @@
                         key: "ancestorData",
                         get: function () {
                             var e = this,
-                                t = Ve.findIndex((function (t) {
+                                t = Fe.findIndex((function (t) {
                                     return t.id === e.MainStore.run.ancestors
                                 }));
-                            return -1 !== t && Ve[t]
+                            return -1 !== t && Fe[t]
                         }
                     }, {
                         key: "visibleAncestors",
                         get: function () {
                             var e = this;
-                            return Ve.filter((function (t) {
+                            return Fe.filter((function (t) {
                                 return e.MainStore.ReqGenStore.checkReq("ancestor", t.id, t)
                             }))
                         }
                     }, {
                         key: "updateAncestor",
                         value: function (e) {
-                            this.MainStore.run.ancestors = e, this.MainStore.ReqGenStore.runGen("ancestor", e), this.MainStore.ArmyStore.addArmy("settlement_defenses", !0), this._updateAncestorColor(), this.MainStore.addLog("village_empty", "", !1, !1), this.MainStore.toggleImageNotification("img_start", "img_start_description"), this.MainStore.save(), Fe("event", "ancestor", e, this.MainStore.StatsStore.resetNumber)
+                            this.MainStore.run.ancestors = e, this.MainStore.ReqGenStore.runGen("ancestor", e), this.MainStore.ArmyStore.addArmy("settlement_defenses", !0), this._updateAncestorColor(), this.MainStore.addLog("village_empty", "", !1, !1), this.MainStore.toggleImageNotification("img_start", "img_start_description"), this.MainStore.save(), Ve("event", "ancestor", e, this.MainStore.StatsStore.resetNumber)
                         }
                     }, {
                         key: "_updateAncestorColor",
                         value: function () {
                             var e = this,
-                                t = Ve.findIndex((function (t) {
+                                t = Fe.findIndex((function (t) {
                                     return t.id === e.MainStore.run.ancestors
-                                })); - 1 !== t && document.documentElement.style.setProperty("--ancestor-color", Ve[t].color)
+                                })); - 1 !== t && document.documentElement.style.setProperty("--ancestor-color", Fe[t].color)
                         }
                     }]), e
                 }(),
                 ze = He,
-                Ze = [{
-                    id: "settlement_defenses",
-                    type: "settlement",
-                    attack: 1,
-                    defense: 50,
-                    order: 0,
-                    category: 0
-                }, {
-                    id: "scout",
-                    type: "recon",
-                    attack: 2,
-                    defense: 2,
-                    order: 3,
-                    category: 0,
-                    req: [{
-                        type: "tech",
-                        id: "archery",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 400
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 200
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 200
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 100
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -.1
-                    }]
-                }, {
-                    id: "explorer",
-                    type: "recon",
-                    attack: 5,
-                    defense: 5,
-                    order: 3,
-                    category: 0,
-                    req: [{
-                        type: "tech",
-                        id: "guild",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 1e3
-                    }, {
-                        type: "resource",
-                        id: "supplies",
-                        value: 100
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 400
-                    }, {
-                        type: "resource",
-                        id: "supplies",
-                        value: 20
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -.2
-                    }]
-                }, {
-                    id: "spy",
-                    type: "spy",
-                    attack: 7,
-                    defense: 3,
-                    order: 3,
-                    category: 0,
-                    req: [{
-                        type: "tech",
-                        id: "espionage",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 1e3
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 100
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -.1
-                    }]
-                }, {
-                    id: "archer",
-                    type: "army",
-                    attack: 3,
-                    defense: 2,
-                    order: 3,
-                    category: 1,
-                    req: [{
-                        type: "tech",
-                        id: "archery",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 200
-                    }, {
-                        type: "resource",
-                        id: "wood",
-                        value: 100
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 20
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 20
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -.2
-                    }]
-                }, {
-                    id: "battering_ram",
-                    type: "army",
-                    attack: 14,
-                    defense: 2,
-                    order: 3,
-                    category: 1,
-                    req: [{
-                        type: "tech",
-                        id: "warfare",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 800
-                    }, {
-                        type: "resource",
-                        id: "wood",
-                        value: 1e3
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 80
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 50
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "gold",
-                        value: -4
-                    }]
-                }, {
-                    id: "crossbowman",
-                    type: "army",
-                    attack: 11,
-                    defense: 6,
-                    order: 3,
-                    category: 1,
-                    req: [{
-                        type: "tech",
-                        id: "crossbow",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 1e3
-                    }, {
-                        type: "resource",
-                        id: "wood",
-                        value: 400
-                    }, {
-                        type: "resource",
-                        id: "supplies",
-                        value: 50
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 40
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 40
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -.5
-                    }]
-                }, {
-                    id: "trebuchet",
-                    type: "army",
-                    attack: 28,
-                    defense: 3,
-                    order: 3,
-                    category: 1,
-                    req: [{
-                        type: "tech",
-                        id: "siege_techniques",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 1200
-                    }, {
-                        type: "resource",
-                        id: "wood",
-                        value: 2e3
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 100
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 100
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "gold",
-                        value: -5
-                    }]
-                }, {
-                    id: "arquebusier",
-                    type: "army",
-                    attack: 16,
-                    defense: 7,
-                    order: 3,
-                    category: 1,
-                    req: [{
-                        type: "tech",
-                        id: "gunpowder",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 1500
-                    }, {
-                        type: "resource",
-                        id: "saltpetre",
-                        value: 100
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 80
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 40
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -.9
-                    }]
-                }, {
-                    id: "bombard",
-                    type: "army",
-                    attack: 42,
-                    defense: 4,
-                    order: 3,
-                    category: 1,
-                    req: [{
-                        type: "tech",
-                        id: "military_science",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 2e3
-                    }, {
-                        type: "resource",
-                        id: "steel",
-                        value: 200
-                    }, {
-                        type: "resource",
-                        id: "saltpetre",
-                        value: 200
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 200
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "gold",
-                        value: -7
-                    }]
-                }, {
-                    id: "cannon",
-                    type: "army",
-                    attack: 88,
-                    defense: 8,
-                    order: 3,
-                    category: 1,
-                    req: [{
-                        type: "tech",
-                        id: "field_artillery",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 5e3
-                    }, {
-                        type: "resource",
-                        id: "saltpetre",
-                        value: 1e3
-                    }, {
-                        type: "resource",
-                        id: "steel",
-                        value: 500
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 500
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "gold",
-                        value: -15
-                    }]
-                }, {
-                    id: "spearman",
-                    type: "army",
-                    attack: 2,
-                    defense: 7,
-                    order: 1,
-                    category: 3,
-                    req: [{
-                        type: "tech",
-                        id: "bronze_working",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 200
-                    }, {
-                        type: "resource",
-                        id: "wood",
-                        value: 150
-                    }, {
-                        type: "resource",
-                        id: "copper",
-                        value: 50
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 30
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 25
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -.2
-                    }]
-                }, {
-                    id: "warrior_monk",
-                    type: "army",
-                    attack: 3,
-                    defense: 13,
-                    order: 1,
-                    category: 3,
-                    req: [{
-                        type: "prayer",
-                        id: "prayer_for_the_ancient_monk",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "faith",
-                        value: 800
-                    }, {
-                        type: "resource",
-                        id: "mana",
-                        value: 400
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "food",
-                        value: 10
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -.4
-                    }]
-                }, {
-                    id: "shieldbearer",
-                    type: "army",
-                    attack: 5,
-                    defense: 23,
-                    order: 1,
-                    category: 3,
-                    req: [{
-                        type: "tech",
-                        id: "bronze_working",
-                        value: 1
-                    }, {
-                        type: "legacy",
-                        id: "shieldbearer",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 350
-                    }, {
-                        type: "resource",
-                        id: "wood",
-                        value: 350
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 30
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 30
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -.4
-                    }]
-                }, {
-                    id: "priest",
-                    type: "army",
-                    attack: 1,
-                    defense: 31,
-                    order: 2,
-                    category: 3,
-                    req: [{
-                        type: "tech",
-                        id: "religion",
-                        value: 1
-                    }, {
-                        type: "legacy",
-                        id: "priest",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 800
-                    }, {
-                        type: "resource",
-                        id: "faith",
-                        value: 800
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "food",
-                        value: 80
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: -1
-                    }]
-                }, {
-                    id: "sacred_golem",
-                    type: "army",
-                    attack: 8,
-                    defense: 22,
-                    order: 1,
-                    category: 3,
-                    req: [{
-                        type: "prayer",
-                        id: "create_sacred_golem",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "stone",
-                        value: 2e3
-                    }, {
-                        type: "resource",
-                        id: "faith",
-                        value: 1e3
-                    }, {
-                        type: "resource",
-                        id: "mana",
-                        value: 800
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "mana",
-                        value: 100
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "mana",
-                        value: -1
-                    }]
-                }, {
-                    id: "cleric",
-                    type: "army",
-                    attack: 8,
-                    defense: 24,
-                    order: 2,
-                    category: 3,
-                    req: [{
-                        type: "tech",
-                        id: "order_of_clerics",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "faith",
-                        value: 1800
-                    }, {
-                        type: "resource",
-                        id: "crystal",
-                        value: 200
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "food",
-                        value: 60
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -1
-                    }]
-                }, {
-                    id: "juggernaut",
-                    type: "army",
-                    attack: 15,
-                    defense: 50,
-                    order: 1,
-                    category: 3,
-                    req: [{
-                        type: "tech",
-                        id: "bronze_working",
-                        value: 1
-                    }, {
-                        type: "legacy",
-                        id: "juggernaut",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 600
-                    }, {
-                        type: "resource",
-                        id: "cow",
-                        value: 600
-                    }, {
-                        type: "resource",
-                        id: "mana",
-                        value: 400
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "food",
-                        value: 150
-                    }, {
-                        type: "resource",
-                        id: "mana",
-                        value: 150
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -2
-                    }, {
-                        type: "resource",
-                        id: "mana",
-                        value: -1
-                    }]
-                }, {
-                    id: "warrior",
-                    type: "army",
-                    attack: 8,
-                    defense: 8,
-                    order: 2,
-                    category: 2,
-                    req: [{
-                        type: "tech",
-                        id: "bronze_working",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 400
-                    }, {
-                        type: "resource",
-                        id: "copper",
-                        value: 200
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 40
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 40
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -.4
-                    }]
-                }, {
-                    id: "mercenary_veteran",
-                    type: "army",
-                    attack: 12,
-                    defense: 8,
-                    order: 1,
-                    category: 2,
-                    req: [{
-                        type: "tech",
-                        id: "mercenary_bands",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 2500
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 150
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "gold",
-                        value: -5
-                    }]
-                }, {
-                    id: "heavy_warrior",
-                    type: "army",
-                    attack: 12,
-                    defense: 12,
-                    order: 2,
-                    category: 2,
-                    req: [{
-                        type: "tech",
-                        id: "iron_working",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 800
-                    }, {
-                        type: "resource",
-                        id: "iron",
-                        value: 300
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 70
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 70
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -.6
-                    }]
-                }, {
-                    id: "canava_guard",
-                    type: "army",
-                    attack: 15,
-                    defense: 15,
-                    order: 2,
-                    category: 2,
-                    req: [{
-                        type: "tech",
-                        id: "canava_mercenary",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 2e3
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 50
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "gold",
-                        value: -6
-                    }]
-                }, {
-                    id: "man_at_arms",
-                    type: "army",
-                    attack: 21,
-                    defense: 16,
-                    order: 2,
-                    category: 2,
-                    req: [{
-                        type: "tech",
-                        id: "plate_armor",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 1500
-                    }, {
-                        type: "resource",
-                        id: "steel",
-                        value: 250
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 120
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 80
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -.8
-                    }]
-                }, {
-                    id: "line_infantry",
-                    type: "army",
-                    attack: 34,
-                    defense: 22,
-                    order: 2,
-                    category: 2,
-                    req: [{
-                        type: "tech",
-                        id: "flintlock_musket",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 2500
-                    }, {
-                        type: "resource",
-                        id: "saltpetre",
-                        value: 500
-                    }, {
-                        type: "resource",
-                        id: "supplies",
-                        value: 250
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 250
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 120
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -1.4
-                    }]
-                }, {
-                    id: "battle_angel",
-                    type: "army",
-                    attack: 38,
-                    defense: 36,
-                    order: 2,
-                    category: 2,
-                    req: [{
-                        type: "tech",
-                        id: "holy_fury",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "faith",
-                        value: 2e3
-                    }, {
-                        type: "resource",
-                        id: "mana",
-                        value: 600
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "faith",
-                        value: 100
-                    }, {
-                        type: "resource",
-                        id: "mana",
-                        value: 100
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "mana",
-                        value: -1
-                    }]
-                }, {
-                    id: "commander",
-                    type: "army",
-                    attack: 30,
-                    defense: 26,
-                    order: 3,
-                    cap: 1,
-                    category: 2,
-                    req: [{
-                        type: "tech",
-                        id: "warfare",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 2500
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 200
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 120
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -2
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: -10
-                    }]
-                }, {
-                    id: "tamed_djinn",
-                    type: "army",
-                    attack: 40,
-                    defense: 40,
-                    order: 2,
-                    cap: 1,
-                    category: 2,
-                    req: [{
-                        type: "prayer",
-                        id: "desire_war",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "mana",
-                        value: 1e3
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "mana",
-                        value: 100
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "mana",
-                        value: -5
-                    }]
-                }, {
-                    id: "general",
-                    type: "army",
-                    attack: 60,
-                    defense: 90,
-                    order: 3,
-                    cap: 1,
-                    category: 2,
-                    req: [{
-                        type: "building",
-                        id: "officer_training_ground",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 15e3
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 1e3
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 500
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -10
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: -30
-                    }]
-                }, {
-                    id: "light_cavarly",
-                    type: "army",
-                    attack: 10,
-                    defense: 4,
-                    order: 2,
-                    category: 4,
-                    req: [{
-                        type: "tech",
-                        id: "breeding",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 400
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 300
-                    }, {
-                        type: "resource",
-                        id: "horse",
-                        value: 25
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 60
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 40
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -.5
-                    }]
-                }, {
-                    id: "knight",
-                    type: "army",
-                    attack: 26,
-                    defense: 22,
-                    order: 2,
-                    category: 4,
-                    req: [{
-                        type: "tech",
-                        id: "knighthood",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 3e3
-                    }, {
-                        type: "resource",
-                        id: "steel",
-                        value: 250
-                    }, {
-                        type: "resource",
-                        id: "horse",
-                        value: 50
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 120
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 100
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -1.2
-                    }]
-                }, {
-                    id: "cuirassier",
-                    type: "army",
-                    attack: 36,
-                    defense: 28,
-                    order: 2,
-                    category: 4,
-                    req: [{
-                        type: "tech",
-                        id: "cuirassiers",
-                        value: 1
-                    }, {
-                        type: "resource",
-                        id: "gold",
-                        value: 5e3
-                    }, {
-                        type: "resource",
-                        id: "steel",
-                        value: 500
-                    }, {
-                        type: "resource",
-                        id: "horse",
-                        value: 200
-                    }, {
-                        type: "resource",
-                        id: "saltpetre",
-                        value: 200
-                    }],
-                    reqAttack: [{
-                        type: "resource",
-                        id: "gold",
-                        value: 200
-                    }, {
-                        type: "resource",
-                        id: "food",
-                        value: 200
-                    }],
-                    gen: [{
-                        type: "resource",
-                        id: "food",
-                        value: -2
-                    }]
-                }, {
-                    id: "archdemon",
-                    type: "enemy",
-                    attack: 90,
-                    defense: 52,
-                    order: 3,
-                    category: 2
-                }, {
-                    id: "archlich",
-                    type: "enemy",
-                    attack: 120,
-                    defense: 90,
-                    order: 3,
-                    cap: 1,
-                    category: 1
-                }, {
-                    id: "bugbear",
-                    type: "enemy",
-                    attack: 7,
-                    defense: 16,
-                    order: 1,
-                    category: 3
-                }, {
-                    id: "bugbear_chieftain",
-                    type: "enemy",
-                    attack: 44,
-                    defense: 32,
-                    order: 2,
-                    cap: 1,
-                    category: 2
-                }, {
-                    id: "basilisk",
-                    type: "enemy",
-                    attack: 35,
-                    defense: 16,
-                    order: 1,
-                    category: 1
-                }, {
-                    id: "black_mage",
-                    type: "enemy",
-                    attack: 52,
-                    defense: 22,
-                    order: 3,
-                    cap: 1,
-                    category: 1
-                }, {
-                    id: "cavarly_archer",
-                    type: "enemy",
-                    attack: 18,
-                    defense: 10,
-                    order: 3,
-                    category: 4
-                }, {
-                    id: "charmed_dweller",
-                    type: "enemy",
-                    attack: 4,
-                    defense: 4,
-                    order: 1,
-                    category: 2
-                }, {
-                    id: "cult_master",
-                    type: "enemy",
-                    attack: 80,
-                    defense: 55,
-                    order: 3,
-                    cap: 1,
-                    category: 1
-                }, {
-                    id: "daimyo",
-                    type: "enemy",
-                    attack: 90,
-                    defense: 90,
-                    order: 3,
-                    cap: 1,
-                    category: 1
-                }, {
-                    id: "demoness",
-                    type: "enemy",
-                    attack: 50,
-                    defense: 80,
-                    order: 3,
-                    cap: 1,
-                    category: 1
-                }, {
-                    id: "demonic_musketeer",
-                    type: "enemy",
-                    attack: 20,
-                    defense: 20,
-                    order: 2,
-                    category: 2
-                }, {
-                    id: "dirty_rat",
-                    type: "enemy",
-                    attack: 1,
-                    defense: 1,
-                    order: 1,
-                    category: 4
-                }, {
-                    id: "draconic_warrior",
-                    type: "enemy",
-                    attack: 8,
-                    defense: 14,
-                    order: 1,
-                    category: 2
-                }, {
-                    id: "draconic_diver",
-                    type: "enemy",
-                    attack: 20,
-                    defense: 10,
-                    order: 2,
-                    category: 4
-                }, {
-                    id: "draconic_mage",
-                    type: "enemy",
-                    attack: 32,
-                    defense: 10,
-                    order: 3,
-                    category: 1
-                }, {
-                    id: "draconic_leader",
-                    type: "enemy",
-                    attack: 80,
-                    defense: 65,
-                    order: 3,
-                    category: 1
-                }, {
-                    id: "fallen_angel",
-                    type: "enemy",
-                    attack: 150,
-                    defense: 100,
-                    order: 3,
-                    cap: 1,
-                    category: 2
-                }, {
-                    id: "frost_elemental",
-                    type: "enemy",
-                    attack: 20,
-                    defense: 42,
-                    order: 1,
-                    category: 1
-                }, {
-                    id: "fire_elemental",
-                    type: "enemy",
-                    attack: 28,
-                    defense: 28,
-                    order: 1,
-                    category: 1
-                }, {
-                    id: "earth_elemental",
-                    type: "enemy",
-                    attack: 20,
-                    defense: 48,
-                    order: 1,
-                    category: 3
-                }, {
-                    id: "harpy",
-                    type: "enemy",
-                    attack: 6,
-                    defense: 6,
-                    order: 1,
-                    category: 4
-                }, {
-                    id: "hydra",
-                    type: "enemy",
-                    attack: 950,
-                    defense: 900,
-                    order: 1,
-                    cap: 1,
-                    category: 4
-                }, {
-                    id: "gorgon",
-                    type: "enemy",
-                    attack: 950,
-                    defense: 600,
-                    order: 1,
-                    cap: 1,
-                    category: 2
-                }, {
-                    id: "bandit",
-                    type: "enemy",
-                    attack: 3,
-                    defense: 4,
-                    order: 1,
-                    category: 2
-                }, {
-                    id: "barbarian_warrior",
-                    type: "enemy",
-                    attack: 13,
-                    defense: 6,
-                    order: 1,
-                    category: 2
-                }, {
-                    id: "barbarian_chosen",
-                    type: "enemy",
-                    attack: 30,
-                    defense: 12,
-                    order: 1,
-                    category: 2
-                }, {
-                    id: "barbarian_drummer",
-                    type: "enemy",
-                    attack: 6,
-                    defense: 18,
-                    order: 2,
-                    category: 3
-                }, {
-                    id: "barbarian_leader",
-                    type: "enemy",
-                    attack: 48,
-                    defense: 22,
-                    order: 1,
-                    category: 2
-                }, {
-                    id: "barbarian_king",
-                    type: "enemy",
-                    attack: 76,
-                    defense: 56,
-                    order: 3,
-                    cap: 1,
-                    category: 2
-                }, {
-                    id: "djinn",
-                    type: "enemy",
-                    attack: 46,
-                    defense: 36,
-                    order: 2,
-                    cap: 1,
-                    category: 1
-                }, {
-                    id: "ghast",
-                    type: "enemy",
-                    attack: 6,
-                    defense: 8,
-                    order: 2,
-                    category: 4
-                }, {
-                    id: "ghoul",
-                    type: "enemy",
-                    attack: 4,
-                    defense: 5,
-                    order: 1,
-                    category: 2
-                }, {
-                    id: "goblin_marauder",
-                    type: "enemy",
-                    attack: 3,
-                    defense: 3,
-                    order: 1,
-                    category: 1
-                }, {
-                    id: "goblin_warrior",
-                    type: "enemy",
-                    attack: 3,
-                    defense: 4,
-                    order: 2,
-                    category: 2
-                }, {
-                    id: "goblin_wolfrider",
-                    type: "enemy",
-                    attack: 6,
-                    defense: 7,
-                    order: 2,
-                    category: 4
-                }, {
-                    id: "goblin_overlord",
-                    type: "enemy",
-                    attack: 20,
-                    defense: 15,
-                    order: 3,
-                    cap: 1,
-                    category: 2
-                }, {
-                    id: "lich",
-                    type: "enemy",
-                    attack: 60,
-                    defense: 50,
-                    order: 3,
-                    cap: 1,
-                    category: 1
-                }, {
-                    id: "lizard_warrior",
-                    type: "enemy",
-                    attack: 12,
-                    defense: 12,
-                    order: 1,
-                    category: 2
-                }, {
-                    id: "lizard_archer",
-                    type: "enemy",
-                    attack: 13,
-                    defense: 6,
-                    order: 3,
-                    category: 1
-                }, {
-                    id: "lizard_shaman",
-                    type: "enemy",
-                    attack: 22,
-                    defense: 32,
-                    order: 3,
-                    category: 1
-                }, {
-                    id: "lizard_commander",
-                    type: "enemy",
-                    attack: 50,
-                    defense: 75,
-                    order: 3,
-                    category: 1
-                }, {
-                    id: "katana_samurai",
-                    type: "enemy",
-                    attack: 26,
-                    defense: 28,
-                    order: 1,
-                    category: 2
-                }, {
-                    id: "markanat",
-                    type: "enemy",
-                    attack: 900,
-                    defense: 600,
-                    order: 1,
-                    cap: 1,
-                    category: 4
-                }, {
-                    id: "myconid",
-                    type: "enemy",
-                    attack: 3,
-                    defense: 10,
-                    order: 1,
-                    category: 3
-                }, {
-                    id: "musket_ashigaru",
-                    type: "enemy",
-                    attack: 22,
-                    defense: 18,
-                    order: 2,
-                    category: 2
-                }, {
-                    id: "hill_giant",
-                    type: "enemy",
-                    attack: 20,
-                    defense: 36,
-                    order: 1,
-                    category: 3
-                }, {
-                    id: "minotaur",
-                    type: "enemy",
-                    attack: 1e3,
-                    defense: 1800,
-                    order: 1,
-                    cap: 1,
-                    category: 3
-                }, {
-                    id: "mountain_giant",
-                    type: "enemy",
-                    attack: 34,
-                    defense: 42,
-                    order: 3,
-                    category: 3
-                }, {
-                    id: "pillager",
-                    type: "enemy",
-                    attack: 3,
-                    defense: 5,
-                    order: 1,
-                    category: 2
-                }, {
-                    id: "troll_cave",
-                    type: "enemy",
-                    attack: 16,
-                    defense: 28,
-                    order: 1,
-                    category: 3
-                }, {
-                    id: "deserter",
-                    type: "enemy",
-                    attack: 7,
-                    defense: 6,
-                    order: 2,
-                    category: 2
-                }, {
-                    id: "snake",
-                    type: "enemy",
-                    attack: 4,
-                    defense: 4,
-                    order: 1,
-                    category: 4
-                }, {
-                    id: "giant_snake",
-                    type: "enemy",
-                    attack: 16,
-                    defense: 8,
-                    order: 2,
-                    category: 4
-                }, {
-                    id: "spider",
-                    type: "enemy",
-                    attack: 3,
-                    defense: 2,
-                    order: 1,
-                    category: 4
-                }, {
-                    id: "giant_spider",
-                    type: "enemy",
-                    attack: 10,
-                    defense: 8,
-                    order: 2,
-                    category: 4
-                }, {
-                    id: "skeleton",
-                    type: "enemy",
-                    attack: 2,
-                    defense: 2,
-                    order: 1,
-                    category: 3
-                }, {
-                    id: "skullface",
-                    type: "enemy",
-                    attack: 76,
-                    defense: 60,
-                    order: 3,
-                    cap: 1,
-                    category: 1
-                }, {
-                    id: "son_atamar",
-                    type: "enemy",
-                    attack: 22,
-                    defense: 20,
-                    order: 1,
-                    category: 2
-                }, {
-                    id: "zombie",
-                    type: "enemy",
-                    attack: 3,
-                    defense: 3,
-                    order: 1,
-                    category: 3
-                }, {
-                    id: "ghost",
-                    type: "enemy",
-                    attack: 5,
-                    defense: 5,
-                    order: 2,
-                    category: 4
-                }, {
-                    id: "gnoll_leader",
-                    type: "enemy",
-                    attack: 23,
-                    defense: 18,
-                    order: 2,
-                    cap: 1,
-                    category: 2
-                }, {
-                    id: "gnoll_raider",
-                    type: "enemy",
-                    attack: 6,
-                    defense: 5,
-                    order: 1,
-                    category: 2
-                }, {
-                    id: "necromancer",
-                    type: "enemy",
-                    attack: 28,
-                    defense: 15,
-                    order: 3,
-                    cap: 1,
-                    category: 1
-                }, {
-                    id: "imp",
-                    type: "enemy",
-                    attack: 3,
-                    defense: 1,
-                    order: 2,
-                    category: 1
-                }, {
-                    id: "lesser_demon",
-                    type: "enemy",
-                    attack: 8,
-                    defense: 8,
-                    order: 1,
-                    category: 3
-                }, {
-                    id: "greater_demon",
-                    type: "enemy",
-                    attack: 16,
-                    defense: 16,
-                    order: 3,
-                    category: 2
-                }, {
-                    id: "kobold",
-                    type: "enemy",
-                    attack: 3,
-                    defense: 2,
-                    order: 1,
-                    category: 2
-                }, {
-                    id: "kobold_champion",
-                    type: "enemy",
-                    attack: 5,
-                    defense: 12,
-                    order: 1,
-                    category: 3
-                }, {
-                    id: "kobold_king",
-                    type: "enemy",
-                    attack: 42,
-                    defense: 48,
-                    order: 1,
-                    cap: 1,
-                    category: 2
-                }, {
-                    id: "naga",
-                    type: "enemy",
-                    attack: 12,
-                    defense: 12,
-                    order: 1,
-                    category: 4
-                }, {
-                    id: "red_dragon",
-                    type: "enemy",
-                    attack: 280,
-                    defense: 180,
-                    order: 3,
-                    cap: 1,
-                    category: 4
-                }, {
-                    id: "vampire",
-                    type: "enemy",
-                    attack: 80,
-                    defense: 90,
-                    order: 3,
-                    cap: 1,
-                    category: 2
-                }, {
-                    id: "vampire_bat",
-                    type: "enemy",
-                    attack: 2,
-                    defense: 1,
-                    order: 1,
-                    category: 4
-                }, {
-                    id: "vampire_servant",
-                    type: "enemy",
-                    attack: 15,
-                    defense: 32,
-                    order: 1,
-                    category: 3
-                }, {
-                    id: "werewolf",
-                    type: "enemy",
-                    attack: 1150,
-                    defense: 600,
-                    order: 1,
-                    cap: 1,
-                    category: 1
-                }, {
-                    id: "wind_elemental",
-                    type: "enemy",
-                    attack: 22,
-                    defense: 42,
-                    order: 1,
-                    category: 1
-                }, {
-                    id: "wolf",
-                    type: "enemy",
-                    attack: 4,
-                    defense: 4,
-                    order: 1,
-                    category: 4
-                }, {
-                    id: "wyvern",
-                    type: "enemy",
-                    attack: 32,
-                    defense: 28,
-                    order: 2,
-                    category: 4
-                }],
+                Ze = r(4671),
                 We = [{
                     id: "ancient_burial_place",
                     found: [1],
@@ -27183,6 +27341,32 @@
                         value: 1
                     }]
                 }, {
+                    id: "eternal_halls",
+                    found: [11],
+                    esp: 30,
+                    level: 5,
+                    reqFound: [{
+                        type: "tech",
+                        id: "persuade_people",
+                        value: 1
+                    }],
+                    army: [{
+                        id: "eternal_guardian",
+                        value: 35
+                    }, {
+                        id: "golem",
+                        value: 90
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "building_material",
+                        value: .8
+                    }, {
+                        type: "resource",
+                        id: "crystal",
+                        value: .5
+                    }]
+                }, {
                     id: "gloomy_werewolf_forest",
                     found: [19],
                     esp: 5,
@@ -27308,6 +27492,28 @@
                         value: 1
                     }]
                 }, {
+                    id: "golem_cave",
+                    found: [21],
+                    esp: 15,
+                    level: 3,
+                    army: [{
+                        id: "golem",
+                        value: 15
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "gold",
+                        value: .7
+                    }, {
+                        type: "resource",
+                        id: "stone",
+                        value: .5
+                    }, {
+                        type: "resource",
+                        id: "building_material",
+                        value: .1
+                    }]
+                }, {
                     id: "harpy_nest",
                     found: [18],
                     esp: 8,
@@ -27346,6 +27552,57 @@
                         type: "cap",
                         id: "research",
                         value: 1500
+                    }]
+                }, {
+                    id: "hobgoblin_encampment",
+                    found: [19],
+                    esp: 7,
+                    level: 2,
+                    army: [{
+                        id: "hobgoblin_grunt",
+                        value: 21
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "wood",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "tools",
+                        value: .3
+                    }]
+                }, {
+                    id: "hobgoblin_chieftain",
+                    found: [32],
+                    esp: 21,
+                    level: 4,
+                    reqFound: [{
+                        type: "tech",
+                        id: "guild",
+                        value: 1
+                    }],
+                    army: [{
+                        id: "hobgoblin_grunt",
+                        value: 50
+                    }, {
+                        id: "hobgoblin_archer",
+                        value: 60
+                    }, {
+                        id: "hobgoblin_chieftain",
+                        value: 1
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "wood",
+                        value: 1.5
+                    }, {
+                        type: "resource",
+                        id: "building_material",
+                        value: .5
+                    }, {
+                        type: "resource",
+                        id: "steel",
+                        value: .5
                     }]
                 }, {
                     id: "hydra_pit",
@@ -27466,6 +27723,27 @@
                         type: "resource",
                         id: "tools",
                         value: .3
+                    }]
+                }, {
+                    id: "korrigan_dolmen",
+                    found: [7],
+                    esp: 3,
+                    level: 1,
+                    army: [{
+                        id: "korrigan_slinger",
+                        value: 6
+                    }, {
+                        id: "korrigan_swindler",
+                        value: 10
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "wood",
+                        value: .7
+                    }, {
+                        type: "resource",
+                        id: "stone",
+                        value: .5
                     }]
                 }, {
                     id: "markanat_forest",
@@ -27892,6 +28170,24 @@
                         value: 1
                     }]
                 }, {
+                    id: "temple_gargoyle",
+                    found: [32],
+                    esp: 7,
+                    level: 2,
+                    army: [{
+                        id: "gargoyle",
+                        value: 14
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "stone",
+                        value: .6
+                    }, {
+                        type: "resource",
+                        id: "mana",
+                        value: .6
+                    }]
+                }, {
                     id: "troll_cave",
                     found: [35],
                     esp: 8,
@@ -27944,6 +28240,25 @@
                     gen: [{
                         type: "resource",
                         id: "food",
+                        value: 1
+                    }]
+                }, {
+                    id: "worn_down_crypt",
+                    found: [37],
+                    esp: 14,
+                    level: 4,
+                    reqFound: [{
+                        type: "tech",
+                        id: "guild",
+                        value: 1
+                    }],
+                    army: [{
+                        id: "skeletal_knight",
+                        value: 67
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "research",
                         value: 1
                     }]
                 }, {
@@ -28799,15 +29114,7 @@
                 }],
                 Ke = function () {
                     function e(t) {
-                        (0, a.Z)(this, e), this.MainStore = void 0, this.selectedTab = 0, this.waitTime = {
-                            NODE_ENV: "production",
-                            PUBLIC_URL: "./",
-                            WDS_SOCKET_HOST: void 0,
-                            WDS_SOCKET_PATH: void 0,
-                            WDS_SOCKET_PORT: void 0,
-                            FAST_REFRESH: !0,
-                            REACT_APP_VERSION: "0.42.3"
-                        }.REACT_APP_DEV ? 1e3 : 6e4, this.progressScout = 0, this.progressAttack = 0, this.progressSpy = 0, this.armyStepQty = (0, Le.qn)("armyQty", 1), this.dCombat = !1, this.exploreInProgress = !1, this.attackInProgress = !1, this.spyInProgress = !1, this.lastBattleLog = [], this._foundKingdom = !1, this._foundEnemyCount = 0, this.MainStore = t, (0, s.rC)(this, {
+                        (0, a.Z)(this, e), this.MainStore = void 0, this.selectedTab = 0, this.waitTime = 6e4, this.progressScout = 0, this.progressAttack = 0, this.progressSpy = 0, this.armyStepQty = (0, Le.qn)("armyQty", 1), this.dCombat = !1, this.exploreInProgress = !1, this.attackInProgress = !1, this.spyInProgress = !1, this.lastBattleLog = [], this._foundKingdom = !1, this._foundEnemyCount = 0, this.MainStore = t, this.MainStore.d && (this.waitTime = 1e3), (0, s.rC)(this, {
                             dCombat: s.LO,
                             selectedTab: s.LO,
                             selectTab: s.aD,
@@ -28852,6 +29159,7 @@
                             updateDefense: s.aD,
                             dismissArmy: s.aD,
                             resetArmy: s.aD,
+                            moveAll: s.aD,
                             startExplore: s.aD,
                             processExplore: s.aD,
                             startAttack: s.aD,
@@ -28879,10 +29187,10 @@
                         get: function () {
                             var e = 0;
                             return this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.findIndex((function (e) {
+                                var r = Ze.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "army" === Ze[r].type && (e += t.value)
+                                "army" === Ze.b[r].type && (e += t.value)
                             })), e
                         }
                     }, {
@@ -28890,10 +29198,10 @@
                         get: function () {
                             var e = 0;
                             return this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.findIndex((function (e) {
+                                var r = Ze.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "army" === Ze[r].type && (e += t.away)
+                                "army" === Ze.b[r].type && (e += t.away)
                             })), e
                         }
                     }, {
@@ -28901,10 +29209,10 @@
                         get: function () {
                             var e = 0;
                             return this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.findIndex((function (e) {
+                                var r = Ze.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "recon" === Ze[r].type && (e += t.value)
+                                "recon" === Ze.b[r].type && (e += t.value)
                             })), e
                         }
                     }, {
@@ -28912,10 +29220,10 @@
                         get: function () {
                             var e = 0;
                             return this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.findIndex((function (e) {
+                                var r = Ze.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "recon" === Ze[r].type && (e += t.away)
+                                "recon" === Ze.b[r].type && (e += t.away)
                             })), e
                         }
                     }, {
@@ -28923,10 +29231,10 @@
                         get: function () {
                             var e = 0;
                             return this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.findIndex((function (e) {
+                                var r = Ze.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "spy" === Ze[r].type && (e += t.value)
+                                "spy" === Ze.b[r].type && (e += t.value)
                             })), e
                         }
                     }, {
@@ -28934,17 +29242,17 @@
                         get: function () {
                             var e = 0;
                             return this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.findIndex((function (e) {
+                                var r = Ze.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "spy" === Ze[r].type && (e += t.away)
+                                "spy" === Ze.b[r].type && (e += t.away)
                             })), e
                         }
                     }, {
                         key: "ownedArmy",
                         get: function () {
                             var e = this;
-                            return Ze.filter((function (t) {
+                            return Ze.b.filter((function (t) {
                                 if ("army" !== t.type) return !1;
                                 var r = e.MainStore.run.army.findIndex((function (e) {
                                     return e.id === t.id
@@ -28956,7 +29264,7 @@
                         key: "ownedScout",
                         get: function () {
                             var e = this;
-                            return Ze.filter((function (t) {
+                            return Ze.b.filter((function (t) {
                                 if ("recon" !== t.type) return !1;
                                 var r = e.MainStore.run.army.findIndex((function (e) {
                                     return e.id === t.id
@@ -28973,7 +29281,7 @@
                         key: "ownedSpy",
                         get: function () {
                             var e = this;
-                            return Ze.filter((function (t) {
+                            return Ze.b.filter((function (t) {
                                 if ("spy" !== t.type) return !1;
                                 var r = e.MainStore.run.army.findIndex((function (e) {
                                     return e.id === t.id
@@ -29015,7 +29323,7 @@
                         key: "visibleArmy",
                         get: function () {
                             var e = this;
-                            return Ze.filter((function (t) {
+                            return Ze.b.filter((function (t) {
                                 return "enemy" !== t.type && "settlement" !== t.type && e.MainStore.ReqGenStore.checkReq("army", t.id, t, !1)
                             }))
                         }
@@ -29023,7 +29331,7 @@
                         key: "buildableArmy",
                         get: function () {
                             var e = this;
-                            return this.ownedCount >= this.cap ? [] : Ze.filter((function (t) {
+                            return this.ownedCount >= this.cap ? [] : Ze.b.filter((function (t) {
                                 return "enemy" !== t.type && "settlement" !== t.type && e.MainStore.ReqGenStore.checkReq("army", t.id, t)
                             }))
                         }
@@ -29032,10 +29340,10 @@
                         get: function () {
                             var e = {};
                             return "undefined" !== typeof this.MainStore.run.army && this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.findIndex((function (e) {
+                                var r = Ze.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "recon" === Ze[r].type && t.away > 0 && Ze[r].reqAttack.forEach((function (r) {
+                                "recon" === Ze.b[r].type && t.away > 0 && Ze.b[r].reqAttack.forEach((function (r) {
                                     "undefined" === typeof e[r.id] ? e[r.id] = r.value * t.away : e[r.id] += r.value * t.away
                                 }))
                             })), e
@@ -29045,10 +29353,10 @@
                         get: function () {
                             var e = {};
                             return "undefined" !== typeof this.MainStore.run.army && this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.findIndex((function (e) {
+                                var r = Ze.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "spy" === Ze[r].type && t.away > 0 && Ze[r].reqAttack.forEach((function (r) {
+                                "spy" === Ze.b[r].type && t.away > 0 && Ze.b[r].reqAttack.forEach((function (r) {
                                     "undefined" === typeof e[r.id] ? e[r.id] = r.value * t.away : e[r.id] += r.value * t.away
                                 }))
                             })), e
@@ -29058,10 +29366,10 @@
                         get: function () {
                             var e = {};
                             return this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.findIndex((function (e) {
+                                var r = Ze.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "army" === Ze[r].type && t.away > 0 && Ze[r].reqAttack.forEach((function (r) {
+                                "army" === Ze.b[r].type && t.away > 0 && Ze.b[r].reqAttack.forEach((function (r) {
                                     "undefined" === typeof e[r.id] ? e[r.id] = r.value * t.away : e[r.id] += r.value * t.away
                                 }))
                             })), e
@@ -29239,10 +29547,10 @@
                             var t = [],
                                 r = 0;
                             this.MainStore.run.army.forEach((function (n) {
-                                var a = Ze.findIndex((function (e) {
+                                var a = Ze.b.findIndex((function (e) {
                                     return e.id === n.id
                                 }));
-                                if ("recon" === Ze[a].type && n.away > 0)
+                                if ("recon" === Ze.b[a].type && n.away > 0)
                                     if ("explorer" === n.id)
                                         for (var i = 0; i < n.away; i++) {
                                             switch ((0, Le.Vf)(12)) {
@@ -29300,10 +29608,10 @@
                                 t = 0,
                                 r = 0;
                             if (this.MainStore.run.army.forEach((function (n) {
-                                    var a = Ze.findIndex((function (e) {
+                                    var a = Ze.b.findIndex((function (e) {
                                         return e.id === n.id
                                     }));
-                                    if ("spy" === Ze[a].type && n.away > 0)
+                                    if ("spy" === Ze.b[a].type && n.away > 0)
                                         for (var i = 0; i < n.away; i++) {
                                             1 === (0, Le.Vf)(10) ? (r++, e.destroyArmy(n.id, 1, "spy")) : t++
                                         }
@@ -29318,13 +29626,13 @@
                                     this.MainStore.addLog("~~~~~~~~~~", "text-green-500", !0, !1);
                                     var i = "";
                                     a.army.forEach((function (t) {
-                                        var r = Ze.findIndex((function (e) {
+                                        var r = Ze.b.findIndex((function (e) {
                                                 return e.id === t.id
                                             })),
                                             n = t.value;
-                                        "undefined" === typeof Ze[r].cap && (n = e._addEnemiesQtyModifiers(n));
+                                        "undefined" === typeof Ze.b[r].cap && (n = e._addEnemiesQtyModifiers(n));
                                         var a = n > 1 ? (0, Ae.K)("uni_" + t.id + "_plural") : (0, Ae.K)("uni_" + t.id);
-                                        "" !== i && (i += "，"), i += n + "" + a + " (" + (0, Ae.K)("uni_cat_" + Ze[r].category).toLowerCase() + ")"
+                                        "" !== i && (i += "，"), i += n + "" + a + " (" + (0, Ae.K)("uni_cat_" + Ze.b[r].category).toLowerCase() + ")"
                                     })), this.MainStore.addLog(i, "text-green-600", !0, !1), this.MainStore.addLog("spy_full", "text-green-600", !1, !1), this.MainStore.addLog(n, "text-green-600", !0, !1), this.MainStore.addLog("~~~~~~~~~~", "text-green-500", !0, !1), this.MainStore.addNotification((0, Ae.K)("log_spy_full") + "" + i, "spy_success", "green", !1, !0, !1, n)
                                 } else {
                                     var o = a.esp / 2;
@@ -29332,15 +29640,15 @@
                                         this.MainStore.addLog("~~~~~~~~~~", "text-green-500", !0, !1);
                                         var s = "";
                                         a.army.forEach((function (t) {
-                                            var r = Ze.findIndex((function (e) {
+                                            var r = Ze.b.findIndex((function (e) {
                                                     return e.id === t.id
                                                 })),
                                                 n = t.value;
-                                            "undefined" === typeof Ze[r].cap && (n = e._addEnemiesQtyModifiers(n));
+                                            "undefined" === typeof Ze.b[r].cap && (n = e._addEnemiesQtyModifiers(n));
                                             var a = "";
                                             1 === n ? a = (0, Ae.K)("one") : n >= 2 && n <= 7 ? a = (0, Ae.K)("a_few") : n >= 8 && n <= 15 ? a = (0, Ae.K)("some") : n >= 16 && n <= 30 ? a = (0, Ae.K)("a_lot") : n >= 31 && n <= 60 ? a = (0, Ae.K)("a_plethora") : n >= 61 && (a = (0, Ae.K)("a_legion"));
                                             var i = n > 1 ? (0, Ae.K)("uni_" + t.id + "_plural") : (0, Ae.K)("uni_" + t.id);
-                                            "" !== s && (a = a.toLowerCase(), s += "，"), s += a + "" + i.toLowerCase() + " (" + (0, Ae.K)("uni_cat_" + Ze[r].category).toLowerCase() + ")"
+                                            "" !== s && (a = a.toLowerCase(), s += "，"), s += a + "" + i.toLowerCase() + " (" + (0, Ae.K)("uni_cat_" + Ze.b[r].category).toLowerCase() + ")"
                                         })), this.MainStore.addLog(s, "text-green-600", !0, !1), this.MainStore.addLog("spy_up50", "text-green-600", !1, !1), this.MainStore.addLog(n, "text-green-600", !0, !1), this.MainStore.addLog("~~~~~~~~~~", "text-green-500", !0, !1), this.MainStore.addNotification((0, Ae.K)("log_spy_up50") + "" + s.toLowerCase(), "spy_success", "green", !1, !0, !1, n)
                                     } else this.MainStore.addLog(n + "：" + (0, Ae.K)("log_spy_down50"), "text-red-600", !0, !1), this.MainStore.addNotification((0, Ae.K)("log_spy_down50"), "spy", "red", !1, !0, !1, n)
                                 }
@@ -29361,12 +29669,12 @@
                                 n = 0,
                                 a = [];
                             this.MainStore.run.army.forEach((function (t) {
-                                var i = Ze.findIndex((function (e) {
+                                var i = Ze.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                if ("army" === Ze[i].type && t.away > 0)
-                                    for (var o = e._calcArmyStats(t.id, Ze[i], r[1]), s = o[0], l = o[1], u = 0; u < t.away; u++) {
-                                        var c = Number(Ze[i].order.toString() + (1e3 + (0, Le.Iy)(0, 900)).toString());
+                                if ("army" === Ze.b[i].type && t.away > 0)
+                                    for (var o = e._calcArmyStats(t.id, Ze.b[i], r[1]), s = o[0], l = o[1], u = 0; u < t.away; u++) {
+                                        var c = Number(Ze.b[i].order.toString() + (1e3 + (0, Le.Iy)(0, 900)).toString());
                                         a.push({
                                             id: t.id,
                                             defense: l,
@@ -29379,13 +29687,13 @@
                             var i = 0,
                                 o = [];
                             t.army.forEach((function (t) {
-                                var n = Ze.findIndex((function (e) {
+                                var n = Ze.b.findIndex((function (e) {
                                         return e.id === t.id
                                     })),
                                     a = t.value;
-                                "undefined" === typeof Ze[n].cap && (a = e._addEnemiesQtyModifiers(a));
-                                for (var s = e._calcEnemyStats(Ze[n], r[0]), l = s[0], u = s[1], c = 0; c < a; c++) {
-                                    var d = Number(Ze[n].order.toString() + (1e3 + (0, Le.Iy)(0, 900)).toString());
+                                "undefined" === typeof Ze.b[n].cap && (a = e._addEnemiesQtyModifiers(a));
+                                for (var s = e._calcEnemyStats(Ze.b[n], r[0]), l = s[0], u = s[1], c = 0; c < a; c++) {
+                                    var d = Number(Ze.b[n].order.toString() + (1e3 + (0, Le.Iy)(0, 900)).toString());
                                     o.push({
                                         id: t.id,
                                         defense: u,
@@ -29413,7 +29721,7 @@
                             } else n = 0;
                             s.length > 0 && (this.dCombat || s.forEach((function (t) {
                                 e.destroyArmy(t, 1, "army")
-                            }))), this.dCombat || Fe("event", "attack", this.MainStore.run.enemy, n > 0 ? 1 : 0), this._battleLog(n, s, l, this.enemyOption.label), this.dCombat || n > 0 && (this.MainStore.run.spy === this.MainStore.run.enemy && this.MainStore.updateSpy(""), this.MainStore.updateEnemy("")), this.attackInProgress = !1, this.MainStore.save()
+                            }))), this.dCombat || Ve("event", "attack", this.MainStore.run.enemy, n > 0 ? 1 : 0), this._battleLog(n, s, l, this.enemyOption.label), this.dCombat || n > 0 && (this.MainStore.run.spy === this.MainStore.run.enemy && this.MainStore.updateSpy(""), this.MainStore.updateEnemy("")), this.attackInProgress = !1, this.MainStore.save()
                         }
                     }, {
                         key: "processDefense",
@@ -29426,12 +29734,12 @@
                                 a = 0,
                                 i = [];
                             this.MainStore.run.army.forEach((function (e) {
-                                var r = Ze.findIndex((function (t) {
+                                var r = Ze.b.findIndex((function (t) {
                                     return t.id === e.id
                                 }));
                                 if (e.value - e.away > 0)
-                                    for (var o = t._calcArmyStats(e.id, Ze[r], n[1]), s = o[0], l = o[1], u = 0; u < e.value - e.away; u++) {
-                                        var c = Number(Ze[r].order.toString() + (1e3 + (0, Le.Iy)(0, 900)).toString());
+                                    for (var o = t._calcArmyStats(e.id, Ze.b[r], n[1]), s = o[0], l = o[1], u = 0; u < e.value - e.away; u++) {
+                                        var c = Number(Ze.b[r].order.toString() + (1e3 + (0, Le.Iy)(0, 900)).toString());
                                         i.push({
                                             id: e.id,
                                             defense: l,
@@ -29444,13 +29752,13 @@
                             var o = 0,
                                 s = [];
                             r.army.forEach((function (e) {
-                                var r = Ze.findIndex((function (t) {
+                                var r = Ze.b.findIndex((function (t) {
                                         return t.id === e.id
                                     })),
                                     a = e.value;
-                                "undefined" === typeof Ze[r].cap && (a = t._addEnemiesQtyModifiers(a));
-                                for (var i = t._calcEnemyStats(Ze[r], n[0]), l = i[0], u = i[1], c = 0; c < a; c++) {
-                                    var d = Number(Ze[r].order.toString() + (1e3 + (0, Le.Iy)(0, 900)).toString());
+                                "undefined" === typeof Ze.b[r].cap && (a = t._addEnemiesQtyModifiers(a));
+                                for (var i = t._calcEnemyStats(Ze.b[r], n[0]), l = i[0], u = i[1], c = 0; c < a; c++) {
+                                    var d = Number(Ze.b[r].order.toString() + (1e3 + (0, Le.Iy)(0, 900)).toString());
                                     s.push({
                                         id: e.id,
                                         defense: u,
@@ -29467,8 +29775,8 @@
                             var u = [];
                             return a > 0 && s.forEach((function (e) {
                                 a > e.defense ? (u.push(e.id), a -= e.defense) : a = 0
-                            })), o > 0 && (a = 0), this.dCombat || Fe("event", "defense", e, a > 0 ? 1 : 0), a > 0 || this.dCombat || this.MainStore.run.resources.forEach((function (e) {
-                                "legacy" !== e.id && "fame" !== e.id && "relic" !== e.id && "coin" !== e.id && "tome_wisdom" !== e.id && t.MainStore.ResourcesStore.setResource(e.id, 0)
+                            })), o > 0 && (a = 0), this.dCombat || Ve("event", "defense", e, a > 0 ? 1 : 0), a > 0 || this.dCombat || this.MainStore.run.resources.forEach((function (e) {
+                                "legacy" !== e.id && "fame" !== e.id && "relic" !== e.id && "coin" !== e.id && "tome_wisdom" !== e.id && "luck" !== e.id && t.MainStore.ResourcesStore.setResource(e.id, 0)
                             })), l.length > 0 && (this.dCombat || l.forEach((function (e) {
                                 t.destroyArmy(e, 1, "army", !0)
                             }))), this._battleLog(a, l, u, (0, Ae.K)("dip_" + e)), this.MainStore.save(), a > 0
@@ -29485,27 +29793,35 @@
                             var r = new Set,
                                 n = new Set;
                             return this.MainStore.run.army.forEach((function (e) {
-                                var n = Ze.findIndex((function (t) {
+                                var n = Ze.b.findIndex((function (t) {
                                     return t.id === e.id
                                 }));
-                                "army" === Ze[n].type && ("attack" === t && e.away > 0 || "defense" === t && e.value - e.away > 0) && r.add(Ze[n].category)
+                                "army" === Ze.b[n].type && ("attack" === t && e.away > 0 || "defense" === t && e.value - e.away > 0) && r.add(Ze.b[n].category)
                             })), e.army.forEach((function (e) {
-                                var t = Ze.findIndex((function (t) {
+                                var t = Ze.b.findIndex((function (t) {
                                     return t.id === e.id
                                 }));
-                                n.add(Ze[t].category)
+                                n.add(Ze.b[t].category)
                             })), [r, n]
+                        }
+                    }, {
+                        key: "calcArmyMods",
+                        value: function (e) {
+                            var t = 0,
+                                r = 0;
+                            return this.MainStore.ModifiersStore.getAllMods(e).forEach((function (e) {
+                                "attack" === e.id ? t += e.value : "defense" === e.id && (r += e.value)
+                            })), [t, r]
                         }
                     }, {
                         key: "_calcArmyStats",
                         value: function (e, t, r) {
                             var n = t.attack,
-                                a = t.defense;
-                            this.MainStore.ModifiersStore.getAllMods(e).forEach((function (e) {
-                                "attack" === e.id ? n += e.value : "defense" === e.id && (a += e.value)
-                            }));
-                            var i = 4 === t.category ? 1 : t.category + 1;
-                            return r.has(i) && (n *= 2), [n, a]
+                                a = t.defense,
+                                i = this.calcArmyMods(e);
+                            n += i[0], a += i[1];
+                            var o = 4 === t.category ? 1 : t.category + 1;
+                            return r.has(o) && (n *= 2), [n, a]
                         }
                     }, {
                         key: "_calcEnemyStats",
@@ -29564,10 +29880,10 @@
                                 this.MainStore.idxs.army[e] = n
                             } else this.MainStore.run.army[this.MainStore.idxs.army[e]].value++;
                             this.MainStore.ReqGenStore.runGen("army", e);
-                            var a = Ze.findIndex((function (t) {
+                            var a = Ze.b.findIndex((function (t) {
                                 return t.id === e
                             }));
-                            "undefined" !== typeof Ze[a].cap && this.MainStore.run.army[this.MainStore.idxs.army[e]].value >= Ze[a].cap && this.MainStore.addNotification("max_cap", "key", "common", !1), this.MainStore.save()
+                            "undefined" !== typeof Ze.b[a].cap && this.MainStore.run.army[this.MainStore.idxs.army[e]].value >= Ze.b[a].cap && this.MainStore.addNotification("max_cap", "key", "common", !1), this.MainStore.save()
                         }
                     }, {
                         key: "updateAway",
@@ -29586,10 +29902,21 @@
                         value: function (e) {
                             var t = this;
                             this.MainStore.run.army.forEach((function (r) {
-                                var n = Ze.findIndex((function (e) {
+                                var n = Ze.b.findIndex((function (e) {
                                     return e.id === r.id
                                 }));
-                                Ze[n].type === e && (t.MainStore.run.army[t.MainStore.idxs.army[r.id]].away = 0)
+                                Ze.b[n].type === e && (t.MainStore.run.army[t.MainStore.idxs.army[r.id]].away = 0)
+                            }))
+                        }
+                    }, {
+                        key: "moveAll",
+                        value: function (e) {
+                            var t = this;
+                            this.MainStore.run.army.forEach((function (r) {
+                                var n = Ze.b.findIndex((function (e) {
+                                    return e.id === r.id
+                                }));
+                                Ze.b[n].type === e && (t.MainStore.run.army[t.MainStore.idxs.army[r.id]].away = t.MainStore.run.army[t.MainStore.idxs.army[r.id]].value)
                             }))
                         }
                     }, {
@@ -29673,7 +30000,7 @@
                             this.MainStore.run.enemies.push({
                                 id: e,
                                 owned: 0
-                            }), this.MainStore.addLog("ene_" + e, "text-orange-500", !1, !1), "demoness_castle" === e || "vampire_lair" === e || "citadel_dead" === e || "skullface_encampment" === e || "markanat_forest" === e ? this.MainStore.toggleImageNotification("img_" + e, "img_" + e + "_description") : this.MainStore.addNotification((0, Ae.K)("log_ene_" + e), "enemy", "green", !1), Fe("event", "enemy", e, this.MainStore.StatsStore.resetNumber)
+                            }), this.MainStore.addLog("ene_" + e, "text-orange-500", !1, !1), "demoness_castle" === e || "vampire_lair" === e || "citadel_dead" === e || "skullface_encampment" === e || "markanat_forest" === e ? this.MainStore.toggleImageNotification("img_" + e, "img_" + e + "_description") : this.MainStore.addNotification((0, Ae.K)("log_ene_" + e), "enemy", "green", !1), Ve("event", "enemy", e, this.MainStore.StatsStore.resetNumber)
                         }
                     }, {
                         key: "setProgressScout",
@@ -31230,6 +31557,82 @@
                         type: "building",
                         id: "statue_firio",
                         value: -1
+                    }]
+                }, {
+                    id: "library_souls",
+                    cat: "science",
+                    cap: 1,
+                    age: 100,
+                    req: [{
+                        type: "building",
+                        id: "books",
+                        value: 8,
+                        consume: !0
+                    }, {
+                        type: "building",
+                        id: "souls",
+                        value: 8,
+                        consume: !0
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "fame",
+                        value: 150,
+                        fix: !0
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 5
+                    }, {
+                        type: "resource",
+                        id: "mana",
+                        value: 10
+                    }, {
+                        type: "resource",
+                        id: "research",
+                        value: 5,
+                        perc: !0
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 5,
+                        perc: !0
+                    }]
+                }, {
+                    id: "books",
+                    cat: "science",
+                    cap: 8,
+                    age: 100,
+                    req: [{
+                        type: "resource",
+                        id: "research",
+                        value: 15e3
+                    }, {
+                        type: "resource",
+                        id: "faith",
+                        value: 4e3
+                    }, {
+                        type: "tech",
+                        id: "library_of_souls",
+                        value: 1
+                    }]
+                }, {
+                    id: "souls",
+                    cat: "science",
+                    cap: 8,
+                    age: 100,
+                    req: [{
+                        type: "resource",
+                        id: "mana",
+                        value: 2800
+                    }, {
+                        type: "resource",
+                        id: "crystal",
+                        value: 500
+                    }, {
+                        type: "tech",
+                        id: "library_of_souls",
+                        value: 1
                     }]
                 }, {
                     id: "observatory",
@@ -34053,13 +34456,13 @@
                         multi: 1.2
                     }, {
                         type: "resource",
-                        id: "steel",
-                        value: 2e3,
+                        id: "building_material",
+                        value: 1500,
                         multi: 1.2
                     }, {
                         type: "resource",
-                        id: "building_material",
-                        value: 1500,
+                        id: "steel",
+                        value: 2e3,
                         multi: 1.2
                     }, {
                         type: "tech",
@@ -34168,7 +34571,7 @@
                             var r = Ue.findIndex((function (t) {
                                 return t.id === e
                             }));
-                            "undefined" !== typeof Ue[r].cap && this.MainStore.run.buildings[this.MainStore.idxs.buildings[e]].value >= Ue[r].cap && this.MainStore.addNotification("max_cap", "key", "common", !1), this.MainStore.save(), "mine" === e && 6 === this.MainStore.run.buildings[this.MainStore.idxs.buildings[e]].value ? this.MainStore.toggleImageNotification("img_deep_mine", "img_deep_mine_description") : "reactivate_portal" === e && this.MainStore.toggleImageNotification("img_reactivate_portal", "img_reactivate_portal_description"), "watchman_outpost" === e && this.MainStore.DiplomacyStore.checkShowAttack(), Fe("event", "building", e, this.MainStore.run.buildings[this.MainStore.idxs.buildings[e]].value)
+                            "undefined" !== typeof Ue[r].cap && this.MainStore.run.buildings[this.MainStore.idxs.buildings[e]].value >= Ue[r].cap && this.MainStore.addNotification("max_cap", "key", "common", !1), this.MainStore.save(), "mine" === e && 6 === this.MainStore.run.buildings[this.MainStore.idxs.buildings[e]].value ? this.MainStore.toggleImageNotification("img_deep_mine", "img_deep_mine_description") : "reactivate_portal" === e && this.MainStore.toggleImageNotification("img_reactivate_portal", "img_reactivate_portal_description"), "watchman_outpost" === e && this.MainStore.DiplomacyStore.checkShowAttack(), Ve("event", "building", e, this.MainStore.run.buildings[this.MainStore.idxs.buildings[e]].value)
                         }
                     }, {
                         key: "destroyBuilding",
@@ -34253,7 +34656,7 @@
                         key: "addDiplomacy",
                         value: function (e) {
                             var t = this._getDiplomacyEmptyObj(e.id);
-                            this.MainStore.run.diplomacy.push(t), 0 === e.relationship && this.war(e.id), this.MainStore.toggleImageNotification("img_" + e.id, "img_" + e.id + "_description"), this.MainStore.addLog("dip_" + e.id, "text-green-600", !1, !1), Fe("event", "kingdom", e.id, this.MainStore.StatsStore.resetNumber)
+                            this.MainStore.run.diplomacy.push(t), 0 === e.relationship && this.war(e.id), this.MainStore.toggleImageNotification("img_" + e.id, "img_" + e.id + "_description"), this.MainStore.addLog("dip_" + e.id, "text-green-600", !1, !1), Ve("event", "kingdom", e.id, this.MainStore.StatsStore.resetNumber)
                         }
                     }, {
                         key: "sendDelegation",
@@ -34273,7 +34676,7 @@
                             var t = this.MainStore.run.diplomacy.findIndex((function (t) {
                                 return t.id === e
                             }));
-                            this.MainStore.run.diplomacy[t].war = 1, this.MainStore.ArmyStore.progressAttack <= 0 && (this.MainStore.run.enemy = e), Fe("event", "war", e, this.MainStore.StatsStore.resetNumber)
+                            this.MainStore.run.diplomacy[t].war = 1, this.MainStore.ArmyStore.progressAttack <= 0 && (this.MainStore.run.enemy = e), Ve("event", "war", e, this.MainStore.StatsStore.resetNumber)
                         }
                     }, {
                         key: "alliance",
@@ -34289,7 +34692,7 @@
                                 this.MainStore.ReqGenStore.runGen("trade", e, {
                                     id: e,
                                     gen: Be[r].alliance
-                                }), this.MainStore.run.diplomacy[t].alliance = 1, Fe("event", "alliance", e, this.MainStore.StatsStore.resetNumber)
+                                }), this.MainStore.run.diplomacy[t].alliance = 1, Ve("event", "alliance", e, this.MainStore.StatsStore.resetNumber)
                             }
                         }
                     }, {
@@ -35108,7 +35511,7 @@
                         value: 7
                     }, {
                         type: "legacy",
-                        id: "enhanced_pickaxes_I",
+                        id: "enhanced_pickaxes",
                         value: 1
                     }],
                     gen: [{
@@ -35978,6 +36381,111 @@
                         value: 40,
                         perc: !0
                     }]
+                }, {
+                    id: "enhanced_axes_IV",
+                    req: [{
+                        type: "resource",
+                        id: "legacy",
+                        value: 19
+                    }, {
+                        type: "legacy",
+                        id: "enhanced_axes_III",
+                        value: 1
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "wood",
+                        value: 30,
+                        perc: !0
+                    }]
+                }, {
+                    id: "irrigation_techniques_IV",
+                    req: [{
+                        type: "resource",
+                        id: "legacy",
+                        value: 19
+                    }, {
+                        type: "legacy",
+                        id: "irrigation_techniques_III",
+                        value: 1
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: 30,
+                        perc: !0
+                    }]
+                }, {
+                    id: "renowned_stonemasons_IV",
+                    req: [{
+                        type: "resource",
+                        id: "legacy",
+                        value: 19
+                    }, {
+                        type: "legacy",
+                        id: "renowned_stonemasons_III",
+                        value: 1
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "stone",
+                        value: 30,
+                        perc: !0
+                    }]
+                }, {
+                    id: "enhanced_pickaxes_IV",
+                    req: [{
+                        type: "resource",
+                        id: "legacy",
+                        value: 19
+                    }, {
+                        type: "legacy",
+                        id: "enhanced_pickaxes_III",
+                        value: 1
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "copper",
+                        value: 40,
+                        perc: !0
+                    }, {
+                        type: "resource",
+                        id: "iron",
+                        value: 40,
+                        perc: !0
+                    }]
+                }, {
+                    id: "craftmen_III",
+                    req: [{
+                        type: "resource",
+                        id: "legacy",
+                        value: 21
+                    }, {
+                        type: "legacy",
+                        id: "craftmen_II",
+                        value: 1
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "supplies",
+                        value: 40,
+                        perc: !0
+                    }, {
+                        type: "resource",
+                        id: "building_material",
+                        value: 40,
+                        perc: !0
+                    }, {
+                        type: "resource",
+                        id: "crystal",
+                        value: 40,
+                        perc: !0
+                    }, {
+                        type: "resource",
+                        id: "steel",
+                        value: 40,
+                        perc: !0
+                    }]
                 }],
                 tt = function () {
                     function e(t) {
@@ -36195,7 +36703,7 @@
                                 this.MainStore.legacies.push({
                                     id: e,
                                     date: Date.now()
-                                }), Fe("event", "legacy", e, this.MainStore.StatsStore.resetNumber)
+                                }), Ve("event", "legacy", e, this.MainStore.StatsStore.resetNumber)
                             }
                         }
                     }, {
@@ -36670,6 +37178,22 @@
                     }, {
                         type: "tech",
                         id: "pentagram_tome",
+                        value: 1
+                    }]
+                }, {
+                    id: "temple_mirune",
+                    type: "prayer",
+                    req: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 5e3
+                    }, {
+                        type: "resource",
+                        id: "tools",
+                        value: 3500
+                    }, {
+                        type: "enemy",
+                        id: "temple_gargoyle",
                         value: 1
                     }]
                 }, {
@@ -37484,6 +38008,27 @@
                         type: "resource",
                         id: "iron",
                         value: 1.5
+                    }]
+                }, {
+                    id: "mirune_blessing",
+                    type: "spell",
+                    req: [{
+                        type: "prayer",
+                        id: "temple_mirune",
+                        value: 1
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "mana",
+                        value: -10
+                    }, {
+                        type: "resource",
+                        id: "research",
+                        value: 5
+                    }, {
+                        type: "resource",
+                        id: "wood",
+                        value: 2.5
                     }]
                 }, {
                     id: "dark_ritual",
@@ -38697,11 +39242,11 @@
                                                 };
                                             else if (!1 === s.value) {
                                                 u = "enemies";
-                                                var _ = r.push({
+                                                var g = r.push({
                                                     label: (0, Ae.K)("enemies"),
                                                     value: a + "/秒"
                                                 }) - 1;
-                                                s.value = d.value, s.valueIdx = _
+                                                s.value = d.value, s.valueIdx = g
                                             } else s.value += d.value, a = t.MainStore.defaultNumberFormat.format(Math.round(100 * s.value) / 100), r[s.valueIdx] = {
                                                 label: (0, Ae.K)("enemies"),
                                                 value: a + "/秒"
@@ -38726,11 +39271,11 @@
                                             if (d.perc)
                                                 if (!1 === l.perc) {
                                                     u = "spells";
-                                                    var g = r.push({
+                                                    var _ = r.push({
                                                         label: (0, Ae.K)("spells"),
                                                         value: a + "%"
                                                     }) - 1;
-                                                    l.perc = d.value, l.percIdx = g
+                                                    l.perc = d.value, l.percIdx = _
                                                 } else l.perc += d.value, a = t.MainStore.defaultNumberFormat.format(Math.round(100 * l.perc) / 100), r[l.percIdx] = {
                                                     label: (0, Ae.K)("spells"),
                                                     value: a + "%"
@@ -40441,6 +40986,21 @@
                         value: 1
                     }]
                 }, {
+                    id: "library_of_souls",
+                    req: [{
+                        type: "resource",
+                        id: "research",
+                        value: 18e3
+                    }, {
+                        type: "resource",
+                        id: "faith",
+                        value: 6e3
+                    }, {
+                        type: "enemy",
+                        id: "worn_down_crypt",
+                        value: 1
+                    }]
+                }, {
                     id: "end_feudal_era",
                     req: [{
                         type: "resource",
@@ -40748,6 +41308,17 @@
                         value: 1
                     }]
                 }, {
+                    id: "trail_power",
+                    req: [{
+                        type: "resource",
+                        id: "research",
+                        value: 45e3
+                    }, {
+                        type: "diplomacy_owned",
+                        id: "western_kingdom",
+                        value: 1
+                    }]
+                }, {
                     id: "exhibit_flame",
                     req: [{
                         type: "resource",
@@ -40834,6 +41405,68 @@
                         type: "tech",
                         id: "exhibit_flame",
                         value: -1
+                    }]
+                }, {
+                    id: "persuade_nobility",
+                    req: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 15e4
+                    }, {
+                        type: "tech",
+                        id: "trail_power",
+                        value: 1
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "fame",
+                        value: 100,
+                        fix: !0
+                    }, {
+                        type: "tech",
+                        id: "persuade_people",
+                        value: -1
+                    }]
+                }, {
+                    id: "persuade_people",
+                    req: [{
+                        type: "resource",
+                        id: "research",
+                        value: 5e4
+                    }, {
+                        type: "tech",
+                        id: "trail_power",
+                        value: 1
+                    }],
+                    gen: [{
+                        type: "tech",
+                        id: "persuade_nobility",
+                        value: -1
+                    }]
+                }, {
+                    id: "loved_people",
+                    req: [{
+                        type: "resource",
+                        id: "research",
+                        value: 1e4
+                    }, {
+                        type: "enemy",
+                        id: "eternal_halls",
+                        value: 1
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "fame",
+                        value: 150,
+                        fix: !0
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 12
+                    }, {
+                        type: "population",
+                        id: "unemployed",
+                        value: 6
                     }]
                 }, {
                     id: "economics",
@@ -41499,7 +42132,7 @@
                                 s = !0;
                             if (!1 === n && (n = this._getData(e, t)), n.req) {
                                 var l = this.checkOwned(e, t);
-                                if (("building" === e || "prayer" === e) && l < 0 && !o) return !1;
+                                if (("building" === e || "prayer" === e || "tech" === e) && l < 0 && !o) return !1;
                                 if (("building" === e || "army" === e) && n.cap && l >= n.cap && a) return !1;
                                 n.req.forEach((function (e) {
                                     var t = e.value;
@@ -41595,7 +42228,7 @@
                                         } else n.value >= 0 ? r.MainStore.ResourcesStore.addProp("timer", n.id, n.value) : r.MainStore.ResourcesStore.addProp("timern", n.id, n.value), r.MainStore.ModifiersStore.addModifier(e, t, e, n.id, n.type, t, n.value);
                                         break;
                                     case "tech":
-                                        r.MainStore.TechsStore.addTech(n.id)
+                                        n.value < 0 ? r.MainStore.TechsStore.destroyTech(n.id, !0) : r.MainStore.TechsStore.addTech(n.id)
                                 }
                             }))
                         }
@@ -41715,14 +42348,14 @@
                             };
                             switch (e) {
                                 case "ancestor":
-                                    -1 !== (r = Ve.findIndex((function (e) {
+                                    -1 !== (r = Fe.findIndex((function (e) {
                                         return e.id === t
-                                    }))) && (n = Ve[r]);
+                                    }))) && (n = Fe[r]);
                                     break;
                                 case "army":
-                                    -1 !== (r = Ze.findIndex((function (e) {
+                                    -1 !== (r = Ze.b.findIndex((function (e) {
                                         return e.id === t
-                                    }))) && (n = Ze[r]);
+                                    }))) && (n = Ze.b[r]);
                                     break;
                                 case "building":
                                     -1 !== (r = Ue.findIndex((function (e) {
@@ -41753,8 +42386,8 @@
                         }
                     }]), e
                 }(),
-                _t = mt,
-                gt = function () {
+                gt = mt,
+                _t = function () {
                     function e(t) {
                         (0, a.Z)(this, e), this.MainStore = void 0, this.checkEmptyMana = 0, this.addResourceManual = l(100, this.addResourceManualThrottle, {
                             noTrailing: !0
@@ -41923,7 +42556,7 @@
                         }
                     }]), e
                 }(),
-                vt = gt,
+                vt = _t,
                 bt = r(4162),
                 wt = r.n(bt),
                 kt = function () {
@@ -42097,7 +42730,8 @@
                             buildableTechs: s.Fl,
                             visibleTechs: s.Fl,
                             ownedTechs: s.Fl,
-                            addTech: s.aD
+                            addTech: s.aD,
+                            destroyTech: s.aD
                         })
                     }
                     return (0, i.Z)(e, [{
@@ -42140,7 +42774,23 @@
                                 }) - 1;
                                 this.MainStore.idxs.techs[e] = t, "religion" === e ? this.MainStore.toggleImageNotification("img_magic", "img_magic_description") : "archery" === e ? this.MainStore.toggleImageNotification("img_army", "img_army_description") : "feudalism" === e ? this.MainStore.toggleImageNotification("img_feudalism", "img_feudalism_description") : "astronomy" === e ? this.MainStore.toggleImageNotification("img_astronomy", "img_astronomy_description") : "mana_engine" === e ? this.MainStore.toggleImageNotification("img_mana_engine", "img_mana_engine_description") : "holy_fury" === e ? this.MainStore.toggleImageNotification("img_holy_fury", "img_holy_fury_description") : "glorious_retirement" === e ? this.MainStore.toggleImageNotification("img_glorious_retirement", "img_glorious_retirement_description") : "theresmore_richest_nation" === e ? this.MainStore.toggleImageNotification("img_theresmore_richest_nation", "img_theresmore_richest_nation_description") : "moonlight_night" === e ? this.MainStore.ArmyStore.processBoss("army_of_goblin", 5) : "dragon_assault" === e ? this.MainStore.ArmyStore.processBoss("army_of_dragon", 6) : "mysterious_robbery" === e ? this.MainStore.ArmyStore.processBoss("fallen_angel_army_1", 7) : "fallen_angel" === e && this.MainStore.ArmyStore.processBoss("fallen_angel_army_2", 8)
                             } else this.MainStore.run.techs[this.MainStore.idxs.techs[e]].value++;
-                            this.MainStore.ReqGenStore.runGen("tech", e), this.MainStore.addLog("tec_" + e, "text-violet-500"), this.MainStore.save(), Fe("event", "tech", e, this.MainStore.run.techs[this.MainStore.idxs.techs[e]].value)
+                            this.MainStore.ReqGenStore.runGen("tech", e), this.MainStore.AchievementsStore.runAchievement(e), this.MainStore.addLog("tec_" + e, "text-violet-500"), this.MainStore.save(), Ve("event", "tech", e, this.MainStore.run.techs[this.MainStore.idxs.techs[e]].value)
+                        }
+                    }, {
+                        key: "destroyTech",
+                        value: function (e) {
+                            var t = arguments.length > 1 && void 0 !== arguments[1] && arguments[1];
+                            if ("undefined" === typeof this.MainStore.idxs.techs[e]) {
+                                if (t) {
+                                    var r = this.MainStore.run.techs.push({
+                                        id: e,
+                                        value: -1
+                                    }) - 1;
+                                    return this.MainStore.idxs.techs[e] = r, !0
+                                }
+                                return !1
+                            }
+                            this.MainStore.run.techs[this.MainStore.idxs.techs[e]].value = -1
                         }
                     }]), e
                 }(),
@@ -42188,14 +42838,22 @@
             var Et = function () {
                     function e() {
                         var t = this;
-                        (0, a.Z)(this, e), this.version = (0, Le.JC)("0.42.3"), this.intervalMs = 250, this.intervalRandomAttackDice = 8800, this.lastInterval = 0, this.save = l(2e3, this.saveThrottle), this.ads = !1, this.isPWA = !1, this.isTWA = !1, this.idxs = (0, n.Z)({}, (0, Le.qn)("idxs", Ot)), this.run = (0, n.Z)({}, (0, Le.qn)("run", Tt)), this.achievements = (0, Le.qn)("ach", []), this.stats = (0, Le.qn)("stats", []), this.legacies = (0, Le.qn)("leg", []), this.selectedTab = 0, this.logs = (0, Le.qn)("logs", []), this.logData = !1, this.sD = !1, this.softResetInProgress = !1, this.firstStart = !0, this.keyPress = "", this.confirmShow = !1, this.confirmTitle = "", this.confirmText = "", this.confirmType = "", this.confirmCancel = void 0, this.confirmOk = void 0, this.imageNotificationShow = !1, this.imageNotificationKey = "", this.imageNotificationTitle = "", this.imageNotificationText = "", this.imageNotificationType = "", this.showSupport = !1, this.AchievementsStore = void 0, this.AdsStore = void 0, this.AncestorsStore = void 0, this.ArmyStore = void 0, this.BuildingsStore = void 0, this.DiplomacyStore = void 0, this.LegacyStore = void 0, this.MagicStore = void 0, this.MarketStore = void 0, this.ModifiersStore = void 0, this.PopulationStore = void 0, this.ReqGenStore = void 0, this.ResourcesStore = void 0, this.SettingsStore = void 0, this.StatsStore = void 0, this.TechsStore = void 0, this.swRegistration = void 0, this.workerInstance = void 0, this.defaultNumberFormat = new Intl.NumberFormat, this.bigNumberFormat = new Intl.NumberFormat(void 0, {
+                        (0, a.Z)(this, e), this.d = !(!{
+                            NODE_ENV: "production",
+                            PUBLIC_URL: "/",
+                            WDS_SOCKET_HOST: void 0,
+                            WDS_SOCKET_PATH: void 0,
+                            WDS_SOCKET_PORT: void 0,
+                            FAST_REFRESH: !0,
+                            REACT_APP_VERSION: "0.43"
+                        }.REACT_APP_DEV || "preview" === window.location.hostname.split(".")[0]), this.version = (0, Le.JC)("0.43"), this.intervalMs = 250, this.intervalRandomAttackDice = 8800, this.lastInterval = 0, this.save = l(2e3, this.saveThrottle), this.ads = !1, this.isPWA = !1, this.isTWA = !1, this.idxs = (0, n.Z)({}, (0, Le.qn)("idxs", Ot)), this.run = (0, n.Z)({}, (0, Le.qn)("run", Tt)), this.achievements = (0, Le.qn)("ach", []), this.stats = (0, Le.qn)("stats", []), this.legacies = (0, Le.qn)("leg", []), this.selectedTab = 0, this.logs = (0, Le.qn)("logs", []), this.logData = !1, this.sD = !1, this.softResetInProgress = !1, this.firstStart = !0, this.keyPress = "", this.confirmShow = !1, this.confirmTitle = "", this.confirmText = "", this.confirmType = "", this.confirmCancel = void 0, this.confirmOk = void 0, this.imageNotificationShow = !1, this.imageNotificationKey = "", this.imageNotificationTitle = "", this.imageNotificationText = "", this.imageNotificationType = "", this.showSupport = !1, this.AchievementsStore = void 0, this.AdsStore = void 0, this.AncestorsStore = void 0, this.ArmyStore = void 0, this.BuildingsStore = void 0, this.DiplomacyStore = void 0, this.LegacyStore = void 0, this.MagicStore = void 0, this.MarketStore = void 0, this.ModifiersStore = void 0, this.PopulationStore = void 0, this.ReqGenStore = void 0, this.ResourcesStore = void 0, this.SettingsStore = void 0, this.StatsStore = void 0, this.TechsStore = void 0, this.swRegistration = void 0, this.workerInstance = void 0, this.defaultNumberFormat = new Intl.NumberFormat, this.bigNumberFormat = new Intl.NumberFormat(void 0, {
                             minimumFractionDigits: 1
                         }), this.twoNumberFormat = new Intl.NumberFormat(void 0, {
                             minimumFractionDigits: 2,
                             maximumFractionDigits: 2
                         }), this.zeroNumberFormat = new Intl.NumberFormat(void 0, {
                             maximumFractionDigits: 0
-                        }), this.AchievementsStore = new Ie(this), this.AdsStore = new Re(this), this.AncestorsStore = new ze(this), this.ArmyStore = new Ge(this), this.BuildingsStore = new Xe(this), this.DiplomacyStore = new Je(this), this.LegacyStore = new rt(this), this.MagicStore = new it(this), this.MarketStore = new lt(this), this.ModifiersStore = new dt(this), this.PopulationStore = new ft(this), this.ReqGenStore = new _t(this), this.ResourcesStore = new vt(this), this.SettingsStore = new xt(this), this.StatsStore = new Mt(this), this.TechsStore = new Ct(this), this.confirmCancel = function () {
+                        }), this.AchievementsStore = new Ie(this), this.AdsStore = new Re(this), this.AncestorsStore = new ze(this), this.ArmyStore = new Ge(this), this.BuildingsStore = new Xe(this), this.DiplomacyStore = new Je(this), this.LegacyStore = new rt(this), this.MagicStore = new it(this), this.MarketStore = new lt(this), this.ModifiersStore = new dt(this), this.PopulationStore = new ft(this), this.ReqGenStore = new gt(this), this.ResourcesStore = new vt(this), this.SettingsStore = new xt(this), this.StatsStore = new Mt(this), this.TechsStore = new Ct(this), this.confirmCancel = function () {
                             return t.confirmCancelFunc()
                         }, this.confirmOk = function () {
                             return t.confirmCancelFunc()
@@ -42406,15 +43064,7 @@
                         key: "_initHotKeys",
                         value: function () {
                             var e = this;
-                            ({
-                                NODE_ENV: "production",
-                                PUBLIC_URL: "./",
-                                WDS_SOCKET_HOST: void 0,
-                                WDS_SOCKET_PATH: void 0,
-                                WDS_SOCKET_PORT: void 0,
-                                FAST_REFRESH: !0,
-                                REACT_APP_VERSION: "0.42.3"
-                            }).REACT_APP_DEV && (E(".", (function () {
+                            this.d && (E(".", (function () {
                                 e.AdsStore.checkAvailableAd()
                             })), E(",", (function () {
                                 e.AdsStore.showAd()
@@ -42630,7 +43280,7 @@
                     }]), r
                 }(o.Component),
                 Dt = (0, t.f3)("MainStore")((0, t.Pi)(Rt)),
-                Ft = function (e) {
+                Vt = function (e) {
                     (0, we.Z)(r, e);
                     var t = (0, ke.Z)(r);
 
@@ -42708,7 +43358,7 @@
                         }
                     }]), r
                 }(o.Component),
-                Vt = (0, t.f3)("MainStore")((0, t.Pi)(Ft)),
+                Ft = (0, t.f3)("MainStore")((0, t.Pi)(Vt)),
                 Ht = r(7914),
                 zt = function (e) {
                     (0, we.Z)(r, e);
@@ -42879,15 +43529,7 @@
                                         })
                                     }) : null, (0, Ce.jsxs)("div", {
                                         className: "" === r ? "text-center w-full lg:text-right lg:w-1/4 z-30" : "text-right w-2/3 lg:w-1/4 z-30",
-                                        children: [{
-                                            NODE_ENV: "production",
-                                            PUBLIC_URL: "./",
-                                            WDS_SOCKET_HOST: void 0,
-                                            WDS_SOCKET_PATH: void 0,
-                                            WDS_SOCKET_PORT: void 0,
-                                            FAST_REFRESH: !0,
-                                            REACT_APP_VERSION: "0.42.3"
-                                        }.REACT_APP_DEV ? (0, Ce.jsx)("button", {
+                                        children: [this.props.MainStore.d ? (0, Ce.jsx)("button", {
                                             type: "button",
                                             className: "py-1.5 px-3 text-red-600",
                                             onClick: this.handleD,
@@ -43625,15 +44267,15 @@
                 }(o.Component),
                 hr = (0, t.f3)("MainStore")((0, t.Pi)(fr)),
                 yr = o.lazy((function () {
-                    return r.e(115).then(r.bind(r, 4115))
+                    return r.e(191).then(r.bind(r, 8191))
                 })),
                 mr = o.lazy((function () {
                     return r.e(124).then(r.bind(r, 2124))
                 })),
-                _r = o.lazy((function () {
+                gr = o.lazy((function () {
                     return r.e(883).then(r.bind(r, 1883))
                 })),
-                gr = o.lazy((function () {
+                _r = o.lazy((function () {
                     return Promise.all([r.e(407), r.e(803)]).then(r.bind(r, 3803))
                 })),
                 vr = o.lazy((function () {
@@ -43774,7 +44416,7 @@
                                             fallback: (0, Ce.jsx)("div", {
                                                 className: "h-screen lg:hidden"
                                             }),
-                                            children: (0, Ce.jsx)(_r, {})
+                                            children: (0, Ce.jsx)(gr, {})
                                         })
                                     }) : null, t.length > 0 ? (0, Ce.jsx)(or.O.Panel, {
                                         children: (0, Ce.jsx)(o.Suspense, {
@@ -43795,7 +44437,7 @@
                                             fallback: (0, Ce.jsx)("div", {
                                                 className: "h-screen lg:hidden"
                                             }),
-                                            children: (0, Ce.jsx)(gr, {})
+                                            children: (0, Ce.jsx)(_r, {})
                                         })
                                     }) : null]
                                 })]
@@ -43982,6 +44624,9 @@
                     }), "")
                 },
                 Or = [{
+                    version: "0.43",
+                    changes: ["Added army attack and defense values", "Added settlement attack and defense values", "Added a button to move the whole army to attack", "Added new prayers and spells", "Added 7 new enemies", "Added 5 upgraded legacy perks", "Added the Trail of Power quest", "Added the Library of SouLs quest", "Bug fixes"]
+                }, {
                     version: "0.42.3",
                     changes: ["Added buttons to build more units at once", "Minor balance of buildings", "Minor balance of the army", "Balance of enemies and bosses", "Bug fixes"]
                 }, {
@@ -44385,15 +45030,7 @@
                                                                             }), (0, Ce.jsxs)("div", {
                                                                                 className: "w-full text-center text-gray-500 cursor-pointer text-sm",
                                                                                 onClick: this.showChangelog,
-                                                                                children: ["v ", "0.42.3", {
-                                                                                    NODE_ENV: "production",
-                                                                                    PUBLIC_URL: "./",
-                                                                                    WDS_SOCKET_HOST: void 0,
-                                                                                    WDS_SOCKET_PATH: void 0,
-                                                                                    WDS_SOCKET_PORT: void 0,
-                                                                                    FAST_REFRESH: !0,
-                                                                                    REACT_APP_VERSION: "0.42.3"
-                                                                                }.REACT_APP_DEV ? " dev" : ""]
+                                                                                children: ["v ", "0.43", this.props.MainStore.d ? " d" : ""]
                                                                             })]
                                                                         })
                                                                     })]
@@ -44707,8 +45344,8 @@
                         }
                     }]), r
                 }(o.Component),
-                Fr = (0, t.f3)("MainStore")((0, t.Pi)(Dr)),
-                Vr = function (e) {
+                Vr = (0, t.f3)("MainStore")((0, t.Pi)(Dr)),
+                Fr = function (e) {
                     (0, we.Z)(r, e);
                     var t = (0, ke.Z)(r);
 
@@ -44865,7 +45502,7 @@
                         }
                     }]), r
                 }(o.Component),
-                Hr = (0, t.f3)("MainStore")((0, t.Pi)(Vr)),
+                Hr = (0, t.f3)("MainStore")((0, t.Pi)(Fr)),
                 zr = function (e) {
                     (0, we.Z)(r, e);
                     var t = (0, ke.Z)(r);
@@ -44960,7 +45597,7 @@
                                                                 children: [(0, Ce.jsx)("div", {
                                                                     className: "flex flex-wrap bg-black relative",
                                                                     children: (0, Ce.jsx)(zr, {
-                                                                        dataSrc: "./" + ("localhost" === window.location.hostname ? "./" : "") + "images/" + r + ".webp"
+                                                                        dataSrc: "/" + ("localhost" === window.location.hostname ? "/" : "") + "images/" + r + ".webp"
                                                                     })
                                                                 }), (0, Ce.jsx)("div", {
                                                                     className: "flex flex-wrap",
@@ -45008,21 +45645,13 @@
                                 a = this.props.MainStore.softResetInProgress,
                                 i = this.props.MainStore.LegacyStore.countVisibleLegacy;
                             return (0, Ce.jsxs)(Ce.Fragment, {
-                                children: [(0, Ce.jsx)(Kt, {}), (0, Ce.jsx)(Dt, {}), (0, Ce.jsx)(qr, {}), (0, Ce.jsx)(Ir, {}), "" === t || 2 === r || 2 === n ? (0, Ce.jsx)(Cr, {}) : (0, Ce.jsx)(xr, {}), (0, Ce.jsx)(Wr, {}), (0, Ce.jsx)(Vt, {}), i > 0 || a || 2 === n ? (0, Ce.jsx)(o.Suspense, {
+                                children: [(0, Ce.jsx)(Kt, {}), (0, Ce.jsx)(Dt, {}), (0, Ce.jsx)(qr, {}), (0, Ce.jsx)(Ir, {}), "" === t || 2 === r || 2 === n ? (0, Ce.jsx)(Cr, {}) : (0, Ce.jsx)(xr, {}), (0, Ce.jsx)(Wr, {}), (0, Ce.jsx)(Ft, {}), i > 0 || a || 2 === n ? (0, Ce.jsx)(o.Suspense, {
                                     fallback: null,
                                     children: (0, Ce.jsx)(Br, {})
-                                }) : null, {
-                                    NODE_ENV: "production",
-                                    PUBLIC_URL: "./",
-                                    WDS_SOCKET_HOST: void 0,
-                                    WDS_SOCKET_PATH: void 0,
-                                    WDS_SOCKET_PORT: void 0,
-                                    FAST_REFRESH: !0,
-                                    REACT_APP_VERSION: "0.42.3"
-                                }.REACT_APP_DEV ? (0, Ce.jsx)(o.Suspense, {
+                                }) : null, this.props.MainStore.d ? (0, Ce.jsx)(o.Suspense, {
                                     fallback: null,
                                     children: (0, Ce.jsx)(Kr, {})
-                                }) : null, (0, Ce.jsx)(Fr, {}), (0, Ce.jsx)(Hr, {}), (0, Ce.jsx)(Rr, {})]
+                                }) : null, (0, Ce.jsx)(Vr, {}), (0, Ce.jsx)(Hr, {}), (0, Ce.jsx)(Rr, {})]
                             })
                         }
                     }]), r
@@ -45032,7 +45661,7 @@
 
             function Qr(e, t) {
                 navigator.serviceWorker.register(e, {
-                    scope: ".//"
+                    scope: "./"
                 }).then((function (e) {
                     e.onupdatefound = function () {
                         var r = e.installing;
@@ -45049,9 +45678,9 @@
                 })),
                 function (e) {
                     if ("serviceWorker" in navigator) {
-                        if (new URL("./", window.location.href).origin !== window.location.origin) return;
+                        if (new URL("/", window.location.href).origin !== window.location.origin) return;
                         window.addEventListener("load", (function () {
-                            var t = "".concat("./", "service-worker.js");
+                            var t = "".concat("/", "/service-worker.js");
                             Yr ? (! function (e, t) {
                                 fetch(e, {
                                     headers: {
