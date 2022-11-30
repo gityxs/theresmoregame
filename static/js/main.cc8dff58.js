@@ -5293,7 +5293,7 @@
                         img_scalerock_tribes: "鳞岩部落",
                         img_scalerock_tribes_description: "在鳞岩山之巅，生活着龙人的部落。他们住在岩石上的洞穴里，会飞跃山顶，向毫无防备的敌人猛扑下去。作为龙裔，他们在制造物品方面保持了龙的智慧和工艺。他们或许是祖先的传承，知道钠红石的存在，并极其想要弄到它们",
                         img_skullface_encampment: "强盗首领骷髅脸",
-                        img_skullface_encampment_description: "骷髅脸是这个地区强盗的首领。尽管它他对我们城市的经济稳定产生了威胁，但他其实是一位魅力十足且十分狡猾的领袖",
+                        img_skullface_encampment_description: "骷髅脸是这个地区强盗的首领。尽管他对我们城市的经济稳定产生了威胁，但他其实是一位魅力十足且十分狡猾的领袖",
                         img_start: "人类纪元开启",
                         img_start_description: "从游牧的猎人和采集者起，我们的人民发展壮大，并准备在肥沃的山谷中定居下来。或许在此将崛起登攀者世界最伟大的国家。人类的时代才刚刚开始",
                         img_theresmore_richest_nation: "登攀者世界富甲天下！",
