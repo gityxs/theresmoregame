@@ -5750,7 +5750,7 @@
                         log_tec_storage_district: "您受够那些上限了！我们可以建造存储设施和大型仓库了",
                         log_tec_storing_valuable_materials: "我们可以建造有人值守仓库了",
                         log_tec_stone_masonry: "我们可以建造采石场了",
-                        log_tec_tamed_barbarian: "我们必须利用侦查员了解更多关于这些野蛮人的信息，这样才能把我们的文明输出给他们！",
+                        log_tec_tamed_barbarian: "我们必须利用侦察兵了解更多关于这些野蛮人的信息，这样才能把我们的文明输出给他们！",
                         log_tec_the_scourge: "难民们讲述了整个村庄被一只飞行怪物烧毁的故事，大批无家可归的人正沿着西部边境，向着城市涌来",
                         log_tec_trail_blood: "我们发现了血迹。我们还得派侦察兵去寻找吸血鬼",
                         log_tec_trail_power: "我们赢得了王国的认可。我们可以考虑说服贵族，或者是赢得民心。请谨慎选择，您只能选择其一",
