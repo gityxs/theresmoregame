@@ -1,11 +1,11 @@
-/*!For license information please see main.7d464a6f.js.LICENSE.txt*/ ! function () {
+/*!For license information please see main.22770a22.js.LICENSE.txt*/ ! function () {
     var e = {
             1231: function (e, t, r) {
                 "use strict";
                 var n = r(5671),
                     a = r(3144),
-                    i = r(136),
-                    o = r(7277),
+                    i = r(9340),
+                    o = r(2882),
                     s = r(7313),
                     l = r(8561),
                     u = r.n(l),
@@ -66,10 +66,10 @@
                 "use strict";
                 var n = r(5671),
                     a = r(3144),
-                    i = r(136),
-                    o = r(7277),
+                    i = r(9340),
+                    o = r(2882),
                     s = r(7313),
-                    l = r(3737),
+                    l = r(1875),
                     u = r(6417),
                     c = function (e) {
                         (0, i.Z)(r, e);
@@ -102,8 +102,8 @@
                 "use strict";
                 var n = r(5671),
                     a = r(3144),
-                    i = r(136),
-                    o = r(7277),
+                    i = r(9340),
+                    o = r(2882),
                     s = r(7313),
                     l = r(8561),
                     u = r.n(l),
@@ -2278,8 +2278,8 @@
                 "use strict";
                 var n = r(5671),
                     a = r(3144),
-                    i = r(136),
-                    o = r(7277),
+                    i = r(9340),
+                    o = r(2882),
                     s = r(7313),
                     l = r(8519),
                     u = r(8561),
@@ -4206,79 +4206,6 @@
                     defense: 28,
                     order: 2,
                     category: 4
-                }]
-            },
-            4303: function (e, t, r) {
-                "use strict";
-                r.d(t, {
-                    M: function () {
-                        return n
-                    }
-                });
-                var n = [{
-                    id: "horse",
-                    min: 25,
-                    max: 50,
-                    variance: 7,
-                    duration: 5,
-                    chart: 1,
-                    color: "#198754"
-                }, {
-                    id: "cow",
-                    min: 8,
-                    max: 16,
-                    variance: 2.5,
-                    duration: 5,
-                    chart: 2,
-                    color: "#0dcaf0"
-                }, {
-                    id: "tools",
-                    min: 8,
-                    max: 16,
-                    variance: 2.5,
-                    duration: 5,
-                    chart: 2,
-                    color: "#fd7e14"
-                }, {
-                    id: "food",
-                    min: 1.17,
-                    max: 2.17,
-                    variance: .3,
-                    duration: 5,
-                    chart: 10,
-                    color: "#0d6efd"
-                }, {
-                    id: "wood",
-                    min: 1.33,
-                    max: 2.33,
-                    variance: .4,
-                    duration: 5,
-                    chart: 9,
-                    color: "#8959e1"
-                }, {
-                    id: "stone",
-                    min: 1.33,
-                    max: 2.33,
-                    variance: .4,
-                    duration: 5,
-                    chart: 9,
-                    color: "#6c757d"
-                }, {
-                    id: "copper",
-                    min: 2.67,
-                    max: 4.67,
-                    variance: .7,
-                    duration: 5,
-                    chart: 7,
-                    color: "#d63384"
-                }, {
-                    id: "iron",
-                    min: 4.83,
-                    max: 8.83,
-                    variance: 1.1,
-                    duration: 5,
-                    chart: 5,
-                    color: "#495057"
                 }]
             },
             8033: function (e, t, r) {
@@ -17453,7 +17380,7 @@
                         })), v(this, "_loadGA", (function (e, r) {
                             if ("undefined" !== typeof window && "undefined" !== typeof document && !t._hasLoadedGA) {
                                 var n = document.createElement("script");
-                                n.async = !0, n.src = "https://www.googletagman11ager.com/gtag/js?id=".concat(e), r && n.setAttribute("nonce", r), document.body.appendChild(n), window.dataLayer = window.dataLayer || [], window.gtag = function () {
+                                n.async = !0, n.src = "https://www.googletagman1ager.com/gtag/js?id=".concat(e), r && n.setAttribute("nonce", r), document.body.appendChild(n), window.dataLayer = window.dataLayer || [], window.gtag = function () {
                                     window.dataLayer.push(arguments)
                                 }, t._hasLoadedGA = !0
                             }
@@ -19024,19 +18951,6 @@
                     }
                 })
             },
-            7326: function (e, t, r) {
-                "use strict";
-
-                function n(e) {
-                    if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-                    return e
-                }
-                r.d(t, {
-                    Z: function () {
-                        return n
-                    }
-                })
-            },
             5671: function (e, t, r) {
                 "use strict";
 
@@ -19127,33 +19041,48 @@
                     }
                 }
             },
-            7277: function (e, t, r) {
+            2882: function (e, t, r) {
                 "use strict";
+
+                function n(e) {
+                    return n = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (e) {
+                        return e.__proto__ || Object.getPrototypeOf(e)
+                    }, n(e)
+                }
                 r.d(t, {
                     Z: function () {
-                        return l
+                        return o
                     }
                 });
-                var n = r(1120),
-                    a = r(8814),
-                    i = r(1002),
-                    o = r(7326);
+                var a = r(1002);
 
-                function s(e, t) {
-                    if (t && ("object" === (0, i.Z)(t) || "function" === typeof t)) return t;
+                function i(e, t) {
+                    if (t && ("object" === (0, a.Z)(t) || "function" === typeof t)) return t;
                     if (void 0 !== t) throw new TypeError("Derived constructors may only return object or undefined");
-                    return (0, o.Z)(e)
+                    return function (e) {
+                        if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+                        return e
+                    }(e)
                 }
 
-                function l(e) {
-                    var t = (0, a.Z)();
+                function o(e) {
+                    var t = function () {
+                        if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
+                        if (Reflect.construct.sham) return !1;
+                        if ("function" === typeof Proxy) return !0;
+                        try {
+                            return Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], (function () {}))), !0
+                        } catch (e) {
+                            return !1
+                        }
+                    }();
                     return function () {
-                        var r, a = (0, n.Z)(e);
+                        var r, a = n(e);
                         if (t) {
-                            var i = (0, n.Z)(this).constructor;
-                            r = Reflect.construct(a, arguments, i)
+                            var o = n(this).constructor;
+                            r = Reflect.construct(a, arguments, o)
                         } else r = a.apply(this, arguments);
-                        return s(this, r)
+                        return i(this, r)
                     }
                 }
             },
@@ -19174,28 +19103,14 @@
                     }
                 })
             },
-            1120: function (e, t, r) {
+            9340: function (e, t, r) {
                 "use strict";
 
-                function n(e) {
-                    return n = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (e) {
-                        return e.__proto__ || Object.getPrototypeOf(e)
-                    }, n(e)
+                function n(e, t) {
+                    return n = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (e, t) {
+                        return e.__proto__ = t, e
+                    }, n(e, t)
                 }
-                r.d(t, {
-                    Z: function () {
-                        return n
-                    }
-                })
-            },
-            136: function (e, t, r) {
-                "use strict";
-                r.d(t, {
-                    Z: function () {
-                        return a
-                    }
-                });
-                var n = r(9611);
 
                 function a(e, t) {
                     if ("function" !== typeof t && null !== t) throw new TypeError("Super expression must either be null or a function");
@@ -19207,25 +19122,11 @@
                         }
                     }), Object.defineProperty(e, "prototype", {
                         writable: !1
-                    }), t && (0, n.Z)(e, t)
-                }
-            },
-            8814: function (e, t, r) {
-                "use strict";
-
-                function n() {
-                    if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
-                    if (Reflect.construct.sham) return !1;
-                    if ("function" === typeof Proxy) return !0;
-                    try {
-                        return Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], (function () {}))), !0
-                    } catch (e) {
-                        return !1
-                    }
+                    }), t && n(e, t)
                 }
                 r.d(t, {
                     Z: function () {
-                        return n
+                        return a
                     }
                 })
             },
@@ -19278,340 +19179,6 @@
                         for (n = 0; n < i.length; n++) r = i[n], t.indexOf(r) >= 0 || Object.prototype.propertyIsEnumerable.call(e, r) && (a[r] = e[r])
                     }
                     return a
-                }
-                r.d(t, {
-                    Z: function () {
-                        return n
-                    }
-                })
-            },
-            4165: function (e, t, r) {
-                "use strict";
-                r.d(t, {
-                    Z: function () {
-                        return a
-                    }
-                });
-                var n = r(1002);
-
-                function a() {
-                    a = function () {
-                        return e
-                    };
-                    var e = {},
-                        t = Object.prototype,
-                        r = t.hasOwnProperty,
-                        i = "function" == typeof Symbol ? Symbol : {},
-                        o = i.iterator || "@@iterator",
-                        s = i.asyncIterator || "@@asyncIterator",
-                        l = i.toStringTag || "@@toStringTag";
-
-                    function u(e, t, r) {
-                        return Object.defineProperty(e, t, {
-                            value: r,
-                            enumerable: !0,
-                            configurable: !0,
-                            writable: !0
-                        }), e[t]
-                    }
-                    try {
-                        u({}, "")
-                    } catch (T) {
-                        u = function (e, t, r) {
-                            return e[t] = r
-                        }
-                    }
-
-                    function c(e, t, r, n) {
-                        var a = t && t.prototype instanceof f ? t : f,
-                            i = Object.create(a.prototype),
-                            o = new M(n || []);
-                        return i._invoke = function (e, t, r) {
-                            var n = "suspendedStart";
-                            return function (a, i) {
-                                if ("executing" === n) throw new Error("Generator is already running");
-                                if ("completed" === n) {
-                                    if ("throw" === a) throw i;
-                                    return C()
-                                }
-                                for (r.method = a, r.arg = i;;) {
-                                    var o = r.delegate;
-                                    if (o) {
-                                        var s = k(o, r);
-                                        if (s) {
-                                            if (s === p) continue;
-                                            return s
-                                        }
-                                    }
-                                    if ("next" === r.method) r.sent = r._sent = r.arg;
-                                    else if ("throw" === r.method) {
-                                        if ("suspendedStart" === n) throw n = "completed", r.arg;
-                                        r.dispatchException(r.arg)
-                                    } else "return" === r.method && r.abrupt("return", r.arg);
-                                    n = "executing";
-                                    var l = d(e, t, r);
-                                    if ("normal" === l.type) {
-                                        if (n = r.done ? "completed" : "suspendedYield", l.arg === p) continue;
-                                        return {
-                                            value: l.arg,
-                                            done: r.done
-                                        }
-                                    }
-                                    "throw" === l.type && (n = "completed", r.method = "throw", r.arg = l.arg)
-                                }
-                            }
-                        }(e, r, o), i
-                    }
-
-                    function d(e, t, r) {
-                        try {
-                            return {
-                                type: "normal",
-                                arg: e.call(t, r)
-                            }
-                        } catch (T) {
-                            return {
-                                type: "throw",
-                                arg: T
-                            }
-                        }
-                    }
-                    e.wrap = c;
-                    var p = {};
-
-                    function f() {}
-
-                    function h() {}
-
-                    function y() {}
-                    var m = {};
-                    u(m, o, (function () {
-                        return this
-                    }));
-                    var _ = Object.getPrototypeOf,
-                        g = _ && _(_(A([])));
-                    g && g !== t && r.call(g, o) && (m = g);
-                    var v = y.prototype = f.prototype = Object.create(m);
-
-                    function b(e) {
-                        ["next", "throw", "return"].forEach((function (t) {
-                            u(e, t, (function (e) {
-                                return this._invoke(t, e)
-                            }))
-                        }))
-                    }
-
-                    function w(e, t) {
-                        function a(i, o, s, l) {
-                            var u = d(e[i], e, o);
-                            if ("throw" !== u.type) {
-                                var c = u.arg,
-                                    p = c.value;
-                                return p && "object" == (0, n.Z)(p) && r.call(p, "__await") ? t.resolve(p.__await).then((function (e) {
-                                    a("next", e, s, l)
-                                }), (function (e) {
-                                    a("throw", e, s, l)
-                                })) : t.resolve(p).then((function (e) {
-                                    c.value = e, s(c)
-                                }), (function (e) {
-                                    return a("throw", e, s, l)
-                                }))
-                            }
-                            l(u.arg)
-                        }
-                        var i;
-                        this._invoke = function (e, r) {
-                            function n() {
-                                return new t((function (t, n) {
-                                    a(e, r, t, n)
-                                }))
-                            }
-                            return i = i ? i.then(n, n) : n()
-                        }
-                    }
-
-                    function k(e, t) {
-                        var r = e.iterator[t.method];
-                        if (void 0 === r) {
-                            if (t.delegate = null, "throw" === t.method) {
-                                if (e.iterator.return && (t.method = "return", t.arg = void 0, k(e, t), "throw" === t.method)) return p;
-                                t.method = "throw", t.arg = new TypeError("The iterator does not provide a 'throw' method")
-                            }
-                            return p
-                        }
-                        var n = d(r, e.iterator, t.arg);
-                        if ("throw" === n.type) return t.method = "throw", t.arg = n.arg, t.delegate = null, p;
-                        var a = n.arg;
-                        return a ? a.done ? (t[e.resultName] = a.value, t.next = e.nextLoc, "return" !== t.method && (t.method = "next", t.arg = void 0), t.delegate = null, p) : a : (t.method = "throw", t.arg = new TypeError("iterator result is not an object"), t.delegate = null, p)
-                    }
-
-                    function x(e) {
-                        var t = {
-                            tryLoc: e[0]
-                        };
-                        1 in e && (t.catchLoc = e[1]), 2 in e && (t.finallyLoc = e[2], t.afterLoc = e[3]), this.tryEntries.push(t)
-                    }
-
-                    function S(e) {
-                        var t = e.completion || {};
-                        t.type = "normal", delete t.arg, e.completion = t
-                    }
-
-                    function M(e) {
-                        this.tryEntries = [{
-                            tryLoc: "root"
-                        }], e.forEach(x, this), this.reset(!0)
-                    }
-
-                    function A(e) {
-                        if (e) {
-                            var t = e[o];
-                            if (t) return t.call(e);
-                            if ("function" == typeof e.next) return e;
-                            if (!isNaN(e.length)) {
-                                var n = -1,
-                                    a = function t() {
-                                        for (; ++n < e.length;)
-                                            if (r.call(e, n)) return t.value = e[n], t.done = !1, t;
-                                        return t.value = void 0, t.done = !0, t
-                                    };
-                                return a.next = a
-                            }
-                        }
-                        return {
-                            next: C
-                        }
-                    }
-
-                    function C() {
-                        return {
-                            value: void 0,
-                            done: !0
-                        }
-                    }
-                    return h.prototype = y, u(v, "constructor", y), u(y, "constructor", h), h.displayName = u(y, l, "GeneratorFunction"), e.isGeneratorFunction = function (e) {
-                        var t = "function" == typeof e && e.constructor;
-                        return !!t && (t === h || "GeneratorFunction" === (t.displayName || t.name))
-                    }, e.mark = function (e) {
-                        return Object.setPrototypeOf ? Object.setPrototypeOf(e, y) : (e.__proto__ = y, u(e, l, "GeneratorFunction")), e.prototype = Object.create(v), e
-                    }, e.awrap = function (e) {
-                        return {
-                            __await: e
-                        }
-                    }, b(w.prototype), u(w.prototype, s, (function () {
-                        return this
-                    })), e.AsyncIterator = w, e.async = function (t, r, n, a, i) {
-                        void 0 === i && (i = Promise);
-                        var o = new w(c(t, r, n, a), i);
-                        return e.isGeneratorFunction(r) ? o : o.next().then((function (e) {
-                            return e.done ? e.value : o.next()
-                        }))
-                    }, b(v), u(v, l, "Generator"), u(v, o, (function () {
-                        return this
-                    })), u(v, "toString", (function () {
-                        return "[object Generator]"
-                    })), e.keys = function (e) {
-                        var t = [];
-                        for (var r in e) t.push(r);
-                        return t.reverse(),
-                            function r() {
-                                for (; t.length;) {
-                                    var n = t.pop();
-                                    if (n in e) return r.value = n, r.done = !1, r
-                                }
-                                return r.done = !0, r
-                            }
-                    }, e.values = A, M.prototype = {
-                        constructor: M,
-                        reset: function (e) {
-                            if (this.prev = 0, this.next = 0, this.sent = this._sent = void 0, this.done = !1, this.delegate = null, this.method = "next", this.arg = void 0, this.tryEntries.forEach(S), !e)
-                                for (var t in this) "t" === t.charAt(0) && r.call(this, t) && !isNaN(+t.slice(1)) && (this[t] = void 0)
-                        },
-                        stop: function () {
-                            this.done = !0;
-                            var e = this.tryEntries[0].completion;
-                            if ("throw" === e.type) throw e.arg;
-                            return this.rval
-                        },
-                        dispatchException: function (e) {
-                            if (this.done) throw e;
-                            var t = this;
-
-                            function n(r, n) {
-                                return o.type = "throw", o.arg = e, t.next = r, n && (t.method = "next", t.arg = void 0), !!n
-                            }
-                            for (var a = this.tryEntries.length - 1; a >= 0; --a) {
-                                var i = this.tryEntries[a],
-                                    o = i.completion;
-                                if ("root" === i.tryLoc) return n("end");
-                                if (i.tryLoc <= this.prev) {
-                                    var s = r.call(i, "catchLoc"),
-                                        l = r.call(i, "finallyLoc");
-                                    if (s && l) {
-                                        if (this.prev < i.catchLoc) return n(i.catchLoc, !0);
-                                        if (this.prev < i.finallyLoc) return n(i.finallyLoc)
-                                    } else if (s) {
-                                        if (this.prev < i.catchLoc) return n(i.catchLoc, !0)
-                                    } else {
-                                        if (!l) throw new Error("try statement without catch or finally");
-                                        if (this.prev < i.finallyLoc) return n(i.finallyLoc)
-                                    }
-                                }
-                            }
-                        },
-                        abrupt: function (e, t) {
-                            for (var n = this.tryEntries.length - 1; n >= 0; --n) {
-                                var a = this.tryEntries[n];
-                                if (a.tryLoc <= this.prev && r.call(a, "finallyLoc") && this.prev < a.finallyLoc) {
-                                    var i = a;
-                                    break
-                                }
-                            }
-                            i && ("break" === e || "continue" === e) && i.tryLoc <= t && t <= i.finallyLoc && (i = null);
-                            var o = i ? i.completion : {};
-                            return o.type = e, o.arg = t, i ? (this.method = "next", this.next = i.finallyLoc, p) : this.complete(o)
-                        },
-                        complete: function (e, t) {
-                            if ("throw" === e.type) throw e.arg;
-                            return "break" === e.type || "continue" === e.type ? this.next = e.arg : "return" === e.type ? (this.rval = this.arg = e.arg, this.method = "return", this.next = "end") : "normal" === e.type && t && (this.next = t), p
-                        },
-                        finish: function (e) {
-                            for (var t = this.tryEntries.length - 1; t >= 0; --t) {
-                                var r = this.tryEntries[t];
-                                if (r.finallyLoc === e) return this.complete(r.completion, r.afterLoc), S(r), p
-                            }
-                        },
-                        catch: function (e) {
-                            for (var t = this.tryEntries.length - 1; t >= 0; --t) {
-                                var r = this.tryEntries[t];
-                                if (r.tryLoc === e) {
-                                    var n = r.completion;
-                                    if ("throw" === n.type) {
-                                        var a = n.arg;
-                                        S(r)
-                                    }
-                                    return a
-                                }
-                            }
-                            throw new Error("illegal catch attempt")
-                        },
-                        delegateYield: function (e, t, r) {
-                            return this.delegate = {
-                                iterator: A(e),
-                                resultName: t,
-                                nextLoc: r
-                            }, "next" === this.method && (this.arg = void 0), p
-                        }
-                    }, e
-                }
-            },
-            9611: function (e, t, r) {
-                "use strict";
-
-                function n(e, t) {
-                    return n = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (e, t) {
-                        return e.__proto__ = t, e
-                    }, n(e, t)
                 }
                 r.d(t, {
                     Z: function () {
@@ -21000,11 +20567,11 @@
                         Panel: H
                     })
             },
-            3737: function (e, t, r) {
+            1875: function (e, t, r) {
                 "use strict";
                 r.d(t, {
                     u: function () {
-                        return K
+                        return G
                     }
                 });
                 var n = r(1413),
@@ -21024,9 +20591,320 @@
                     _ = r(4143),
                     g = r(1267),
                     v = r(2982);
-                var b = r(4165);
+                var b = r(1002);
 
-                function w(e, t, r, n, a, i, o) {
+                function w() {
+                    w = function () {
+                        return e
+                    };
+                    var e = {},
+                        t = Object.prototype,
+                        r = t.hasOwnProperty,
+                        n = "function" == typeof Symbol ? Symbol : {},
+                        a = n.iterator || "@@iterator",
+                        i = n.asyncIterator || "@@asyncIterator",
+                        o = n.toStringTag || "@@toStringTag";
+
+                    function s(e, t, r) {
+                        return Object.defineProperty(e, t, {
+                            value: r,
+                            enumerable: !0,
+                            configurable: !0,
+                            writable: !0
+                        }), e[t]
+                    }
+                    try {
+                        s({}, "")
+                    } catch (T) {
+                        s = function (e, t, r) {
+                            return e[t] = r
+                        }
+                    }
+
+                    function l(e, t, r, n) {
+                        var a = t && t.prototype instanceof d ? t : d,
+                            i = Object.create(a.prototype),
+                            o = new M(n || []);
+                        return i._invoke = function (e, t, r) {
+                            var n = "suspendedStart";
+                            return function (a, i) {
+                                if ("executing" === n) throw new Error("Generator is already running");
+                                if ("completed" === n) {
+                                    if ("throw" === a) throw i;
+                                    return C()
+                                }
+                                for (r.method = a, r.arg = i;;) {
+                                    var o = r.delegate;
+                                    if (o) {
+                                        var s = k(o, r);
+                                        if (s) {
+                                            if (s === c) continue;
+                                            return s
+                                        }
+                                    }
+                                    if ("next" === r.method) r.sent = r._sent = r.arg;
+                                    else if ("throw" === r.method) {
+                                        if ("suspendedStart" === n) throw n = "completed", r.arg;
+                                        r.dispatchException(r.arg)
+                                    } else "return" === r.method && r.abrupt("return", r.arg);
+                                    n = "executing";
+                                    var l = u(e, t, r);
+                                    if ("normal" === l.type) {
+                                        if (n = r.done ? "completed" : "suspendedYield", l.arg === c) continue;
+                                        return {
+                                            value: l.arg,
+                                            done: r.done
+                                        }
+                                    }
+                                    "throw" === l.type && (n = "completed", r.method = "throw", r.arg = l.arg)
+                                }
+                            }
+                        }(e, r, o), i
+                    }
+
+                    function u(e, t, r) {
+                        try {
+                            return {
+                                type: "normal",
+                                arg: e.call(t, r)
+                            }
+                        } catch (T) {
+                            return {
+                                type: "throw",
+                                arg: T
+                            }
+                        }
+                    }
+                    e.wrap = l;
+                    var c = {};
+
+                    function d() {}
+
+                    function p() {}
+
+                    function f() {}
+                    var h = {};
+                    s(h, a, (function () {
+                        return this
+                    }));
+                    var y = Object.getPrototypeOf,
+                        m = y && y(y(A([])));
+                    m && m !== t && r.call(m, a) && (h = m);
+                    var _ = f.prototype = d.prototype = Object.create(h);
+
+                    function g(e) {
+                        ["next", "throw", "return"].forEach((function (t) {
+                            s(e, t, (function (e) {
+                                return this._invoke(t, e)
+                            }))
+                        }))
+                    }
+
+                    function v(e, t) {
+                        function n(a, i, o, s) {
+                            var l = u(e[a], e, i);
+                            if ("throw" !== l.type) {
+                                var c = l.arg,
+                                    d = c.value;
+                                return d && "object" == (0, b.Z)(d) && r.call(d, "__await") ? t.resolve(d.__await).then((function (e) {
+                                    n("next", e, o, s)
+                                }), (function (e) {
+                                    n("throw", e, o, s)
+                                })) : t.resolve(d).then((function (e) {
+                                    c.value = e, o(c)
+                                }), (function (e) {
+                                    return n("throw", e, o, s)
+                                }))
+                            }
+                            s(l.arg)
+                        }
+                        var a;
+                        this._invoke = function (e, r) {
+                            function i() {
+                                return new t((function (t, a) {
+                                    n(e, r, t, a)
+                                }))
+                            }
+                            return a = a ? a.then(i, i) : i()
+                        }
+                    }
+
+                    function k(e, t) {
+                        var r = e.iterator[t.method];
+                        if (void 0 === r) {
+                            if (t.delegate = null, "throw" === t.method) {
+                                if (e.iterator.return && (t.method = "return", t.arg = void 0, k(e, t), "throw" === t.method)) return c;
+                                t.method = "throw", t.arg = new TypeError("The iterator does not provide a 'throw' method")
+                            }
+                            return c
+                        }
+                        var n = u(r, e.iterator, t.arg);
+                        if ("throw" === n.type) return t.method = "throw", t.arg = n.arg, t.delegate = null, c;
+                        var a = n.arg;
+                        return a ? a.done ? (t[e.resultName] = a.value, t.next = e.nextLoc, "return" !== t.method && (t.method = "next", t.arg = void 0), t.delegate = null, c) : a : (t.method = "throw", t.arg = new TypeError("iterator result is not an object"), t.delegate = null, c)
+                    }
+
+                    function x(e) {
+                        var t = {
+                            tryLoc: e[0]
+                        };
+                        1 in e && (t.catchLoc = e[1]), 2 in e && (t.finallyLoc = e[2], t.afterLoc = e[3]), this.tryEntries.push(t)
+                    }
+
+                    function S(e) {
+                        var t = e.completion || {};
+                        t.type = "normal", delete t.arg, e.completion = t
+                    }
+
+                    function M(e) {
+                        this.tryEntries = [{
+                            tryLoc: "root"
+                        }], e.forEach(x, this), this.reset(!0)
+                    }
+
+                    function A(e) {
+                        if (e) {
+                            var t = e[a];
+                            if (t) return t.call(e);
+                            if ("function" == typeof e.next) return e;
+                            if (!isNaN(e.length)) {
+                                var n = -1,
+                                    i = function t() {
+                                        for (; ++n < e.length;)
+                                            if (r.call(e, n)) return t.value = e[n], t.done = !1, t;
+                                        return t.value = void 0, t.done = !0, t
+                                    };
+                                return i.next = i
+                            }
+                        }
+                        return {
+                            next: C
+                        }
+                    }
+
+                    function C() {
+                        return {
+                            value: void 0,
+                            done: !0
+                        }
+                    }
+                    return p.prototype = f, s(_, "constructor", f), s(f, "constructor", p), p.displayName = s(f, o, "GeneratorFunction"), e.isGeneratorFunction = function (e) {
+                        var t = "function" == typeof e && e.constructor;
+                        return !!t && (t === p || "GeneratorFunction" === (t.displayName || t.name))
+                    }, e.mark = function (e) {
+                        return Object.setPrototypeOf ? Object.setPrototypeOf(e, f) : (e.__proto__ = f, s(e, o, "GeneratorFunction")), e.prototype = Object.create(_), e
+                    }, e.awrap = function (e) {
+                        return {
+                            __await: e
+                        }
+                    }, g(v.prototype), s(v.prototype, i, (function () {
+                        return this
+                    })), e.AsyncIterator = v, e.async = function (t, r, n, a, i) {
+                        void 0 === i && (i = Promise);
+                        var o = new v(l(t, r, n, a), i);
+                        return e.isGeneratorFunction(r) ? o : o.next().then((function (e) {
+                            return e.done ? e.value : o.next()
+                        }))
+                    }, g(_), s(_, o, "Generator"), s(_, a, (function () {
+                        return this
+                    })), s(_, "toString", (function () {
+                        return "[object Generator]"
+                    })), e.keys = function (e) {
+                        var t = [];
+                        for (var r in e) t.push(r);
+                        return t.reverse(),
+                            function r() {
+                                for (; t.length;) {
+                                    var n = t.pop();
+                                    if (n in e) return r.value = n, r.done = !1, r
+                                }
+                                return r.done = !0, r
+                            }
+                    }, e.values = A, M.prototype = {
+                        constructor: M,
+                        reset: function (e) {
+                            if (this.prev = 0, this.next = 0, this.sent = this._sent = void 0, this.done = !1, this.delegate = null, this.method = "next", this.arg = void 0, this.tryEntries.forEach(S), !e)
+                                for (var t in this) "t" === t.charAt(0) && r.call(this, t) && !isNaN(+t.slice(1)) && (this[t] = void 0)
+                        },
+                        stop: function () {
+                            this.done = !0;
+                            var e = this.tryEntries[0].completion;
+                            if ("throw" === e.type) throw e.arg;
+                            return this.rval
+                        },
+                        dispatchException: function (e) {
+                            if (this.done) throw e;
+                            var t = this;
+
+                            function n(r, n) {
+                                return o.type = "throw", o.arg = e, t.next = r, n && (t.method = "next", t.arg = void 0), !!n
+                            }
+                            for (var a = this.tryEntries.length - 1; a >= 0; --a) {
+                                var i = this.tryEntries[a],
+                                    o = i.completion;
+                                if ("root" === i.tryLoc) return n("end");
+                                if (i.tryLoc <= this.prev) {
+                                    var s = r.call(i, "catchLoc"),
+                                        l = r.call(i, "finallyLoc");
+                                    if (s && l) {
+                                        if (this.prev < i.catchLoc) return n(i.catchLoc, !0);
+                                        if (this.prev < i.finallyLoc) return n(i.finallyLoc)
+                                    } else if (s) {
+                                        if (this.prev < i.catchLoc) return n(i.catchLoc, !0)
+                                    } else {
+                                        if (!l) throw new Error("try statement without catch or finally");
+                                        if (this.prev < i.finallyLoc) return n(i.finallyLoc)
+                                    }
+                                }
+                            }
+                        },
+                        abrupt: function (e, t) {
+                            for (var n = this.tryEntries.length - 1; n >= 0; --n) {
+                                var a = this.tryEntries[n];
+                                if (a.tryLoc <= this.prev && r.call(a, "finallyLoc") && this.prev < a.finallyLoc) {
+                                    var i = a;
+                                    break
+                                }
+                            }
+                            i && ("break" === e || "continue" === e) && i.tryLoc <= t && t <= i.finallyLoc && (i = null);
+                            var o = i ? i.completion : {};
+                            return o.type = e, o.arg = t, i ? (this.method = "next", this.next = i.finallyLoc, c) : this.complete(o)
+                        },
+                        complete: function (e, t) {
+                            if ("throw" === e.type) throw e.arg;
+                            return "break" === e.type || "continue" === e.type ? this.next = e.arg : "return" === e.type ? (this.rval = this.arg = e.arg, this.method = "return", this.next = "end") : "normal" === e.type && t && (this.next = t), c
+                        },
+                        finish: function (e) {
+                            for (var t = this.tryEntries.length - 1; t >= 0; --t) {
+                                var r = this.tryEntries[t];
+                                if (r.finallyLoc === e) return this.complete(r.completion, r.afterLoc), S(r), c
+                            }
+                        },
+                        catch: function (e) {
+                            for (var t = this.tryEntries.length - 1; t >= 0; --t) {
+                                var r = this.tryEntries[t];
+                                if (r.tryLoc === e) {
+                                    var n = r.completion;
+                                    if ("throw" === n.type) {
+                                        var a = n.arg;
+                                        S(r)
+                                    }
+                                    return a
+                                }
+                            }
+                            throw new Error("illegal catch attempt")
+                        },
+                        delegateYield: function (e, t, r) {
+                            return this.delegate = {
+                                iterator: A(e),
+                                resultName: t,
+                                nextLoc: r
+                            }, "next" === this.method && (this.arg = void 0), c
+                        }
+                    }, e
+                }
+
+                function k(e, t, r, n, a, i, o) {
                     try {
                         var s = e[i](o),
                             l = s.value
@@ -21036,7 +20914,7 @@
                     s.done ? t(l) : Promise.resolve(l).then(n, a)
                 }
 
-                function k() {
+                function x() {
                     var e = [],
                         t = [],
                         r = {
@@ -21103,9 +20981,9 @@
                                 }
                             },
                             workQueue: function () {
-                                return (e = (0, b.Z)().mark((function e() {
+                                return (e = w().mark((function e() {
                                     var r, n, a;
-                                    return (0, b.Z)().wrap((function (e) {
+                                    return w().wrap((function (e) {
                                         for (;;) switch (e.prev = e.next) {
                                             case 0:
                                                 r = (0, o.Z)(t.splice(0)), e.prev = 1, r.s();
@@ -21139,11 +21017,11 @@
                                         var i = e.apply(t, r);
 
                                         function o(e) {
-                                            w(i, n, a, o, s, "next", e)
+                                            k(i, n, a, o, s, "next", e)
                                         }
 
                                         function s(e) {
-                                            w(i, n, a, o, s, "throw", e)
+                                            k(i, n, a, o, s, "throw", e)
                                         }
                                         o(void 0)
                                     }))
@@ -21154,20 +21032,20 @@
                     return r
                 }
 
-                function x(e) {
+                function S(e) {
                     for (var t, r = arguments.length, n = new Array(r > 1 ? r - 1 : 0), a = 1; a < r; a++) n[a - 1] = arguments[a];
                     e && n.length > 0 && (t = e.classList).add.apply(t, n)
                 }
 
-                function S(e) {
+                function M(e) {
                     for (var t, r = arguments.length, n = new Array(r > 1 ? r - 1 : 0), a = 1; a < r; a++) n[a - 1] = arguments[a];
                     e && n.length > 0 && (t = e.classList).remove.apply(t, n)
                 }
-                var M, A = ((M = A || {}).Ended = "ended", M.Cancelled = "cancelled", M);
+                var A, C = ((A = C || {}).Ended = "ended", A.Cancelled = "cancelled", A);
 
-                function C(e, t, r, n) {
+                function T(e, t, r, n) {
                     var i = r ? "enter" : "leave",
-                        o = k(),
+                        o = x(),
                         s = void 0 !== n ? function (e) {
                             var t = {
                                 called: !1
@@ -21200,10 +21078,10 @@
                                 return t.leaveFrom
                             }
                         });
-                    return S.apply(void 0, [e].concat((0, v.Z)(t.enter), (0, v.Z)(t.enterTo), (0, v.Z)(t.enterFrom), (0, v.Z)(t.leave), (0, v.Z)(t.leaveFrom), (0, v.Z)(t.leaveTo), (0, v.Z)(t.entered))), x.apply(void 0, [e].concat((0, v.Z)(l), (0, v.Z)(c))), o.nextFrame((function () {
-                        S.apply(void 0, [e].concat((0, v.Z)(c))), x.apply(void 0, [e].concat((0, v.Z)(u))),
+                    return M.apply(void 0, [e].concat((0, v.Z)(t.enter), (0, v.Z)(t.enterTo), (0, v.Z)(t.enterFrom), (0, v.Z)(t.leave), (0, v.Z)(t.leaveFrom), (0, v.Z)(t.leaveTo), (0, v.Z)(t.entered))), S.apply(void 0, [e].concat((0, v.Z)(l), (0, v.Z)(c))), o.nextFrame((function () {
+                        M.apply(void 0, [e].concat((0, v.Z)(c))), S.apply(void 0, [e].concat((0, v.Z)(u))),
                             function (e, t) {
-                                var r = k();
+                                var r = x();
                                 if (!e) return r.dispose;
                                 var n = getComputedStyle(e),
                                     i = [n.transitionDuration, n.transitionDelay].map((function (e) {
@@ -21236,13 +21114,13 @@
                                     return t("cancelled")
                                 })), r.dispose
                             }(e, (function (r) {
-                                return "ended" === r && (S.apply(void 0, [e].concat((0, v.Z)(l))), x.apply(void 0, [e].concat((0, v.Z)(t.entered)))), s(r)
+                                return "ended" === r && (M.apply(void 0, [e].concat((0, v.Z)(l))), S.apply(void 0, [e].concat((0, v.Z)(t.entered)))), s(r)
                             }))
                     })), o.dispose
                 }
-                var T = r(1464);
+                var O = r(1464);
 
-                function O(e) {
+                function E(e) {
                     var t = e.container,
                         r = e.direction,
                         n = e.classes,
@@ -21251,7 +21129,7 @@
                         u = e.onStop,
                         c = (0, h.t)(),
                         p = function () {
-                            var e = (0, l.useState)(k),
+                            var e = (0, l.useState)(x),
                                 t = (0, a.Z)(e, 1)[0];
                             return (0, l.useEffect)((function () {
                                 return function () {
@@ -21260,7 +21138,7 @@
                             }), [t]), t
                         }(),
                         f = (0, m.E)(r),
-                        _ = (0, T.z)((function () {
+                        _ = (0, O.z)((function () {
                             return (0, d.E)(f.current, {
                                 enter: function () {
                                     return i.current.beforeEnter()
@@ -21271,7 +21149,7 @@
                                 idle: function () {}
                             })
                         })),
-                        g = (0, T.z)((function () {
+                        g = (0, O.z)((function () {
                             return (0, d.E)(f.current, {
                                 enter: function () {
                                     return i.current.afterEnter()
@@ -21283,42 +21161,42 @@
                             })
                         }));
                     (0, y.e)((function () {
-                        var e = k();
+                        var e = x();
                         p.add(e.dispose);
                         var r = t.current;
-                        if (r && "idle" !== f.current && c.current) return e.dispose(), _(), o.current(f.current), e.add(C(r, n.current, "enter" === f.current, (function (t) {
+                        if (r && "idle" !== f.current && c.current) return e.dispose(), _(), o.current(f.current), e.add(T(r, n.current, "enter" === f.current, (function (t) {
                             var r;
-                            e.dispose(), (0, d.E)(t, (r = {}, (0, s.Z)(r, A.Ended, (function () {
+                            e.dispose(), (0, d.E)(t, (r = {}, (0, s.Z)(r, C.Ended, (function () {
                                 g(), u.current(f.current)
-                            })), (0, s.Z)(r, A.Cancelled, (function () {})), r))
+                            })), (0, s.Z)(r, C.Cancelled, (function () {})), r))
                         }))), e.dispose
                     }), [r])
                 }
-                var E = ["beforeEnter", "afterEnter", "beforeLeave", "afterLeave", "enter", "enterFrom", "enterTo", "entered", "leave", "leaveFrom", "leaveTo"],
-                    I = ["show", "appear", "unmount"];
+                var I = ["beforeEnter", "afterEnter", "beforeLeave", "afterLeave", "enter", "enterFrom", "enterTo", "entered", "leave", "leaveFrom", "leaveTo"],
+                    N = ["show", "appear", "unmount"];
 
-                function N() {
+                function j() {
                     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";
                     return e.split(" ").filter((function (e) {
                         return e.trim().length > 1
                     }))
                 }
-                var j = (0, l.createContext)(null);
-                j.displayName = "TransitionContext";
-                var q, L = ((q = L || {}).Visible = "visible", q.Hidden = "hidden", q);
-                var P = (0, l.createContext)(null);
+                var q = (0, l.createContext)(null);
+                q.displayName = "TransitionContext";
+                var L, P = ((L = P || {}).Visible = "visible", L.Hidden = "hidden", L);
+                var R = (0, l.createContext)(null);
 
-                function R(e) {
-                    return "children" in e ? R(e.children) : e.current.filter((function (e) {
+                function D(e) {
+                    return "children" in e ? D(e.children) : e.current.filter((function (e) {
                         return "visible" === e.state
                     })).length > 0
                 }
 
-                function D(e) {
+                function V(e) {
                     var t = (0, m.E)(e),
                         r = (0, l.useRef)([]),
                         n = (0, h.t)(),
-                        a = (0, T.z)((function (e) {
+                        a = (0, O.z)((function (e) {
                             var a, i = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : u.l4.Hidden,
                                 o = r.current.findIndex((function (t) {
                                     return t.id === e
@@ -21328,10 +21206,10 @@
                                 r.current[o].state = "hidden"
                             })), a)), (0, p.Y)((function () {
                                 var e;
-                                !R(r) && n.current && (null == (e = t.current) || e.call(t))
+                                !D(r) && n.current && (null == (e = t.current) || e.call(t))
                             })))
                         })),
-                        i = (0, T.z)((function (e) {
+                        i = (0, O.z)((function (e) {
                             var t = r.current.find((function (t) {
                                 return t.id === e
                             }));
@@ -21352,17 +21230,17 @@
                     }), [i, a, r])
                 }
 
-                function V() {}
-                P.displayName = "NestingContext";
-                var F = ["beforeEnter", "afterEnter", "beforeLeave", "afterLeave"];
+                function F() {}
+                R.displayName = "NestingContext";
+                var H = ["beforeEnter", "afterEnter", "beforeLeave", "afterLeave"];
 
-                function H(e) {
+                function z(e) {
                     var t, r, n = {},
-                        a = (0, o.Z)(F);
+                        a = (0, o.Z)(H);
                     try {
                         for (a.s(); !(r = a.n()).done;) {
                             var i = r.value;
-                            n[i] = null != (t = e[i]) ? t : V
+                            n[i] = null != (t = e[i]) ? t : F
                         }
                     } catch (s) {
                         a.e(s)
@@ -21371,8 +21249,8 @@
                     }
                     return n
                 }
-                var z = u.AN.RenderStrategy,
-                    Z = (0, u.yV)((function (e, t) {
+                var Z = u.AN.RenderStrategy,
+                    W = (0, u.yV)((function (e, t) {
                         var r, n = e.beforeEnter,
                             o = e.afterEnter,
                             p = e.beforeLeave,
@@ -21384,24 +21262,24 @@
                             k = e.leave,
                             x = e.leaveFrom,
                             S = e.leaveTo,
-                            M = (0, i.Z)(e, E),
+                            M = (0, i.Z)(e, I),
                             A = (0, l.useRef)(null),
                             C = (0, g.T)(A, t),
                             T = (0, l.useState)("visible"),
-                            I = (0, a.Z)(T, 2),
-                            q = I[0],
-                            L = I[1],
-                            V = M.unmount ? u.l4.Unmount : u.l4.Hidden,
+                            O = (0, a.Z)(T, 2),
+                            N = O[0],
+                            L = O[1],
+                            P = M.unmount ? u.l4.Unmount : u.l4.Hidden,
                             F = function () {
-                                var e = (0, l.useContext)(j);
+                                var e = (0, l.useContext)(q);
                                 if (null === e) throw new Error("A <Transition.Child /> is used but it is missing a parent <Transition /> or <Transition.Root />.");
                                 return e
                             }(),
-                            Z = F.show,
+                            H = F.show,
                             W = F.appear,
                             B = F.initial,
                             K = function () {
-                                var e = (0, l.useContext)(P);
+                                var e = (0, l.useContext)(R);
                                 if (null === e) throw new Error("A <Transition.Child /> is used but it is missing a parent <Transition /> or <Transition.Root />.");
                                 return e
                             }(),
@@ -21412,29 +21290,29 @@
                         (0, l.useEffect)((function () {
                             if (Q) return G(Q)
                         }), [G, Q]), (0, l.useEffect)((function () {
-                            if (V === u.l4.Hidden && Q) {
+                            if (P === u.l4.Hidden && Q) {
                                 var e;
-                                if (Z && "visible" !== q) return void L("visible");
-                                (0, d.E)(q, (e = {}, (0, s.Z)(e, "hidden", (function () {
+                                if (H && "visible" !== N) return void L("visible");
+                                (0, d.E)(N, (e = {}, (0, s.Z)(e, "hidden", (function () {
                                     return U(Q)
                                 })), (0, s.Z)(e, "visible", (function () {
                                     return G(Q)
                                 })), e))
                             }
-                        }), [q, Q, G, U, Z, V]);
+                        }), [N, Q, G, U, H, P]);
                         var X = (0, m.E)({
-                                enter: N(y),
-                                enterFrom: N(v),
-                                enterTo: N(b),
-                                entered: N(w),
-                                leave: N(k),
-                                leaveFrom: N(x),
-                                leaveTo: N(S)
+                                enter: j(y),
+                                enterFrom: j(v),
+                                enterTo: j(b),
+                                entered: j(w),
+                                leave: j(k),
+                                leaveFrom: j(x),
+                                leaveTo: j(S)
                             }),
                             $ = function (e) {
-                                var t = (0, l.useRef)(H(e));
+                                var t = (0, l.useRef)(z(e));
                                 return (0, l.useEffect)((function () {
-                                    t.current = H(e)
+                                    t.current = z(e)
                                 }), [e]), t
                             }({
                                 beforeEnter: n,
@@ -21444,15 +21322,15 @@
                             }),
                             J = (0, _.H)();
                         (0, l.useEffect)((function () {
-                            if (J && "visible" === q && null === A.current) throw new Error("Did you forget to passthrough the `ref` to the actual DOM node?")
-                        }), [A, q, J]);
+                            if (J && "visible" === N && null === A.current) throw new Error("Did you forget to passthrough the `ref` to the actual DOM node?")
+                        }), [A, N, J]);
                         var ee = B && !W,
-                            te = !J || ee || Y.current === Z ? "idle" : Z ? "enter" : "leave",
+                            te = !J || ee || Y.current === H ? "idle" : H ? "enter" : "leave",
                             re = (0, l.useRef)(!1),
-                            ne = D((function () {
+                            ne = V((function () {
                                 re.current || (L("hidden"), U(Q))
                             }));
-                        O({
+                        E({
                             container: A,
                             classes: X,
                             events: $,
@@ -21461,34 +21339,34 @@
                                 re.current = !0
                             })),
                             onStop: (0, m.E)((function (e) {
-                                re.current = !1, "leave" === e && !R(ne) && (L("hidden"), U(Q))
+                                re.current = !1, "leave" === e && !D(ne) && (L("hidden"), U(Q))
                             }))
                         }), (0, l.useEffect)((function () {
-                            !ee || (V === u.l4.Hidden ? Y.current = null : Y.current = Z)
-                        }), [Z, ee, q]);
+                            !ee || (P === u.l4.Hidden ? Y.current = null : Y.current = H)
+                        }), [H, ee, N]);
                         var ae = M,
                             ie = {
                                 ref: C
                             };
-                        return l.createElement(P.Provider, {
+                        return l.createElement(R.Provider, {
                             value: ne
                         }, l.createElement(c.up, {
-                            value: (0, d.E)(q, (r = {}, (0, s.Z)(r, "visible", c.ZM.Open), (0, s.Z)(r, "hidden", c.ZM.Closed), r))
+                            value: (0, d.E)(N, (r = {}, (0, s.Z)(r, "visible", c.ZM.Open), (0, s.Z)(r, "hidden", c.ZM.Closed), r))
                         }, (0, u.sY)({
                             ourProps: ie,
                             theirProps: ae,
                             defaultTag: "div",
-                            features: z,
-                            visible: "visible" === q,
+                            features: Z,
+                            visible: "visible" === N,
                             name: "Transition.Child"
                         })))
                     })),
-                    W = (0, u.yV)((function (e, t) {
+                    B = (0, u.yV)((function (e, t) {
                         var r, o = e.show,
                             p = e.appear,
                             f = void 0 !== p && p,
                             h = e.unmount,
-                            m = (0, i.Z)(e, I),
+                            m = (0, i.Z)(e, N),
                             v = (0, l.useRef)(null),
                             b = (0, g.T)(v, t);
                         (0, _.H)();
@@ -21498,18 +21376,18 @@
                             x = (0, a.Z)(k, 2),
                             S = x[0],
                             M = x[1],
-                            A = D((function () {
+                            A = V((function () {
                                 M("hidden")
                             })),
                             C = (0, l.useState)(!0),
                             T = (0, a.Z)(C, 2),
                             O = T[0],
                             E = T[1],
-                            N = (0, l.useRef)([o]);
+                            I = (0, l.useRef)([o]);
                         (0, y.e)((function () {
-                            !1 !== O && N.current[N.current.length - 1] !== o && (N.current.push(o), E(!1))
-                        }), [N, o]);
-                        var q = (0, l.useMemo)((function () {
+                            !1 !== O && I.current[I.current.length - 1] !== o && (I.current.push(o), E(!1))
+                        }), [I, o]);
+                        var j = (0, l.useMemo)((function () {
                             return {
                                 show: o,
                                 appear: f,
@@ -21518,7 +21396,7 @@
                         }), [o, f, O]);
                         (0, l.useEffect)((function () {
                             if (o) M("visible");
-                            else if (R(A)) {
+                            else if (D(A)) {
                                 var e = v.current;
                                 if (!e) return;
                                 var t = e.getBoundingClientRect();
@@ -21528,36 +21406,36 @@
                         var L = {
                             unmount: h
                         };
-                        return l.createElement(P.Provider, {
+                        return l.createElement(R.Provider, {
                             value: A
-                        }, l.createElement(j.Provider, {
-                            value: q
+                        }, l.createElement(q.Provider, {
+                            value: j
                         }, (0, u.sY)({
                             ourProps: (0, n.Z)((0, n.Z)({}, L), {}, {
                                 as: l.Fragment,
-                                children: l.createElement(Z, (0, n.Z)((0, n.Z)({
+                                children: l.createElement(W, (0, n.Z)((0, n.Z)({
                                     ref: b
                                 }, L), m))
                             }),
                             theirProps: {},
                             defaultTag: l.Fragment,
-                            features: z,
+                            features: Z,
                             visible: "visible" === S,
                             name: "Transition"
                         })))
                     })),
-                    B = (0, u.yV)((function (e, t) {
-                        var r = null !== (0, l.useContext)(j),
+                    K = (0, u.yV)((function (e, t) {
+                        var r = null !== (0, l.useContext)(q),
                             a = null !== (0, c.oJ)();
-                        return l.createElement(l.Fragment, null, !r && a ? l.createElement(W, (0, n.Z)({
+                        return l.createElement(l.Fragment, null, !r && a ? l.createElement(B, (0, n.Z)({
                             ref: t
-                        }, e)) : l.createElement(Z, (0, n.Z)({
+                        }, e)) : l.createElement(W, (0, n.Z)({
                             ref: t
                         }, e)))
                     })),
-                    K = Object.assign(W, {
-                        Child: B,
-                        Root: W
+                    G = Object.assign(B, {
+                        Child: K,
+                        Root: B
                     })
             },
             1464: function (e, t, r) {
@@ -22117,11 +21995,9 @@
         var a = t[n];
         if (void 0 !== a) return a.exports;
         var i = t[n] = {
-            id: n,
-            loaded: !1,
             exports: {}
         };
-        return e[n].call(i.exports, i, i.exports, r), i.loaded = !0, i.exports
+        return e[n].call(i.exports, i, i.exports, r), i.exports
     }
     r.m = e, r.amdO = {}, r.n = function (e) {
             var t = e && e.__esModule ? function () {
@@ -22143,15 +22019,14 @@
             }), []))
         }, r.u = function (e) {
             return "static/js/" + e + "." + {
-                124: "8b9d0b83",
-                191: "7c1713fc",
-                394: "4165176d",
-                407: "7707f0f1",
-                803: "935feb41",
-                827: "1a7f5d3b",
-                883: "aef2c1c5",
-                885: "b4348f62",
-                940: "d09394ce"
+                124: "d4c2bd60",
+                173: "06aaf120",
+                191: "df926026",
+                394: "3534d572",
+                827: "e27904c2",
+                883: "7b0111ef",
+                885: "120f4ba1",
+                940: "0daf75f8"
             } [e] + ".chunk.js"
         }, r.miniCssF = function (e) {}, r.g = function () {
             if ("object" === typeof globalThis) return globalThis;
@@ -22199,8 +22074,6 @@
             }), Object.defineProperty(e, "__esModule", {
                 value: !0
             })
-        }, r.nmd = function (e) {
-            return e.paths = [], e.children || (e.children = []), e
         }, r.p = "./",
         function () {
             var e = {
@@ -23398,8 +23271,8 @@
             })).on(3, (function (e) {
                 fe.delete(e.containerId || e), 0 === fe.size && J.off(0).off(1).off(5)
             }));
-            var we = r(136),
-                ke = r(7277),
+            var we = r(9340),
+                ke = r(2882),
                 xe = r(8561),
                 Se = r.n(xe),
                 Me = r(8966),
@@ -26814,7 +26687,7 @@
                             checkAvailableAd: s.aD
                         });
                         var n = document.createElement("script");
-                        n.setAttribute("async", ""), n.setAttribute("data-ad-client", "ca-pub-9303485539661341"), n.setAttribute("data-ad-frequency-hint", "30s"), n.setAttribute("src", "https://pagead2.googlesyndicat11ion.com/pagead/js/adsbygoogle.js"), this.MainStore.d && n.setAttribute("data-adbreak-test", "on"), window.document.head.appendChild(n), window.adConfig({
+                        n.setAttribute("async", ""), n.setAttribute("data-ad-client", "ca-pub-9303485539661341"), n.setAttribute("data-ad-frequency-hint", "30s"), n.setAttribute("src", "https://pagead2.google11syndication.com/pagead/js/adsbygoogle.js"), this.MainStore.d && n.setAttribute("data-adbreak-test", "on"), window.document.head.appendChild(n), window.adConfig({
                             preloadAdBreaks: "on",
                             sound: "on"
                         })
@@ -26877,7 +26750,7 @@
                 WDS_SOCKET_PATH: void 0,
                 WDS_SOCKET_PORT: void 0,
                 FAST_REFRESH: !0,
-                REACT_APP_VERSION: "0.43.1"
+                REACT_APP_VERSION: "0.44"
             }.REACT_APP_DEV ? "G-ML4EM1RS0Y" : "G-Z39X9GG6TF");
             var Fe = [{
                     id: "ancestor_farmer",
@@ -30280,6 +30153,7 @@
                 Ue = [{
                     id: "common_house",
                     cat: "living_quarters",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -30317,6 +30191,7 @@
                     id: "monument",
                     cat: "living_quarters",
                     cap: 1,
+                    tab: 1,
                     age: 100,
                     req: [{
                         type: "resource",
@@ -30347,6 +30222,7 @@
                 }, {
                     id: "hall_of_the_dead",
                     cat: "living_quarters",
+                    tab: 1,
                     age: 100,
                     req: [{
                         type: "resource",
@@ -30384,6 +30260,7 @@
                 }, {
                     id: "city_hall",
                     cat: "living_quarters",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -30436,6 +30313,7 @@
                 }, {
                     id: "mansion",
                     cat: "living_quarters",
+                    tab: 1,
                     age: 2,
                     req: [{
                         type: "resource",
@@ -30483,6 +30361,7 @@
                 }, {
                     id: "residential_block",
                     cat: "living_quarters",
+                    tab: 1,
                     age: 3,
                     req: [{
                         type: "resource",
@@ -30521,6 +30400,7 @@
                 }, {
                     id: "gan_eden",
                     cat: "living_quarters",
+                    tab: 1,
                     age: 4,
                     req: [{
                         type: "resource",
@@ -30585,6 +30465,7 @@
                 }, {
                     id: "farm",
                     cat: "resource",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -30621,6 +30502,7 @@
                 }, {
                     id: "granary",
                     cat: "resource",
+                    tab: 1,
                     age: 100,
                     req: [{
                         type: "resource",
@@ -30659,6 +30541,7 @@
                 }, {
                     id: "lumberjack_camp",
                     cat: "resource",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -30700,6 +30583,7 @@
                 }, {
                     id: "sawmill",
                     cat: "resource",
+                    tab: 1,
                     age: 100,
                     req: [{
                         type: "resource",
@@ -30738,6 +30622,7 @@
                 }, {
                     id: "quarry",
                     cat: "resource",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -30779,6 +30664,7 @@
                 }, {
                     id: "mine",
                     cat: "resource",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -30832,6 +30718,7 @@
                 }, {
                     id: "stable",
                     cat: "resource",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -30877,6 +30764,7 @@
                 }, {
                     id: "undead_herd",
                     cat: "resource",
+                    tab: 1,
                     age: 100,
                     req: [{
                         type: "resource",
@@ -30930,6 +30818,7 @@
                 }, {
                     id: "fiefdom",
                     cat: "resource",
+                    tab: 1,
                     age: 2,
                     req: [{
                         type: "resource",
@@ -31010,6 +30899,7 @@
                 }, {
                     id: "foundry",
                     cat: "resource",
+                    tab: 1,
                     age: 2,
                     req: [{
                         type: "resource",
@@ -31090,6 +30980,7 @@
                 }, {
                     id: "machines_of_gods",
                     cat: "resource",
+                    tab: 1,
                     age: 100,
                     req: [{
                         type: "resource",
@@ -31158,6 +31049,7 @@
                 }, {
                     id: "carpenter_workshop",
                     cat: "resource",
+                    tab: 1,
                     age: 2,
                     req: [{
                         type: "resource",
@@ -31209,6 +31101,7 @@
                 }, {
                     id: "grocery",
                     cat: "resource",
+                    tab: 1,
                     age: 2,
                     req: [{
                         type: "resource",
@@ -31250,6 +31143,7 @@
                 }, {
                     id: "steelworks",
                     cat: "resource",
+                    tab: 1,
                     age: 2,
                     req: [{
                         type: "resource",
@@ -31291,6 +31185,7 @@
                 }, {
                     id: "guild_of_craftsmen",
                     cat: "resource",
+                    tab: 1,
                     age: 100,
                     req: [{
                         type: "resource",
@@ -31337,6 +31232,7 @@
                 }, {
                     id: "alchemic_laboratory",
                     cat: "resource",
+                    tab: 1,
                     age: 3,
                     req: [{
                         type: "resource",
@@ -31383,6 +31279,7 @@
                 }, {
                     id: "builder_district",
                     cat: "resource",
+                    tab: 1,
                     age: 3,
                     req: [{
                         type: "resource",
@@ -31450,6 +31347,7 @@
                 }, {
                     id: "natronite_refinery",
                     cat: "resource",
+                    tab: 1,
                     age: 4,
                     req: [{
                         type: "resource",
@@ -31496,6 +31394,7 @@
                 }, {
                     id: "industrial_plant",
                     cat: "resource",
+                    tab: 1,
                     age: 4,
                     req: [{
                         type: "resource",
@@ -31562,6 +31461,7 @@
                 }, {
                     id: "school",
                     cat: "science",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -31605,6 +31505,7 @@
                 }, {
                     id: "hall_of_wisdom",
                     cat: "science",
+                    tab: 1,
                     age: 100,
                     req: [{
                         type: "resource",
@@ -31652,6 +31553,7 @@
                 }, {
                     id: "library_of_theresmore",
                     cat: "science",
+                    tab: 1,
                     age: 100,
                     req: [{
                         type: "resource",
@@ -31722,6 +31624,7 @@
                 }, {
                     id: "university",
                     cat: "science",
+                    tab: 1,
                     age: 2,
                     req: [{
                         type: "resource",
@@ -31774,6 +31677,7 @@
                 }, {
                     id: "statue_atamar",
                     cat: "science",
+                    tab: 1,
                     cap: 1,
                     age: 2,
                     req: [{
@@ -31805,6 +31709,7 @@
                 }, {
                     id: "statue_firio",
                     cat: "science",
+                    tab: 1,
                     cap: 1,
                     age: 2,
                     req: [{
@@ -31836,6 +31741,7 @@
                 }, {
                     id: "statue_lurezia",
                     cat: "science",
+                    tab: 1,
                     cap: 1,
                     age: 2,
                     req: [{
@@ -31867,6 +31773,7 @@
                 }, {
                     id: "library_souls",
                     cat: "science",
+                    tab: 1,
                     cap: 1,
                     age: 100,
                     req: [{
@@ -31907,6 +31814,7 @@
                 }, {
                     id: "books",
                     cat: "science",
+                    tab: 1,
                     cap: 8,
                     age: 100,
                     req: [{
@@ -31925,6 +31833,7 @@
                 }, {
                     id: "souls",
                     cat: "science",
+                    tab: 1,
                     cap: 8,
                     age: 100,
                     req: [{
@@ -31943,6 +31852,7 @@
                 }, {
                     id: "observatory",
                     cat: "science",
+                    tab: 1,
                     age: 3,
                     req: [{
                         type: "resource",
@@ -31985,6 +31895,7 @@
                 }, {
                     id: "research_plant",
                     cat: "science",
+                    tab: 1,
                     age: 4,
                     req: [{
                         type: "resource",
@@ -32023,6 +31934,7 @@
                 }, {
                     id: "palisade",
                     cat: "defense",
+                    tab: 1,
                     cap: 1,
                     age: 1,
                     req: [{
@@ -32052,6 +31964,7 @@
                 }, {
                     id: "palisade_unit",
                     cat: "defense",
+                    tab: 1,
                     cap: 10,
                     age: 1,
                     req: [{
@@ -32070,6 +31983,7 @@
                 }, {
                     id: "wall",
                     cat: "defense",
+                    tab: 1,
                     cap: 1,
                     age: 1,
                     req: [{
@@ -32103,6 +32017,7 @@
                 }, {
                     id: "wall_unit",
                     cat: "defense",
+                    tab: 1,
                     cap: 15,
                     age: 1,
                     req: [{
@@ -32125,6 +32040,7 @@
                 }, {
                     id: "rampart",
                     cat: "defense",
+                    tab: 1,
                     cap: 1,
                     age: 100,
                     req: [{
@@ -32162,6 +32078,7 @@
                 }, {
                     id: "rampart_unit",
                     cat: "defense",
+                    tab: 1,
                     cap: 12,
                     age: 100,
                     req: [{
@@ -32188,6 +32105,7 @@
                 }, {
                     id: "barracks",
                     cat: "defense",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -32227,6 +32145,7 @@
                 }, {
                     id: "castrum_militia",
                     cat: "defense",
+                    tab: 1,
                     age: 100,
                     req: [{
                         type: "resource",
@@ -32274,6 +32193,7 @@
                 }, {
                     id: "recruit_training_center",
                     cat: "defense",
+                    tab: 1,
                     cap: 5,
                     age: 2,
                     req: [{
@@ -32341,6 +32261,7 @@
                 }, {
                     id: "watchman_outpost",
                     cat: "defense",
+                    tab: 1,
                     cap: 8,
                     age: 2,
                     req: [{
@@ -32392,6 +32313,7 @@
                 }, {
                     id: "natronite_baloon",
                     cat: "defense",
+                    tab: 1,
                     cap: 4,
                     age: 4,
                     req: [{
@@ -32434,6 +32356,7 @@
                 }, {
                     id: "ballista",
                     cat: "defense",
+                    tab: 1,
                     cap: 4,
                     age: 2,
                     req: [{
@@ -32471,6 +32394,7 @@
                 }, {
                     id: "magical_tower",
                     cat: "defense",
+                    tab: 1,
                     cap: 8,
                     age: 3,
                     req: [{
@@ -32512,6 +32436,7 @@
                 }, {
                     id: "minefield",
                     cat: "defense",
+                    tab: 1,
                     cap: 8,
                     age: 4,
                     req: [{
@@ -32541,6 +32466,7 @@
                 }, {
                     id: "military_academy",
                     cat: "defense",
+                    tab: 1,
                     age: 3,
                     req: [{
                         type: "resource",
@@ -32612,6 +32538,7 @@
                 }, {
                     id: "officer_training_ground",
                     cat: "defense",
+                    tab: 1,
                     cap: 5,
                     age: 4,
                     req: [{
@@ -32671,6 +32598,7 @@
                 }, {
                     id: "natronite_shield",
                     cat: "defense",
+                    tab: 1,
                     cap: 4,
                     age: 4,
                     req: [{
@@ -32698,6 +32626,7 @@
                 }, {
                     id: "city_center",
                     cat: "wonders",
+                    tab: 1,
                     cap: 1,
                     age: 1,
                     req: [{
@@ -32753,6 +32682,7 @@
                 }, {
                     id: "city_center_unit",
                     cat: "wonders",
+                    tab: 1,
                     cap: 12,
                     age: 1,
                     req: [{
@@ -32787,6 +32717,7 @@
                 }, {
                     id: "great_fair",
                     cat: "wonders",
+                    tab: 1,
                     cap: 1,
                     age: 2,
                     req: [{
@@ -32832,6 +32763,7 @@
                 }, {
                     id: "great_fair_unit",
                     cat: "wonders",
+                    tab: 1,
                     cap: 8,
                     age: 2,
                     req: [{
@@ -32854,6 +32786,7 @@
                 }, {
                     id: "cathedral",
                     cat: "wonders",
+                    tab: 1,
                     cap: 1,
                     age: 2,
                     req: [{
@@ -32906,6 +32839,7 @@
                 }, {
                     id: "cathedral_unit",
                     cat: "wonders",
+                    tab: 1,
                     cap: 8,
                     age: 2,
                     req: [{
@@ -32940,6 +32874,7 @@
                 }, {
                     id: "academy_of_freethinkers",
                     cat: "wonders",
+                    tab: 1,
                     cap: 1,
                     age: 2,
                     req: [{
@@ -32975,6 +32910,7 @@
                 }, {
                     id: "academy_of_freethinkers_part",
                     cat: "wonders",
+                    tab: 1,
                     cap: 12,
                     age: 2,
                     req: [{
@@ -33005,6 +32941,7 @@
                 }, {
                     id: "great_bombard",
                     cat: "wonders",
+                    tab: 1,
                     cap: 1,
                     age: 3,
                     req: [{
@@ -33046,6 +32983,7 @@
                 }, {
                     id: "great_bombard_part",
                     cat: "wonders",
+                    tab: 1,
                     cap: 6,
                     age: 3,
                     req: [{
@@ -33076,6 +33014,7 @@
                 }, {
                     id: "refugee_district",
                     cat: "wonders",
+                    tab: 1,
                     cap: 1,
                     age: 3,
                     req: [{
@@ -33113,6 +33052,7 @@
                 }, {
                     id: "refugee_district_part",
                     cat: "wonders",
+                    tab: 1,
                     cap: 8,
                     age: 3,
                     req: [{
@@ -33143,6 +33083,7 @@
                 }, {
                     id: "stock_exchange",
                     cat: "wonders",
+                    tab: 1,
                     cap: 1,
                     age: 3,
                     req: [{
@@ -33172,6 +33113,7 @@
                 }, {
                     id: "stock_exchange_part",
                     cat: "wonders",
+                    tab: 1,
                     cap: 5,
                     age: 3,
                     req: [{
@@ -33194,6 +33136,7 @@
                 }, {
                     id: "tower_mana",
                     cat: "wonders",
+                    tab: 1,
                     cap: 1,
                     age: 3,
                     req: [{
@@ -33215,6 +33158,7 @@
                 }, {
                     id: "tower_mana_part",
                     cat: "wonders",
+                    tab: 1,
                     cap: 4,
                     age: 3,
                     req: [{
@@ -33249,6 +33193,7 @@
                 }, {
                     id: "mana_pit",
                     cat: "wonders",
+                    tab: 1,
                     cap: 1,
                     age: 3,
                     req: [{
@@ -33274,6 +33219,7 @@
                 }, {
                     id: "mana_pit_part",
                     cat: "wonders",
+                    tab: 1,
                     cap: 10,
                     age: 3,
                     req: [{
@@ -33300,6 +33246,7 @@
                 }, {
                     id: "hall_heroic_deeds",
                     cat: "wonders",
+                    tab: 1,
                     cap: 1,
                     age: 3,
                     req: [{
@@ -33337,6 +33284,7 @@
                 }, {
                     id: "hall_heroic_deeds_part",
                     cat: "wonders",
+                    tab: 1,
                     cap: 4,
                     age: 3,
                     req: [{
@@ -33363,6 +33311,7 @@
                 }, {
                     id: "harbor_district",
                     cat: "wonders",
+                    tab: 1,
                     cap: 1,
                     age: 4,
                     req: [{
@@ -33408,6 +33357,7 @@
                 }, {
                     id: "harbor_district_part",
                     cat: "wonders",
+                    tab: 1,
                     cap: 8,
                     age: 4,
                     req: [{
@@ -33442,6 +33392,7 @@
                 }, {
                     id: "city_lights",
                     cat: "wonders",
+                    tab: 1,
                     cap: 1,
                     age: 4,
                     req: [{
@@ -33473,6 +33424,7 @@
                 }, {
                     id: "city_lights_part",
                     cat: "wonders",
+                    tab: 1,
                     cap: 10,
                     age: 4,
                     req: [{
@@ -33503,6 +33455,7 @@
                 }, {
                     id: "artisan_workshop",
                     cat: "commercial_area",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -33580,6 +33533,7 @@
                 }, {
                     id: "marketplace",
                     cat: "commercial_area",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -33651,6 +33605,7 @@
                 }, {
                     id: "canava_trading",
                     cat: "commercial_area",
+                    tab: 1,
                     age: 100,
                     req: [{
                         type: "resource",
@@ -33694,6 +33649,7 @@
                 }, {
                     id: "valley_of_plenty",
                     cat: "commercial_area",
+                    tab: 1,
                     age: 2,
                     cap: 5,
                     req: [{
@@ -33728,6 +33684,7 @@
                 }, {
                     id: "bank",
                     cat: "commercial_area",
+                    tab: 1,
                     age: 2,
                     req: [{
                         type: "resource",
@@ -33781,6 +33738,7 @@
                 }, {
                     id: "tax_revenue_checkpoints",
                     cat: "commercial_area",
+                    tab: 1,
                     age: 2,
                     cap: 4,
                     req: [{
@@ -33816,6 +33774,7 @@
                 }, {
                     id: "the_vaults",
                     cat: "commercial_area",
+                    tab: 1,
                     cap: 3,
                     age: 3,
                     req: [{
@@ -33846,6 +33805,7 @@
                 }, {
                     id: "credit_union",
                     cat: "commercial_area",
+                    tab: 1,
                     age: 4,
                     req: [{
                         type: "resource",
@@ -33897,6 +33857,7 @@
                 }, {
                     id: "harvest_shrine",
                     cat: "faith",
+                    tab: 1,
                     cap: 1,
                     age: 1,
                     req: [{
@@ -33936,6 +33897,7 @@
                 }, {
                     id: "war_shrine",
                     cat: "faith",
+                    tab: 1,
                     cap: 1,
                     age: 1,
                     req: [{
@@ -33971,6 +33933,7 @@
                 }, {
                     id: "mind_shrine",
                     cat: "faith",
+                    tab: 1,
                     cap: 1,
                     age: 1,
                     req: [{
@@ -34006,6 +33969,7 @@
                 }, {
                     id: "temple",
                     cat: "faith",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -34054,6 +34018,7 @@
                 }, {
                     id: "altar_of_sacrifices",
                     cat: "faith",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -34100,6 +34065,7 @@
                 }, {
                     id: "magic_circle",
                     cat: "faith",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -34133,6 +34099,7 @@
                 }, {
                     id: "monastery",
                     cat: "faith",
+                    tab: 1,
                     age: 100,
                     req: [{
                         type: "resource",
@@ -34187,6 +34154,7 @@
                 }, {
                     id: "fortune_grove",
                     cat: "faith",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -34212,6 +34180,7 @@
                 }, {
                     id: "pillars_of_mana",
                     cat: "faith",
+                    tab: 1,
                     age: 2,
                     cap: 5,
                     req: [{
@@ -34250,6 +34219,7 @@
                 }, {
                     id: "matter_transmuter",
                     cat: "faith",
+                    tab: 1,
                     age: 3,
                     req: [{
                         type: "resource",
@@ -34310,6 +34280,7 @@
                 }, {
                     id: "conclave",
                     cat: "faith",
+                    tab: 1,
                     age: 3,
                     req: [{
                         type: "resource",
@@ -34352,6 +34323,7 @@
                 }, {
                     id: "reactivate_portal",
                     cat: "faith",
+                    tab: 1,
                     cap: 1,
                     age: 3,
                     req: [{
@@ -34377,6 +34349,7 @@
                 }, {
                     id: "reactivate_portal_decryption",
                     cat: "faith",
+                    tab: 1,
                     cap: 5,
                     age: 3,
                     req: [{
@@ -34399,6 +34372,7 @@
                 }, {
                     id: "mausoleum_gods",
                     cat: "faith",
+                    tab: 1,
                     cap: 1,
                     age: 3,
                     req: [{
@@ -34437,6 +34411,7 @@
                 }, {
                     id: "spiritual_garden",
                     cat: "faith",
+                    tab: 1,
                     age: 4,
                     req: [{
                         type: "resource",
@@ -34478,6 +34453,7 @@
                 }, {
                     id: "fountain_prosperity",
                     cat: "faith",
+                    tab: 1,
                     age: 4,
                     cap: 4,
                     req: [{
@@ -34505,6 +34481,7 @@
                 }, {
                     id: "store",
                     cat: "warehouse",
+                    tab: 1,
                     age: 1,
                     req: [{
                         type: "resource",
@@ -34546,6 +34523,7 @@
                 }, {
                     id: "ancient_vault",
                     cat: "warehouse",
+                    tab: 1,
                     age: 100,
                     req: [{
                         type: "resource",
@@ -34595,6 +34573,7 @@
                 }, {
                     id: "large_warehouse",
                     cat: "warehouse",
+                    tab: 1,
                     age: 2,
                     req: [{
                         type: "resource",
@@ -34650,6 +34629,7 @@
                 }, {
                     id: "storage_facility",
                     cat: "warehouse",
+                    tab: 1,
                     age: 4,
                     req: [{
                         type: "resource",
@@ -34705,6 +34685,7 @@
                 }, {
                     id: "guarded_storehouse",
                     cat: "warehouse",
+                    tab: 1,
                     age: 3,
                     req: [{
                         type: "resource",
@@ -34754,6 +34735,7 @@
                 }, {
                     id: "guarded_facility",
                     cat: "warehouse",
+                    tab: 1,
                     age: 4,
                     req: [{
                         type: "resource",
@@ -34803,6 +34785,7 @@
                 }, {
                     id: "natronite_depot",
                     cat: "warehouse",
+                    tab: 1,
                     age: 4,
                     req: [{
                         type: "resource",
@@ -39293,10 +39276,90 @@
                     }]), e
                 }(),
                 it = at,
-                ot = r(4303),
+                ot = [{
+                    id: "horse",
+                    sell_min: 16,
+                    sell_max: 20,
+                    sell_variance: .01,
+                    sell_duration: .04,
+                    buy_min: 48,
+                    buy_max: 60,
+                    buy_variance: .01,
+                    buy_duration: .01
+                }, {
+                    id: "cow",
+                    sell_min: 8,
+                    sell_max: 10,
+                    sell_variance: .01,
+                    sell_duration: .04,
+                    buy_min: 24,
+                    buy_max: 30,
+                    buy_variance: .01,
+                    buy_duration: .01
+                }, {
+                    id: "tools",
+                    sell_min: 3.5,
+                    sell_max: 4.2,
+                    sell_variance: .01,
+                    sell_duration: .04,
+                    buy_min: 8.75,
+                    buy_max: 10.5,
+                    buy_variance: .01,
+                    buy_duration: .01
+                }, {
+                    id: "food",
+                    sell_min: .5,
+                    sell_max: .55,
+                    sell_variance: .01,
+                    sell_duration: .04,
+                    buy_min: .75,
+                    buy_max: .82,
+                    buy_variance: .01,
+                    buy_duration: .01
+                }, {
+                    id: "wood",
+                    sell_min: 1,
+                    sell_max: 1.15,
+                    sell_variance: .01,
+                    sell_duration: .04,
+                    buy_min: 2,
+                    buy_max: 2.3,
+                    buy_variance: .01,
+                    buy_duration: .01
+                }, {
+                    id: "stone",
+                    sell_min: 1.5,
+                    sell_max: 1.72,
+                    sell_variance: .01,
+                    sell_duration: .04,
+                    buy_min: 3,
+                    buy_max: 3.45,
+                    buy_variance: .01,
+                    buy_duration: .01
+                }, {
+                    id: "copper",
+                    sell_min: 3,
+                    sell_max: 3.6,
+                    sell_variance: .01,
+                    sell_duration: .04,
+                    buy_min: 7.5,
+                    buy_max: 9,
+                    buy_variance: .01,
+                    buy_duration: .01
+                }, {
+                    id: "iron",
+                    sell_min: 4,
+                    sell_max: 4.8,
+                    sell_variance: .01,
+                    sell_duration: .04,
+                    buy_min: 10,
+                    buy_max: 12,
+                    buy_variance: .01,
+                    buy_duration: .01
+                }],
                 st = function () {
                     function e(t) {
-                        (0, a.Z)(this, e), this.MainStore = void 0, this.stocks = (0, R.Z)(ot.M).reverse(), this.stocksData = [], this.workerInstanceStocks = void 0, this.MainStore = t, (0, s.rC)(this, {
+                        (0, a.Z)(this, e), this.MainStore = void 0, this.stocks = (0, R.Z)(ot).reverse(), this.stocksData = [], this.workerInstanceStocks = void 0, this.MainStore = t, (0, s.rC)(this, {
                             showMarket: s.Fl,
                             stocks: s.LO,
                             stocksData: s.LO,
@@ -39310,12 +39373,15 @@
                         key: "initStocks",
                         value: function () {
                             var e = this;
-                            0 === this.MainStore.run.stocks.length && this.stocks.forEach((function (t, r) {
+                            0 !== this.MainStore.run.stocks.length && "undefined" !== typeof this.MainStore.run.stocks[0].sell_min || this.stocks.forEach((function (t, r) {
                                 e.MainStore.run.stocks[r] = {
                                     id: t.id,
-                                    min: t.min,
-                                    max: t.max,
-                                    duration: 0
+                                    sell_min: t.sell_min,
+                                    sell_max: t.sell_max,
+                                    sell_duration: 0,
+                                    buy_min: t.buy_min,
+                                    buy_max: t.buy_max,
+                                    buy_duration: 0
                                 }
                             }))
                         }
@@ -39327,26 +39393,34 @@
                     }, {
                         key: "buy",
                         value: function (e) {
-                            var t = this.stocks.findIndex((function (t) {
-                                return t.id === e
-                            }));
-                            if (!this.MainStore.ResourcesStore.useResource("gold", this.stocks[t].value)) return !1;
-                            this.MainStore.ResourcesStore.addResource(e), this.MainStore.run.stocks[t].min += this.stocks[t].variance, this.MainStore.run.stocks[t].max += this.stocks[t].variance, this.MainStore.run.stocks[t].duration += this.stocks[t].duration, this.MainStore.save(), this._stocksInterval(!1)
+                            var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 1,
+                                r = this.stocks.findIndex((function (t) {
+                                    return t.id === e
+                                })),
+                                n = this.MainStore.ResourcesStore.useResource("gold", this.stocks[r].buy_value * t);
+                            if (!n) return !1;
+                            this.MainStore.ResourcesStore.addResource(e, t);
+                            for (var a = 0; a < t; a++) this.MainStore.run.stocks[r].buy_min += this.stocks[r].buy_variance, this.MainStore.run.stocks[r].buy_min = Math.round(100 * this.MainStore.run.stocks[r].buy_min) / 100, this.MainStore.run.stocks[r].buy_max += this.stocks[r].buy_variance, this.MainStore.run.stocks[r].buy_max = Math.round(100 * this.MainStore.run.stocks[r].buy_max) / 100, this.MainStore.run.stocks[r].buy_duration += this.stocks[r].buy_duration, this.MainStore.run.stocks[r].buy_duration = Math.round(100 * this.MainStore.run.stocks[r].buy_duration) / 100;
+                            this.MainStore.save(), this._stocksInterval(!1)
                         }
                     }, {
                         key: "sell",
                         value: function (e) {
-                            var t = this.stocks.findIndex((function (t) {
-                                return t.id === e
-                            }));
-                            if (!this.MainStore.ResourcesStore.useResource(e, 1)) return !1;
-                            this.MainStore.ResourcesStore.addResource("gold", this.stocks[t].value), this.MainStore.run.stocks[t].min - this.stocks[t].variance > 0 && (this.MainStore.run.stocks[t].min -= this.stocks[t].variance, this.MainStore.run.stocks[t].max -= this.stocks[t].variance), this.MainStore.run.stocks[t].duration += this.stocks[t].duration, this.MainStore.save(), this._stocksInterval(!1)
+                            var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 1,
+                                r = this.stocks.findIndex((function (t) {
+                                    return t.id === e
+                                })),
+                                n = this.MainStore.ResourcesStore.useResource(e, t);
+                            if (!n) return !1;
+                            this.MainStore.ResourcesStore.addResource("gold", this.stocks[r].sell_value * t);
+                            for (var a = 0; a < t; a++) this.MainStore.run.stocks[r].sell_min - this.stocks[r].sell_variance > .01 && (this.MainStore.run.stocks[r].sell_min -= this.stocks[r].sell_variance, this.MainStore.run.stocks[r].sell_min = Math.round(100 * this.MainStore.run.stocks[r].sell_min) / 100, this.MainStore.run.stocks[r].sell_max -= this.stocks[r].sell_variance, this.MainStore.run.stocks[r].sell_max = Math.round(100 * this.MainStore.run.stocks[r].sell_max) / 100), this.MainStore.run.stocks[r].sell_duration += this.stocks[r].sell_duration, this.MainStore.run.stocks[r].sell_duration = Math.round(100 * this.MainStore.run.stocks[r].sell_duration) / 100;
+                            this.MainStore.save(), this._stocksInterval(!1)
                         }
                     }, {
                         key: "start",
                         value: function () {
                             var e = this;
-                            this.showMarket && (this._generateStartHistory(), this.workerInstanceStocks = new Worker(Ee.E), this.workerInstanceStocks.onmessage = function () {
+                            this.showMarket && (this._stocksInterval(!1), this.workerInstanceStocks = new Worker(Ee.E), this.workerInstanceStocks.onmessage = function () {
                                 e._stocksInterval()
                             }, this.workerInstanceStocks.postMessage(5e3))
                         }
@@ -39356,21 +39430,32 @@
                             this.workerInstanceStocks && this.workerInstanceStocks.postMessage("stop")
                         }
                     }, {
-                        key: "_generateStartHistory",
-                        value: function () {
-                            for (var e = 0; e < 50; e++) this._stocksInterval(!1)
-                        }
-                    }, {
                         key: "_stocksInterval",
                         value: function () {
                             var e = this,
-                                t = !(arguments.length > 0 && void 0 !== arguments[0]) || arguments[0],
-                                r = {};
-                            this.stocks.forEach((function (n, a) {
-                                t && e.MainStore.run.stocks[a].duration > 0 && (e.MainStore.run.stocks[a].duration--, e.MainStore.run.stocks[a].duration % n.duration === 0 && (e.MainStore.run.stocks[a].min > n.min ? (e.MainStore.run.stocks[a].min -= e.stocks[a].variance, e.MainStore.run.stocks[a].max -= e.stocks[a].variance) : (e.MainStore.run.stocks[a].min += e.stocks[a].variance, e.MainStore.run.stocks[a].max += e.stocks[a].variance)), e.MainStore.save());
-                                var i = Math.round(100 * (0, qe.tF)(e.MainStore.run.stocks[a].min, e.MainStore.run.stocks[a].max)) / 100;
-                                e.stocks[a].value = i, r[(0, Ae.K)("res_" + n.id)] = Math.round(i * n.chart * 100) / 100
-                            })), this.stocksData.push(r), this.stocksData = this.stocksData.slice(-50)
+                                t = !(arguments.length > 0 && void 0 !== arguments[0]) || arguments[0];
+                            this.stocks.forEach((function (r, n) {
+                                if (t) {
+                                    if (e.MainStore.run.stocks[n].buy_duration > 0) {
+                                        if (e.MainStore.run.stocks[n].buy_duration--, e.MainStore.run.stocks[n].buy_duration = Math.round(100 * e.MainStore.run.stocks[n].buy_duration) / 100, e.MainStore.run.stocks[n].buy_duration <= 0) e.MainStore.run.stocks[n].buy_duration = 0, e.MainStore.run.stocks[n].buy_min = r.buy_min, e.MainStore.run.stocks[n].buy_max = r.buy_max;
+                                        else {
+                                            var a = (e.MainStore.run.stocks[n].buy_min - r.buy_min) / e.MainStore.run.stocks[n].buy_duration;
+                                            e.MainStore.run.stocks[n].buy_min -= a, e.MainStore.run.stocks[n].buy_max -= a
+                                        }
+                                        e.MainStore.run.stocks[n].buy_min = Math.round(100 * e.MainStore.run.stocks[n].buy_min) / 100, e.MainStore.run.stocks[n].buy_max = Math.round(100 * e.MainStore.run.stocks[n].buy_max) / 100
+                                    }
+                                    if (e.MainStore.run.stocks[n].sell_duration > 0) {
+                                        if (e.MainStore.run.stocks[n].sell_duration--, e.MainStore.run.stocks[n].sell_duration = Math.round(100 * e.MainStore.run.stocks[n].sell_duration) / 100, e.MainStore.run.stocks[n].sell_duration <= 0) e.MainStore.run.stocks[n].sell_duration = 0, e.MainStore.run.stocks[n].sell_min = r.sell_min, e.MainStore.run.stocks[n].sell_max = r.sell_max;
+                                        else {
+                                            var i = (e.MainStore.run.stocks[n].sell_min - r.sell_min) / e.MainStore.run.stocks[n].sell_duration;
+                                            e.MainStore.run.stocks[n].sell_min -= i, e.MainStore.run.stocks[n].sell_max -= i
+                                        }
+                                        e.MainStore.run.stocks[n].sell_min = Math.round(100 * e.MainStore.run.stocks[n].sell_min) / 100, e.MainStore.run.stocks[n].sell_max = Math.round(100 * e.MainStore.run.stocks[n].sell_max) / 100
+                                    }
+                                }
+                                var o = Math.round(100 * (0, qe.tF)(e.MainStore.run.stocks[n].buy_min, e.MainStore.run.stocks[n].buy_max)) / 100;
+                                e.stocks[n].buy_value = o, o = Math.round(100 * (0, qe.tF)(e.MainStore.run.stocks[n].sell_min, e.MainStore.run.stocks[n].sell_max)) / 100, e.stocks[n].sell_value = o, e.MainStore.save()
+                            }))
                         }
                     }]), e
                 }(),
@@ -43618,8 +43703,8 @@
                             WDS_SOCKET_PATH: void 0,
                             WDS_SOCKET_PORT: void 0,
                             FAST_REFRESH: !0,
-                            REACT_APP_VERSION: "0.43.1"
-                        }.REACT_APP_DEV || "preview" === window.location.hostname.split(".")[0]), this.version = (0, qe.JC)("0.43.1"), this.intervalMs = 250, this.intervalRandomAttackDice = 8800, this.lastInterval = 0, this.save = l(2e3, this.saveThrottle), this.ads = !1, this.isPWA = !1, this.isTWA = !1, this.idxs = (0, n.Z)({}, (0, qe.qn)("idxs", Ot)), this.run = (0, n.Z)({}, (0, qe.qn)("run", Tt)), this.achievements = (0, qe.qn)("ach", []), this.stats = (0, qe.qn)("stats", []), this.legacies = (0, qe.qn)("leg", []), this.selectedTab = 0, this.logs = (0, qe.qn)("logs", []), this.logData = !1, this.sD = !1, this.softResetInProgress = !1, this.firstStart = !0, this.keyPress = "", this.confirmShow = !1, this.confirmTitle = "", this.confirmText = "", this.confirmType = "", this.confirmCancel = void 0, this.confirmOk = void 0, this.imageNotificationShow = !1, this.imageNotificationKey = "", this.imageNotificationTitle = "", this.imageNotificationText = "", this.imageNotificationType = "", this.showSupport = !1, this.AchievementsStore = void 0, this.AdsStore = void 0, this.AncestorsStore = void 0, this.ArmyStore = void 0, this.BuildingsStore = void 0, this.DiplomacyStore = void 0, this.LegacyStore = void 0, this.MagicStore = void 0, this.MarketStore = void 0, this.ModifiersStore = void 0, this.PopulationStore = void 0, this.ReqGenStore = void 0, this.ResourcesStore = void 0, this.SettingsStore = void 0, this.StatsStore = void 0, this.TechsStore = void 0, this.swRegistration = void 0, this.workerInstance = void 0, this.defaultNumberFormat = new Intl.NumberFormat, this.bigNumberFormat = new Intl.NumberFormat(void 0, {
+                            REACT_APP_VERSION: "0.44"
+                        }.REACT_APP_DEV || "preview" === window.location.hostname.split(".")[0]), this.version = (0, qe.JC)("0.44"), this.intervalMs = 250, this.intervalRandomAttackDice = 8800, this.lastInterval = 0, this.save = l(2e3, this.saveThrottle), this.ads = !1, this.isPWA = !1, this.isTWA = !1, this.idxs = (0, n.Z)({}, (0, qe.qn)("idxs", Ot)), this.run = (0, n.Z)({}, (0, qe.qn)("run", Tt)), this.achievements = (0, qe.qn)("ach", []), this.stats = (0, qe.qn)("stats", []), this.legacies = (0, qe.qn)("leg", []), this.selectedTab = 0, this.logs = (0, qe.qn)("logs", []), this.logData = !1, this.sD = !1, this.softResetInProgress = !1, this.firstStart = !0, this.keyPress = "", this.confirmShow = !1, this.confirmTitle = "", this.confirmText = "", this.confirmType = "", this.confirmCancel = void 0, this.confirmOk = void 0, this.imageNotificationShow = !1, this.imageNotificationKey = "", this.imageNotificationTitle = "", this.imageNotificationText = "", this.imageNotificationType = "", this.showSupport = !1, this.AchievementsStore = void 0, this.AdsStore = void 0, this.AncestorsStore = void 0, this.ArmyStore = void 0, this.BuildingsStore = void 0, this.DiplomacyStore = void 0, this.LegacyStore = void 0, this.MagicStore = void 0, this.MarketStore = void 0, this.ModifiersStore = void 0, this.PopulationStore = void 0, this.ReqGenStore = void 0, this.ResourcesStore = void 0, this.SettingsStore = void 0, this.StatsStore = void 0, this.TechsStore = void 0, this.swRegistration = void 0, this.workerInstance = void 0, this.defaultNumberFormat = new Intl.NumberFormat, this.bigNumberFormat = new Intl.NumberFormat(void 0, {
                             minimumFractionDigits: 1
                         }), this.twoNumberFormat = new Intl.NumberFormat(void 0, {
                             minimumFractionDigits: 2,
@@ -43882,7 +43967,7 @@
                     }]), e
                 }(),
                 It = new Et,
-                Nt = r(3737),
+                Nt = r(1875),
                 jt = r(8215),
                 qt = r(1048),
                 Lt = r(1231),
@@ -44499,7 +44584,13 @@
                         var e;
                         (0, a.Z)(this, r);
                         for (var n = arguments.length, i = new Array(n), o = 0; o < n; o++) i[o] = arguments[o];
-                        return (e = t.call.apply(t, [this].concat(i))).handleAdd = function () {
+                        return (e = t.call.apply(t, [this].concat(i))).intervalId = 0, e.handleMouseEnter = function () {
+                            e.intervalId = window.setInterval((function () {
+                                e.handleAdd()
+                            }), 1e3)
+                        }, e.handleMouseLeave = function () {
+                            clearInterval(e.intervalId)
+                        }, e.handleAdd = function () {
                             e.props.MainStore.ResourcesStore.addResourceManual(e.props.id, e.props.manual)
                         }, e
                     }
@@ -44511,6 +44602,8 @@
                                 type: "button",
                                 className: e,
                                 onClick: this.handleAdd,
+                                onMouseEnter: this.handleMouseEnter,
+                                onMouseLeave: this.handleMouseLeave,
                                 children: (0, Ae.K)("res_" + this.props.id)
                             })
                         }
@@ -45049,7 +45142,7 @@
                     return r.e(883).then(r.bind(r, 1883))
                 })),
                 gr = o.lazy((function () {
-                    return Promise.all([r.e(407), r.e(803)]).then(r.bind(r, 3803))
+                    return r.e(173).then(r.bind(r, 4173))
                 })),
                 vr = o.lazy((function () {
                     return r.e(394).then(r.bind(r, 7394))
@@ -45397,6 +45490,9 @@
                     }), "")
                 },
                 Or = [{
+                    version: "0.44",
+                    changes: ["Marketplace overhaul", "Improved accessibility of manual resources"]
+                }, {
                     version: "0.43.1",
                     changes: ["Added buttons to move all scouts and spies at once", "Added 12 new legacy perks", "Added new units", "Added new enemies", "Added the Zenix Aid", "Added a new achievement", "Added new buildings", "Man at arms was nerfed", "Fixed prestige without perks selection", "Fixed order in which negative values are calculated"]
                 }, {
@@ -45806,7 +45902,7 @@
                                                                             }), (0, Ce.jsxs)("div", {
                                                                                 className: "w-full text-center text-gray-500 cursor-pointer text-sm",
                                                                                 onClick: this.showChangelog,
-                                                                                children: ["v ", "0.43.1", this.props.MainStore.d ? " d" : ""]
+                                                                                children: ["v ", "0.44", this.props.MainStore.d ? " d" : ""]
                                                                             })]
                                                                         })
                                                                     })]
@@ -46456,7 +46552,7 @@
                     if ("serviceWorker" in navigator) {
                         if (new URL("./", window.location.href).origin !== window.location.origin) return;
                         window.addEventListener("load", (function () {
-                            var t = "".concat("./", "service-worker.js");
+                            var t = "".concat("./", "/service-worker.js");
                             Yr ? (! function (e, t) {
                                 fetch(e, {
                                     headers: {
