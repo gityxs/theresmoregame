@@ -54914,7 +54914,7 @@
                     if ("serviceWorker" in navigator) {
                         if (new URL("./", window.location.href).origin !== window.location.origin) return;
                         window.addEventListener("load", (function () {
-                            var t = "".concat("./", "/service-worker.js");
+                            var t = "".concat("./", "service-worker.js");
                             ba ? (! function (e, t) {
                                 fetch(e, {
                                     headers: {
