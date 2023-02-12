@@ -43306,7 +43306,7 @@
                     }, {
                         type: "modifier",
                         type_id: "army",
-                        id: "behemot",
+                        id: "behemoth",
                         type_gen: "stat",
                         gen: "defense",
                         value: 14,
