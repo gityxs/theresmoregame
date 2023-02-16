@@ -46552,7 +46552,7 @@
                     if ("serviceWorker" in navigator) {
                         if (new URL("./", window.location.href).origin !== window.location.origin) return;
                         window.addEventListener("load", (function () {
-                            var t = "".concat("./", "/service-worker.js");
+                            var t = "".concat("./", "service-worker.js");
                             Yr ? (! function (e, t) {
                                 fetch(e, {
                                     headers: {
