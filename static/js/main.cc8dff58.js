@@ -7424,7 +7424,7 @@
                         tec_colonial_stronghold_description: "让我们建造一个可以消灭敌人的据点",
                         tec_colonial_trade: "定居点交易",
                         tec_colonial_trade_description: "定居点已经足够壮大，我们可以从中获取收入了",
-                        tec_construction_of_automata: "自动建造",
+                        tec_construction_of_automata: "建造构装体",
                         tec_construction_of_automata_description: "我们对亡者的研究已经足够了，我们可以开发自己的法力驱动仆从了",
                         tec_commercial_monopolies: "商业垄断",
                         tec_commercial_monopolies_description: "为了能在经济上继续增长，我们需要建立商业垄断和证券交易所",
