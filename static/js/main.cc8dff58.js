@@ -1,4 +1,4 @@
-/*!For license information please see main.edc9675e.js.LICENSE.txt*/ ! function () {
+/*!For license information please see main.520496b4.js.LICENSE.txt*/ ! function () {
     var e = {
             1231: function (e, t, r) {
                 "use strict";
@@ -354,7 +354,7 @@
                     })), a
                 }
 
-                function Z(e) {
+                function W(e) {
                     var t;
                     return function () {
                         return t || (t = new Promise((function (r) {
@@ -364,7 +364,7 @@
                         }))), t
                     }
                 }
-                var W = {
+                var Z = {
                     placement: "bottom",
                     modifiers: [],
                     strategy: "absolute"
@@ -383,13 +383,13 @@
                         r = t.defaultModifiers,
                         a = void 0 === r ? [] : r,
                         i = t.defaultOptions,
-                        n = void 0 === i ? W : i;
+                        n = void 0 === i ? Z : i;
                     return function (e, t, r) {
                         void 0 === r && (r = n);
                         var i = {
                                 placement: "bottom",
                                 orderedModifiers: [],
-                                options: Object.assign({}, W, n),
+                                options: Object.assign({}, Z, n),
                                 modifiersData: {},
                                 elements: {
                                     reference: e,
@@ -475,7 +475,7 @@
                                         }
                                     }
                                 },
-                                update: Z((function () {
+                                update: W((function () {
                                     return new Promise((function (e) {
                                         u.forceUpdate(), e(i)
                                     }))
@@ -924,8 +924,8 @@
                                     D = "y" === x ? O : N,
                                     H = "y" === x ? "height" : "width",
                                     z = M[x],
-                                    Z = z + g[V],
-                                    W = z - g[D],
+                                    W = z + g[V],
+                                    Z = z - g[D],
                                     B = f ? -C[H] / 2 : 0,
                                     G = b === L ? A[H] : C[H],
                                     K = b === L ? -C[H] : -A[H],
@@ -949,7 +949,7 @@
                                     oe = ne ? "y" === x ? ne.clientTop || 0 : ne.clientLeft || 0 : 0,
                                     se = null != (F = null == P ? void 0 : P[x]) ? F : 0,
                                     le = z + ie - se,
-                                    ue = he(f ? p(Z, z + ae - se - oe) : Z, z, f ? d(W, le) : W);
+                                    ue = he(f ? p(W, z + ae - se - oe) : W, z, f ? d(Z, le) : Z);
                                 M[x] = ue, R[x] = ue - z
                             }
                             if (s) {
@@ -1180,17 +1180,17 @@
                                             H = P ? T ? N : I : T ? O : q;
                                         b[R] > w[R] && (H = ae(H));
                                         var z = ae(H),
-                                            Z = [];
-                                        if (n && Z.push(F[C] <= 0), s && Z.push(F[H] <= 0, F[z] <= 0), Z.every((function (e) {
+                                            W = [];
+                                        if (n && W.push(F[C] <= 0), s && W.push(F[H] <= 0, F[z] <= 0), W.every((function (e) {
                                                 return e
                                             }))) {
                                             S = A, x = !1;
                                             break
                                         }
-                                        k.set(A, Z)
+                                        k.set(A, W)
                                     }
                                     if (x)
-                                        for (var W = function (e) {
+                                        for (var Z = function (e) {
                                                 var t = v.find((function (t) {
                                                     var r = k.get(t);
                                                     if (r) return r.slice(0, e).every((function (e) {
@@ -1199,7 +1199,7 @@
                                                 }));
                                                 if (t) return S = t, "break"
                                             }, B = y ? 3 : 1; B > 0; B--) {
-                                            if ("break" === W(B)) break
+                                            if ("break" === Z(B)) break
                                         }
                                     t.placement !== S && (t.modifiersData[a]._skip = !0, t.placement = S, t.reset = !0)
                                 }
@@ -1349,7 +1349,7 @@
                     }))
                 }
 
-                function Ze(e, t) {
+                function We(e, t) {
                     for (var r = t; r;) {
                         var a;
                         if (e.contains(r)) return !0;
@@ -1357,18 +1357,18 @@
                     }
                     return !1
                 }
-                var We = {
+                var Ze = {
                         isTouch: !1
                     },
                     Be = 0;
 
                 function Ge() {
-                    We.isTouch || (We.isTouch = !0, window.performance && document.addEventListener("mousemove", Ke))
+                    Ze.isTouch || (Ze.isTouch = !0, window.performance && document.addEventListener("mousemove", Ke))
                 }
 
                 function Ke() {
                     var e = performance.now();
-                    e - Be < 20 && (We.isTouch = !1, document.removeEventListener("mousemove", Ke)), Be = e
+                    e - Be < 20 && (Ze.isTouch = !1, document.removeEventListener("mousemove", Ke)), Be = e
                 }
 
                 function Ue() {
@@ -1558,7 +1558,7 @@
                                     a = et(e, Object.assign({}, r, Ee(t), {
                                         ignoreAttributes: !0
                                     }));
-                                v.props = a, W(), r.interactiveDebounce !== a.interactiveDebounce && (P(), _ = Te(K, a.interactiveDebounce));
+                                v.props = a, Z(), r.interactiveDebounce !== a.interactiveDebounce && (P(), _ = Te(K, a.interactiveDebounce));
                                 r.triggerTarget && !a.triggerTarget ? qe(r.triggerTarget).forEach((function (e) {
                                     e.removeAttribute("aria-expanded")
                                 })) : a.triggerTarget && e.removeAttribute("aria-expanded");
@@ -1578,7 +1578,7 @@
                                 var e = v.state.isVisible,
                                     t = v.state.isDestroyed,
                                     r = !v.state.isEnabled,
-                                    a = We.isTouch && !v.props.touch,
+                                    a = Ze.isTouch && !v.props.touch,
                                     i = Me(v.props.duration, 0, Xe.duration);
                                 if (e || t || r || a) return;
                                 if (T().hasAttribute("disabled")) return;
@@ -1672,7 +1672,7 @@
                             return e.fn(v)
                         })),
                         S = e.hasAttribute("aria-expanded");
-                    return W(), L(), I(), E("onCreate", [v]), c.showOnCreate && ee(), w.addEventListener("mouseenter", (function () {
+                    return Z(), L(), I(), E("onCreate", [v]), c.showOnCreate && ee(), w.addEventListener("mouseenter", (function () {
                         v.props.interactive && v.state.isVisible && v.clearDelayTimeouts()
                     })), w.addEventListener("mouseleave", (function () {
                         v.props.interactive && v.props.trigger.indexOf("mouseenter") >= 0 && q().addEventListener("mousemove", _)
@@ -1706,7 +1706,7 @@
                     }
 
                     function N(e) {
-                        return v.state.isMounted && !v.state.isVisible || We.isTouch || n && "focus" === n.type ? 0 : Me(v.props.delay, e ? 0 : 1, Xe.delay)
+                        return v.state.isMounted && !v.state.isVisible || Ze.isTouch || n && "focus" === n.type ? 0 : Me(v.props.delay, e ? 0 : 1, Xe.delay)
                     }
 
                     function I(e) {
@@ -1749,13 +1749,13 @@
                     }
 
                     function R(t) {
-                        if (!We.isTouch || !h && "mousedown" !== t.type) {
+                        if (!Ze.isTouch || !h && "mousedown" !== t.type) {
                             var r = t.composedPath && t.composedPath()[0] || t.target;
-                            if (!v.props.interactive || !Ze(w, r)) {
+                            if (!v.props.interactive || !We(w, r)) {
                                 if (qe(v.props.triggerTarget || e).some((function (e) {
-                                        return Ze(e, r)
+                                        return We(e, r)
                                     }))) {
-                                    if (We.isTouch) return;
+                                    if (Ze.isTouch) return;
                                     if (v.state.isVisible && v.props.trigger.indexOf("click") >= 0) return
                                 } else E("onClickOutside", [v, t]);
                                 !0 === v.props.hideOnClick && (v.clearDelayTimeouts(), v.hide(), p = !0, setTimeout((function () {
@@ -1793,7 +1793,7 @@
                         ze(r, "remove", o), ze(r, "add", a), o = a
                     }
 
-                    function Z(t, r, a) {
+                    function W(t, r, a) {
                         void 0 === a && (a = !1), qe(v.props.triggerTarget || e).forEach((function (e) {
                             e.addEventListener(t, r, a), f.push({
                                 node: e,
@@ -1804,22 +1804,22 @@
                         }))
                     }
 
-                    function W() {
+                    function Z() {
                         var e;
-                        A() && (Z("touchstart", G, {
+                        A() && (W("touchstart", G, {
                             passive: !0
-                        }), Z("touchend", U, {
+                        }), W("touchend", U, {
                             passive: !0
                         })), (e = v.props.trigger, e.split(/\s+/).filter(Boolean)).forEach((function (e) {
-                            if ("manual" !== e) switch (Z(e, G), e) {
+                            if ("manual" !== e) switch (W(e, G), e) {
                                 case "mouseenter":
-                                    Z("mouseleave", U);
+                                    W("mouseleave", U);
                                     break;
                                 case "focus":
-                                    Z(Ye ? "focusout" : "blur", Y);
+                                    W(Ye ? "focusout" : "blur", Y);
                                     break;
                                 case "focusin":
-                                    Z("focusout", Y)
+                                    W("focusout", Y)
                             }
                         }))
                     }
@@ -1889,7 +1889,7 @@
                     }
 
                     function Q(e) {
-                        return !!We.isTouch && A() !== e.type.indexOf("touch") >= 0
+                        return !!Ze.isTouch && A() !== e.type.indexOf("touch") >= 0
                     }
 
                     function X() {
@@ -1973,7 +1973,7 @@
                             a = M(),
                             i = a[0],
                             n = a[1];
-                        We.isTouch && "hold" === i && n && (t = n), t ? r = setTimeout((function () {
+                        Ze.isTouch && "hold" === i && n && (t = n), t ? r = setTimeout((function () {
                             v.show()
                         }), t) : v.show()
                     }
@@ -2009,7 +2009,7 @@
                     Object.keys(e).forEach((function (t) {
                         Xe[t] = e[t]
                     }))
-                }, ct.currentInput = We;
+                }, ct.currentInput = Ze;
                 Object.assign({}, ee, {
                     effect: function (e) {
                         var t = e.state,
@@ -3041,6 +3041,44 @@
                         type: "resource",
                         id: "food",
                         value: -.2
+                    }]
+                }, {
+                    id: "phalanx",
+                    type: "army",
+                    attack: 6,
+                    defense: 20,
+                    order: 1,
+                    category: 3,
+                    req: [{
+                        type: "tech",
+                        id: "phalanx_combat",
+                        value: 1
+                    }, {
+                        type: "resource",
+                        id: "gold",
+                        value: 200
+                    }, {
+                        type: "resource",
+                        id: "wood",
+                        value: 150
+                    }, {
+                        type: "resource",
+                        id: "iron",
+                        value: 150
+                    }],
+                    reqAttack: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 30
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 30
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "food",
+                        value: -.3
                     }]
                 }, {
                     id: "warrior_monk",
@@ -5491,6 +5529,8 @@
                         bui_builders_complex_description: "Like a builder district but with much more space",
                         bui_books: "Books",
                         bui_books_description: "A part of the Library of SouLs",
+                        bui_boot_camp: "Boot Camp",
+                        bui_boot_camp_description: "A strong army will protect Theresmore",
                         bui_canava_trading: "Canava trading post",
                         bui_canava_trading_description: "From neighboring villages a network of markets to generate profit",
                         bui_carpenter_workshop: "Carpenter workshop",
@@ -6047,6 +6087,8 @@
                         fai_accept_druid_description: "Accepting the druid and his beliefs as an integral part of our society, he will become high priest",
                         fai_acolyte_hymn: "Acolyte hymn",
                         fai_acolyte_hymn_description: "The chant of the devout rises to the gods",
+                        fai_ancient_spell_p: "Spell of the Ancients",
+                        fai_ancient_spell_p_description: "A spell that will help us progress",
                         fai_army_blessing: "Army blessing",
                         fai_army_faith: "Army of faith",
                         fai_army_faith_description: "Armies of faith will burn our enemies",
@@ -6204,6 +6246,7 @@
                         fai_spear_wild_man_description: "The wild man was a great horseman",
                         fai_spell_accept: "Cast this spell",
                         fai_spell_cancel: "Cancel this spell",
+                        fai_spell_ancient: "Spell of the Ancients",
                         fai_study_undead_creatures: "Study of undead creatures",
                         fai_study_undead_creatures_description: "Now that we have defeated those undead we must study their characteristics",
                         fai_summon_nikharul: "Summon Nikharul",
@@ -6812,6 +6855,7 @@
                         log_tec_besieging_engineers: "Now we can build the Siege Workshop",
                         log_tec_biology: "Better than servitude?",
                         log_tec_breeding: "We can now train light cavalry, a good and fast assault unit. Now we can build Stable",
+                        log_tec_boot_camp_t: "We can now build the Boot Camp",
                         log_tec_bronze_working: "We can train spearmen and warriors, our army can both defend and attack effectively. Units enter battle in a set order , in front will be the tanks and general melee units to absorb the blows while the firing units will be behind the lines and the last to die. Now we can build Barracks",
                         log_tec_burned_farms: "Farms were burned and all around the fields horribly mangled bodies were scattered. From the tracks it looks like the work of humanoid beings of great size. We must send our scouts",
                         log_tec_canava_mercenary: "Now we can recruit the Canava Guard, an elite mercenary troop from the nearby village",
@@ -6931,6 +6975,7 @@
                         log_tec_path_children: "It seems that orcs kidnap children to turn them into their flame casters as adults. We must find Gulud Castle and put an end to this abomination",
                         log_tec_persuade_nobility: "We can now train cataphract",
                         log_tec_persuade_people: "We must find the Eternal Halls and defeat their guardians. Let us unleash our explorers.",
+                        log_tec_phalanx_combat: "We can now recruit Phalanx",
                         log_tec_plate_armor: "We can now recruit man at arms",
                         log_tec_plenty_valley: "Now we can build the Valley of plenty",
                         log_tec_pottery: "By working on the first pieces of craftsmanship, we can create tools. We can build the Artisan workshop",
@@ -7489,6 +7534,8 @@
                         tec_alchemist_complex_t_description: "The production of a regular army needs a lot of saltpetre",
                         tec_ancient_balor_t: "Ancient Balor",
                         tec_ancient_balor_t_description: "Summon the Ancient Balor demon",
+                        tec_ancient_spell: "Ancient Spell",
+                        tec_ancient_spell_description: "A spell from the past",
                         tec_archery: "Archery",
                         tec_archery_description: "The bow will allow us to strike from a safe distance",
                         tec_architecture: "Architecture",
@@ -7519,6 +7566,8 @@
                         tec_besieging_engineers_description: "With the advent of siege techniques, we can increase the strength of our artillery",
                         tec_biology: "Biology",
                         tec_biology_description: "Theresmore's nature study applied to the lives of citizens",
+                        tec_boot_camp_t: "Boot camp",
+                        tec_boot_camp_t_description: "A place where we can train our soldiers",
                         tec_breeding: "Breeding",
                         tec_breeding_description: "We will have to breed the best horses in Theresmore",
                         tec_bronze_working: "Bronze working",
@@ -7841,6 +7890,8 @@
                         tec_path_children_description: "In the citadel of Horith we found disturbing evidence",
                         tec_pentagram_tome: "Demoniac pentagram",
                         tec_pentagram_tome_description: "In the strange village we found a pentagram and a tome written in an obscure language. We must investigate",
+                        tec_phalanx_combat: "Oplitic Phalanx",
+                        tec_phalanx_combat_description: "We will train our men to fight as one!",
                         tec_portal_of_the_dead: "Portal of the dead",
                         tec_portal_of_the_dead_description: "From a place long forgotten and sealed away. Beware the dead guard the passage. Beware",
                         tec_pottery: "Pottery",
@@ -8336,6 +8387,9 @@
                         uni_swamp_horror_plural: "Swamp Horrors",
                         uni_ravenous_crab: "Ravenous crab",
                         uni_ravenous_crab_plural: "Ravenous crabs",
+                        uni_phalanx: "Phalanx",
+                        uni_phalanx_description: "A wall of hoplites to counter the enemy",
+                        uni_phalanx_plural: "Phalanxes",
                         uni_pillager: "Pillager",
                         uni_pillager_plural: "Pillagers",
                         uni_priest: "Priest",
@@ -8541,7 +8595,7 @@
                         return ve
                     },
                     geb: function () {
-                        return W
+                        return Z
                     },
                     h27: function () {
                         return le
@@ -8565,7 +8619,7 @@
                         return i
                     },
                     kMq: function () {
-                        return Z
+                        return W
                     },
                     kaV: function () {
                         return A
@@ -8653,8 +8707,8 @@
                     D = "M17,16H15V22H12V17H8V22H5V16H3L10,10L17,16M6,2L10,6H9V9H7V6H5V9H3V6H2L6,2M18,3L23,8H22V12H19V9H17V12H15.34L14,10.87V8H13L18,3Z",
                     H = "M20 8V16L17 17L13.91 11.5C13.65 11.04 12.92 11.27 13 11.81L14 21L4 17L5.15 8.94C5.64 5.53 8.56 3 12 3H20L18.42 5.37C19.36 5.88 20 6.86 20 8Z",
                     z = "M19,4H20V1H16V4C16,4 18,8 18,12C18,16 16,19 12,19C8,19 6,16 6,12C6,8 8,4 8,4V1H4V4H5C5,4 2,8 2,14C2,19 7,23 12,23C17,23 22,19 22,14C22,8 19,4 19,4M4,13C3.4,13 3,12.6 3,12C3,11.4 3.4,11 4,11C4.6,11 5,11.4 5,12C5,12.6 4.6,13 4,13M6,19C5.4,19 5,18.6 5,18C5,17.4 5.4,17 6,17C6.6,17 7,17.4 7,18C7,18.6 6.6,19 6,19M12,22C11.4,22 11,21.6 11,21C11,20.4 11.4,20 12,20C12.6,20 13,20.4 13,21C13,21.6 12.6,22 12,22M18,19C17.4,19 17,18.6 17,18C17,17.4 17.4,17 18,17C18.6,17 19,17.4 19,18C19,18.6 18.6,19 18,19M20,13C19.4,13 19,12.6 19,12C19,11.4 19.4,11 20,11C20.6,11 21,11.4 21,12C21,12.6 20.6,13 20,13Z",
-                    Z = "M5 6C3.9 6 3 6.9 3 8S3.9 10 5 10 7 9.11 7 8 6.11 6 5 6M12 4C10.9 4 10 4.89 10 6S10.9 8 12 8 14 7.11 14 6 13.11 4 12 4M19 2C17.9 2 17 2.9 17 4S17.9 6 19 6 21 5.11 21 4 20.11 2 19 2M3.5 11C2.67 11 2 11.67 2 12.5V17H3V22H7V17H8V12.5C8 11.67 7.33 11 6.5 11H3.5M10.5 9C9.67 9 9 9.67 9 10.5V15H10V20H14V15H15V10.5C15 9.67 14.33 9 13.5 9H10.5M17.5 7C16.67 7 16 7.67 16 8.5V13H17V18H21V13H22V8.5C22 7.67 21.33 7 20.5 7H17.5Z",
-                    W = "M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
+                    W = "M5 6C3.9 6 3 6.9 3 8S3.9 10 5 10 7 9.11 7 8 6.11 6 5 6M12 4C10.9 4 10 4.89 10 6S10.9 8 12 8 14 7.11 14 6 13.11 4 12 4M19 2C17.9 2 17 2.9 17 4S17.9 6 19 6 21 5.11 21 4 20.11 2 19 2M3.5 11C2.67 11 2 11.67 2 12.5V17H3V22H7V17H8V12.5C8 11.67 7.33 11 6.5 11H3.5M10.5 9C9.67 9 9 9.67 9 10.5V15H10V20H14V15H15V10.5C15 9.67 14.33 9 13.5 9H10.5M17.5 7C16.67 7 16 7.67 16 8.5V13H17V18H21V13H22V8.5C22 7.67 21.33 7 20.5 7H17.5Z",
+                    Z = "M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
                     B = "M12 14.27L10.64 13C9.09 11.57 7.16 10.57 5 10.18V17.13C7.61 17.47 10 18.47 12 19.95C14 18.47 16.39 17.47 19 17.13V10.18C16.84 10.57 14.91 11.57 13.36 13M19 8.15C19.65 8.05 20.32 8 21 8V19C17.5 19 14.36 20.35 12 22.54C9.64 20.35 6.5 19 3 19V8C3.68 8 4.35 8.05 5 8.15C7.69 8.56 10.1 9.78 12 11.54C13.9 9.78 16.31 8.56 19 8.15M12 6C12.27 6 12.5 5.9 12.71 5.71C12.9 5.5 13 5.27 13 5S12.9 4.5 12.71 4.29C12.5 4.11 12.27 4 12 4S11.5 4.11 11.29 4.29C11.11 4.5 11 4.74 11 5S11.11 5.5 11.29 5.71C11.5 5.9 11.74 6 12 6M14.12 7.12C13.56 7.68 12.8 8 12 8S10.44 7.68 9.88 7.12C9.32 6.56 9 5.8 9 5S9.32 3.44 9.88 2.88C10.44 2.32 11.2 2 12 2S13.56 2.32 14.12 2.88 15 4.2 15 5 14.68 6.56 14.12 7.12Z",
                     G = "M19,13H5V11H19V13Z",
                     K = "M14.04,12H10V11H5.5A3.5,3.5 0 0,1 2,7.5A3.5,3.5 0 0,1 5.5,4C6.53,4 7.45,4.44 8.09,5.15C8.5,3.35 10.08,2 12,2C13.92,2 15.5,3.35 15.91,5.15C16.55,4.44 17.47,4 18.5,4A3.5,3.5 0 0,1 22,7.5A3.5,3.5 0 0,1 18.5,11H14.04V12M10,16.9V15.76H5V13.76H19V15.76H14.04V16.92L20,19.08C20.58,19.29 21,19.84 21,20.5A1.5,1.5 0 0,1 19.5,22H4.5A1.5,1.5 0 0,1 3,20.5C3,19.84 3.42,19.29 4,19.08L10,16.9Z",
@@ -9464,8 +9518,8 @@
                 }
                 var H = a.so || "$mobx",
                     z = O("isMobXReactObserver"),
-                    Z = O("isUnmounted"),
-                    W = O("skipRender"),
+                    W = O("isUnmounted"),
+                    Z = O("skipRender"),
                     B = O("isForcingUpdate");
 
                 function G(e) {
@@ -9488,7 +9542,7 @@
                     return t.render = function () {
                         return this.render = _() ? a : U.call(this, a), this.render()
                     }, V(t, "componentDidMount", (function () {
-                        this[Z] = !1, this.render[H] || i.Component.prototype.forceUpdate.call(this)
+                        this[W] = !1, this.render[H] || i.Component.prototype.forceUpdate.call(this)
                     })), V(t, "componentWillUnmount", (function () {
                         if (!_()) {
                             var e = this.render[H];
@@ -9497,7 +9551,7 @@
                                 var t = K(this);
                                 console.warn("The reactive render of an observer class component (" + t + ")\n                was overriden after MobX attached. This may result in a memory leak if the\n                overriden reactive render was not properly disposed.")
                             }
-                            this[Z] = !0
+                            this[W] = !0
                         }
                     })), e
                 }
@@ -9508,7 +9562,7 @@
 
                 function U(e) {
                     var t = this;
-                    j(this, W, !1), j(this, B, !1);
+                    j(this, Z, !1), j(this, B, !1);
                     var r = K(this),
                         n = e.bind(this),
                         o = !1;
@@ -9517,10 +9571,10 @@
                         o = !1;
                         var l = null != (s = e[H]) ? s : e[H] = function () {
                                 var e = new a.le(r + ".render()", (function () {
-                                    if (!o && (o = !0, !0 !== t[Z])) {
+                                    if (!o && (o = !0, !0 !== t[W])) {
                                         var r = !0;
                                         try {
-                                            j(t, B, !0), t[W] || i.Component.prototype.forceUpdate.call(t), r = !1
+                                            j(t, B, !0), t[Z] || i.Component.prototype.forceUpdate.call(t), r = !1
                                         } finally {
                                             j(t, B, !1), r && (e.dispose(), t.render[H] = null)
                                         }
@@ -9560,7 +9614,7 @@
                             return a.wM && a.mJ && (e = (0, a.wM)(!0)), n.call(this).reportObserved(), a.wM && a.mJ && (0, a.mJ)(e), this[r]
                         },
                         set: function (e) {
-                            this[B] || N(this[r], e) ? j(this, r, e) : (j(this, r, e), j(this, W, !0), n.call(this).reportChanged(), j(this, W, !1))
+                            this[B] || N(this[r], e) ? j(this, r, e) : (j(this, r, e), j(this, Z, !0), n.call(this).reportChanged(), j(this, Z, !1))
                         }
                     })
                 }
@@ -9665,7 +9719,7 @@
                         return Ae
                     },
                     Pb: function () {
-                        return Zr
+                        return Wr
                     },
                     ZN: function () {
                         return tr
@@ -9692,7 +9746,7 @@
                         return et
                     },
                     so: function () {
-                        return Z
+                        return W
                     },
                     wM: function () {
                         return at
@@ -9895,10 +9949,10 @@
                             return e.annotationType_ === Q
                         }(r) || (e[D][t] = r)
                 }
-                var Z = Symbol("mobx administration"),
-                    W = function () {
+                var W = Symbol("mobx administration"),
+                    Z = function () {
                         function e(e) {
-                            void 0 === e && (e = "Atom"), this.name_ = void 0, this.isPendingUnobservation_ = !1, this.isBeingObserved_ = !1, this.observers_ = new Set, this.diffValue_ = 0, this.lastAccessedBy_ = 0, this.lowestObserverState_ = We.NOT_TRACKING_, this.onBOL = void 0, this.onBUOL = void 0, this.name_ = e
+                            void 0 === e && (e = "Atom"), this.name_ = void 0, this.isPendingUnobservation_ = !1, this.isBeingObserved_ = !1, this.observers_ = new Set, this.diffValue_ = 0, this.lastAccessedBy_ = 0, this.lowestObserverState_ = Ze.NOT_TRACKING_, this.onBOL = void 0, this.onBUOL = void 0, this.name_ = e
                         }
                         var t = e.prototype;
                         return t.onBO = function () {
@@ -9917,11 +9971,11 @@
                             return this.name_
                         }, e
                     }(),
-                    B = S("Atom", W);
+                    B = S("Atom", Z);
 
                 function G(e, t, r) {
                     void 0 === t && (t = _), void 0 === r && (r = _);
-                    var a, i = new W(e);
+                    var a, i = new Z(e);
                     return t !== _ && Ft(Pt, i, t, a), r !== _ && Rt(i, r), i
                 }
                 var K = {
@@ -10128,7 +10182,7 @@
                     }),
                     ve = le("observable.shallow", {
                         enhancer: function (e, t, r) {
-                            return void 0 === e || null === e || Zr(e) || Ar(e) || Er(e) || Pr(e) ? e : Array.isArray(e) ? Ae.array(e, {
+                            return void 0 === e || null === e || Wr(e) || Ar(e) || Er(e) || Pr(e) ? e : Array.isArray(e) ? Ae.array(e, {
                                 name: r,
                                 deep: !1
                             }) : b(e) ? Ae.object(e, void 0, {
@@ -10182,7 +10236,7 @@
                         object: function (e, t, r) {
                             return Ht(!1 === ut.useProxies || !1 === (null == r ? void 0 : r.proxy) ? Dr({}, r) : function (e, t) {
                                 var r, a;
-                                return y(), e = Dr(e, t), null != (a = (r = e[Z]).proxy_) ? a : r.proxy_ = new Proxy(e, nr)
+                                return y(), e = Dr(e, t), null != (a = (r = e[W]).proxy_) ? a : r.proxy_ = new Proxy(e, nr)
                             }({}, r), e, t)
                         },
                         ref: H(ge),
@@ -10333,19 +10387,19 @@
                         }, r[Ne] = function () {
                             return this.valueOf()
                         }, t
-                    }(W),
-                    Ze = S("ObservableValue", ze);
+                    }(Z),
+                    We = S("ObservableValue", ze);
                 He = Symbol.toPrimitive;
-                var We, Be, Ge = function () {
+                var Ze, Be, Ge = function () {
                         function e(e) {
-                            this.dependenciesState_ = We.NOT_TRACKING_, this.observing_ = [], this.newObserving_ = null, this.isBeingObserved_ = !1, this.isPendingUnobservation_ = !1, this.observers_ = new Set, this.diffValue_ = 0, this.runId_ = 0, this.lastAccessedBy_ = 0, this.lowestObserverState_ = We.UP_TO_DATE_, this.unboundDepsCount_ = 0, this.value_ = new Ue(null), this.name_ = void 0, this.triggeredBy_ = void 0, this.isComputing_ = !1, this.isRunningSetter_ = !1, this.derivation = void 0, this.setter_ = void 0, this.isTracing_ = Be.NONE, this.scope_ = void 0, this.equals_ = void 0, this.requiresReaction_ = void 0, this.keepAlive_ = void 0, this.onBOL = void 0, this.onBUOL = void 0, e.get || a(31), this.derivation = e.get, this.name_ = e.name || "ComputedValue", e.set && (this.setter_ = Pe("ComputedValue-setter", e.set)), this.equals_ = e.equals || (e.compareStructural || e.struct ? K.structural : K.default), this.scope_ = e.context, this.requiresReaction_ = e.requiresReaction, this.keepAlive_ = !!e.keepAlive
+                            this.dependenciesState_ = Ze.NOT_TRACKING_, this.observing_ = [], this.newObserving_ = null, this.isBeingObserved_ = !1, this.isPendingUnobservation_ = !1, this.observers_ = new Set, this.diffValue_ = 0, this.runId_ = 0, this.lastAccessedBy_ = 0, this.lowestObserverState_ = Ze.UP_TO_DATE_, this.unboundDepsCount_ = 0, this.value_ = new Ue(null), this.name_ = void 0, this.triggeredBy_ = void 0, this.isComputing_ = !1, this.isRunningSetter_ = !1, this.derivation = void 0, this.setter_ = void 0, this.isTracing_ = Be.NONE, this.scope_ = void 0, this.equals_ = void 0, this.requiresReaction_ = void 0, this.keepAlive_ = void 0, this.onBOL = void 0, this.onBUOL = void 0, e.get || a(31), this.derivation = e.get, this.name_ = e.name || "ComputedValue", e.set && (this.setter_ = Pe("ComputedValue-setter", e.set)), this.equals_ = e.equals || (e.compareStructural || e.struct ? K.structural : K.default), this.scope_ = e.context, this.requiresReaction_ = e.requiresReaction, this.keepAlive_ = !!e.keepAlive
                         }
                         var t = e.prototype;
                         return t.onBecomeStale_ = function () {
                             ! function (e) {
-                                if (e.lowestObserverState_ !== We.UP_TO_DATE_) return;
-                                e.lowestObserverState_ = We.POSSIBLY_STALE_, e.observers_.forEach((function (e) {
-                                    e.dependenciesState_ === We.UP_TO_DATE_ && (e.dependenciesState_ = We.POSSIBLY_STALE_, e.onBecomeStale_())
+                                if (e.lowestObserverState_ !== Ze.UP_TO_DATE_) return;
+                                e.lowestObserverState_ = Ze.POSSIBLY_STALE_, e.observers_.forEach((function (e) {
+                                    e.dependenciesState_ === Ze.UP_TO_DATE_ && (e.dependenciesState_ = Ze.POSSIBLY_STALE_, e.onBecomeStale_())
                                 }))
                             }(this)
                         }, t.onBO = function () {
@@ -10361,9 +10415,9 @@
                                 if (ft(this), Qe(this)) {
                                     var e = ut.trackingContext;
                                     this.keepAlive_ && !e && (ut.trackingContext = this), this.trackAndCompute() && function (e) {
-                                        if (e.lowestObserverState_ === We.STALE_) return;
-                                        e.lowestObserverState_ = We.STALE_, e.observers_.forEach((function (t) {
-                                            t.dependenciesState_ === We.POSSIBLY_STALE_ ? t.dependenciesState_ = We.STALE_ : t.dependenciesState_ === We.UP_TO_DATE_ && (e.lowestObserverState_ = We.UP_TO_DATE_)
+                                        if (e.lowestObserverState_ === Ze.STALE_) return;
+                                        e.lowestObserverState_ = Ze.STALE_, e.observers_.forEach((function (t) {
+                                            t.dependenciesState_ === Ze.POSSIBLY_STALE_ ? t.dependenciesState_ = Ze.STALE_ : t.dependenciesState_ === Ze.UP_TO_DATE_ && (e.lowestObserverState_ = Ze.UP_TO_DATE_)
                                         }))
                                     }(this), ut.trackingContext = e
                                 }
@@ -10382,7 +10436,7 @@
                             } else a(34, this.name_)
                         }, t.trackAndCompute = function () {
                             var e = this.value_,
-                                t = this.dependenciesState_ === We.NOT_TRACKING_,
+                                t = this.dependenciesState_ === Ze.NOT_TRACKING_,
                                 r = this.computeValue_(!0),
                                 a = t || Ye(e) || Ye(r) || !this.equals_(e, r);
                             return a && (this.value_ = r), a
@@ -10429,7 +10483,7 @@
                     Ke = S("ComputedValue", Ge);
                 ! function (e) {
                     e[e.NOT_TRACKING_ = -1] = "NOT_TRACKING_", e[e.UP_TO_DATE_ = 0] = "UP_TO_DATE_", e[e.POSSIBLY_STALE_ = 1] = "POSSIBLY_STALE_", e[e.STALE_ = 2] = "STALE_"
-                }(We || (We = {})),
+                }(Ze || (Ze = {})),
                 function (e) {
                     e[e.NONE = 0] = "NONE", e[e.LOG = 1] = "LOG", e[e.BREAK = 2] = "BREAK"
                 }(Be || (Be = {}));
@@ -10443,12 +10497,12 @@
 
                 function Qe(e) {
                     switch (e.dependenciesState_) {
-                        case We.UP_TO_DATE_:
+                        case Ze.UP_TO_DATE_:
                             return !1;
-                        case We.NOT_TRACKING_:
-                        case We.STALE_:
+                        case Ze.NOT_TRACKING_:
+                        case Ze.STALE_:
                             return !0;
-                        case We.POSSIBLY_STALE_:
+                        case Ze.POSSIBLY_STALE_:
                             for (var t = at(!0), r = tt(), a = e.observing_, i = a.length, n = 0; n < i; n++) {
                                 var o = a[n];
                                 if (Ke(o)) {
@@ -10458,7 +10512,7 @@
                                     } catch (s) {
                                         return rt(r), it(t), !0
                                     }
-                                    if (e.dependenciesState_ === We.STALE_) return rt(r), it(t), !0
+                                    if (e.dependenciesState_ === Ze.STALE_) return rt(r), it(t), !0
                                 }
                             }
                             return nt(e), rt(r), it(t), !1
@@ -10479,7 +10533,7 @@
                     }
                     return ut.inBatch--, ut.trackingDerivation = n,
                         function (e) {
-                            for (var t = e.observing_, r = e.observing_ = e.newObserving_, a = We.UP_TO_DATE_, i = 0, n = e.unboundDepsCount_, o = 0; o < n; o++) {
+                            for (var t = e.observing_, r = e.observing_ = e.newObserving_, a = Ze.UP_TO_DATE_, i = 0, n = e.unboundDepsCount_, o = 0; o < n; o++) {
                                 var s = r[o];
                                 0 === s.diffValue_ && (s.diffValue_ = 1, i !== o && (r[i] = s), i++), s.dependenciesState_ > a && (a = s.dependenciesState_)
                             }
@@ -10492,7 +10546,7 @@
                                 var u = r[i];
                                 1 === u.diffValue_ && (u.diffValue_ = 0, ct(u, e))
                             }
-                            a !== We.UP_TO_DATE_ && (e.dependenciesState_ = a, e.onBecomeStale_())
+                            a !== Ze.UP_TO_DATE_ && (e.dependenciesState_ = a, e.onBecomeStale_())
                         }(e), it(a), i
                 }
 
@@ -10500,7 +10554,7 @@
                     var t = e.observing_;
                     e.observing_ = [];
                     for (var r = t.length; r--;) dt(t[r], e);
-                    e.dependenciesState_ = We.NOT_TRACKING_
+                    e.dependenciesState_ = Ze.NOT_TRACKING_
                 }
 
                 function et(e) {
@@ -10531,9 +10585,9 @@
                 }
 
                 function nt(e) {
-                    if (e.dependenciesState_ !== We.UP_TO_DATE_) {
-                        e.dependenciesState_ = We.UP_TO_DATE_;
-                        for (var t = e.observing_, r = t.length; r--;) t[r].lowestObserverState_ = We.UP_TO_DATE_
+                    if (e.dependenciesState_ !== Ze.UP_TO_DATE_) {
+                        e.dependenciesState_ = Ze.UP_TO_DATE_;
+                        for (var t = e.observing_, r = t.length; r--;) t[r].lowestObserverState_ = Ze.UP_TO_DATE_
                     }
                 }
                 var ot = function () {
@@ -10581,13 +10635,13 @@
                 }
 
                 function _t(e) {
-                    e.lowestObserverState_ !== We.STALE_ && (e.lowestObserverState_ = We.STALE_, e.observers_.forEach((function (e) {
-                        e.dependenciesState_ === We.UP_TO_DATE_ && e.onBecomeStale_(), e.dependenciesState_ = We.STALE_
+                    e.lowestObserverState_ !== Ze.STALE_ && (e.lowestObserverState_ = Ze.STALE_, e.observers_.forEach((function (e) {
+                        e.dependenciesState_ === Ze.UP_TO_DATE_ && e.onBecomeStale_(), e.dependenciesState_ = Ze.STALE_
                     })))
                 }
                 var mt = function () {
                     function e(e, t, r, a) {
-                        void 0 === e && (e = "Reaction"), this.name_ = void 0, this.onInvalidate_ = void 0, this.errorHandler_ = void 0, this.requiresObservable_ = void 0, this.observing_ = [], this.newObserving_ = [], this.dependenciesState_ = We.NOT_TRACKING_, this.diffValue_ = 0, this.runId_ = 0, this.unboundDepsCount_ = 0, this.isDisposed_ = !1, this.isScheduled_ = !1, this.isTrackPending_ = !1, this.isRunning_ = !1, this.isTracing_ = Be.NONE, this.name_ = e, this.onInvalidate_ = t, this.errorHandler_ = r, this.requiresObservable_ = a
+                        void 0 === e && (e = "Reaction"), this.name_ = void 0, this.onInvalidate_ = void 0, this.errorHandler_ = void 0, this.requiresObservable_ = void 0, this.observing_ = [], this.newObserving_ = [], this.dependenciesState_ = Ze.NOT_TRACKING_, this.diffValue_ = 0, this.runId_ = 0, this.unboundDepsCount_ = 0, this.isDisposed_ = !1, this.isScheduled_ = !1, this.isTrackPending_ = !1, this.isRunning_ = !1, this.isTracing_ = Be.NONE, this.name_ = e, this.onInvalidate_ = t, this.errorHandler_ = r, this.requiresObservable_ = a
                     }
                     var t = e.prototype;
                     return t.onBecomeStale_ = function () {
@@ -10633,7 +10687,7 @@
                         this.isDisposed_ || (this.isDisposed_ = !0, this.isRunning_ || (ht(), $e(this), yt()))
                     }, t.getDisposer_ = function () {
                         var e = this.dispose.bind(this);
-                        return e[Z] = this, e
+                        return e[W] = this, e
                     }, t.toString = function () {
                         return "Reaction[" + this.name_ + "]"
                     }, t.trace = function (e) {
@@ -10773,7 +10827,7 @@
 
                 function Ht(e, t, r, a) {
                     var i = N(t),
-                        n = Dr(e, a)[Z];
+                        n = Dr(e, a)[W];
                     ht();
                     try {
                         T(i).forEach((function (e) {
@@ -10786,16 +10840,16 @@
                 }
 
                 function zt(e, t) {
-                    return Zt(ea(e, t))
+                    return Wt(ea(e, t))
                 }
 
-                function Zt(e) {
+                function Wt(e) {
                     var t, r = {
                         name: e.name_
                     };
-                    return e.observing_ && e.observing_.length > 0 && (r.dependencies = (t = e.observing_, Array.from(new Set(t))).map(Zt)), r
+                    return e.observing_ && e.observing_.length > 0 && (r.dependencies = (t = e.observing_, Array.from(new Set(t))).map(Wt)), r
                 }
-                var Wt = 0;
+                var Zt = 0;
 
                 function Bt() {
                     this.message = "FLOW_CANCELLED"
@@ -10812,7 +10866,7 @@
                             i = function () {
                                 var e, t = this,
                                     i = arguments,
-                                    n = ++Wt,
+                                    n = ++Zt,
                                     o = Ot(a + " - runid: " + n + " - init", r).apply(t, i),
                                     s = void 0,
                                     l = new Promise((function (t, r) {
@@ -10869,7 +10923,7 @@
                 }
 
                 function Xt(e, t) {
-                    return !!e && (void 0 !== t ? !!Zr(e) && e[Z].values_.has(t) : Zr(e) || !!e[Z] || B(e) || wt(e) || Ke(e))
+                    return !!e && (void 0 !== t ? !!Wr(e) && e[W].values_.has(t) : Wr(e) || !!e[W] || B(e) || wt(e) || Ke(e))
                 }
 
                 function Jt(e) {
@@ -10882,7 +10936,7 @@
 
                 function er(e, t) {
                     if (null == e || "object" !== typeof e || e instanceof Date || !Jt(e)) return e;
-                    if (Ze(e) || Ke(e)) return er(e.get(), t);
+                    if (We(e) || Ke(e)) return er(e.get(), t);
                     if (t.has(e)) return t.get(e);
                     if (Ar(e)) {
                         var r = $t(t, e, new Array(e.length));
@@ -10904,7 +10958,7 @@
                     }
                     var o = $t(t, e, {});
                     return function (e) {
-                        if (Zr(e)) return e[Z].ownKeys_();
+                        if (Wr(e)) return e[W].ownKeys_();
                         a(38)
                     }(e).forEach((function (r) {
                         u.propertyIsEnumerable.call(e, r) && (o[r] = er(e[r], t))
@@ -10936,7 +10990,7 @@
                 }
 
                 function ir(e) {
-                    return e[Z]
+                    return e[W]
                 }
                 Ut.bound = H(Kt);
                 var nr = {
@@ -11008,7 +11062,7 @@
                 }
 
                 function pr(e, t, r) {
-                    var a = Dr(e, r)[Z];
+                    var a = Dr(e, r)[W];
                     ht();
                     try {
                         0,
@@ -11028,11 +11082,11 @@
                     yr = "update",
                     fr = {
                         get: function (e, t) {
-                            var r = e[Z];
-                            return t === Z ? r : "length" === t ? r.getArrayLength_() : "string" !== typeof t || isNaN(t) ? O(gr, t) ? gr[t] : e[t] : r.get_(parseInt(t))
+                            var r = e[W];
+                            return t === W ? r : "length" === t ? r.getArrayLength_() : "string" !== typeof t || isNaN(t) ? O(gr, t) ? gr[t] : e[t] : r.get_(parseInt(t))
                         },
                         set: function (e, t, r) {
-                            var a = e[Z];
+                            var a = e[W];
                             return "length" === t && a.setArrayLength_(r), "symbol" === typeof t || isNaN(t) ? e[t] = r : a.set_(parseInt(t), r), !0
                         },
                         preventExtensions: function () {
@@ -11041,7 +11095,7 @@
                     },
                     _r = function () {
                         function e(e, t, r, a) {
-                            void 0 === e && (e = "ObservableArray"), this.owned_ = void 0, this.legacyMode_ = void 0, this.atom_ = void 0, this.values_ = [], this.interceptors_ = void 0, this.changeListeners_ = void 0, this.enhancer_ = void 0, this.dehancer = void 0, this.proxy_ = void 0, this.lastKnownLength_ = 0, this.owned_ = r, this.legacyMode_ = a, this.atom_ = new W(e), this.enhancer_ = function (e, r) {
+                            void 0 === e && (e = "ObservableArray"), this.owned_ = void 0, this.legacyMode_ = void 0, this.atom_ = void 0, this.values_ = [], this.interceptors_ = void 0, this.changeListeners_ = void 0, this.enhancer_ = void 0, this.dehancer = void 0, this.proxy_ = void 0, this.lastKnownLength_ = 0, this.owned_ = r, this.legacyMode_ = a, this.atom_ = new Z(e), this.enhancer_ = function (e, r) {
                                 return t(e, r, "ObservableArray[..]")
                             }
                         }
@@ -11161,7 +11215,7 @@
                 function mr(e, t, r, a) {
                     void 0 === r && (r = "ObservableArray"), void 0 === a && (a = !1), y();
                     var i = new _r(r, t, a, !1);
-                    x(i.values_, Z, i);
+                    x(i.values_, W, i);
                     var n = new Proxy(i.values_, fr);
                     if (i.proxy_ = n, e && e.length) {
                         var o = Ve(!0);
@@ -11174,7 +11228,7 @@
                         return this.splice(0)
                     },
                     replace: function (e) {
-                        var t = this[Z];
+                        var t = this[W];
                         return t.spliceWithArray_(0, t.values_.length, e)
                     },
                     toJSON: function () {
@@ -11182,7 +11236,7 @@
                     },
                     splice: function (e, t) {
                         for (var r = arguments.length, a = new Array(r > 2 ? r - 2 : 0), i = 2; i < r; i++) a[i - 2] = arguments[i];
-                        var n = this[Z];
+                        var n = this[W];
                         switch (arguments.length) {
                             case 0:
                                 return [];
@@ -11194,20 +11248,20 @@
                         return n.spliceWithArray_(e, t, a)
                     },
                     spliceWithArray: function (e, t, r) {
-                        return this[Z].spliceWithArray_(e, t, r)
+                        return this[W].spliceWithArray_(e, t, r)
                     },
                     push: function () {
-                        for (var e = this[Z], t = arguments.length, r = new Array(t), a = 0; a < t; a++) r[a] = arguments[a];
+                        for (var e = this[W], t = arguments.length, r = new Array(t), a = 0; a < t; a++) r[a] = arguments[a];
                         return e.spliceWithArray_(e.values_.length, 0, r), e.values_.length
                     },
                     pop: function () {
-                        return this.splice(Math.max(this[Z].values_.length - 1, 0), 1)[0]
+                        return this.splice(Math.max(this[W].values_.length - 1, 0), 1)[0]
                     },
                     shift: function () {
                         return this.splice(0, 1)[0]
                     },
                     unshift: function () {
-                        for (var e = this[Z], t = arguments.length, r = new Array(t), a = 0; a < t; a++) r[a] = arguments[a];
+                        for (var e = this[W], t = arguments.length, r = new Array(t), a = 0; a < t; a++) r[a] = arguments[a];
                         return e.spliceWithArray_(0, 0, r), e.values_.length
                     },
                     reverse: function () {
@@ -11219,7 +11273,7 @@
                         return e.sort.apply(e, arguments), this.replace(e), this
                     },
                     remove: function (e) {
-                        var t = this[Z],
+                        var t = this[W],
                             r = t.dehanceValues_(t.values_).indexOf(e);
                         return r > -1 && (this.splice(r, 1), !0)
                     }
@@ -11231,7 +11285,7 @@
 
                 function br(e) {
                     return function () {
-                        var t = this[Z];
+                        var t = this[W];
                         t.atom_.reportObserved();
                         var r = t.dehanceValues_(t.values_);
                         return r[e].apply(r, arguments)
@@ -11241,7 +11295,7 @@
                 function wr(e) {
                     return function (t, r) {
                         var a = this,
-                            i = this[Z];
+                            i = this[W];
                         return i.atom_.reportObserved(), i.dehanceValues_(i.values_)[e]((function (e, i) {
                             return t.call(r, e, i, a)
                         }))
@@ -11251,7 +11305,7 @@
                 function kr(e) {
                     return function () {
                         var t = this,
-                            r = this[Z];
+                            r = this[W];
                         r.atom_.reportObserved();
                         var a = r.dehanceValues_(r.values_),
                             i = arguments[0];
@@ -11264,7 +11318,7 @@
                 var xr, Sr, Mr = S("ObservableArrayAdministration", _r);
 
                 function Ar(e) {
-                    return v(e) && Mr(e[Z])
+                    return v(e) && Mr(e[W])
                 }
                 var Cr = {},
                     Tr = "add",
@@ -11273,7 +11327,7 @@
                 var Or, Nr, Ir = function () {
                         function e(e, t, r) {
                             var i = this;
-                            void 0 === t && (t = U), void 0 === r && (r = "ObservableMap"), this.enhancer_ = void 0, this.name_ = void 0, this[Z] = Cr, this.data_ = void 0, this.hasMap_ = void 0, this.keysAtom_ = void 0, this.interceptors_ = void 0, this.changeListeners_ = void 0, this.dehancer = void 0, this.enhancer_ = t, this.name_ = r, m(Map) || a(18), this.keysAtom_ = G("ObservableMap.keys()"), this.data_ = new Map, this.hasMap_ = new Map, Fe(!0, (function () {
+                            void 0 === t && (t = U), void 0 === r && (r = "ObservableMap"), this.enhancer_ = void 0, this.name_ = void 0, this[W] = Cr, this.data_ = void 0, this.hasMap_ = void 0, this.keysAtom_ = void 0, this.interceptors_ = void 0, this.changeListeners_ = void 0, this.dehancer = void 0, this.enhancer_ = t, this.name_ = r, m(Map) || a(18), this.keysAtom_ = G("ObservableMap.keys()"), this.data_ = new Map, this.hasMap_ = new Map, Fe(!0, (function () {
                                 i.merge(e)
                             }))
                         }
@@ -11499,7 +11553,7 @@
                 Or = Symbol.iterator, Nr = Symbol.toStringTag;
                 var Lr = function () {
                         function e(e, t, r) {
-                            void 0 === t && (t = U), void 0 === r && (r = "ObservableSet"), this.name_ = void 0, this[Z] = jr, this.data_ = new Set, this.atom_ = void 0, this.changeListeners_ = void 0, this.interceptors_ = void 0, this.dehancer = void 0, this.enhancer_ = void 0, this.name_ = r, m(Set) || a(22), this.atom_ = G(this.name_), this.enhancer_ = function (e, a) {
+                            void 0 === t && (t = U), void 0 === r && (r = "ObservableSet"), this.name_ = void 0, this[W] = jr, this.data_ = new Set, this.atom_ = void 0, this.changeListeners_ = void 0, this.interceptors_ = void 0, this.dehancer = void 0, this.enhancer_ = void 0, this.name_ = r, m(Set) || a(22), this.atom_ = G(this.name_), this.enhancer_ = function (e, a) {
                                 return t(e, a, r)
                             }, e && this.replace(e)
                         }
@@ -11633,7 +11687,7 @@
                     Fr = "remove",
                     Vr = function () {
                         function e(e, t, r, a) {
-                            void 0 === t && (t = new Map), void 0 === a && (a = de), this.target_ = void 0, this.values_ = void 0, this.name_ = void 0, this.defaultAnnotation_ = void 0, this.keysAtom_ = void 0, this.changeListeners_ = void 0, this.interceptors_ = void 0, this.proxy_ = void 0, this.isPlainObject_ = void 0, this.appliedAnnotations_ = void 0, this.pendingKeys_ = void 0, this.target_ = e, this.values_ = t, this.name_ = r, this.defaultAnnotation_ = a, this.keysAtom_ = new W("ObservableObject.keys"), this.isPlainObject_ = b(this.target_)
+                            void 0 === t && (t = new Map), void 0 === a && (a = de), this.target_ = void 0, this.values_ = void 0, this.name_ = void 0, this.defaultAnnotation_ = void 0, this.keysAtom_ = void 0, this.changeListeners_ = void 0, this.interceptors_ = void 0, this.proxy_ = void 0, this.isPlainObject_ = void 0, this.appliedAnnotations_ = void 0, this.pendingKeys_ = void 0, this.target_ = e, this.values_ = t, this.name_ = r, this.defaultAnnotation_ = a, this.keysAtom_ = new Z("ObservableObject.keys"), this.isPlainObject_ = b(this.target_)
                         }
                         var t = e.prototype;
                         return t.getObservablePropValue_ = function (e) {
@@ -11695,13 +11749,13 @@
                                     }
                                     i = Object.getPrototypeOf(i)
                                 }
-                                Wr(this, t, e)
+                                Zr(this, t, e)
                             }
                         }, t.extend_ = function (e, t, r, a) {
                             if (void 0 === a && (a = !1), !0 === r && (r = this.defaultAnnotation_), !1 === r) return this.defineProperty_(e, t, a);
                             Br(this, r, e);
                             var i = r.extend_(this, e, t, a);
-                            return i && Wr(this, r, e), i
+                            return i && Zr(this, r, e), i
                         }, t.defineProperty_ = function (e, t, r) {
                             void 0 === r && (r = !1);
                             try {
@@ -11849,32 +11903,32 @@
 
                 function Dr(e, t) {
                     var r;
-                    if (O(e, Z)) return e;
+                    if (O(e, W)) return e;
                     var a = null != (r = null == t ? void 0 : t.name) ? r : "ObservableObject",
                         i = new Vr(e, new Map, String(a), function (e) {
                             var t;
                             return e ? null != (t = e.defaultDecorator) ? t : pe(e) : void 0
                         }(t));
-                    return k(e, Z, i), e
+                    return k(e, W, i), e
                 }
                 var Hr = S("ObservableObjectAdministration", Vr);
 
                 function zr(e) {
                     return Rr[e] || (Rr[e] = {
                         get: function () {
-                            return this[Z].getObservablePropValue_(e)
+                            return this[W].getObservablePropValue_(e)
                         },
                         set: function (t) {
-                            return this[Z].setObservablePropValue_(e, t)
+                            return this[W].setObservablePropValue_(e, t)
                         }
                     })
                 }
 
-                function Zr(e) {
-                    return !!v(e) && Hr(e[Z])
+                function Wr(e) {
+                    return !!v(e) && Hr(e[W])
                 }
 
-                function Wr(e, t, r) {
+                function Zr(e, t, r) {
                     var a;
                     null == (a = e.target_[D]) || delete a[r]
                 }
@@ -11888,7 +11942,7 @@
                         var n;
                         void 0 === a && (a = "ObservableArray"), void 0 === i && (i = !1), n = e.call(this) || this;
                         var o = new _r(a, r, i, !0);
-                        if (o.proxy_ = R(n), x(R(n), Z, o), t && t.length) {
+                        if (o.proxy_ = R(n), x(R(n), W, o), t && t.length) {
                             var s = Ve(!0);
                             n.spliceWithArray(0, 0, t), De(s)
                         }
@@ -11897,7 +11951,7 @@
                     L(a, e);
                     var i = a.prototype;
                     return i.concat = function () {
-                        this[Z].atom_.reportObserved();
+                        this[W].atom_.reportObserved();
                         for (var e = arguments.length, t = new Array(e), r = 0; r < e; r++) t[r] = arguments[r];
                         return Array.prototype.concat.apply(this.slice(), t.map((function (e) {
                             return Ar(e) ? e.slice() : e
@@ -11919,10 +11973,10 @@
                     }, E(a, [{
                         key: "length",
                         get: function () {
-                            return this[Z].getArrayLength_()
+                            return this[W].getArrayLength_()
                         },
                         set: function (e) {
-                            this[Z].setArrayLength_(e)
+                            this[W].setArrayLength_(e)
                         }
                     }, {
                         key: t,
@@ -11938,10 +11992,10 @@
                             enumerable: !1,
                             configurable: !0,
                             get: function () {
-                                return this[Z].get_(e)
+                                return this[W].get_(e)
                             },
                             set: function (t) {
-                                this[Z].set_(e, t)
+                                this[W].set_(e, t)
                             }
                         }
                     }(e))
@@ -11960,25 +12014,25 @@
 
                 function ea(e, t) {
                     if ("object" === typeof e && null !== e) {
-                        if (Ar(e)) return void 0 !== t && a(23), e[Z].atom_;
-                        if (Pr(e)) return e[Z];
+                        if (Ar(e)) return void 0 !== t && a(23), e[W].atom_;
+                        if (Pr(e)) return e[W];
                         if (Er(e)) {
                             if (void 0 === t) return e.keysAtom_;
                             var r = e.data_.get(t) || e.hasMap_.get(t);
                             return r || a(25, t, ra(e)), r
                         }
-                        if (Zr(e)) {
+                        if (Wr(e)) {
                             if (!t) return a(26);
-                            var i = e[Z].values_.get(t);
+                            var i = e[W].values_.get(t);
                             return i || a(27, t, ra(e)), i
                         }
                         if (B(e) || Ke(e) || wt(e)) return e
-                    } else if (m(e) && wt(e[Z])) return e[Z];
+                    } else if (m(e) && wt(e[W])) return e[W];
                     a(28)
                 }
 
                 function ta(e, t) {
-                    return e || a(29), void 0 !== t ? ta(ea(e, t)) : B(e) || Ke(e) || wt(e) || Er(e) || Pr(e) ? e : e[Z] ? e[Z] : void a(24, e)
+                    return e || a(29), void 0 !== t ? ta(ea(e, t)) : B(e) || Ke(e) || wt(e) || Er(e) || Pr(e) ? e : e[W] ? e[W] : void a(24, e)
                 }
 
                 function ra(e, t) {
@@ -11986,7 +12040,7 @@
                     if (void 0 !== t) r = ea(e, t);
                     else {
                         if (It(e)) return e.name;
-                        r = Zr(e) || Er(e) || Pr(e) ? ta(e) : ea(e)
+                        r = Wr(e) || Er(e) || Pr(e) ? ta(e) : ea(e)
                     }
                     return r.name_
                 }
@@ -12069,7 +12123,7 @@
                     extras: {
                         getDebugName: ra
                     },
-                    $mobx: Z
+                    $mobx: W
                 })
             },
             1729: function (e, t, r) {
@@ -12355,10 +12409,10 @@
                 var z = function (e) {
                         return e.type === T
                     },
-                    Z = function (e) {
+                    W = function (e) {
                         return e.type === q
                     },
-                    W = function (e) {
+                    Z = function (e) {
                         var t = e.type;
                         return t === T || t === q
                     },
@@ -12506,9 +12560,9 @@
                         isEmbedded: Y(r),
                         isMobileSafari: pe(a) || Me(),
                         isChromium: le(a),
-                        isMobile: W(r) || Me(),
+                        isMobile: Z(r) || Me(),
                         isMobileOnly: z(r),
-                        isTablet: Z(r) || Me(),
+                        isTablet: W(r) || Me(),
                         isBrowser: G(r),
                         isDesktop: G(r),
                         isAndroid: $(i),
@@ -12551,15 +12605,15 @@
                     Ee = Y(c),
                     je = pe(l) || Me(),
                     Le = le(l),
-                    Pe = W(c) || Me(),
+                    Pe = Z(c) || Me(),
                     Re = z(c),
-                    Fe = Z(c) || Me(),
+                    Fe = W(c) || Me(),
                     Ve = G(c),
                     De = G(c),
                     He = $(p),
                     ze = re(p),
-                    Ze = ae(p) || Me(),
-                    We = oe(l),
+                    We = ae(p) || Me(),
+                    Ze = oe(l),
                     Be = se(l),
                     Ge = de(l),
                     Ke = he(l),
@@ -12593,7 +12647,7 @@
                     var t = e || window.navigator.userAgent;
                     return f(t)
                 }
-                t.gn = Ze, t.tq = Pe
+                t.gn = We, t.tq = Pe
             },
             534: function (e, t, r) {
                 "use strict";
@@ -12851,7 +12905,7 @@
                     return null
                 }
 
-                function Z(e) {
+                function W(e) {
                     var t = e.type;
                     switch (e.tag) {
                         case 24:
@@ -12902,7 +12956,7 @@
                     return null
                 }
 
-                function W(e) {
+                function Z(e) {
                     switch (typeof e) {
                         case "boolean":
                         case "number":
@@ -12984,7 +13038,7 @@
                 function Q(e, t) {
                     var r = null == t.defaultValue ? "" : t.defaultValue,
                         a = null != t.checked ? t.checked : t.defaultChecked;
-                    r = W(null != t.value ? t.value : r), e._wrapperState = {
+                    r = Z(null != t.value ? t.value : r), e._wrapperState = {
                         initialChecked: a,
                         initialValue: r,
                         controlled: "checkbox" === t.type || "radio" === t.type ? null != t.checked : null != t.value
@@ -12997,11 +13051,11 @@
 
                 function J(e, t) {
                     X(e, t);
-                    var r = W(t.value),
+                    var r = Z(t.value),
                         a = t.type;
                     if (null != r) "number" === a ? (0 === r && "" === e.value || e.value != r) && (e.value = "" + r) : e.value !== "" + r && (e.value = "" + r);
                     else if ("submit" === a || "reset" === a) return void e.removeAttribute("value");
-                    t.hasOwnProperty("value") ? ee(e, t.type, r) : t.hasOwnProperty("defaultValue") && ee(e, t.type, W(t.defaultValue)), null == t.checked && null != t.defaultChecked && (e.defaultChecked = !!t.defaultChecked)
+                    t.hasOwnProperty("value") ? ee(e, t.type, r) : t.hasOwnProperty("defaultValue") && ee(e, t.type, Z(t.defaultValue)), null == t.checked && null != t.defaultChecked && (e.defaultChecked = !!t.defaultChecked)
                 }
 
                 function $(e, t, r) {
@@ -13024,7 +13078,7 @@
                         for (var i = 0; i < r.length; i++) t["$" + r[i]] = !0;
                         for (r = 0; r < e.length; r++) i = t.hasOwnProperty("$" + e[r].value), e[r].selected !== i && (e[r].selected = i), i && a && (e[r].defaultSelected = !0)
                     } else {
-                        for (r = "" + W(r), t = null, i = 0; i < e.length; i++) {
+                        for (r = "" + Z(r), t = null, i = 0; i < e.length; i++) {
                             if (e[i].value === r) return e[i].selected = !0, void(a && (e[i].defaultSelected = !0));
                             null !== t || e[i].disabled || (t = e[i])
                         }
@@ -13055,13 +13109,13 @@
                         null == t && (t = ""), r = t
                     }
                     e._wrapperState = {
-                        initialValue: W(r)
+                        initialValue: Z(r)
                     }
                 }
 
                 function ne(e, t) {
-                    var r = W(t.value),
-                        a = W(t.defaultValue);
+                    var r = Z(t.value),
+                        a = Z(t.defaultValue);
                     null != r && ((r = "" + r) !== e.value && (e.value = r), null == t.defaultValue && e.defaultValue !== r && (e.defaultValue = r)), null != a && (e.defaultValue = "" + a)
                 }
 
@@ -13336,7 +13390,7 @@
                     return 3 === t.tag ? r : null
                 }
 
-                function Ze(e) {
+                function We(e) {
                     if (13 === e.tag) {
                         var t = e.memoizedState;
                         if (null === t && (null !== (e = e.alternate) && (t = e.memoizedState)), null !== t) return t.dehydrated
@@ -13344,7 +13398,7 @@
                     return null
                 }
 
-                function We(e) {
+                function Ze(e) {
                     if (ze(e) !== e) throw Error(n(188))
                 }
 
@@ -13368,8 +13422,8 @@
                             }
                             if (i.child === o.child) {
                                 for (o = i.child; o;) {
-                                    if (o === r) return We(i), e;
-                                    if (o === a) return We(i), t;
+                                    if (o === r) return Ze(i), e;
+                                    if (o === a) return Ze(i), t;
                                     o = o.sibling
                                 }
                                 throw Error(n(188))
@@ -13619,7 +13673,7 @@
                         var r = ze(t);
                         if (null !== r)
                             if (13 === (t = r.tag)) {
-                                if (null !== (t = Ze(r))) return e.blockedOn = t, void Mt(e.priority, (function () {
+                                if (null !== (t = We(r))) return e.blockedOn = t, void Mt(e.priority, (function () {
                                     xt(r)
                                 }))
                             } else if (3 === t && r.stateNode.current.memoizedState.isDehydrated) return void(e.blockedOn = 3 === r.tag ? r.stateNode.containerInfo : null)
@@ -13664,35 +13718,35 @@
                     for (null !== Tt && Ht(Tt, e), null !== qt && Ht(qt, e), null !== Ot && Ht(Ot, e), Nt.forEach(t), It.forEach(t), r = 0; r < Et.length; r++)(a = Et[r]).blockedOn === e && (a.blockedOn = null);
                     for (; 0 < Et.length && null === (r = Et[0]).blockedOn;) Rt(r), null === r.blockedOn && Et.shift()
                 }
-                var Zt = b.ReactCurrentBatchConfig,
-                    Wt = !0;
+                var Wt = b.ReactCurrentBatchConfig,
+                    Zt = !0;
 
                 function Bt(e, t, r, a) {
                     var i = vt,
-                        n = Zt.transition;
-                    Zt.transition = null;
+                        n = Wt.transition;
+                    Wt.transition = null;
                     try {
                         vt = 1, Kt(e, t, r, a)
                     } finally {
-                        vt = i, Zt.transition = n
+                        vt = i, Wt.transition = n
                     }
                 }
 
                 function Gt(e, t, r, a) {
                     var i = vt,
-                        n = Zt.transition;
-                    Zt.transition = null;
+                        n = Wt.transition;
+                    Wt.transition = null;
                     try {
                         vt = 4, Kt(e, t, r, a)
                     } finally {
-                        vt = i, Zt.transition = n
+                        vt = i, Wt.transition = n
                     }
                 }
 
                 function Kt(e, t, r, a) {
-                    if (Wt) {
+                    if (Zt) {
                         var i = Yt(e, t, r, a);
-                        if (null === i) Za(e, t, a, Ut, r), Lt(e, a);
+                        if (null === i) Wa(e, t, a, Ut, r), Lt(e, a);
                         else if (function (e, t, r, a, i) {
                                 switch (t) {
                                     case "focusin":
@@ -13712,11 +13766,11 @@
                         else if (Lt(e, a), 4 & t && -1 < jt.indexOf(e)) {
                             for (; null !== i;) {
                                 var n = gi(i);
-                                if (null !== n && wt(n), null === (n = Yt(e, t, r, a)) && Za(e, t, a, Ut, r), n === i) break;
+                                if (null !== n && wt(n), null === (n = Yt(e, t, r, a)) && Wa(e, t, a, Ut, r), n === i) break;
                                 i = n
                             }
                             null !== i && a.stopPropagation()
-                        } else Za(e, t, a, null, r)
+                        } else Wa(e, t, a, null, r)
                     }
                 }
                 var Ut = null;
@@ -13725,7 +13779,7 @@
                     if (Ut = null, null !== (e = mi(e = we(a))))
                         if (null === (t = ze(e))) e = null;
                         else if (13 === (r = t.tag)) {
-                        if (null !== (e = Ze(t))) return e;
+                        if (null !== (e = We(t))) return e;
                         e = null
                     } else if (3 === r) {
                         if (t.stateNode.current.memoizedState.isDehydrated) return 3 === t.tag ? t.stateNode.containerInfo : null;
@@ -14114,12 +14168,12 @@
                     week: !0
                 };
 
-                function Zr(e) {
+                function Wr(e) {
                     var t = e && e.nodeName && e.nodeName.toLowerCase();
                     return "input" === t ? !!zr[e.type] : "textarea" === t
                 }
 
-                function Wr(e, t, r, a) {
+                function Zr(e, t, r, a) {
                     Ae(a), 0 < (t = Ba(t, "onChange")).length && (r = new ur("onChange", "change", null, r, a), e.push({
                         event: r,
                         listeners: t
@@ -14160,7 +14214,7 @@
                 function ta(e) {
                     if ("value" === e.propertyName && Ur(Gr)) {
                         var t = [];
-                        Wr(t, Gr, e, we(e)), Ne(Kr, t)
+                        Zr(t, Gr, e, we(e)), Ne(Kr, t)
                     }
                 }
 
@@ -14411,7 +14465,7 @@
                     }) : e.addEventListener(t, r, !1)
                 }
 
-                function Za(e, t, r, a, i) {
+                function Wa(e, t, r, a, i) {
                     var n = a;
                     if (0 === (1 & t) && 0 === (2 & t) && null !== a) e: for (;;) {
                         if (null === a) return;
@@ -14525,7 +14579,7 @@
                                 c = [];
                                 for (var h, y = a; null !== y;) {
                                     var f = (h = y).stateNode;
-                                    if (5 === h.tag && null !== f && (h = f, null !== p && (null != (f = Ie(y, p)) && c.push(Wa(y, f, h)))), d) break;
+                                    if (5 === h.tag && null !== f && (h = f, null !== p && (null != (f = Ie(y, p)) && c.push(Za(y, f, h)))), d) break;
                                     y = y.return
                                 }
                                 0 < c.length && (s = new l(s, u, null, r, i), o.push({
@@ -14553,16 +14607,16 @@
                                 null !== l && Ka(o, s, l, c, !1), null !== u && null !== d && Ka(o, d, u, c, !0)
                             }
                             if ("select" === (l = (s = a ? vi(a) : window).nodeName && s.nodeName.toLowerCase()) || "input" === l && "file" === s.type) var _ = Yr;
-                            else if (Zr(s))
+                            else if (Wr(s))
                                 if (Qr) _ = na;
                                 else {
                                     _ = aa;
                                     var m = ra
                                 }
                             else(l = s.nodeName) && "input" === l.toLowerCase() && ("checkbox" === s.type || "radio" === s.type) && (_ = ia);
-                            switch (_ && (_ = _(e, a)) ? Wr(o, _, r, i) : (m && m(e, s, a), "focusout" === e && (m = s._wrapperState) && m.controlled && "number" === s.type && ee(s, "number", s.value)), m = a ? vi(a) : window, e) {
+                            switch (_ && (_ = _(e, a)) ? Zr(o, _, r, i) : (m && m(e, s, a), "focusout" === e && (m = s._wrapperState) && m.controlled && "number" === s.type && ee(s, "number", s.value)), m = a ? vi(a) : window, e) {
                                 case "focusin":
-                                    (Zr(m) || "true" === m.contentEditable) && (fa = m, _a = a, ma = null);
+                                    (Wr(m) || "true" === m.contentEditable) && (fa = m, _a = a, ma = null);
                                     break;
                                 case "focusout":
                                     ma = _a = fa = null;
@@ -14635,7 +14689,7 @@
                     }))
                 }
 
-                function Wa(e, t, r) {
+                function Za(e, t, r) {
                     return {
                         instance: e,
                         listener: t,
@@ -14647,7 +14701,7 @@
                     for (var r = t + "Capture", a = []; null !== e;) {
                         var i = e,
                             n = i.stateNode;
-                        5 === i.tag && null !== n && (i = n, null != (n = Ie(e, r)) && a.unshift(Wa(e, n, i)), null != (n = Ie(e, t)) && a.push(Wa(e, n, i))), e = e.return
+                        5 === i.tag && null !== n && (i = n, null != (n = Ie(e, r)) && a.unshift(Za(e, n, i)), null != (n = Ie(e, t)) && a.push(Za(e, n, i))), e = e.return
                     }
                     return a
                 }
@@ -14666,7 +14720,7 @@
                             l = s.alternate,
                             u = s.stateNode;
                         if (null !== l && l === a) break;
-                        5 === s.tag && null !== u && (s = u, i ? null != (l = Ie(r, n)) && o.unshift(Wa(r, l, s)) : i || null != (l = Ie(r, n)) && o.push(Wa(r, l, s))), r = r.return
+                        5 === s.tag && null !== u && (s = u, i ? null != (l = Ie(r, n)) && o.unshift(Za(r, l, s)) : i || null != (l = Ie(r, n)) && o.push(Za(r, l, s))), r = r.return
                     }
                     0 !== o.length && e.push({
                         event: t,
@@ -14830,7 +14884,7 @@
                     var a = e.stateNode;
                     if (t = t.childContextTypes, "function" !== typeof a.getChildContext) return r;
                     for (var i in a = a.getChildContext())
-                        if (!(i in t)) throw Error(n(108, Z(e) || "Unknown", i));
+                        if (!(i in t)) throw Error(n(108, W(e) || "Unknown", i));
                     return R({}, r, a)
                 }
 
@@ -14874,8 +14928,8 @@
                     return null
                 }
                 var zi = [],
-                    Zi = 0,
-                    Wi = null,
+                    Wi = 0,
+                    Zi = null,
                     Bi = 0,
                     Gi = [],
                     Ki = 0,
@@ -14884,7 +14938,7 @@
                     Qi = "";
 
                 function Xi(e, t) {
-                    zi[Zi++] = Bi, zi[Zi++] = Wi, Wi = e, Bi = t
+                    zi[Wi++] = Bi, zi[Wi++] = Zi, Zi = e, Bi = t
                 }
 
                 function Ji(e, t, r) {
@@ -14905,7 +14959,7 @@
                 }
 
                 function en(e) {
-                    for (; e === Wi;) Wi = zi[--Zi], zi[Zi] = null, Bi = zi[--Zi], zi[Zi] = null;
+                    for (; e === Zi;) Zi = zi[--Wi], zi[Wi] = null, Bi = zi[--Wi], zi[Wi] = null;
                     for (; e === Ui;) Ui = Gi[--Ki], Gi[Ki] = null, Qi = Gi[--Ki], Gi[Ki] = null, Yi = Gi[--Ki], Gi[Ki] = null
                 }
                 var tn = null,
@@ -15280,14 +15334,14 @@
                     return "function" === typeof (e = e.stateNode).shouldComponentUpdate ? e.shouldComponentUpdate(a, n, o) : !t.prototype || !t.prototype.isPureReactComponent || (!sa(r, a) || !sa(i, n))
                 }
 
-                function Zn(e, t, r) {
+                function Wn(e, t, r) {
                     var a = !1,
                         i = Ai,
                         n = t.contextType;
                     return "object" === typeof n && null !== n ? n = Mn(n) : (i = Ni(t) ? qi : Ci.current, n = (a = null !== (a = t.contextTypes) && void 0 !== a) ? Oi(e, i) : Ai), t = new t(r, n), e.memoizedState = null !== t.state && void 0 !== t.state ? t.state : null, t.updater = Hn, e.stateNode = t, t._reactInternals = e, a && ((e = e.stateNode).__reactInternalMemoizedUnmaskedChildContext = i, e.__reactInternalMemoizedMaskedChildContext = n), t
                 }
 
-                function Wn(e, t, r, a) {
+                function Zn(e, t, r, a) {
                     e = t.state, "function" === typeof t.componentWillReceiveProps && t.componentWillReceiveProps(r, a), "function" === typeof t.UNSAFE_componentWillReceiveProps && t.UNSAFE_componentWillReceiveProps(r, a), t.state !== e && Hn.enqueueReplaceState(t, t.state, null)
                 }
 
@@ -15739,7 +15793,7 @@
                         a = Co(),
                         i = t(),
                         o = !oa(a.memoizedState, i);
-                    if (o && (a.memoizedState = i, bs = !0), a = a.queue, Wo(Lo.bind(null, r, a, e), [e]), a.getSnapshot !== t || o || null !== mo && 1 & mo.memoizedState.tag) {
+                    if (o && (a.memoizedState = i, bs = !0), a = a.queue, Zo(Lo.bind(null, r, a, e), [e]), a.getSnapshot !== t || o || null !== mo && 1 & mo.memoizedState.tag) {
                         if (r.flags |= 2048, Vo(9, jo.bind(null, r, a, i, t), void 0, null), null === ql) throw Error(n(349));
                         0 !== (30 & yo) || Eo(r, t, i)
                     }
@@ -15827,11 +15881,11 @@
                     fo.flags |= e, i.memoizedState = Vo(1 | t, r, n, a)
                 }
 
-                function Zo(e, t) {
+                function Wo(e, t) {
                     return Ho(8390656, 8, e, t)
                 }
 
-                function Wo(e, t) {
+                function Zo(e, t) {
                     return zo(2048, 8, e, t)
                 }
 
@@ -15972,7 +16026,7 @@
                             return Ao().memoizedState = [e, void 0 === t ? null : t], e
                         },
                         useContext: Mn,
-                        useEffect: Zo,
+                        useEffect: Wo,
                         useImperativeHandle: function (e, t, r) {
                             return r = null !== r && void 0 !== r ? r.concat([e]) : null, Ho(4194308, 4, Ko.bind(null, t, e), r)
                         },
@@ -16028,7 +16082,7 @@
                                 value: r,
                                 getSnapshot: t
                             };
-                            return i.queue = o, Zo(Lo.bind(null, a, o, e), [e]), a.flags |= 2048, Vo(9, jo.bind(null, a, o, r, t), void 0, null), r
+                            return i.queue = o, Wo(Lo.bind(null, a, o, e), [e]), a.flags |= 2048, Vo(9, jo.bind(null, a, o, r, t), void 0, null), r
                         },
                         useId: function () {
                             var e = Ao(),
@@ -16045,7 +16099,7 @@
                         readContext: Mn,
                         useCallback: Qo,
                         useContext: Mn,
-                        useEffect: Wo,
+                        useEffect: Zo,
                         useImperativeHandle: Uo,
                         useInsertionEffect: Bo,
                         useLayoutEffect: Go,
@@ -16071,7 +16125,7 @@
                         readContext: Mn,
                         useCallback: Qo,
                         useContext: Mn,
-                        useEffect: Wo,
+                        useEffect: Zo,
                         useImperativeHandle: Uo,
                         useInsertionEffect: Bo,
                         useLayoutEffect: Go,
@@ -16140,7 +16194,7 @@
                     };
                     var a = t.value;
                     return r.callback = function () {
-                        Wl || (Wl = !0, Bl = a), ps(0, t)
+                        Zl || (Zl = !0, Bl = a), ps(0, t)
                     }, r
                 }
 
@@ -16197,7 +16251,7 @@
                 function ks(e, t, r, a, i) {
                     r = r.render;
                     var n = t.ref;
-                    return Sn(t, i), a = So(e, t, r, a, n, i), r = Mo(), null === e || bs ? (an && r && $i(t), t.flags |= 1, ws(e, t, a, i), t.child) : (t.updateQueue = e.updateQueue, t.flags &= -2053, e.lanes &= ~i, Ws(e, t, i))
+                    return Sn(t, i), a = So(e, t, r, a, n, i), r = Mo(), null === e || bs ? (an && r && $i(t), t.flags |= 1, ws(e, t, a, i), t.child) : (t.updateQueue = e.updateQueue, t.flags &= -2053, e.lanes &= ~i, Zs(e, t, i))
                 }
 
                 function xs(e, t, r, a, i) {
@@ -16207,7 +16261,7 @@
                     }
                     if (n = e.child, 0 === (e.lanes & i)) {
                         var o = n.memoizedProps;
-                        if ((r = null !== (r = r.compare) ? r : sa)(o, a) && e.ref === t.ref) return Ws(e, t, i)
+                        if ((r = null !== (r = r.compare) ? r : sa)(o, a) && e.ref === t.ref) return Zs(e, t, i)
                     }
                     return t.flags |= 1, (e = Eu(n, a)).ref = t.ref, e.return = t, t.child = e
                 }
@@ -16216,7 +16270,7 @@
                     if (null !== e) {
                         var n = e.memoizedProps;
                         if (sa(n, a) && e.ref === t.ref) {
-                            if (bs = !1, t.pendingProps = a = n, 0 === (e.lanes & i)) return t.lanes = e.lanes, Ws(e, t, i);
+                            if (bs = !1, t.pendingProps = a = n, 0 === (e.lanes & i)) return t.lanes = e.lanes, Zs(e, t, i);
                             0 !== (131072 & e.flags) && (bs = !0)
                         }
                     }
@@ -16256,7 +16310,7 @@
 
                 function Cs(e, t, r, a, i) {
                     var n = Ni(r) ? qi : Ci.current;
-                    return n = Oi(t, n), Sn(t, i), r = So(e, t, r, a, n, i), a = Mo(), null === e || bs ? (an && a && $i(t), t.flags |= 1, ws(e, t, r, i), t.child) : (t.updateQueue = e.updateQueue, t.flags &= -2053, e.lanes &= ~i, Ws(e, t, i))
+                    return n = Oi(t, n), Sn(t, i), r = So(e, t, r, a, n, i), a = Mo(), null === e || bs ? (an && a && $i(t), t.flags |= 1, ws(e, t, r, i), t.child) : (t.updateQueue = e.updateQueue, t.flags &= -2053, e.lanes &= ~i, Zs(e, t, i))
                 }
 
                 function Ts(e, t, r, a, i) {
@@ -16264,7 +16318,7 @@
                         var n = !0;
                         Li(t)
                     } else n = !1;
-                    if (Sn(t, i), null === t.stateNode) Zs(e, t), Zn(t, r, a), Bn(t, r, a, i), a = !0;
+                    if (Sn(t, i), null === t.stateNode) Ws(e, t), Wn(t, r, a), Bn(t, r, a, i), a = !0;
                     else if (null === e) {
                         var o = t.stateNode,
                             s = t.memoizedProps;
@@ -16274,13 +16328,13 @@
                         "object" === typeof u && null !== u ? u = Mn(u) : u = Oi(t, u = Ni(r) ? qi : Ci.current);
                         var c = r.getDerivedStateFromProps,
                             d = "function" === typeof c || "function" === typeof o.getSnapshotBeforeUpdate;
-                        d || "function" !== typeof o.UNSAFE_componentWillReceiveProps && "function" !== typeof o.componentWillReceiveProps || (s !== a || l !== u) && Wn(t, o, a, u), On = !1;
+                        d || "function" !== typeof o.UNSAFE_componentWillReceiveProps && "function" !== typeof o.componentWillReceiveProps || (s !== a || l !== u) && Zn(t, o, a, u), On = !1;
                         var p = t.memoizedState;
                         o.state = p, Rn(t, a, o, i), l = t.memoizedState, s !== a || p !== l || Ti.current || On ? ("function" === typeof c && (Dn(t, r, c, a), l = t.memoizedState), (s = On || zn(t, r, s, a, p, l, u)) ? (d || "function" !== typeof o.UNSAFE_componentWillMount && "function" !== typeof o.componentWillMount || ("function" === typeof o.componentWillMount && o.componentWillMount(), "function" === typeof o.UNSAFE_componentWillMount && o.UNSAFE_componentWillMount()), "function" === typeof o.componentDidMount && (t.flags |= 4194308)) : ("function" === typeof o.componentDidMount && (t.flags |= 4194308), t.memoizedProps = a, t.memoizedState = l), o.props = a, o.state = l, o.context = u, a = s) : ("function" === typeof o.componentDidMount && (t.flags |= 4194308), a = !1)
                     } else {
                         o = t.stateNode, In(e, t), s = t.memoizedProps, u = t.type === t.elementType ? s : _n(t.type, s), o.props = u, d = t.pendingProps, p = o.context, "object" === typeof (l = r.contextType) && null !== l ? l = Mn(l) : l = Oi(t, l = Ni(r) ? qi : Ci.current);
                         var h = r.getDerivedStateFromProps;
-                        (c = "function" === typeof h || "function" === typeof o.getSnapshotBeforeUpdate) || "function" !== typeof o.UNSAFE_componentWillReceiveProps && "function" !== typeof o.componentWillReceiveProps || (s !== d || p !== l) && Wn(t, o, a, l), On = !1, p = t.memoizedState, o.state = p, Rn(t, a, o, i);
+                        (c = "function" === typeof h || "function" === typeof o.getSnapshotBeforeUpdate) || "function" !== typeof o.UNSAFE_componentWillReceiveProps && "function" !== typeof o.componentWillReceiveProps || (s !== d || p !== l) && Zn(t, o, a, l), On = !1, p = t.memoizedState, o.state = p, Rn(t, a, o, i);
                         var y = t.memoizedState;
                         s !== d || p !== y || Ti.current || On ? ("function" === typeof h && (Dn(t, r, h, a), y = t.memoizedState), (u = On || zn(t, r, u, a, p, y, l) || !1) ? (c || "function" !== typeof o.UNSAFE_componentWillUpdate && "function" !== typeof o.componentWillUpdate || ("function" === typeof o.componentWillUpdate && o.componentWillUpdate(a, y, l), "function" === typeof o.UNSAFE_componentWillUpdate && o.UNSAFE_componentWillUpdate(a, y, l)), "function" === typeof o.componentDidUpdate && (t.flags |= 4), "function" === typeof o.getSnapshotBeforeUpdate && (t.flags |= 1024)) : ("function" !== typeof o.componentDidUpdate || s === e.memoizedProps && p === e.memoizedState || (t.flags |= 4), "function" !== typeof o.getSnapshotBeforeUpdate || s === e.memoizedProps && p === e.memoizedState || (t.flags |= 1024), t.memoizedProps = a, t.memoizedState = y), o.props = a, o.state = y, o.context = l, a = u) : ("function" !== typeof o.componentDidUpdate || s === e.memoizedProps && p === e.memoizedState || (t.flags |= 4), "function" !== typeof o.getSnapshotBeforeUpdate || s === e.memoizedProps && p === e.memoizedState || (t.flags |= 1024), a = !1)
                     }
@@ -16290,7 +16344,7 @@
                 function qs(e, t, r, a, i, n) {
                     As(e, t);
                     var o = 0 !== (128 & t.flags);
-                    if (!a && !o) return i && Pi(t, r, !1), Ws(e, t, n);
+                    if (!a && !o) return i && Pi(t, r, !1), Zs(e, t, n);
                     a = t.stateNode, vs.current = t;
                     var s = o && "function" !== typeof r.getDerivedStateFromError ? null : a.render();
                     return t.flags |= 1, null !== e && o ? (t.child = Qn(t, e.child, null, n), t.child = Qn(t, null, s, n)) : ws(e, t, s, n), t.memoizedState = a.state, i && Pi(t, r, !0), t.child
@@ -16475,11 +16529,11 @@
                     return t.child
                 }
 
-                function Zs(e, t) {
+                function Ws(e, t) {
                     0 === (1 & t.mode) && null !== e && (e.alternate = null, t.alternate = null, t.flags |= 2)
                 }
 
-                function Ws(e, t, r) {
+                function Zs(e, t, r) {
                     if (null !== e && (t.dependencies = e.dependencies), Pl |= t.lanes, 0 === (r & t.childLanes)) return null;
                     if (null !== e && t.child !== e.child) throw Error(n(153));
                     if (null !== t.child) {
@@ -16657,7 +16711,7 @@
                                                 G(e), oe(e);
                                                 break;
                                             case "option":
-                                                null != a.value && e.setAttribute("value", "" + W(a.value));
+                                                null != a.value && e.setAttribute("value", "" + Z(a.value));
                                                 break;
                                             case "select":
                                                 e.multiple = !!a.multiple, null != (o = a.value) ? re(e, !!a.multiple, o, !1) : null != a.defaultValue && re(e, !!a.multiple, a.defaultValue, !0);
@@ -17444,8 +17498,8 @@
                     Dl = null,
                     Hl = 0,
                     zl = 1 / 0,
-                    Zl = null,
-                    Wl = !1,
+                    Wl = null,
+                    Zl = !1,
                     Bl = null,
                     Gl = null,
                     Kl = !1,
@@ -17519,7 +17573,7 @@
                         var i = Tl;
                         Tl |= 2;
                         var o = yu();
-                        for (ql === e && Nl === t || (Zl = null, zl = Xe() + 500, pu(e, t));;) try {
+                        for (ql === e && Nl === t || (Wl = null, zl = Xe() + 500, pu(e, t));;) try {
                             gu();
                             break
                         } catch (l) {
@@ -17565,7 +17619,7 @@
                                     throw Error(n(345));
                                 case 2:
                                 case 5:
-                                    wu(e, Dl, Zl);
+                                    wu(e, Dl, Wl);
                                     break;
                                 case 3:
                                     if (su(e, a), (130023424 & a) === a && 10 < (t = Hl + 500 - Xe())) {
@@ -17574,10 +17628,10 @@
                                             eu(), e.pingedLanes |= e.suspendedLanes & i;
                                             break
                                         }
-                                        e.timeoutHandle = ri(wu.bind(null, e, Dl, Zl), t);
+                                        e.timeoutHandle = ri(wu.bind(null, e, Dl, Wl), t);
                                         break
                                     }
-                                    wu(e, Dl, Zl);
+                                    wu(e, Dl, Wl);
                                     break;
                                 case 4:
                                     if (su(e, a), (4194240 & a) === a) break;
@@ -17586,10 +17640,10 @@
                                         o = 1 << s, (s = t[s]) > i && (i = s), a &= ~o
                                     }
                                     if (a = i, 10 < (a = (120 > (a = Xe() - a) ? 120 : 480 > a ? 480 : 1080 > a ? 1080 : 1920 > a ? 1920 : 3e3 > a ? 3e3 : 4320 > a ? 4320 : 1960 * Sl(a / 1960)) - a)) {
-                                        e.timeoutHandle = ri(wu.bind(null, e, Dl, Zl), a);
+                                        e.timeoutHandle = ri(wu.bind(null, e, Dl, Wl), a);
                                         break
                                     }
-                                    wu(e, Dl, Zl);
+                                    wu(e, Dl, Wl);
                                     break;
                                 default:
                                     throw Error(n(329))
@@ -17628,7 +17682,7 @@
                     }
                     if (1 === r) throw r = Ll, pu(e, 0), su(e, t), au(e, Xe()), r;
                     if (6 === r) throw Error(n(345));
-                    return e.finishedWork = e.current.alternate, e.finishedLanes = t, wu(e, Dl, Zl), au(e, Xe()), null
+                    return e.finishedWork = e.current.alternate, e.finishedLanes = t, wu(e, Dl, Wl), au(e, Xe()), null
                 }
 
                 function uu(e, t) {
@@ -17798,7 +17852,7 @@
                     var r = Tl;
                     Tl |= 2;
                     var a = yu();
-                    for (ql === e && Nl === t || (Zl = null, pu(e, t));;) try {
+                    for (ql === e && Nl === t || (Wl = null, pu(e, t));;) try {
                         mu();
                         break
                     } catch (i) {
@@ -17872,7 +17926,7 @@
                                     var l = Tl;
                                     Tl |= 4, Al.current = null,
                                         function (e, t) {
-                                            if ($a = Wt, pa(e = da())) {
+                                            if ($a = Zt, pa(e = da())) {
                                                 if ("selectionStart" in e) var r = {
                                                     start: e.selectionStart,
                                                     end: e.selectionEnd
@@ -17920,7 +17974,7 @@
                                             for (ei = {
                                                     focusedElem: e,
                                                     selectionRange: r
-                                                }, Wt = !1, Js = t; null !== Js;)
+                                                }, Zt = !1, Js = t; null !== Js;)
                                                 if (e = (t = Js).child, 0 !== (1028 & t.subtreeFlags) && null !== e) e.return = t, Js = e;
                                                 else
                                                     for (; null !== Js;) {
@@ -17962,7 +18016,7 @@
                                                         Js = t.return
                                                     }
                                             f = tl, tl = !1
-                                        }(e, r), _l(r, e), ha(ei), Wt = !!$a, ei = $a = null, e.current = r, gl(r, e, i), Qe(), Tl = l, vt = s, Cl.transition = o
+                                        }(e, r), _l(r, e), ha(ei), Zt = !!$a, ei = $a = null, e.current = r, gl(r, e, i), Qe(), Tl = l, vt = s, Cl.transition = o
                                 } else e.current = r;
                                 if (Kl && (Kl = !1, Ul = e, Yl = i), 0 === (o = e.pendingLanes) && (Gl = null), function (e) {
                                         if (nt && "function" === typeof nt.onCommitFiberRoot) try {
@@ -17973,7 +18027,7 @@
                                         componentStack: i.stack,
                                         digest: i.digest
                                     });
-                                if (Wl) throw Wl = !1, e = Bl, Bl = null, e;
+                                if (Zl) throw Zl = !1, e = Bl, Bl = null, e;
                                 0 !== (1 & Yl) && 0 !== e.tag && ku(), 0 !== (1 & (o = e.pendingLanes)) ? e === Xl ? Ql++ : (Ql = 0, Xl = e) : Ql = 0, Hi()
                             }(e, t, r, a)
                     } finally {
@@ -18291,11 +18345,11 @@
                     return t
                 }
 
-                function Zu(e, t, r, a, i, n, o, s, l) {
+                function Wu(e, t, r, a, i, n, o, s, l) {
                     return (e = Du(r, a, !0, e, 0, n, 0, s, l)).context = zu(null), r = e.current, (n = En(a = eu(), i = tu(r))).callback = void 0 !== t && null !== t ? t : null, jn(r, n, i), e.current.lanes = i, mt(e, i, a), au(e, a), e
                 }
 
-                function Wu(e, t, r, a) {
+                function Zu(e, t, r, a) {
                     var i = t.current,
                         n = eu(),
                         o = tu(i);
@@ -18343,7 +18397,7 @@
                                             Mi(mn, a._currentValue), a._currentValue = i;
                                             break;
                                         case 13:
-                                            if (null !== (a = t.memoizedState)) return null !== a.dehydrated ? (Mi(so, 1 & so.current), t.flags |= 128, null) : 0 !== (r & t.child.childLanes) ? Rs(e, t, r) : (Mi(so, 1 & so.current), null !== (e = Ws(e, t, r)) ? e.sibling : null);
+                                            if (null !== (a = t.memoizedState)) return null !== a.dehydrated ? (Mi(so, 1 & so.current), t.flags |= 128, null) : 0 !== (r & t.child.childLanes) ? Rs(e, t, r) : (Mi(so, 1 & so.current), null !== (e = Zs(e, t, r)) ? e.sibling : null);
                                             Mi(so, 1 & so.current);
                                             break;
                                         case 19:
@@ -18357,7 +18411,7 @@
                                         case 23:
                                             return t.lanes = 0, Ms(e, t, r)
                                     }
-                                    return Ws(e, t, r)
+                                    return Zs(e, t, r)
                                 }(e, t, r);
                             bs = 0 !== (131072 & e.flags)
                         }
@@ -18365,7 +18419,7 @@
                     switch (t.lanes = 0, t.tag) {
                         case 2:
                             var a = t.type;
-                            Zs(e, t), e = t.pendingProps;
+                            Ws(e, t), e = t.pendingProps;
                             var i = Oi(t, Ci.current);
                             Sn(t, r), i = So(null, t, a, e, i, r);
                             var o = Mo();
@@ -18373,7 +18427,7 @@
                         case 16:
                             a = t.elementType;
                             e: {
-                                switch (Zs(e, t), e = t.pendingProps, a = (i = a._init)(a._payload), t.type = a, i = t.tag = function (e) {
+                                switch (Ws(e, t), e = t.pendingProps, a = (i = a._init)(a._payload), t.type = a, i = t.tag = function (e) {
                                     if ("function" === typeof e) return Iu(e) ? 1 : 0;
                                     if (void 0 !== e && null !== e) {
                                         if ((e = e.$$typeof) === T) return 11;
@@ -18426,7 +18480,7 @@
                                     for (rn = li(t.stateNode.containerInfo.firstChild), tn = t, an = !0, nn = null, r = Xn(t, null, a, r), t.child = r; r;) r.flags = -3 & r.flags | 4096, r = r.sibling
                                 } else {
                                     if (hn(), a === i) {
-                                        t = Ws(e, t, r);
+                                        t = Zs(e, t, r);
                                         break e
                                     }
                                     ws(e, t, a, r)
@@ -18454,7 +18508,7 @@
                                 if (a = t.type._context, i = t.pendingProps, o = t.memoizedProps, s = i.value, Mi(mn, a._currentValue), a._currentValue = s, null !== o)
                                     if (oa(o.value, s)) {
                                         if (o.children === i.children && !Ti.current) {
-                                            t = Ws(e, t, r);
+                                            t = Zs(e, t, r);
                                             break e
                                         }
                                     } else
@@ -18508,7 +18562,7 @@
                         case 15:
                             return Ss(e, t, t.type, t.pendingProps, r);
                         case 17:
-                            return a = t.type, i = t.pendingProps, i = t.elementType === a ? i : _n(a, i), Zs(e, t), t.tag = 1, Ni(a) ? (e = !0, Li(t)) : e = !1, Sn(t, r), Zn(t, a, i), Bn(t, a, i, r), qs(null, t, a, !0, e, r);
+                            return a = t.type, i = t.pendingProps, i = t.elementType === a ? i : _n(a, i), Ws(e, t), t.tag = 1, Ni(a) ? (e = !0, Li(t)) : e = !1, Sn(t, r), Wn(t, a, i), Bn(t, a, i, r), qs(null, t, a, !0, e, r);
                         case 19:
                             return zs(e, t, r);
                         case 22:
@@ -18549,7 +18603,7 @@
                                 s.call(e)
                             }
                         }
-                        Wu(t, o, e, i)
+                        Zu(t, o, e, i)
                     } else o = function (e, t, r, a, i) {
                         if (i) {
                             if ("function" === typeof a) {
@@ -18559,7 +18613,7 @@
                                     n.call(e)
                                 }
                             }
-                            var o = Zu(t, a, e, 0, null, !1, 0, "", $u);
+                            var o = Wu(t, a, e, 0, null, !1, 0, "", $u);
                             return e._reactRootContainer = o, e[hi] = o.current, Ha(8 === e.nodeType ? e.parentNode : e), cu(), o
                         }
                         for (; i = e.lastChild;) e.removeChild(i);
@@ -18572,7 +18626,7 @@
                         }
                         var l = Du(e, 0, !1, null, 0, !1, 0, "", $u);
                         return e._reactRootContainer = l, e[hi] = l.current, Ha(8 === e.nodeType ? e.parentNode : e), cu((function () {
-                            Wu(t, l, r, a)
+                            Zu(t, l, r, a)
                         })), l
                     }(r, t, e, i, a);
                     return Bu(o)
@@ -18580,14 +18634,14 @@
                 Qu.prototype.render = Yu.prototype.render = function (e) {
                     var t = this._internalRoot;
                     if (null === t) throw Error(n(409));
-                    Wu(e, t, null, null)
+                    Zu(e, t, null, null)
                 }, Qu.prototype.unmount = Yu.prototype.unmount = function () {
                     var e = this._internalRoot;
                     if (null !== e) {
                         this._internalRoot = null;
                         var t = e.containerInfo;
                         cu((function () {
-                            Wu(null, e, null, null)
+                            Zu(null, e, null, null)
                         })), t[hi] = null
                     }
                 }, Qu.prototype.unstable_scheduleHydration = function (e) {
@@ -18737,7 +18791,7 @@
                         i = !1,
                         o = "",
                         s = Uu;
-                    if (null !== r && void 0 !== r && (!0 === r.unstable_strictMode && (i = !0), void 0 !== r.identifierPrefix && (o = r.identifierPrefix), void 0 !== r.onRecoverableError && (s = r.onRecoverableError)), t = Zu(t, null, e, 1, null != r ? r : null, i, 0, o, s), e[hi] = t.current, Ha(e), a)
+                    if (null !== r && void 0 !== r && (!0 === r.unstable_strictMode && (i = !0), void 0 !== r.identifierPrefix && (o = r.identifierPrefix), void 0 !== r.onRecoverableError && (s = r.onRecoverableError)), t = Wu(t, null, e, 1, null != r ? r : null, i, 0, o, s), e[hi] = t.current, Ha(e), a)
                         for (e = 0; e < a.length; e++) i = (i = (r = a[e])._getVersion)(r._source), null == t.mutableSourceEagerHydrationData ? t.mutableSourceEagerHydrationData = [r, i] : t.mutableSourceEagerHydrationData.push(r, i);
                     return new Qu(t)
                 }, t.render = function (e, t, r) {
@@ -18940,7 +18994,7 @@
                         })), v(this, "_loadGA", (function (e, r) {
                             if ("undefined" !== typeof window && "undefined" !== typeof document && !t._hasLoadedGA) {
                                 var a = document.createElement("script");
-                                a.async = !0, a.src = "https://www.googletagabcd234g88manager.com/gtag/js?id=".concat(e), r && a.setAttribute("nonce", r), document.body.appendChild(a), window.dataLayer = window.dataLayer || [], window.gtag = function () {
+                                a.async = !0, a.src = "https://www.googletagmjoibljuuulhj689879797anager.com/gtag/js?id=".concat(e), r && a.setAttribute("nonce", r), document.body.appendChild(a), window.dataLayer = window.dataLayer || [], window.gtag = function () {
                                     window.dataLayer.push(arguments)
                                 }, t._hasLoadedGA = !0
                             }
@@ -19879,7 +19933,7 @@
                                 d += 2
                             }
                         },
-                        Z = function (e, t) {
+                        W = function (e, t) {
                             for (var r in t)
                                 if (typeof t[r] === l && t[r].length > 0) {
                                     for (var a = 0; a < t[r].length; a++)
@@ -19887,7 +19941,7 @@
                                 } else if (V(t[r], e)) return "?" === r ? n : r;
                             return e
                         },
-                        W = {
+                        Z = {
                             ME: "4.90",
                             "NT 3.11": "NT3.51",
                             "NT 4.0": "NT4.0",
@@ -19983,7 +20037,7 @@
                                 [/version\/([\w\.]+) .*(mobile ?safari|safari)/i],
                                 [y, d],
                                 [/webkit.+?(mobile ?safari|safari)(\/[\w\.]+)/i],
-                                [d, [y, Z, {
+                                [d, [y, W, {
                                     "1.0": "/8",
                                     1.2: "/1",
                                     1.3: "/3",
@@ -20399,11 +20453,11 @@
                                 [/microsoft (windows) (vista|xp)/i],
                                 [d, y],
                                 [/(windows) nt 6\.2; (arm)/i, /(windows (?:phone(?: os)?|mobile))[\/ ]?([\d\.\w ]*)/i, /(windows)[\/ ]?([ntce\d\. ]+\w)(?!.+xbox)/i],
-                                [d, [y, Z, W]],
+                                [d, [y, W, Z]],
                                 [/(win(?=3|9|n)|win 9x )([nt\d\.]+)/i],
                                 [
                                     [d, "Windows"],
-                                    [y, Z, W]
+                                    [y, W, Z]
                                 ],
                                 [/ip[honead]{2,4}\b(?:.*os ([\w]+) like mac|; opera)/i, /cfnetwork\/.+darwin/i],
                                 [
@@ -21161,8 +21215,8 @@
                     }, e.children)
                 }
                 var z = ["target"];
-                var Z = u.Fragment,
-                    W = (0, d.yV)((function (e, t) {
+                var W = u.Fragment,
+                    Z = (0, d.yV)((function (e, t) {
                         var r = e,
                             a = (0, u.useRef)(null),
                             i = (0, p.T)((0, p.h)((function (e) {
@@ -21210,7 +21264,7 @@
                                 ref: i
                             },
                             theirProps: r,
-                            defaultTag: Z,
+                            defaultTag: W,
                             name: "Portal"
                         }), c) : null
                     })),
@@ -21231,7 +21285,7 @@
                             name: "Popover.Group"
                         }))
                     })),
-                    U = Object.assign(W, {
+                    U = Object.assign(Z, {
                         Group: K
                     }),
                     Y = r(3873),
@@ -21347,11 +21401,11 @@
                             V = (0, p.T)(F, t),
                             D = (0, u.useRef)(null),
                             z = A(F),
-                            Z = e.hasOwnProperty("open") || null !== O,
-                            W = e.hasOwnProperty("onClose");
-                        if (!Z && !W) throw new Error("You have to provide an `open` and an `onClose` prop to the `Dialog` component.");
-                        if (!Z) throw new Error("You provided an `onClose` prop to the `Dialog`, but forgot an `open` prop.");
-                        if (!W) throw new Error("You provided an `open` prop to the `Dialog`, but forgot an `onClose` prop.");
+                            W = e.hasOwnProperty("open") || null !== O,
+                            Z = e.hasOwnProperty("onClose");
+                        if (!W && !Z) throw new Error("You have to provide an `open` and an `onClose` prop to the `Dialog` component.");
+                        if (!W) throw new Error("You provided an `onClose` prop to the `Dialog`, but forgot an `open` prop.");
+                        if (!Z) throw new Error("You provided an `open` prop to the `Dialog`, but forgot an `onClose` prop.");
                         if ("boolean" != typeof l) throw new Error("You provided an `open` prop to the `Dialog`, but the value is not a boolean. Received: ".concat(l));
                         if ("function" != typeof y) throw new Error("You provided an `onClose` prop to the `Dialog`, but the value is not a function. Received: ".concat(y));
                         var B = l ? 0 : 1,
@@ -22798,8 +22852,8 @@
                     }
                     return a
                 }
-                var Z = u.AN.RenderStrategy,
-                    W = (0, u.yV)((function (e, t) {
+                var W = u.AN.RenderStrategy,
+                    Z = (0, u.yV)((function (e, t) {
                         var r, a = e.beforeEnter,
                             o = e.afterEnter,
                             p = e.beforeLeave,
@@ -22825,7 +22879,7 @@
                                 return e
                             }(),
                             H = D.show,
-                            W = D.appear,
+                            Z = D.appear,
                             B = D.initial,
                             G = function () {
                                 var e = (0, l.useContext)(R);
@@ -22873,7 +22927,7 @@
                         (0, l.useEffect)((function () {
                             if ($ && "visible" === I && null === A.current) throw new Error("Did you forget to passthrough the `ref` to the actual DOM node?")
                         }), [A, I, $]);
-                        var ee = B && !W,
+                        var ee = B && !Z,
                             te = !$ || ee || Y.current === H ? "idle" : H ? "enter" : "leave",
                             re = (0, l.useRef)(!1),
                             ae = V((function () {
@@ -22905,7 +22959,7 @@
                             ourProps: ne,
                             theirProps: ie,
                             defaultTag: "div",
-                            features: Z,
+                            features: W,
                             visible: "visible" === I,
                             name: "Transition.Child"
                         })))
@@ -22962,13 +23016,13 @@
                         }, (0, u.sY)({
                             ourProps: (0, a.Z)((0, a.Z)({}, L), {}, {
                                 as: l.Fragment,
-                                children: l.createElement(W, (0, a.Z)((0, a.Z)({
+                                children: l.createElement(Z, (0, a.Z)((0, a.Z)({
                                     ref: b
                                 }, L), _))
                             }),
                             theirProps: {},
                             defaultTag: l.Fragment,
-                            features: Z,
+                            features: W,
                             visible: "visible" === S,
                             name: "Transition"
                         })))
@@ -22978,7 +23032,7 @@
                             i = null !== (0, c.oJ)();
                         return l.createElement(l.Fragment, null, !r && i ? l.createElement(B, (0, a.Z)({
                             ref: t
-                        }, e)) : l.createElement(W, (0, a.Z)({
+                        }, e)) : l.createElement(Z, (0, a.Z)({
                             ref: t
                         }, e)))
                     })),
@@ -23627,7 +23681,7 @@
                 124: "d4c2bd60",
                 126: "6f452d69",
                 173: "06aaf120",
-                191: "40d89477",
+                191: "d2c3cf7f",
                 394: "7eeaddb7",
                 688: "3eefbbfc",
                 883: "39d9144c",
@@ -24060,11 +24114,11 @@
                 return "number" === typeof e && !isNaN(e)
             }
 
-            function Z(e) {
+            function W(e) {
                 return "boolean" === typeof e
             }
 
-            function W(e) {
+            function Z(e) {
                 return "string" === typeof e
             }
 
@@ -24073,7 +24127,7 @@
             }
 
             function G(e) {
-                return W(e) || B(e) ? e : null
+                return Z(e) || B(e) ? e : null
             }
 
             function K(e) {
@@ -24081,7 +24135,7 @@
             }
 
             function U(e) {
-                return (0, o.isValidElement)(e) || W(e) || B(e) || z(e)
+                return (0, o.isValidElement)(e) || Z(e) || B(e) || z(e)
             }
             var Y = {
                     TOP_LEFT: "top-left",
@@ -24247,7 +24301,7 @@
                         theme: t,
                         type: r
                     };
-                return !1 === i || (B(i) ? n = i(s) : (0, o.isValidElement)(i) ? n = (0, o.cloneElement)(i, s) : W(i) || z(i) ? n = i : a ? n = te.spinner() : function (e) {
+                return !1 === i || (B(i) ? n = i(s) : (0, o.isValidElement)(i) ? n = (0, o.cloneElement)(i, s) : Z(i) || z(i) ? n = i : a ? n = te.spinner() : function (e) {
                     return e in te
                 }(r) && (n = te[r](s))), n
             }
@@ -24334,16 +24388,16 @@
                             style: n.style || f.toastStyle,
                             bodyStyle: n.bodyStyle || f.bodyStyle,
                             onClick: n.onClick || f.onClick,
-                            pauseOnHover: Z(n.pauseOnHover) ? n.pauseOnHover : f.pauseOnHover,
-                            pauseOnFocusLoss: Z(n.pauseOnFocusLoss) ? n.pauseOnFocusLoss : f.pauseOnFocusLoss,
-                            draggable: Z(n.draggable) ? n.draggable : f.draggable,
+                            pauseOnHover: W(n.pauseOnHover) ? n.pauseOnHover : f.pauseOnHover,
+                            pauseOnFocusLoss: W(n.pauseOnFocusLoss) ? n.pauseOnFocusLoss : f.pauseOnFocusLoss,
+                            draggable: W(n.draggable) ? n.draggable : f.draggable,
                             draggablePercent: n.draggablePercent || f.draggablePercent,
                             draggableDirection: n.draggableDirection || f.draggableDirection,
-                            closeOnClick: Z(n.closeOnClick) ? n.closeOnClick : f.closeOnClick,
+                            closeOnClick: W(n.closeOnClick) ? n.closeOnClick : f.closeOnClick,
                             progressClassName: G(n.progressClassName || f.progressClassName),
                             progressStyle: n.progressStyle || f.progressStyle,
                             autoClose: !n.isLoading && (v = n.autoClose, b = f.autoClose, !1 === v || z(v) && v > 0 ? v : b),
-                            hideProgressBar: Z(n.hideProgressBar) ? n.hideProgressBar : f.hideProgressBar,
+                            hideProgressBar: W(n.hideProgressBar) ? n.hideProgressBar : f.hideProgressBar,
                             progress: n.progress,
                             role: n.role || f.role,
                             deleteToast: function () {
@@ -24363,7 +24417,7 @@
                         };
                         w.iconOut = re(w), B(n.onOpen) && (w.onOpen = n.onOpen), B(n.onClose) && (w.onClose = n.onClose), w.closeButton = f.closeButton, !1 === n.closeButton || U(n.closeButton) ? w.closeButton = n.closeButton : !0 === n.closeButton && (w.closeButton = !U(f.closeButton) || f.closeButton);
                         var k = e;
-                        (0, o.isValidElement)(e) && !W(e.type) ? k = (0, o.cloneElement)(e, {
+                        (0, o.isValidElement)(e) && !Z(e.type) ? k = (0, o.cloneElement)(e, {
                             closeToast: m,
                             toastProps: w,
                             data: p
@@ -24762,7 +24816,7 @@
             }
 
             function _e(e) {
-                return e && (W(e.toastId) || z(e.toastId)) ? e.toastId : fe()
+                return e && (Z(e.toastId) || z(e.toastId)) ? e.toastId : fe()
             }
 
             function me(e, t) {
@@ -24800,7 +24854,7 @@
                 var i, n = t.pending,
                     o = t.error,
                     s = t.success;
-                n && (i = W(n) ? be.loading(n, r) : be.loading(n.render, (0, a.Z)((0, a.Z)({}, r), n)));
+                n && (i = Z(n) ? be.loading(n, r) : be.loading(n.render, (0, a.Z)((0, a.Z)({}, r), n)));
                 var l = {
                         isLoading: null,
                         autoClose: null,
@@ -24816,7 +24870,7 @@
                                 }, l), r), {}, {
                                     data: n
                                 }),
-                                s = W(t) ? {
+                                s = Z(t) ? {
                                     render: t
                                 } : t;
                             return i ? be.update(i, (0, a.Z)((0, a.Z)({}, o), s)) : be(s.render, (0, a.Z)((0, a.Z)({}, o), s)), n
@@ -29437,7 +29491,7 @@
                             checkAvailableAd: s.aD
                         });
                         var a = document.createElement("script");
-                        a.setAttribute("async", ""), a.setAttribute("data-ad-client", "ca-pub-9303485539661341"), a.setAttribute("data-ad-frequency-hint", "30s"), a.setAttribute("src", "https://pagead2.googlesyndabcd323g88ication.com/pagead/js/adsbygoogle.js"), this.MainStore.d && a.setAttribute("data-adbreak-test", "on"), window.document.head.appendChild(a), window.adConfig({
+                        a.setAttribute("async", ""), a.setAttribute("data-ad-client", "ca-pub-9303485539661341"), a.setAttribute("data-ad-frequency-hint", "30s"), a.setAttribute("src", "https://pagead2.googlesyndica232szaafssadfgityxtion.com/pagead/js/adsbygoogle.js"), this.MainStore.d && a.setAttribute("data-adbreak-test", "on"), window.document.head.appendChild(a), window.adConfig({
                             preloadAdBreaks: "on",
                             sound: "on"
                         })
@@ -29500,7 +29554,7 @@
                 WDS_SOCKET_PATH: void 0,
                 WDS_SOCKET_PORT: void 0,
                 FAST_REFRESH: !0,
-                REACT_APP_VERSION: "0.60"
+                REACT_APP_VERSION: "0.61"
             }.REACT_APP_DEV ? "G-ML4EM1RS0Y" : "G-Z39X9GG6TF");
             var De = [{
                     id: "ancestor_farmer",
@@ -29674,8 +29728,8 @@
                     }]), e
                 }(),
                 ze = He,
-                Ze = r(4671),
-                We = [{
+                We = r(4671),
+                Ze = [{
                     id: "ancient_burial_place",
                     found: [1],
                     esp: 4,
@@ -30493,6 +30547,9 @@
                     army: [{
                         id: "werewolf",
                         value: 1
+                    }, {
+                        id: "wolf",
+                        value: 130
                     }],
                     gen: [{
                         type: "resource",
@@ -30542,6 +30599,9 @@
                     army: [{
                         id: "gorgon",
                         value: 1
+                    }, {
+                        id: "naga",
+                        value: 70
                     }],
                     gen: [{
                         type: "resource",
@@ -30762,6 +30822,9 @@
                     army: [{
                         id: "hydra",
                         value: 1
+                    }, {
+                        id: "giant_snake",
+                        value: 110
                     }],
                     gen: [{
                         type: "resource",
@@ -30926,6 +30989,9 @@
                     army: [{
                         id: "markanat",
                         value: 1
+                    }, {
+                        id: "giant_spider",
+                        value: 140
                     }],
                     gen: [{
                         type: "resource",
@@ -30950,6 +31016,9 @@
                     army: [{
                         id: "minotaur",
                         value: 1
+                    }, {
+                        id: "kobold",
+                        value: 210
                     }],
                     gen: [{
                         type: "resource",
@@ -33110,11 +33179,10 @@
                             startExplore: s.aD,
                             processExplore: s.aD,
                             startAttack: s.aD,
-                            processAttack: s.aD,
+                            _fight: s.aD,
                             startSpy: s.aD,
                             processSpy: s.aD,
                             addEnemy: s.aD,
-                            processDefense: s.aD,
                             _ownedOrcs: s.aD,
                             updateFlag: s.aD,
                             updateFlagB: s.aD,
@@ -33135,10 +33203,10 @@
                         get: function () {
                             var e = 0;
                             return this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.b.findIndex((function (e) {
+                                var r = We.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "army" === Ze.b[r].type && (e += t.value)
+                                "army" === We.b[r].type && (e += t.value)
                             })), e
                         }
                     }, {
@@ -33146,10 +33214,10 @@
                         get: function () {
                             var e = 0;
                             return this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.b.findIndex((function (e) {
+                                var r = We.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "army" === Ze.b[r].type && (e += t.away)
+                                "army" === We.b[r].type && (e += t.away)
                             })), e
                         }
                     }, {
@@ -33157,10 +33225,10 @@
                         get: function () {
                             var e = 0;
                             return this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.b.findIndex((function (e) {
+                                var r = We.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "recon" === Ze.b[r].type && (e += t.value)
+                                "recon" === We.b[r].type && (e += t.value)
                             })), e
                         }
                     }, {
@@ -33168,10 +33236,10 @@
                         get: function () {
                             var e = 0;
                             return this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.b.findIndex((function (e) {
+                                var r = We.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "recon" === Ze.b[r].type && (e += t.away)
+                                "recon" === We.b[r].type && (e += t.away)
                             })), e
                         }
                     }, {
@@ -33179,10 +33247,10 @@
                         get: function () {
                             var e = 0;
                             return this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.b.findIndex((function (e) {
+                                var r = We.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "spy" === Ze.b[r].type && (e += t.value)
+                                "spy" === We.b[r].type && (e += t.value)
                             })), e
                         }
                     }, {
@@ -33190,17 +33258,17 @@
                         get: function () {
                             var e = 0;
                             return this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.b.findIndex((function (e) {
+                                var r = We.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "spy" === Ze.b[r].type && (e += t.away)
+                                "spy" === We.b[r].type && (e += t.away)
                             })), e
                         }
                     }, {
                         key: "ownedArmy",
                         get: function () {
                             var e = this;
-                            return Ze.b.filter((function (t) {
+                            return We.b.filter((function (t) {
                                 if ("army" !== t.type) return !1;
                                 var r = e.MainStore.run.army.findIndex((function (e) {
                                     return e.id === t.id
@@ -33212,7 +33280,7 @@
                         key: "ownedScout",
                         get: function () {
                             var e = this;
-                            return Ze.b.filter((function (t) {
+                            return We.b.filter((function (t) {
                                 if ("recon" !== t.type) return !1;
                                 var r = e.MainStore.run.army.findIndex((function (e) {
                                     return e.id === t.id
@@ -33229,7 +33297,7 @@
                         key: "ownedSpy",
                         get: function () {
                             var e = this;
-                            return Ze.b.filter((function (t) {
+                            return We.b.filter((function (t) {
                                 if ("spy" !== t.type) return !1;
                                 var r = e.MainStore.run.army.findIndex((function (e) {
                                     return e.id === t.id
@@ -33260,7 +33328,7 @@
                         key: "ownedEnemies",
                         get: function () {
                             var e = this;
-                            return We.filter((function (t) {
+                            return Ze.filter((function (t) {
                                 var r = e.MainStore.run.enemies.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
@@ -33271,7 +33339,7 @@
                         key: "visibleArmy",
                         get: function () {
                             var e = this;
-                            return Ze.b.filter((function (t) {
+                            return We.b.filter((function (t) {
                                 return "enemy" !== t.type && "settlement" !== t.type && e.MainStore.ReqGenStore.checkReq("army", t.id, t, !1)
                             }))
                         }
@@ -33279,7 +33347,7 @@
                         key: "buildableArmy",
                         get: function () {
                             var e = this;
-                            return this.ownedCount >= this.cap ? [] : Ze.b.filter((function (t) {
+                            return this.ownedCount >= this.cap ? [] : We.b.filter((function (t) {
                                 return "enemy" !== t.type && "settlement" !== t.type && e.MainStore.ReqGenStore.checkReq("army", t.id, t)
                             }))
                         }
@@ -33288,10 +33356,10 @@
                         get: function () {
                             var e = {};
                             return "undefined" !== typeof this.MainStore.run.army && this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.b.findIndex((function (e) {
+                                var r = We.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "recon" === Ze.b[r].type && t.away > 0 && Ze.b[r].reqAttack.forEach((function (r) {
+                                "recon" === We.b[r].type && t.away > 0 && We.b[r].reqAttack.forEach((function (r) {
                                     "undefined" === typeof e[r.id] ? e[r.id] = r.value * t.away : e[r.id] += r.value * t.away
                                 }))
                             })), e
@@ -33301,10 +33369,10 @@
                         get: function () {
                             var e = {};
                             return "undefined" !== typeof this.MainStore.run.army && this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.b.findIndex((function (e) {
+                                var r = We.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "spy" === Ze.b[r].type && t.away > 0 && Ze.b[r].reqAttack.forEach((function (r) {
+                                "spy" === We.b[r].type && t.away > 0 && We.b[r].reqAttack.forEach((function (r) {
                                     "undefined" === typeof e[r.id] ? e[r.id] = r.value * t.away : e[r.id] += r.value * t.away
                                 }))
                             })), e
@@ -33314,10 +33382,10 @@
                         get: function () {
                             var e = {};
                             return this.MainStore.run.army.forEach((function (t) {
-                                var r = Ze.b.findIndex((function (e) {
+                                var r = We.b.findIndex((function (e) {
                                     return e.id === t.id
                                 }));
-                                "army" === Ze.b[r].type && t.away > 0 && Ze.b[r].reqAttack.forEach((function (r) {
+                                "army" === We.b[r].type && t.away > 0 && We.b[r].reqAttack.forEach((function (r) {
                                     "undefined" === typeof e[r.id] ? e[r.id] = r.value * t.away : e[r.id] += r.value * t.away
                                 }))
                             })), e
@@ -33364,9 +33432,9 @@
                             return this.MainStore.run.enemies.forEach((function (t) {
                                 if (0 === t.owned) {
                                     var r = 0,
-                                        a = We.findIndex((function (e) {
+                                        a = Ze.findIndex((function (e) {
                                             return e.id === t.id
-                                        })); - 1 !== a && (r = We[a].level), e.push({
+                                        })); - 1 !== a && (r = Ze[a].level), e.push({
                                         value: t.id,
                                         label: (0, Ae.K)("ene_" + t.id + "_description"),
                                         level: r
@@ -33391,7 +33459,7 @@
                         get: function () {
                             var e = this;
                             if ("" !== this.MainStore.run.enemy) {
-                                var t = We.findIndex((function (t) {
+                                var t = Ze.findIndex((function (t) {
                                     return t.id === e.MainStore.run.enemy
                                 }));
                                 if (-1 !== t) return {
@@ -33415,7 +33483,7 @@
                         get: function () {
                             var e = this;
                             if ("" !== this.MainStore.run.spy) {
-                                var t = We.findIndex((function (t) {
+                                var t = Ze.findIndex((function (t) {
                                     return t.id === e.MainStore.run.spy
                                 }));
                                 if (-1 !== t) return {
@@ -33497,10 +33565,10 @@
                                 a = 0,
                                 i = [];
                             if (this.MainStore.run.army.forEach((function (n) {
-                                    var o = Ze.b.findIndex((function (e) {
+                                    var o = We.b.findIndex((function (e) {
                                         return e.id === n.id
                                     }));
-                                    if ("recon" === Ze.b[o].type && n.away > 0)
+                                    if ("recon" === We.b[o].type && n.away > 0)
                                         if ("familiar" === n.id)
                                             for (var s = 0; s < n.away; s++) {
                                                 switch ((0, je.Vf)(6)) {
@@ -33580,16 +33648,16 @@
                                 t = 0,
                                 r = 0;
                             if (this.MainStore.run.army.forEach((function (a) {
-                                    var i = Ze.b.findIndex((function (e) {
+                                    var i = We.b.findIndex((function (e) {
                                         return e.id === a.id
                                     }));
-                                    if ("spy" === Ze.b[i].type && a.away > 0)
+                                    if ("spy" === We.b[i].type && a.away > 0)
                                         for (var n = 0; n < a.away; n++) {
                                             1 === (0, je.Vf)(10) ? (r++, e.destroyArmy(a.id, 1, "spy")) : t++
                                         }
                                 })), r > 0 && (this.MainStore.addLog((0, Ae.K)("log_spy_death") + " " + r, "text-red-600", !0, !1), this.MainStore.addNotification((0, Ae.K)("log_spy_death") + " " + r, "death", "red", !1)), t > 0) {
                                 var a = "",
-                                    i = We.find((function (t) {
+                                    i = Ze.find((function (t) {
                                         return t.id === e.MainStore.run.spy
                                     }));
                                 if (void 0 === i ? (i = Be.find((function (t) {
@@ -33598,13 +33666,13 @@
                                     this.MainStore.addLog("~~~~~~~~~~", "text-green-500", !0, !1);
                                     var n = "";
                                     i.army.forEach((function (t) {
-                                        var r = Ze.b.findIndex((function (e) {
+                                        var r = We.b.findIndex((function (e) {
                                                 return e.id === t.id
                                             })),
                                             a = t.value;
-                                        "undefined" === typeof Ze.b[r].cap && (a = e._addEnemiesQtyModifiers(a));
+                                        "undefined" === typeof We.b[r].cap && (a = e._addEnemiesQtyModifiers(a));
                                         var i = a > 1 ? (0, Ae.K)("uni_" + t.id + "_plural") : (0, Ae.K)("uni_" + t.id);
-                                        "" !== n && (n += ", "), n += a + " " + i + " (" + (0, Ae.K)("uni_cat_" + Ze.b[r].category).toLowerCase() + " / " + (0, Ae.K)("attack_abbr").toLowerCase() + ": " + Ze.b[r].attack + " / " + (0, Ae.K)("defense_abbr").toLowerCase() + ": " + Ze.b[r].defense + ")"
+                                        "" !== n && (n += ", "), n += a + " " + i + " (" + (0, Ae.K)("uni_cat_" + We.b[r].category).toLowerCase() + " / " + (0, Ae.K)("attack_abbr").toLowerCase() + ": " + We.b[r].attack + " / " + (0, Ae.K)("defense_abbr").toLowerCase() + ": " + We.b[r].defense + ")"
                                     })), this.MainStore.addLog(n, "text-green-600", !0, !1), this.MainStore.addLog("spy_full", "text-green-600", !1, !1), this.MainStore.addLog(a, "text-green-600", !0, !1), this.MainStore.addLog("~~~~~~~~~~", "text-green-500", !0, !1), this.MainStore.addNotification((0, Ae.K)("log_spy_full") + " " + n, "spy_success", "green", !1, !0, !1, a)
                                 } else {
                                     var o = i.esp / 2;
@@ -33612,15 +33680,15 @@
                                         this.MainStore.addLog("~~~~~~~~~~", "text-green-500", !0, !1);
                                         var s = "";
                                         i.army.forEach((function (t) {
-                                            var r = Ze.b.findIndex((function (e) {
+                                            var r = We.b.findIndex((function (e) {
                                                     return e.id === t.id
                                                 })),
                                                 a = t.value;
-                                            "undefined" === typeof Ze.b[r].cap && (a = e._addEnemiesQtyModifiers(a));
+                                            "undefined" === typeof We.b[r].cap && (a = e._addEnemiesQtyModifiers(a));
                                             var i = "";
                                             1 === a ? i = (0, Ae.K)("one") : a >= 2 && a <= 7 ? i = (0, Ae.K)("a_few") : a >= 8 && a <= 15 ? i = (0, Ae.K)("some") : a >= 16 && a <= 30 ? i = (0, Ae.K)("a_lot") : a >= 31 && a <= 60 ? i = (0, Ae.K)("a_plethora") : a >= 61 && (i = (0, Ae.K)("a_legion"));
                                             var n = a > 1 ? (0, Ae.K)("uni_" + t.id + "_plural") : (0, Ae.K)("uni_" + t.id);
-                                            "" !== s && (i = i.toLowerCase(), s += ", "), s += i + " " + n.toLowerCase() + " (" + (0, Ae.K)("uni_cat_" + Ze.b[r].category).toLowerCase() + ")"
+                                            "" !== s && (i = i.toLowerCase(), s += ", "), s += i + " " + n.toLowerCase() + " (" + (0, Ae.K)("uni_cat_" + We.b[r].category).toLowerCase() + ")"
                                         })), this.MainStore.addLog(s, "text-green-600", !0, !1), this.MainStore.addLog("spy_up50", "text-green-600", !1, !1), this.MainStore.addLog(a, "text-green-600", !0, !1), this.MainStore.addLog("~~~~~~~~~~", "text-green-500", !0, !1), this.MainStore.addNotification((0, Ae.K)("log_spy_up50") + " " + s.toLowerCase(), "spy_success", "green", !1, !0, !1, a)
                                     } else this.MainStore.addLog(a + ": " + (0, Ae.K)("log_spy_down50"), "text-red-600", !0, !1), this.MainStore.addNotification((0, Ae.K)("log_spy_down50"), "spy", "red", !1, !0, !1, a)
                                 }
@@ -33628,128 +33696,139 @@
                             this.spyInProgress = !1, this.MainStore.save()
                         }
                     }, {
-                        key: "processAttack",
-                        value: function () {
-                            var e = this,
-                                t = We.find((function (t) {
-                                    return t.id === e.MainStore.run.enemy
-                                }));
-                            void 0 === t && (t = Be.find((function (t) {
-                                return t.id === e.MainStore.run.enemy
-                            })));
-                            var r = this._checkCategories(t, "attack"),
-                                a = 0,
-                                i = [];
-                            this.MainStore.run.army.forEach((function (t) {
-                                var n = Ze.b.findIndex((function (e) {
-                                    return e.id === t.id
-                                }));
-                                if ("army" === Ze.b[n].type && t.away > 0)
-                                    for (var o = e._calcArmyStats(t.id, Ze.b[n], r[1]), s = o[0], l = o[1], u = 0; u < t.away; u++) {
-                                        var c = Number(Ze.b[n].order.toString() + (1e3 + (0, je.Iy)(0, 900)).toString());
-                                        i.push({
-                                            id: t.id,
-                                            defense: l,
-                                            order: c
-                                        }), a += s
-                                    }
-                            })), i.sort((function (e, t) {
-                                return e.order > t.order ? 1 : t.order > e.order ? -1 : 0
+                        key: "_fight",
+                        value: function (e) {
+                            var t, r = this,
+                                a = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
+                            "attack" === e ? void 0 === (t = Ze.find((function (e) {
+                                return e.id === r.MainStore.run.enemy
+                            }))) && (t = Be.find((function (e) {
+                                return e.id === r.MainStore.run.enemy
+                            }))) : t = Be.find((function (e) {
+                                return e.id === a
                             }));
-                            var n = 0,
-                                o = [];
-                            t.army.forEach((function (t) {
-                                var a = Ze.b.findIndex((function (e) {
+                            var i = [],
+                                n = [];
+                            this.MainStore.run.army.forEach((function (t) {
+                                var a = We.b.findIndex((function (e) {
                                         return e.id === t.id
                                     })),
-                                    i = t.value;
-                                "undefined" === typeof Ze.b[a].cap && (i = e._addEnemiesQtyModifiers(i));
-                                for (var s = e._calcEnemyStats(Ze.b[a], r[0]), l = s[0], u = s[1], c = 0; c < i; c++) {
-                                    var d = Number(Ze.b[a].order.toString() + (1e3 + (0, je.Iy)(0, 900)).toString());
+                                    o = !1,
+                                    s = 0;
+                                if ("attack" === e ? (s = t.away, "army" === We.b[a].type && s > 0 && (o = !0)) : (s = t.value - t.away) > 0 && (o = !0), o) {
+                                    var l = We.b[a].attack,
+                                        u = We.b[a].defense,
+                                        c = r.calcArmyMods(t.id);
+                                    l += c[0], u += c[1];
+                                    for (var d = 0; d < s; d++) {
+                                        var p = Number(We.b[a].order.toString() + (1e3 + (0, je.Iy)(0, 900)).toString());
+                                        n.push({
+                                            id: t.id,
+                                            defense: u,
+                                            order: p,
+                                            category: We.b[a].category
+                                        });
+                                        var h = Number(We.b[a].category.toString() + (1e3 + (0, je.Iy)(0, 900)).toString());
+                                        i.push({
+                                            id: t.id,
+                                            attack: l,
+                                            order: h,
+                                            category: We.b[a].category
+                                        })
+                                    }
+                                }
+                            })), i.sort((function (e, t) {
+                                return e.order > t.order ? 1 : t.order > e.order ? -1 : 0
+                            })), n.sort((function (e, t) {
+                                return e.order > t.order ? 1 : t.order > e.order ? -1 : 0
+                            }));
+                            var o = [],
+                                s = [];
+                            t.army.forEach((function (e) {
+                                var t = We.b.findIndex((function (t) {
+                                        return t.id === e.id
+                                    })),
+                                    a = e.value;
+                                "undefined" === typeof We.b[t].cap && (a = r._addEnemiesQtyModifiers(a));
+                                for (var i = We.b[t].attack, n = We.b[t].defense, l = 0; l < a; l++) {
+                                    var u = Number(We.b[t].order.toString() + (1e3 + (0, je.Iy)(0, 900)).toString());
+                                    s.push({
+                                        id: e.id,
+                                        defense: n,
+                                        order: u,
+                                        category: We.b[t].category
+                                    });
+                                    var c = Number(We.b[t].category.toString() + (1e3 + (0, je.Iy)(0, 900)).toString());
                                     o.push({
-                                        id: t.id,
-                                        defense: u,
-                                        order: d
-                                    }), n += l
+                                        id: e.id,
+                                        attack: i,
+                                        order: c,
+                                        category: We.b[t].category
+                                    })
                                 }
                             })), o.sort((function (e, t) {
                                 return e.order > t.order ? 1 : t.order > e.order ? -1 : 0
+                            })), s.sort((function (e, t) {
+                                return e.order > t.order ? 1 : t.order > e.order ? -1 : 0
                             }));
-                            var s = [];
-                            i.forEach((function (e) {
-                                n > e.defense ? (s.push(e.id), n -= e.defense) : n = 0
-                            }));
-                            var l = [];
-                            if (a > 0 && o.forEach((function (e) {
-                                    a > e.defense ? (l.push(e.id), a -= e.defense) : a = 0
-                                })), n > 0 && (a = 0), a > 0) {
-                                var u = this.MainStore.run.enemies.findIndex((function (t) {
-                                    return t.id === e.MainStore.run.enemy
-                                })); - 1 !== u ? (this.dCombat || (this.MainStore.run.enemies[u].owned = 1), this.dCombat || this.MainStore.ReqGenStore.runGen("enemy", this.MainStore.run.enemy, t)) : (u = this.MainStore.run.diplomacy.findIndex((function (t) {
-                                    return t.id === e.MainStore.run.enemy
-                                })), this.dCombat || (this.MainStore.run.diplomacy[u].owned = 1), this.dCombat || this.MainStore.ReqGenStore.runGen("trade", this.MainStore.run.enemy, t), this.MainStore.DiplomacyStore.cancelAttack(this.MainStore.run.enemy))
-                            }
-                            s.length > 0 && (this.dCombat || s.forEach((function (t) {
-                                e.destroyArmy(t, 1, "army")
-                            }))), this.dCombat || Ve("event", "attack", this.MainStore.run.enemy, a > 0 ? 1 : 0), this._battleLog(a, s, l, this.enemyOption.label), this.dCombat || a > 0 && (this.MainStore.run.spy === this.MainStore.run.enemy && this.MainStore.updateSpy(""), this.MainStore.updateEnemy("")), this.attackInProgress = !1, this.MainStore.save()
+                            for (var l = 0, u = [], c = [], d = function () {
+                                    var e = 0,
+                                        t = [];
+                                    i.forEach((function (r) {
+                                        if ("undefined" !== typeof s[e]) {
+                                            var a = r.attack,
+                                                i = 4 === r.category ? 1 : r.category + 1;
+                                            s[e].category === i && (a *= 2), a >= s[e].defense ? (c.push(s[e].id), t.push(e), e++) : s[e].defense -= r.attack
+                                        }
+                                    }));
+                                    var r = 0,
+                                        a = [];
+                                    o.forEach((function (e) {
+                                        if ("undefined" !== typeof n[r]) {
+                                            var t = e.attack,
+                                                i = 4 === e.category ? 1 : e.category + 1;
+                                            n[r].category === i && (t *= 2), t >= n[r].defense ? (u.push(n[r].id), a.push(r), r++) : n[r].defense -= e.attack
+                                        }
+                                    })), t.forEach((function (e) {
+                                        var t = o.findIndex((function (t) {
+                                            return t.id === s[e].id
+                                        }));
+                                        o.splice(t, 1), delete s[e]
+                                    })), a.forEach((function (e) {
+                                        var t = i.findIndex((function (t) {
+                                            return t.id === n[e].id
+                                        }));
+                                        i.splice(t, 1), delete n[e]
+                                    })), s = s.filter((function (e) {
+                                        return void 0 !== e
+                                    })), n = n.filter((function (e) {
+                                        return void 0 !== e
+                                    })), 0 === n.length ? l = 2 : 0 === s.length && (l = 1)
+                                }; 0 === l;) d();
+                            if (1 === l) {
+                                if ("attack" === e) {
+                                    var p = this.MainStore.run.enemies.findIndex((function (e) {
+                                        return e.id === r.MainStore.run.enemy
+                                    })); - 1 !== p ? (this.dCombat || (this.MainStore.run.enemies[p].owned = 1), this.dCombat || this.MainStore.ReqGenStore.runGen("enemy", this.MainStore.run.enemy, t)) : (p = this.MainStore.run.diplomacy.findIndex((function (e) {
+                                        return e.id === r.MainStore.run.enemy
+                                    })), this.dCombat || (this.MainStore.run.diplomacy[p].owned = 1), this.dCombat || this.MainStore.ReqGenStore.runGen("trade", this.MainStore.run.enemy, t), this.MainStore.DiplomacyStore.cancelAttack(this.MainStore.run.enemy))
+                                }
+                            } else "defense" === e && (this.dCombat || this.MainStore.run.resources.forEach((function (e) {
+                                "legacy" !== e.id && "fame" !== e.id && "relic" !== e.id && "coin" !== e.id && "tome_wisdom" !== e.id && "luck" !== e.id && "gem" !== e.id && "titan_gift" !== e.id && r.MainStore.ResourcesStore.setResource(e.id, 0)
+                            })));
+                            return u.length > 0 && (this.dCombat || u.forEach((function (t) {
+                                "attack" === e ? r.destroyArmy(t, 1, "army") : r.destroyArmy(t, 1, "army", !0)
+                            }))), this.dCombat || ("attack" === e ? Ve("event", "attack", this.MainStore.run.enemy, 1 === l ? 1 : 0) : Ve("event", "defense", a, 1 === l ? 1 : 0)), "attack" === e ? this._battleLog(l, u, c, this.enemyOption.label) : this._battleLog(l, u, c, (0, Ae.K)("dip_" + a)), "attack" === e && (this.dCombat || 1 === l && (this.MainStore.run.spy === this.MainStore.run.enemy && this.MainStore.updateSpy(""), this.MainStore.updateEnemy("")), this.attackInProgress = !1), this.MainStore.save(), 1 === l
+                        }
+                    }, {
+                        key: "processAttack",
+                        value: function () {
+                            this._fight("attack")
                         }
                     }, {
                         key: "processDefense",
                         value: function (e) {
-                            var t = this,
-                                r = Be.find((function (t) {
-                                    return t.id === e
-                                })),
-                                a = this._checkCategories(r, "defense"),
-                                i = 0,
-                                n = [];
-                            this.MainStore.run.army.forEach((function (e) {
-                                var r = Ze.b.findIndex((function (t) {
-                                    return t.id === e.id
-                                }));
-                                if (e.value - e.away > 0)
-                                    for (var o = t._calcArmyStats(e.id, Ze.b[r], a[1]), s = o[0], l = o[1], u = 0; u < e.value - e.away; u++) {
-                                        var c = Number(Ze.b[r].order.toString() + (1e3 + (0, je.Iy)(0, 900)).toString());
-                                        n.push({
-                                            id: e.id,
-                                            defense: l,
-                                            order: c
-                                        }), i += s
-                                    }
-                            })), n.sort((function (e, t) {
-                                return e.order > t.order ? 1 : t.order > e.order ? -1 : 0
-                            }));
-                            var o = 0,
-                                s = [];
-                            r.army.forEach((function (e) {
-                                var r = Ze.b.findIndex((function (t) {
-                                        return t.id === e.id
-                                    })),
-                                    i = e.value;
-                                "undefined" === typeof Ze.b[r].cap && (i = t._addEnemiesQtyModifiers(i));
-                                for (var n = t._calcEnemyStats(Ze.b[r], a[0]), l = n[0], u = n[1], c = 0; c < i; c++) {
-                                    var d = Number(Ze.b[r].order.toString() + (1e3 + (0, je.Iy)(0, 900)).toString());
-                                    s.push({
-                                        id: e.id,
-                                        defense: u,
-                                        order: d
-                                    }), o += l
-                                }
-                            })), s.sort((function (e, t) {
-                                return e.order > t.order ? 1 : t.order > e.order ? -1 : 0
-                            }));
-                            var l = [];
-                            n.forEach((function (e) {
-                                o > e.defense ? (l.push(e.id), o -= e.defense) : o = 0
-                            }));
-                            var u = [];
-                            return i > 0 && s.forEach((function (e) {
-                                i > e.defense ? (u.push(e.id), i -= e.defense) : i = 0
-                            })), o > 0 && (i = 0), this.dCombat || Ve("event", "defense", e, i > 0 ? 1 : 0), i > 0 || this.dCombat || this.MainStore.run.resources.forEach((function (e) {
-                                "legacy" !== e.id && "fame" !== e.id && "relic" !== e.id && "coin" !== e.id && "tome_wisdom" !== e.id && "luck" !== e.id && "gem" !== e.id && "titan_gift" !== e.id && t.MainStore.ResourcesStore.setResource(e.id, 0)
-                            })), l.length > 0 && (this.dCombat || l.forEach((function (e) {
-                                t.destroyArmy(e, 1, "army", !0)
-                            }))), this._battleLog(i, l, u, (0, Ae.K)("dip_" + e)), this.MainStore.save(), i > 0
+                            return this._fight("defense", e)
                         }
                     }, {
                         key: "processBoss",
@@ -33772,15 +33851,15 @@
                             var r = new Set,
                                 a = new Set;
                             return this.MainStore.run.army.forEach((function (e) {
-                                var a = Ze.b.findIndex((function (t) {
+                                var a = We.b.findIndex((function (t) {
                                     return t.id === e.id
                                 }));
-                                "army" === Ze.b[a].type && ("attack" === t && e.away > 0 || "defense" === t && e.value - e.away > 0) && r.add(Ze.b[a].category)
+                                "army" === We.b[a].type && ("attack" === t && e.away > 0 || "defense" === t && e.value - e.away > 0) && r.add(We.b[a].category)
                             })), e.army.forEach((function (e) {
-                                var t = Ze.b.findIndex((function (t) {
+                                var t = We.b.findIndex((function (t) {
                                     return t.id === e.id
                                 }));
-                                a.add(Ze.b[t].category)
+                                a.add(We.b[t].category)
                             })), [r, a]
                         }
                     }, {
@@ -33819,8 +33898,8 @@
                         key: "_battleLog",
                         value: function (e, t, r, a) {
                             this.lastBattleLog = [];
-                            var i = e > 0 ? "text-green-500" : "text-red-500",
-                                n = e > 0 ? "text-green-600" : "text-red-600";
+                            var i = 1 === e ? "text-green-500" : "text-red-500",
+                                n = 1 === e ? "text-green-600" : "text-red-600";
                             this.MainStore.addLog("~~~~~~~~~~", i, !0, !1);
                             var o, s = "",
                                 l = "";
@@ -33836,7 +33915,7 @@
                                     t > 0 && (s += ", "), s += o[e] + " " + (o[e] > 1 ? (0, Ae.K)("uni_" + e + "_plural") : (0, Ae.K)("uni_" + e)), u += o[e]
                                 })), this.MainStore.addLog(s, n, !0, !1), this.lastBattleLog.push(s), this.MainStore.StatsStore.updateStat("kill", u), l += s
                             }
-                            e > 0 ? (s = (0, Ae.K)("victory"), this.MainStore.addNotification((0, Ae.K)("victory") + " " + l, "battle", "green", !1, !0, !1, a)) : (s = (0, Ae.K)("defeat"), this.MainStore.addNotification((0, Ae.K)("defeat") + " " + l, "battle", "red", !1, !0, !1, a)), this.MainStore.addLog(a + ": " + s, n, !0, !1), this.lastBattleLog.push(s), this.MainStore.addLog("~~~~~~~~~~", i, !0, !1), this.lastBattleLog.reverse()
+                            1 === e ? (s = (0, Ae.K)("victory"), this.MainStore.addNotification((0, Ae.K)("victory") + " " + l, "battle", "green", !1, !0, !1, a)) : (s = (0, Ae.K)("defeat"), this.MainStore.addNotification((0, Ae.K)("defeat") + " " + l, "battle", "red", !1, !0, !1, a)), this.MainStore.addLog(a + ": " + s, n, !0, !1), this.lastBattleLog.push(s), this.MainStore.addLog("~~~~~~~~~~", i, !0, !1), this.lastBattleLog.reverse()
                         }
                     }, {
                         key: "addArmyQty",
@@ -33859,10 +33938,10 @@
                                 this.MainStore.idxs.army[e] = a
                             } else this.MainStore.run.army[this.MainStore.idxs.army[e]].value++;
                             this.MainStore.ReqGenStore.runGen("army", e);
-                            var i = Ze.b.findIndex((function (t) {
+                            var i = We.b.findIndex((function (t) {
                                 return t.id === e
                             }));
-                            "undefined" !== typeof Ze.b[i].cap && this.MainStore.run.army[this.MainStore.idxs.army[e]].value >= Ze.b[i].cap && this.MainStore.addNotification("max_cap", "key", "common", !1), this.MainStore.save()
+                            "undefined" !== typeof We.b[i].cap && this.MainStore.run.army[this.MainStore.idxs.army[e]].value >= We.b[i].cap && this.MainStore.addNotification("max_cap", "key", "common", !1), this.MainStore.save()
                         }
                     }, {
                         key: "updateAway",
@@ -33881,10 +33960,10 @@
                         value: function (e) {
                             var t = this;
                             this.MainStore.run.army.forEach((function (r) {
-                                var a = Ze.b.findIndex((function (e) {
+                                var a = We.b.findIndex((function (e) {
                                     return e.id === r.id
                                 }));
-                                Ze.b[a].type === e && (t.MainStore.run.army[t.MainStore.idxs.army[r.id]].away = 0)
+                                We.b[a].type === e && (t.MainStore.run.army[t.MainStore.idxs.army[r.id]].away = 0)
                             }))
                         }
                     }, {
@@ -33892,10 +33971,10 @@
                         value: function (e) {
                             var t = this;
                             this.MainStore.run.army.forEach((function (r) {
-                                var a = Ze.b.findIndex((function (e) {
+                                var a = We.b.findIndex((function (e) {
                                     return e.id === r.id
                                 }));
-                                Ze.b[a].type === e && (t.MainStore.run.army[t.MainStore.idxs.army[r.id]].away = t.MainStore.run.army[t.MainStore.idxs.army[r.id]].value)
+                                We.b[a].type === e && (t.MainStore.run.army[t.MainStore.idxs.army[r.id]].away = t.MainStore.run.army[t.MainStore.idxs.army[r.id]].value)
                             }))
                         }
                     }, {
@@ -33974,7 +34053,7 @@
                             var e = this,
                                 t = (0, je.Vf)(40),
                                 r = "";
-                            return We.forEach((function (a) {
+                            return Ze.forEach((function (a) {
                                 a.found.includes(t) && -1 === e.MainStore.run.enemies.findIndex((function (e) {
                                     return e.id === a.id
                                 })) && e.MainStore.ReqGenStore.checkReq("enemy", a.id, {
@@ -36489,6 +36568,69 @@
                         type: "cap",
                         id: "army",
                         value: 3
+                    }]
+                }, {
+                    id: "boot_camp",
+                    cat: "defense",
+                    tab: 1,
+                    cap: 8,
+                    age: 100,
+                    req: [{
+                        type: "resource",
+                        id: "gold",
+                        value: 2500,
+                        multi: 1.4
+                    }, {
+                        type: "resource",
+                        id: "iron",
+                        value: 1500,
+                        multi: 1.4
+                    }, {
+                        type: "resource",
+                        id: "tools",
+                        value: 1500,
+                        multi: 1.4
+                    }, {
+                        type: "tech",
+                        id: "boot_camp_t",
+                        value: 1
+                    }],
+                    gen: [{
+                        type: "modifier",
+                        type_id: "army",
+                        id: "archer",
+                        type_gen: "stat",
+                        gen: "defense",
+                        value: 1,
+                        perc: !1
+                    }, {
+                        type: "modifier",
+                        type_id: "army",
+                        id: "phalanx",
+                        type_gen: "stat",
+                        gen: "defense",
+                        value: 1,
+                        perc: !1
+                    }, {
+                        type: "modifier",
+                        type_id: "army",
+                        id: "warrior",
+                        type_gen: "stat",
+                        gen: "defense",
+                        value: 1,
+                        perc: !1
+                    }, {
+                        type: "modifier",
+                        type_id: "army",
+                        id: "light_cavarly",
+                        type_gen: "stat",
+                        gen: "defense",
+                        value: 1,
+                        perc: !1
+                    }, {
+                        type: "cap",
+                        id: "army",
+                        value: 12
                     }]
                 }, {
                     id: "castrum_militia",
@@ -41256,6 +41398,7 @@
                             selectTab: s.aD,
                             buildings: s.Fl,
                             buildableBuildings: s.Fl,
+                            buildableCapBuildings: s.Fl,
                             categories: s.Fl,
                             categoriesColony: s.Fl,
                             visibleColony: s.Fl,
@@ -41301,6 +41444,14 @@
                             var e = this;
                             return Ue.filter((function (t) {
                                 return e.MainStore.ReqGenStore.checkReq("building", t.id, t)
+                            }))
+                        }
+                    }, {
+                        key: "buildableCapBuildings",
+                        get: function () {
+                            var e = this;
+                            return Ue.filter((function (t) {
+                                return e.MainStore.ReqGenStore.checkCapReq("building", t.id, t)
                             }))
                         }
                     }, {
@@ -44877,6 +45028,18 @@
                         value: 1
                     }]
                 }, {
+                    id: "ancient_spell_p",
+                    type: "prayer",
+                    req: [{
+                        type: "resource",
+                        id: "faith",
+                        value: 1250
+                    }, {
+                        type: "tech",
+                        id: "ancient_spell",
+                        value: 1
+                    }]
+                }, {
                     id: "sacred_place",
                     type: "prayer",
                     req: [{
@@ -45863,6 +46026,39 @@
                         gen: "defense",
                         value: 20,
                         perc: !1
+                    }]
+                }, {
+                    id: "spell_ancient",
+                    type: "spell",
+                    req: [{
+                        type: "prayer",
+                        id: "ancient_spell_p",
+                        value: 1
+                    }],
+                    gen: [{
+                        type: "resource",
+                        id: "mana",
+                        value: -5
+                    }, {
+                        type: "resource",
+                        id: "food",
+                        value: 3
+                    }, {
+                        type: "resource",
+                        id: "wood",
+                        value: 2
+                    }, {
+                        type: "resource",
+                        id: "stone",
+                        value: 2
+                    }, {
+                        type: "resource",
+                        id: "copper",
+                        value: 1.5
+                    }, {
+                        type: "resource",
+                        id: "iron",
+                        value: 1
                     }]
                 }, {
                     id: "theresmore_revealed",
@@ -48510,6 +48706,21 @@
                         value: 1
                     }]
                 }, {
+                    id: "ancient_spell",
+                    req: [{
+                        type: "resource",
+                        id: "faith",
+                        value: 1250
+                    }, {
+                        type: "tech",
+                        id: "magic",
+                        value: 1
+                    }, {
+                        type: "stat",
+                        id: "ng_reset",
+                        value: 1
+                    }]
+                }, {
                     id: "zenix_familiar_t",
                     req: [{
                         type: "resource",
@@ -48765,6 +48976,36 @@
                         id: "fame",
                         value: 25,
                         fix: !0
+                    }]
+                }, {
+                    id: "phalanx_combat",
+                    req: [{
+                        type: "resource",
+                        id: "research",
+                        value: 2500
+                    }, {
+                        type: "tech",
+                        id: "warfare",
+                        value: 1
+                    }, {
+                        type: "stat",
+                        id: "ng_reset",
+                        value: 2
+                    }]
+                }, {
+                    id: "boot_camp_t",
+                    req: [{
+                        type: "resource",
+                        id: "research",
+                        value: 3e3
+                    }, {
+                        type: "tech",
+                        id: "phalanx_combat",
+                        value: 1
+                    }, {
+                        type: "stat",
+                        id: "ng_reset",
+                        value: 2
                     }]
                 }, {
                     id: "canava_mercenary",
@@ -49974,17 +50215,6 @@
                     }, {
                         type: "building",
                         id: "library_souls",
-                        value: 1
-                    }]
-                }, {
-                    id: "huge_cave_t",
-                    req: [{
-                        type: "resource",
-                        id: "research",
-                        value: 26e3
-                    }, {
-                        type: "enemy",
-                        id: "huge_cave",
                         value: 1
                     }]
                 }, {
@@ -51288,6 +51518,17 @@
                         value: 1
                     }]
                 }, {
+                    id: "huge_cave_t",
+                    req: [{
+                        type: "resource",
+                        id: "research",
+                        value: 125e3
+                    }, {
+                        type: "enemy",
+                        id: "huge_cave",
+                        value: 1
+                    }]
+                }, {
                     id: "colonial_trade",
                     req: [{
                         type: "resource",
@@ -52019,6 +52260,12 @@
                             return !!a && this.checkReq(e, t, r, !0, !0)
                         }
                     }, {
+                        key: "checkCapReq",
+                        value: function (e, t) {
+                            var r = arguments.length > 2 && void 0 !== arguments[2] && arguments[2];
+                            return this.checkReq(e, t, r, !0, !1, !1, !0)
+                        }
+                    }, {
                         key: "checkReq",
                         value: function (e, t) {
                             var r = this,
@@ -52026,29 +52273,31 @@
                                 i = !(arguments.length > 3 && void 0 !== arguments[3]) || arguments[3],
                                 n = arguments.length > 4 && void 0 !== arguments[4] && arguments[4],
                                 o = arguments.length > 5 && void 0 !== arguments[5] && arguments[5],
-                                s = !0;
+                                s = arguments.length > 6 && void 0 !== arguments[6] && arguments[6],
+                                l = !0;
                             if (!1 === a && (a = this._getData(e, t)), a.req) {
-                                var l = this.checkOwned(e, t);
-                                if (("building" === e || "prayer" === e || "tech" === e) && l < 0 && !o) return !1;
-                                if (("building" === e || "army" === e) && a.cap && l >= a.cap && i) return !1;
+                                var u = this.checkOwned(e, t);
+                                if (("building" === e || "prayer" === e || "tech" === e) && u < 0 && !o) return !1;
+                                if (("building" === e || "army" === e) && a.cap && u >= a.cap && i) return !1;
                                 a.req.forEach((function (e) {
                                     var t = e.value;
-                                    switch (l > 0 && e.multi && (t *= Math.pow(e.multi, l)), e.type) {
+                                    switch (u > 0 && e.multi && (t *= Math.pow(e.multi, u)), e.type) {
                                         case "resource":
-                                            i && (t = Math.floor(t), r.checkOwned(e.type, e.id, t) ? n && r.MainStore.ResourcesStore.useResource(e.id, t) : s = !1);
+                                            if (s) t = Math.floor(t), r.MainStore.ResourcesStore.getResourceCap(e.id) < t && (l = !1);
+                                            else i && (t = Math.floor(t), r.checkOwned(e.type, e.id, t) ? n && r.MainStore.ResourcesStore.useResource(e.id, t) : l = !1);
                                             break;
                                         case "building":
                                             if (e.consume)
-                                                if (i) r.checkOwned(e.type, e.id, t) ? n && r.MainStore.BuildingsStore.destroyBuilding(e.id) : s = !1;
-                                                else r.checkReq("building", e.id, !1, !1, !1, !0) || (s = !1);
-                                            else r.checkOwned(e.type, e.id, t) || (s = !1);
+                                                if (i) r.checkOwned(e.type, e.id, t) ? n && r.MainStore.BuildingsStore.destroyBuilding(e.id) : l = !1;
+                                                else r.checkReq("building", e.id, !1, !1, !1, !0) || (l = !1);
+                                            else r.checkOwned(e.type, e.id, t) || (l = !1);
                                             break;
                                         default:
-                                            r.checkOwned(e.type, e.id, t) || (s = !1)
+                                            r.checkOwned(e.type, e.id, t) || (l = !1)
                                     }
                                 }))
                             }
-                            return s
+                            return l
                         }
                     }, {
                         key: "checkOwned",
@@ -52250,9 +52499,9 @@
                                     }))) && (a = De[r]);
                                     break;
                                 case "army":
-                                    -1 !== (r = Ze.b.findIndex((function (e) {
+                                    -1 !== (r = We.b.findIndex((function (e) {
                                         return e.id === t
-                                    }))) && (a = Ze.b[r]);
+                                    }))) && (a = We.b[r]);
                                     break;
                                 case "building":
                                     -1 !== (r = Ue.findIndex((function (e) {
@@ -52409,7 +52658,7 @@
                             var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 1,
                                 r = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
                                 a = !0,
-                                i = this._getResourceCap(e);
+                                i = this.getResourceCap(e);
                             if ("undefined" === typeof this.MainStore.idxs.resources[e] && (t > 0 || r)) {
                                 var n = this._getResourceEmptyObj(e);
                                 t = Math.round(100 * t) / 100, i > 0 && t > i && (t = i), "fame" === e && this.MainStore.StatsStore.updateStat("fame", t), n.value = t;
@@ -52434,20 +52683,20 @@
                             this.MainStore.save()
                         }
                     }, {
+                        key: "getResourceCap",
+                        value: function (e) {
+                            var t = this.MainStore.run.caps.findIndex((function (t) {
+                                return t.id === e
+                            }));
+                            return -1 !== t ? this.MainStore.run.caps[t].value : this._getResourceBaseCap(e)
+                        }
+                    }, {
                         key: "_getResourceBaseCap",
                         value: function (e) {
                             var t = ft.v.findIndex((function (t) {
                                 return t.id === e
                             }));
                             return -1 === t ? 0 : ft.v[t].cap ? ft.v[t].cap : 0
-                        }
-                    }, {
-                        key: "_getResourceCap",
-                        value: function (e) {
-                            var t = this.MainStore.run.caps.findIndex((function (t) {
-                                return t.id === e
-                            }));
-                            return -1 !== t ? this.MainStore.run.caps[t].value : this._getResourceBaseCap(e)
                         }
                     }, {
                         key: "_getResourceEmptyObj",
@@ -52781,8 +53030,8 @@
                             WDS_SOCKET_PATH: void 0,
                             WDS_SOCKET_PORT: void 0,
                             FAST_REFRESH: !0,
-                            REACT_APP_VERSION: "0.60"
-                        }.REACT_APP_DEV || "preview" === window.location.hostname.split(".")[0]), this.version = (0, je.JC)("0.60"), this.intervalMs = 250, this.intervalRandomAttackDice = 8800, this.lastInterval = 0, this.save = l(2e3, this.saveThrottle), this.ads = !1, this.isPWA = !1, this.isTWA = !1, this.idxs = (0, a.Z)({}, (0, je.qn)("idxs", Ot)), this.run = (0, a.Z)({}, (0, je.qn)("run", qt)), this.achievements = (0, je.qn)("ach", []), this.stats = (0, je.qn)("stats", []), this.legacies = (0, je.qn)("leg", []), this.selectedTab = 0, this.logs = (0, je.qn)("logs", []), this.logData = !1, this.sD = !1, this.softResetInProgress = !1, this.newGamePlusInProgress = !1, this.firstStart = !0, this.keyPress = "", this.confirmShow = !1, this.confirmTitle = "", this.confirmText = "", this.confirmType = "", this.confirmCancel = void 0, this.confirmOk = void 0, this.imageNotificationShow = !1, this.imageNotificationKey = "", this.imageNotificationTitle = "", this.imageNotificationText = "", this.imageNotificationType = "", this.showSupport = !1, this.AchievementsStore = void 0, this.AdsStore = void 0, this.AncestorsStore = void 0, this.ArmyStore = void 0, this.BuildingsStore = void 0, this.DiplomacyStore = void 0, this.LegacyStore = void 0, this.MagicStore = void 0, this.MarketStore = void 0, this.ModifiersStore = void 0, this.PopulationStore = void 0, this.ReqGenStore = void 0, this.ResourcesStore = void 0, this.SettingsStore = void 0, this.StatsStore = void 0, this.TechsStore = void 0, this.swRegistration = void 0, this.workerInstance = void 0, this.defaultNumberFormat = new Intl.NumberFormat, this.bigNumberFormat = new Intl.NumberFormat(void 0, {
+                            REACT_APP_VERSION: "0.61"
+                        }.REACT_APP_DEV || "preview" === window.location.hostname.split(".")[0]), this.version = (0, je.JC)("0.61"), this.intervalMs = 250, this.intervalRandomAttackDice = 8800, this.lastInterval = 0, this.save = l(2e3, this.saveThrottle), this.ads = !1, this.isPWA = !1, this.isTWA = !1, this.idxs = (0, a.Z)({}, (0, je.qn)("idxs", Ot)), this.run = (0, a.Z)({}, (0, je.qn)("run", qt)), this.achievements = (0, je.qn)("ach", []), this.stats = (0, je.qn)("stats", []), this.legacies = (0, je.qn)("leg", []), this.selectedTab = 0, this.logs = (0, je.qn)("logs", []), this.logData = !1, this.sD = !1, this.softResetInProgress = !1, this.newGamePlusInProgress = !1, this.firstStart = !0, this.keyPress = "", this.confirmShow = !1, this.confirmTitle = "", this.confirmText = "", this.confirmType = "", this.confirmCancel = void 0, this.confirmOk = void 0, this.imageNotificationShow = !1, this.imageNotificationKey = "", this.imageNotificationTitle = "", this.imageNotificationText = "", this.imageNotificationType = "", this.showSupport = !1, this.AchievementsStore = void 0, this.AdsStore = void 0, this.AncestorsStore = void 0, this.ArmyStore = void 0, this.BuildingsStore = void 0, this.DiplomacyStore = void 0, this.LegacyStore = void 0, this.MagicStore = void 0, this.MarketStore = void 0, this.ModifiersStore = void 0, this.PopulationStore = void 0, this.ReqGenStore = void 0, this.ResourcesStore = void 0, this.SettingsStore = void 0, this.StatsStore = void 0, this.TechsStore = void 0, this.swRegistration = void 0, this.workerInstance = void 0, this.defaultNumberFormat = new Intl.NumberFormat, this.bigNumberFormat = new Intl.NumberFormat(void 0, {
                             minimumFractionDigits: 1
                         }), this.twoNumberFormat = new Intl.NumberFormat(void 0, {
                             minimumFractionDigits: 2,
@@ -53316,7 +53565,7 @@
                 }(o.Component),
                 Ht = (0, t.f3)("MainStore")((0, t.Pi)(Dt)),
                 zt = r(7914),
-                Zt = function (e) {
+                Wt = function (e) {
                     (0, we.Z)(r, e);
                     var t = (0, ke.Z)(r);
 
@@ -53359,7 +53608,7 @@
                         }
                     }]), r
                 }(o.Component),
-                Wt = function (e) {
+                Zt = function (e) {
                     (0, we.Z)(r, e);
                     var t = (0, ke.Z)(r);
 
@@ -53384,7 +53633,7 @@
                         }
                     }]), r
                 }(o.Component),
-                Bt = Wt,
+                Bt = Zt,
                 Gt = function (e) {
                     (0, we.Z)(r, e);
                     var t = (0, ke.Z)(r);
@@ -53481,7 +53730,7 @@
                                                 }), (0, Ce.jsxs)("span", {
                                                     className: "inline lg:hidden",
                                                     children: [(0, Ce.jsx)(Bt, {}), " "]
-                                                }), (0, Ce.jsx)(Zt, {
+                                                }), (0, Ce.jsx)(Wt, {
                                                     id: r
                                                 })]
                                             })
@@ -53933,7 +54182,7 @@
                                 case 100:
                                     a += " !border-amber-500 dark:!border-amber-600", i += " !text-amber-600 dark:!text-amber-300"
                             }
-                            return this.props.buildable ? this.state.progress && (a += " btn-progress btn-progress-1") : a += e ? " btn-off btn-cap" : " btn-off", !e && this.props.buildable && (a += i), !e || e && this.props.MainStore.SettingsStore.showCapBuildings ? (0, Ce.jsx)("div", {
+                            return this.props.buildable ? this.state.progress && (a += " btn-progress btn-progress-1") : e ? a += " btn-off btn-cap" : this.props.buildableCap ? a += " btn-off" : a += " btn-off-cap", !e && this.props.buildable && (a += i), !e || e && this.props.MainStore.SettingsStore.showCapBuildings ? (0, Ce.jsx)("div", {
                                 className: "flex flex-col",
                                 children: (0, Ce.jsx)(zt.a, {
                                     content: (0, Ce.jsx)(ar.Z, {
@@ -53995,9 +54244,10 @@
                                 i = this.props.MainStore.BuildingsStore,
                                 n = i.buildings,
                                 o = i.buildableBuildings,
-                                s = i.visibleColony;
+                                s = i.buildableCapBuildings,
+                                l = i.visibleColony;
                             return (0, Ce.jsx)("div", {
-                                className: s ? "tab-container sub-container" : "tab-container",
+                                className: l ? "tab-container sub-container" : "tab-container",
                                 children: this.props.categories.length > 0 ? this.props.categories.map((function (t, i) {
                                     return (0, Ce.jsxs)("div", {
                                         className: "flex flex-wrap min-w-full mt-3 p-3 shadow rounded-lg ring-1 ring-gray-300 dark:ring-mydark-200 bg-gray-100 dark:bg-mydark-600",
@@ -54035,14 +54285,18 @@
                                                     var n = r.buildings.findIndex((function (e) {
                                                             return e.id === i.id
                                                         })),
-                                                        s = -1 !== n ? r.buildings[n].value : 0,
-                                                        l = -1 !== (n = o.findIndex((function (e) {
+                                                        l = -1 !== n ? r.buildings[n].value : 0,
+                                                        u = -1 !== (n = o.findIndex((function (e) {
+                                                            return e.id === i.id
+                                                        }))),
+                                                        c = -1 !== (n = s.findIndex((function (e) {
                                                             return e.id === i.id
                                                         })));
                                                     return (0, Ce.jsx)(ur, {
                                                         id: i.id,
-                                                        qty: s,
-                                                        buildable: l,
+                                                        qty: l,
+                                                        buildable: u,
+                                                        buildableCap: c,
                                                         req: i.req,
                                                         gen: i.gen,
                                                         cap: i.cap,
@@ -54570,7 +54824,7 @@
                                     children: [(0, Ce.jsx)("h5", {
                                         className: "text-2xl font-bold whitespace-nowrap inline mr-2",
                                         children: (0, Ae.K)(this.props.data.id)
-                                    }), (0, Ce.jsx)(Zt, {
+                                    }), (0, Ce.jsx)(Wt, {
                                         id: this.props.data.id,
                                         bigIcon: !0
                                     }), (0, Ce.jsx)("p", {
@@ -54601,7 +54855,7 @@
                                         backgroundColor: this.props.data.color
                                     },
                                     onClick: this.handleAncestor,
-                                    children: [(0, Ae.K)("start_game"), (0, Ce.jsx)(Zt, {
+                                    children: [(0, Ae.K)("start_game"), (0, Ce.jsx)(Wt, {
                                         id: this.props.data.id,
                                         addClasses: "ml-1"
                                     })]
@@ -54628,7 +54882,7 @@
                         value: function () {
                             var e = this.props.MainStore.AncestorsStore.visibleAncestors,
                                 t = "mx-auto mb-14 ",
-                                r = "my-5 space-y-12 space-y-0 grid gap-8 grid-cols-1 ";
+                                r = "my-5 grid gap-8 grid-cols-1 ";
                             switch (e.length) {
                                 case 4:
                                 case 7:
@@ -54752,8 +55006,8 @@
                         name: o.name || "Label"
                     })
                 })),
-                Zr = r(3873),
-                Wr = r(4527),
+                Wr = r(3873),
+                Zr = r(4527),
                 Br = r(5678),
                 Gr = r(7762);
             var Kr = ["checked", "onChange", "name", "value"],
@@ -54807,7 +55061,7 @@
                             id: u,
                             ref: p,
                             role: "switch",
-                            type: (0, Wr.f)(e, d),
+                            type: (0, Zr.f)(e, d),
                             tabIndex: 0,
                             "aria-checked": r,
                             "aria-labelledby": null == c ? void 0 : c.labelledby,
@@ -54844,7 +55098,7 @@
                             s = (0, L.Z)(n, 2),
                             l = s[0],
                             u = s[1],
-                            c = (0, Zr.f)(),
+                            c = (0, Wr.f)(),
                             d = (0, L.Z)(c, 2),
                             p = d[0],
                             h = d[1],
@@ -54878,7 +55132,7 @@
                         }))))
                     },
                     Label: zr,
-                    Description: Zr.d
+                    Description: Wr.d
                 }),
                 Jr = function (e) {
                     (0, we.Z)(r, e);
@@ -54930,6 +55184,9 @@
                 }(o.Component),
                 $r = Jr,
                 ea = [{
+                    version: "0.61",
+                    changes: ["New combat formula", "Added a new style for buildings not buildable due to low cap", "Added new building, new spell and new unit for NG+ games"]
+                }, {
                     version: "0.60",
                     changes: ["Added New Game Plus (NG+)", "Added a new NG+ building", "Added NG+ achievements", "Added Nikharul Soulstealer mission", "Added Zenix Familiar", "Added a new legacy perks", "Added the Alchemist Complex", "Added units to recruit", "Scouts loot notifications have been merged", "Fixed minor bugs", "Fixed typos"]
                 }, {
@@ -54970,7 +55227,7 @@
                     changes: ["Reduced the cost of spies", "Added several new legacy perks", "Added a new building", "Added a few new prayers", "Added a few new spells", "Added new techs to discover", "Added 50 new achievements", "Minor fixes", "Minor balances"]
                 }, {
                     version: "0.40 Overhaul Update",
-                    changes: ["Interface overhaul", "QoL improvements", "Boss system", "Difficulty levels", "Added the fourth era", "Added many techs", "Added a lot of buildings", "Added several legacy perks", "Added a lot of units", "Added many achievements", "Adeed several new prayers", "Added a lot of new spells", "Added many new early and late game enemies", "Major balance of the army", "Major balance of faith and mana", "Major balance of research"]
+                    changes: ["Interface overhaul", "QoL improvements", "Boss system", "Difficulty levels", "Added the fourth era", "Added many techs", "Added a lot of buildings", "Added several legacy perks", "Added a lot of units", "Added many achievements", "Added several new prayers", "Added a lot of new spells", "Added many new early and late game enemies", "Major balance of the army", "Major balance of faith and mana", "Major balance of research"]
                 }, {
                     version: "0.33",
                     changes: ["Added espionage", "Minor fixes", "Minor balances"]
@@ -55378,7 +55635,7 @@
                                                                             }), (0, Ce.jsxs)("div", {
                                                                                 className: "w-full text-center text-gray-500 cursor-pointer text-sm",
                                                                                 onClick: this.showChangelog,
-                                                                                children: ["v ", "0.60", this.props.MainStore.d ? " d" : ""]
+                                                                                children: ["v ", "0.61", this.props.MainStore.d ? " d" : ""]
                                                                             })]
                                                                         })
                                                                     })]
