@@ -33721,7 +33721,7 @@ uni_phalanx_plural: "方阵步兵",
                 if ("boolean" !== typeof r.rewardToGet) {
                   var e =
                     (0, Ae.K)("confirm_reward_ad_description") +
-                    " " +
+                    "" +
                     (0, Ae.K)(
                       "ads_" + r.rewardToGet.id + "_description"
                     ).toLowerCase();
@@ -36630,13 +36630,13 @@ uni_phalanx_plural: "方阵步兵",
                     }),
                     r > 0 &&
                       (this.MainStore.addLog(
-                        (0, Ae.K)("log_spy_death") + " " + r,
+                        (0, Ae.K)("log_spy_death") + "" + r,
                         "text-red-600",
                         !0,
                         !1
                       ),
                       this.MainStore.addNotification(
-                        (0, Ae.K)("log_spy_death") + " " + r,
+                        (0, Ae.K)("log_spy_death") + "" + r,
                         "death",
                         "red",
                         !1
@@ -36674,10 +36674,10 @@ uni_phalanx_plural: "方阵步兵",
                           a > 1
                             ? (0, Ae.K)("uni_" + t.id + "_plural")
                             : (0, Ae.K)("uni_" + t.id);
-                        "" !== n && (n += ", "),
+                        "" !== n && (n += "，"),
                           (n +=
                             a +
-                            " " +
+                            "" +
                             i +
                             " (" +
                             (0, Ae.K)(
@@ -36708,7 +36708,7 @@ uni_phalanx_plural: "方阵步兵",
                           !1
                         ),
                         this.MainStore.addNotification(
-                          (0, Ae.K)("log_spy_full") + " " + n,
+                          (0, Ae.K)("log_spy_full") + "" + n,
                           "spy_success",
                           "green",
                           !1,
@@ -36749,10 +36749,10 @@ uni_phalanx_plural: "方阵步兵",
                             a > 1
                               ? (0, Ae.K)("uni_" + t.id + "_plural")
                               : (0, Ae.K)("uni_" + t.id);
-                          "" !== s && ((i = i.toLowerCase()), (s += ", ")),
+                          "" !== s && ((i = i.toLowerCase()), (s += "，")),
                             (s +=
                               i +
-                              " " +
+                              "" +
                               n.toLowerCase() +
                               " (" +
                               (0, Ae.K)(
@@ -36775,7 +36775,7 @@ uni_phalanx_plural: "方阵步兵",
                             !1
                           ),
                           this.MainStore.addNotification(
-                            (0, Ae.K)("log_spy_up50") + " " + s.toLowerCase(),
+                            (0, Ae.K)("log_spy_up50") + "" + s.toLowerCase(),
                             "spy_success",
                             "green",
                             !1,
@@ -36785,7 +36785,7 @@ uni_phalanx_plural: "方阵步兵",
                           );
                       } else
                         this.MainStore.addLog(
-                          a + ": " + (0, Ae.K)("log_spy_down50"),
+                          a + "：" + (0, Ae.K)("log_spy_down50"),
                           "text-red-600",
                           !0,
                           !1
@@ -37196,35 +37196,35 @@ uni_phalanx_plural: "方阵步兵",
                       ((o = t.reduce(function (e, t) {
                         return e[t] ? ++e[t] : (e[t] = 1), e;
                       }, {})),
-                      (s = (0, Ae.K)("died") + ": "),
+                      (s = (0, Ae.K)("died") + "："),
                       Object.keys(o).forEach(function (e, t) {
                         "settlement_defenses" !== e &&
                           (t > 0 &&
-                            s !== (0, Ae.K)("died") + ": " &&
-                            (s += ", "),
+                            s !== (0, Ae.K)("died") + "：" &&
+                            (s += "，"),
                           (s +=
                             o[e] +
-                            " " +
+                            "" +
                             (o[e] > 1
                               ? (0, Ae.K)("uni_" + e + "_plural")
                               : (0, Ae.K)("uni_" + e))));
                       }),
-                      s !== (0, Ae.K)("died") + ": " &&
+                      s !== (0, Ae.K)("died") + "：" &&
                         (this.MainStore.addLog(s, n, !0, !1),
                         this.lastBattleLog.push(s),
-                        (l += s + ". "))),
+                        (l += s + "。"))),
                     r.length > 0)
                   ) {
                     var u = 0;
                     (o = r.reduce(function (e, t) {
                       return e[t] ? ++e[t] : (e[t] = 1), e;
                     }, {})),
-                      (s = (0, Ae.K)("killed") + ": "),
+                      (s = (0, Ae.K)("killed") + "："),
                       Object.keys(o).forEach(function (e, t) {
-                        t > 0 && (s += ", "),
+                        t > 0 && (s += "，"),
                           (s +=
                             o[e] +
-                            " " +
+                            "" +
                             (o[e] > 1
                               ? (0, Ae.K)("uni_" + e + "_plural")
                               : (0, Ae.K)("uni_" + e))),
@@ -37238,7 +37238,7 @@ uni_phalanx_plural: "方阵步兵",
                   1 === e
                     ? ((s = (0, Ae.K)("victory")),
                       this.MainStore.addNotification(
-                        (0, Ae.K)("victory") + " " + l,
+                        (0, Ae.K)("victory") + "" + l,
                         "battle",
                         "green",
                         !1,
@@ -37248,7 +37248,7 @@ uni_phalanx_plural: "方阵步兵",
                       ))
                     : ((s = (0, Ae.K)("defeat")),
                       this.MainStore.addNotification(
-                        (0, Ae.K)("defeat") + " " + l,
+                        (0, Ae.K)("defeat") + "" + l,
                         "battle",
                         "red",
                         !1,
@@ -37256,7 +37256,7 @@ uni_phalanx_plural: "方阵步兵",
                         !1,
                         a
                       )),
-                    this.MainStore.addLog(a + ": " + s, n, !0, !1),
+                    this.MainStore.addLog(a + "：" + s, n, !0, !1),
                     this.lastBattleLog.push(s),
                     this.MainStore.addLog("~~~~~~~~~~", i, !0, !1),
                     this.lastBattleLog.reverse();
@@ -37469,17 +37469,17 @@ uni_phalanx_plural: "方阵步兵",
                       n = "";
                     i.forEach(function (e, t) {
                       r.MainStore.ResourcesStore.addResource(t, e, !0),
-                        "" !== n && (n += ", "),
-                        (n += e + " " + (0, Ae.K)("res_" + t));
+                        "" !== n && (n += "，"),
+                        (n += e + "" + (0, Ae.K)("res_" + t));
                     }),
                       this.MainStore.addLog(
-                        a + ": " + n,
+                        a + "：" + n,
                         "text-blue-500",
                         !0,
                         !1
                       ),
                       this.MainStore.addNotification(
-                        a + ": " + n,
+                        a + "：" + n,
                         "loot",
                         "blue",
                         !1
@@ -47063,7 +47063,7 @@ uni_phalanx_plural: "方阵步兵",
                                 r.push({
                                   label:
                                     (0, Ae.K)("ancestor") +
-                                    " " +
+                                    "-" +
                                     (0, Ae.K)(a.id).toLowerCase(),
                                   value: i + "%",
                                 }));
@@ -47092,7 +47092,7 @@ uni_phalanx_plural: "方阵步兵",
                                 var y =
                                   r.push({
                                     label: (0, Ae.K)("achievements"),
-                                    value: i + "/s",
+                                    value: i + "/秒",
                                   }) - 1;
                                 (n.value = d.value), (n.valueIdx = y);
                               } else
@@ -47102,7 +47102,7 @@ uni_phalanx_plural: "方阵步兵",
                                   )),
                                   (r[n.valueIdx] = {
                                     label: (0, Ae.K)("achievements"),
-                                    value: i + "/s",
+                                    value: i + "/秒",
                                   });
                               break;
                             case "army":
@@ -47129,7 +47129,7 @@ uni_phalanx_plural: "方阵步兵",
                                 var f =
                                   r.push({
                                     label: (0, Ae.K)("armies"),
-                                    value: i + "/s",
+                                    value: i + "/秒",
                                   }) - 1;
                                 (o.value = d.value), (o.valueIdx = f);
                               } else
@@ -47139,14 +47139,14 @@ uni_phalanx_plural: "方阵步兵",
                                   )),
                                   (r[o.valueIdx] = {
                                     label: (0, Ae.K)("armies"),
-                                    value: i + "/s",
+                                    value: i + "/秒",
                                   });
                               break;
                             case "building":
                               u === "bui_" + a.id
                                 ? d.perc
                                   ? (r[c].value += "  +  " + i + "%")
-                                  : (r[c].value += "  +  " + i + "/s")
+                                  : (r[c].value += "  +  " + i + "/秒")
                                 : ((u = "bui_" + a.id),
                                   (c = d.perc
                                     ? r.push({
@@ -47155,7 +47155,7 @@ uni_phalanx_plural: "方阵步兵",
                                       }) - 1
                                     : r.push({
                                         label: (0, Ae.K)("bui_" + a.id),
-                                        value: i + "/s",
+                                        value: i + "/秒",
                                       }) - 1));
                               break;
                             case "enemy":
@@ -47182,7 +47182,7 @@ uni_phalanx_plural: "方阵步兵",
                                 var m =
                                   r.push({
                                     label: (0, Ae.K)("enemies"),
-                                    value: i + "/s",
+                                    value: i + "/秒",
                                   }) - 1;
                                 (s.value = d.value), (s.valueIdx = m);
                               } else
@@ -47192,14 +47192,14 @@ uni_phalanx_plural: "方阵步兵",
                                   )),
                                   (r[s.valueIdx] = {
                                     label: (0, Ae.K)("enemies"),
-                                    value: i + "/s",
+                                    value: i + "/秒",
                                   });
                               break;
                             case "resource":
                               (u = "res_" + a.id),
                                 r.push({
                                   label: (0, Ae.K)("res_" + a.id),
-                                  value: i + "/s",
+                                  value: i + "/秒",
                                 });
                               break;
                             case "reward":
@@ -47210,7 +47210,7 @@ uni_phalanx_plural: "方阵步兵",
                                   })
                                 : r.push({
                                     label: "Ads reward",
-                                    value: i + "/s",
+                                    value: i + "/秒",
                                   });
                               break;
                             case "spell":
@@ -47237,7 +47237,7 @@ uni_phalanx_plural: "方阵步兵",
                                 var v =
                                   r.push({
                                     label: (0, Ae.K)("spells"),
-                                    value: i + "/s",
+                                    value: i + "/秒",
                                   }) - 1;
                                 (l.value = d.value), (l.valueIdx = v);
                               } else
@@ -47247,7 +47247,7 @@ uni_phalanx_plural: "方阵步兵",
                                   )),
                                   (r[l.valueIdx] = {
                                     label: (0, Ae.K)("spells"),
-                                    value: i + "/s",
+                                    value: i + "/秒",
                                   });
                               break;
                             case "tech":
@@ -47259,7 +47259,7 @@ uni_phalanx_plural: "方阵步兵",
                                     })
                                   : r.push({
                                       label: (0, Ae.K)("tec_" + a.id),
-                                      value: i + "/s",
+                                      value: i + "/秒",
                                     });
                               break;
                             case "trade":
@@ -47271,7 +47271,7 @@ uni_phalanx_plural: "方阵步兵",
                                     })
                                   : r.push({
                                       label: (0, Ae.K)("dip_" + a.id),
-                                      value: i + "/s",
+                                      value: i + "/秒",
                                     });
                           }
                       });
@@ -47287,7 +47287,7 @@ uni_phalanx_plural: "方阵步兵",
                           case "population":
                             r.push({
                               label: (0, Ae.K)("pop_" + e.id),
-                              value: i + "/s",
+                              value: i + "/秒",
                               flag: 1,
                             });
                             break;
@@ -47299,7 +47299,7 @@ uni_phalanx_plural: "方阵步兵",
                                     (0, Ae.K)("bui_" + e.idOrig) +
                                     " " +
                                     (0, Ae.K)("res_" + e.id).toLowerCase(),
-                                  value: i + (e.perc ? "%" : "/s"),
+                                  value: i + (e.perc ? "%" : "/秒"),
                                   flag: 1,
                                 });
                                 break;
@@ -47309,7 +47309,7 @@ uni_phalanx_plural: "方阵步兵",
                                     (0, Ae.K)("tec_" + e.idOrig) +
                                     " " +
                                     (0, Ae.K)("res_" + e.id).toLowerCase(),
-                                  value: i + (e.perc ? "%" : "/s"),
+                                  value: i + (e.perc ? "%" : "/秒"),
                                   flag: 1,
                                 });
                             }
@@ -51762,7 +51762,7 @@ uni_phalanx_plural: "方阵步兵",
                         switch (e.type) {
                           case "cap":
                             r.push({
-                              label: (0, Ae.K)("res_" + e.id) + " cap",
+                              label: (0, Ae.K)("res_" + e.id) + "上限",
                               value:
                                 "+" +
                                 t.MainStore.defaultNumberFormat.format(e.value),
@@ -51774,12 +51774,12 @@ uni_phalanx_plural: "方阵步兵",
                               case "army":
                                 a +=
                                   (0, Ae.K)("uni_" + e.id) +
-                                  " " +
+                                  "" +
                                   (0, Ae.K)("army_" + e.gen).toLowerCase();
                                 break;
                               case "population":
                                 if (
-                                  ((a += (0, Ae.K)("pop_" + e.id) + " "),
+                                  ((a += (0, Ae.K)("pop_" + e.id) + "-"),
                                   "resource" === e.type_gen)
                                 )
                                   a += (0, Ae.K)("res_" + e.gen).toLowerCase();
@@ -51811,7 +51811,7 @@ uni_phalanx_plural: "方阵步兵",
                                     t.MainStore.defaultNumberFormat.format(
                                       e.value
                                     ) +
-                                    "/click",
+                                    "/点击",
                                 })
                               : e.perc
                               ? r.push({
@@ -51839,7 +51839,7 @@ uni_phalanx_plural: "方阵步兵",
                                     t.MainStore.defaultNumberFormat.format(
                                       e.value
                                     ) +
-                                    "/s",
+                                    "/秒",
                                 });
                         }
                       }),
@@ -53967,7 +53967,7 @@ uni_phalanx_plural: "方阵步兵",
                                   children: [
                                     (0, Ce.jsx)("span", {
                                       className: "inline lg:hidden",
-                                      children: (0, Ae.K)(t) + ": ",
+                                      children: (0, Ae.K)(t) + "：",
                                     }),
                                     (0, Ae.K)(t + "_description"),
                                     (0, Ce.jsx)("hr", {
@@ -54568,7 +54568,7 @@ uni_phalanx_plural: "方阵步兵",
                       }),
                       (0, Ce.jsxs)("td", {
                         className: i,
-                        children: [this.state.formatTimerStr, "/s"],
+                        children: [this.state.formatTimerStr, "/秒"],
                       }),
                     ],
                   });
@@ -56763,7 +56763,7 @@ uni_phalanx_plural: "方阵步兵",
                                                         (0, Ae.K)(
                                                           "difficulty"
                                                         ) +
-                                                        " " +
+                                                        "-" +
                                                         (0, Ae.K)(
                                                           "difficulty_" + n
                                                         ),
