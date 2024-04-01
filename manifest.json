@@ -611,8 +611,8 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/play/",
-  "scope": "/play/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#202124",
