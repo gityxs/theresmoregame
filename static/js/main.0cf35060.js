@@ -7760,7 +7760,7 @@
             log_ene_nasty_pillagers:
               "侦察兵发现周围有一小群掠夺者，让我们把他们赶走把",
             log_ene_necromancer_crypt:
-              "侦察兵发现了一位死灵法师的家，里面到出都是食尸鬼和恶魂",
+              "侦察兵发现了一位死灵法师的家，里面到处都是食尸鬼和恶魂",
             log_ene_north_sacred_place:
               "侦察兵发现了北部圣地！",
             log_ene_markanat_forest:
