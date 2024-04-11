@@ -40039,8 +40039,8 @@
                     var n =
                       r > 1
                         ? (0, Ce.K)("log_ene_no_loots").replace(
-                            "scouts",
-                            "scouts (" + r + ")"
+                            "侦察兵们",
+                            "侦察兵们(" + r + ")"
                           )
                         : (0, Ce.K)("log_ene_no_loot");
                     this.MainStore.addLog(
@@ -40516,7 +40516,7 @@
                   var e = (0, je.Vf)(20);
                   this._fight("oracle")
                     ? (this.MainStore.addLog(
-                        "Oracle: " +
+                        "神谕：" +
                           (0, Ce.K)("oracle_prediction_victory_" + e),
                         "text-indigo-700 dark:text-indigo-400",
                         !0,
@@ -40529,7 +40529,7 @@
                         !1
                       ))
                     : (this.MainStore.addLog(
-                        "Oracle: " + (0, Ce.K)("oracle_prediction_defeat_" + e),
+                        "神谕：" + (0, Ce.K)("oracle_prediction_defeat_" + e),
                         "text-indigo-700 dark:text-indigo-400",
                         !0,
                         !1
@@ -40696,7 +40696,7 @@
                       ((l = r.reduce(function (e, t) {
                         return e[t] ? ++e[t] : (e[t] = 1), e;
                       }, {})),
-                      (s = (0, Ce.K)("injured") + ": "),
+                      (s = (0, Ce.K)("injured") + "："),
                       Object.keys(l).forEach(function (e, t) {
                         "settlement_defenses" !== e &&
                           (t > 0 &&
@@ -40704,7 +40704,7 @@
                             (s += "，"),
                           (s +=
                             l[e] +
-                            " " +
+                            "" +
                             (l[e] > 1
                               ? (0, Ce.K)("uni_" + e + "_plural")
                               : (0, Ce.K)("uni_" + e))));
@@ -40717,7 +40717,7 @@
                       ((l = t.reduce(function (e, t) {
                         return e[t] ? ++e[t] : (e[t] = 1), e;
                       }, {})),
-                      (s = (0, Ce.K)("died") + ": "),
+                      (s = (0, Ce.K)("died") + "："),
                       Object.keys(l).forEach(function (e, t) {
                         "settlement_defenses" !== e &&
                           (t > 0 &&
@@ -40740,7 +40740,7 @@
                     (l = a.reduce(function (e, t) {
                       return e[t] ? ++e[t] : (e[t] = 1), e;
                     }, {})),
-                      (s = (0, Ce.K)("killed") + ": "),
+                      (s = (0, Ce.K)("killed") + "："),
                       Object.keys(l).forEach(function (e, t) {
                         t > 0 && (s += "，"),
                           (s +=
@@ -40977,8 +40977,8 @@
                     var a =
                         e > 1
                           ? (0, Ce.K)("log_ene_loots").replace(
-                              "scouts",
-                              "scouts (" + e + ")"
+                              "侦察兵们",
+                              "侦察兵们(" + e + ")"
                             )
                           : (0, Ce.K)("log_ene_loot"),
                       i = t.reduce(function (e, t) {
@@ -51077,7 +51077,7 @@
                                 r.push({
                                   label:
                                     (0, Ce.K)("bui_" + e.idOrig) +
-                                    " " +
+                                    "-" +
                                     (0, Ce.K)("res_" + e.id).toLowerCase(),
                                   value: i + (e.perc ? "%" : "/秒"),
                                   flag: 1,
@@ -51087,7 +51087,7 @@
                                 r.push({
                                   label:
                                     (0, Ce.K)("tec_" + e.idOrig) +
-                                    " " +
+                                    "-" +
                                     (0, Ce.K)("res_" + e.id).toLowerCase(),
                                   value: i + (e.perc ? "%" : "/秒"),
                                   flag: 1,
@@ -55856,7 +55856,7 @@
                                 break;
                               case "population":
                                 if (
-                                  ((a += (0, Ce.K)("pop_" + e.id) + " "),
+                                  ((a += (0, Ce.K)("pop_" + e.id) + "-"),
                                   "resource" === e.type_gen)
                                 )
                                   a += (0, Ce.K)("res_" + e.gen).toLowerCase();
@@ -58344,7 +58344,7 @@
                                                                 ? (0, Ce.K)(
                                                                     e.id
                                                                   ) +
-                                                                  " " +
+                                                                  "" +
                                                                   (0, Ce.K)(
                                                                     "cap"
                                                                   )
@@ -60125,7 +60125,7 @@
                             className: "my-6 space-y-3",
                             children: this.props.data.gen.map(function (t) {
                               return (0,
-                              Ae.jsxs)("li", { className: "flex", children: [(0, Ae.jsx)(Se(), { path: Me.YKm, className: "icon" }), "resource" === t.type ? (0, Ae.jsxs)("span", { className: "ml-3", children: ["+", t.value, "% ", (0, Ce.K)("res_" + t.id)] }) : "cap" === t.type ? (0, Ae.jsxs)("span", { className: "ml-3", children: ["+", t.value, " ", (0, Ce.K)(t.id), " ", (0, Ce.K)("cap")] }) : null] }, "ancestor_gen_" + e.props.data.id + "_" + t.id);
+                              Ae.jsxs)("li", { className: "flex", children: [(0, Ae.jsx)(Se(), { path: Me.YKm, className: "icon" }), "resource" === t.type ? (0, Ae.jsxs)("span", { className: "ml-3", children: ["+", t.value, "% ", (0, Ce.K)("res_" + t.id)] }) : "cap" === t.type ? (0, Ae.jsxs)("span", { className: "ml-3", children: ["+", t.value, " ", (0, Ce.K)(t.id), "", (0, Ce.K)("cap")] }) : null] }, "ancestor_gen_" + e.props.data.id + "_" + t.id);
                             }),
                           }),
                         ],
