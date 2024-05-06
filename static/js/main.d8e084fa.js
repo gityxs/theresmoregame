@@ -6145,7 +6145,7 @@
               "我最喜欢塔防游戏了",
             bui_magic_circle: "魔法环",
             bui_magic_circle_description: "聆听登攀者世界的私语",
-            bui_magic_stable_b: "魔法马厩M",
+            bui_magic_stable_b: "魔法马厩",
             bui_magic_stable_b_description:
               "魔法与小马，怎么看都不会有问题",
             bui_marketplace: "市场",
