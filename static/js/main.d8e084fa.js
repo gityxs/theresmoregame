@@ -31367,7 +31367,7 @@
         Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
         Object.defineProperty(e, "__esModule", { value: !0 });
     }),
-    (r.p = "/play/"),
+    (r.p = ".//"),
     (function () {
       var e = { 179: 0 };
       r.f.j = function (t, a) {
@@ -37754,7 +37754,7 @@
       Fe.ZP.initialize(
         {
           NODE_ENV: "production",
-          PUBLIC_URL: "/play",
+          PUBLIC_URL: "./",
           WDS_SOCKET_HOST: void 0,
           WDS_SOCKET_PATH: void 0,
           WDS_SOCKET_PORT: void 0,
@@ -58288,7 +58288,7 @@
               (this.d = !(
                 !{
                   NODE_ENV: "production",
-                  PUBLIC_URL: "/play",
+                  PUBLIC_URL: "./",
                   WDS_SOCKET_HOST: void 0,
                   WDS_SOCKET_PATH: void 0,
                   WDS_SOCKET_PORT: void 0,
@@ -58865,7 +58865,7 @@
                     (this.isTWA =
                       window.matchMedia &&
                       window.matchMedia("(display-mode: fullscreen)").matches &&
-                      "/play/" === window.location.pathname &&
+                      "/" === window.location.pathname &&
                       window.location.hash.startsWith("#play-store-twa")),
                     this.isTWA
                       ? "#play-store-twa" === window.location.hash &&
@@ -63797,12 +63797,12 @@
                                                 "flex flex-wrap bg-black relative",
                                               children: (0, Ce.jsx)(ga, {
                                                 dataSrc:
-                                                  "/play" +
+                                                  "./" +
                                                   ("localhost" ===
                                                   window.location.hostname
-                                                    ? "/play"
+                                                    ? "./"
                                                     : "") +
-                                                  "/images/" +
+                                                  "images/" +
                                                   r +
                                                   ".webp",
                                               }),
@@ -64447,7 +64447,7 @@
         );
       function qa(e, t) {
         navigator.serviceWorker
-          .register(e, { scope: "/play/" })
+          .register(e, { scope: "/" })
           .then(function (e) {
             e.onupdatefound = function () {
               var r = e.installing;
@@ -64470,12 +64470,12 @@
         (function (e) {
           if ("serviceWorker" in navigator) {
             if (
-              new URL("/play", window.location.href).origin !==
+              new URL("./", window.location.href).origin !==
               window.location.origin
             )
               return;
             window.addEventListener("load", function () {
-              var t = "".concat("/play", "/service-worker.js");
+              var t = "".concat("./", "service-worker.js");
               Ta
                 ? (!(function (e, t) {
                     fetch(e, { headers: { "Service-Worker": "script" } })
