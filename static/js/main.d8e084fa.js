@@ -1,4 +1,4 @@
-/*!For license information please see main.0cf35060.js.LICENSE.txt*/ !(function () {
+/*!For license information please see main.d8e084fa.js.LICENSE.txt*/ !(function () {
   var e = {
       1231: function (e, t, r) {
         "use strict";
@@ -129,7 +129,7 @@
           n = r(9340),
           o = r(2882),
           l = r(7313),
-          s = r(1875),
+          s = r(7794),
           u = r(6417),
           c = (function (e) {
             (0, n.Z)(r, e);
@@ -363,19 +363,19 @@
             s = t.concat(o);
           return i ? s : s.concat(M(x(o)));
         }
-        function C(e) {
+        function A(e) {
           return ["table", "td", "th"].indexOf(f(e)) >= 0;
         }
-        function A(e) {
+        function C(e) {
           return u(e) && "fixed" !== v(e).position ? e.offsetParent : null;
         }
         function T(e) {
           for (
-            var t = l(e), r = A(e);
-            r && C(r) && "static" === v(r).position;
+            var t = l(e), r = C(e);
+            r && A(r) && "static" === v(r).position;
 
           )
-            r = A(r);
+            r = C(r);
           return r &&
             ("html" === f(r) || ("body" === f(r) && "static" === v(r).position))
             ? t
@@ -421,8 +421,8 @@
           L = "start",
           P = "end",
           R = "viewport",
-          D = "popper",
-          F = j.reduce(function (e, t) {
+          F = "popper",
+          D = j.reduce(function (e, t) {
             return e.concat([t + "-" + L, t + "-" + P]);
           }, []),
           V = [].concat(j, [E]).reduce(function (e, t) {
@@ -710,28 +710,28 @@
             S = q,
             M = window;
           if (c) {
-            var C = T(r),
-              A = "clientHeight",
+            var A = T(r),
+              C = "clientHeight",
               E = "clientWidth";
             if (
-              (C === l(r) &&
-                "static" !== v((C = m(r))).position &&
+              (A === l(r) &&
+                "static" !== v((A = m(r))).position &&
                 "absolute" === s &&
-                ((A = "scrollHeight"), (E = "scrollWidth")),
+                ((C = "scrollHeight"), (E = "scrollWidth")),
               i === q || ((i === I || i === O) && n === P))
             )
               (S = N),
                 (g -=
-                  (p && C === M && M.visualViewport
+                  (p && A === M && M.visualViewport
                     ? M.visualViewport.height
-                    : C[A]) - a.height),
+                    : A[C]) - a.height),
                 (g *= u ? 1 : -1);
             if (i === I || ((i === q || i === N) && n === P))
               (x = O),
                 (h -=
-                  (p && C === M && M.visualViewport
+                  (p && A === M && M.visualViewport
                     ? M.visualViewport.width
-                    : C[E]) - a.width),
+                    : A[E]) - a.width),
                 (h *= u ? 1 : -1);
           }
           var j,
@@ -1021,13 +1021,13 @@
             l = r.rootBoundary,
             u = void 0 === l ? R : l,
             c = r.elementContext,
-            d = void 0 === c ? D : c,
+            d = void 0 === c ? F : c,
             p = r.altBoundary,
             _ = void 0 !== p && p,
             h = r.padding,
             f = void 0 === h ? 0 : h,
             g = ce("number" !== typeof f ? f : de(f, j)),
-            v = d === D ? "reference" : D,
+            v = d === F ? "reference" : F,
             b = e.rects.popper,
             w = e.elements[_ ? v : d],
             k = ue(s(w) ? w : w.contextElement || m(e.elements.popper), o, u),
@@ -1039,23 +1039,23 @@
               placement: i,
             }),
             M = le(Object.assign({}, b, S)),
-            C = d === D ? M : x,
-            A = {
-              top: k.top - C.top + g.top,
-              bottom: C.bottom - k.bottom + g.bottom,
-              left: k.left - C.left + g.left,
-              right: C.right - k.right + g.right,
+            A = d === F ? M : x,
+            C = {
+              top: k.top - A.top + g.top,
+              bottom: A.bottom - k.bottom + g.bottom,
+              left: k.left - A.left + g.left,
+              right: A.right - k.right + g.right,
             },
             T = e.modifiersData.offset;
-          if (d === D && T) {
+          if (d === F && T) {
             var I = T[i];
-            Object.keys(A).forEach(function (e) {
+            Object.keys(C).forEach(function (e) {
               var t = [O, N].indexOf(e) >= 0 ? 1 : -1,
                 r = [q, N].indexOf(e) >= 0 ? "y" : "x";
-              A[e] += I[r] * t;
+              C[e] += I[r] * t;
             });
           }
-          return A;
+          return C;
         }
         function _e(e, t, r) {
           return d(e, p(t, r));
@@ -1092,8 +1092,8 @@
               x = Q(v),
               S = "x" === x ? "y" : "x",
               M = t.modifiersData.popperOffsets,
-              C = t.rects.reference,
-              A = t.rects.popper,
+              A = t.rects.reference,
+              C = t.rects.popper,
               E =
                 "function" === typeof m
                   ? m(Object.assign({}, t.rects, { placement: t.placement }))
@@ -1108,29 +1108,29 @@
               R = { x: 0, y: 0 };
             if (M) {
               if (n) {
-                var D,
-                  F = "y" === x ? q : I,
+                var F,
+                  D = "y" === x ? q : I,
                   V = "y" === x ? N : O,
                   H = "y" === x ? "height" : "width",
                   z = M[x],
-                  W = z + g[F],
+                  W = z + g[D],
                   Z = z - g[V],
-                  B = h ? -A[H] / 2 : 0,
-                  G = b === L ? C[H] : A[H],
-                  K = b === L ? -A[H] : -C[H],
+                  B = h ? -C[H] / 2 : 0,
+                  G = b === L ? A[H] : C[H],
+                  K = b === L ? -C[H] : -A[H],
                   X = t.elements.arrow,
                   $ = h && X ? k(X) : { width: 0, height: 0 },
                   J = t.modifiersData["arrow#persistent"]
                     ? t.modifiersData["arrow#persistent"].padding
                     : { top: 0, right: 0, bottom: 0, left: 0 },
-                  ee = J[F],
+                  ee = J[D],
                   te = J[V],
-                  re = _e(0, C[H], $[H]),
+                  re = _e(0, A[H], $[H]),
                   ae = w
-                    ? C[H] / 2 - B - re - ee - j.mainAxis
+                    ? A[H] / 2 - B - re - ee - j.mainAxis
                     : G - re - ee - j.mainAxis,
                   ie = w
-                    ? -C[H] / 2 + B + re + te + j.mainAxis
+                    ? -A[H] / 2 + B + re + te + j.mainAxis
                     : K + re + te + j.mainAxis,
                   ne = t.elements.arrow && T(t.elements.arrow),
                   oe = ne
@@ -1138,7 +1138,7 @@
                       ? ne.clientTop || 0
                       : ne.clientLeft || 0
                     : 0,
-                  le = null != (D = null == P ? void 0 : P[x]) ? D : 0,
+                  le = null != (F = null == P ? void 0 : P[x]) ? F : 0,
                   se = z + ie - le,
                   ue = _e(h ? p(W, z + ae - le - oe) : W, z, h ? d(Z, se) : Z);
                 (M[x] = ue), (R[x] = ue - z);
@@ -1153,8 +1153,8 @@
                   ge = he - g[ye],
                   ve = -1 !== [q, I].indexOf(v),
                   be = null != (ce = null == P ? void 0 : P[S]) ? ce : 0,
-                  we = ve ? me : he - C[fe] - A[fe] - be + j.altAxis,
-                  ke = ve ? he + C[fe] + A[fe] - be - j.altAxis : ge,
+                  we = ve ? me : he - A[fe] - C[fe] - be + j.altAxis,
+                  ke = ve ? he + A[fe] + C[fe] - be - j.altAxis : ge,
                   xe =
                     h && ve
                       ? (function (e, t, r) {
@@ -1412,8 +1412,8 @@
                                     c = Y(a),
                                     d = c
                                       ? l
-                                        ? F
-                                        : F.filter(function (e) {
+                                        ? D
+                                        : D.filter(function (e) {
                                             return Y(e) === c;
                                           })
                                       : j,
@@ -1455,13 +1455,13 @@
                       M < v.length;
                       M++
                     ) {
-                      var C = v[M],
-                        A = U(C),
-                        T = Y(C) === L,
-                        P = [q, N].indexOf(A) >= 0,
+                      var A = v[M],
+                        C = U(A),
+                        T = Y(A) === L,
+                        P = [q, N].indexOf(C) >= 0,
                         R = P ? "width" : "height",
-                        D = pe(t, {
-                          placement: C,
+                        F = pe(t, {
+                          placement: A,
                           boundary: c,
                           rootBoundary: d,
                           altBoundary: p,
@@ -1472,16 +1472,16 @@
                       var z = ae(H),
                         W = [];
                       if (
-                        (n && W.push(D[A] <= 0),
-                        l && W.push(D[H] <= 0, D[z] <= 0),
+                        (n && W.push(F[C] <= 0),
+                        l && W.push(F[H] <= 0, F[z] <= 0),
                         W.every(function (e) {
                           return e;
                         }))
                       ) {
-                        (S = C), (x = !1);
+                        (S = A), (x = !1);
                         break;
                       }
-                      k.set(C, W);
+                      k.set(A, W);
                     }
                     if (x)
                       for (
@@ -1562,11 +1562,11 @@
           }
           return e;
         }
-        function Ce(e, t) {
+        function Ae(e, t) {
           var r = {}.toString.call(e);
           return 0 === r.indexOf("[object") && r.indexOf(t + "]") > -1;
         }
-        function Ae(e, t) {
+        function Ce(e, t) {
           return "function" === typeof e ? e.apply(void 0, t) : e;
         }
         function Te(e, t) {
@@ -1602,27 +1602,27 @@
         }
         function Le(e) {
           return ["Element", "Fragment"].some(function (t) {
-            return Ce(e, t);
+            return Ae(e, t);
           });
         }
         function Pe(e) {
-          return Ce(e, "MouseEvent");
+          return Ae(e, "MouseEvent");
         }
         function Re(e) {
           return !(!e || !e._tippy || e._tippy.reference !== e);
         }
-        function De(e) {
+        function Fe(e) {
           return Le(e)
             ? [e]
             : (function (e) {
-                return Ce(e, "NodeList");
+                return Ae(e, "NodeList");
               })(e)
             ? Ie(e)
             : Array.isArray(e)
             ? e
             : Ie(document.querySelectorAll(e));
         }
-        function Fe(e, t) {
+        function De(e, t) {
           e.forEach(function (e) {
             e && (e.style.transitionDuration = t + "ms");
           });
@@ -1749,7 +1749,7 @@
           var r = Object.assign(
             {},
             t,
-            { content: Ae(t.content, [e]) },
+            { content: Ce(t.content, [e]) },
             t.ignoreAttributes
               ? {}
               : (function (e, t) {
@@ -1948,13 +1948,13 @@
                 if (T().hasAttribute("disabled")) return;
                 if ((E("onShow", [v], !1), !1 === v.props.onShow(v))) return;
                 (v.state.isVisible = !0),
-                  A() && (w.style.visibility = "visible");
+                  C() && (w.style.visibility = "visible");
                 I(), V(), v.state.isMounted || (w.style.transition = "none");
-                if (A()) {
+                if (C()) {
                   var n = N(),
                     o = n.box,
                     s = n.content;
-                  Fe([o, s], 0);
+                  De([o, s], 0);
                 }
                 (l = function () {
                   var e;
@@ -1963,12 +1963,12 @@
                       ((y = !0),
                       w.offsetHeight,
                       (w.style.transition = v.props.moveTransition),
-                      A() && v.props.animation)
+                      C() && v.props.animation)
                     ) {
                       var t = N(),
                         r = t.box,
                         a = t.content;
-                      Fe([r, a], i), Ve([r, a], "visible");
+                      De([r, a], i), Ve([r, a], "visible");
                     }
                     j(),
                       L(),
@@ -1976,7 +1976,7 @@
                       null == (e = v.popperInstance) || e.forceUpdate(),
                       E("onMount", [v]),
                       v.props.animation &&
-                        A() &&
+                        C() &&
                         (function (e, t) {
                           z(e, t);
                         })(i, function () {
@@ -1991,7 +1991,7 @@
                     e =
                       (v.props.interactive && t === Se) || "parent" === t
                         ? r.parentNode
-                        : Ae(t, [r]);
+                        : Ce(t, [r]);
                     e.contains(w) || e.appendChild(w);
                     (v.state.isMounted = !0), X(), !1;
                   })();
@@ -2008,17 +2008,17 @@
                   (v.state.isShown = !1),
                   (y = !1),
                   (d = !1),
-                  A() && (w.style.visibility = "hidden");
-                if ((P(), H(), I(!0), A())) {
+                  C() && (w.style.visibility = "hidden");
+                if ((P(), H(), I(!0), C())) {
                   var i = N(),
                     n = i.box,
                     o = i.content;
-                  v.props.animation && (Fe([n, o], a), Ve([n, o], "hidden"));
+                  v.props.animation && (De([n, o], a), Ve([n, o], "hidden"));
                 }
                 j(),
                   L(),
                   v.props.animation
-                    ? A() &&
+                    ? C() &&
                       (function (e, t) {
                         z(e, function () {
                           !v.state.isVisible &&
@@ -2100,10 +2100,10 @@
             var e = v.props.touch;
             return Array.isArray(e) ? e : [e, 0];
           }
-          function C() {
+          function A() {
             return "hold" === M()[0];
           }
-          function A() {
+          function C() {
             var e;
             return !(null == (e = v.props.render) || !e.$$tippy);
           }
@@ -2197,25 +2197,25 @@
               }
             }
           }
-          function D() {
+          function F() {
             _ = !0;
           }
-          function F() {
+          function D() {
             _ = !1;
           }
           function V() {
             var e = q();
             e.addEventListener("mousedown", R, !0),
               e.addEventListener("touchend", R, xe),
-              e.addEventListener("touchstart", F, xe),
-              e.addEventListener("touchmove", D, xe);
+              e.addEventListener("touchstart", D, xe),
+              e.addEventListener("touchmove", F, xe);
           }
           function H() {
             var e = q();
             e.removeEventListener("mousedown", R, !0),
               e.removeEventListener("touchend", R, xe),
-              e.removeEventListener("touchstart", F, xe),
-              e.removeEventListener("touchmove", D, xe);
+              e.removeEventListener("touchstart", D, xe),
+              e.removeEventListener("touchmove", F, xe);
           }
           function z(e, t) {
             var r = N().box;
@@ -2234,7 +2234,7 @@
           }
           function Z() {
             var e;
-            C() &&
+            A() &&
               (W("touchstart", G, { passive: !0 }),
               W("touchend", U, { passive: !0 })),
               ((e = v.props.trigger), e.split(/\s+/).filter(Boolean)).forEach(
@@ -2341,7 +2341,7 @@
               te(e);
           }
           function Q(e) {
-            return !!Ze.isTouch && C() !== e.type.indexOf("touch") >= 0;
+            return !!Ze.isTouch && A() !== e.type.indexOf("touch") >= 0;
           }
           function X() {
             $();
@@ -2351,7 +2351,7 @@
               i = t.offset,
               n = t.getReferenceClientRect,
               o = t.moveTransition,
-              s = A() ? it(w).arrow : null,
+              s = C() ? it(w).arrow : null,
               u = n
                 ? {
                     getBoundingClientRect: n,
@@ -2365,7 +2365,7 @@
                 requires: ["computeStyles"],
                 fn: function (e) {
                   var t = e.state;
-                  if (A()) {
+                  if (C()) {
                     var r = N().box;
                     ["placement", "reference-hidden", "escaped"].forEach(
                       function (e) {
@@ -2392,7 +2392,7 @@
                 { name: "computeStyles", options: { adaptive: !o } },
                 c,
               ];
-            A() &&
+            C() &&
               s &&
               d.push({ name: "arrow", options: { element: s, padding: 3 } }),
               d.push.apply(d, (null == r ? void 0 : r.modifiers) || []),
@@ -2458,7 +2458,7 @@
           document.addEventListener("touchstart", Ge, xe),
             window.addEventListener("blur", Ue);
           var a = Object.assign({}, t, { plugins: r }),
-            i = De(e).reduce(function (e, t) {
+            i = Fe(e).reduce(function (e, t) {
               var r = t && ut(t, a);
               return r && e.push(r), e;
             }, []);
@@ -2629,14 +2629,14 @@
               M = wt(function () {
                 return { container: ft(), renders: 1 };
               }),
-              C = Object.assign({ ignoreAttributes: p }, _, {
+              A = Object.assign({ ignoreAttributes: p }, _, {
                 content: M.container,
               });
-            y && ((C.trigger = "manual"), (C.hideOnClick = !1)), h && (c = !0);
-            var A = C,
-              T = C.plugins || [];
+            y && ((A.trigger = "manual"), (A.hideOnClick = !1)), h && (c = !0);
+            var C = A,
+              T = A.plugins || [];
             l &&
-              (A = Object.assign({}, C, {
+              (C = Object.assign({}, A, {
                 plugins:
                   h && null != n.data
                     ? [].concat(T, [
@@ -2669,8 +2669,8 @@
                 s && s.hasOwnProperty("current") && (t = s.current);
                 var r = e(
                   t || M.ref || ft(),
-                  Object.assign({}, A, {
-                    plugins: [xt].concat(C.plugins || []),
+                  Object.assign({}, C, {
+                    plugins: [xt].concat(A.plugins || []),
                   })
                 );
                 return (
@@ -2681,7 +2681,7 @@
                     n.hook({
                       instance: r,
                       content: a,
-                      props: A,
+                      props: C,
                       setSingletonContent: S,
                     }),
                   g(!0),
@@ -2694,7 +2694,7 @@
                 var e;
                 if (1 !== M.renders) {
                   var t = M.instance;
-                  t.setProps(vt(t.props, A)),
+                  t.setProps(vt(t.props, C)),
                     null == (e = t.popperInstance) || e.forceUpdate(),
                     c ? t.disable() : t.enable(),
                     y && (i ? t.show() : t.hide()),
@@ -2702,7 +2702,7 @@
                       n.hook({
                         instance: t,
                         content: a,
-                        props: A,
+                        props: C,
                         setSingletonContent: S,
                       });
                 } else M.renders++;
@@ -2805,8 +2805,8 @@
               );
             });
           },
-          Ct = Mt(St(dt)),
-          At = r(6417),
+          At = Mt(St(dt)),
+          Ct = r(6417),
           Tt = function (e) {
             var t = (0, o.useState)(!1),
               r = (0, n.Z)(t, 2),
@@ -2832,7 +2832,7 @@
                     return l ? e.render.apply(e, arguments) : "";
                   })
                 : (c.content = l ? e.content : ""),
-              (0, At.jsx)(Ct, (0, i.Z)({}, c))
+              (0, Ct.jsx)(At, (0, i.Z)({}, c))
             );
           };
       },
@@ -3305,6 +3305,28 @@
             ],
           },
           {
+            id: "mage_u",
+            type: "army",
+            attack: 48,
+            defense: 1,
+            order: 3,
+            cap: 50,
+            category: 1,
+            req: [
+              { type: "prayer", id: "mage_p", value: 1 },
+              { type: "resource", id: "faith", value: 1250 },
+              { type: "resource", id: "mana", value: 1e3 },
+            ],
+            reqAttack: [
+              { type: "resource", id: "faith", value: 500 },
+              { type: "resource", id: "mana", value: 250 },
+            ],
+            gen: [
+              { type: "resource", id: "mana", value: 1.2 },
+              { type: "resource", id: "gold", value: -1.5 },
+            ],
+          },
+          {
             id: "arquebusier",
             type: "army",
             attack: 16,
@@ -3373,6 +3395,30 @@
               { type: "resource", id: "natronite", value: 200 },
             ],
             gen: [{ type: "resource", id: "gold", value: -25 }],
+          },
+          {
+            id: "archmage_u",
+            type: "army",
+            attack: 260,
+            defense: 120,
+            order: 3,
+            cap: 5,
+            category: 1,
+            req: [
+              { type: "prayer", id: "archmage_p", value: 1 },
+              { type: "resource", id: "faith", value: 7e3 },
+              { type: "resource", id: "mana", value: 7e3 },
+            ],
+            reqAttack: [
+              { type: "resource", id: "faith", value: 1200 },
+              { type: "resource", id: "mana", value: 1200 },
+            ],
+            gen: [
+              { type: "resource", id: "food", value: -12 },
+              { type: "resource", id: "gold", value: -12 },
+              { type: "resource", id: "mana", value: 7 },
+              { type: "resource", id: "crystal", value: 3 },
+            ],
           },
           {
             id: "ranger",
@@ -3558,6 +3604,25 @@
             gen: [{ type: "resource", id: "mana", value: -1 }],
           },
           {
+            id: "armored_caravan_u",
+            type: "army",
+            attack: 3,
+            defense: 44,
+            order: 2,
+            category: 3,
+            cap: 50,
+            req: [
+              { type: "prayer", id: "armored_caravan_p", value: 1 },
+              { type: "resource", id: "wood", value: 1e4 },
+              { type: "resource", id: "steel", value: 2e3 },
+            ],
+            reqAttack: [
+              { type: "resource", id: "wood", value: 120 },
+              { type: "resource", id: "steel", value: 60 },
+            ],
+            gen: [{ type: "resource", id: "gold", value: 3 }],
+          },
+          {
             id: "cleric",
             type: "army",
             attack: 8,
@@ -3677,6 +3742,49 @@
               { type: "resource", id: "tools", value: 15 },
             ],
             gen: [{ type: "resource", id: "food", value: -0.2 }],
+          },
+          {
+            id: "mana_fortress_u",
+            type: "army",
+            attack: 20,
+            defense: 2250,
+            order: 1,
+            cap: 1,
+            category: 3,
+            req: [
+              { type: "prayer", id: "mana_fortress_p", value: 1 },
+              { type: "resource", id: "stone", value: 25e3 },
+              { type: "resource", id: "mana", value: 2e4 },
+            ],
+            reqAttack: [
+              { type: "resource", id: "stone", value: 1e4 },
+              { type: "resource", id: "mana", value: 1e4 },
+            ],
+            gen: [{ type: "resource", id: "mana", value: -100 }],
+          },
+          {
+            id: "high_prelate_u",
+            type: "army",
+            attack: 400,
+            defense: 900,
+            order: 3,
+            cap: 1,
+            category: 3,
+            req: [
+              { type: "building", id: "ivory_tower_b", value: 1 },
+              { type: "resource", id: "faith", value: 25e3 },
+              { type: "resource", id: "mana", value: 25e3 },
+            ],
+            reqAttack: [
+              { type: "resource", id: "faith", value: 12e3 },
+              { type: "resource", id: "mana", value: 12e3 },
+            ],
+            gen: [
+              { type: "resource", id: "gold", value: 35 },
+              { type: "resource", id: "mana", value: 35 },
+              { type: "resource", id: "crystal", value: 7 },
+              { type: "resource", id: "natronite", value: 7 },
+            ],
           },
           {
             id: "warrior",
@@ -4062,6 +4170,14 @@
             category: 3,
           },
           {
+            id: "aqrabuamelu",
+            type: "enemy",
+            attack: 46,
+            defense: 63,
+            order: 1,
+            category: 2,
+          },
+          {
             id: "archdemon",
             type: "enemy",
             attack: 90,
@@ -4079,12 +4195,12 @@
             category: 1,
           },
           {
-            id: "aqrabuamelu",
+            id: "ball_lightning",
             type: "enemy",
-            attack: 46,
-            defense: 63,
+            attack: 55,
+            defense: 20,
             order: 1,
-            category: 2,
+            category: 4,
           },
           {
             id: "balor",
@@ -4093,6 +4209,72 @@
             defense: 150,
             order: 1,
             category: 2,
+          },
+          {
+            id: "bandit",
+            type: "enemy",
+            attack: 3,
+            defense: 4,
+            order: 1,
+            category: 2,
+          },
+          {
+            id: "barbarian_chosen",
+            type: "enemy",
+            attack: 30,
+            defense: 12,
+            order: 1,
+            category: 2,
+          },
+          {
+            id: "barbarian_drummer",
+            type: "enemy",
+            attack: 6,
+            defense: 18,
+            order: 2,
+            category: 3,
+          },
+          {
+            id: "barbarian_leader",
+            type: "enemy",
+            attack: 48,
+            defense: 22,
+            order: 1,
+            category: 2,
+          },
+          {
+            id: "barbarian_king",
+            type: "enemy",
+            attack: 76,
+            defense: 56,
+            order: 3,
+            cap: 1,
+            category: 2,
+          },
+          {
+            id: "barbarian_warrior",
+            type: "enemy",
+            attack: 13,
+            defense: 6,
+            order: 1,
+            category: 2,
+          },
+          {
+            id: "basilisk",
+            type: "enemy",
+            attack: 35,
+            defense: 16,
+            order: 1,
+            category: 1,
+          },
+          {
+            id: "black_mage",
+            type: "enemy",
+            attack: 52,
+            defense: 22,
+            order: 3,
+            cap: 1,
+            category: 1,
           },
           {
             id: "bugbear",
@@ -4118,23 +4300,6 @@
             defense: 110,
             order: 1,
             category: 4,
-          },
-          {
-            id: "basilisk",
-            type: "enemy",
-            attack: 35,
-            defense: 16,
-            order: 1,
-            category: 1,
-          },
-          {
-            id: "black_mage",
-            type: "enemy",
-            attack: 52,
-            defense: 22,
-            order: 3,
-            cap: 1,
-            category: 1,
           },
           {
             id: "cavarly_archer",
@@ -4196,6 +4361,14 @@
             category: 2,
           },
           {
+            id: "deserter",
+            type: "enemy",
+            attack: 7,
+            defense: 6,
+            order: 2,
+            category: 2,
+          },
+          {
             id: "dirty_rat",
             type: "enemy",
             attack: 1,
@@ -4204,12 +4377,13 @@
             category: 4,
           },
           {
-            id: "draconic_warrior",
+            id: "djinn",
             type: "enemy",
-            attack: 8,
-            defense: 14,
-            order: 1,
-            category: 2,
+            attack: 46,
+            defense: 36,
+            order: 2,
+            cap: 1,
+            category: 1,
           },
           {
             id: "draconic_diver",
@@ -4220,6 +4394,14 @@
             category: 4,
           },
           {
+            id: "draconic_leader",
+            type: "enemy",
+            attack: 80,
+            defense: 65,
+            order: 3,
+            category: 1,
+          },
+          {
             id: "draconic_mage",
             type: "enemy",
             attack: 32,
@@ -4228,12 +4410,20 @@
             category: 1,
           },
           {
-            id: "draconic_leader",
+            id: "draconic_warrior",
             type: "enemy",
-            attack: 80,
-            defense: 65,
-            order: 3,
-            category: 1,
+            attack: 8,
+            defense: 14,
+            order: 1,
+            category: 2,
+          },
+          {
+            id: "earth_elemental",
+            type: "enemy",
+            attack: 20,
+            defense: 48,
+            order: 1,
+            category: 3,
           },
           {
             id: "eternal_guardian",
@@ -4261,6 +4451,22 @@
             category: 2,
           },
           {
+            id: "fire_elemental",
+            type: "enemy",
+            attack: 28,
+            defense: 28,
+            order: 1,
+            category: 1,
+          },
+          {
+            id: "fire_salamander",
+            type: "enemy",
+            attack: 32,
+            defense: 20,
+            order: 1,
+            category: 4,
+          },
+          {
             id: "frost_elemental",
             type: "enemy",
             attack: 20,
@@ -4278,12 +4484,13 @@
             category: 3,
           },
           {
-            id: "fire_elemental",
+            id: "galliard",
             type: "enemy",
-            attack: 28,
-            defense: 28,
-            order: 1,
-            category: 1,
+            attack: 70,
+            defense: 120,
+            order: 2,
+            cap: 1,
+            category: 2,
           },
           {
             id: "gargoyle",
@@ -4294,12 +4501,135 @@
             category: 3,
           },
           {
+            id: "ghast",
+            type: "enemy",
+            attack: 6,
+            defense: 8,
+            order: 2,
+            category: 4,
+          },
+          {
+            id: "ghoul",
+            type: "enemy",
+            attack: 4,
+            defense: 5,
+            order: 1,
+            category: 2,
+          },
+          {
+            id: "ghost",
+            type: "enemy",
+            attack: 5,
+            defense: 5,
+            order: 2,
+            category: 4,
+          },
+          {
+            id: "giant_snake",
+            type: "enemy",
+            attack: 16,
+            defense: 8,
+            order: 2,
+            category: 4,
+          },
+          {
+            id: "giant_spider",
+            type: "enemy",
+            attack: 10,
+            defense: 8,
+            order: 2,
+            category: 4,
+          },
+          {
+            id: "giant_wasp",
+            type: "enemy",
+            attack: 8,
+            defense: 4,
+            order: 1,
+            category: 4,
+          },
+          {
+            id: "gnoll_leader",
+            type: "enemy",
+            attack: 23,
+            defense: 18,
+            order: 2,
+            cap: 1,
+            category: 2,
+          },
+          {
+            id: "gnoll_raider",
+            type: "enemy",
+            attack: 6,
+            defense: 5,
+            order: 1,
+            category: 2,
+          },
+          {
+            id: "goblin_marauder",
+            type: "enemy",
+            attack: 3,
+            defense: 3,
+            order: 1,
+            category: 1,
+          },
+          {
+            id: "goblin_overlord",
+            type: "enemy",
+            attack: 20,
+            defense: 15,
+            order: 3,
+            cap: 1,
+            category: 2,
+          },
+          {
+            id: "goblin_warrior",
+            type: "enemy",
+            attack: 3,
+            defense: 4,
+            order: 2,
+            category: 2,
+          },
+          {
+            id: "goblin_wolfrider",
+            type: "enemy",
+            attack: 6,
+            defense: 7,
+            order: 2,
+            category: 4,
+          },
+          {
             id: "golem",
             type: "enemy",
             attack: 11,
             defense: 42,
             order: 1,
             category: 3,
+          },
+          {
+            id: "gorgon",
+            type: "enemy",
+            attack: 950,
+            defense: 600,
+            order: 1,
+            cap: 1,
+            category: 2,
+          },
+          {
+            id: "greater_demon",
+            type: "enemy",
+            attack: 16,
+            defense: 16,
+            order: 3,
+            category: 2,
+          },
+          {
+            id: "griffin",
+            type: "enemy",
+            attack: 42,
+            defense: 58,
+            order: 1,
+            category: 4,
           },
           {
             id: "gulud",
@@ -4311,36 +4641,20 @@
             category: 1,
           },
           {
-            id: "korrigan_slinger",
-            type: "enemy",
-            attack: 3,
-            defense: 2,
-            order: 2,
-            category: 1,
-          },
-          {
-            id: "korrigan_swindler",
-            type: "enemy",
-            attack: 3,
-            defense: 5,
-            order: 1,
-            category: 2,
-          },
-          {
-            id: "earth_elemental",
-            type: "enemy",
-            attack: 20,
-            defense: 48,
-            order: 1,
-            category: 3,
-          },
-          {
             id: "harpy",
             type: "enemy",
             attack: 6,
             defense: 6,
             order: 1,
             category: 4,
+          },
+          {
+            id: "hill_giant",
+            type: "enemy",
+            attack: 20,
+            defense: 36,
+            order: 1,
+            category: 3,
           },
           {
             id: "hobgoblin_archer",
@@ -4377,12 +4691,60 @@
             category: 4,
           },
           {
-            id: "gorgon",
+            id: "imp",
             type: "enemy",
-            attack: 950,
-            defense: 600,
+            attack: 3,
+            defense: 1,
+            order: 2,
+            category: 1,
+          },
+          {
+            id: "katana_samurai",
+            type: "enemy",
+            attack: 26,
+            defense: 28,
+            order: 1,
+            category: 2,
+          },
+          {
+            id: "kobold",
+            type: "enemy",
+            attack: 3,
+            defense: 2,
+            order: 1,
+            category: 2,
+          },
+          {
+            id: "kobold_champion",
+            type: "enemy",
+            attack: 5,
+            defense: 12,
+            order: 1,
+            category: 3,
+          },
+          {
+            id: "kobold_king",
+            type: "enemy",
+            attack: 42,
+            defense: 48,
             order: 1,
             cap: 1,
+            category: 2,
+          },
+          {
+            id: "korrigan_slinger",
+            type: "enemy",
+            attack: 3,
+            defense: 2,
+            order: 2,
+            category: 1,
+          },
+          {
+            id: "korrigan_swindler",
+            type: "enemy",
+            attack: 3,
+            defense: 5,
+            order: 1,
             category: 2,
           },
           {
@@ -4394,136 +4756,12 @@
             category: 3,
           },
           {
-            id: "bandit",
-            type: "enemy",
-            attack: 3,
-            defense: 4,
-            order: 1,
-            category: 2,
-          },
-          {
-            id: "barbarian_warrior",
-            type: "enemy",
-            attack: 13,
-            defense: 6,
-            order: 1,
-            category: 2,
-          },
-          {
-            id: "barbarian_chosen",
-            type: "enemy",
-            attack: 30,
-            defense: 12,
-            order: 1,
-            category: 2,
-          },
-          {
-            id: "barbarian_drummer",
-            type: "enemy",
-            attack: 6,
-            defense: 18,
-            order: 2,
-            category: 3,
-          },
-          {
-            id: "barbarian_leader",
-            type: "enemy",
-            attack: 48,
-            defense: 22,
-            order: 1,
-            category: 2,
-          },
-          {
-            id: "barbarian_king",
-            type: "enemy",
-            attack: 76,
-            defense: 56,
-            order: 3,
-            cap: 1,
-            category: 2,
-          },
-          {
-            id: "djinn",
-            type: "enemy",
-            attack: 46,
-            defense: 36,
-            order: 2,
-            cap: 1,
-            category: 1,
-          },
-          {
-            id: "fire_salamander",
-            type: "enemy",
-            attack: 32,
-            defense: 20,
-            order: 1,
-            category: 4,
-          },
-          {
-            id: "galliard",
-            type: "enemy",
-            attack: 70,
-            defense: 120,
-            order: 2,
-            cap: 1,
-            category: 2,
-          },
-          {
-            id: "ghast",
-            type: "enemy",
-            attack: 6,
-            defense: 8,
-            order: 2,
-            category: 4,
-          },
-          {
-            id: "ghoul",
-            type: "enemy",
-            attack: 4,
-            defense: 5,
-            order: 1,
-            category: 2,
-          },
-          {
-            id: "giant_wasp",
+            id: "lesser_demon",
             type: "enemy",
             attack: 8,
-            defense: 4,
+            defense: 8,
             order: 1,
-            category: 4,
-          },
-          {
-            id: "goblin_marauder",
-            type: "enemy",
-            attack: 3,
-            defense: 3,
-            order: 1,
-            category: 1,
-          },
-          {
-            id: "goblin_warrior",
-            type: "enemy",
-            attack: 3,
-            defense: 4,
-            order: 2,
-            category: 2,
-          },
-          {
-            id: "goblin_wolfrider",
-            type: "enemy",
-            attack: 6,
-            defense: 7,
-            order: 2,
-            category: 4,
-          },
-          {
-            id: "goblin_overlord",
-            type: "enemy",
-            attack: 20,
-            defense: 15,
-            order: 3,
-            cap: 1,
-            category: 2,
+            category: 3,
           },
           {
             id: "lich",
@@ -4535,34 +4773,10 @@
             category: 1,
           },
           {
-            id: "ball_lightning",
-            type: "enemy",
-            attack: 55,
-            defense: 20,
-            order: 1,
-            category: 4,
-          },
-          {
-            id: "lizard_warrior",
-            type: "enemy",
-            attack: 12,
-            defense: 12,
-            order: 1,
-            category: 2,
-          },
-          {
             id: "lizard_archer",
             type: "enemy",
             attack: 13,
             defense: 6,
-            order: 3,
-            category: 1,
-          },
-          {
-            id: "lizard_shaman",
-            type: "enemy",
-            attack: 22,
-            defense: 32,
             order: 3,
             category: 1,
           },
@@ -4575,10 +4789,18 @@
             category: 1,
           },
           {
-            id: "katana_samurai",
+            id: "lizard_shaman",
             type: "enemy",
-            attack: 26,
-            defense: 28,
+            attack: 22,
+            defense: 32,
+            order: 3,
+            category: 1,
+          },
+          {
+            id: "lizard_warrior",
+            type: "enemy",
+            attack: 12,
+            defense: 12,
             order: 1,
             category: 2,
           },
@@ -4590,30 +4812,6 @@
             order: 1,
             cap: 1,
             category: 4,
-          },
-          {
-            id: "myconid",
-            type: "enemy",
-            attack: 3,
-            defense: 10,
-            order: 1,
-            category: 3,
-          },
-          {
-            id: "musket_ashigaru",
-            type: "enemy",
-            attack: 22,
-            defense: 18,
-            order: 2,
-            category: 2,
-          },
-          {
-            id: "hill_giant",
-            type: "enemy",
-            attack: 20,
-            defense: 36,
-            order: 1,
-            category: 3,
           },
           {
             id: "minotaur",
@@ -4633,168 +4831,63 @@
             category: 3,
           },
           {
-            id: "pillager",
+            id: "musket_ashigaru",
             type: "enemy",
-            attack: 3,
-            defense: 5,
-            order: 1,
-            category: 2,
-          },
-          {
-            id: "deserter",
-            type: "enemy",
-            attack: 7,
-            defense: 6,
+            attack: 22,
+            defense: 18,
             order: 2,
             category: 2,
           },
           {
-            id: "snake",
-            type: "enemy",
-            attack: 4,
-            defense: 4,
-            order: 1,
-            category: 4,
-          },
-          {
-            id: "giant_snake",
-            type: "enemy",
-            attack: 16,
-            defense: 8,
-            order: 2,
-            category: 4,
-          },
-          {
-            id: "ravenous_crab",
-            type: "enemy",
-            attack: 2,
-            defense: 1,
-            order: 1,
-            category: 4,
-          },
-          {
-            id: "spider",
+            id: "myconid",
             type: "enemy",
             attack: 3,
-            defense: 2,
-            order: 1,
-            category: 4,
-          },
-          {
-            id: "sluagh",
-            type: "enemy",
-            attack: 26,
-            defense: 6,
-            order: 1,
-            category: 4,
-          },
-          {
-            id: "giant_spider",
-            type: "enemy",
-            attack: 10,
-            defense: 8,
-            order: 2,
-            category: 4,
-          },
-          {
-            id: "skeleton",
-            type: "enemy",
-            attack: 2,
-            defense: 2,
+            defense: 10,
             order: 1,
             category: 3,
           },
           {
-            id: "skeletal_knight",
+            id: "naga",
             type: "enemy",
-            attack: 18,
-            defense: 22,
+            attack: 12,
+            defense: 12,
             order: 1,
+            category: 4,
+          },
+          {
+            id: "naga_princess",
+            type: "enemy",
+            attack: 380,
+            defense: 1020,
+            order: 3,
+            cap: 1,
+            category: 4,
+          },
+          {
+            id: "naga_royal_guard",
+            type: "enemy",
+            attack: 110,
+            defense: 80,
+            order: 2,
             category: 2,
           },
           {
-            id: "skullface",
+            id: "necromancer",
             type: "enemy",
-            attack: 76,
-            defense: 60,
+            attack: 28,
+            defense: 15,
             order: 3,
             cap: 1,
             category: 1,
           },
           {
-            id: "son_atamar",
+            id: "nikharul",
             type: "enemy",
-            attack: 22,
-            defense: 20,
-            order: 1,
-            category: 2,
-          },
-          {
-            id: "swamp_horror",
-            type: "enemy",
-            attack: 900,
-            defense: 1400,
-            order: 1,
-            cap: 1,
-            category: 3,
-          },
-          {
-            id: "spectra_memory",
-            type: "enemy",
-            attack: 5,
-            defense: 8,
-            order: 1,
-            category: 3,
-          },
-          {
-            id: "succubus",
-            type: "enemy",
-            attack: 37,
-            defense: 23,
-            order: 1,
-            category: 2,
-          },
-          {
-            id: "succubus_queen",
-            type: "enemy",
-            attack: 1500,
-            defense: 1750,
-            order: 2,
+            attack: 780,
+            defense: 1020,
+            order: 3,
             cap: 1,
             category: 1,
-          },
-          {
-            id: "zombie",
-            type: "enemy",
-            attack: 3,
-            defense: 3,
-            order: 1,
-            category: 3,
-          },
-          {
-            id: "ghost",
-            type: "enemy",
-            attack: 5,
-            defense: 5,
-            order: 2,
-            category: 4,
-          },
-          {
-            id: "gnoll_leader",
-            type: "enemy",
-            attack: 23,
-            defense: 18,
-            order: 2,
-            cap: 1,
-            category: 2,
-          },
-          {
-            id: "gnoll_raider",
-            type: "enemy",
-            attack: 6,
-            defense: 5,
-            order: 1,
-            category: 2,
           },
           {
             id: "oni",
@@ -4885,87 +4978,28 @@
             category: 3,
           },
           {
-            id: "necromancer",
-            type: "enemy",
-            attack: 28,
-            defense: 15,
-            order: 3,
-            cap: 1,
-            category: 1,
-          },
-          {
-            id: "imp",
+            id: "pillager",
             type: "enemy",
             attack: 3,
+            defense: 5,
+            order: 1,
+            category: 2,
+          },
+          {
+            id: "raider",
+            type: "enemy",
+            attack: 22,
+            defense: 10,
+            order: 1,
+            category: 4,
+          },
+          {
+            id: "ravenous_crab",
+            type: "enemy",
+            attack: 2,
             defense: 1,
-            order: 2,
-            category: 1,
-          },
-          {
-            id: "lesser_demon",
-            type: "enemy",
-            attack: 8,
-            defense: 8,
-            order: 1,
-            category: 3,
-          },
-          {
-            id: "greater_demon",
-            type: "enemy",
-            attack: 16,
-            defense: 16,
-            order: 3,
-            category: 2,
-          },
-          {
-            id: "griffin",
-            type: "enemy",
-            attack: 42,
-            defense: 58,
             order: 1,
             category: 4,
-          },
-          {
-            id: "kobold",
-            type: "enemy",
-            attack: 3,
-            defense: 2,
-            order: 1,
-            category: 2,
-          },
-          {
-            id: "kobold_champion",
-            type: "enemy",
-            attack: 5,
-            defense: 12,
-            order: 1,
-            category: 3,
-          },
-          {
-            id: "kobold_king",
-            type: "enemy",
-            attack: 42,
-            defense: 48,
-            order: 1,
-            cap: 1,
-            category: 2,
-          },
-          {
-            id: "naga",
-            type: "enemy",
-            attack: 12,
-            defense: 12,
-            order: 1,
-            category: 4,
-          },
-          {
-            id: "nikharul",
-            type: "enemy",
-            attack: 780,
-            defense: 1020,
-            order: 3,
-            cap: 1,
-            category: 1,
           },
           {
             id: "red_dragon",
@@ -4977,6 +5011,97 @@
             category: 4,
           },
           {
+            id: "snake",
+            type: "enemy",
+            attack: 4,
+            defense: 4,
+            order: 1,
+            category: 4,
+          },
+          {
+            id: "spider",
+            type: "enemy",
+            attack: 3,
+            defense: 2,
+            order: 1,
+            category: 4,
+          },
+          {
+            id: "sluagh",
+            type: "enemy",
+            attack: 26,
+            defense: 6,
+            order: 1,
+            category: 4,
+          },
+          {
+            id: "skeleton",
+            type: "enemy",
+            attack: 2,
+            defense: 2,
+            order: 1,
+            category: 3,
+          },
+          {
+            id: "skeletal_knight",
+            type: "enemy",
+            attack: 18,
+            defense: 22,
+            order: 1,
+            category: 2,
+          },
+          {
+            id: "skullface",
+            type: "enemy",
+            attack: 76,
+            defense: 60,
+            order: 3,
+            cap: 1,
+            category: 1,
+          },
+          {
+            id: "son_atamar",
+            type: "enemy",
+            attack: 22,
+            defense: 20,
+            order: 1,
+            category: 2,
+          },
+          {
+            id: "spectra_memory",
+            type: "enemy",
+            attack: 5,
+            defense: 8,
+            order: 1,
+            category: 3,
+          },
+          {
+            id: "succubus",
+            type: "enemy",
+            attack: 37,
+            defense: 23,
+            order: 1,
+            category: 2,
+          },
+          {
+            id: "succubus_queen",
+            type: "enemy",
+            attack: 1500,
+            defense: 1750,
+            order: 2,
+            cap: 1,
+            category: 1,
+          },
+          {
+            id: "swamp_horror",
+            type: "enemy",
+            attack: 900,
+            defense: 1400,
+            order: 1,
+            cap: 1,
+            category: 3,
+          },
+          {
             id: "titan",
             type: "enemy",
             attack: 1,
@@ -4984,6 +5109,14 @@
             order: 1,
             cap: 1,
             category: 2,
+          },
+          {
+            id: "trap",
+            type: "enemy",
+            attack: 8,
+            defense: 41,
+            order: 1,
+            category: 3,
           },
           {
             id: "troll_cave",
@@ -5044,6 +5177,14 @@
             category: 4,
           },
           {
+            id: "warg",
+            type: "enemy",
+            attack: 22,
+            defense: 18,
+            order: 1,
+            category: 4,
+          },
+          {
             id: "werewolf",
             type: "enemy",
             attack: 1150,
@@ -5069,14 +5210,6 @@
             category: 1,
           },
           {
-            id: "warg",
-            type: "enemy",
-            attack: 22,
-            defense: 18,
-            order: 1,
-            category: 4,
-          },
-          {
             id: "wolf",
             type: "enemy",
             attack: 4,
@@ -5091,6 +5224,14 @@
             defense: 28,
             order: 2,
             category: 4,
+          },
+          {
+            id: "zombie",
+            type: "enemy",
+            attack: 3,
+            defense: 3,
+            order: 1,
+            category: 3,
           },
         ];
       },
@@ -5666,7 +5807,11 @@
               "兽人族曾引以为傲的堡垒已经变成了废墟，兽人部落开始了最后的绝望冲锋。他们眼中燃烧着火焰，手持武器，冲向我们的城墙，试图将其突破。数个世纪以来，我们的军队与最可怕的敌人交战过，久经战阵，他们坚守阵地，与兽人们激战了数日。两方的命运看起来悬而未决，但突然，战争的天平发生了倾斜，结局似乎已经近在眼前。人类竭尽全力战斗，他们知道一旦战败，等待他们的只有被奴役，甚至更可怕的事。兽人部落无情的毁灭浪潮继续冲击着城市，城市坚持到了最后，但还是陷落了。登攀者世界完了，人类也完了。留给后世的，只有苦涩的记忆，那些为了人类而战的牺牲，以及曾经闪耀，却永远熄灭的希望。您失败了，但这并不是登攀者世界的末日！由于您积累了声誉数值，您可以使用传承点数来购买永久加成，它们在接下来的游戏中会很有帮助的",
             soft_reset_in_progress: "转生中",
             spells: "咒语",
+            spells_all: "所有咒语",
+            spells_army: "军事",
+            spells_defense: "防御",
             spells_empty: "没有咒语可供使用",
+            spells_resource: "资源",
             spy: "间谍",
             spy_empty: "没有间谍可供派遣",
             start_game: "进入",
@@ -5930,6 +6075,9 @@
             bui_harvest_shrine: "丰收神殿",
             bui_harvest_shrine_description:
               "献给大地母亲的神殿，它将帮助我们供养和发展城市",
+            bui_highschool_magic_b: "魔法高中",
+            bui_highschool_magic_b_description:
+              "科学与魔法在此相融",
             bui_holy_site: "应许之地",
             bui_holy_site_description:
               "登攀者世界所有信仰的汇聚之处",
@@ -5941,6 +6089,11 @@
             bui_industrial_plant_description: "将有效推动生产",
             bui_island_outpost: "岛屿前哨",
             bui_island_outpost_description: "奇妙的动物可真多啊！",
+            bui_ivory_tower_b: "象牙塔",
+            bui_ivory_tower_b_description:
+              "象牙塔矗立在登攀者世界的高空",
+            bui_ivory_tower_b_part: "象牙塔组件",
+            bui_ivory_tower_b_part_description: "象牙塔的一部分",
             bui_large_shed: "大型棚屋",
             bui_large_shed_description:
               "与储量上限的斗争永无止境",
@@ -5969,6 +6122,8 @@
             bui_mana_extractors: "法力提取器",
             bui_mana_extractors_description:
               "我们可以从地下提取法力，以及其他资源",
+            bui_mana_fields_b: "法力场",
+            bui_mana_fields_b_description: "法力在其中增长",
             bui_mana_pit: "法力深井",
             bui_mana_pit_description:
               "可以存储我们所需的所有法力",
@@ -5979,11 +6134,20 @@
               "很像核反应堆，区别是完全不产生废料",
             bui_mansion: "宅邸",
             bui_mansion_description: "中产阶级的家",
+            bui_mage_academy_b: "法师学院",
+            bui_mage_academy_b_description:
+              "进行研究和开发的场所",
+            bui_magic_workshop_b: "魔法工坊",
+            bui_magic_workshop_b_description:
+              "为军队以及其他人提供魔法饰品",
             bui_magical_tower: "魔法塔",
             bui_magical_tower_description:
               "我最喜欢塔防游戏了",
             bui_magic_circle: "魔法环",
             bui_magic_circle_description: "聆听登攀者世界的私语",
+            bui_magic_stable_b: "魔法马厩M",
+            bui_magic_stable_b_description:
+              "魔法与小马，怎么看都不会有问题",
             bui_marketplace: "市场",
             bui_marketplace_description:
               "从小市场到全国垄断",
@@ -6092,6 +6256,8 @@
             bui_residential_block: "住宅区",
             bui_residential_block_description:
               "公寓区域，可以尽可能多地容纳住户",
+            bui_sacred_den_b: "圣谷",
+            bui_sacred_den_b_description: "远离邪恶的神圣居所",
             bui_sawmill: "锯木厂",
             bui_sawmill_description:
               "木头多，建筑多，产量多",
@@ -6130,6 +6296,11 @@
             bui_statue_virtue_part: "美德雕像组件",
             bui_statue_virtue_part_description:
               "美德雕像的一部分",
+            bui_steel_palace_b: "钢铁宫殿",
+            bui_steel_palace_b_description:
+              "钢铁宫殿在城市中闪耀",
+            bui_steel_palace_b_part: "钢铁宫殿组件",
+            bui_steel_palace_b_part_description: "钢铁宫殿的一部分",
             bui_steelworks: "钢铁厂",
             bui_steelworks_description:
               "钢铁厂可以利用其他金属生产钢",
@@ -6168,7 +6339,7 @@
             bui_warehouse: "仓库",
             bui_watchman_outpost: "守望者前哨",
             bui_watchman_outpost_description:
-              "时刻保持警惕，以发现敌人。放置在关键位置就可以让您看到敌人来袭的信息",
+              "放置在关键位置就可以让您看到敌人来袭的信息。需要建造四座才能继续前进",
             bui_the_vaults: "金库",
             bui_the_vaults_description:
               "由石头和钢制造的金库，用于存放黄金",
@@ -6360,6 +6531,9 @@
             ene_demonic_portal: "恶魔传送门",
             ene_demonic_portal_description:
               "传送门附近有一些大小恶魔，天空中还飞舞着几十只小鬼",
+            ene_dense_oasis: "茂密的绿洲",
+            ene_dense_oasis_description:
+              "其中一位娜迦公主的家，要小心！",
             ene_desecrated_temple: "亵渎神庙",
             ene_desecrated_temple_description:
               "月神的神庙已经变成了一堆腐臭的废渣，许多绿皮人形生物在此活动",
@@ -6447,6 +6621,9 @@
             ene_lead_golem_mine: "铅魔像矿井",
             ene_lead_golem_mine_description:
               "在一个旧矿井中我们发现了一种魔像，它的外表坚硬到奇怪",
+            ene_leprechaun_den: "小矮妖巢穴",
+            ene_leprechaun_den_description:
+              "小矮妖的巢穴，它会给我们带来好运！",
             ene_lich_temple: "巫妖寺庙",
             ene_lich_temple_description:
               "巫妖是黑暗力量的源泉，指挥着几十个亡者",
@@ -6459,6 +6636,9 @@
             ene_kobold_looters: "狗头人掠夺者",
             ene_kobold_looters_description:
               "它们从小营地袭击附近的村庄，让我们用几个士兵将它们赶走",
+            ene_kobold_stash: "狗头人藏匿处",
+            ene_kobold_stash_description:
+              "狗头人的藏品中或许有我们能用上的东西",
             ene_kobold_underground_tunnels: "狗头人隧道",
             ene_kobold_underground_tunnels_description:
               "狗头人深挖它们的地洞，它们很弱小，但数量众多",
@@ -6528,6 +6708,8 @@
             ene_rat_cellar: "老鼠地窖",
             ene_rat_cellar_description:
               "贪婪的老鼠在地窖里出没，让我们带一些长矛兵来吧",
+            ene_raider_hideout: "掠夺者藏身处",
+            ene_raider_hideout_description: "洞里有四十个掠夺者",
             ene_rusted_warehouse: "生锈仓库",
             ene_rusted_warehouse_description:
               "废弃的农舍，拿来当仓库应该不错",
@@ -6537,6 +6719,9 @@
             ene_skullface_encampment: "骷髅脸营地",
             ene_skullface_encampment_description:
               "骷髅脸营地由一些强盗守卫，消灭他会费点劲",
+            ene_smuggler_warehouse: "走私者仓库",
+            ene_smuggler_warehouse_description:
+              "走私者藏匿东西的大仓库",
             ene_snakes_nest: "蛇穴",
             ene_snakes_nest_description:
               "许多毫无戒心的受害者落入其中",
@@ -6597,6 +6782,12 @@
             fai_amusement_quarter_f: "娱乐区域",
             fai_amusement_quarter_f_description:
               "必须建造它",
+            fai_archmage_p: "大法师",
+            fai_archmage_p_description:
+              "大法师是战场上的精英法师",
+            fai_armored_caravan_p: "武装商队",
+            fai_armored_caravan_p_description:
+              "我们也需要留意那些为我们信仰服务的商人们！",
             fai_army_blessing: "军队祝福",
             fai_army_faith: "信仰之军",
             fai_army_faith_description: "信仰之军将使我们的敌人燃烧",
@@ -6655,6 +6846,15 @@
               "登攀者世界诸神之力的首要形式：祝福",
             fai_fate_shrine_f: "命运神殿",
             fai_fate_shrine_f_description: "必须赞颂",
+            fai_focus_development: "专注于发展",
+            fai_focus_development_description:
+              "专注于发展城市。只能专注于其中一种。请明智选择",
+            fai_focus_magic: "专注于魔法",
+            fai_focus_magic_description:
+              "专注于产生法力。只能专注于其中一种。请明智选择",
+            fai_focus_research: "专注于研究",
+            fai_focus_research_description:
+              "专注于进行研究。只能专注于其中一种。请明智选择",
             fai_holy_light: "圣光",
             fai_holy_light_description:
               "我们可以使用圣光祝福战士们了",
@@ -6743,33 +6943,83 @@
             fai_growth_nature_description:
               "我们可以创造一个咒语，使我们的森林变得更浓密",
             fai_growth_of_nature: "自然生长",
+            fai_highlightment_p: "明悟",
+            fai_highlightment_p_description:
+              "专注于研究后，我们可以施放“明悟”咒语了",
+            fai_highlightment_s: "明悟",
+            fai_highschool_magic_f: "魔法高中",
+            fai_highschool_magic_f_description:
+              "我们需要为法师们建造学校",
             fai_incremental_power: "增量之力",
             fai_incremental_power_description:
               "我们将利用北极星的力量来增加产量",
+            fai_ivory_tower_f: "象牙塔",
+            fai_ivory_tower_f_description:
+              "象牙塔将照亮整个登攀者世界",
+            fai_legion_light_p: "光之军团",
+            fai_legion_light_p_description:
+              "随着魔法环数量的增长，我们可以祝福光之战士们了",
+            fai_life_magic_p: "生命魔法",
+            fai_life_magic_p_description:
+              "专注于发展后，我们可以施放“生命魔法”咒语了",
+            fai_life_magic_s: "生命魔法",
             fai_lighten_rocks: "岩轻术",
             fai_lighten_rocks_description:
               "我们可以在采石场中使用这种咒语，消耗法力举起更重的石头",
             fai_lighten_of_rocks: "岩轻术",
+            fai_mage_p: "法师",
+            fai_mage_p_description: "我们可以招募法师了",
             fai_magical_lights: "魔法灯",
             fai_magical_lights_description:
               "我们可以在矿井中人工制造魔法灯，帮助矿工们工作",
             fai_magic_lights: "魔法灯",
+            fai_magic_stable_f: "魔法马厩",
+            fai_magic_stable_f_description:
+              "对马厩施展魔法后，可以创造出更强大的坐骑",
             fai_magical_tools: "魔法工具",
             fai_magical_tools_description:
               "谁不想试试用魔法工具增加产量呢？",
             fai_magic_tools: "魔法工具",
+            fai_magic_workshop_f: "魔法工坊",
+            fai_magic_workshop_f_description: "出售魔法物品的工坊！",
+            fai_mage_academy_f: "法师学院",
+            fai_mage_academy_f_description:
+              "致力于发现登攀者世界秘密的学院",
             fai_mana_armor: "魔法护甲",
+            fai_mana_armor_p: "魔法马具",
+            fai_mana_armor_p_description:
+              "强化坐骑们的咒语",
+            fai_mana_armor_s: "魔法马具",
             fai_mana_defense: "法力防御",
             fai_mana_defense_description:
               "我们可以使用法力来保卫城市",
             fai_mana_defense_II: "法力防御 II",
             fai_mana_defense_II_description:
               "我们可以使用更多法力来保卫城市",
+            fai_mage_fields_f: "法力场",
+            fai_mage_fields_f_description: "法力在其中增长",
+            fai_mana_forest_p: "法力森林",
+            fai_mana_forest_p_description: "我们可以创造法力森林了",
+            fai_mana_forest_s: "法力森林",
             fai_mana_dome: "法力穹顶",
             fai_mana_dome_description: "保护城市的法力穹顶",
             fai_mana_energy_shield: "法力能量盾",
             fai_mana_energy_shield_description:
               "使用法力盾强化城墙",
+            fai_mana_flowers_p: "法力之花",
+            fai_mana_flowers_p_description:
+              "专注于魔法后，我们可以施放“法力之花”咒语了",
+            fai_mana_flowers_s: "法力之花",
+            fai_mana_fortress_p: "法力堡垒",
+            fai_mana_fortress_p_description:
+              "是否可以用法力在战斗中制造一个堡垒来保护士兵们？",
+            fai_mana_materials_p: "魔法材料",
+            fai_mana_materials_p_description: "利用法力创造材料",
+            fai_mana_materials_s: "魔法材料",
+            fai_mana_spiral_p: "法力螺旋",
+            fai_mana_spiral_p_description:
+              "我们可以施展一个产生更多法力的咒语了！",
+            fai_mana_spiral_s: "法力螺旋",
             fai_minor_blessing: "小祝福",
             fai_minor_blessing_description:
               "神明赐予我们一些小祝福",
@@ -6789,6 +7039,10 @@
             fai_old_small_one_blessing_description:
               "引导我们工匠的手",
             fai_old_small_one_grace: "老小者的恩典",
+            fai_philosopher_stone_p: "点金石",
+            fai_philosopher_stone_p_description:
+              "寻找点金石",
+            fai_philosopher_stone_s: "点金石",
             fai_power_spell_east: "东部力量咒语",
             fai_power_spell_east_description:
               "东部力量咒语，马儿至上",
@@ -6806,6 +7060,9 @@
               "我们将利用北极星的力量保护城市",
             fai_sacred_armor: "神圣护甲",
             fai_sacred_armor_description: "为指挥官配备的魔法护甲",
+            fai_sacred_den_f: "圣谷",
+            fai_sacred_den_f_description:
+              "我们的人民将在圣谷中繁衍生息",
             fai_sacred_equipments: "神圣装备",
             fai_sacred_equipments_description:
               "我们可以利用法力制造魔法装备",
@@ -6826,6 +7083,12 @@
             fai_spell_accept: "施放咒语",
             fai_spell_cancel: "取消咒语",
             fai_spell_ancient: "远古咒语",
+            fai_spell_book_p: "法术书",
+            fai_spell_book_p_description: "魔法师们的法术书",
+            fai_spell_book_s: "法术书咒语",
+            fai_steel_palace_f: "钢铁宫殿",
+            fai_steel_palace_f_description:
+              "钢铁宫殿将是我们在登攀者世界中的荣誉殿堂",
             fai_study_undead_creatures: "研究亡者生物",
             fai_study_undead_creatures_description:
               "我们击败了足够多的亡灵，可以研究它们的特征了",
@@ -6842,6 +7105,10 @@
               "越来越多的难民要求进城，现在已经有一大群人了",
             fai_theresmore_revealed: "登攀者世界揭秘",
             fai_theresmore_revealed_description: "开始揭开面纱",
+            fai_tome_wisdom_p: "智慧卷轴",
+            fai_tome_wisdom_p_description:
+              "众神送来了智慧卷轴，我们必须研究它",
+            fai_tome_wisdom_s: "智慧卷轴咒语",
             fai_warrior_gods: "圣斗士",
             fai_warrior_gods_description: "神明选中的战士加入了我们的行伍",
             fai_underground_tunnel_f: "地下隧道",
@@ -7193,6 +7460,16 @@
             leg_seraphim_l: "炽天使",
             leg_seraphim_l_description:
               "天使中最高阶的存在",
+            leg_service_gods: "侍奉神明",
+            leg_service_gods_description: "向神明致敬",
+            leg_service_gods_II: "侍奉神明 II",
+            leg_service_gods_II_description: "信奉神明",
+            leg_service_gods_III: "侍奉神明 III",
+            leg_service_gods_III_description: "虔诚信仰神明",
+            leg_service_gods_IV: "侍奉神明 IV",
+            leg_service_gods_IV_description: "敬拜神明",
+            leg_service_gods_V: "侍奉神明 V",
+            leg_service_gods_V_description: "敬畏神明",
             leg_shieldbearer: "持盾卫士",
             leg_shieldbearer_description: "解锁持盾卫士",
             leg_shopkeepers_and_breeders: "店主和饲育员",
@@ -7332,6 +7609,7 @@
               "我们可以利用前哨的力量探索浩瀚无边的海洋了",
             log_bui_1_industrial_plant:
               "在工业厂房中，工匠会变为工人",
+            log_bui_1_ivory_tower_b: "我们可以招募大教长了",
             log_bui_1_library_souls:
               "学者们变成了部分为亡灵的生物，产生大量食物。他们不再需要吃饭，也不再需要睡觉了",
             log_bui_5_lucky_grove_b: "我们可以研究出售木材了",
@@ -7351,6 +7629,15 @@
               "市场规模日益扩张，我们可以组织集市了",
             log_bui_1_magic_circle:
               "我们可以用法力做到多少惊人的事啊。但小心，光与影是永远并存的",
+            log_bui_3_magic_circle:
+              "魔法环逐渐扩张，我们可以选择要专注的领域了。您希望学者们专注于魔法，研究还是发展呢？请明智选择，因为您只能选择其中一种领域",
+            log_bui_6_magic_circle:
+              "我们解锁了专注领域的后续内容！",
+            log_bui_8_magic_circle: "我们可以祝福光之战士们了！",
+            log_bui_9_magic_circle:
+              "我们解锁了专注领域的后续内容！",
+            log_bui_13_magic_circle:
+              "我们解锁了专注领域的后续内容！",
             log_bui_1_military_academy:
               "军事学院中有人提出了制造防御性超级武器的计划",
             log_bui_1_military_camp:
@@ -7673,6 +7960,8 @@
               "侦察兵发现了一个被恶魔围绕的传送门",
             log_ene_demoness_castle:
               "侦察兵发现了女恶魔的城堡",
+            log_ene_dense_oasis:
+              "侦察兵发现了茂密的绿洲，里面全是娜迦",
             log_ene_desecrated_temple:
               "侦察兵发现了月神的神庙遗址，它的腐臭味从数百米以外都能闻到",
             log_ene_deserters_den:
@@ -7747,10 +8036,13 @@
               "侦察兵发现了灵魂图书馆下面的东西：一个巨大的洞穴，充满了亡者生物！",
             log_ene_lich_temple:
               "侦察兵发现了死灵法师来自哪里，那是一名巫妖的寺庙",
+            log_ene_leprechaun_den:
+              "侦察兵发现了小矮妖的巢穴，里面有着黄金和好运！",
             log_ene_kobold_city:
               "侦察兵发现了一座满是狗头人的城市。它会不会是某个更大国家的一部分？",
             log_ene_kobold_looters:
               "侦察兵发现了一小群狗头人掠夺者",
+            log_ene_kobold_stash: "侦察兵发现了狗头人藏匿处",
             log_ene_kobold_underground_tunnels:
               "侦察兵发现了一个充斥着狗头人的地下隧道，让我们把它们赶走吧",
             log_ene_korrigan_dolmen:
@@ -7796,6 +8088,8 @@
               "侦察兵发现了一架满是囚犯的马车。有一些强盗在守卫着它",
             log_ene_rat_cellar:
               "侦察兵发现了一个充满贪婪老鼠的地窖",
+            log_ene_raider_hideout:
+              "侦察兵发现了掠夺者藏身处。芝麻开门！",
             log_ene_rusted_warehouse:
               "侦察兵发现了一个偏远生锈的仓库",
             log_ene_skullface_encampment:
@@ -7805,6 +8099,8 @@
             log_ene_snakes_nest: "侦察兵发现了一个满是蛇的巢穴",
             log_ene_spider_forest:
               "侦察兵发现了一个遍布蜘蛛网的茂密森林",
+            log_ene_smuggler_warehouse:
+              "侦察兵发现了走私者仓库",
             log_ene_son_atamar:
               "侦察兵在一个被摧毁的旧农场中发现了阿塔玛之子的聚集地",
             log_ene_south_sacred_place:
@@ -7851,6 +8147,8 @@
               "德鲁伊和他的信仰与日俱增，我们已经任命他为主教，他将为我们祝福",
             log_fai_amusement_quarter_f:
               "我们可以建造娱乐区域了",
+            log_fai_archmage_p: "我们可以招募大法师了",
+            log_fai_armored_caravan_p: "我们可以招募武装商队了",
             log_fai_banish_druid:
               "城市的守卫进入了精神花园，德鲁伊在里面被越来越多人围绕着。德鲁伊被赶出了城市，并被禁止再次进入。德鲁伊被抓住时，似乎十分愤怒，花园里的植物都枯萎了，并且有不止一名目击者发誓他看到火焰从德鲁伊的眼睛里冒出来",
             log_fai_city_blessing:
@@ -7865,22 +8163,42 @@
               "有了这个头骨，我们就可以为士兵配备最高级的武器和护甲了。但愿老者的话语不是事实",
             log_fai_eureka_halls_f: "我们可以建造灵感大厅了",
             log_fai_fate_shrine_f: "我们可以建造命运神殿了",
+            log_fai_life_magic_p: "我们可以施放“生命魔法”咒语了",
             log_fai_gold_consecration:
               "神力站在了我们这一边，我们必须继续增加黄金的储量",
+            log_fai_highlightment_p: "我们可以施放“明悟”咒语了",
+            log_fai_highschool_magic:
+              "我们可以建造魔法高中了",
             log_fai_hope_children:
               "受到古鲁德魔法影响的孩子们充满了魔法能量，他们的歌声和希望可以引导人类！我们可以施放“孩子们的希望”咒语了",
+            log_fai_ivory_tower_f: "我们可以建造象牙塔了！",
             log_fai_lucky_grove_f: "我们可以建造幸运树林了",
             log_fai_lucky_well_f: "我们可以建造幸运之井了",
+            log_fai_mage_p: "我们可以招募法师了",
+            log_fai_mage_academy_f: "我们可以建造法师学院了",
+            log_fai_magic_workshop_f: "我们可以建造魔法工坊了",
+            log_fai_mana_armor_p: "我们可以施放“魔法马具”咒语了",
+            log_fai_mage_fields_f: "我们可以建造法力场了",
+            log_fai_mana_flowers_p: "我们可以施放“法力之花”咒语了",
+            log_fai_mana_forest_p: "我们可以施放“法力森林”咒语了",
+            log_fai_mana_fortress_p: "我们可以制造法力堡垒了",
+            log_fai_mana_materials_p: "我们可以施放“魔法材料”咒语了",
+            log_fai_mana_spiral_p: "我们可以施放“法力螺旋”咒语了",
+            log_fai_magic_stable_f: "我们可以建造魔法马厩了",
             log_fai_northern_star_power:
               "我们可以通过两种不同的方式利用北极星的力量：保护城市，或者是引导它的能量增加产量。二者只能选择其一，请明智选择",
+            log_fai_philosopher_stone_p: "我们可以施放“点金石”咒语了",
             log_fai_prayer_for_the_ancient_monk:
               "我们可以训练武僧了",
             log_fai_prayer_goddess_luck:
               "幸运是登攀者世界每个人都应牢记的财富，越幸运越好",
             log_fai_prayer_lonely_druid:
               "德鲁伊同意给我们祝福了，现在可以施放一个强大的咒语。德鲁伊的信条是摒弃钠红石，蔑视卑鄙的金钱，为什么他会在祝福里面给我们这些呢？",
+            log_fai_sacred_den_f: "我们可以建造圣谷了",
             log_fai_sacred_place:
               "我们可以派侦察兵去探究登攀者世界上的圣地了。征服它们，将所有的法力导入一座塔内，并施放四条力量咒语，就可以通往飞升转生",
+            log_fai_speel_book_p: "我们可以施放“法术书”咒语了",
+            log_fai_steel_palace_f: "我们可以建造钢铁宫殿了！",
             log_fai_strange_lamp:
               "拿起灯以后，它启动了，然后灯神就此出现。它感谢我们还给它自由，大笑着飞走了。我们应该派侦察兵去寻找它的家",
             log_fai_summon_nikharul:
@@ -7889,6 +8207,7 @@
               "为了解决难民的问题，我们必须建立新的区域，这会花费大量资源，但我们会从这些人的工作中获益",
             log_fai_temple_mirune:
               "森林女神米露涅赐予我们一条强大的咒语。我们可以施放它了",
+            log_fai_tome_wisdom_p: "我们可以施放“智慧卷轴”咒语了",
             log_fai_underground_tunnel_f:
               "我们可以建造地下隧道了",
             log_fai_warrior_gods: "我们可以训练圣斗士了",
@@ -9737,6 +10056,12 @@
             uni_ancient_giant_plural: "远古巨人",
             uni_aqrabuamelu: "蝎子人",
             uni_aqrabuamelu_plural: "蝎子人",
+            uni_archmage_u: "大法师",
+            uni_archmage_u_description: "感受魔法的力量吧",
+            uni_archmage_u_plural: "大法师",
+            uni_armored_caravan_u: "武装商队",
+            uni_armored_caravan_u_description: "武装商队",
+            uni_armored_caravan_u_plural: "武装商队",
             uni_arquebusier: "火绳枪兵",
             uni_arquebusier_description:
               "装备火绳枪的士兵，攻击力出色",
@@ -10019,6 +10344,9 @@
             uni_heavy_warrior_description:
               "远古时代最好的士兵。攻守兼备",
             uni_heavy_warrior_plural: "重装战士",
+            uni_high_prelate_u: "大教长",
+            uni_high_prelate_u_description: "登攀者世界的信仰代表",
+            uni_high_prelate_u_plural: "大教长",
             uni_katana_samurai: "刀侍武士",
             uni_katana_samurai_plural: "刀侍武士",
             uni_imp: "小鬼",
@@ -10033,6 +10361,9 @@
             uni_light_cavarly_description:
               "轻骑兵可以有效对付射手",
             uni_light_cavarly_plural: "轻骑兵",
+            uni_mage_u: "法师",
+            uni_mage_u_description: "脆弱，但是攻击力惊人",
+            uni_mage_u_plural: "法师",
             uni_markanat: "玛卡纳特",
             uni_markanat_plural: "玛卡纳特",
             uni_marksman: "神射手",
@@ -10043,6 +10374,10 @@
             uni_man_at_arms_description:
               "重装战士的进化形态，装备有护甲和钢制武器",
             uni_man_at_arms_plural: "超重装战士",
+            uni_mana_fortress_u: "法力堡垒",
+            uni_mana_fortress_u_description:
+              "由法力构成的据点",
+            uni_mana_fortress_u_plural: "法力堡垒",
             uni_mercenary_veteran: "佣兵",
             uni_mercenary_veteran_description:
               "为出价最高的人服务的老兵",
@@ -10065,6 +10400,10 @@
             uni_naga_description:
               "娜迦进化出了四条手臂，通常用于挥舞四把剑",
             uni_naga_plural: "娜迦",
+            uni_naga_princess: "娜迦公主",
+            uni_naga_princess_plural: "娜迦公主",
+            uni_naga_royal_guard: "娜迦皇家卫兵",
+            uni_naga_royal_guard_plural: "娜迦皇家卫兵",
             uni_nikharul: "窃魂者尼哈鲁尔",
             uni_nikharul_plural: "尼哈鲁尔",
             uni_nikharul_soulstealer: "窃魂者尼哈鲁尔",
@@ -10099,6 +10438,8 @@
             uni_ranger_description:
               "有了弓和剑，他们就能在森林中一直生存下去",
             uni_ranger_plural: "游击兵",
+            uni_raider: "掠夺者",
+            uni_raider_plural: "掠夺者",
             uni_red_dragon: "红龙",
             uni_red_dragon_plural: "红龙",
             uni_sacred_golem: "神圣魔像",
@@ -10208,6 +10549,8 @@
             uni_tamed_djinn_plural: "驯服的灯神",
             uni_titan: "泰坦",
             uni_titan_plural: "泰坦",
+            uni_trap: "陷阱",
+            uni_trap_plural: "陷阱",
             uni_trebuchet: "巨型投石机",
             uni_trebuchet_description:
               "随着弹道学的发展，我们可以部署巨型投石机了。它们的攻击力相当强大",
@@ -10237,19 +10580,19 @@
             return o;
           },
           $Qg: function () {
-            return _e;
+            return ye;
           },
           AV$: function () {
-            return A;
+            return C;
           },
           Ake: function () {
-            return E;
+            return j;
           },
           BGt: function () {
-            return ie;
+            return ne;
           },
           C$b: function () {
-            return le;
+            return se;
           },
           DkV: function () {
             return q;
@@ -10258,25 +10601,25 @@
             return D;
           },
           FBh: function () {
-            return V;
+            return H;
           },
           Fjp: function () {
-            return P;
-          },
-          Gir: function () {
-            return z;
-          },
-          H7z: function () {
             return R;
           },
+          Gir: function () {
+            return W;
+          },
+          H7z: function () {
+            return F;
+          },
           Hne: function () {
-            return me;
+            return ge;
           },
           Iwx: function () {
             return b;
           },
           J1f: function () {
-            return oe;
+            return le;
           },
           KkW: function () {
             return n;
@@ -10285,49 +10628,52 @@
             return a;
           },
           MUM: function () {
-            return J;
+            return ee;
           },
           M_e: function () {
             return _;
           },
           MxW: function () {
-            return we;
+            return ke;
           },
           PZJ: function () {
             return v;
           },
+          Qbm: function () {
+            return E;
+          },
           S8v: function () {
-            return ye;
+            return he;
           },
           SGh: function () {
-            return be;
+            return we;
           },
           Shd: function () {
             return w;
           },
           SlK: function () {
-            return X;
+            return $;
           },
           UEB: function () {
-            return xe;
+            return Se;
           },
           UHA: function () {
-            return Q;
+            return X;
           },
           UeY: function () {
-            return de;
+            return pe;
           },
           VG3: function () {
-            return U;
+            return Y;
           },
           Vrx: function () {
             return x;
           },
           XT1: function () {
-            return se;
+            return ue;
           },
           XWK: function () {
-            return Z;
+            return B;
           },
           YFH: function () {
             return d;
@@ -10339,7 +10685,7 @@
             return u;
           },
           Ze$: function () {
-            return Y;
+            return Q;
           },
           ZkO: function () {
             return I;
@@ -10348,13 +10694,13 @@
             return y;
           },
           _MI: function () {
-            return ke;
+            return xe;
           },
           _VZ: function () {
             return O;
           },
           bGv: function () {
-            return re;
+            return ae;
           },
           bWf: function () {
             return c;
@@ -10366,40 +10712,40 @@
             return h;
           },
           dV7: function () {
-            return j;
+            return L;
           },
           epm: function () {
             return N;
           },
           fOx: function () {
-            return ee;
+            return te;
           },
           f_y: function () {
-            return ae;
+            return ie;
           },
           fjy: function () {
-            return C;
+            return A;
           },
           g7x: function () {
-            return Se;
+            return Me;
           },
           geb: function () {
-            return K;
+            return U;
           },
           h27: function () {
-            return pe;
+            return _e;
           },
           h_8: function () {
-            return F;
+            return V;
           },
           hb5: function () {
             return f;
           },
           hhU: function () {
-            return ce;
+            return de;
           },
           iKI: function () {
-            return ge;
+            return ve;
           },
           iZA: function () {
             return p;
@@ -10408,7 +10754,7 @@
             return i;
           },
           kMq: function () {
-            return G;
+            return K;
           },
           kaV: function () {
             return T;
@@ -10417,40 +10763,40 @@
             return S;
           },
           lEW: function () {
-            return ve;
+            return be;
           },
           lG8: function () {
-            return te;
+            return re;
           },
           mOX: function () {
             return k;
           },
           ns6: function () {
-            return W;
+            return Z;
           },
           nvf: function () {
-            return L;
+            return P;
           },
           oHt: function () {
-            return B;
+            return G;
           },
           p$j: function () {
-            return he;
+            return fe;
           },
           pCE: function () {
-            return ue;
+            return ce;
           },
           qX5: function () {
-            return ne;
+            return oe;
           },
           r8w: function () {
             return M;
           },
           sMk: function () {
-            return fe;
+            return me;
           },
           sMo: function () {
-            return H;
+            return z;
           },
           ss0: function () {
             return l;
@@ -10459,7 +10805,7 @@
             return s;
           },
           v5B: function () {
-            return $;
+            return J;
           },
         });
         var a =
@@ -10506,9 +10852,9 @@
             "M12 16C13.1 16 14 16.9 14 18S13.1 20 12 20 10 19.1 10 18 10.9 16 12 16M12 10C13.1 10 14 10.9 14 12S13.1 14 12 14 10 13.1 10 12 10.9 10 12 10M12 4C13.1 4 14 4.9 14 6S13.1 8 12 8 10 7.1 10 6 10.9 4 12 4M6 16C7.1 16 8 16.9 8 18S7.1 20 6 20 4 19.1 4 18 4.9 16 6 16M6 10C7.1 10 8 10.9 8 12S7.1 14 6 14 4 13.1 4 12 4.9 10 6 10M6 4C7.1 4 8 4.9 8 6S7.1 8 6 8 4 7.1 4 6 4.9 4 6 4M18 16C19.1 16 20 16.9 20 18S19.1 20 18 20 16 19.1 16 18 16.9 16 18 16M18 10C19.1 10 20 10.9 20 12S19.1 14 18 14 16 13.1 16 12 16.9 10 18 10M18 4C19.1 4 20 4.9 20 6S19.1 8 18 8 16 7.1 16 6 16.9 4 18 4Z",
           M =
             "M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
-          C =
-            "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,14C13.75,14 15.29,14.72 16.19,15.81L14.77,17.23C14.32,16.5 13.25,16 12,16C10.75,16 9.68,16.5 9.23,17.23L7.81,15.81C8.71,14.72 10.25,14 12,14M10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5V8L10,9.5M17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5L17,8V9.5",
           A =
+            "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,14C13.75,14 15.29,14.72 16.19,15.81L14.77,17.23C14.32,16.5 13.25,16 12,16C10.75,16 9.68,16.5 9.23,17.23L7.81,15.81C8.71,14.72 10.25,14 12,14M10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5V8L10,9.5M17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5L17,8V9.5",
+          C =
             "M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M13,9.94L14.06,11L15.12,9.94L16.18,11L17.24,9.94L15.12,7.82L13,9.94M8.88,9.94L9.94,11L11,9.94L8.88,7.82L6.76,9.94L7.82,11L8.88,9.94M12,17.5C14.33,17.5 16.31,16.04 17.11,14H6.89C7.69,16.04 9.67,17.5 12,17.5Z",
           T =
             "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M8.5,11A1.5,1.5 0 0,1 7,9.5A1.5,1.5 0 0,1 8.5,8A1.5,1.5 0 0,1 10,9.5A1.5,1.5 0 0,1 8.5,11M17,9.5A1.5,1.5 0 0,1 15.5,11A1.5,1.5 0 0,1 14,9.5A1.5,1.5 0 0,1 15.5,8A1.5,1.5 0 0,1 17,9.5M16,14V16H8V14H16Z",
@@ -10519,90 +10865,92 @@
             "M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z",
           I =
             "M14,2H6C4.89,2 4,2.89 4,4V20C4,21.11 4.89,22 6,22H18C19.11,22 20,21.11 20,20V8L14,2M12,19L8,15H10.5V12H13.5V15H16L12,19M13,9V3.5L18.5,9H13Z",
-          E = "M7,2V13H10V22L17,10H13L17,2H7Z",
-          j =
-            "M3,13A9,9 0 0,0 12,22C12,17 7.97,13 3,13M12,5.5A2.5,2.5 0 0,1 14.5,8A2.5,2.5 0 0,1 12,10.5A2.5,2.5 0 0,1 9.5,8A2.5,2.5 0 0,1 12,5.5M5.6,10.25A2.5,2.5 0 0,0 8.1,12.75C8.63,12.75 9.12,12.58 9.5,12.31C9.5,12.37 9.5,12.43 9.5,12.5A2.5,2.5 0 0,0 12,15A2.5,2.5 0 0,0 14.5,12.5C14.5,12.43 14.5,12.37 14.5,12.31C14.88,12.58 15.37,12.75 15.9,12.75C17.28,12.75 18.4,11.63 18.4,10.25C18.4,9.25 17.81,8.4 16.97,8C17.81,7.6 18.4,6.74 18.4,5.75C18.4,4.37 17.28,3.25 15.9,3.25C15.37,3.25 14.88,3.41 14.5,3.69C14.5,3.63 14.5,3.56 14.5,3.5A2.5,2.5 0 0,0 12,1A2.5,2.5 0 0,0 9.5,3.5C9.5,3.56 9.5,3.63 9.5,3.69C9.12,3.41 8.63,3.25 8.1,3.25A2.5,2.5 0 0,0 5.6,5.75C5.6,6.74 6.19,7.6 7.03,8C6.19,8.4 5.6,9.25 5.6,10.25M12,22A9,9 0 0,0 21,13C16,13 12,17 12,22Z",
+          E =
+            "M15,19.88C15.04,20.18 14.94,20.5 14.71,20.71C14.32,21.1 13.69,21.1 13.3,20.71L9.29,16.7C9.06,16.47 8.96,16.16 9,15.87V10.75L4.21,4.62C3.87,4.19 3.95,3.56 4.38,3.22C4.57,3.08 4.78,3 5,3V3H19V3C19.22,3 19.43,3.08 19.62,3.22C20.05,3.56 20.13,4.19 19.79,4.62L15,10.75V19.88M7.04,5L11,10.06V15.58L13,17.58V10.05L16.96,5H7.04Z",
+          j = "M7,2V13H10V22L17,10H13L17,2H7Z",
           L =
-            "M22,12V20A2,2 0 0,1 20,22H4A2,2 0 0,1 2,20V12A1,1 0 0,1 1,11V8A2,2 0 0,1 3,6H6.17C6.06,5.69 6,5.35 6,5A3,3 0 0,1 9,2C10,2 10.88,2.5 11.43,3.24V3.23L12,4L12.57,3.23V3.24C13.12,2.5 14,2 15,2A3,3 0 0,1 18,5C18,5.35 17.94,5.69 17.83,6H21A2,2 0 0,1 23,8V11A1,1 0 0,1 22,12M4,20H11V12H4V20M20,20V12H13V20H20M9,4A1,1 0 0,0 8,5A1,1 0 0,0 9,6A1,1 0 0,0 10,5A1,1 0 0,0 9,4M15,4A1,1 0 0,0 14,5A1,1 0 0,0 15,6A1,1 0 0,0 16,5A1,1 0 0,0 15,4M3,8V10H11V8H3M13,8V10H21V8H13Z",
+            "M3,13A9,9 0 0,0 12,22C12,17 7.97,13 3,13M12,5.5A2.5,2.5 0 0,1 14.5,8A2.5,2.5 0 0,1 12,10.5A2.5,2.5 0 0,1 9.5,8A2.5,2.5 0 0,1 12,5.5M5.6,10.25A2.5,2.5 0 0,0 8.1,12.75C8.63,12.75 9.12,12.58 9.5,12.31C9.5,12.37 9.5,12.43 9.5,12.5A2.5,2.5 0 0,0 12,15A2.5,2.5 0 0,0 14.5,12.5C14.5,12.43 14.5,12.37 14.5,12.31C14.88,12.58 15.37,12.75 15.9,12.75C17.28,12.75 18.4,11.63 18.4,10.25C18.4,9.25 17.81,8.4 16.97,8C17.81,7.6 18.4,6.74 18.4,5.75C18.4,4.37 17.28,3.25 15.9,3.25C15.37,3.25 14.88,3.41 14.5,3.69C14.5,3.63 14.5,3.56 14.5,3.5A2.5,2.5 0 0,0 12,1A2.5,2.5 0 0,0 9.5,3.5C9.5,3.56 9.5,3.63 9.5,3.69C9.12,3.41 8.63,3.25 8.1,3.25A2.5,2.5 0 0,0 5.6,5.75C5.6,6.74 6.19,7.6 7.03,8C6.19,8.4 5.6,9.25 5.6,10.25M12,22A9,9 0 0,0 21,13C16,13 12,17 12,22Z",
           P =
-            "M1 22L2.5 17H9.5L11 22H1M13 22L14.5 17H21.5L23 22H13M6 15L7.5 10H14.5L16 15H6M23 6.05L19.14 7.14L18.05 11L16.96 7.14L13.1 6.05L16.96 4.96L18.05 1.1L19.14 4.96L23 6.05Z",
+            "M22,12V20A2,2 0 0,1 20,22H4A2,2 0 0,1 2,20V12A1,1 0 0,1 1,11V8A2,2 0 0,1 3,6H6.17C6.06,5.69 6,5.35 6,5A3,3 0 0,1 9,2C10,2 10.88,2.5 11.43,3.24V3.23L12,4L12.57,3.23V3.24C13.12,2.5 14,2 15,2A3,3 0 0,1 18,5C18,5.35 17.94,5.69 17.83,6H21A2,2 0 0,1 23,8V11A1,1 0 0,1 22,12M4,20H11V12H4V20M20,20V12H13V20H20M9,4A1,1 0 0,0 8,5A1,1 0 0,0 9,6A1,1 0 0,0 10,5A1,1 0 0,0 9,4M15,4A1,1 0 0,0 14,5A1,1 0 0,0 15,6A1,1 0 0,0 16,5A1,1 0 0,0 15,4M3,8V10H11V8H3M13,8V10H21V8H13Z",
           R =
+            "M1 22L2.5 17H9.5L11 22H1M13 22L14.5 17H21.5L23 22H13M6 15L7.5 10H14.5L16 15H6M23 6.05L19.14 7.14L18.05 11L16.96 7.14L13.1 6.05L16.96 4.96L18.05 1.1L19.14 4.96L23 6.05Z",
+          F =
             "M20 13C20.6 13 21.1 13.2 21.5 13.6C21.8 14 22 14.5 22 15L14 18L7 16V7H8.9L16.2 9.7C16.7 9.9 17 10.3 17 10.8C17 11.1 16.9 11.4 16.7 11.6S16.1 12 15.8 12H13L11.2 11.3L10.9 12.2L13 13H20M1 7H5V18H1V7Z",
           D =
             "M20 17Q20.86 17 21.45 17.6T22.03 19L14 22L7 20V11H8.95L16.22 13.69Q17 14 17 14.81 17 15.28 16.66 15.63T15.8 16H13L11.25 15.33L10.92 16.27L13 17H20M16 3.23Q17.06 2 18.7 2 20.06 2 21 3T22 5.3Q22 6.33 21 7.76T19.03 10.15 16 13Q13.92 11.11 12.94 10.15T10.97 7.76 10 5.3Q10 3.94 10.97 3T13.31 2Q14.91 2 16 3.23M.984 11H5V22H.984V11Z",
-          F =
-            "M11.43 9.67C11.47 9.78 11.5 9.88 11.5 10V15.22C11.5 15.72 11.31 16.2 10.97 16.57L8.18 19.62L4.78 16.22L6 15L8.8 2.86C8.92 2.36 9.37 2 9.89 2C10.5 2 11 2.5 11 3.11V8.07C10.84 8.03 10.67 8 10.5 8C9.4 8 8.5 8.9 8.5 10V13C8.5 13.28 8.72 13.5 9 13.5S9.5 13.28 9.5 13V10C9.5 9.45 9.95 9 10.5 9C10.69 9 10.85 9.07 11 9.16C11.12 9.23 11.21 9.32 11.3 9.42C11.33 9.46 11.36 9.5 11.38 9.55C11.4 9.59 11.42 9.63 11.43 9.67M2 19L6 22L7.17 20.73L3.72 17.28L2 19M18 15L15.2 2.86C15.08 2.36 14.63 2 14.11 2C13.5 2 13 2.5 13 3.11V8.07C13.16 8.03 13.33 8 13.5 8C14.6 8 15.5 8.9 15.5 10V13C15.5 13.28 15.28 13.5 15 13.5S14.5 13.28 14.5 13V10C14.5 9.45 14.05 9 13.5 9C13.31 9 13.15 9.07 13 9.16C12.88 9.23 12.79 9.32 12.71 9.42C12.68 9.46 12.64 9.5 12.62 9.55C12.6 9.59 12.58 9.63 12.57 9.67C12.53 9.78 12.5 9.88 12.5 10V15.22C12.5 15.72 12.69 16.2 13.03 16.57L15.82 19.62L19.22 16.22L18 15M20.28 17.28L16.83 20.73L18 22L22 19L20.28 17.28Z",
           V =
-            "M21.71 8.71C22.96 7.46 22.39 6 21.71 5.29L18.71 2.29C17.45 1.04 16 1.61 15.29 2.29L13.59 4H11C9.1 4 8 5 7.44 6.15L3 10.59V14.59L2.29 15.29C1.04 16.55 1.61 18 2.29 18.71L5.29 21.71C5.83 22.25 6.41 22.45 6.96 22.45C7.67 22.45 8.32 22.1 8.71 21.71L11.41 19H15C16.7 19 17.56 17.94 17.87 16.9C19 16.6 19.62 15.74 19.87 14.9C21.42 14.5 22 13.03 22 12V9H21.41L21.71 8.71M20 12C20 12.45 19.81 13 19 13L18 13L18 14C18 14.45 17.81 15 17 15L16 15L16 16C16 16.45 15.81 17 15 17H10.59L7.31 20.28C7 20.57 6.82 20.4 6.71 20.29L3.72 17.31C3.43 17 3.6 16.82 3.71 16.71L5 15.41V11.41L7 9.41V11C7 12.21 7.8 14 10 14S13 12.21 13 11H20V12M20.29 7.29L18.59 9H11V11C11 11.45 10.81 12 10 12S9 11.45 9 11V8C9 7.54 9.17 6 11 6H14.41L16.69 3.72C17 3.43 17.18 3.6 17.29 3.71L20.28 6.69C20.57 7 20.4 7.18 20.29 7.29Z",
+            "M11.43 9.67C11.47 9.78 11.5 9.88 11.5 10V15.22C11.5 15.72 11.31 16.2 10.97 16.57L8.18 19.62L4.78 16.22L6 15L8.8 2.86C8.92 2.36 9.37 2 9.89 2C10.5 2 11 2.5 11 3.11V8.07C10.84 8.03 10.67 8 10.5 8C9.4 8 8.5 8.9 8.5 10V13C8.5 13.28 8.72 13.5 9 13.5S9.5 13.28 9.5 13V10C9.5 9.45 9.95 9 10.5 9C10.69 9 10.85 9.07 11 9.16C11.12 9.23 11.21 9.32 11.3 9.42C11.33 9.46 11.36 9.5 11.38 9.55C11.4 9.59 11.42 9.63 11.43 9.67M2 19L6 22L7.17 20.73L3.72 17.28L2 19M18 15L15.2 2.86C15.08 2.36 14.63 2 14.11 2C13.5 2 13 2.5 13 3.11V8.07C13.16 8.03 13.33 8 13.5 8C14.6 8 15.5 8.9 15.5 10V13C15.5 13.28 15.28 13.5 15 13.5S14.5 13.28 14.5 13V10C14.5 9.45 14.05 9 13.5 9C13.31 9 13.15 9.07 13 9.16C12.88 9.23 12.79 9.32 12.71 9.42C12.68 9.46 12.64 9.5 12.62 9.55C12.6 9.59 12.58 9.63 12.57 9.67C12.53 9.78 12.5 9.88 12.5 10V15.22C12.5 15.72 12.69 16.2 13.03 16.57L15.82 19.62L19.22 16.22L18 15M20.28 17.28L16.83 20.73L18 22L22 19L20.28 17.28Z",
           H =
-            "M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z",
+            "M21.71 8.71C22.96 7.46 22.39 6 21.71 5.29L18.71 2.29C17.45 1.04 16 1.61 15.29 2.29L13.59 4H11C9.1 4 8 5 7.44 6.15L3 10.59V14.59L2.29 15.29C1.04 16.55 1.61 18 2.29 18.71L5.29 21.71C5.83 22.25 6.41 22.45 6.96 22.45C7.67 22.45 8.32 22.1 8.71 21.71L11.41 19H15C16.7 19 17.56 17.94 17.87 16.9C19 16.6 19.62 15.74 19.87 14.9C21.42 14.5 22 13.03 22 12V9H21.41L21.71 8.71M20 12C20 12.45 19.81 13 19 13L18 13L18 14C18 14.45 17.81 15 17 15L16 15L16 16C16 16.45 15.81 17 15 17H10.59L7.31 20.28C7 20.57 6.82 20.4 6.71 20.29L3.72 17.31C3.43 17 3.6 16.82 3.71 16.71L5 15.41V11.41L7 9.41V11C7 12.21 7.8 14 10 14S13 12.21 13 11H20V12M20.29 7.29L18.59 9H11V11C11 11.45 10.81 12 10 12S9 11.45 9 11V8C9 7.54 9.17 6 11 6H14.41L16.69 3.72C17 3.43 17.18 3.6 17.29 3.71L20.28 6.69C20.57 7 20.4 7.18 20.29 7.29Z",
           z =
-            "M11,18H13V16H11V18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,6A4,4 0 0,0 8,10H10A2,2 0 0,1 12,8A2,2 0 0,1 14,10C14,12 11,11.75 11,15H13C13,12.75 16,12.5 16,10A4,4 0 0,0 12,6Z",
+            "M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z",
           W =
-            "M17,16H15V22H12V17H8V22H5V16H3L10,10L17,16M6,2L10,6H9V9H7V6H5V9H3V6H2L6,2M18,3L23,8H22V12H19V9H17V12H15.34L14,10.87V8H13L18,3Z",
+            "M11,18H13V16H11V18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,6A4,4 0 0,0 8,10H10A2,2 0 0,1 12,8A2,2 0 0,1 14,10C14,12 11,11.75 11,15H13C13,12.75 16,12.5 16,10A4,4 0 0,0 12,6Z",
           Z =
-            "M20 8V16L17 17L13.91 11.5C13.65 11.04 12.92 11.27 13 11.81L14 21L4 17L5.15 8.94C5.64 5.53 8.56 3 12 3H20L18.42 5.37C19.36 5.88 20 6.86 20 8Z",
+            "M17,16H15V22H12V17H8V22H5V16H3L10,10L17,16M6,2L10,6H9V9H7V6H5V9H3V6H2L6,2M18,3L23,8H22V12H19V9H17V12H15.34L14,10.87V8H13L18,3Z",
           B =
-            "M19,4H20V1H16V4C16,4 18,8 18,12C18,16 16,19 12,19C8,19 6,16 6,12C6,8 8,4 8,4V1H4V4H5C5,4 2,8 2,14C2,19 7,23 12,23C17,23 22,19 22,14C22,8 19,4 19,4M4,13C3.4,13 3,12.6 3,12C3,11.4 3.4,11 4,11C4.6,11 5,11.4 5,12C5,12.6 4.6,13 4,13M6,19C5.4,19 5,18.6 5,18C5,17.4 5.4,17 6,17C6.6,17 7,17.4 7,18C7,18.6 6.6,19 6,19M12,22C11.4,22 11,21.6 11,21C11,20.4 11.4,20 12,20C12.6,20 13,20.4 13,21C13,21.6 12.6,22 12,22M18,19C17.4,19 17,18.6 17,18C17,17.4 17.4,17 18,17C18.6,17 19,17.4 19,18C19,18.6 18.6,19 18,19M20,13C19.4,13 19,12.6 19,12C19,11.4 19.4,11 20,11C20.6,11 21,11.4 21,12C21,12.6 20.6,13 20,13Z",
+            "M20 8V16L17 17L13.91 11.5C13.65 11.04 12.92 11.27 13 11.81L14 21L4 17L5.15 8.94C5.64 5.53 8.56 3 12 3H20L18.42 5.37C19.36 5.88 20 6.86 20 8Z",
           G =
-            "M5 6C3.9 6 3 6.9 3 8S3.9 10 5 10 7 9.11 7 8 6.11 6 5 6M12 4C10.9 4 10 4.89 10 6S10.9 8 12 8 14 7.11 14 6 13.11 4 12 4M19 2C17.9 2 17 2.9 17 4S17.9 6 19 6 21 5.11 21 4 20.11 2 19 2M3.5 11C2.67 11 2 11.67 2 12.5V17H3V22H7V17H8V12.5C8 11.67 7.33 11 6.5 11H3.5M10.5 9C9.67 9 9 9.67 9 10.5V15H10V20H14V15H15V10.5C15 9.67 14.33 9 13.5 9H10.5M17.5 7C16.67 7 16 7.67 16 8.5V13H17V18H21V13H22V8.5C22 7.67 21.33 7 20.5 7H17.5Z",
+            "M19,4H20V1H16V4C16,4 18,8 18,12C18,16 16,19 12,19C8,19 6,16 6,12C6,8 8,4 8,4V1H4V4H5C5,4 2,8 2,14C2,19 7,23 12,23C17,23 22,19 22,14C22,8 19,4 19,4M4,13C3.4,13 3,12.6 3,12C3,11.4 3.4,11 4,11C4.6,11 5,11.4 5,12C5,12.6 4.6,13 4,13M6,19C5.4,19 5,18.6 5,18C5,17.4 5.4,17 6,17C6.6,17 7,17.4 7,18C7,18.6 6.6,19 6,19M12,22C11.4,22 11,21.6 11,21C11,20.4 11.4,20 12,20C12.6,20 13,20.4 13,21C13,21.6 12.6,22 12,22M18,19C17.4,19 17,18.6 17,18C17,17.4 17.4,17 18,17C18.6,17 19,17.4 19,18C19,18.6 18.6,19 18,19M20,13C19.4,13 19,12.6 19,12C19,11.4 19.4,11 20,11C20.6,11 21,11.4 21,12C21,12.6 20.6,13 20,13Z",
           K =
-            "M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
+            "M5 6C3.9 6 3 6.9 3 8S3.9 10 5 10 7 9.11 7 8 6.11 6 5 6M12 4C10.9 4 10 4.89 10 6S10.9 8 12 8 14 7.11 14 6 13.11 4 12 4M19 2C17.9 2 17 2.9 17 4S17.9 6 19 6 21 5.11 21 4 20.11 2 19 2M3.5 11C2.67 11 2 11.67 2 12.5V17H3V22H7V17H8V12.5C8 11.67 7.33 11 6.5 11H3.5M10.5 9C9.67 9 9 9.67 9 10.5V15H10V20H14V15H15V10.5C15 9.67 14.33 9 13.5 9H10.5M17.5 7C16.67 7 16 7.67 16 8.5V13H17V18H21V13H22V8.5C22 7.67 21.33 7 20.5 7H17.5Z",
           U =
+            "M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
+          Y =
             "M12 14.27L10.64 13C9.09 11.57 7.16 10.57 5 10.18V17.13C7.61 17.47 10 18.47 12 19.95C14 18.47 16.39 17.47 19 17.13V10.18C16.84 10.57 14.91 11.57 13.36 13M19 8.15C19.65 8.05 20.32 8 21 8V19C17.5 19 14.36 20.35 12 22.54C9.64 20.35 6.5 19 3 19V8C3.68 8 4.35 8.05 5 8.15C7.69 8.56 10.1 9.78 12 11.54C13.9 9.78 16.31 8.56 19 8.15M12 6C12.27 6 12.5 5.9 12.71 5.71C12.9 5.5 13 5.27 13 5S12.9 4.5 12.71 4.29C12.5 4.11 12.27 4 12 4S11.5 4.11 11.29 4.29C11.11 4.5 11 4.74 11 5S11.11 5.5 11.29 5.71C11.5 5.9 11.74 6 12 6M14.12 7.12C13.56 7.68 12.8 8 12 8S10.44 7.68 9.88 7.12C9.32 6.56 9 5.8 9 5S9.32 3.44 9.88 2.88C10.44 2.32 11.2 2 12 2S13.56 2.32 14.12 2.88 15 4.2 15 5 14.68 6.56 14.12 7.12Z",
-          Y = "M11 15H6L13 1V9H18L11 23V15Z",
-          Q = "M19,13H5V11H19V13Z",
-          X =
+          Q = "M11 15H6L13 1V9H18L11 23V15Z",
+          X = "M19,13H5V11H19V13Z",
+          $ =
             "M14.04,12H10V11H5.5A3.5,3.5 0 0,1 2,7.5A3.5,3.5 0 0,1 5.5,4C6.53,4 7.45,4.44 8.09,5.15C8.5,3.35 10.08,2 12,2C13.92,2 15.5,3.35 15.91,5.15C16.55,4.44 17.47,4 18.5,4A3.5,3.5 0 0,1 22,7.5A3.5,3.5 0 0,1 18.5,11H14.04V12M10,16.9V15.76H5V13.76H19V15.76H14.04V16.92L20,19.08C20.58,19.29 21,19.84 21,20.5A1.5,1.5 0 0,1 19.5,22H4.5A1.5,1.5 0 0,1 3,20.5C3,19.84 3.42,19.29 4,19.08L10,16.9Z",
-          $ = "M13 7V9H15V17H17V7H13M11 13H5V11H11V13Z",
-          J = "M13 7V9H15V17H17V7H13M11 13H9V15H7V13H5V11H7V9H9V11H11V13Z",
-          ee =
-            "M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z",
+          J = "M13 7V9H15V17H17V7H13M11 13H5V11H11V13Z",
+          ee = "M13 7V9H15V17H17V7H13M11 13H9V15H7V13H5V11H7V9H9V11H11V13Z",
           te =
-            "M12 9C13.59 16.61 10 22 10 22H13C14.88 16.2 14 12.09 13.5 10M15.66 7.16C15.83 7.37 16 7.59 16.13 7.82C17.84 10.53 17.5 13.95 15.5 16.26C16.34 14.21 16.22 11.79 14.95 9.77C14.87 9.64 14.78 9.53 14.7 9.41C14.11 8.58 13.36 7.92 12.54 7.43C9.66 8.35 7.58 11.04 7.58 14.22C7.58 14.96 7.69 15.67 7.89 16.33C7.05 15.16 6.56 13.73 6.56 12.19C6.56 9.84 7.7 7.76 9.45 6.46C8 6.35 6.46 6.67 5.12 7.5C4.5 7.91 3.96 8.38 3.5 8.91C4.05 7.58 5 6.39 6.3 5.57C7.8 4.63 9.5 4.32 11.14 4.56C10.73 4 10.23 3.47 9.63 3C9.05 2.58 8.42 2.24 7.76 2C9.2 2.04 10.64 2.5 11.87 3.43C12.5 3.9 13 4.47 13.4 5.07C13.5 5.07 13.59 5.06 13.69 5.06C16.89 5.06 19.6 7.17 20.5 10.08C19.38 8.5 17.65 7.43 15.66 7.16Z",
+            "M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z",
           re =
-            "M14.82 2.41C18.78 2.41 22 5.65 22 9.62C22 13.58 18.78 16.8 14.82 16.8C10.85 16.8 7.61 13.58 7.61 9.62C7.61 5.65 10.85 2.41 14.82 2.41M2 21.6H5.5V2.41H2V21.6Z",
+            "M12 9C13.59 16.61 10 22 10 22H13C14.88 16.2 14 12.09 13.5 10M15.66 7.16C15.83 7.37 16 7.59 16.13 7.82C17.84 10.53 17.5 13.95 15.5 16.26C16.34 14.21 16.22 11.79 14.95 9.77C14.87 9.64 14.78 9.53 14.7 9.41C14.11 8.58 13.36 7.92 12.54 7.43C9.66 8.35 7.58 11.04 7.58 14.22C7.58 14.96 7.69 15.67 7.89 16.33C7.05 15.16 6.56 13.73 6.56 12.19C6.56 9.84 7.7 7.76 9.45 6.46C8 6.35 6.46 6.67 5.12 7.5C4.5 7.91 3.96 8.38 3.5 8.91C4.05 7.58 5 6.39 6.3 5.57C7.8 4.63 9.5 4.32 11.14 4.56C10.73 4 10.23 3.47 9.63 3C9.05 2.58 8.42 2.24 7.76 2C9.2 2.04 10.64 2.5 11.87 3.43C12.5 3.9 13 4.47 13.4 5.07C13.5 5.07 13.59 5.06 13.69 5.06C16.89 5.06 19.6 7.17 20.5 10.08C19.38 8.5 17.65 7.43 15.66 7.16Z",
           ae =
-            "M14.79,10.62L3.5,21.9L2.1,20.5L13.38,9.21L14.79,10.62M19.27,7.73L19.86,7.14L19.07,6.35L19.71,5.71L18.29,4.29L17.65,4.93L16.86,4.14L16.27,4.73C14.53,3.31 12.57,2.17 10.47,1.37L9.64,3.16C11.39,4.08 13,5.19 14.5,6.5L14,7L17,10L17.5,9.5C18.81,11 19.92,12.61 20.84,14.36L22.63,13.53C21.83,11.43 20.69,9.47 19.27,7.73Z",
+            "M14.82 2.41C18.78 2.41 22 5.65 22 9.62C22 13.58 18.78 16.8 14.82 16.8C10.85 16.8 7.61 13.58 7.61 9.62C7.61 5.65 10.85 2.41 14.82 2.41M2 21.6H5.5V2.41H2V21.6Z",
           ie =
+            "M14.79,10.62L3.5,21.9L2.1,20.5L13.38,9.21L14.79,10.62M19.27,7.73L19.86,7.14L19.07,6.35L19.71,5.71L18.29,4.29L17.65,4.93L16.86,4.14L16.27,4.73C14.53,3.31 12.57,2.17 10.47,1.37L9.64,3.16C11.39,4.08 13,5.19 14.5,6.5L14,7L17,10L17.5,9.5C18.81,11 19.92,12.61 20.84,14.36L22.63,13.53C21.83,11.43 20.69,9.47 19.27,7.73Z",
+          ne =
             "M6,5H18A1,1 0 0,1 19,6A1,1 0 0,1 18,7H6A1,1 0 0,1 5,6A1,1 0 0,1 6,5M21,2V4H3V2H21M15,8H17V22H15V8M7,8H9V22H7V8M11,8H13V22H11V8Z",
-          ne = "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z",
-          oe =
-            "M14.5 15.41C14.58 15.5 14.58 15.69 14.5 15.8C13.77 16.5 12.41 16.56 12 16.56C11.61 16.56 10.25 16.5 9.54 15.8C9.44 15.69 9.44 15.5 9.54 15.41C9.65 15.31 9.82 15.31 9.92 15.41C10.38 15.87 11.33 16 12 16C12.69 16 13.66 15.87 14.1 15.41C14.21 15.31 14.38 15.31 14.5 15.41M10.75 13.04C10.75 12.47 10.28 12 9.71 12C9.14 12 8.67 12.47 8.67 13.04C8.67 13.61 9.14 14.09 9.71 14.08C10.28 14.08 10.75 13.61 10.75 13.04M14.29 12C13.72 12 13.25 12.5 13.25 13.05S13.72 14.09 14.29 14.09C14.86 14.09 15.33 13.61 15.33 13.05C15.33 12.5 14.86 12 14.29 12M22 12C22 17.5 17.5 22 12 22S2 17.5 2 12C2 6.5 6.5 2 12 2S22 6.5 22 12M18.67 12C18.67 11.19 18 10.54 17.22 10.54C16.82 10.54 16.46 10.7 16.2 10.95C15.2 10.23 13.83 9.77 12.3 9.71L12.97 6.58L15.14 7.05C15.16 7.6 15.62 8.04 16.18 8.04C16.75 8.04 17.22 7.57 17.22 7C17.22 6.43 16.75 5.96 16.18 5.96C15.77 5.96 15.41 6.2 15.25 6.55L12.82 6.03C12.75 6 12.68 6.03 12.63 6.07C12.57 6.11 12.54 6.17 12.53 6.24L11.79 9.72C10.24 9.77 8.84 10.23 7.82 10.96C7.56 10.71 7.2 10.56 6.81 10.56C6 10.56 5.35 11.21 5.35 12C5.35 12.61 5.71 13.11 6.21 13.34C6.19 13.5 6.18 13.62 6.18 13.78C6.18 16 8.79 17.85 12 17.85C15.23 17.85 17.85 16.03 17.85 13.78C17.85 13.64 17.84 13.5 17.81 13.34C18.31 13.11 18.67 12.6 18.67 12Z",
+          oe = "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z",
           le =
-            "M2 12C2 17 6 21 11 21C13.4 21 15.7 20.1 17.4 18.4L15.9 16.9C14.6 18.3 12.9 19 11 19C4.8 19 1.6 11.5 6.1 7.1S18 5.8 18 12H15L19 16H19.1L23 12H20C20 7 16 3 11 3S2 7 2 12M10 15H12V17H10V15M10 7H12V13H10V7",
+            "M14.5 15.41C14.58 15.5 14.58 15.69 14.5 15.8C13.77 16.5 12.41 16.56 12 16.56C11.61 16.56 10.25 16.5 9.54 15.8C9.44 15.69 9.44 15.5 9.54 15.41C9.65 15.31 9.82 15.31 9.92 15.41C10.38 15.87 11.33 16 12 16C12.69 16 13.66 15.87 14.1 15.41C14.21 15.31 14.38 15.31 14.5 15.41M10.75 13.04C10.75 12.47 10.28 12 9.71 12C9.14 12 8.67 12.47 8.67 13.04C8.67 13.61 9.14 14.09 9.71 14.08C10.28 14.08 10.75 13.61 10.75 13.04M14.29 12C13.72 12 13.25 12.5 13.25 13.05S13.72 14.09 14.29 14.09C14.86 14.09 15.33 13.61 15.33 13.05C15.33 12.5 14.86 12 14.29 12M22 12C22 17.5 17.5 22 12 22S2 17.5 2 12C2 6.5 6.5 2 12 2S22 6.5 22 12M18.67 12C18.67 11.19 18 10.54 17.22 10.54C16.82 10.54 16.46 10.7 16.2 10.95C15.2 10.23 13.83 9.77 12.3 9.71L12.97 6.58L15.14 7.05C15.16 7.6 15.62 8.04 16.18 8.04C16.75 8.04 17.22 7.57 17.22 7C17.22 6.43 16.75 5.96 16.18 5.96C15.77 5.96 15.41 6.2 15.25 6.55L12.82 6.03C12.75 6 12.68 6.03 12.63 6.07C12.57 6.11 12.54 6.17 12.53 6.24L11.79 9.72C10.24 9.77 8.84 10.23 7.82 10.96C7.56 10.71 7.2 10.56 6.81 10.56C6 10.56 5.35 11.21 5.35 12C5.35 12.61 5.71 13.11 6.21 13.34C6.19 13.5 6.18 13.62 6.18 13.78C6.18 16 8.79 17.85 12 17.85C15.23 17.85 17.85 16.03 17.85 13.78C17.85 13.64 17.84 13.5 17.81 13.34C18.31 13.11 18.67 12.6 18.67 12Z",
           se =
-            "M10.7 12.5C10.7 12.8 9.4 13.2 8.4 13.2S6.3 12.5 6.3 12.3C6.3 12 7 11.1 8.6 11C9.5 10.9 10.5 11.5 10.7 12.5M15.4 11C14.4 10.9 13.5 11.5 13.3 12.5C13.3 12.8 14.5 13.2 15.6 13.2C16.7 13.2 17.7 12.5 17.7 12.3S17 11.1 15.4 11M22 12C22 17.5 17.5 22 12 22S2 17.5 2 12 6.5 2 12 2 22 6.5 22 12M20 11.2C20 9.2 19.3 8.5 16.7 8.5C14.1 8.5 13.3 9.6 12 9.6S10 8.5 7.3 8.5 4 9.1 4 11.2C4 14.6 5.5 16.5 7.6 16.5C9.2 16.5 10.4 14.5 12 14.5S14.7 16.5 16.4 16.5C18.5 16.5 20 14.6 20 11.2Z",
+            "M2 12C2 17 6 21 11 21C13.4 21 15.7 20.1 17.4 18.4L15.9 16.9C14.6 18.3 12.9 19 11 19C4.8 19 1.6 11.5 6.1 7.1S18 5.8 18 12H15L19 16H19.1L23 12H20C20 7 16 3 11 3S2 7 2 12M10 15H12V17H10V15M10 7H12V13H10V7",
           ue =
-            "M21,11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1L21,5V11M12,21C15.75,20 19,15.54 19,11.22V6.3L12,3.18V21Z",
+            "M10.7 12.5C10.7 12.8 9.4 13.2 8.4 13.2S6.3 12.5 6.3 12.3C6.3 12 7 11.1 8.6 11C9.5 10.9 10.5 11.5 10.7 12.5M15.4 11C14.4 10.9 13.5 11.5 13.3 12.5C13.3 12.8 14.5 13.2 15.6 13.2C16.7 13.2 17.7 12.5 17.7 12.3S17 11.1 15.4 11M22 12C22 17.5 17.5 22 12 22S2 17.5 2 12 6.5 2 12 2 22 6.5 22 12M20 11.2C20 9.2 19.3 8.5 16.7 8.5C14.1 8.5 13.3 9.6 12 9.6S10 8.5 7.3 8.5 4 9.1 4 11.2C4 14.6 5.5 16.5 7.6 16.5C9.2 16.5 10.4 14.5 12 14.5S14.7 16.5 16.4 16.5C18.5 16.5 20 14.6 20 11.2Z",
           ce =
-            "M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1M12 8.89C13.6 8.89 14.89 10.18 14.89 11.78S13.6 14.67 12 14.67 9.11 13.37 9.11 11.78 10.41 8.89 12 8.89M12 6L13.38 8C12.96 7.82 12.5 7.73 12 7.73S11.05 7.82 10.62 8L12 6M7 8.89L9.4 8.69C9.06 9 8.74 9.34 8.5 9.76C8.25 10.18 8.1 10.62 8 11.08L7 8.89M7 14.67L8.03 12.5C8.11 12.93 8.27 13.38 8.5 13.8C8.75 14.23 9.06 14.59 9.4 14.88L7 14.67M17 8.89L16 11.08C15.9 10.62 15.74 10.18 15.5 9.76C15.26 9.34 14.95 9 14.6 8.68L17 8.89M17 14.67L14.6 14.87C14.94 14.58 15.25 14.22 15.5 13.8C15.74 13.38 15.89 12.93 15.97 12.5L17 14.67M12 17.55L10.61 15.57C11.04 15.72 11.5 15.82 12 15.82C12.5 15.82 12.95 15.72 13.37 15.57L12 17.55Z",
+            "M21,11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1L21,5V11M12,21C15.75,20 19,15.54 19,11.22V6.3L12,3.18V21Z",
           de =
-            "M12 1L21 5V11C21 16.5 17.2 21.7 12 23C6.8 21.7 3 16.5 3 11V5L12 1M12 3.2L5 6.3V11.2C5 15.5 8.2 20 12 21C15.8 20 19 15.5 19 11.2V6.3L12 3.2M12 5.5L14 7.1L13 13H15V15H13V18H11V15H9V13H11L10 7.1L12 5.5Z",
+            "M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1M12 8.89C13.6 8.89 14.89 10.18 14.89 11.78S13.6 14.67 12 14.67 9.11 13.37 9.11 11.78 10.41 8.89 12 8.89M12 6L13.38 8C12.96 7.82 12.5 7.73 12 7.73S11.05 7.82 10.62 8L12 6M7 8.89L9.4 8.69C9.06 9 8.74 9.34 8.5 9.76C8.25 10.18 8.1 10.62 8 11.08L7 8.89M7 14.67L8.03 12.5C8.11 12.93 8.27 13.38 8.5 13.8C8.75 14.23 9.06 14.59 9.4 14.88L7 14.67M17 8.89L16 11.08C15.9 10.62 15.74 10.18 15.5 9.76C15.26 9.34 14.95 9 14.6 8.68L17 8.89M17 14.67L14.6 14.87C14.94 14.58 15.25 14.22 15.5 13.8C15.74 13.38 15.89 12.93 15.97 12.5L17 14.67M12 17.55L10.61 15.57C11.04 15.72 11.5 15.82 12 15.82C12.5 15.82 12.95 15.72 13.37 15.57L12 17.55Z",
           pe =
-            "M15.8,18.5L21.8,20.1L21.4,22L12,19.5L2.6,22L2.1,20.1L8.1,18.5L2,16.9L2.5,15L11.9,17.5L21.3,15L21.8,16.9L15.8,18.5M18,8C18,9.8 17.2,11.3 16,12.4V15H14V13.7L14,13H13V15H11V13H10V13.7L10,15H8V12.4C6.8,11.3 6,9.8 6,8A6,6 0 0,1 12,2A6,6 0 0,1 18,8M11,7.5C11,6.7 10.3,6 9.5,6C8.7,6 8,6.7 8,7.5C8,8.3 8.7,9 9.5,9C10.3,9 11,8.3 11,7.5M13,11L12,9L11,11H13M16,7.5C16,6.7 15.3,6 14.5,6C13.7,6 13,6.7 13,7.5C13,8.3 13.7,9 14.5,9C15.3,9 16,8.3 16,7.5Z",
+            "M12 1L21 5V11C21 16.5 17.2 21.7 12 23C6.8 21.7 3 16.5 3 11V5L12 1M12 3.2L5 6.3V11.2C5 15.5 8.2 20 12 21C15.8 20 19 15.5 19 11.2V6.3L12 3.2M12 5.5L14 7.1L13 13H15V15H13V18H11V15H9V13H11L10 7.1L12 5.5Z",
           _e =
-            "M8,15A2,2 0 0,1 6,13A2,2 0 0,1 8,11A2,2 0 0,1 10,13A2,2 0 0,1 8,15M10.5,17L12,14L13.5,17H10.5M16,15A2,2 0 0,1 14,13A2,2 0 0,1 16,11A2,2 0 0,1 18,13A2,2 0 0,1 16,15M22,11A10,10 0 0,0 12,1A10,10 0 0,0 2,11C2,13.8 3.2,16.3 5,18.1V22H19V18.1C20.8,16.3 22,13.8 22,11M17,20H15V18H13V20H11V18H9V20H7V17.2C5.2,15.7 4,13.5 4,11A8,8 0 0,1 12,3A8,8 0 0,1 20,11C20,13.5 18.8,15.8 17,17.2V20Z",
+            "M15.8,18.5L21.8,20.1L21.4,22L12,19.5L2.6,22L2.1,20.1L8.1,18.5L2,16.9L2.5,15L11.9,17.5L21.3,15L21.8,16.9L15.8,18.5M18,8C18,9.8 17.2,11.3 16,12.4V15H14V13.7L14,13H13V15H11V13H10V13.7L10,15H8V12.4C6.8,11.3 6,9.8 6,8A6,6 0 0,1 12,2A6,6 0 0,1 18,8M11,7.5C11,6.7 10.3,6 9.5,6C8.7,6 8,6.7 8,7.5C8,8.3 8.7,9 9.5,9C10.3,9 11,8.3 11,7.5M13,11L12,9L11,11H13M16,7.5C16,6.7 15.3,6 14.5,6C13.7,6 13,6.7 13,7.5C13,8.3 13.7,9 14.5,9C15.3,9 16,8.3 16,7.5Z",
           ye =
+            "M8,15A2,2 0 0,1 6,13A2,2 0 0,1 8,11A2,2 0 0,1 10,13A2,2 0 0,1 8,15M10.5,17L12,14L13.5,17H10.5M16,15A2,2 0 0,1 14,13A2,2 0 0,1 16,11A2,2 0 0,1 18,13A2,2 0 0,1 16,15M22,11A10,10 0 0,0 12,1A10,10 0 0,0 2,11C2,13.8 3.2,16.3 5,18.1V22H19V18.1C20.8,16.3 22,13.8 22,11M17,20H15V18H13V20H11V18H9V20H7V17.2C5.2,15.7 4,13.5 4,11A8,8 0 0,1 12,3A8,8 0 0,1 20,11C20,13.5 18.8,15.8 17,17.2V20Z",
+          he =
             "M2,22V20C2,20 7,18 12,18C17,18 22,20 22,20V22H2M11.3,9.1C10.1,5.2 4,6.1 4,6.1C4,6.1 4.2,13.9 9.9,12.7C9.5,9.8 8,9 8,9C10.8,9 11,12.4 11,12.4V17C11.3,17 11.7,17 12,17C12.3,17 12.7,17 13,17V12.8C13,12.8 13,8.9 16,7.9C16,7.9 14,10.9 14,12.9C21,13.6 21,4 21,4C21,4 12.1,3 11.3,9.1Z",
-          he = "M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z",
-          fe =
-            "M6.92,5H5L14,14L15,13.06M19.96,19.12L19.12,19.96C18.73,20.35 18.1,20.35 17.71,19.96L14.59,16.84L11.91,19.5L10.5,18.09L11.92,16.67L3,7.75V3H7.75L16.67,11.92L18.09,10.5L19.5,11.91L16.83,14.58L19.95,17.7C20.35,18.1 20.35,18.73 19.96,19.12Z",
+          fe = "M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z",
           me =
-            "M6.2,2.44L18.1,14.34L20.22,12.22L21.63,13.63L19.16,16.1L22.34,19.28C22.73,19.67 22.73,20.3 22.34,20.69L21.63,21.4C21.24,21.79 20.61,21.79 20.22,21.4L17,18.23L14.56,20.7L13.15,19.29L15.27,17.17L3.37,5.27V2.44H6.2M15.89,10L20.63,5.26V2.44H17.8L13.06,7.18L15.89,10M10.94,15L8.11,12.13L5.9,14.34L3.78,12.22L2.37,13.63L4.84,16.1L1.66,19.29C1.27,19.68 1.27,20.31 1.66,20.7L2.37,21.41C2.76,21.8 3.39,21.8 3.78,21.41L7,18.23L9.44,20.7L10.85,19.29L8.73,17.17L10.94,15Z",
+            "M6.92,5H5L14,14L15,13.06M19.96,19.12L19.12,19.96C18.73,20.35 18.1,20.35 17.71,19.96L14.59,16.84L11.91,19.5L10.5,18.09L11.92,16.67L3,7.75V3H7.75L16.67,11.92L18.09,10.5L19.5,11.91L16.83,14.58L19.95,17.7C20.35,18.1 20.35,18.73 19.96,19.12Z",
           ge =
-            "M5,4H19A3,3 0 0,1 22,7V11H15V10H9V11H2V7A3,3 0 0,1 5,4M11,11H13V13H11V11M2,12H9V13L11,15H13L15,13V12H22V20H2V12Z",
+            "M6.2,2.44L18.1,14.34L20.22,12.22L21.63,13.63L19.16,16.1L22.34,19.28C22.73,19.67 22.73,20.3 22.34,20.69L21.63,21.4C21.24,21.79 20.61,21.79 20.22,21.4L17,18.23L14.56,20.7L13.15,19.29L15.27,17.17L3.37,5.27V2.44H6.2M15.89,10L20.63,5.26V2.44H17.8L13.06,7.18L15.89,10M10.94,15L8.11,12.13L5.9,14.34L3.78,12.22L2.37,13.63L4.84,16.1L1.66,19.29C1.27,19.68 1.27,20.31 1.66,20.7L2.37,21.41C2.76,21.8 3.39,21.8 3.78,21.41L7,18.23L9.44,20.7L10.85,19.29L8.73,17.17L10.94,15Z",
           ve =
-            "M18 2C17.1 2 16 3 16 4H8C8 3 6.9 2 6 2H2V11C2 12 3 13 4 13H6.2C6.6 15 7.9 16.7 11 17V19.08C8 19.54 8 22 8 22H16C16 22 16 19.54 13 19.08V17C16.1 16.7 17.4 15 17.8 13H20C21 13 22 12 22 11V2H18M6 11H4V4H6V11M20 11H18V4H20V11Z",
+            "M5,4H19A3,3 0 0,1 22,7V11H15V10H9V11H2V7A3,3 0 0,1 5,4M11,11H13V13H11V11M2,12H9V13L11,15H13L15,13V12H22V20H2V12Z",
           be =
-            "M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z",
+            "M18 2C17.1 2 16 3 16 4H8C8 3 6.9 2 6 2H2V11C2 12 3 13 4 13H6.2C6.6 15 7.9 16.7 11 17V19.08C8 19.54 8 22 8 22H16C16 22 16 19.54 13 19.08V17C16.1 16.7 17.4 15 17.8 13H20C21 13 22 12 22 11V2H18M6 11H4V4H6V11M20 11H18V4H20V11Z",
           we =
-            "M3,16H12V21H3V16M2,10H8V15H2V10M9,10H15V15H9V10M16,10H22V15H16V10M13,16H21V21H13V16M3,4H11V9H3V4M12,4H21V9H12V4Z",
+            "M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z",
           ke =
-            "M6 19H8V21H6V19M12 3L2 8V21H4V13H20V21H22V8L12 3M8 11H4V9H8V11M14 11H10V9H14V11M20 11H16V9H20V11M6 15H8V17H6V15M10 15H12V17H10V15M10 19H12V21H10V19M14 19H16V21H14V19Z",
+            "M3,16H12V21H3V16M2,10H8V15H2V10M9,10H15V15H9V10M16,10H22V15H16V10M13,16H21V21H13V16M3,4H11V9H3V4M12,4H21V9H12V4Z",
           xe =
-            "M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z",
+            "M6 19H8V21H6V19M12 3L2 8V21H4V13H20V21H22V8L12 3M8 11H4V9H8V11M14 11H10V9H14V11M20 11H16V9H20V11M6 15H8V17H6V15M10 15H12V17H10V15M10 19H12V21H10V19M14 19H16V21H14V19Z",
           Se =
+            "M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z",
+          Me =
             "M21 22H3V20H21V22M19 19H5L11.1 2.6C11.3 2.2 11.6 2 12 2L18 5H13.9L19 19M10 7.5L11.04 7.97L11.5 9L11.97 7.97L13 7.5L11.97 7.03L11.5 6L11.04 7.03L10 7.5M13 15L10.94 14.07L10 12L9.07 14.07L7 15L9.07 15.93L10 18L10.94 15.93L13 15M13.97 11.97L15 11.5L13.97 11.03L13.5 10L13.04 11.03L12 11.5L13.04 11.97L13.5 13L13.97 11.97M15.97 15.97L17 15.5L15.97 15.03L15.5 14L15.04 15.03L14 15.5L15.04 15.97L15.5 17L15.97 15.97Z";
       },
       8561: function (e, t, r) {
@@ -10746,10 +11094,10 @@
                   ]);
                 o++;
                 var M,
-                  C = null !== b && b,
-                  A = a.Children.map(x, function (e) {
+                  A = null !== b && b,
+                  C = a.Children.map(x, function (e) {
                     var t = e;
-                    !0 !== C && (C = !0 === (null === b ? t.props.spin : b));
+                    !0 !== A && (A = !0 === (null === b ? t.props.spin : b));
                     var r = t.props.size;
                     "number" == typeof c &&
                       "number" == typeof t.props.size &&
@@ -10789,14 +11137,14 @@
                   ),
                   i && a.createElement("title", { id: q }, i),
                   s && a.createElement("desc", { id: N }, s),
-                  C &&
+                  A &&
                     a.createElement(
                       "style",
                       null,
                       "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }",
                       "@keyframes spin-inverse { from { transform: rotate(0deg) } to { transform: rotate(-360deg) } }"
                     ),
-                  A
+                  C
                 );
               });
             (l.displayName = "Stack"),
@@ -10860,8 +11208,8 @@
                   x = void 0 !== k && k,
                   S = e.style,
                   M = void 0 === S ? {} : S,
-                  C = e.inStack,
-                  A = void 0 !== C && C,
+                  A = e.inStack,
+                  C = void 0 !== A && A,
                   T = (function (e, t) {
                     var r = {};
                     for (var a in e)
@@ -10900,7 +11248,7 @@
                   q = {},
                   N = [];
                 null !== _ &&
-                  (A
+                  (C
                     ? N.push("scale(" + _ + ")")
                     : ((M.width = "string" == typeof _ ? _ : 1.5 * _ + "rem"),
                       (M.height = M.width))),
@@ -10910,13 +11258,13 @@
                   null !== h && (q.fill = h);
                 var O = a.createElement(
                     "path",
-                    u({ d: r, style: q }, A ? T : {})
+                    u({ d: r, style: q }, C ? T : {})
                   ),
                   I = O;
                 N.length > 0 &&
                   ((M.transform = N.join(" ")),
                   (M.transformOrigin = "center"),
-                  A &&
+                  C &&
                     (I = a.createElement(
                       "g",
                       { style: M },
@@ -10930,7 +11278,7 @@
                 var E,
                   j = I,
                   L = !0 === x || "number" != typeof x ? 2 : x,
-                  P = !A && (m || v);
+                  P = !C && (m || v);
                 if (
                   (L < 0 && (P = !P),
                   x &&
@@ -10955,13 +11303,13 @@
                           fill: "transparent",
                         })
                     )),
-                  A)
+                  C)
                 )
                   return j;
                 var R,
-                  D = "icon_labelledby_" + n,
-                  F = "icon_describedby_" + n;
-                if (l) E = d ? D + " " + F : D;
+                  F = "icon_labelledby_" + n,
+                  D = "icon_describedby_" + n;
+                if (l) E = d ? F + " " + D : F;
                 else if (((R = "presentation"), d))
                   throw new Error(
                     "title attribute required when description is set"
@@ -10978,9 +11326,9 @@
                     },
                     T
                   ),
-                  l && a.createElement("title", { id: D }, l),
-                  d && a.createElement("desc", { id: F }, d),
-                  !A &&
+                  l && a.createElement("title", { id: F }, l),
+                  d && a.createElement("desc", { id: D }, d),
+                  !C &&
                     x &&
                     (P
                       ? a.createElement(
@@ -11620,7 +11968,7 @@
             (l = e),
             (s = u),
             Object.keys(l).forEach(function (e) {
-              C[e] ||
+              A[e] ||
                 Object.defineProperty(
                   s,
                   e,
@@ -11630,16 +11978,16 @@
             u
           );
         }
-        var C = {
+        var A = {
           $$typeof: !0,
           render: !0,
           compare: !0,
           type: !0,
           displayName: !0,
         };
-        var A;
-        (A = n.unstable_batchedUpdates) || (A = o),
-          (0, a.jQ)({ reactionScheduler: A });
+        var C;
+        (C = n.unstable_batchedUpdates) || (C = o),
+          (0, a.jQ)({ reactionScheduler: C });
         var T = 0;
         var q = {};
         function N(e) {
@@ -11723,14 +12071,14 @@
                 });
           }
         }
-        function D(e, t) {
+        function F(e, t) {
           return function () {
             for (var r = arguments.length, a = new Array(r), i = 0; i < r; i++)
               a[i] = arguments[i];
             R.call.apply(R, [this, e, t].concat(a));
           };
         }
-        function F(e, t, r) {
+        function D(e, t, r) {
           var a = (function (e, t) {
             var r = (e[L] = e[L] || {}),
               a = (r[t] = r[t] || {});
@@ -11746,14 +12094,14 @@
         }
         function V(e, t, r, a, i) {
           var n,
-            o = D(i, a);
+            o = F(i, a);
           return (
             ((n = {})[P] = !0),
             (n.get = function () {
               return o;
             }),
             (n.set = function (i) {
-              if (this === e) o = D(i, a);
+              if (this === e) o = F(i, a);
               else {
                 var n = V(this, t, r, a, i);
                 Object.defineProperty(this, t, n);
@@ -11804,11 +12152,11 @@
             (t.render = function () {
               return (this.render = f() ? a : U.call(this, a)), this.render();
             }),
-            F(t, "componentDidMount", function () {
+            D(t, "componentDidMount", function () {
               (this[W] = !1),
                 this.render[H] || i.Component.prototype.forceUpdate.call(this);
             }),
-            F(t, "componentWillUnmount", function () {
+            D(t, "componentWillUnmount", function () {
               if (!f()) {
                 var e = this.render[H];
                 if (e) e.dispose(), (this.render[H] = null);
@@ -12040,10 +12388,10 @@
         "use strict";
         r.d(t, {
           $$: function () {
-            return De;
+            return Fe;
           },
           Ei: function () {
-            return Cr;
+            return Ar;
           },
           Fl: function () {
             return Ne;
@@ -12055,7 +12403,7 @@
             return Er;
           },
           LO: function () {
-            return Ce;
+            return Ae;
           },
           Pb: function () {
             return Wr;
@@ -12187,14 +12535,14 @@
         function M(e) {
           return e instanceof Map;
         }
-        function C(e) {
+        function A(e) {
           return e instanceof Set;
         }
-        var A = "undefined" !== typeof Object.getOwnPropertySymbols;
+        var C = "undefined" !== typeof Object.getOwnPropertySymbols;
         var T =
           "undefined" !== typeof Reflect && Reflect.ownKeys
             ? Reflect.ownKeys
-            : A
+            : C
             ? function (e) {
                 return Object.getOwnPropertyNames(e).concat(
                   Object.getOwnPropertySymbols(e)
@@ -12272,12 +12620,12 @@
             );
           return e;
         }
-        function D(e, t) {
+        function F(e, t) {
           (null == t || t > e.length) && (t = e.length);
           for (var r = 0, a = new Array(t); r < t; r++) a[r] = e[r];
           return a;
         }
-        function F(e, t) {
+        function D(e, t) {
           var r =
             ("undefined" !== typeof Symbol && e[Symbol.iterator]) ||
             e["@@iterator"];
@@ -12286,7 +12634,7 @@
             Array.isArray(e) ||
             (r = (function (e, t) {
               if (e) {
-                if ("string" === typeof e) return D(e, t);
+                if ("string" === typeof e) return F(e, t);
                 var r = Object.prototype.toString.call(e).slice(8, -1);
                 return (
                   "Object" === r && e.constructor && (r = e.constructor.name),
@@ -12294,7 +12642,7 @@
                     ? Array.from(e)
                     : "Arguments" === r ||
                       /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)
-                    ? D(e, t)
+                    ? F(e, t)
                     : void 0
                 );
               }
@@ -12369,7 +12717,7 @@
           void 0 === t && (t = f), void 0 === r && (r = f);
           var a,
             i = new Z(e);
-          return t !== f && Dt(Pt, i, t, a), r !== f && Rt(i, r), i;
+          return t !== f && Ft(Pt, i, t, a), r !== f && Rt(i, r), i;
         }
         var K = {
           identity: function (e, t) {
@@ -12393,13 +12741,13 @@
           return $t(e)
             ? e
             : Array.isArray(e)
-            ? Ce.array(e, { name: r })
+            ? Ae.array(e, { name: r })
             : b(e)
-            ? Ce.object(e, void 0, { name: r })
+            ? Ae.object(e, void 0, { name: r })
             : M(e)
-            ? Ce.map(e, { name: r })
-            : C(e)
-            ? Ce.set(e, { name: r })
+            ? Ae.map(e, { name: r })
+            : A(e)
+            ? Ae.set(e, { name: r })
             : "function" !== typeof e || It(e) || Qt(e)
             ? e
             : w(e)
@@ -12583,8 +12931,8 @@
           var c,
             d =
               !1 === (null == (i = this.options_) ? void 0 : i.deep)
-                ? Ce.ref
-                : Ce;
+                ? Ae.ref
+                : Ae;
           "function" === typeof r.value &&
             null != (n = this.options_) &&
             n.autoBind &&
@@ -12608,7 +12956,7 @@
             i.autoBind &&
             (r.value = r.value.bind(null != (o = e.proxy_) ? o : e.target_));
           return (
-            !1 === (null == (n = this.options_) ? void 0 : n.deep) ? Ce.ref : Ce
+            !1 === (null == (n = this.options_) ? void 0 : n.deep) ? Ae.ref : Ae
           ).extend_(e, t, r, a);
         }
         var he = {
@@ -12628,18 +12976,18 @@
               return void 0 === e ||
                 null === e ||
                 Wr(e) ||
-                Cr(e) ||
+                Ar(e) ||
                 Er(e) ||
                 Pr(e)
                 ? e
                 : Array.isArray(e)
-                ? Ce.array(e, { name: r, deep: !1 })
+                ? Ae.array(e, { name: r, deep: !1 })
                 : b(e)
-                ? Ce.object(e, void 0, { name: r, deep: !1 })
+                ? Ae.object(e, void 0, { name: r, deep: !1 })
                 : M(e)
-                ? Ce.map(e, { name: r, deep: !1 })
-                : C(e)
-                ? Ce.set(e, { name: r, deep: !1 })
+                ? Ae.map(e, { name: r, deep: !1 })
+                : A(e)
+                ? Ae.set(e, { name: r, deep: !1 })
                 : void 0;
             },
           }),
@@ -12667,22 +13015,22 @@
             return $t(e)
               ? e
               : b(e)
-              ? Ce.object(e, t, r)
+              ? Ae.object(e, t, r)
               : Array.isArray(e)
-              ? Ce.array(e, t)
+              ? Ae.array(e, t)
               : M(e)
-              ? Ce.map(e, t)
-              : C(e)
-              ? Ce.set(e, t)
+              ? Ae.map(e, t)
+              : A(e)
+              ? Ae.set(e, t)
               : "object" === typeof e && null !== e
               ? e
-              : Ce.box(e, t);
+              : Ae.box(e, t);
           z(e, t, me);
         }
         Object.assign(xe, we);
         var Se,
           Me,
-          Ce = o(xe, {
+          Ae = o(xe, {
             box: function (e, t) {
               var r = fe(t);
               return new ze(e, ke(r), r.name, !0, r.equals);
@@ -12726,12 +13074,12 @@
             deep: we,
             struct: H(be),
           }),
-          Ae = "computed",
-          Te = ne(Ae),
+          Ce = "computed",
+          Te = ne(Ce),
           qe = ne("computed.struct", { equals: K.structural }),
           Ne = function (e, t) {
             if (g(t)) return z(e, t, Te);
-            if (b(e)) return H(ne(Ae, e));
+            if (b(e)) return H(ne(Ce, e));
             var r = b(t) ? t : {};
             return (r.get = e), r.name || (r.name = e.name || ""), new Ge(r);
           };
@@ -12771,7 +13119,7 @@
               l = !t || !o;
             _t();
             var s = ut.allowStateChanges;
-            l && (tt(), (s = Fe(!0)));
+            l && (tt(), (s = De(!0)));
             var u = at(!0),
               c = {
                 runAsAction_: l,
@@ -12803,15 +13151,15 @@
             })(o);
           }
         }
-        function De(e, t) {
-          var r = Fe(e);
+        function Fe(e, t) {
+          var r = De(e);
           try {
             return t();
           } finally {
             Ve(r);
           }
         }
-        function Fe(e) {
+        function De(e) {
           var t = ut.allowStateChanges;
           return (ut.allowStateChanges = e), t;
         }
@@ -13036,7 +13384,7 @@
               (t.computeValue_ = function (e) {
                 this.isComputing_ = !0;
                 var t,
-                  r = Fe(!1);
+                  r = De(!1);
                 if (e) t = $e(this, this.derivation, this.scope_);
                 else if (!0 === ut.disableErrorBoundaries)
                   t = this.derivation.call(this.scope_);
@@ -13457,8 +13805,8 @@
           xt = "autoAction",
           St = "<unnamed action>",
           Mt = X(kt),
-          Ct = X("action.bound", { bound: !0 }),
-          At = X(xt, { autoAction: !0 }),
+          At = X("action.bound", { bound: !0 }),
+          Ct = X(xt, { autoAction: !0 }),
           Tt = X("autoAction.bound", { autoAction: !0, bound: !0 });
         function qt(e) {
           return function (t, r) {
@@ -13467,7 +13815,7 @@
               : m(r)
               ? Pe(t, r, e)
               : g(r)
-              ? z(t, r, e ? At : Mt)
+              ? z(t, r, e ? Ct : Mt)
               : g(t)
               ? H(X(e ? xt : kt, { name: t, autoAction: e }))
               : void 0;
@@ -13514,7 +13862,7 @@
           }
           return i.schedule_(), i.getDisposer_();
         }
-        Object.assign(Ot, At), (Nt.bound = H(Ct)), (Ot.bound = H(Tt));
+        Object.assign(Ot, Ct), (Nt.bound = H(At)), (Ot.bound = H(Tt));
         var jt = function (e) {
           return e();
         };
@@ -13529,9 +13877,9 @@
         }
         var Pt = "onBO";
         function Rt(e, t, r) {
-          return Dt("onBUO", e, t, r);
+          return Ft("onBUO", e, t, r);
         }
-        function Dt(e, t, r, a) {
+        function Ft(e, t, r, a) {
           var i = "function" === typeof a ? ea(t, r) : ea(t),
             n = m(a) ? a : r,
             o = e + "L";
@@ -13543,7 +13891,7 @@
             }
           );
         }
-        var Ft = "always";
+        var Dt = "always";
         function Vt(e) {
           !0 === e.isolateGlobalState &&
             (function () {
@@ -13565,13 +13913,13 @@
           if (
             (void 0 !== t &&
               (ut.useProxies =
-                t === Ft || ("never" !== t && "undefined" !== typeof Proxy)),
+                t === Dt || ("never" !== t && "undefined" !== typeof Proxy)),
             "ifavailable" === t && (ut.verifyProxies = !0),
             void 0 !== r)
           ) {
-            var i = r === Ft ? Ft : "observed" === r;
+            var i = r === Dt ? Dt : "observed" === r;
             (ut.enforceActions = i),
-              (ut.allowStateChanges = !0 !== i && i !== Ft);
+              (ut.allowStateChanges = !0 !== i && i !== Dt);
           }
           [
             "computedRequiresReaction",
@@ -13719,7 +14067,7 @@
             return e;
           if (We(e) || Ke(e)) return er(e.get(), t);
           if (t.has(e)) return t.get(e);
-          if (Cr(e)) {
+          if (Ar(e)) {
             var r = Jt(t, e, new Array(e.length));
             return (
               e.forEach(function (e, a) {
@@ -14114,7 +14462,7 @@
           x(i.values_, W, i);
           var n = new Proxy(i.values_, hr);
           if (((i.proxy_ = n), e && e.length)) {
-            var o = Fe(!0);
+            var o = De(!0);
             i.spliceWithArray_(0, 0, e), Ve(o);
           }
           return n;
@@ -14253,10 +14601,10 @@
         var xr,
           Sr,
           Mr = S("ObservableArrayAdministration", fr);
-        function Cr(e) {
+        function Ar(e) {
           return v(e) && Mr(e[W]);
         }
-        var Ar = {},
+        var Cr = {},
           Tr = "add",
           qr = "delete";
         (xr = Symbol.iterator), (Sr = Symbol.toStringTag);
@@ -14269,7 +14617,7 @@
                 void 0 === r && (r = "ObservableMap"),
                 (this.enhancer_ = void 0),
                 (this.name_ = void 0),
-                (this[W] = Ar),
+                (this[W] = Cr),
                 (this.data_ = void 0),
                 (this.hasMap_ = void 0),
                 (this.keysAtom_ = void 0),
@@ -14282,7 +14630,7 @@
                 (this.keysAtom_ = G("ObservableMap.keys()")),
                 (this.data_ = new Map()),
                 (this.hasMap_ = new Map()),
-                De(!0, function () {
+                Fe(!0, function () {
                   i.merge(e);
                 });
             }
@@ -14437,7 +14785,7 @@
                 return this.entries();
               }),
               (t.forEach = function (e, t) {
-                for (var r, a = F(this); !(r = a()).done; ) {
+                for (var r, a = D(this); !(r = a()).done; ) {
                   var i = r.value,
                     n = i[0],
                     o = i[1];
@@ -14452,7 +14800,7 @@
                     b(e)
                       ? (function (e) {
                           var t = Object.keys(e);
-                          if (!A) return t;
+                          if (!C) return t;
                           var r = Object.getOwnPropertySymbols(e);
                           return r.length
                             ? [].concat(
@@ -14485,7 +14833,7 @@
                 var e = this;
                 ar(function () {
                   et(function () {
-                    for (var t, r = F(e.keys()); !(t = r()).done; ) {
+                    for (var t, r = D(e.keys()); !(t = r()).done; ) {
                       var a = t.value;
                       e.delete(a);
                     }
@@ -14510,7 +14858,7 @@
                         })(e),
                         n = new Map(),
                         o = !1,
-                        l = F(t.data_.keys());
+                        l = D(t.data_.keys());
                       !(r = l()).done;
 
                     ) {
@@ -14522,7 +14870,7 @@
                           n.set(s, u);
                         }
                     }
-                    for (var c, d = F(i.entries()); !(c = d()).done; ) {
+                    for (var c, d = D(i.entries()); !(c = d()).done; ) {
                       var p = c.value,
                         _ = p[0],
                         y = p[1],
@@ -14615,7 +14963,7 @@
                 var e = this;
                 ar(function () {
                   et(function () {
-                    for (var t, r = F(e.data_.values()); !(t = r()).done; ) {
+                    for (var t, r = D(e.data_.values()); !(t = r()).done; ) {
                       var a = t.value;
                       e.delete(a);
                     }
@@ -14623,7 +14971,7 @@
                 });
               }),
               (t.forEach = function (e, t) {
-                for (var r, a = F(this); !(r = a()).done; ) {
+                for (var r, a = D(this); !(r = a()).done; ) {
                   var i = r.value;
                   e.call(t, i, i, this);
                 }
@@ -14726,7 +15074,7 @@
                 return (
                   Pr(e) && (e = new Set(e)),
                   ar(function () {
-                    Array.isArray(e) || C(e)
+                    Array.isArray(e) || A(e)
                       ? (t.clear(),
                         e.forEach(function (e) {
                           return t.add(e);
@@ -14772,8 +15120,8 @@
           })(),
           Pr = S("ObservableSet", Lr),
           Rr = Object.create(null),
-          Dr = "remove",
-          Fr = (function () {
+          Fr = "remove",
+          Dr = (function () {
             function e(e, t, r, a) {
               void 0 === t && (t = new Map()),
                 void 0 === a && (a = de),
@@ -15006,7 +15354,7 @@
                   !sr(this, {
                     object: this.proxy_ || this.target_,
                     name: e,
-                    type: Dr,
+                    type: Fr,
                   })
                 )
                   return null;
@@ -15034,7 +15382,7 @@
                     n)
                   ) {
                     var u = {
-                      type: Dr,
+                      type: Fr,
                       observableKind: "object",
                       object: this.proxy_ || this.target_,
                       debugObjectName: this.name_,
@@ -15094,7 +15442,7 @@
               null != (r = null == t ? void 0 : t.name)
                 ? r
                 : "ObservableObject",
-            i = new Fr(
+            i = new Dr(
               e,
               new Map(),
               String(a),
@@ -15109,7 +15457,7 @@
             );
           return k(e, W, i), e;
         }
-        var Hr = S("ObservableObjectAdministration", Fr);
+        var Hr = S("ObservableObjectAdministration", Dr);
         function zr(e) {
           return (
             Rr[e] ||
@@ -15150,7 +15498,7 @@
               (n = e.call(this) || this);
             var o = new fr(a, r, i, !0);
             if (((o.proxy_ = R(n)), x(R(n), W, o), t && t.length)) {
-              var l = Fe(!0);
+              var l = De(!0);
               n.spliceWithArray(0, 0, t), Ve(l);
             }
             return n;
@@ -15169,7 +15517,7 @@
               return Array.prototype.concat.apply(
                 this.slice(),
                 t.map(function (e) {
-                  return Cr(e) ? e.slice() : e;
+                  return Ar(e) ? e.slice() : e;
                 })
               );
             }),
@@ -15233,7 +15581,7 @@
         }
         function ea(e, t) {
           if ("object" === typeof e && null !== e) {
-            if (Cr(e)) return void 0 !== t && a(23), e[W].atom_;
+            if (Ar(e)) return void 0 !== t && a(23), e[W].atom_;
             if (Pr(e)) return e[W];
             if (Er(e)) {
               if (void 0 === t) return e.keysAtom_;
@@ -15342,9 +15690,9 @@
           return a.pop(), i.pop(), !0;
         }
         function oa(e) {
-          return Cr(e)
+          return Ar(e)
             ? e.slice()
-            : M(e) || Er(e) || C(e) || Pr(e)
+            : M(e) || Er(e) || A(e) || Pr(e)
             ? Array.from(e.entries())
             : e;
         }
@@ -15587,7 +15935,7 @@
             );
           return e;
         }
-        function C(e, t) {
+        function A(e, t) {
           return (
             (function (e) {
               if (Array.isArray(e)) return e;
@@ -15624,7 +15972,7 @@
             })(e, t) ||
             (function (e, t) {
               if (!e) return;
-              if ("string" === typeof e) return A(e, t);
+              if ("string" === typeof e) return C(e, t);
               var r = Object.prototype.toString.call(e).slice(8, -1);
               "Object" === r && e.constructor && (r = e.constructor.name);
               if ("Map" === r || "Set" === r) return Array.from(e);
@@ -15632,7 +15980,7 @@
                 "Arguments" === r ||
                 /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)
               )
-                return A(e, t);
+                return C(e, t);
             })(e, t) ||
             (function () {
               throw new TypeError(
@@ -15641,7 +15989,7 @@
             })()
           );
         }
-        function A(e, t) {
+        function C(e, t) {
           (null == t || t > e.length) && (t = e.length);
           for (var r = 0, a = new Array(t); r < t; r++) a[r] = e[r];
           return a;
@@ -15683,14 +16031,14 @@
             isConsole: !1,
             isWearable: !1,
           },
-          D = function (e) {
+          F = function (e) {
             var t =
               arguments.length > 1 && void 0 !== arguments[1]
                 ? arguments[1]
                 : "none";
             return e || t;
           },
-          F = function () {
+          D = function () {
             return (
               !(
                 "undefined" === typeof window ||
@@ -15700,7 +16048,7 @@
             );
           },
           V = function (e) {
-            var t = F();
+            var t = D();
             return (
               t &&
               t.platform &&
@@ -15733,11 +16081,11 @@
               }
               return e;
             })({}, e, {
-              vendor: D(t.vendor),
-              model: D(t.model),
-              os: D(r.name),
-              osVersion: D(r.version),
-              ua: D(a),
+              vendor: F(t.vendor),
+              model: F(t.model),
+              os: F(r.name),
+              osVersion: F(r.version),
+              ua: F(a),
             });
           };
         var z = function (e) {
@@ -15767,15 +16115,15 @@
           },
           Q = function (e) {
             var t = e.vendor;
-            return D(t);
+            return F(t);
           },
           X = function (e) {
             var t = e.model;
-            return D(t);
+            return F(t);
           },
           $ = function (e) {
             var t = e.type;
-            return D(t, "browser");
+            return F(t, "browser");
           },
           J = function (e) {
             return e.name === P.Android;
@@ -15794,11 +16142,11 @@
           },
           ie = function (e) {
             var t = e.version;
-            return D(t);
+            return F(t);
           },
           ne = function (e) {
             var t = e.name;
-            return D(t);
+            return F(t);
           },
           oe = function (e) {
             return e.name === L.Chrome;
@@ -15837,26 +16185,26 @@
           },
           me = function (e) {
             var t = e.version;
-            return D(t);
+            return F(t);
           },
           ge = function (e) {
             var t = e.major;
-            return D(t);
+            return F(t);
           },
           ve = function (e) {
             var t = e.name;
-            return D(t);
+            return F(t);
           },
           be = function (e) {
             var t = e.name;
-            return D(t);
+            return F(t);
           },
           we = function (e) {
             var t = e.version;
-            return D(t);
+            return F(t);
           },
           ke = function () {
-            var e = F(),
+            var e = D(),
               t = e && e.userAgent && e.userAgent.toLowerCase();
             return "string" === typeof t && /electron/.test(t);
           },
@@ -15864,7 +16212,7 @@
             return "string" === typeof e && -1 !== e.indexOf("Edg/");
           },
           Se = function () {
-            var e = F();
+            var e = D();
             return (
               e &&
               (/iPad|iPhone|iPod/.test(e.platform) ||
@@ -15875,14 +16223,14 @@
           Me = function () {
             return V("iPad");
           },
-          Ce = function () {
+          Ae = function () {
             return V("iPhone");
           },
-          Ae = function () {
+          Ce = function () {
             return V("iPod");
           },
           Te = function (e) {
-            return D(e);
+            return F(e);
           };
         function qe(e) {
           var t = e || f,
@@ -15926,8 +16274,8 @@
             deviceType: $(r),
             isIOS13: Se(),
             isIPad13: Me(),
-            isIPhone13: Ce(),
-            isIPod13: Ae(),
+            isIPhone13: Ae(),
+            isIPod13: Ce(),
             isElectron: ke(),
             isEdgeChromium: xe(o),
             isLegacyEdge: ue(a) && !xe(o),
@@ -15945,8 +16293,8 @@
           Le = se(s),
           Pe = Z(c) || Me(),
           Re = z(c),
-          De = W(c) || Me(),
-          Fe = G(c),
+          Fe = W(c) || Me(),
+          De = G(c),
           Ve = G(c),
           He = J(p),
           ze = re(p),
@@ -15971,8 +16319,8 @@
           lt = $(c),
           st = Se(),
           ut = Me(),
-          ct = Ce(),
-          dt = Ae(),
+          ct = Ae(),
+          dt = Ce(),
           pt = ke(),
           _t = xe(_),
           yt = ue(s) && !xe(_),
@@ -16196,8 +16544,8 @@
           x = Symbol.for("react.fragment"),
           S = Symbol.for("react.strict_mode"),
           M = Symbol.for("react.profiler"),
-          C = Symbol.for("react.provider"),
-          A = Symbol.for("react.context"),
+          A = Symbol.for("react.provider"),
+          C = Symbol.for("react.context"),
           T = Symbol.for("react.forward_ref"),
           q = Symbol.for("react.suspense"),
           N = Symbol.for("react.suspense_list"),
@@ -16218,7 +16566,7 @@
         }
         var P,
           R = Object.assign;
-        function D(e) {
+        function F(e) {
           if (void 0 === P)
             try {
               throw Error();
@@ -16228,10 +16576,10 @@
             }
           return "\n" + P + e;
         }
-        var F = !1;
+        var D = !1;
         function V(e, t) {
-          if (!e || F) return "";
-          F = !0;
+          if (!e || D) return "";
+          D = !0;
           var r = Error.prepareStackTrace;
           Error.prepareStackTrace = void 0;
           try {
@@ -16298,20 +16646,20 @@
                 }
             }
           } finally {
-            (F = !1), (Error.prepareStackTrace = r);
+            (D = !1), (Error.prepareStackTrace = r);
           }
-          return (e = e ? e.displayName || e.name : "") ? D(e) : "";
+          return (e = e ? e.displayName || e.name : "") ? F(e) : "";
         }
         function H(e) {
           switch (e.tag) {
             case 5:
-              return D(e.type);
+              return F(e.type);
             case 16:
-              return D("Lazy");
+              return F("Lazy");
             case 13:
-              return D("Suspense");
+              return F("Suspense");
             case 19:
-              return D("SuspenseList");
+              return F("SuspenseList");
             case 0:
             case 2:
             case 15:
@@ -16344,9 +16692,9 @@
           }
           if ("object" === typeof e)
             switch (e.$$typeof) {
-              case A:
-                return (e.displayName || "Context") + ".Consumer";
               case C:
+                return (e.displayName || "Context") + ".Consumer";
+              case A:
                 return (e._context.displayName || "Context") + ".Provider";
               case T:
                 var t = e.render;
@@ -16834,10 +17182,10 @@
             t && ((t = bi(t)), ke(e.stateNode, e.type, t));
           }
         }
-        function Ce(e) {
+        function Ae(e) {
           xe ? (Se ? Se.push(e) : (Se = [e])) : (xe = e);
         }
-        function Ae() {
+        function Ce() {
           if (xe) {
             var e = xe,
               t = Se;
@@ -16856,7 +17204,7 @@
           try {
             return Te(e, t, r);
           } finally {
-            (Ne = !1), (null !== xe || null !== Se) && (qe(), Ae());
+            (Ne = !1), (null !== xe || null !== Se) && (qe(), Ce());
           }
         }
         function Ie(e, t) {
@@ -16917,8 +17265,8 @@
         }
         var Pe = !1,
           Re = null,
-          De = !1,
-          Fe = null,
+          Fe = !1,
+          De = null,
           Ve = {
             onError: function (e) {
               (Pe = !0), (Re = e);
@@ -17195,8 +17543,8 @@
           xt,
           St,
           Mt,
-          Ct = !1,
-          At = [],
+          At = !1,
+          Ct = [],
           Tt = null,
           qt = null,
           Nt = null,
@@ -17268,7 +17616,7 @@
           }
           e.blockedOn = null;
         }
-        function Dt(e) {
+        function Ft(e) {
           if (null !== e.blockedOn) return !1;
           for (var t = e.targetContainers; 0 < t.length; ) {
             var r = Yt(e.domEventName, e.eventSystemFlags, t[0], e.nativeEvent);
@@ -17279,32 +17627,32 @@
           }
           return !0;
         }
-        function Ft(e, t, r) {
-          Dt(e) && r.delete(t);
+        function Dt(e, t, r) {
+          Ft(e) && r.delete(t);
         }
         function Vt() {
-          (Ct = !1),
-            null !== Tt && Dt(Tt) && (Tt = null),
-            null !== qt && Dt(qt) && (qt = null),
-            null !== Nt && Dt(Nt) && (Nt = null),
-            Ot.forEach(Ft),
-            It.forEach(Ft);
+          (At = !1),
+            null !== Tt && Ft(Tt) && (Tt = null),
+            null !== qt && Ft(qt) && (qt = null),
+            null !== Nt && Ft(Nt) && (Nt = null),
+            Ot.forEach(Dt),
+            It.forEach(Dt);
         }
         function Ht(e, t) {
           e.blockedOn === t &&
             ((e.blockedOn = null),
-            Ct ||
-              ((Ct = !0),
+            At ||
+              ((At = !0),
               i.unstable_scheduleCallback(i.unstable_NormalPriority, Vt)));
         }
         function zt(e) {
           function t(t) {
             return Ht(t, e);
           }
-          if (0 < At.length) {
-            Ht(At[0], e);
-            for (var r = 1; r < At.length; r++) {
-              var a = At[r];
+          if (0 < Ct.length) {
+            Ht(Ct[0], e);
+            for (var r = 1; r < Ct.length; r++) {
+              var a = Ct[r];
               a.blockedOn === e && (a.blockedOn = null);
             }
           }
@@ -17744,8 +18092,8 @@
                 : 0;
             },
           }),
-          Cr = ir(Mr),
-          Ar = ir(
+          Ar = ir(Mr),
+          Cr = ir(
             R({}, pr, {
               pointerId: 0,
               width: 0,
@@ -17802,8 +18150,8 @@
         var Lr = c && "TextEvent" in window && !jr,
           Pr = c && (!Er || (jr && 8 < jr && 11 >= jr)),
           Rr = String.fromCharCode(32),
-          Dr = !1;
-        function Fr(e, t) {
+          Fr = !1;
+        function Dr(e, t) {
           switch (e) {
             case "keyup":
               return -1 !== Ir.indexOf(t.keyCode);
@@ -17845,7 +18193,7 @@
           return "input" === t ? !!zr[e.type] : "textarea" === t;
         }
         function Zr(e, t, r, a) {
-          Ce(a),
+          Ae(a),
             0 < (t = Ba(t, "onChange")).length &&
               ((r = new ur("onChange", "change", null, r, a)),
               e.push({ event: r, listeners: t }));
@@ -18113,8 +18461,8 @@
             delete wa.animationstart.animation),
           "TransitionEvent" in window || delete wa.transitionend.transition);
         var Ma = Sa("animationend"),
-          Ca = Sa("animationiteration"),
-          Aa = Sa("animationstart"),
+          Aa = Sa("animationiteration"),
+          Ca = Sa("animationstart"),
           Ta = Sa("transitionend"),
           qa = new Map(),
           Na =
@@ -18129,8 +18477,8 @@
           Oa(Ea.toLowerCase(), "on" + (Ea[0].toUpperCase() + Ea.slice(1)));
         }
         Oa(Ma, "onAnimationEnd"),
-          Oa(Ca, "onAnimationIteration"),
-          Oa(Aa, "onAnimationStart"),
+          Oa(Aa, "onAnimationIteration"),
+          Oa(Ca, "onAnimationStart"),
           Oa("dblclick", "onDoubleClick"),
           Oa("focusin", "onFocus"),
           Oa("focusout", "onBlur"),
@@ -18189,7 +18537,7 @@
               if ((He.apply(this, arguments), Pe)) {
                 if (!Pe) throw Error(n(198));
                 var c = Re;
-                (Pe = !1), (Re = null), De || ((De = !0), (Fe = c));
+                (Pe = !1), (Re = null), Fe || ((Fe = !0), (De = c));
               }
             })(a, t, void 0, e),
             (e.currentTarget = null);
@@ -18224,15 +18572,15 @@
                 }
             }
           }
-          if (De) throw ((e = Fe), (De = !1), (Fe = null), e);
+          if (Fe) throw ((e = De), (Fe = !1), (De = null), e);
         }
-        function Da(e, t) {
+        function Fa(e, t) {
           var r = t[yi];
           void 0 === r && (r = t[yi] = new Set());
           var a = e + "__bubble";
           r.has(a) || (za(t, e, 2, !1), r.add(a));
         }
-        function Fa(e, t, r) {
+        function Da(e, t, r) {
           var a = 0;
           t && (a |= 4), za(r, e, a, t);
         }
@@ -18242,10 +18590,10 @@
             (e[Va] = !0),
               o.forEach(function (t) {
                 "selectionchange" !== t &&
-                  (La.has(t) || Fa(t, !1, e), Fa(t, !0, e));
+                  (La.has(t) || Da(t, !1, e), Da(t, !0, e));
               });
             var t = 9 === e.nodeType ? e : e.ownerDocument;
-            null === t || t[Va] || ((t[Va] = !0), Fa("selectionchange", !1, t));
+            null === t || t[Va] || ((t[Va] = !0), Da("selectionchange", !1, t));
           }
         }
         function za(e, t, r, a) {
@@ -18317,7 +18665,7 @@
                     if (0 === tr(r)) break e;
                   case "keydown":
                   case "keyup":
-                    s = Cr;
+                    s = Ar;
                     break;
                   case "focusin":
                     (u = "focus"), (s = hr);
@@ -18358,8 +18706,8 @@
                     s = Tr;
                     break;
                   case Ma:
-                  case Ca:
                   case Aa:
+                  case Ca:
                     s = fr;
                     break;
                   case Ta:
@@ -18384,7 +18732,7 @@
                   case "pointerout":
                   case "pointerover":
                   case "pointerup":
-                    s = Ar;
+                    s = Cr;
                 }
                 var c = 0 !== (4 & t),
                   d = !c && "scroll" === e,
@@ -18440,7 +18788,7 @@
                   (p = "onMouseEnter"),
                   (y = "mouse"),
                   ("pointerout" !== e && "pointerover" !== e) ||
-                    ((c = Ar),
+                    ((c = Cr),
                     (h = "onPointerLeave"),
                     (p = "onPointerEnter"),
                     (y = "pointer")),
@@ -18541,7 +18889,7 @@
                 }
               else
                 Hr
-                  ? Fr(e, r) && (v = "onCompositionEnd")
+                  ? Dr(e, r) && (v = "onCompositionEnd")
                   : "keydown" === e &&
                     229 === r.keyCode &&
                     (v = "onCompositionStart");
@@ -18562,16 +18910,16 @@
                         case "compositionend":
                           return Vr(t);
                         case "keypress":
-                          return 32 !== t.which ? null : ((Dr = !0), Rr);
+                          return 32 !== t.which ? null : ((Fr = !0), Rr);
                         case "textInput":
-                          return (e = t.data) === Rr && Dr ? null : e;
+                          return (e = t.data) === Rr && Fr ? null : e;
                         default:
                           return null;
                       }
                     })(e, r)
                   : (function (e, t) {
                       if (Hr)
-                        return "compositionend" === e || (!Er && Fr(e, t))
+                        return "compositionend" === e || (!Er && Dr(e, t))
                           ? ((e = er()), (Jt = $t = Xt = null), (Hr = !1), e)
                           : null;
                       switch (e) {
@@ -18767,13 +19115,13 @@
         function Mi(e, t) {
           ki++, (wi[ki] = e.current), (e.current = t);
         }
-        var Ci = {},
-          Ai = xi(Ci),
+        var Ai = {},
+          Ci = xi(Ai),
           Ti = xi(!1),
-          qi = Ci;
+          qi = Ai;
         function Ni(e, t) {
           var r = e.type.contextTypes;
-          if (!r) return Ci;
+          if (!r) return Ai;
           var a = e.stateNode;
           if (a && a.__reactInternalMemoizedUnmaskedChildContext === t)
             return a.__reactInternalMemoizedMaskedChildContext;
@@ -18792,11 +19140,11 @@
           return null !== (e = e.childContextTypes) && void 0 !== e;
         }
         function Ii() {
-          Si(Ti), Si(Ai);
+          Si(Ti), Si(Ci);
         }
         function Ei(e, t, r) {
-          if (Ai.current !== Ci) throw Error(n(168));
-          Mi(Ai, t), Mi(Ti, r);
+          if (Ci.current !== Ai) throw Error(n(168));
+          Mi(Ci, t), Mi(Ti, r);
         }
         function ji(e, t, r) {
           var a = e.stateNode;
@@ -18813,9 +19161,9 @@
             (e =
               ((e = e.stateNode) &&
                 e.__reactInternalMemoizedMergedChildContext) ||
-              Ci),
-            (qi = Ai.current),
-            Mi(Ai, e),
+              Ai),
+            (qi = Ci.current),
+            Mi(Ci, e),
             Mi(Ti, Ti.current),
             !0
           );
@@ -18827,20 +19175,20 @@
             ? ((e = ji(e, t, qi)),
               (a.__reactInternalMemoizedMergedChildContext = e),
               Si(Ti),
-              Si(Ai),
-              Mi(Ai, e))
+              Si(Ci),
+              Mi(Ci, e))
             : Si(Ti),
             Mi(Ti, r);
         }
         var Ri = null,
-          Di = !1,
-          Fi = !1;
+          Fi = !1,
+          Di = !1;
         function Vi(e) {
           null === Ri ? (Ri = [e]) : Ri.push(e);
         }
         function Hi() {
-          if (!Fi && null !== Ri) {
-            Fi = !0;
+          if (!Di && null !== Ri) {
+            Di = !0;
             var e = 0,
               t = vt;
             try {
@@ -18851,11 +19199,11 @@
                   a = a(!0);
                 } while (null !== a);
               }
-              (Ri = null), (Di = !1);
+              (Ri = null), (Fi = !1);
             } catch (i) {
               throw (null !== Ri && (Ri = Ri.slice(e + 1)), Ke(Je, Hi), i);
             } finally {
-              (vt = t), (Fi = !1);
+              (vt = t), (Di = !1);
             }
           }
           return null;
@@ -19083,15 +19431,15 @@
             } else vn = vn.next = e;
           return t;
         }
-        var Cn = null;
-        function An(e) {
-          null === Cn ? (Cn = [e]) : Cn.push(e);
+        var An = null;
+        function Cn(e) {
+          null === An ? (An = [e]) : An.push(e);
         }
         function Tn(e, t, r, a) {
           var i = t.interleaved;
           return (
             null === i
-              ? ((r.next = r), An(t))
+              ? ((r.next = r), Cn(t))
               : ((r.next = i.next), (i.next = r)),
             (t.interleaved = r),
             qn(e, a)
@@ -19151,7 +19499,7 @@
           }
           return (
             null === (i = a.interleaved)
-              ? ((t.next = t), An(a))
+              ? ((t.next = t), Cn(a))
               : ((t.next = i.next), (i.next = t)),
             (a.interleaved = t),
             qn(e, r)
@@ -19302,7 +19650,7 @@
             (Ps |= o), (e.lanes = o), (e.memoizedState = d);
           }
         }
-        function Dn(e, t, r) {
+        function Fn(e, t, r) {
           if (((e = t.effects), (t.effects = null), null !== e))
             for (t = 0; t < e.length; t++) {
               var a = e[t],
@@ -19314,7 +19662,7 @@
               }
             }
         }
-        var Fn = new a.Component().refs;
+        var Dn = new a.Component().refs;
         function Vn(e, t, r, a) {
           (r =
             null === (r = r(a, (t = e.memoizedState))) || void 0 === r
@@ -19366,15 +19714,15 @@
         }
         function Wn(e, t, r) {
           var a = !1,
-            i = Ci,
+            i = Ai,
             n = t.contextType;
           return (
             "object" === typeof n && null !== n
               ? (n = Mn(n))
-              : ((i = Oi(t) ? qi : Ai.current),
+              : ((i = Oi(t) ? qi : Ci.current),
                 (n = (a = null !== (a = t.contextTypes) && void 0 !== a)
                   ? Ni(e, i)
-                  : Ci)),
+                  : Ai)),
             (t = new t(r, n)),
             (e.memoizedState =
               null !== t.state && void 0 !== t.state ? t.state : null),
@@ -19398,11 +19746,11 @@
         }
         function Bn(e, t, r, a) {
           var i = e.stateNode;
-          (i.props = r), (i.state = e.memoizedState), (i.refs = Fn), On(e);
+          (i.props = r), (i.state = e.memoizedState), (i.refs = Dn), On(e);
           var n = t.contextType;
           "object" === typeof n && null !== n
             ? (i.context = Mn(n))
-            : ((n = Oi(t) ? qi : Ai.current), (i.context = Ni(e, n))),
+            : ((n = Oi(t) ? qi : Ci.current), (i.context = Ni(e, n))),
             (i.state = e.memoizedState),
             "function" === typeof (n = t.getDerivedStateFromProps) &&
               (Vn(e, t, n, r), (i.state = e.memoizedState)),
@@ -19441,7 +19789,7 @@
                 ? t.ref
                 : ((t = function (e) {
                     var t = i.refs;
-                    t === Fn && (t = i.refs = {}),
+                    t === Dn && (t = i.refs = {}),
                       null === e ? delete t[o] : (t[o] = e);
                   }),
                   (t._stringRef = o),
@@ -19533,7 +19881,7 @@
               4 !== t.tag ||
               t.stateNode.containerInfo !== r.containerInfo ||
               t.stateNode.implementation !== r.implementation
-              ? (((t = Du(r, e.mode, a)).return = e), t)
+              ? (((t = Fu(r, e.mode, a)).return = e), t)
               : (((t = i(t, r.children || [])).return = e), t);
           }
           function d(e, t, r, a, n) {
@@ -19557,7 +19905,7 @@
                     r
                   );
                 case k:
-                  return ((t = Du(t, e.mode, r)).return = e), t;
+                  return ((t = Fu(t, e.mode, r)).return = e), t;
                 case I:
                   return p(e, (0, t._init)(t._payload), r);
               }
@@ -19778,7 +20126,7 @@
                       }
                       t(a, n), (n = n.sibling);
                     }
-                    ((n = Du(o, a.mode, s)).return = a), (a = n);
+                    ((n = Fu(o, a.mode, s)).return = a), (a = n);
                   }
                   return l(a);
                 case I:
@@ -19921,7 +20269,7 @@
           var e = 0 !== bo;
           return (bo = 0), e;
         }
-        function Co() {
+        function Ao() {
           var e = {
             memoizedState: null,
             baseState: null,
@@ -19933,7 +20281,7 @@
             null === mo ? (ho.memoizedState = mo = e) : (mo = mo.next = e), mo
           );
         }
-        function Ao() {
+        function Co() {
           if (null === fo) {
             var e = ho.alternate;
             e = null !== e ? e.memoizedState : null;
@@ -19957,7 +20305,7 @@
           return "function" === typeof t ? t(e) : t;
         }
         function qo(e) {
-          var t = Ao(),
+          var t = Co(),
             r = t.queue;
           if (null === r) throw Error(n(311));
           r.lastRenderedReducer = e;
@@ -20019,7 +20367,7 @@
           return [t.memoizedState, r.dispatch];
         }
         function No(e) {
-          var t = Ao(),
+          var t = Co(),
             r = t.queue;
           if (null === r) throw Error(n(311));
           r.lastRenderedReducer = e;
@@ -20042,7 +20390,7 @@
         function Oo() {}
         function Io(e, t) {
           var r = ho,
-            a = Ao(),
+            a = Co(),
             i = t(),
             o = !oa(a.memoizedState, i);
           if (
@@ -20055,7 +20403,7 @@
           ) {
             if (
               ((r.flags |= 2048),
-              Fo(9, jo.bind(null, r, a, i, t), void 0, null),
+              Do(9, jo.bind(null, r, a, i, t), void 0, null),
               null === qs)
             )
               throw Error(n(349));
@@ -20096,8 +20444,8 @@
           var t = qn(e, 1);
           null !== t && ru(t, e, 1, -1);
         }
-        function Do(e) {
-          var t = Co();
+        function Fo(e) {
+          var t = Ao();
           return (
             "function" === typeof e && (e = e()),
             (t.memoizedState = t.baseState = e),
@@ -20114,7 +20462,7 @@
             [t.memoizedState, e]
           );
         }
-        function Fo(e, t, r, a) {
+        function Do(e, t, r, a) {
           return (
             (e = { tag: e, create: t, destroy: r, deps: a, next: null }),
             null === (t = ho.updateQueue)
@@ -20128,23 +20476,23 @@
           );
         }
         function Vo() {
-          return Ao().memoizedState;
+          return Co().memoizedState;
         }
         function Ho(e, t, r, a) {
-          var i = Co();
+          var i = Ao();
           (ho.flags |= e),
-            (i.memoizedState = Fo(1 | t, r, void 0, void 0 === a ? null : a));
+            (i.memoizedState = Do(1 | t, r, void 0, void 0 === a ? null : a));
         }
         function zo(e, t, r, a) {
-          var i = Ao();
+          var i = Co();
           a = void 0 === a ? null : a;
           var n = void 0;
           if (null !== fo) {
             var o = fo.memoizedState;
             if (((n = o.destroy), null !== a && xo(a, o.deps)))
-              return void (i.memoizedState = Fo(t, r, n, a));
+              return void (i.memoizedState = Do(t, r, n, a));
           }
-          (ho.flags |= e), (i.memoizedState = Fo(1 | t, r, n, a));
+          (ho.flags |= e), (i.memoizedState = Do(1 | t, r, n, a));
         }
         function Wo(e, t) {
           return Ho(8390656, 8, e, t);
@@ -20181,7 +20529,7 @@
         }
         function Yo() {}
         function Qo(e, t) {
-          var r = Ao();
+          var r = Co();
           t = void 0 === t ? null : t;
           var a = r.memoizedState;
           return null !== a && null !== t && xo(t, a[1])
@@ -20189,7 +20537,7 @@
             : ((r.memoizedState = [e, t]), e);
         }
         function Xo(e, t) {
-          var r = Ao();
+          var r = Co();
           t = void 0 === t ? null : t;
           var a = r.memoizedState;
           return null !== a && null !== t && xo(t, a[1])
@@ -20216,7 +20564,7 @@
           }
         }
         function el() {
-          return Ao().memoizedState;
+          return Co().memoizedState;
         }
         function tl(e, t, r) {
           var a = tu(e);
@@ -20259,7 +20607,7 @@
                   var s = t.interleaved;
                   return (
                     null === s
-                      ? ((i.next = i), An(t))
+                      ? ((i.next = i), Cn(t))
                       : ((i.next = s.next), (s.next = i)),
                     void (t.interleaved = i)
                   );
@@ -20308,7 +20656,7 @@
           ll = {
             readContext: Mn,
             useCallback: function (e, t) {
-              return (Co().memoizedState = [e, void 0 === t ? null : t]), e;
+              return (Ao().memoizedState = [e, void 0 === t ? null : t]), e;
             },
             useContext: Mn,
             useEffect: Wo,
@@ -20325,7 +20673,7 @@
               return Ho(4, 2, e, t);
             },
             useMemo: function (e, t) {
-              var r = Co();
+              var r = Ao();
               return (
                 (t = void 0 === t ? null : t),
                 (e = e()),
@@ -20334,7 +20682,7 @@
               );
             },
             useReducer: function (e, t, r) {
-              var a = Co();
+              var a = Ao();
               return (
                 (t = void 0 !== r ? r(t) : t),
                 (a.memoizedState = a.baseState = t),
@@ -20352,24 +20700,24 @@
               );
             },
             useRef: function (e) {
-              return (e = { current: e }), (Co().memoizedState = e);
+              return (e = { current: e }), (Ao().memoizedState = e);
             },
-            useState: Do,
+            useState: Fo,
             useDebugValue: Yo,
             useDeferredValue: function (e) {
-              return (Co().memoizedState = e);
+              return (Ao().memoizedState = e);
             },
             useTransition: function () {
-              var e = Do(!1),
+              var e = Fo(!1),
                 t = e[0];
               return (
-                (e = Jo.bind(null, e[1])), (Co().memoizedState = e), [t, e]
+                (e = Jo.bind(null, e[1])), (Ao().memoizedState = e), [t, e]
               );
             },
             useMutableSource: function () {},
             useSyncExternalStore: function (e, t, r) {
               var a = ho,
-                i = Co();
+                i = Ao();
               if (an) {
                 if (void 0 === r) throw Error(n(407));
                 r = r();
@@ -20383,12 +20731,12 @@
                 (i.queue = o),
                 Wo(Lo.bind(null, a, o, e), [e]),
                 (a.flags |= 2048),
-                Fo(9, jo.bind(null, a, o, r, t), void 0, null),
+                Do(9, jo.bind(null, a, o, r, t), void 0, null),
                 r
               );
             },
             useId: function () {
-              var e = Co(),
+              var e = Ao(),
                 t = qs.identifierPrefix;
               if (an) {
                 var r = Qi;
@@ -20420,10 +20768,10 @@
             },
             useDebugValue: Yo,
             useDeferredValue: function (e) {
-              return $o(Ao(), fo.memoizedState, e);
+              return $o(Co(), fo.memoizedState, e);
             },
             useTransition: function () {
-              return [qo(To)[0], Ao().memoizedState];
+              return [qo(To)[0], Co().memoizedState];
             },
             useMutableSource: Oo,
             useSyncExternalStore: Io,
@@ -20446,13 +20794,13 @@
             },
             useDebugValue: Yo,
             useDeferredValue: function (e) {
-              var t = Ao();
+              var t = Co();
               return null === fo
                 ? (t.memoizedState = e)
                 : $o(t, fo.memoizedState, e);
             },
             useTransition: function () {
-              return [No(To)[0], Ao().memoizedState];
+              return [No(To)[0], Co().memoizedState];
             },
             useMutableSource: Oo,
             useSyncExternalStore: Io,
@@ -20622,7 +20970,7 @@
               0 !== (131072 & e.flags) && (bl = !0);
             }
           }
-          return Al(e, t, r, a, i);
+          return Cl(e, t, r, a, i);
         }
         function Ml(e, t, r) {
           var a = t.pendingProps,
@@ -20669,13 +21017,13 @@
               (Is |= a);
           return wl(e, t, i, r), t.child;
         }
-        function Cl(e, t) {
+        function Al(e, t) {
           var r = t.ref;
           ((null === e && null !== r) || (null !== e && e.ref !== r)) &&
             ((t.flags |= 512), (t.flags |= 2097152));
         }
-        function Al(e, t, r, a, i) {
-          var n = Oi(r) ? qi : Ai.current;
+        function Cl(e, t, r, a, i) {
+          var n = Oi(r) ? qi : Ci.current;
           return (
             (n = Ni(t, n)),
             Sn(t, i),
@@ -20704,7 +21052,7 @@
               u = r.contextType;
             "object" === typeof u && null !== u
               ? (u = Mn(u))
-              : (u = Ni(t, (u = Oi(r) ? qi : Ai.current)));
+              : (u = Ni(t, (u = Oi(r) ? qi : Ci.current)));
             var c = r.getDerivedStateFromProps,
               d =
                 "function" === typeof c ||
@@ -20752,7 +21100,7 @@
               (p = o.context),
               "object" === typeof (s = r.contextType) && null !== s
                 ? (s = Mn(s))
-                : (s = Ni(t, (s = Oi(r) ? qi : Ai.current)));
+                : (s = Ni(t, (s = Oi(r) ? qi : Ci.current)));
             var _ = r.getDerivedStateFromProps;
             (c =
               "function" === typeof _ ||
@@ -20803,7 +21151,7 @@
           return ql(e, t, r, a, n, i);
         }
         function ql(e, t, r, a, i, n) {
-          Cl(e, t);
+          Al(e, t);
           var o = 0 !== (128 & t.flags);
           if (!a && !o) return i && Pi(t, r, !1), Zl(e, t, n);
           (a = t.stateNode), (vl.current = t);
@@ -20880,13 +21228,13 @@
                       (t.child.memoizedState = Pl(r)),
                       (t.memoizedState = Ll),
                       e)
-                    : Dl(t, s))
+                    : Fl(t, s))
             );
           if (null !== (o = e.memoizedState) && null !== (a = o.dehydrated))
             return (function (e, t, r, a, i, o, l) {
               if (r)
                 return 256 & t.flags
-                  ? ((t.flags &= -257), Fl(e, t, l, (a = dl(Error(n(422))))))
+                  ? ((t.flags &= -257), Dl(e, t, l, (a = dl(Error(n(422))))))
                   : null !== t.memoizedState
                   ? ((t.child = e.child), (t.flags |= 128), null)
                   : ((o = a.fallback),
@@ -20906,12 +21254,12 @@
                     (t.child.memoizedState = Pl(l)),
                     (t.memoizedState = Ll),
                     o);
-              if (0 === (1 & t.mode)) return Fl(e, t, l, null);
+              if (0 === (1 & t.mode)) return Dl(e, t, l, null);
               if ("$!" === i.data) {
                 if ((a = i.nextSibling && i.nextSibling.dataset))
                   var s = a.dgst;
                 return (
-                  (a = s), Fl(e, t, l, (a = dl((o = Error(n(419))), a, void 0)))
+                  (a = s), Dl(e, t, l, (a = dl((o = Error(n(419))), a, void 0)))
                 );
               }
               if (((s = 0 !== (l & e.childLanes)), bl || s)) {
@@ -20956,12 +21304,12 @@
                     i !== o.retryLane &&
                     ((o.retryLane = i), qn(e, i), ru(a, e, i, -1));
                 }
-                return hu(), Fl(e, t, l, (a = dl(Error(n(421)))));
+                return hu(), Dl(e, t, l, (a = dl(Error(n(421)))));
               }
               return "$?" === i.data
                 ? ((t.flags |= 128),
                   (t.child = e.child),
-                  (t = Au.bind(null, e)),
+                  (t = Cu.bind(null, e)),
                   (i._reactRetry = t),
                   null)
                 : ((e = o.treeContext),
@@ -20976,7 +21324,7 @@
                     (Yi = e.id),
                     (Qi = e.overflow),
                     (Ui = t)),
-                  ((t = Dl(t, a.children)).flags |= 4096),
+                  ((t = Fl(t, a.children)).flags |= 4096),
                   t);
             })(e, t, s, i, a, o, r);
           if (l) {
@@ -21026,7 +21374,7 @@
             i
           );
         }
-        function Dl(e, t) {
+        function Fl(e, t) {
           return (
             ((t = Pu(
               { mode: "visible", children: t },
@@ -21037,11 +21385,11 @@
             (e.child = t)
           );
         }
-        function Fl(e, t, r, a) {
+        function Dl(e, t, r, a) {
           return (
             null !== a && yn(a),
             Qn(t, e.child, null, r),
-            ((e = Dl(t, t.pendingProps.children)).flags |= 2),
+            ((e = Fl(t, t.pendingProps.children)).flags |= 2),
             (t.memoizedState = null),
             e
           );
@@ -21210,7 +21558,7 @@
                 (a = t.stateNode),
                 io(),
                 Si(Ti),
-                Si(Ai),
+                Si(Ci),
                 co(),
                 a.pendingContext &&
                   ((a.context = a.pendingContext), (a.pendingContext = null)),
@@ -21242,37 +21590,37 @@
                     ((a[di] = t), (a[pi] = o), (e = 0 !== (1 & t.mode)), r)
                   ) {
                     case "dialog":
-                      Da("cancel", a), Da("close", a);
+                      Fa("cancel", a), Fa("close", a);
                       break;
                     case "iframe":
                     case "object":
                     case "embed":
-                      Da("load", a);
+                      Fa("load", a);
                       break;
                     case "video":
                     case "audio":
-                      for (i = 0; i < ja.length; i++) Da(ja[i], a);
+                      for (i = 0; i < ja.length; i++) Fa(ja[i], a);
                       break;
                     case "source":
-                      Da("error", a);
+                      Fa("error", a);
                       break;
                     case "img":
                     case "image":
                     case "link":
-                      Da("error", a), Da("load", a);
+                      Fa("error", a), Fa("load", a);
                       break;
                     case "details":
-                      Da("toggle", a);
+                      Fa("toggle", a);
                       break;
                     case "input":
-                      Q(a, o), Da("invalid", a);
+                      Q(a, o), Fa("invalid", a);
                       break;
                     case "select":
                       (a._wrapperState = { wasMultiple: !!o.multiple }),
-                        Da("invalid", a);
+                        Fa("invalid", a);
                       break;
                     case "textarea":
-                      ie(a, o), Da("invalid", a);
+                      ie(a, o), Fa("invalid", a);
                   }
                   for (var s in (ge(r, o), (i = null), o))
                     if (o.hasOwnProperty(s)) {
@@ -21291,7 +21639,7 @@
                         : l.hasOwnProperty(s) &&
                           null != u &&
                           "onScroll" === s &&
-                          Da("scroll", a);
+                          Fa("scroll", a);
                     }
                   switch (r) {
                     case "input":
@@ -21331,31 +21679,31 @@
                   e: {
                     switch (((s = ve(r, a)), r)) {
                       case "dialog":
-                        Da("cancel", e), Da("close", e), (i = a);
+                        Fa("cancel", e), Fa("close", e), (i = a);
                         break;
                       case "iframe":
                       case "object":
                       case "embed":
-                        Da("load", e), (i = a);
+                        Fa("load", e), (i = a);
                         break;
                       case "video":
                       case "audio":
-                        for (i = 0; i < ja.length; i++) Da(ja[i], e);
+                        for (i = 0; i < ja.length; i++) Fa(ja[i], e);
                         i = a;
                         break;
                       case "source":
-                        Da("error", e), (i = a);
+                        Fa("error", e), (i = a);
                         break;
                       case "img":
                       case "image":
                       case "link":
-                        Da("error", e), Da("load", e), (i = a);
+                        Fa("error", e), Fa("load", e), (i = a);
                         break;
                       case "details":
-                        Da("toggle", e), (i = a);
+                        Fa("toggle", e), (i = a);
                         break;
                       case "input":
-                        Q(e, a), (i = Y(e, a)), Da("invalid", e);
+                        Q(e, a), (i = Y(e, a)), Fa("invalid", e);
                         break;
                       case "option":
                       default:
@@ -21364,10 +21712,10 @@
                       case "select":
                         (e._wrapperState = { wasMultiple: !!a.multiple }),
                           (i = R({}, a, { value: void 0 })),
-                          Da("invalid", e);
+                          Fa("invalid", e);
                         break;
                       case "textarea":
-                        ie(e, a), (i = ae(e, a)), Da("invalid", e);
+                        ie(e, a), (i = ae(e, a)), Fa("invalid", e);
                     }
                     for (o in (ge(r, i), (u = i)))
                       if (u.hasOwnProperty(o)) {
@@ -21384,7 +21732,7 @@
                             "suppressHydrationWarning" !== o &&
                             "autoFocus" !== o &&
                             (l.hasOwnProperty(o)
-                              ? null != c && "onScroll" === o && Da("scroll", e)
+                              ? null != c && "onScroll" === o && Fa("scroll", e)
                               : null != c && v(e, o, c, s));
                       }
                     switch (r) {
@@ -21636,7 +21984,7 @@
               return (
                 io(),
                 Si(Ti),
-                Si(Ai),
+                Si(Ci),
                 co(),
                 0 !== (65536 & (e = t.flags)) && 0 === (128 & e)
                   ? ((t.flags = (-65537 & e) | 128), t)
@@ -21749,7 +22097,7 @@
                       : "suppressContentEditableWarning" !== c &&
                         "suppressHydrationWarning" !== c &&
                         (l.hasOwnProperty(c)
-                          ? (null != u && "onScroll" === c && Da("scroll", e),
+                          ? (null != u && "onScroll" === c && Fa("scroll", e),
                             o || s === u || (o = []))
                           : (o = o || []).push(c, u));
               }
@@ -22355,7 +22703,7 @@
                           );
                         }
                       var o = t.updateQueue;
-                      null !== o && Dn(t, o, a);
+                      null !== o && Fn(t, o, a);
                       break;
                     case 3:
                       var l = t.updateQueue;
@@ -22366,7 +22714,7 @@
                             case 1:
                               r = t.child.stateNode;
                           }
-                        Dn(t, l, r);
+                        Fn(t, l, r);
                       }
                       break;
                     case 5:
@@ -22500,8 +22848,8 @@
         var xs,
           Ss = Math.ceil,
           Ms = b.ReactCurrentDispatcher,
-          Cs = b.ReactCurrentOwner,
-          As = b.ReactCurrentBatchConfig,
+          As = b.ReactCurrentOwner,
+          Cs = b.ReactCurrentBatchConfig,
           Ts = 0,
           qs = null,
           Ns = null,
@@ -22512,8 +22860,8 @@
           Ls = null,
           Ps = 0,
           Rs = 0,
-          Ds = 0,
-          Fs = null,
+          Fs = 0,
+          Ds = null,
           Vs = null,
           Hs = 0,
           zs = 1 / 0,
@@ -22551,7 +22899,7 @@
               1 === r &&
                 0 === Ts &&
                 0 === (1 & t.mode) &&
-                ((zs = Xe() + 500), Di && Hi()));
+                ((zs = Xe() + 500), Fi && Hi()));
         }
         function au(e, t) {
           var r = e.callbackNode;
@@ -22582,7 +22930,7 @@
             if ((null != r && Ue(r), 1 === t))
               0 === e.tag
                 ? (function (e) {
-                    (Di = !0), Vi(e);
+                    (Fi = !0), Vi(e);
                   })(su.bind(null, e))
                 : Vi(su.bind(null, e)),
                 ni(function () {
@@ -22744,7 +23092,7 @@
           return au(e, Xe()), e.callbackNode === r ? iu.bind(null, e) : null;
         }
         function nu(e, t) {
-          var r = Fs;
+          var r = Ds;
           return (
             e.current.memoizedState.isDehydrated && (pu(e, t).flags |= 256),
             2 !== (e = fu(e, t)) && ((t = Vs), (Vs = r), null !== t && ou(t)),
@@ -22756,7 +23104,7 @@
         }
         function lu(e, t) {
           for (
-            t &= ~Ds,
+            t &= ~Fs,
               t &= ~Rs,
               e.suspendedLanes |= t,
               e.pingedLanes &= ~t,
@@ -22795,19 +23143,19 @@
           try {
             return e(t);
           } finally {
-            0 === (Ts = r) && ((zs = Xe() + 500), Di && Hi());
+            0 === (Ts = r) && ((zs = Xe() + 500), Fi && Hi());
           }
         }
         function cu(e) {
           null !== Us && 0 === Us.tag && 0 === (6 & Ts) && ku();
           var t = Ts;
           Ts |= 1;
-          var r = As.transition,
+          var r = Cs.transition,
             a = vt;
           try {
-            if (((As.transition = null), (vt = 1), e)) return e();
+            if (((Cs.transition = null), (vt = 1), e)) return e();
           } finally {
-            (vt = a), (As.transition = r), 0 === (6 & (Ts = t)) && Hi();
+            (vt = a), (Cs.transition = r), 0 === (6 & (Ts = t)) && Hi();
           }
         }
         function du() {
@@ -22826,7 +23174,7 @@
                     Ii();
                   break;
                 case 3:
-                  io(), Si(Ti), Si(Ai), co();
+                  io(), Si(Ti), Si(Ci), co();
                   break;
                 case 5:
                   oo(a);
@@ -22853,12 +23201,12 @@
             (Os = Is = t),
             (js = 0),
             (Ls = null),
-            (Ds = Rs = Ps = 0),
-            (Vs = Fs = null),
-            null !== Cn)
+            (Fs = Rs = Ps = 0),
+            (Vs = Ds = null),
+            null !== An)
           ) {
-            for (t = 0; t < Cn.length; t++)
-              if (null !== (a = (r = Cn[t]).interleaved)) {
+            for (t = 0; t < An.length; t++)
+              if (null !== (a = (r = An[t]).interleaved)) {
                 r.interleaved = null;
                 var i = a.next,
                   n = r.pending;
@@ -22868,7 +23216,7 @@
                 }
                 r.pending = a;
               }
-            Cn = null;
+            An = null;
           }
           return e;
         }
@@ -22888,7 +23236,7 @@
                 (mo = fo = ho = null),
                 (vo = !1),
                 (bo = 0),
-                (Cs.current = null),
+                (As.current = null),
                 null === r || null === r.return)
               ) {
                 (js = 1), (Ls = t), (Ns = null);
@@ -22946,7 +23294,7 @@
                 }
                 (o = u = cl(u, s)),
                   4 !== js && (js = 2),
-                  null === Fs ? (Fs = [o]) : Fs.push(o),
+                  null === Ds ? (Ds = [o]) : Ds.push(o),
                   (o = l);
                 do {
                   switch (o.tag) {
@@ -23020,7 +23368,7 @@
           var t = xs(e.alternate, e, Is);
           (e.memoizedProps = e.pendingProps),
             null === t ? bu(e) : (Ns = t),
-            (Cs.current = null);
+            (As.current = null);
         }
         function bu(e) {
           var t = e;
@@ -23041,9 +23389,9 @@
         }
         function wu(e, t, r) {
           var a = vt,
-            i = As.transition;
+            i = Cs.transition;
           try {
-            (As.transition = null),
+            (Cs.transition = null),
               (vt = 1),
               (function (e, t, r, a) {
                 do {
@@ -23088,12 +23436,12 @@
                   (o = 0 !== (15990 & r.flags)),
                   0 !== (15990 & r.subtreeFlags) || o)
                 ) {
-                  (o = As.transition), (As.transition = null);
+                  (o = Cs.transition), (Cs.transition = null);
                   var l = vt;
                   vt = 1;
                   var s = Ts;
                   (Ts |= 4),
-                    (Cs.current = null),
+                    (As.current = null),
                     (function (e, t) {
                       if (((Ja = Zt), pa((e = da())))) {
                         if ("selectionStart" in e)
@@ -23232,7 +23580,7 @@
                     Qe(),
                     (Ts = s),
                     (vt = l),
-                    (As.transition = o);
+                    (Cs.transition = o);
                 } else e.current = r;
                 if (
                   (Ks && ((Ks = !1), (Us = e), (Ys = i)),
@@ -23266,17 +23614,17 @@
                   Hi();
               })(e, t, r, a);
           } finally {
-            (As.transition = i), (vt = a);
+            (Cs.transition = i), (vt = a);
           }
           return null;
         }
         function ku() {
           if (null !== Us) {
             var e = bt(Ys),
-              t = As.transition,
+              t = Cs.transition,
               r = vt;
             try {
-              if (((As.transition = null), (vt = 16 > e ? 16 : e), null === Us))
+              if (((Cs.transition = null), (vt = 16 > e ? 16 : e), null === Us))
                 var a = !1;
               else {
                 if (((e = Us), (Us = null), (Ys = 0), 0 !== (6 & Ts)))
@@ -23391,7 +23739,7 @@
               }
               return a;
             } finally {
-              (vt = r), (As.transition = t);
+              (vt = r), (Cs.transition = t);
             }
           }
           return !1;
@@ -23435,10 +23783,10 @@
               (4 === js ||
               (3 === js && (130023424 & Os) === Os && 500 > Xe() - Hs)
                 ? pu(e, 0)
-                : (Ds |= r)),
+                : (Fs |= r)),
             au(e, t);
         }
-        function Cu(e, t) {
+        function Au(e, t) {
           0 === t &&
             (0 === (1 & e.mode)
               ? (t = 1)
@@ -23446,10 +23794,10 @@
           var r = eu();
           null !== (e = qn(e, t)) && (mt(e, t, r), au(e, r));
         }
-        function Au(e) {
+        function Cu(e) {
           var t = e.memoizedState,
             r = 0;
-          null !== t && (r = t.retryLane), Cu(e, r);
+          null !== t && (r = t.retryLane), Au(e, r);
         }
         function Tu(e, t) {
           var r = 0;
@@ -23465,7 +23813,7 @@
             default:
               throw Error(n(314));
           }
-          null !== a && a.delete(t), Cu(e, r);
+          null !== a && a.delete(t), Au(e, r);
         }
         function qu(e, t) {
           return Ke(e, t);
@@ -23561,10 +23909,10 @@
               default:
                 if ("object" === typeof e && null !== e)
                   switch (e.$$typeof) {
-                    case C:
+                    case A:
                       l = 10;
                       break e;
-                    case A:
+                    case C:
                       l = 9;
                       break e;
                     case T:
@@ -23600,7 +23948,7 @@
         function Ru(e, t, r) {
           return ((e = Ou(6, e, null, t)).lanes = r), e;
         }
-        function Du(e, t, r) {
+        function Fu(e, t, r) {
           return (
             ((t = Ou(
               4,
@@ -23616,7 +23964,7 @@
             t
           );
         }
-        function Fu(e, t, r, a, i) {
+        function Du(e, t, r, a, i) {
           (this.tag = t),
             (this.containerInfo = e),
             (this.finishedWork =
@@ -23644,7 +23992,7 @@
         }
         function Vu(e, t, r, a, i, n, o, l, s) {
           return (
-            (e = new Fu(e, t, r, l, s)),
+            (e = new Du(e, t, r, l, s)),
             1 === t ? ((t = 1), !0 === n && (t |= 8)) : (t = 0),
             (n = Ou(3, null, null, t)),
             (e.current = n),
@@ -23674,7 +24022,7 @@
           };
         }
         function zu(e) {
-          if (!e) return Ci;
+          if (!e) return Ai;
           e: {
             if (ze((e = e._reactInternals)) !== e || 1 !== e.tag)
               throw Error(n(170));
@@ -23808,7 +24156,7 @@
             case 2:
               var a = t.type;
               Wl(e, t), (e = t.pendingProps);
-              var i = Ni(t, Ai.current);
+              var i = Ni(t, Ci.current);
               Sn(t, r), (i = So(null, t, a, e, i, r));
               var o = Mo();
               return (
@@ -23856,7 +24204,7 @@
                   i)
                 ) {
                   case 0:
-                    t = Al(null, t, a, e, r);
+                    t = Cl(null, t, a, e, r);
                     break e;
                   case 1:
                     t = Tl(null, t, a, e, r);
@@ -23875,7 +24223,7 @@
               return (
                 (a = t.type),
                 (i = t.pendingProps),
-                Al(e, t, a, (i = t.elementType === a ? i : fn(a, i)), r)
+                Cl(e, t, a, (i = t.elementType === a ? i : fn(a, i)), r)
               );
             case 1:
               return (
@@ -23943,7 +24291,7 @@
                 ti(a, i)
                   ? (l = null)
                   : null !== o && ti(a, o) && (t.flags |= 32),
-                Cl(e, t),
+                Al(e, t),
                 wl(e, t, l, r),
                 t.child
               );
@@ -24272,7 +24620,7 @@
           (qe = cu);
         var tc = {
             usingClientEntryPoint: !1,
-            Events: [gi, vi, bi, Ce, Ae, uu],
+            Events: [gi, vi, bi, Ae, Ce, uu],
           },
           rc = {
             findFiberByHostInstance: mi,
@@ -25306,10 +25654,10 @@
             _owner: x.current,
           };
         }
-        function C(e) {
+        function A(e) {
           return "object" === typeof e && null !== e && e.$$typeof === r;
         }
-        var A = /\/+/g;
+        var C = /\/+/g;
         function T(e, t) {
           return "object" === typeof e && null !== e && null != e.key
             ? (function (e) {
@@ -25347,12 +25695,12 @@
               (e = "" === n ? "." + T(s, 0) : n),
               w(o)
                 ? ((i = ""),
-                  null != e && (i = e.replace(A, "$&/") + "/"),
+                  null != e && (i = e.replace(C, "$&/") + "/"),
                   q(o, t, i, "", function (e) {
                     return e;
                   }))
                 : null != o &&
-                  (C(o) &&
+                  (A(o) &&
                     (o = (function (e, t) {
                       return {
                         $$typeof: r,
@@ -25367,7 +25715,7 @@
                       i +
                         (!o.key || (s && s.key === o.key)
                           ? ""
-                          : ("" + o.key).replace(A, "$&/") + "/") +
+                          : ("" + o.key).replace(C, "$&/") + "/") +
                         e
                     )),
                   t.push(o)),
@@ -25467,7 +25815,7 @@
             );
           },
           only: function (e) {
-            if (!C(e))
+            if (!A(e))
               throw Error(
                 "React.Children.only expected to receive a single React element child."
               );
@@ -25546,7 +25894,7 @@
           (t.forwardRef = function (e) {
             return { $$typeof: u, render: e };
           }),
-          (t.isValidElement = C),
+          (t.isValidElement = A),
           (t.lazy = function (e) {
             return {
               $$typeof: p,
@@ -25711,7 +26059,7 @@
             }
         }
         function k(e, r) {
-          (h = !1), f && ((f = !1), g(C), (C = -1)), (y = !0);
+          (h = !1), f && ((f = !1), g(A), (A = -1)), (y = !0);
           var n = _;
           try {
             for (
@@ -25748,11 +26096,11 @@
         var x,
           S = !1,
           M = null,
-          C = -1,
-          A = 5,
+          A = -1,
+          C = 5,
           T = -1;
         function q() {
-          return !(t.unstable_now() - T < A);
+          return !(t.unstable_now() - T < C);
         }
         function N() {
           if (null !== M) {
@@ -25785,7 +26133,7 @@
           (M = e), S || ((S = !0), x());
         }
         function j(e, r) {
-          C = m(function () {
+          A = m(function () {
             e(t.unstable_now());
           }, r);
         }
@@ -25806,7 +26154,7 @@
               ? console.error(
                   "forceFrameRate takes a positive int between 0 and 125, forcing frame rates higher than 125 fps is not supported"
                 )
-              : (A = 0 < e ? Math.floor(1e3 / e) : 5);
+              : (C = 0 < e ? Math.floor(1e3 / e) : 5);
           }),
           (t.unstable_getCurrentPriorityLevel = function () {
             return _;
@@ -25890,7 +26238,7 @@
                   r(c, e),
                   null === a(u) &&
                     e === a(c) &&
-                    (f ? (g(C), (C = -1)) : (f = !0), j(w, n - o)))
+                    (f ? (g(A), (A = -1)) : (f = !0), j(w, n - o)))
                 : ((e.sortIndex = l), r(u, e), h || y || ((h = !0), E(k))),
               e
             );
@@ -25937,8 +26285,8 @@
             x = "Apple",
             S = "ASUS",
             M = "BlackBerry",
-            C = "Firefox",
-            A = "Google",
+            A = "Firefox",
+            C = "Google",
             T = "Huawei",
             q = "LG",
             N = "Microsoft",
@@ -25949,12 +26297,12 @@
             L = "Xiaomi",
             P = "Zebra",
             R = "Facebook",
-            D = function (e) {
+            F = function (e) {
               for (var t = {}, r = 0; r < e.length; r++)
                 t[e[r].toUpperCase()] = e[r];
               return t;
             },
-            F = function (e, t) {
+            D = function (e, t) {
               return typeof e === u && -1 !== V(t).indexOf(V(e));
             },
             V = function (e) {
@@ -25996,8 +26344,8 @@
               for (var r in t)
                 if (typeof t[r] === s && t[r].length > 0) {
                   for (var a = 0; a < t[r].length; a++)
-                    if (F(t[r][a], e)) return "?" === r ? n : r;
-                } else if (F(t[r], e)) return "?" === r ? n : r;
+                    if (D(t[r][a], e)) return "?" === r ? n : r;
+                } else if (D(t[r], e)) return "?" === r ? n : r;
               return e;
             },
             Z = {
@@ -26066,7 +26414,7 @@
                 [/miuibrowser\/([\w\.]+)/i],
                 [y, [d, "MIUI Browser"]],
                 [/fxios\/([-\w\.]+)/i],
-                [y, [d, C]],
+                [y, [d, A]],
                 [/\bqihu|(qi?ho?o?|360)browser/i],
                 [[d, "360 Browser"]],
                 [/(oculus|samsung|sailfish)browser\/([\w\.]+)/i],
@@ -26247,9 +26595,9 @@
                   [p, m],
                 ],
                 [/(pixel c)\b/i],
-                [c, [_, A], [p, g]],
+                [c, [_, C], [p, g]],
                 [/droid.+; (pixel[\daxl ]{0,6})(?: bui|\))/i],
-                [c, [_, A], [p, m]],
+                [c, [_, C], [p, m]],
                 [
                   /droid.+ ([c-g]\d{4}|so[-gl]\w+|xq-a\w[4-7][12])(?= bui|\).+chrome\/(?![1-6]{0,1}\d\.))/i,
                 ],
@@ -26409,7 +26757,7 @@
                 [/crkey/i],
                 [
                   [c, "Chromecast"],
-                  [_, A],
+                  [_, C],
                   [p, v],
                 ],
                 [/droid.+aft(\w)( bui|\))/i],
@@ -26430,7 +26778,7 @@
                 [/((pebble))app/i],
                 [_, c, [p, b]],
                 [/droid.+; (glass) \d/i],
-                [c, [_, A], [p, b]],
+                [c, [_, C], [p, b]],
                 [/droid.+; (wt63?0{2,3})\)/i],
                 [c, [_, P], [p, b]],
                 [/(quest( 2)?)/i],
@@ -26621,10 +26969,10 @@
               );
             };
           (G.VERSION = "1.0.2"),
-            (G.BROWSER = D([d, y, "major"])),
-            (G.CPU = D([h])),
-            (G.DEVICE = D([c, _, p, f, m, v, g, b, w])),
-            (G.ENGINE = G.OS = D([d, y])),
+            (G.BROWSER = F([d, y, "major"])),
+            (G.CPU = F([h])),
+            (G.DEVICE = F([c, _, p, f, m, v, g, b, w])),
+            (G.ENGINE = G.OS = F([d, y])),
             typeof t !== l
               ? (e.exports && (t = e.exports = G), (t.UAParser = G))
               : r.amdO
@@ -27162,11 +27510,11 @@
           s.sY)({ ourProps: d, theirProps: o, slot: r.slot || {}, defaultTag: "p", name: r.name || "Description" });
         });
       },
-      2453: function (e, t, r) {
+      4254: function (e, t, r) {
         "use strict";
         r.d(t, {
           V: function () {
-            return he;
+            return ye;
           },
         });
         var a = r(7762),
@@ -27186,55 +27534,26 @@
           m = r(5678),
           g = r(3759),
           v = r(1464),
-          b = r(7992);
-        function w(e, t, r) {
-          var a = (0, b.E)(t);
-          (0, u.useEffect)(
-            function () {
-              function t(e) {
-                a.current(e);
-              }
-              return (
-                window.addEventListener(e, t, r),
-                function () {
-                  return window.removeEventListener(e, t, r);
-                }
-              );
-            },
-            [e, r]
-          );
-        }
-        var k = (function (e) {
-          return (
-            (e[(e.Forwards = 0)] = "Forwards"),
-            (e[(e.Backwards = 1)] = "Backwards"),
-            e
-          );
-        })(k || {});
-        function x() {
-          var e = (0, u.useRef)(0);
-          return (
-            w(
-              "keydown",
-              function (t) {
-                "Tab" === t.key && (e.current = t.shiftKey ? 1 : 0);
-              },
-              !0
-            ),
-            e
-          );
-        }
-        var S = r(5485),
-          M = r(7626);
-        function C() {
+          b = r(161),
+          w = (function (e) {
+            return (
+              (e[(e.Forwards = 0)] = "Forwards"),
+              (e[(e.Backwards = 1)] = "Backwards"),
+              e
+            );
+          })(w || {});
+        var k = r(5485),
+          x = r(7626);
+        function S() {
           for (var e = arguments.length, t = new Array(e), r = 0; r < e; r++)
             t[r] = arguments[r];
           return (0, u.useMemo)(function () {
-            return M.r.apply(void 0, t);
+            return x.r.apply(void 0, t);
           }, [].concat(t));
         }
+        var M = r(7992);
         function A(e, t, r, a) {
-          var i = (0, b.E)(r);
+          var i = (0, M.E)(r);
           (0, u.useEffect)(
             function () {
               function r(e) {
@@ -27250,8 +27569,8 @@
             [e, t, a]
           );
         }
-        var T = r(8752);
-        function q(e, t) {
+        var C = r(8752);
+        function T(e, t) {
           var r = (0, u.useRef)([]),
             o = (0, v.z)(e);
           (0, u.useEffect)(function () {
@@ -27274,8 +27593,8 @@
             }
           }, [o].concat((0, i.Z)(t)));
         }
-        var N = ["initialFocus", "containers", "features"],
-          O = (function (e) {
+        var q = ["initialFocus", "containers", "features"],
+          N = (function (e) {
             return (
               (e[(e.None = 1)] = "None"),
               (e[(e.InitialFocus = 2)] = "InitialFocus"),
@@ -27285,8 +27604,8 @@
               (e[(e.All = 30)] = "All"),
               e
             );
-          })(O || {}),
-          I = Object.assign(
+          })(N || {}),
+          O = Object.assign(
             (0, d.yV)(function (e, t) {
               var r = (0, u.useRef)(null),
                 i = (0, p.T)(r, t),
@@ -27294,9 +27613,9 @@
                 s = e.containers,
                 _ = e.features,
                 y = void 0 === _ ? 30 : _,
-                h = (0, o.Z)(e, N);
+                h = (0, o.Z)(e, q);
               (0, f.H)() || (y = 1);
-              var b = C(r);
+              var x = S(r);
               !(function (e, t) {
                 var r = e.ownerDocument,
                   a = (0, u.useRef)(null);
@@ -27308,7 +27627,7 @@
                   },
                   !0
                 ),
-                  q(
+                  T(
                     function () {
                       t ||
                         ((null == r ? void 0 : r.activeElement) ===
@@ -27323,21 +27642,21 @@
                     (i.current = !1),
                     function () {
                       (i.current = !0),
-                        (0, T.Y)(function () {
+                        (0, C.Y)(function () {
                           !i.current ||
                             ((0, g.C5)(a.current), (a.current = null));
                         });
                     }
                   );
                 }, []);
-              })({ ownerDocument: b }, Boolean(16 & y));
-              var w = (function (e, t) {
+              })({ ownerDocument: x }, Boolean(16 & y));
+              var M = (function (e, t) {
                 var r = e.ownerDocument,
                   a = e.container,
                   i = e.initialFocus,
                   n = (0, u.useRef)(null);
                 return (
-                  q(
+                  T(
                     function () {
                       if (t) {
                         var e = a.current;
@@ -27362,7 +27681,7 @@
                   n
                 );
               })(
-                { ownerDocument: b, container: r, initialFocus: n },
+                { ownerDocument: x, container: r, initialFocus: n },
                 Boolean(2 & y)
               );
               !(function (e, t) {
@@ -27370,7 +27689,7 @@
                   i = e.container,
                   n = e.containers,
                   o = e.previousActiveElement,
-                  l = (0, S.t)();
+                  l = (0, k.t)();
                 A(
                   null == r ? void 0 : r.defaultView,
                   "focus",
@@ -27413,25 +27732,37 @@
                 );
               })(
                 {
-                  ownerDocument: b,
+                  ownerDocument: x,
                   container: r,
                   containers: s,
-                  previousActiveElement: w,
+                  previousActiveElement: M,
                 },
                 Boolean(8 & y)
               );
-              var M = x(),
+              var N = (function () {
+                  var e = (0, u.useRef)(0);
+                  return (
+                    (0, b.s)(
+                      "keydown",
+                      function (t) {
+                        "Tab" === t.key && (e.current = t.shiftKey ? 1 : 0);
+                      },
+                      !0
+                    ),
+                    e
+                  );
+                })(),
                 O = (0, v.z)(function () {
                   var e,
                     t = r.current;
                   !t ||
                     (0, c.E)(
-                      M.current,
+                      N.current,
                       ((e = {}),
-                      (0, l.Z)(e, k.Forwards, function () {
+                      (0, l.Z)(e, w.Forwards, function () {
                         return (0, g.jA)(t, g.TO.First);
                       }),
-                      (0, l.Z)(e, k.Backwards, function () {
+                      (0, l.Z)(e, w.Backwards, function () {
                         return (0, g.jA)(t, g.TO.Last);
                       }),
                       e)
@@ -27463,33 +27794,33 @@
                   })
               );
             }),
-            { features: O }
+            { features: N }
           );
-        var E = r(200),
-          j = new Set(),
-          L = new Map();
-        function P(e) {
+        var I = r(200),
+          E = new Set(),
+          j = new Map();
+        function L(e) {
           e.setAttribute("aria-hidden", "true"), (e.inert = !0);
         }
-        function R(e) {
-          var t = L.get(e);
+        function P(e) {
+          var t = j.get(e);
           !t ||
             (null === t["aria-hidden"]
               ? e.removeAttribute("aria-hidden")
               : e.setAttribute("aria-hidden", t["aria-hidden"]),
             (e.inert = t.inert));
         }
-        var D = r(1168),
+        var R = r(1168),
           F = (0, u.createContext)(!1);
-        function V() {
+        function D() {
           return (0, u.useContext)(F);
         }
-        function H(e) {
+        function V(e) {
           return u.createElement(F.Provider, { value: e.force }, e.children);
         }
-        var z = ["target"];
-        var W = u.Fragment,
-          Z = (0, d.yV)(function (e, t) {
+        var H = ["target"];
+        var z = u.Fragment,
+          W = (0, d.yV)(function (e, t) {
             var r = e,
               a = (0, u.useRef)(null),
               i = (0, p.T)(
@@ -27498,11 +27829,11 @@
                 }),
                 t
               ),
-              o = C(a),
+              o = S(a),
               l = (function (e) {
-                var t = V(),
-                  r = (0, u.useContext)(G),
-                  a = C(e),
+                var t = D(),
+                  r = (0, u.useContext)(B),
+                  a = S(e),
                   i = (0, u.useState)(function () {
                     if ((!t && null !== r) || "undefined" == typeof window)
                       return null;
@@ -27552,7 +27883,7 @@
               _ = (0, f.H)(),
               y = (0, u.useRef)(!1);
             return (
-              (0, E.e)(
+              (0, I.e)(
                 function () {
                   if (((y.current = !1), l && c))
                     return (
@@ -27561,7 +27892,7 @@
                         l.appendChild(c)),
                       function () {
                         (y.current = !0),
-                          (0, T.Y)(function () {
+                          (0, C.Y)(function () {
                             var e;
                             !y.current ||
                               !l ||
@@ -27577,11 +27908,11 @@
                 [l, c]
               ),
               _ && l && c
-                ? (0, D.createPortal)(
+                ? (0, R.createPortal)(
                     (0, d.sY)({
                       ourProps: { ref: i },
                       theirProps: r,
-                      defaultTag: W,
+                      defaultTag: z,
                       name: "Portal",
                     }),
                     c
@@ -27589,43 +27920,43 @@
                 : null
             );
           }),
-          B = u.Fragment,
-          G = (0, u.createContext)(null),
-          K = (0, d.yV)(function (e, t) {
+          Z = u.Fragment,
+          B = (0, u.createContext)(null),
+          G = (0, d.yV)(function (e, t) {
             var r = e.target,
-              a = (0, o.Z)(e, z),
+              a = (0, o.Z)(e, H),
               i = { ref: (0, p.T)(t) };
             return u.createElement(
-              G.Provider,
+              B.Provider,
               { value: r },
               (0, d.sY)({
                 ourProps: i,
                 theirProps: a,
-                defaultTag: B,
+                defaultTag: Z,
                 name: "Popover.Group",
               })
             );
           }),
-          U = Object.assign(Z, { Group: K }),
-          Y = r(3873),
-          Q = r(426),
-          X = (0, u.createContext)(function () {});
-        X.displayName = "StackContext";
-        var $ = (function (e) {
+          K = Object.assign(W, { Group: G }),
+          U = r(3873),
+          Y = r(426),
+          Q = (0, u.createContext)(function () {});
+        Q.displayName = "StackContext";
+        var X = (function (e) {
           return (e[(e.Add = 0)] = "Add"), (e[(e.Remove = 1)] = "Remove"), e;
-        })($ || {});
-        function J(e) {
+        })(X || {});
+        function $(e) {
           var t = e.children,
             r = e.onUpdate,
             a = e.type,
             i = e.element,
-            n = (0, u.useContext)(X),
+            n = (0, u.useContext)(Q),
             o = (0, v.z)(function () {
               null == r || r.apply(void 0, arguments),
                 n.apply(void 0, arguments);
             });
           return (
-            (0, E.e)(
+            (0, I.e)(
               function () {
                 return (
                   o(0, a, i),
@@ -27636,138 +27967,69 @@
               },
               [o, a, i]
             ),
-            u.createElement(X.Provider, { value: o }, t)
+            u.createElement(Q.Provider, { value: o }, t)
           );
         }
-        function ee(e, t) {
-          var r =
-              !(arguments.length > 2 && void 0 !== arguments[2]) ||
-              arguments[2],
-            i = (0, u.useRef)(!1);
-          function n(r, n) {
-            if (i.current && !r.defaultPrevented) {
-              var o = (function e(t) {
-                  return "function" == typeof t
-                    ? e(t())
-                    : Array.isArray(t) || t instanceof Set
-                    ? t
-                    : [t];
-                })(e),
-                l = n(r);
-              if (null !== l && l.ownerDocument.documentElement.contains(l)) {
-                var s,
-                  u = (0, a.Z)(o);
-                try {
-                  for (u.s(); !(s = u.n()).done; ) {
-                    var c = s.value;
-                    if (null !== c) {
-                      var d = c instanceof HTMLElement ? c : c.current;
-                      if (null != d && d.contains(l)) return;
-                    }
-                  }
-                } catch (p) {
-                  u.e(p);
-                } finally {
-                  u.f();
-                }
-                return (
-                  !(0, g.sP)(l, g.tJ.Loose) &&
-                    -1 !== l.tabIndex &&
-                    r.preventDefault(),
-                  t(r, l)
-                );
-              }
-            }
-          }
-          (0, u.useEffect)(
-            function () {
-              requestAnimationFrame(function () {
-                i.current = r;
-              });
-            },
-            [r]
-          ),
-            w(
-              "click",
-              function (e) {
-                return n(e, function (e) {
-                  return e.target;
-                });
-              },
-              !0
-            ),
-            w(
-              "blur",
-              function (e) {
-                return n(e, function () {
-                  return window.document.activeElement instanceof
-                    HTMLIFrameElement
-                    ? window.document.activeElement
-                    : null;
-                });
-              },
-              !0
-            );
-        }
-        var te,
-          re = ["open", "onClose", "initialFocus", "__demoMode"],
-          ae =
-            (((te = ae || {})[(te.Open = 0)] = "Open"),
-            (te[(te.Closed = 1)] = "Closed"),
-            te),
-          ie = (function (e) {
+        var J,
+          ee = r(5941),
+          te = ["open", "onClose", "initialFocus", "__demoMode"],
+          re =
+            (((J = re || {})[(J.Open = 0)] = "Open"),
+            (J[(J.Closed = 1)] = "Closed"),
+            J),
+          ae = (function (e) {
             return (e[(e.SetTitleId = 0)] = "SetTitleId"), e;
-          })(ie || {}),
-          ne = (0, l.Z)({}, 0, function (e, t) {
+          })(ae || {}),
+          ie = (0, l.Z)({}, 0, function (e, t) {
             return e.titleId === t.id
               ? e
               : (0, s.Z)((0, s.Z)({}, e), {}, { titleId: t.id });
           }),
-          oe = (0, u.createContext)(null);
-        function le(e) {
-          var t = (0, u.useContext)(oe);
+          ne = (0, u.createContext)(null);
+        function oe(e) {
+          var t = (0, u.useContext)(ne);
           if (null === t) {
             var r = new Error(
               "<".concat(e, " /> is missing a parent <Dialog /> component.")
             );
             throw (
-              (Error.captureStackTrace && Error.captureStackTrace(r, le), r)
+              (Error.captureStackTrace && Error.captureStackTrace(r, oe), r)
             );
           }
           return t;
         }
-        function se(e, t) {
-          return (0, c.E)(t.type, ne, e, t);
+        function le(e, t) {
+          return (0, c.E)(t.type, ie, e, t);
         }
-        oe.displayName = "DialogContext";
-        var ue = d.AN.RenderStrategy | d.AN.Static,
-          ce = (0, d.yV)(function (e, t) {
+        ne.displayName = "DialogContext";
+        var se = d.AN.RenderStrategy | d.AN.Static,
+          ue = (0, d.yV)(function (e, t) {
             var r,
               s = e.open,
               y = e.onClose,
               g = e.initialFocus,
               b = e.__demoMode,
               w = void 0 !== b && b,
-              k = (0, o.Z)(e, re),
-              x = (0, u.useState)(0),
-              S = (0, n.Z)(x, 2),
-              T = S[0],
-              q = S[1],
-              N = (0, Q.oJ)();
+              k = (0, o.Z)(e, te),
+              M = (0, u.useState)(0),
+              C = (0, n.Z)(M, 2),
+              T = C[0],
+              q = C[1],
+              N = (0, Y.oJ)();
             void 0 === s &&
               null !== N &&
               (s = (0, c.E)(
                 N,
                 ((r = {}),
-                (0, l.Z)(r, Q.ZM.Open, !0),
-                (0, l.Z)(r, Q.ZM.Closed, !1),
+                (0, l.Z)(r, Y.ZM.Open, !0),
+                (0, l.Z)(r, Y.ZM.Closed, !1),
                 r)
               ));
-            var O = (0, u.useRef)(new Set()),
-              D = (0, u.useRef)(null),
-              F = (0, p.T)(D, t),
-              V = (0, u.useRef)(null),
-              z = C(D),
+            var R = (0, u.useRef)(new Set()),
+              F = (0, u.useRef)(null),
+              D = (0, p.T)(F, t),
+              H = (0, u.useRef)(null),
+              z = S(F),
               W = e.hasOwnProperty("open") || null !== N,
               Z = e.hasOwnProperty("onClose");
             if (!W && !Z)
@@ -27795,41 +28057,41 @@
                 )
               );
             var B = s ? 0 : 1,
-              G = (0, u.useReducer)(se, {
+              G = (0, u.useReducer)(le, {
                 titleId: null,
                 descriptionId: null,
                 panelRef: (0, u.createRef)(),
               }),
-              K = (0, n.Z)(G, 2),
-              X = K[0],
-              te = K[1],
+              Q = (0, n.Z)(G, 2),
+              J = Q[0],
+              re = Q[1],
               ae = (0, v.z)(function () {
                 return y(!1);
               }),
               ie = (0, v.z)(function (e) {
-                return te({ type: 0, id: e });
+                return re({ type: 0, id: e });
               }),
-              ne = !!(0, f.H)() && !w && 0 === B,
-              le = T > 1,
-              ce = null !== (0, u.useContext)(oe),
-              de = le ? "parent" : "leaf";
+              oe = !!(0, f.H)() && !w && 0 === B,
+              ue = T > 1,
+              ce = null !== (0, u.useContext)(ne),
+              de = ue ? "parent" : "leaf";
             (function (e) {
               var t =
                 !(arguments.length > 1 && void 0 !== arguments[1]) ||
                 arguments[1];
-              (0, E.e)(
+              (0, I.e)(
                 function () {
                   if (t && e.current) {
                     var r = e.current,
-                      i = (0, M.r)(r);
+                      i = (0, x.r)(r);
                     if (i) {
-                      j.add(r);
+                      E.add(r);
                       var n,
-                        o = (0, a.Z)(L.keys());
+                        o = (0, a.Z)(j.keys());
                       try {
                         for (o.s(); !(n = o.n()).done; ) {
                           var l = n.value;
-                          l.contains(r) && (R(l), L.delete(l));
+                          l.contains(r) && (P(l), j.delete(l));
                         }
                       } catch (s) {
                         o.e(s);
@@ -27840,7 +28102,7 @@
                         i.querySelectorAll("body > *").forEach(function (e) {
                           if (e instanceof HTMLElement) {
                             var t,
-                              r = (0, a.Z)(j);
+                              r = (0, a.Z)(E);
                             try {
                               for (r.s(); !(t = r.n()).done; ) {
                                 var i = t.value;
@@ -27851,22 +28113,22 @@
                             } finally {
                               r.f();
                             }
-                            1 === j.size &&
-                              (L.set(e, {
+                            1 === E.size &&
+                              (j.set(e, {
                                 "aria-hidden": e.getAttribute("aria-hidden"),
                                 inert: e.inert,
                               }),
-                              P(e));
+                              L(e));
                           }
                         }),
                         function () {
-                          if ((j.delete(r), j.size > 0))
+                          if ((E.delete(r), E.size > 0))
                             i.querySelectorAll("body > *").forEach(function (
                               e
                             ) {
-                              if (e instanceof HTMLElement && !L.has(e)) {
+                              if (e instanceof HTMLElement && !j.has(e)) {
                                 var t,
-                                  r = (0, a.Z)(j);
+                                  r = (0, a.Z)(E);
                                 try {
                                   for (r.s(); !(t = r.n()).done; ) {
                                     var i = t.value;
@@ -27877,20 +28139,20 @@
                                 } finally {
                                   r.f();
                                 }
-                                L.set(e, {
+                                j.set(e, {
                                   "aria-hidden": e.getAttribute("aria-hidden"),
                                   inert: e.inert,
                                 }),
-                                  P(e);
+                                  L(e);
                               }
                             });
                           else {
                             var e,
-                              t = (0, a.Z)(L.keys());
+                              t = (0, a.Z)(j.keys());
                             try {
                               for (t.s(); !(e = t.n()).done; ) {
                                 var n = e.value;
-                                R(n), L.delete(n);
+                                P(n), j.delete(n);
                               }
                             } catch (s) {
                               t.e(s);
@@ -27905,8 +28167,8 @@
                 },
                 [t]
               );
-            })(D, !!le && ne),
-              ee(
+            })(F, !!ue && oe),
+              (0, ee.O)(
                 function () {
                   var e, t;
                   return [].concat(
@@ -27924,28 +28186,28 @@
                       ).filter(function (e) {
                         return !(
                           !(e instanceof HTMLElement) ||
-                          e.contains(V.current) ||
-                          (X.panelRef.current && e.contains(X.panelRef.current))
+                          e.contains(H.current) ||
+                          (J.panelRef.current && e.contains(J.panelRef.current))
                         );
                       })
                     ),
-                    [null != (t = X.panelRef.current) ? t : D.current]
+                    [null != (t = J.panelRef.current) ? t : F.current]
                   );
                 },
                 ae,
-                ne && !le
+                oe && !ue
               ),
               A(null == z ? void 0 : z.defaultView, "keydown", function (e) {
                 e.defaultPrevented ||
                   (e.key === _.R.Escape &&
                     0 === B &&
-                    (le || (e.preventDefault(), e.stopPropagation(), ae())));
+                    (ue || (e.preventDefault(), e.stopPropagation(), ae())));
               }),
               (0, u.useEffect)(
                 function () {
                   var e;
                   if (0 === B && !ce) {
-                    var t = (0, M.r)(D);
+                    var t = (0, x.r)(F);
                     if (t) {
                       var r = t.documentElement,
                         a = null != (e = t.defaultView) ? e : window,
@@ -27966,7 +28228,7 @@
               ),
               (0, u.useEffect)(
                 function () {
-                  if (0 === B && D.current) {
+                  if (0 === B && F.current) {
                     var e = new IntersectionObserver(function (e) {
                       var t,
                         r = (0, a.Z)(e);
@@ -27986,25 +28248,25 @@
                       }
                     });
                     return (
-                      e.observe(D.current),
+                      e.observe(F.current),
                       function () {
                         return e.disconnect();
                       }
                     );
                   }
                 },
-                [B, D, ae]
+                [B, F, ae]
               );
-            var pe = (0, Y.f)(),
+            var pe = (0, U.f)(),
               _e = (0, n.Z)(pe, 2),
               ye = _e[0],
               he = _e[1],
               fe = "headlessui-dialog-".concat((0, h.M)()),
               me = (0, u.useMemo)(
                 function () {
-                  return [{ dialogState: B, close: ae, setTitleId: ie }, X];
+                  return [{ dialogState: B, close: ae, setTitleId: ie }, J];
                 },
-                [B, X, ae, ie]
+                [B, J, ae, ie]
               ),
               ge = (0, u.useMemo)(
                 function () {
@@ -28013,32 +28275,32 @@
                 [B]
               ),
               ve = {
-                ref: F,
+                ref: D,
                 id: fe,
                 role: "dialog",
                 "aria-modal": 0 === B || void 0,
-                "aria-labelledby": X.titleId,
+                "aria-labelledby": J.titleId,
                 "aria-describedby": ye,
               };
             return u.createElement(
-              J,
+              $,
               {
                 type: "Dialog",
-                element: D,
+                element: F,
                 onUpdate: (0, v.z)(function (e, t, r) {
                   var a;
                   "Dialog" === t &&
                     (0, c.E)(
                       e,
                       ((a = {}),
-                      (0, l.Z)(a, $.Add, function () {
-                        O.current.add(r),
+                      (0, l.Z)(a, X.Add, function () {
+                        R.current.add(r),
                           q(function (e) {
                             return e + 1;
                           });
                       }),
-                      (0, l.Z)(a, $.Remove, function () {
-                        O.current.add(r),
+                      (0, l.Z)(a, X.Remove, function () {
+                        R.current.add(r),
                           q(function (e) {
                             return e - 1;
                           });
@@ -28048,42 +28310,42 @@
                 }),
               },
               u.createElement(
-                H,
+                V,
                 { force: !0 },
                 u.createElement(
-                  U,
+                  K,
                   null,
                   u.createElement(
-                    oe.Provider,
+                    ne.Provider,
                     { value: me },
                     u.createElement(
-                      U.Group,
-                      { target: D },
+                      K.Group,
+                      { target: F },
                       u.createElement(
-                        H,
+                        V,
                         { force: !1 },
                         u.createElement(
                           he,
                           { slot: ge, name: "Dialog.Description" },
                           u.createElement(
-                            I,
+                            O,
                             {
                               initialFocus: g,
-                              containers: O,
-                              features: ne
+                              containers: R,
+                              features: oe
                                 ? (0, c.E)(de, {
-                                    parent: I.features.RestoreFocus,
+                                    parent: O.features.RestoreFocus,
                                     leaf:
-                                      I.features.All & ~I.features.FocusLock,
+                                      O.features.All & ~O.features.FocusLock,
                                   })
-                                : I.features.None,
+                                : O.features.None,
                             },
                             (0, d.sY)({
                               ourProps: ve,
                               theirProps: k,
                               slot: ge,
                               defaultTag: "div",
-                              features: ue,
+                              features: se,
                               visible: 0 === B,
                               name: "Dialog",
                             })
@@ -28094,11 +28356,11 @@
                   )
                 )
               ),
-              u.createElement(m._, { features: m.A.Hidden, ref: V })
+              u.createElement(m._, { features: m.A.Hidden, ref: H })
             );
           }),
-          de = (0, d.yV)(function (e, t) {
-            var r = le("Dialog.Overlay"),
+          ce = (0, d.yV)(function (e, t) {
+            var r = oe("Dialog.Overlay"),
               a = (0, n.Z)(r, 1)[0],
               i = a.dialogState,
               o = a.close,
@@ -28119,8 +28381,8 @@
             return (0,
             d.sY)({ ourProps: { ref: l, id: s, "aria-hidden": !0, onClick: c }, theirProps: e, slot: _, defaultTag: "div", name: "Dialog.Overlay" });
           }),
-          pe = (0, d.yV)(function (e, t) {
-            var r = le("Dialog.Backdrop"),
+          de = (0, d.yV)(function (e, t) {
+            var r = oe("Dialog.Backdrop"),
               a = (0, n.Z)(r, 2),
               i = a[0].dialogState,
               o = a[1],
@@ -28142,10 +28404,10 @@
               [i]
             );
             return u.createElement(
-              H,
+              V,
               { force: !0 },
               u.createElement(
-                U,
+                K,
                 null,
                 (0, d.sY)({
                   ourProps: { ref: l, id: s, "aria-hidden": !0 },
@@ -28157,8 +28419,8 @@
               )
             );
           }),
-          _e = (0, d.yV)(function (e, t) {
-            var r = le("Dialog.Panel"),
+          pe = (0, d.yV)(function (e, t) {
+            var r = oe("Dialog.Panel"),
               a = (0, n.Z)(r, 2),
               i = a[0].dialogState,
               o = a[1],
@@ -28176,8 +28438,8 @@
             return (0,
             d.sY)({ ourProps: { ref: l, id: s, onClick: _ }, theirProps: e, slot: c, defaultTag: "div", name: "Dialog.Panel" });
           }),
-          ye = (0, d.yV)(function (e, t) {
-            var r = le("Dialog.Title"),
+          _e = (0, d.yV)(function (e, t) {
+            var r = oe("Dialog.Title"),
               a = (0, n.Z)(r, 1)[0],
               i = a.dialogState,
               o = a.setTitleId,
@@ -28203,12 +28465,12 @@
             return (0,
             d.sY)({ ourProps: { ref: s, id: l }, theirProps: e, slot: c, defaultTag: "h2", name: "Dialog.Title" });
           }),
-          he = Object.assign(ce, {
-            Backdrop: pe,
-            Panel: _e,
-            Overlay: de,
-            Title: ye,
-            Description: Y.d,
+          ye = Object.assign(ue, {
+            Backdrop: de,
+            Panel: pe,
+            Overlay: ce,
+            Title: _e,
+            Description: U.d,
           });
       },
       3352: function (e, t, r) {
@@ -28304,7 +28566,7 @@
             (k[(k.UnregisterPanel = 4)] = "UnregisterPanel"),
             (k[(k.ForceRerender = 5)] = "ForceRerender"),
             k),
-          C =
+          A =
             ((w = {}),
             (0, o.Z)(w, 0, function (e, t) {
               var r = e.tabs.filter(function (e) {
@@ -28393,9 +28655,9 @@
               return (0, s.Z)({}, e);
             }),
             w),
-          A = (0, u.createContext)(null);
+          C = (0, u.createContext)(null);
         function T(e) {
-          var t = (0, u.useContext)(A);
+          var t = (0, u.useContext)(C);
           if (null === t) {
             var r = new Error(
               "<".concat(e, " /> is missing a parent <Tab.Group /> component.")
@@ -28404,7 +28666,7 @@
           }
           return t;
         }
-        A.displayName = "TabsSSRContext";
+        C.displayName = "TabsSSRContext";
         var q = (0, u.createContext)(null);
         function N(e) {
           var t = (0, u.useContext)(q);
@@ -28429,7 +28691,7 @@
           return t;
         }
         function E(e, t) {
-          return (0, p.E)(t.type, C, e, t);
+          return (0, p.E)(t.type, A, e, t);
         }
         O.displayName = "TabsActionsContext";
         var j = u.Fragment,
@@ -28447,12 +28709,12 @@
               k = d ? "vertical" : "horizontal",
               x = _ ? "manual" : "auto",
               M = (0, f.T)(t),
-              C = (0, u.useReducer)(E, {
+              A = (0, u.useReducer)(E, {
                 selectedIndex: null != v ? v : o,
                 tabs: [],
                 panels: [],
               }),
-              T = (0, i.Z)(C, 2),
+              T = (0, i.Z)(A, 2),
               N = T[0],
               I = T[1],
               L = (0, u.useMemo)(
@@ -28463,13 +28725,13 @@
               ),
               P = (0, g.E)(y || function () {}),
               R = (0, g.E)(N.tabs),
-              D = (0, u.useMemo)(
+              F = (0, u.useMemo)(
                 function () {
                   return (0, s.Z)({ orientation: k, activation: x }, N);
                 },
                 [k, x, N]
               ),
-              F = (0, g.E)(N.selectedIndex),
+              D = (0, g.E)(N.selectedIndex),
               V = (0, u.useMemo)(
                 function () {
                   return {
@@ -28493,8 +28755,8 @@
                       I({ type: 5 });
                     },
                     change: function (e) {
-                      F.current !== e && P.current(e),
-                        (F.current = e),
+                      D.current !== e && P.current(e),
+                        (D.current = e),
                         I({ type: 0, index: e });
                     },
                   };
@@ -28510,15 +28772,15 @@
             var H = (0, u.useRef)({ tabs: [], panels: [] }),
               z = { ref: M };
             return u.createElement(
-              A.Provider,
+              C.Provider,
               { value: H },
               u.createElement(
                 O.Provider,
                 { value: V },
                 u.createElement(
                   q.Provider,
-                  { value: D },
-                  D.tabs.length <= 0 &&
+                  { value: F },
+                  F.tabs.length <= 0 &&
                     u.createElement(b, {
                       onFocus: function () {
                         var e,
@@ -28585,9 +28847,9 @@
             );
             var M = w.current.tabs.indexOf(i);
             -1 === M && (M = w.current.tabs.push(i) - 1);
-            var C = g.indexOf(k);
-            -1 === C && (C = M);
-            var A = C === s,
+            var A = g.indexOf(k);
+            -1 === A && (A = M);
+            var C = A === s,
               q = (0, x.z)(function (e) {
                 var t = g
                   .map(function (e) {
@@ -28596,7 +28858,7 @@
                   .filter(Boolean);
                 if (e.key === _.R.Space || e.key === _.R.Enter)
                   return (
-                    e.preventDefault(), e.stopPropagation(), void b.change(C)
+                    e.preventDefault(), e.stopPropagation(), void b.change(A)
                   );
                 switch (e.key) {
                   case _.R.Home:
@@ -28639,16 +28901,16 @@
               }),
               E = (0, x.z)(function () {
                 var e;
-                null == (e = k.current) || e.focus(), b.change(C);
+                null == (e = k.current) || e.focus(), b.change(A);
               }),
               j = (0, x.z)(function (e) {
                 e.preventDefault();
               }),
               L = (0, u.useMemo)(
                 function () {
-                  return { selected: A };
+                  return { selected: C };
                 },
-                [A]
+                [C]
               ),
               P = e,
               R = {
@@ -28661,16 +28923,16 @@
                 role: "tab",
                 type: (0, m.f)(e, k),
                 "aria-controls":
-                  null == (a = null == (r = v[C]) ? void 0 : r.current)
+                  null == (a = null == (r = v[A]) ? void 0 : r.current)
                     ? void 0
                     : a.id,
-                "aria-selected": A,
-                tabIndex: A ? 0 : -1,
+                "aria-selected": C,
+                tabIndex: C ? 0 : -1,
               };
             return (0,
             c.sY)({ ourProps: R, theirProps: P, slot: L, defaultTag: "button", name: "Tabs.Tab" });
           }),
-          D = (0, c.yV)(function (e, t) {
+          F = (0, c.yV)(function (e, t) {
             var r = N("Tab.Panels").selectedIndex,
               a = (0, f.T)(t),
               i = (0, u.useMemo)(
@@ -28682,7 +28944,7 @@
             return (0,
             c.sY)({ ourProps: { ref: a }, theirProps: e, slot: i, defaultTag: "div", name: "Tabs.Panels" });
           }),
-          F = c.AN.RenderStrategy | c.AN.Static,
+          D = c.AN.RenderStrategy | c.AN.Static,
           V = (0, c.yV)(function (e, t) {
             var r,
               a,
@@ -28726,15 +28988,15 @@
                 tabIndex: b ? 0 : -1,
               };
             return (0,
-            c.sY)({ ourProps: x, theirProps: k, slot: w, defaultTag: "div", features: F, visible: b, name: "Tabs.Panel" });
+            c.sY)({ ourProps: x, theirProps: k, slot: w, defaultTag: "div", features: D, visible: b, name: "Tabs.Panel" });
           }),
-          H = Object.assign(R, { Group: L, List: P, Panels: D, Panel: V });
+          H = Object.assign(R, { Group: L, List: P, Panels: F, Panel: V });
       },
-      1875: function (e, t, r) {
+      7794: function (e, t, r) {
         "use strict";
         r.d(t, {
           u: function () {
-            return K;
+            return B;
           },
         });
         var a = r(1413),
@@ -28754,566 +29016,8 @@
           m = r(4143),
           g = r(1267),
           v = r(2982);
-        var b = r(1002);
-        function w() {
-          w = function () {
-            return e;
-          };
-          var e = {},
-            t = Object.prototype,
-            r = t.hasOwnProperty,
-            a = "function" == typeof Symbol ? Symbol : {},
-            i = a.iterator || "@@iterator",
-            n = a.asyncIterator || "@@asyncIterator",
-            o = a.toStringTag || "@@toStringTag";
-          function l(e, t, r) {
-            return (
-              Object.defineProperty(e, t, {
-                value: r,
-                enumerable: !0,
-                configurable: !0,
-                writable: !0,
-              }),
-              e[t]
-            );
-          }
-          try {
-            l({}, "");
-          } catch (T) {
-            l = function (e, t, r) {
-              return (e[t] = r);
-            };
-          }
-          function s(e, t, r, a) {
-            var i = t && t.prototype instanceof d ? t : d,
-              n = Object.create(i.prototype),
-              o = new M(a || []);
-            return (
-              (n._invoke = (function (e, t, r) {
-                var a = "suspendedStart";
-                return function (i, n) {
-                  if ("executing" === a)
-                    throw new Error("Generator is already running");
-                  if ("completed" === a) {
-                    if ("throw" === i) throw n;
-                    return A();
-                  }
-                  for (r.method = i, r.arg = n; ; ) {
-                    var o = r.delegate;
-                    if (o) {
-                      var l = k(o, r);
-                      if (l) {
-                        if (l === c) continue;
-                        return l;
-                      }
-                    }
-                    if ("next" === r.method) r.sent = r._sent = r.arg;
-                    else if ("throw" === r.method) {
-                      if ("suspendedStart" === a)
-                        throw ((a = "completed"), r.arg);
-                      r.dispatchException(r.arg);
-                    } else "return" === r.method && r.abrupt("return", r.arg);
-                    a = "executing";
-                    var s = u(e, t, r);
-                    if ("normal" === s.type) {
-                      if (
-                        ((a = r.done ? "completed" : "suspendedYield"),
-                        s.arg === c)
-                      )
-                        continue;
-                      return { value: s.arg, done: r.done };
-                    }
-                    "throw" === s.type &&
-                      ((a = "completed"),
-                      (r.method = "throw"),
-                      (r.arg = s.arg));
-                  }
-                };
-              })(e, r, o)),
-              n
-            );
-          }
-          function u(e, t, r) {
-            try {
-              return { type: "normal", arg: e.call(t, r) };
-            } catch (T) {
-              return { type: "throw", arg: T };
-            }
-          }
-          e.wrap = s;
-          var c = {};
-          function d() {}
-          function p() {}
-          function _() {}
-          var y = {};
-          l(y, i, function () {
-            return this;
-          });
-          var h = Object.getPrototypeOf,
-            f = h && h(h(C([])));
-          f && f !== t && r.call(f, i) && (y = f);
-          var m = (_.prototype = d.prototype = Object.create(y));
-          function g(e) {
-            ["next", "throw", "return"].forEach(function (t) {
-              l(e, t, function (e) {
-                return this._invoke(t, e);
-              });
-            });
-          }
-          function v(e, t) {
-            function a(i, n, o, l) {
-              var s = u(e[i], e, n);
-              if ("throw" !== s.type) {
-                var c = s.arg,
-                  d = c.value;
-                return d && "object" == (0, b.Z)(d) && r.call(d, "__await")
-                  ? t.resolve(d.__await).then(
-                      function (e) {
-                        a("next", e, o, l);
-                      },
-                      function (e) {
-                        a("throw", e, o, l);
-                      }
-                    )
-                  : t.resolve(d).then(
-                      function (e) {
-                        (c.value = e), o(c);
-                      },
-                      function (e) {
-                        return a("throw", e, o, l);
-                      }
-                    );
-              }
-              l(s.arg);
-            }
-            var i;
-            this._invoke = function (e, r) {
-              function n() {
-                return new t(function (t, i) {
-                  a(e, r, t, i);
-                });
-              }
-              return (i = i ? i.then(n, n) : n());
-            };
-          }
-          function k(e, t) {
-            var r = e.iterator[t.method];
-            if (void 0 === r) {
-              if (((t.delegate = null), "throw" === t.method)) {
-                if (
-                  e.iterator.return &&
-                  ((t.method = "return"),
-                  (t.arg = void 0),
-                  k(e, t),
-                  "throw" === t.method)
-                )
-                  return c;
-                (t.method = "throw"),
-                  (t.arg = new TypeError(
-                    "The iterator does not provide a 'throw' method"
-                  ));
-              }
-              return c;
-            }
-            var a = u(r, e.iterator, t.arg);
-            if ("throw" === a.type)
-              return (
-                (t.method = "throw"), (t.arg = a.arg), (t.delegate = null), c
-              );
-            var i = a.arg;
-            return i
-              ? i.done
-                ? ((t[e.resultName] = i.value),
-                  (t.next = e.nextLoc),
-                  "return" !== t.method &&
-                    ((t.method = "next"), (t.arg = void 0)),
-                  (t.delegate = null),
-                  c)
-                : i
-              : ((t.method = "throw"),
-                (t.arg = new TypeError("iterator result is not an object")),
-                (t.delegate = null),
-                c);
-          }
-          function x(e) {
-            var t = { tryLoc: e[0] };
-            1 in e && (t.catchLoc = e[1]),
-              2 in e && ((t.finallyLoc = e[2]), (t.afterLoc = e[3])),
-              this.tryEntries.push(t);
-          }
-          function S(e) {
-            var t = e.completion || {};
-            (t.type = "normal"), delete t.arg, (e.completion = t);
-          }
-          function M(e) {
-            (this.tryEntries = [{ tryLoc: "root" }]),
-              e.forEach(x, this),
-              this.reset(!0);
-          }
-          function C(e) {
-            if (e) {
-              var t = e[i];
-              if (t) return t.call(e);
-              if ("function" == typeof e.next) return e;
-              if (!isNaN(e.length)) {
-                var a = -1,
-                  n = function t() {
-                    for (; ++a < e.length; )
-                      if (r.call(e, a))
-                        return (t.value = e[a]), (t.done = !1), t;
-                    return (t.value = void 0), (t.done = !0), t;
-                  };
-                return (n.next = n);
-              }
-            }
-            return { next: A };
-          }
-          function A() {
-            return { value: void 0, done: !0 };
-          }
-          return (
-            (p.prototype = _),
-            l(m, "constructor", _),
-            l(_, "constructor", p),
-            (p.displayName = l(_, o, "GeneratorFunction")),
-            (e.isGeneratorFunction = function (e) {
-              var t = "function" == typeof e && e.constructor;
-              return (
-                !!t &&
-                (t === p || "GeneratorFunction" === (t.displayName || t.name))
-              );
-            }),
-            (e.mark = function (e) {
-              return (
-                Object.setPrototypeOf
-                  ? Object.setPrototypeOf(e, _)
-                  : ((e.__proto__ = _), l(e, o, "GeneratorFunction")),
-                (e.prototype = Object.create(m)),
-                e
-              );
-            }),
-            (e.awrap = function (e) {
-              return { __await: e };
-            }),
-            g(v.prototype),
-            l(v.prototype, n, function () {
-              return this;
-            }),
-            (e.AsyncIterator = v),
-            (e.async = function (t, r, a, i, n) {
-              void 0 === n && (n = Promise);
-              var o = new v(s(t, r, a, i), n);
-              return e.isGeneratorFunction(r)
-                ? o
-                : o.next().then(function (e) {
-                    return e.done ? e.value : o.next();
-                  });
-            }),
-            g(m),
-            l(m, o, "Generator"),
-            l(m, i, function () {
-              return this;
-            }),
-            l(m, "toString", function () {
-              return "[object Generator]";
-            }),
-            (e.keys = function (e) {
-              var t = [];
-              for (var r in e) t.push(r);
-              return (
-                t.reverse(),
-                function r() {
-                  for (; t.length; ) {
-                    var a = t.pop();
-                    if (a in e) return (r.value = a), (r.done = !1), r;
-                  }
-                  return (r.done = !0), r;
-                }
-              );
-            }),
-            (e.values = C),
-            (M.prototype = {
-              constructor: M,
-              reset: function (e) {
-                if (
-                  ((this.prev = 0),
-                  (this.next = 0),
-                  (this.sent = this._sent = void 0),
-                  (this.done = !1),
-                  (this.delegate = null),
-                  (this.method = "next"),
-                  (this.arg = void 0),
-                  this.tryEntries.forEach(S),
-                  !e)
-                )
-                  for (var t in this)
-                    "t" === t.charAt(0) &&
-                      r.call(this, t) &&
-                      !isNaN(+t.slice(1)) &&
-                      (this[t] = void 0);
-              },
-              stop: function () {
-                this.done = !0;
-                var e = this.tryEntries[0].completion;
-                if ("throw" === e.type) throw e.arg;
-                return this.rval;
-              },
-              dispatchException: function (e) {
-                if (this.done) throw e;
-                var t = this;
-                function a(r, a) {
-                  return (
-                    (o.type = "throw"),
-                    (o.arg = e),
-                    (t.next = r),
-                    a && ((t.method = "next"), (t.arg = void 0)),
-                    !!a
-                  );
-                }
-                for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-                  var n = this.tryEntries[i],
-                    o = n.completion;
-                  if ("root" === n.tryLoc) return a("end");
-                  if (n.tryLoc <= this.prev) {
-                    var l = r.call(n, "catchLoc"),
-                      s = r.call(n, "finallyLoc");
-                    if (l && s) {
-                      if (this.prev < n.catchLoc) return a(n.catchLoc, !0);
-                      if (this.prev < n.finallyLoc) return a(n.finallyLoc);
-                    } else if (l) {
-                      if (this.prev < n.catchLoc) return a(n.catchLoc, !0);
-                    } else {
-                      if (!s)
-                        throw new Error(
-                          "try statement without catch or finally"
-                        );
-                      if (this.prev < n.finallyLoc) return a(n.finallyLoc);
-                    }
-                  }
-                }
-              },
-              abrupt: function (e, t) {
-                for (var a = this.tryEntries.length - 1; a >= 0; --a) {
-                  var i = this.tryEntries[a];
-                  if (
-                    i.tryLoc <= this.prev &&
-                    r.call(i, "finallyLoc") &&
-                    this.prev < i.finallyLoc
-                  ) {
-                    var n = i;
-                    break;
-                  }
-                }
-                n &&
-                  ("break" === e || "continue" === e) &&
-                  n.tryLoc <= t &&
-                  t <= n.finallyLoc &&
-                  (n = null);
-                var o = n ? n.completion : {};
-                return (
-                  (o.type = e),
-                  (o.arg = t),
-                  n
-                    ? ((this.method = "next"), (this.next = n.finallyLoc), c)
-                    : this.complete(o)
-                );
-              },
-              complete: function (e, t) {
-                if ("throw" === e.type) throw e.arg;
-                return (
-                  "break" === e.type || "continue" === e.type
-                    ? (this.next = e.arg)
-                    : "return" === e.type
-                    ? ((this.rval = this.arg = e.arg),
-                      (this.method = "return"),
-                      (this.next = "end"))
-                    : "normal" === e.type && t && (this.next = t),
-                  c
-                );
-              },
-              finish: function (e) {
-                for (var t = this.tryEntries.length - 1; t >= 0; --t) {
-                  var r = this.tryEntries[t];
-                  if (r.finallyLoc === e)
-                    return this.complete(r.completion, r.afterLoc), S(r), c;
-                }
-              },
-              catch: function (e) {
-                for (var t = this.tryEntries.length - 1; t >= 0; --t) {
-                  var r = this.tryEntries[t];
-                  if (r.tryLoc === e) {
-                    var a = r.completion;
-                    if ("throw" === a.type) {
-                      var i = a.arg;
-                      S(r);
-                    }
-                    return i;
-                  }
-                }
-                throw new Error("illegal catch attempt");
-              },
-              delegateYield: function (e, t, r) {
-                return (
-                  (this.delegate = {
-                    iterator: C(e),
-                    resultName: t,
-                    nextLoc: r,
-                  }),
-                  "next" === this.method && (this.arg = void 0),
-                  c
-                );
-              },
-            }),
-            e
-          );
-        }
-        function k(e, t, r, a, i, n, o) {
-          try {
-            var l = e[n](o),
-              s = l.value;
-          } catch (u) {
-            return void r(u);
-          }
-          l.done ? t(s) : Promise.resolve(s).then(a, i);
-        }
-        function x() {
-          var e = [],
-            t = [],
-            r = {
-              enqueue: function (e) {
-                t.push(e);
-              },
-              addEventListener: function (e, t, a, i) {
-                return (
-                  e.addEventListener(t, a, i),
-                  r.add(function () {
-                    return e.removeEventListener(t, a, i);
-                  })
-                );
-              },
-              requestAnimationFrame: (function (e) {
-                function t() {
-                  return e.apply(this, arguments);
-                }
-                return (
-                  (t.toString = function () {
-                    return e.toString();
-                  }),
-                  t
-                );
-              })(function () {
-                var e = requestAnimationFrame.apply(void 0, arguments);
-                return r.add(function () {
-                  return cancelAnimationFrame(e);
-                });
-              }),
-              nextFrame: function () {
-                for (
-                  var e = arguments.length, t = new Array(e), a = 0;
-                  a < e;
-                  a++
-                )
-                  t[a] = arguments[a];
-                return r.requestAnimationFrame(function () {
-                  return r.requestAnimationFrame.apply(r, t);
-                });
-              },
-              setTimeout: (function (e) {
-                function t() {
-                  return e.apply(this, arguments);
-                }
-                return (
-                  (t.toString = function () {
-                    return e.toString();
-                  }),
-                  t
-                );
-              })(function () {
-                var e = setTimeout.apply(void 0, arguments);
-                return r.add(function () {
-                  return clearTimeout(e);
-                });
-              }),
-              add: function (t) {
-                return (
-                  e.push(t),
-                  function () {
-                    var r = e.indexOf(t);
-                    if (r >= 0) {
-                      var a = e.splice(r, 1);
-                      (0, (0, i.Z)(a, 1)[0])();
-                    }
-                  }
-                );
-              },
-              dispose: function () {
-                var t,
-                  r = (0, o.Z)(e.splice(0));
-                try {
-                  for (r.s(); !(t = r.n()).done; ) {
-                    (0, t.value)();
-                  }
-                } catch (a) {
-                  r.e(a);
-                } finally {
-                  r.f();
-                }
-              },
-              workQueue: function () {
-                return ((e = w().mark(function e() {
-                  var r, a, i;
-                  return w().wrap(
-                    function (e) {
-                      for (;;)
-                        switch ((e.prev = e.next)) {
-                          case 0:
-                            (r = (0, o.Z)(t.splice(0))), (e.prev = 1), r.s();
-                          case 3:
-                            if ((a = r.n()).done) {
-                              e.next = 9;
-                              break;
-                            }
-                            return (i = a.value), (e.next = 7), i();
-                          case 7:
-                            e.next = 3;
-                            break;
-                          case 9:
-                            e.next = 14;
-                            break;
-                          case 11:
-                            (e.prev = 11), (e.t0 = e.catch(1)), r.e(e.t0);
-                          case 14:
-                            return (e.prev = 14), r.f(), e.finish(14);
-                          case 17:
-                          case "end":
-                            return e.stop();
-                        }
-                    },
-                    e,
-                    null,
-                    [[1, 11, 14, 17]]
-                  );
-                })),
-                function () {
-                  var t = this,
-                    r = arguments;
-                  return new Promise(function (a, i) {
-                    var n = e.apply(t, r);
-                    function o(e) {
-                      k(n, a, i, o, l, "next", e);
-                    }
-                    function l(e) {
-                      k(n, a, i, o, l, "throw", e);
-                    }
-                    o(void 0);
-                  });
-                })();
-                var e;
-              },
-            };
-          return r;
-        }
-        function S(e) {
+        var b = r(9167);
+        function w(e) {
           for (
             var t,
               r = arguments.length,
@@ -29325,7 +29029,7 @@
             a[i - 1] = arguments[i];
           e && a.length > 0 && (t = e.classList).add.apply(t, a);
         }
-        function M(e) {
+        function k(e) {
           for (
             var t,
               r = arguments.length,
@@ -29337,11 +29041,11 @@
             a[i - 1] = arguments[i];
           e && a.length > 0 && (t = e.classList).remove.apply(t, a);
         }
-        var C,
-          A = (((C = A || {}).Ended = "ended"), (C.Cancelled = "cancelled"), C);
-        function T(e, t, r, a) {
+        var x,
+          S = (((x = S || {}).Ended = "ended"), (x.Cancelled = "cancelled"), x);
+        function M(e, t, r, a) {
           var n = r ? "enter" : "leave",
-            o = x(),
+            o = (0, b.k)(),
             l =
               void 0 !== a
                 ? (function (e) {
@@ -29377,7 +29081,7 @@
               },
             });
           return (
-            M.apply(
+            k.apply(
               void 0,
               [e].concat(
                 (0, v.Z)(t.enter),
@@ -29389,12 +29093,12 @@
                 (0, v.Z)(t.entered)
               )
             ),
-            S.apply(void 0, [e].concat((0, v.Z)(s), (0, v.Z)(c))),
+            w.apply(void 0, [e].concat((0, v.Z)(s), (0, v.Z)(c))),
             o.nextFrame(function () {
-              M.apply(void 0, [e].concat((0, v.Z)(c))),
-                S.apply(void 0, [e].concat((0, v.Z)(u))),
+              k.apply(void 0, [e].concat((0, v.Z)(c))),
+                w.apply(void 0, [e].concat((0, v.Z)(u))),
                 (function (e, t) {
-                  var r = x();
+                  var r = (0, b.k)();
                   if (!e) return r.dispose;
                   var a = getComputedStyle(e),
                     n = [a.transitionDuration, a.transitionDelay].map(function (
@@ -29457,8 +29161,8 @@
                 })(e, function (r) {
                   return (
                     "ended" === r &&
-                      (M.apply(void 0, [e].concat((0, v.Z)(s))),
-                      S.apply(void 0, [e].concat((0, v.Z)(t.entered)))),
+                      (k.apply(void 0, [e].concat((0, v.Z)(s))),
+                      w.apply(void 0, [e].concat((0, v.Z)(t.entered)))),
                     l(r)
                   );
                 });
@@ -29466,74 +29170,61 @@
             o.dispose
           );
         }
-        var q = r(1464);
-        function N(e) {
+        var A = r(5218),
+          C = r(1464);
+        function T(e) {
           var t = e.container,
             r = e.direction,
             a = e.classes,
-            n = e.events,
-            o = e.onStart,
-            u = e.onStop,
-            c = (0, y.t)(),
-            p = (function () {
-              var e = (0, s.useState)(x),
-                t = (0, i.Z)(e, 1)[0];
-              return (
-                (0, s.useEffect)(
-                  function () {
-                    return function () {
-                      return t.dispose();
-                    };
-                  },
-                  [t]
-                ),
-                t
-              );
-            })(),
-            _ = (0, f.E)(r),
-            m = (0, q.z)(function () {
-              return (0, d.E)(_.current, {
+            i = e.events,
+            n = e.onStart,
+            o = e.onStop,
+            s = (0, y.t)(),
+            u = (0, A.G)(),
+            c = (0, f.E)(r),
+            p = (0, C.z)(function () {
+              return (0, d.E)(c.current, {
                 enter: function () {
-                  return n.current.beforeEnter();
+                  return i.current.beforeEnter();
                 },
                 leave: function () {
-                  return n.current.beforeLeave();
+                  return i.current.beforeLeave();
                 },
                 idle: function () {},
               });
             }),
-            g = (0, q.z)(function () {
-              return (0, d.E)(_.current, {
+            _ = (0, C.z)(function () {
+              return (0, d.E)(c.current, {
                 enter: function () {
-                  return n.current.afterEnter();
+                  return i.current.afterEnter();
                 },
                 leave: function () {
-                  return n.current.afterLeave();
+                  return i.current.afterLeave();
                 },
                 idle: function () {},
               });
             });
           (0, h.e)(
             function () {
-              var e = x();
-              p.add(e.dispose);
+              var e = (0, b.k)();
+              u.add(e.dispose);
               var r = t.current;
-              if (r && "idle" !== _.current && c.current)
+              if (r && "idle" !== c.current && s.current)
                 return (
                   e.dispose(),
-                  m(),
-                  o.current(_.current),
+                  p(),
+                  n.current(c.current),
                   e.add(
-                    T(r, a.current, "enter" === _.current, function (t) {
+                    M(r, a.current, "enter" === c.current, function (t) {
                       var r;
                       e.dispose(),
                         (0, d.E)(
                           t,
                           ((r = {}),
-                          (0, l.Z)(r, A.Ended, function () {
-                            g(), u.current(_.current);
+                          (0, l.Z)(r, S.Ended, function () {
+                            _(), o.current(c.current);
                           }),
-                          (0, l.Z)(r, A.Cancelled, function () {}),
+                          (0, l.Z)(r, S.Cancelled, function () {}),
                           r)
                         );
                     })
@@ -29544,7 +29235,7 @@
             [r]
           );
         }
-        var O = [
+        var q = [
             "beforeEnter",
             "afterEnter",
             "beforeLeave",
@@ -29557,31 +29248,31 @@
             "leaveFrom",
             "leaveTo",
           ],
-          I = ["show", "appear", "unmount"];
-        function E() {
+          N = ["show", "appear", "unmount"];
+        function O() {
           var e =
             arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";
           return e.split(" ").filter(function (e) {
             return e.trim().length > 1;
           });
         }
-        var j = (0, s.createContext)(null);
-        j.displayName = "TransitionContext";
-        var L,
-          P = (((L = P || {}).Visible = "visible"), (L.Hidden = "hidden"), L);
-        var R = (0, s.createContext)(null);
-        function D(e) {
+        var I = (0, s.createContext)(null);
+        I.displayName = "TransitionContext";
+        var E,
+          j = (((E = j || {}).Visible = "visible"), (E.Hidden = "hidden"), E);
+        var L = (0, s.createContext)(null);
+        function P(e) {
           return "children" in e
-            ? D(e.children)
+            ? P(e.children)
             : e.current.filter(function (e) {
                 return "visible" === e.state;
               }).length > 0;
         }
-        function F(e) {
+        function R(e) {
           var t = (0, f.E)(e),
             r = (0, s.useRef)([]),
             a = (0, y.t)(),
-            i = (0, q.z)(function (e) {
+            i = (0, C.z)(function (e) {
               var i,
                 n =
                   arguments.length > 1 && void 0 !== arguments[1]
@@ -29604,10 +29295,10 @@
                 ),
                 (0, p.Y)(function () {
                   var e;
-                  !D(r) && a.current && (null == (e = t.current) || e.call(t));
+                  !P(r) && a.current && (null == (e = t.current) || e.call(t));
                 }));
             }),
-            n = (0, q.z)(function (e) {
+            n = (0, C.z)(function (e) {
               var t = r.current.find(function (t) {
                 return t.id === e;
               });
@@ -29627,18 +29318,18 @@
             [n, i, r]
           );
         }
-        function V() {}
-        R.displayName = "NestingContext";
-        var H = ["beforeEnter", "afterEnter", "beforeLeave", "afterLeave"];
-        function z(e) {
+        function F() {}
+        L.displayName = "NestingContext";
+        var D = ["beforeEnter", "afterEnter", "beforeLeave", "afterLeave"];
+        function V(e) {
           var t,
             r,
             a = {},
-            i = (0, o.Z)(H);
+            i = (0, o.Z)(D);
           try {
             for (i.s(); !(r = i.n()).done; ) {
               var n = r.value;
-              a[n] = null != (t = e[n]) ? t : V;
+              a[n] = null != (t = e[n]) ? t : F;
             }
           } catch (l) {
             i.e(l);
@@ -29647,8 +29338,8 @@
           }
           return a;
         }
-        var W = u.AN.RenderStrategy,
-          Z = (0, u.yV)(function (e, t) {
+        var H = u.AN.RenderStrategy,
+          z = (0, u.yV)(function (e, t) {
             var r,
               a = e.beforeEnter,
               o = e.afterEnter,
@@ -29661,27 +29352,27 @@
               k = e.leave,
               x = e.leaveFrom,
               S = e.leaveTo,
-              M = (0, n.Z)(e, O),
-              C = (0, s.useRef)(null),
-              A = (0, g.T)(C, t),
-              T = (0, s.useState)("visible"),
-              q = (0, i.Z)(T, 2),
-              I = q[0],
-              L = q[1],
-              P = M.unmount ? u.l4.Unmount : u.l4.Hidden,
-              V = (function () {
-                var e = (0, s.useContext)(j);
+              M = (0, n.Z)(e, q),
+              A = (0, s.useRef)(null),
+              C = (0, g.T)(A, t),
+              N = (0, s.useState)("visible"),
+              E = (0, i.Z)(N, 2),
+              j = E[0],
+              F = E[1],
+              D = M.unmount ? u.l4.Unmount : u.l4.Hidden,
+              z = (function () {
+                var e = (0, s.useContext)(I);
                 if (null === e)
                   throw new Error(
                     "A <Transition.Child /> is used but it is missing a parent <Transition /> or <Transition.Root />."
                   );
                 return e;
               })(),
-              H = V.show,
-              Z = V.appear,
-              B = V.initial,
+              W = z.show,
+              Z = z.appear,
+              B = z.initial,
               G = (function () {
-                var e = (0, s.useContext)(R);
+                var e = (0, s.useContext)(L);
                 if (null === e)
                   throw new Error(
                     "A <Transition.Child /> is used but it is missing a parent <Transition /> or <Transition.Root />."
@@ -29700,11 +29391,11 @@
             ),
               (0, s.useEffect)(
                 function () {
-                  if (P === u.l4.Hidden && Q) {
+                  if (D === u.l4.Hidden && Q) {
                     var e;
-                    if (H && "visible" !== I) return void L("visible");
+                    if (W && "visible" !== j) return void F("visible");
                     (0, d.E)(
-                      I,
+                      j,
                       ((e = {}),
                       (0, l.Z)(e, "hidden", function () {
                         return U(Q);
@@ -29716,23 +29407,23 @@
                     );
                   }
                 },
-                [I, Q, K, U, H, P]
+                [j, Q, K, U, W, D]
               );
             var X = (0, f.E)({
-                enter: E(h),
-                enterFrom: E(v),
-                enterTo: E(b),
-                entered: E(w),
-                leave: E(k),
-                leaveFrom: E(x),
-                leaveTo: E(S),
+                enter: O(h),
+                enterFrom: O(v),
+                enterTo: O(b),
+                entered: O(w),
+                leave: O(k),
+                leaveFrom: O(x),
+                leaveTo: O(S),
               }),
               $ = (function (e) {
-                var t = (0, s.useRef)(z(e));
+                var t = (0, s.useRef)(V(e));
                 return (
                   (0, s.useEffect)(
                     function () {
-                      t.current = z(e);
+                      t.current = V(e);
                     },
                     [e]
                   ),
@@ -29747,21 +29438,21 @@
               J = (0, m.H)();
             (0, s.useEffect)(
               function () {
-                if (J && "visible" === I && null === C.current)
+                if (J && "visible" === j && null === A.current)
                   throw new Error(
                     "Did you forget to passthrough the `ref` to the actual DOM node?"
                   );
               },
-              [C, I, J]
+              [A, j, J]
             );
             var ee = B && !Z,
-              te = !J || ee || Y.current === H ? "idle" : H ? "enter" : "leave",
+              te = !J || ee || Y.current === W ? "idle" : W ? "enter" : "leave",
               re = (0, s.useRef)(!1),
-              ae = F(function () {
-                re.current || (L("hidden"), U(Q));
+              ae = R(function () {
+                re.current || (F("hidden"), U(Q));
               });
-            N({
-              container: C,
+            T({
+              container: A,
               classes: X,
               events: $,
               direction: te,
@@ -29770,26 +29461,26 @@
               }),
               onStop: (0, f.E)(function (e) {
                 (re.current = !1),
-                  "leave" === e && !D(ae) && (L("hidden"), U(Q));
+                  "leave" === e && !P(ae) && (F("hidden"), U(Q));
               }),
             }),
               (0, s.useEffect)(
                 function () {
                   !ee ||
-                    (P === u.l4.Hidden ? (Y.current = null) : (Y.current = H));
+                    (D === u.l4.Hidden ? (Y.current = null) : (Y.current = W));
                 },
-                [H, ee, I]
+                [W, ee, j]
               );
             var ie = M,
-              ne = { ref: A };
+              ne = { ref: C };
             return s.createElement(
-              R.Provider,
+              L.Provider,
               { value: ae },
               s.createElement(
                 c.up,
                 {
                   value: (0, d.E)(
-                    I,
+                    j,
                     ((r = {}),
                     (0, l.Z)(r, "visible", c.ZM.Open),
                     (0, l.Z)(r, "hidden", c.ZM.Closed),
@@ -29800,20 +29491,20 @@
                   ourProps: ne,
                   theirProps: ie,
                   defaultTag: "div",
-                  features: W,
-                  visible: "visible" === I,
+                  features: H,
+                  visible: "visible" === j,
                   name: "Transition.Child",
                 })
               )
             );
           }),
-          B = (0, u.yV)(function (e, t) {
+          W = (0, u.yV)(function (e, t) {
             var r,
               o = e.show,
               p = e.appear,
               _ = void 0 !== p && p,
               y = e.unmount,
-              f = (0, n.Z)(e, I),
+              f = (0, n.Z)(e, N),
               v = (0, s.useRef)(null),
               b = (0, g.T)(v, t);
             (0, m.H)();
@@ -29837,23 +29528,23 @@
               x = (0, i.Z)(k, 2),
               S = x[0],
               M = x[1],
-              C = F(function () {
+              A = R(function () {
                 M("hidden");
               }),
-              A = (0, s.useState)(!0),
-              T = (0, i.Z)(A, 2),
+              C = (0, s.useState)(!0),
+              T = (0, i.Z)(C, 2),
               q = T[0],
-              N = T[1],
-              O = (0, s.useRef)([o]);
+              O = T[1],
+              E = (0, s.useRef)([o]);
             (0, h.e)(
               function () {
                 !1 !== q &&
-                  O.current[O.current.length - 1] !== o &&
-                  (O.current.push(o), N(!1));
+                  E.current[E.current.length - 1] !== o &&
+                  (E.current.push(o), O(!1));
               },
-              [O, o]
+              [E, o]
             );
-            var E = (0, s.useMemo)(
+            var j = (0, s.useMemo)(
               function () {
                 return { show: o, appear: _, initial: q };
               },
@@ -29862,7 +29553,7 @@
             (0, s.useEffect)(
               function () {
                 if (o) M("visible");
-                else if (D(C)) {
+                else if (P(A)) {
                   var e = v.current;
                   if (!e) return;
                   var t = e.getBoundingClientRect();
@@ -29873,48 +29564,74 @@
                     M("hidden");
                 } else M("hidden");
               },
-              [o, C]
+              [o, A]
             );
-            var L = { unmount: y };
+            var F = { unmount: y };
             return s.createElement(
-              R.Provider,
-              { value: C },
+              L.Provider,
+              { value: A },
               s.createElement(
-                j.Provider,
-                { value: E },
+                I.Provider,
+                { value: j },
                 (0, u.sY)({
                   ourProps: (0, a.Z)(
-                    (0, a.Z)({}, L),
+                    (0, a.Z)({}, F),
                     {},
                     {
                       as: s.Fragment,
                       children: s.createElement(
-                        Z,
-                        (0, a.Z)((0, a.Z)({ ref: b }, L), f)
+                        z,
+                        (0, a.Z)((0, a.Z)({ ref: b }, F), f)
                       ),
                     }
                   ),
                   theirProps: {},
                   defaultTag: s.Fragment,
-                  features: W,
+                  features: H,
                   visible: "visible" === S,
                   name: "Transition",
                 })
               )
             );
           }),
-          G = (0, u.yV)(function (e, t) {
-            var r = null !== (0, s.useContext)(j),
+          Z = (0, u.yV)(function (e, t) {
+            var r = null !== (0, s.useContext)(I),
               i = null !== (0, c.oJ)();
             return s.createElement(
               s.Fragment,
               null,
               !r && i
-                ? s.createElement(B, (0, a.Z)({ ref: t }, e))
-                : s.createElement(Z, (0, a.Z)({ ref: t }, e))
+                ? s.createElement(W, (0, a.Z)({ ref: t }, e))
+                : s.createElement(z, (0, a.Z)({ ref: t }, e))
             );
           }),
-          K = Object.assign(B, { Child: G, Root: B });
+          B = Object.assign(W, { Child: Z, Root: W });
+      },
+      5218: function (e, t, r) {
+        "use strict";
+        r.d(t, {
+          G: function () {
+            return o;
+          },
+        });
+        var a = r(885),
+          i = r(7313),
+          n = r(9167);
+        function o() {
+          var e = (0, i.useState)(n.k),
+            t = (0, a.Z)(e, 1)[0];
+          return (
+            (0, i.useEffect)(
+              function () {
+                return function () {
+                  return t.dispose();
+                };
+              },
+              [t]
+            ),
+            t
+          );
+        }
       },
       1464: function (e, t, r) {
         "use strict";
@@ -30025,6 +29742,88 @@
             ),
             t
           );
+        }
+      },
+      5941: function (e, t, r) {
+        "use strict";
+        r.d(t, {
+          O: function () {
+            return l;
+          },
+        });
+        var a = r(7762),
+          i = r(7313),
+          n = r(3759),
+          o = r(161);
+        function l(e, t) {
+          var r =
+              !(arguments.length > 2 && void 0 !== arguments[2]) ||
+              arguments[2],
+            l = (0, i.useRef)(!1);
+          function s(r, i) {
+            if (l.current && !r.defaultPrevented) {
+              var o = (function e(t) {
+                  return "function" == typeof t
+                    ? e(t())
+                    : Array.isArray(t) || t instanceof Set
+                    ? t
+                    : [t];
+                })(e),
+                s = i(r);
+              if (null !== s && s.ownerDocument.documentElement.contains(s)) {
+                var u,
+                  c = (0, a.Z)(o);
+                try {
+                  for (c.s(); !(u = c.n()).done; ) {
+                    var d = u.value;
+                    if (null !== d) {
+                      var p = d instanceof HTMLElement ? d : d.current;
+                      if (null != p && p.contains(s)) return;
+                    }
+                  }
+                } catch (_) {
+                  c.e(_);
+                } finally {
+                  c.f();
+                }
+                return (
+                  !(0, n.sP)(s, n.tJ.Loose) &&
+                    -1 !== s.tabIndex &&
+                    r.preventDefault(),
+                  t(r, s)
+                );
+              }
+            }
+          }
+          (0, i.useEffect)(
+            function () {
+              requestAnimationFrame(function () {
+                l.current = r;
+              });
+            },
+            [r]
+          ),
+            (0, o.s)(
+              "click",
+              function (e) {
+                return s(e, function (e) {
+                  return e.target;
+                });
+              },
+              !0
+            ),
+            (0, o.s)(
+              "blur",
+              function (e) {
+                return s(e, function () {
+                  return window.document.activeElement instanceof
+                    HTMLIFrameElement
+                    ? window.document.activeElement
+                    : null;
+                });
+              },
+              !0
+            );
         }
       },
       4527: function (e, t, r) {
@@ -30153,6 +29952,33 @@
             : s;
         }
       },
+      161: function (e, t, r) {
+        "use strict";
+        r.d(t, {
+          s: function () {
+            return n;
+          },
+        });
+        var a = r(7313),
+          i = r(7992);
+        function n(e, t, r) {
+          var n = (0, i.E)(t);
+          (0, a.useEffect)(
+            function () {
+              function t(e) {
+                n.current(e);
+              }
+              return (
+                window.addEventListener(e, t, r),
+                function () {
+                  return window.removeEventListener(e, t, r);
+                }
+              );
+            },
+            [e, r]
+          );
+        }
+      },
       5678: function (e, t, r) {
         "use strict";
         r.d(t, {
@@ -30257,6 +30083,575 @@
             return a;
           },
         });
+      },
+      9167: function (e, t, r) {
+        "use strict";
+        r.d(t, {
+          k: function () {
+            return s;
+          },
+        });
+        var a = r(1002);
+        function i() {
+          i = function () {
+            return e;
+          };
+          var e = {},
+            t = Object.prototype,
+            r = t.hasOwnProperty,
+            n = "function" == typeof Symbol ? Symbol : {},
+            o = n.iterator || "@@iterator",
+            l = n.asyncIterator || "@@asyncIterator",
+            s = n.toStringTag || "@@toStringTag";
+          function u(e, t, r) {
+            return (
+              Object.defineProperty(e, t, {
+                value: r,
+                enumerable: !0,
+                configurable: !0,
+                writable: !0,
+              }),
+              e[t]
+            );
+          }
+          try {
+            u({}, "");
+          } catch (T) {
+            u = function (e, t, r) {
+              return (e[t] = r);
+            };
+          }
+          function c(e, t, r, a) {
+            var i = t && t.prototype instanceof _ ? t : _,
+              n = Object.create(i.prototype),
+              o = new M(a || []);
+            return (
+              (n._invoke = (function (e, t, r) {
+                var a = "suspendedStart";
+                return function (i, n) {
+                  if ("executing" === a)
+                    throw new Error("Generator is already running");
+                  if ("completed" === a) {
+                    if ("throw" === i) throw n;
+                    return C();
+                  }
+                  for (r.method = i, r.arg = n; ; ) {
+                    var o = r.delegate;
+                    if (o) {
+                      var l = k(o, r);
+                      if (l) {
+                        if (l === p) continue;
+                        return l;
+                      }
+                    }
+                    if ("next" === r.method) r.sent = r._sent = r.arg;
+                    else if ("throw" === r.method) {
+                      if ("suspendedStart" === a)
+                        throw ((a = "completed"), r.arg);
+                      r.dispatchException(r.arg);
+                    } else "return" === r.method && r.abrupt("return", r.arg);
+                    a = "executing";
+                    var s = d(e, t, r);
+                    if ("normal" === s.type) {
+                      if (
+                        ((a = r.done ? "completed" : "suspendedYield"),
+                        s.arg === p)
+                      )
+                        continue;
+                      return { value: s.arg, done: r.done };
+                    }
+                    "throw" === s.type &&
+                      ((a = "completed"),
+                      (r.method = "throw"),
+                      (r.arg = s.arg));
+                  }
+                };
+              })(e, r, o)),
+              n
+            );
+          }
+          function d(e, t, r) {
+            try {
+              return { type: "normal", arg: e.call(t, r) };
+            } catch (T) {
+              return { type: "throw", arg: T };
+            }
+          }
+          e.wrap = c;
+          var p = {};
+          function _() {}
+          function y() {}
+          function h() {}
+          var f = {};
+          u(f, o, function () {
+            return this;
+          });
+          var m = Object.getPrototypeOf,
+            g = m && m(m(A([])));
+          g && g !== t && r.call(g, o) && (f = g);
+          var v = (h.prototype = _.prototype = Object.create(f));
+          function b(e) {
+            ["next", "throw", "return"].forEach(function (t) {
+              u(e, t, function (e) {
+                return this._invoke(t, e);
+              });
+            });
+          }
+          function w(e, t) {
+            function i(n, o, l, s) {
+              var u = d(e[n], e, o);
+              if ("throw" !== u.type) {
+                var c = u.arg,
+                  p = c.value;
+                return p && "object" == (0, a.Z)(p) && r.call(p, "__await")
+                  ? t.resolve(p.__await).then(
+                      function (e) {
+                        i("next", e, l, s);
+                      },
+                      function (e) {
+                        i("throw", e, l, s);
+                      }
+                    )
+                  : t.resolve(p).then(
+                      function (e) {
+                        (c.value = e), l(c);
+                      },
+                      function (e) {
+                        return i("throw", e, l, s);
+                      }
+                    );
+              }
+              s(u.arg);
+            }
+            var n;
+            this._invoke = function (e, r) {
+              function a() {
+                return new t(function (t, a) {
+                  i(e, r, t, a);
+                });
+              }
+              return (n = n ? n.then(a, a) : a());
+            };
+          }
+          function k(e, t) {
+            var r = e.iterator[t.method];
+            if (void 0 === r) {
+              if (((t.delegate = null), "throw" === t.method)) {
+                if (
+                  e.iterator.return &&
+                  ((t.method = "return"),
+                  (t.arg = void 0),
+                  k(e, t),
+                  "throw" === t.method)
+                )
+                  return p;
+                (t.method = "throw"),
+                  (t.arg = new TypeError(
+                    "The iterator does not provide a 'throw' method"
+                  ));
+              }
+              return p;
+            }
+            var a = d(r, e.iterator, t.arg);
+            if ("throw" === a.type)
+              return (
+                (t.method = "throw"), (t.arg = a.arg), (t.delegate = null), p
+              );
+            var i = a.arg;
+            return i
+              ? i.done
+                ? ((t[e.resultName] = i.value),
+                  (t.next = e.nextLoc),
+                  "return" !== t.method &&
+                    ((t.method = "next"), (t.arg = void 0)),
+                  (t.delegate = null),
+                  p)
+                : i
+              : ((t.method = "throw"),
+                (t.arg = new TypeError("iterator result is not an object")),
+                (t.delegate = null),
+                p);
+          }
+          function x(e) {
+            var t = { tryLoc: e[0] };
+            1 in e && (t.catchLoc = e[1]),
+              2 in e && ((t.finallyLoc = e[2]), (t.afterLoc = e[3])),
+              this.tryEntries.push(t);
+          }
+          function S(e) {
+            var t = e.completion || {};
+            (t.type = "normal"), delete t.arg, (e.completion = t);
+          }
+          function M(e) {
+            (this.tryEntries = [{ tryLoc: "root" }]),
+              e.forEach(x, this),
+              this.reset(!0);
+          }
+          function A(e) {
+            if (e) {
+              var t = e[o];
+              if (t) return t.call(e);
+              if ("function" == typeof e.next) return e;
+              if (!isNaN(e.length)) {
+                var a = -1,
+                  i = function t() {
+                    for (; ++a < e.length; )
+                      if (r.call(e, a))
+                        return (t.value = e[a]), (t.done = !1), t;
+                    return (t.value = void 0), (t.done = !0), t;
+                  };
+                return (i.next = i);
+              }
+            }
+            return { next: C };
+          }
+          function C() {
+            return { value: void 0, done: !0 };
+          }
+          return (
+            (y.prototype = h),
+            u(v, "constructor", h),
+            u(h, "constructor", y),
+            (y.displayName = u(h, s, "GeneratorFunction")),
+            (e.isGeneratorFunction = function (e) {
+              var t = "function" == typeof e && e.constructor;
+              return (
+                !!t &&
+                (t === y || "GeneratorFunction" === (t.displayName || t.name))
+              );
+            }),
+            (e.mark = function (e) {
+              return (
+                Object.setPrototypeOf
+                  ? Object.setPrototypeOf(e, h)
+                  : ((e.__proto__ = h), u(e, s, "GeneratorFunction")),
+                (e.prototype = Object.create(v)),
+                e
+              );
+            }),
+            (e.awrap = function (e) {
+              return { __await: e };
+            }),
+            b(w.prototype),
+            u(w.prototype, l, function () {
+              return this;
+            }),
+            (e.AsyncIterator = w),
+            (e.async = function (t, r, a, i, n) {
+              void 0 === n && (n = Promise);
+              var o = new w(c(t, r, a, i), n);
+              return e.isGeneratorFunction(r)
+                ? o
+                : o.next().then(function (e) {
+                    return e.done ? e.value : o.next();
+                  });
+            }),
+            b(v),
+            u(v, s, "Generator"),
+            u(v, o, function () {
+              return this;
+            }),
+            u(v, "toString", function () {
+              return "[object Generator]";
+            }),
+            (e.keys = function (e) {
+              var t = [];
+              for (var r in e) t.push(r);
+              return (
+                t.reverse(),
+                function r() {
+                  for (; t.length; ) {
+                    var a = t.pop();
+                    if (a in e) return (r.value = a), (r.done = !1), r;
+                  }
+                  return (r.done = !0), r;
+                }
+              );
+            }),
+            (e.values = A),
+            (M.prototype = {
+              constructor: M,
+              reset: function (e) {
+                if (
+                  ((this.prev = 0),
+                  (this.next = 0),
+                  (this.sent = this._sent = void 0),
+                  (this.done = !1),
+                  (this.delegate = null),
+                  (this.method = "next"),
+                  (this.arg = void 0),
+                  this.tryEntries.forEach(S),
+                  !e)
+                )
+                  for (var t in this)
+                    "t" === t.charAt(0) &&
+                      r.call(this, t) &&
+                      !isNaN(+t.slice(1)) &&
+                      (this[t] = void 0);
+              },
+              stop: function () {
+                this.done = !0;
+                var e = this.tryEntries[0].completion;
+                if ("throw" === e.type) throw e.arg;
+                return this.rval;
+              },
+              dispatchException: function (e) {
+                if (this.done) throw e;
+                var t = this;
+                function a(r, a) {
+                  return (
+                    (o.type = "throw"),
+                    (o.arg = e),
+                    (t.next = r),
+                    a && ((t.method = "next"), (t.arg = void 0)),
+                    !!a
+                  );
+                }
+                for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+                  var n = this.tryEntries[i],
+                    o = n.completion;
+                  if ("root" === n.tryLoc) return a("end");
+                  if (n.tryLoc <= this.prev) {
+                    var l = r.call(n, "catchLoc"),
+                      s = r.call(n, "finallyLoc");
+                    if (l && s) {
+                      if (this.prev < n.catchLoc) return a(n.catchLoc, !0);
+                      if (this.prev < n.finallyLoc) return a(n.finallyLoc);
+                    } else if (l) {
+                      if (this.prev < n.catchLoc) return a(n.catchLoc, !0);
+                    } else {
+                      if (!s)
+                        throw new Error(
+                          "try statement without catch or finally"
+                        );
+                      if (this.prev < n.finallyLoc) return a(n.finallyLoc);
+                    }
+                  }
+                }
+              },
+              abrupt: function (e, t) {
+                for (var a = this.tryEntries.length - 1; a >= 0; --a) {
+                  var i = this.tryEntries[a];
+                  if (
+                    i.tryLoc <= this.prev &&
+                    r.call(i, "finallyLoc") &&
+                    this.prev < i.finallyLoc
+                  ) {
+                    var n = i;
+                    break;
+                  }
+                }
+                n &&
+                  ("break" === e || "continue" === e) &&
+                  n.tryLoc <= t &&
+                  t <= n.finallyLoc &&
+                  (n = null);
+                var o = n ? n.completion : {};
+                return (
+                  (o.type = e),
+                  (o.arg = t),
+                  n
+                    ? ((this.method = "next"), (this.next = n.finallyLoc), p)
+                    : this.complete(o)
+                );
+              },
+              complete: function (e, t) {
+                if ("throw" === e.type) throw e.arg;
+                return (
+                  "break" === e.type || "continue" === e.type
+                    ? (this.next = e.arg)
+                    : "return" === e.type
+                    ? ((this.rval = this.arg = e.arg),
+                      (this.method = "return"),
+                      (this.next = "end"))
+                    : "normal" === e.type && t && (this.next = t),
+                  p
+                );
+              },
+              finish: function (e) {
+                for (var t = this.tryEntries.length - 1; t >= 0; --t) {
+                  var r = this.tryEntries[t];
+                  if (r.finallyLoc === e)
+                    return this.complete(r.completion, r.afterLoc), S(r), p;
+                }
+              },
+              catch: function (e) {
+                for (var t = this.tryEntries.length - 1; t >= 0; --t) {
+                  var r = this.tryEntries[t];
+                  if (r.tryLoc === e) {
+                    var a = r.completion;
+                    if ("throw" === a.type) {
+                      var i = a.arg;
+                      S(r);
+                    }
+                    return i;
+                  }
+                }
+                throw new Error("illegal catch attempt");
+              },
+              delegateYield: function (e, t, r) {
+                return (
+                  (this.delegate = {
+                    iterator: A(e),
+                    resultName: t,
+                    nextLoc: r,
+                  }),
+                  "next" === this.method && (this.arg = void 0),
+                  p
+                );
+              },
+            }),
+            e
+          );
+        }
+        function n(e, t, r, a, i, n, o) {
+          try {
+            var l = e[n](o),
+              s = l.value;
+          } catch (u) {
+            return void r(u);
+          }
+          l.done ? t(s) : Promise.resolve(s).then(a, i);
+        }
+        var o = r(7762),
+          l = r(885);
+        function s() {
+          var e = [],
+            t = [],
+            r = {
+              enqueue: function (e) {
+                t.push(e);
+              },
+              addEventListener: function (e, t, a, i) {
+                return (
+                  e.addEventListener(t, a, i),
+                  r.add(function () {
+                    return e.removeEventListener(t, a, i);
+                  })
+                );
+              },
+              requestAnimationFrame: (function (e) {
+                function t() {
+                  return e.apply(this, arguments);
+                }
+                return (
+                  (t.toString = function () {
+                    return e.toString();
+                  }),
+                  t
+                );
+              })(function () {
+                var e = requestAnimationFrame.apply(void 0, arguments);
+                return r.add(function () {
+                  return cancelAnimationFrame(e);
+                });
+              }),
+              nextFrame: function () {
+                for (
+                  var e = arguments.length, t = new Array(e), a = 0;
+                  a < e;
+                  a++
+                )
+                  t[a] = arguments[a];
+                return r.requestAnimationFrame(function () {
+                  return r.requestAnimationFrame.apply(r, t);
+                });
+              },
+              setTimeout: (function (e) {
+                function t() {
+                  return e.apply(this, arguments);
+                }
+                return (
+                  (t.toString = function () {
+                    return e.toString();
+                  }),
+                  t
+                );
+              })(function () {
+                var e = setTimeout.apply(void 0, arguments);
+                return r.add(function () {
+                  return clearTimeout(e);
+                });
+              }),
+              add: function (t) {
+                return (
+                  e.push(t),
+                  function () {
+                    var r = e.indexOf(t);
+                    if (r >= 0) {
+                      var a = e.splice(r, 1);
+                      (0, (0, l.Z)(a, 1)[0])();
+                    }
+                  }
+                );
+              },
+              dispose: function () {
+                var t,
+                  r = (0, o.Z)(e.splice(0));
+                try {
+                  for (r.s(); !(t = r.n()).done; ) {
+                    (0, t.value)();
+                  }
+                } catch (a) {
+                  r.e(a);
+                } finally {
+                  r.f();
+                }
+              },
+              workQueue: function () {
+                return ((e = i().mark(function e() {
+                  var r, a, n;
+                  return i().wrap(
+                    function (e) {
+                      for (;;)
+                        switch ((e.prev = e.next)) {
+                          case 0:
+                            (r = (0, o.Z)(t.splice(0))), (e.prev = 1), r.s();
+                          case 3:
+                            if ((a = r.n()).done) {
+                              e.next = 9;
+                              break;
+                            }
+                            return (n = a.value), (e.next = 7), n();
+                          case 7:
+                            e.next = 3;
+                            break;
+                          case 9:
+                            e.next = 14;
+                            break;
+                          case 11:
+                            (e.prev = 11), (e.t0 = e.catch(1)), r.e(e.t0);
+                          case 14:
+                            return (e.prev = 14), r.f(), e.finish(14);
+                          case 17:
+                          case "end":
+                            return e.stop();
+                        }
+                    },
+                    e,
+                    null,
+                    [[1, 11, 14, 17]]
+                  );
+                })),
+                function () {
+                  var t = this,
+                    r = arguments;
+                  return new Promise(function (a, i) {
+                    var o = e.apply(t, r);
+                    function l(e) {
+                      n(o, a, i, l, s, "next", e);
+                    }
+                    function s(e) {
+                      n(o, a, i, l, s, "throw", e);
+                    }
+                    l(void 0);
+                  });
+                })();
+                var e;
+              },
+            };
+          return r;
+        }
       },
       3759: function (e, t, r) {
         "use strict";
@@ -30439,6 +30834,101 @@
             r.hasAttribute("tabindex") || r.setAttribute("tabindex", "0"),
             2
           );
+        }
+      },
+      375: function (e, t, r) {
+        "use strict";
+        r.d(t, {
+          g: function () {
+            return s;
+          },
+          t: function () {
+            return n;
+          },
+        });
+        var a = r(7762),
+          i = r(885);
+        function n() {
+          for (
+            var e =
+                arguments.length > 0 && void 0 !== arguments[0]
+                  ? arguments[0]
+                  : {},
+              t =
+                arguments.length > 1 && void 0 !== arguments[1]
+                  ? arguments[1]
+                  : null,
+              r =
+                arguments.length > 2 && void 0 !== arguments[2]
+                  ? arguments[2]
+                  : [],
+              a = 0,
+              n = Object.entries(e);
+            a < n.length;
+            a++
+          ) {
+            var s = (0, i.Z)(n[a], 2),
+              u = s[0],
+              c = s[1];
+            l(r, o(t, u), c);
+          }
+          return r;
+        }
+        function o(e, t) {
+          return e ? e + "[" + t + "]" : t;
+        }
+        function l(e, t, r) {
+          if (Array.isArray(r)) {
+            var s,
+              u = (0, a.Z)(r.entries());
+            try {
+              for (u.s(); !(s = u.n()).done; ) {
+                var c = (0, i.Z)(s.value, 2),
+                  d = c[0],
+                  p = c[1];
+                l(e, o(t, d.toString()), p);
+              }
+            } catch (_) {
+              u.e(_);
+            } finally {
+              u.f();
+            }
+          } else
+            r instanceof Date
+              ? e.push([t, r.toISOString()])
+              : "boolean" == typeof r
+              ? e.push([t, r ? "1" : "0"])
+              : "string" == typeof r
+              ? e.push([t, r])
+              : "number" == typeof r
+              ? e.push([t, "".concat(r)])
+              : null == r
+              ? e.push([t, ""])
+              : n(r, t, e);
+        }
+        function s(e) {
+          var t,
+            r =
+              null != (t = null == e ? void 0 : e.form) ? t : e.closest("form");
+          if (r) {
+            var i,
+              n = (0, a.Z)(r.elements);
+            try {
+              for (n.s(); !(i = n.n()).done; ) {
+                var o = i.value;
+                if (
+                  ("INPUT" === o.tagName && "submit" === o.type) ||
+                  ("BUTTON" === o.tagName && "submit" === o.type) ||
+                  ("INPUT" === o.nodeName && "image" === o.type)
+                )
+                  return void o.click();
+              }
+            } catch (l) {
+              n.e(l);
+            } finally {
+              n.f();
+            }
+          }
         }
       },
       8281: function (e, t, r) {
@@ -30793,13 +31283,13 @@
         "." +
         {
           124: "d4c2bd60",
-          126: "58264478",
+          126: "0745b633",
           173: "06aaf120",
-          191: "c0c8bcae",
+          191: "8b1fd33a",
           394: "7eeaddb7",
-          688: "3eefbbfc",
-          883: "39d9144c",
-          885: "a63fe5ed",
+          688: "03565789",
+          885: "6db71e5c",
+          911: "95d10796",
           940: "9724fd4b",
         }[e] +
         ".chunk.js"
@@ -30877,7 +31367,7 @@
         Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
         Object.defineProperty(e, "__esModule", { value: !0 });
     }),
-    (r.p = "../"),
+    (r.p = ".//"),
     (function () {
       var e = { 179: 0 };
       r.f.j = function (t, a) {
@@ -31107,10 +31597,10 @@
       function M(e) {
         k = e || "all";
       }
-      function C() {
+      function A() {
         return k || "all";
       }
-      var A = function (e) {
+      var C = function (e) {
         var t = e.key,
           r = e.scope,
           a = e.method,
@@ -31122,7 +31612,7 @@
             o = t[i - 1],
             l = "*" === o ? "*" : S(o);
           if (g[l]) {
-            r || (r = C());
+            r || (r = A());
             var s = i > 1 ? p(h, t) : [];
             g[l] = g[l].filter(function (e) {
               return !(
@@ -31197,7 +31687,7 @@
             -1 === b.indexOf(18) && b.push(18),
             (m[17] = !0),
             (m[18] = !0));
-          var o = C();
+          var o = A();
           if (r)
             for (var l = 0; l < r.length; l++)
               r[l].scope === o &&
@@ -31312,14 +31802,14 @@
       }
       var O = {
         setScope: M,
-        getScope: C,
+        getScope: A,
         deleteScope: function (e, t) {
           var r, a;
-          for (var i in (e || (e = C()), g))
+          for (var i in (e || (e = A()), g))
             if (Object.prototype.hasOwnProperty.call(g, i))
               for (r = g[i], a = 0; a < r.length; )
                 r[a].scope === e ? r.splice(a, 1) : a++;
-          C() === e && M(t || "all");
+          A() === e && M(t || "all");
         },
         getPressedKeyCodes: function () {
           return b.slice(0);
@@ -31358,9 +31848,9 @@
             });
           else if (Array.isArray(e))
             e.forEach(function (e) {
-              e.key && A(e);
+              e.key && C(e);
             });
-          else if ("object" === typeof e) e.key && A(e);
+          else if ("object" === typeof e) e.key && C(e);
           else if ("string" === typeof e) {
             for (
               var t = arguments.length, r = new Array(t > 1 ? t - 1 : 0), a = 1;
@@ -31371,7 +31861,7 @@
             var i = r[0],
               n = r[1];
             "function" === typeof i && ((n = i), (i = "")),
-              A({ key: e, scope: i, method: n, splitKey: "+" });
+              C({ key: e, scope: i, method: n, splitKey: "+" });
           }
         },
         keyMap: y,
@@ -31391,7 +31881,7 @@
         L = r(885),
         P = r(4925),
         R = r(2982);
-      function D(e) {
+      function F(e) {
         var t,
           r,
           a = "";
@@ -31399,13 +31889,13 @@
         else if ("object" == typeof e)
           if (Array.isArray(e))
             for (t = 0; t < e.length; t++)
-              e[t] && (r = D(e[t])) && (a && (a += " "), (a += r));
+              e[t] && (r = F(e[t])) && (a && (a += " "), (a += r));
           else for (t in e) e[t] && (a && (a += " "), (a += t));
         return a;
       }
-      var F = function () {
+      var D = function () {
           for (var e, t, r = 0, a = ""; r < arguments.length; )
-            (e = arguments[r++]) && (t = D(e)) && (a && (a += " "), (a += t));
+            (e = arguments[r++]) && (t = F(e)) && (a && (a += " "), (a += t));
           return a;
         },
         V = ["theme", "type"],
@@ -32095,7 +32585,7 @@
             }
           );
         c && (h.transform = "scaleX(" + d + ")");
-        var f = F(
+        var f = D(
             "Toastify__progress-bar",
             c
               ? "Toastify__progress-bar--controlled"
@@ -32104,7 +32594,7 @@
             "Toastify__progress-bar--" + n,
             (0, j.Z)({}, "Toastify__progress-bar--rtl", p)
           ),
-          m = B(s) ? s({ rtl: p, type: n, defaultClassName: f }) : F(f, s),
+          m = B(s) ? s({ rtl: p, type: n, defaultClassName: f }) : D(f, s),
           g = (0, j.Z)(
             {},
             c && d >= 1 ? "onTransitionEnd" : "onAnimationEnd",
@@ -32153,28 +32643,28 @@
             x = e.updateId,
             S = e.role,
             M = e.progress,
-            C = e.rtl,
-            A = e.toastId,
+            A = e.rtl,
+            C = e.toastId,
             T = e.deleteToast,
             q = e.isIn,
             N = e.isLoading,
             O = e.iconOut,
             I = e.theme,
-            E = F(
+            E = D(
               "Toastify__toast",
               "Toastify__toast-theme--" + I,
               "Toastify__toast--" + p,
-              (0, j.Z)({}, "Toastify__toast--rtl", C)
+              (0, j.Z)({}, "Toastify__toast--rtl", A)
             ),
             L = B(m)
-              ? m({ rtl: C, position: f, type: p, defaultClassName: E })
-              : F(E, m),
+              ? m({ rtl: A, position: f, type: p, defaultClassName: E })
+              : D(E, m),
             P = !!M,
             R = { closeToast: y, type: p, theme: I },
-            D = null;
+            F = null;
           return (
             !1 === s ||
-              (D = B(s)
+              (F = B(s)
                 ? s(R)
                 : o.isValidElement(s)
                 ? o.cloneElement(s, R)
@@ -32191,7 +32681,7 @@
               o.createElement(
                 "div",
                 (0, a.Z)(
-                  (0, a.Z)({ id: A, onClick: d, className: L }, l),
+                  (0, a.Z)({ id: C, onClick: d, className: L }, l),
                   {},
                   { style: g, ref: n }
                 ),
@@ -32203,7 +32693,7 @@
                     {
                       className: B(v)
                         ? v({ type: p })
-                        : F("Toastify__toast-body", v),
+                        : D("Toastify__toast-body", v),
                       style: b,
                     }
                   ),
@@ -32211,7 +32701,7 @@
                     o.createElement(
                       "div",
                       {
-                        className: F(
+                        className: D(
                           "Toastify__toast-icon",
                           (0, j.Z)(
                             {},
@@ -32224,7 +32714,7 @@
                     ),
                   o.createElement("div", null, u)
                 ),
-                D,
+                F,
                 (c || P) &&
                   o.createElement(
                     se,
@@ -32232,7 +32722,7 @@
                       (0, a.Z)({}, x && !P ? { key: "pb-" + x } : {}),
                       {},
                       {
-                        rtl: C,
+                        rtl: A,
                         theme: I,
                         delay: c,
                         isRunning: r,
@@ -32280,14 +32770,14 @@
               c = e.rtl,
               d = e.containerId;
             function p(e) {
-              var t = F(
+              var t = D(
                 "Toastify__toast-container",
                 "Toastify__toast-container--" + e,
                 (0, j.Z)({}, "Toastify__toast-container--rtl", c)
               );
               return B(s)
                 ? s({ position: e, rtl: c, defaultClassName: t })
-                : F(t, G(s));
+                : D(t, G(s));
             }
             return (
               (0, o.useEffect)(function () {
@@ -32515,8 +33005,8 @@
         xe = r(8561),
         Se = r.n(xe),
         Me = r(8966),
-        Ce = r(8982),
-        Ae = r(6417),
+        Ae = r(8982),
+        Ce = r(6417),
         Te = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
@@ -32554,13 +33044,13 @@
                       : "legendary" === this.props.color &&
                         (e =
                           "text-white bg-amber-500 hover:bg-orange-400 focus:bg-orange-500 dark:bg-amber-600 dark:hover:bg-orange-500 dark:focus:bg-orange-600"),
-                    (0, Ae.jsxs)("div", {
+                    (0, Ce.jsxs)("div", {
                       className: "flex items-start",
                       children: [
                         "achievement" === this.props.type
-                          ? (0, Ae.jsx)("div", {
+                          ? (0, Ce.jsx)("div", {
                               className: "flex-shrink-0",
-                              children: (0, Ae.jsx)(Se(), {
+                              children: (0, Ce.jsx)(Se(), {
                                 path: Me.lEW,
                                 className:
                                   "icon mt-0.5 text-orange-500 dark:text-amber-500",
@@ -32569,9 +33059,9 @@
                             })
                           : null,
                         "backup" === this.props.type
-                          ? (0, Ae.jsx)("div", {
+                          ? (0, Ce.jsx)("div", {
                               className: "flex-shrink-0",
-                              children: (0, Ae.jsx)(Se(), {
+                              children: (0, Ce.jsx)(Se(), {
                                 path: Me.ZkO,
                                 className: "icon mt-0.5",
                                 "aria-hidden": "true",
@@ -32579,9 +33069,9 @@
                             })
                           : null,
                         "battle" === this.props.type
-                          ? (0, Ae.jsx)("div", {
+                          ? (0, Ce.jsx)("div", {
                               className: "flex-shrink-0",
-                              children: (0, Ae.jsx)(Se(), {
+                              children: (0, Ce.jsx)(Se(), {
                                 path: Me.Hne,
                                 className: "icon mt-0.5",
                                 "aria-hidden": "true",
@@ -32589,9 +33079,9 @@
                             })
                           : null,
                         "death" === this.props.type
-                          ? (0, Ae.jsx)("div", {
+                          ? (0, Ce.jsx)("div", {
                               className: "flex-shrink-0",
-                              children: (0, Ae.jsx)(Se(), {
+                              children: (0, Ce.jsx)(Se(), {
                                 path: Me.$Qg,
                                 className: "icon mt-0.5",
                                 "aria-hidden": "true",
@@ -32599,9 +33089,9 @@
                             })
                           : null,
                         "enemy" === this.props.type
-                          ? (0, Ae.jsx)("div", {
+                          ? (0, Ce.jsx)("div", {
                               className: "flex-shrink-0",
-                              children: (0, Ae.jsx)(Se(), {
+                              children: (0, Ce.jsx)(Se(), {
                                 path: Me.DkV,
                                 className: "icon mt-0.5",
                                 "aria-hidden": "true",
@@ -32609,9 +33099,9 @@
                             })
                           : null,
                         "ios" === this.props.type
-                          ? (0, Ae.jsx)("div", {
+                          ? (0, Ce.jsx)("div", {
                               className: "flex-shrink-0",
-                              children: (0, Ae.jsx)(Se(), {
+                              children: (0, Ce.jsx)(Se(), {
                                 path: Me.epm,
                                 className: "icon mt-0.5",
                                 "aria-hidden": "true",
@@ -32619,9 +33109,9 @@
                             })
                           : null,
                         "loot" === this.props.type
-                          ? (0, Ae.jsx)("div", {
+                          ? (0, Ce.jsx)("div", {
                               className: "flex-shrink-0",
-                              children: (0, Ae.jsx)(Se(), {
+                              children: (0, Ce.jsx)(Se(), {
                                 path: Me.iKI,
                                 className: "icon mt-0.5",
                                 "aria-hidden": "true",
@@ -32629,9 +33119,9 @@
                             })
                           : null,
                         "relationship" === this.props.type
-                          ? (0, Ae.jsx)("div", {
+                          ? (0, Ce.jsx)("div", {
                               className: "flex-shrink-0",
-                              children: (0, Ae.jsx)(Se(), {
+                              children: (0, Ce.jsx)(Se(), {
                                 path: Me.L_H,
                                 className: "icon mt-0.5",
                                 "aria-hidden": "true",
@@ -32639,9 +33129,9 @@
                             })
                           : null,
                         "reward" === this.props.type
-                          ? (0, Ae.jsx)("div", {
+                          ? (0, Ce.jsx)("div", {
                               className: "flex-shrink-0",
-                              children: (0, Ae.jsx)(Se(), {
+                              children: (0, Ce.jsx)(Se(), {
                                 path: Me.nvf,
                                 className: "icon mt-0.5",
                                 "aria-hidden": "true",
@@ -32650,9 +33140,9 @@
                           : null,
                         "spy" === this.props.type ||
                         "spy_success" === this.props.type
-                          ? (0, Ae.jsx)("div", {
+                          ? (0, Ce.jsx)("div", {
                               className: "flex-shrink-0",
-                              children: (0, Ae.jsx)(Se(), {
+                              children: (0, Ce.jsx)(Se(), {
                                 path: Me.XT1,
                                 className: "icon mt-0.5",
                                 "aria-hidden": "true",
@@ -32660,16 +33150,16 @@
                             })
                           : null,
                         "oracle" === this.props.type
-                          ? (0, Ae.jsx)("div", {
+                          ? (0, Ce.jsx)("div", {
                               className: "flex-shrink-0",
-                              children: (0, Ae.jsx)(Se(), {
+                              children: (0, Ce.jsx)(Se(), {
                                 path: Me.mOX,
                                 className: "icon mt-0.5",
                                 "aria-hidden": "true",
                               }),
                             })
                           : null,
-                        (0, Ae.jsxs)("div", {
+                        (0, Ce.jsxs)("div", {
                           className:
                             "w-0 flex-1 " +
                             ("key" === this.props.type ||
@@ -32677,45 +33167,45 @@
                               ? ""
                               : "ml-3"),
                           children: [
-                            (0, Ae.jsx)("p", {
+                            (0, Ce.jsx)("p", {
                               className: "font-bold pr-6 text-base",
                               children: this.props.title,
                             }),
-                            (0, Ae.jsx)("p", {
+                            (0, Ce.jsx)("p", {
                               className:
                                 "" === this.props.title ? "pr-6" : "mt-1",
                               children: this.props.text,
                             }),
                             "achievement" === this.props.type
-                              ? (0, Ae.jsx)("div", {
+                              ? (0, Ce.jsx)("div", {
                                   className: "mt-3 flex space-x-7",
-                                  children: (0, Ae.jsxs)("button", {
+                                  children: (0, Ce.jsxs)("button", {
                                     type: "button",
                                     className: "btn " + e,
                                     onClick: this.handleAchievements,
                                     children: [
-                                      (0, Ae.jsx)(Se(), {
+                                      (0, Ce.jsx)(Se(), {
                                         path: Me.fOx,
                                         className: "icon mr-1",
                                       }),
-                                      (0, Ce.K)("open_achievements"),
+                                      (0, Ae.K)("open_achievements"),
                                     ],
                                   }),
                                 })
                               : null,
                             "backup" === this.props.type
-                              ? (0, Ae.jsx)("div", {
+                              ? (0, Ce.jsx)("div", {
                                   className: "mt-3 flex space-x-7",
-                                  children: (0, Ae.jsxs)("button", {
+                                  children: (0, Ce.jsxs)("button", {
                                     type: "button",
                                     className: "btn btn-blue",
                                     onClick: this.handleSaveFile,
                                     children: [
-                                      (0, Ae.jsx)(Se(), {
+                                      (0, Ce.jsx)(Se(), {
                                         path: Me.ZkO,
                                         className: "icon mr-1",
                                       }),
-                                      (0, Ce.K)("save_to_file"),
+                                      (0, Ae.K)("save_to_file"),
                                     ],
                                   }),
                                 })
@@ -36811,8 +37301,8 @@
                         var r = {
                           id: t.id,
                           rarity: t.rarity,
-                          title: (0, Ce.K)("not_" + t.id + "_title"),
-                          desc: (0, Ce.K)("not_" + t.id),
+                          title: (0, Ae.K)("not_" + t.id + "_title"),
+                          desc: (0, Ae.K)("not_" + t.id),
                         };
                         r.title.includes("UNDEFINED") || e.push(r);
                       });
@@ -37106,9 +37596,9 @@
               (this.showConfirmRewardAd = function () {
                 if ("boolean" !== typeof r.rewardToGet) {
                   var e =
-                    (0, Ce.K)("confirm_reward_ad_description") +
+                    (0, Ae.K)("confirm_reward_ad_description") +
                     "" +
-                    (0, Ce.K)(
+                    (0, Ae.K)(
                       "ads_" + r.rewardToGet.id + "_description"
                     ).toLowerCase();
                   r.MainStore.showConfirm(
@@ -37129,7 +37619,7 @@
                   (r.rewardAdAvailable = !1),
                   "adDismissed" === e &&
                     r.MainStore.addNotification(
-                      (0, Ce.K)("reward_canceled"),
+                      (0, Ae.K)("reward_canceled"),
                       "text",
                       "common",
                       !1,
@@ -37153,7 +37643,7 @@
                     ),
                     r.MainStore.addLog(
                       "Reward: " +
-                        (0, Ce.K)(
+                        (0, Ae.K)(
                           "ads_" + r.rewardToGet.id + "_description"
                         ).toLowerCase(),
                       "",
@@ -37161,7 +37651,7 @@
                       !1
                     ),
                     r.MainStore.addNotification(
-                      (0, Ce.K)("ads_" + r.rewardToGet.id + "_description"),
+                      (0, Ae.K)("ads_" + r.rewardToGet.id + "_description"),
                       "reward",
                       "common",
                       !1,
@@ -37257,11 +37747,11 @@
           );
         })(),
         Re = Pe,
-        De = r(7786);
-      function Fe(e, t, r, a) {
-        De.ZP.event({ category: e, action: t, label: r, value: a });
+        Fe = r(7786);
+      function De(e, t, r, a) {
+        Fe.ZP.event({ category: e, action: t, label: r, value: a });
       }
-      De.ZP.initialize(
+      Fe.ZP.initialize(
         {
           NODE_ENV: "production",
           PUBLIC_URL: "./",
@@ -37269,7 +37759,7 @@
           WDS_SOCKET_PATH: void 0,
           WDS_SOCKET_PORT: void 0,
           FAST_REFRESH: !0,
-          REACT_APP_VERSION: "0.70",
+          REACT_APP_VERSION: "0.71",
         }.REACT_APP_DEV
           ? "G-ML4EM1RS0Y"
           : "G-Z39X9GG6TF"
@@ -37387,7 +37877,7 @@
                       "img_start_description"
                     ),
                     this.MainStore.save(),
-                    Fe(
+                    De(
                       "event",
                       "ancestor",
                       e,
@@ -37667,6 +38157,23 @@
               { type: "resource", id: "fame", value: 30, fix: !0 },
               { type: "resource", id: "faith", value: 1 },
               { type: "resource", id: "crystal", value: 0.1 },
+            ],
+          },
+          {
+            id: "dense_oasis",
+            found: [29],
+            esp: 48,
+            level: 5,
+            army: [
+              { id: "naga", value: 180 },
+              { id: "naga_royal_guard", value: 115 },
+              { id: "naga_princess", value: 1 },
+            ],
+            gen: [
+              { type: "resource", id: "fame", value: 20, fix: !0 },
+              { type: "resource", id: "luck", value: 2, fix: !0 },
+              { type: "resource", id: "food", value: 3 },
+              { type: "resource", id: "wood", value: 3 },
             ],
           },
           {
@@ -38041,6 +38548,17 @@
             ],
           },
           {
+            id: "leprechaun_den",
+            found: [37, 38, 39],
+            esp: 11,
+            level: 2,
+            army: [{ id: "trap", value: 36 }],
+            gen: [
+              { type: "resource", id: "luck", value: 1, fix: !0 },
+              { type: "resource", id: "gold", value: 0.2 },
+            ],
+          },
+          {
             id: "lich_temple",
             found: [19],
             esp: 31,
@@ -38084,6 +38602,14 @@
               { type: "resource", id: "gold", value: 1 },
               { type: "resource", id: "tools", value: 0.3 },
             ],
+          },
+          {
+            id: "kobold_stash",
+            found: [11],
+            esp: 9,
+            level: 2,
+            army: [{ id: "kobold", value: 26 }],
+            gen: [{ type: "resource", id: "luck", value: 1, fix: !0 }],
           },
           {
             id: "korrigan_dolmen",
@@ -38355,6 +38881,17 @@
             gen: [{ type: "population", id: "unemployed", value: 2 }],
           },
           {
+            id: "raider_hideout",
+            found: [22],
+            esp: 11,
+            level: 2,
+            army: [{ id: "raider", value: 40 }],
+            gen: [
+              { type: "resource", id: "luck", value: 1, fix: !0 },
+              { type: "resource", id: "gold", value: 0.4 },
+            ],
+          },
+          {
             id: "rusted_warehouse",
             found: [31, 32],
             esp: 8,
@@ -38394,6 +38931,21 @@
               { type: "resource", id: "fame", value: 15, fix: !0 },
               { type: "resource", id: "gold", value: 2 },
               { type: "resource", id: "food", value: 1 },
+            ],
+          },
+          {
+            id: "smuggler_warehouse",
+            found: [35, 36, 37],
+            esp: 31,
+            level: 4,
+            army: [
+              { id: "bandit", value: 96 },
+              { id: "smuggler", value: 56 },
+            ],
+            gen: [
+              { type: "resource", id: "luck", value: 1, fix: !0 },
+              { type: "resource", id: "building_material", value: 0.4 },
+              { type: "resource", id: "steel", value: 0.4 },
             ],
           },
           {
@@ -39763,7 +40315,7 @@
                           "undefined" !== typeof t.log && (a = t.log)),
                           e.push({
                             value: t.id,
-                            label: (0, Ce.K)("ene_" + t.id + "_description"),
+                            label: (0, Ae.K)("ene_" + t.id + "_description"),
                             level: r,
                             log: a,
                           });
@@ -39783,7 +40335,7 @@
                           "undefined" !== typeof t.log && (a = t.log),
                           e.push({
                             value: t.id,
-                            label: (0, Ce.K)("dip_" + t.id + "_description"),
+                            label: (0, Ae.K)("dip_" + t.id + "_description"),
                             level: r,
                             flag: 1,
                             log: a,
@@ -39807,7 +40359,7 @@
                     if (-1 !== t)
                       return {
                         value: this.MainStore.run.enemy,
-                        label: (0, Ce.K)("ene_" + this.MainStore.run.enemy),
+                        label: (0, Ae.K)("ene_" + this.MainStore.run.enemy),
                       };
                     if (
                       -1 !==
@@ -39817,7 +40369,7 @@
                     )
                       return {
                         value: this.MainStore.run.enemy,
-                        label: (0, Ce.K)("dip_" + this.MainStore.run.enemy),
+                        label: (0, Ae.K)("dip_" + this.MainStore.run.enemy),
                       };
                   }
                   return { value: "", label: "" };
@@ -39834,7 +40386,7 @@
                     if (-1 !== t)
                       return {
                         value: this.MainStore.run.spy,
-                        label: (0, Ce.K)("ene_" + this.MainStore.run.spy),
+                        label: (0, Ae.K)("ene_" + this.MainStore.run.spy),
                       };
                     if (
                       -1 !==
@@ -39844,7 +40396,7 @@
                     )
                       return {
                         value: this.MainStore.run.spy,
-                        label: (0, Ce.K)("dip_" + this.MainStore.run.spy),
+                        label: (0, Ae.K)("dip_" + this.MainStore.run.spy),
                       };
                   }
                   return { value: "", label: "" };
@@ -40038,11 +40590,11 @@
                   ) {
                     var n =
                       r > 1
-                        ? (0, Ce.K)("log_ene_no_loots").replace(
+                        ? (0, Ae.K)("log_ene_no_loots").replace(
                             "侦察兵们",
                             "侦察兵们(" + r + ")"
                           )
-                        : (0, Ce.K)("log_ene_no_loot");
+                        : (0, Ae.K)("log_ene_no_loot");
                     this.MainStore.addLog(
                       n,
                       "text-gray-400 dark:text-gray-500",
@@ -40077,13 +40629,13 @@
                     }),
                     r > 0 &&
                       (this.MainStore.addLog(
-                        (0, Ce.K)("log_spy_death") + "" + r,
+                        (0, Ae.K)("log_spy_death") + "" + r,
                         "text-red-600",
                         !0,
                         !1
                       ),
                       this.MainStore.addNotification(
-                        (0, Ce.K)("log_spy_death") + "" + r,
+                        (0, Ae.K)("log_spy_death") + "" + r,
                         "death",
                         "red",
                         !1
@@ -40099,8 +40651,8 @@
                         ? ((i = Be.find(function (t) {
                             return t.id === e.MainStore.run.spy;
                           })),
-                          (a = (0, Ce.K)("dip_" + i.id)))
-                        : (a = (0, Ce.K)("ene_" + i.id)),
+                          (a = (0, Ae.K)("dip_" + i.id)))
+                        : (a = (0, Ae.K)("ene_" + i.id)),
                       t >= i.esp)
                     ) {
                       this.MainStore.addLog(
@@ -40119,23 +40671,23 @@
                           (a = e._addEnemiesQtyModifiers(a));
                         var i =
                           a > 1
-                            ? (0, Ce.K)("uni_" + t.id + "_plural")
-                            : (0, Ce.K)("uni_" + t.id);
+                            ? (0, Ae.K)("uni_" + t.id + "_plural")
+                            : (0, Ae.K)("uni_" + t.id);
                         "" !== n && (n += "，"),
                           (n +=
                             a +
                             "" +
                             i +
                             " (" +
-                            (0, Ce.K)(
+                            (0, Ae.K)(
                               "uni_cat_" + We.b[r].category
                             ).toLowerCase() +
                             " / " +
-                            (0, Ce.K)("attack_abbr").toLowerCase() +
+                            (0, Ae.K)("attack_abbr").toLowerCase() +
                             "：" +
                             We.b[r].attack +
                             " / " +
-                            (0, Ce.K)("defense_abbr").toLowerCase() +
+                            (0, Ae.K)("defense_abbr").toLowerCase() +
                             "：" +
                             We.b[r].defense +
                             ")");
@@ -40156,7 +40708,7 @@
                           !1
                         ),
                         this.MainStore.addNotification(
-                          (0, Ce.K)("log_spy_full") + "" + n,
+                          (0, Ae.K)("log_spy_full") + "" + n,
                           "spy_success",
                           "green",
                           !1,
@@ -40183,27 +40735,27 @@
                             (a = e._addEnemiesQtyModifiers(a));
                           var i = "";
                           1 === a
-                            ? (i = (0, Ce.K)("one"))
+                            ? (i = (0, Ae.K)("one"))
                             : a >= 2 && a <= 7
-                            ? (i = (0, Ce.K)("a_few"))
+                            ? (i = (0, Ae.K)("a_few"))
                             : a >= 8 && a <= 15
-                            ? (i = (0, Ce.K)("some"))
+                            ? (i = (0, Ae.K)("some"))
                             : a >= 16 && a <= 30
-                            ? (i = (0, Ce.K)("a_lot"))
+                            ? (i = (0, Ae.K)("a_lot"))
                             : a >= 31 && a <= 60
-                            ? (i = (0, Ce.K)("a_plethora"))
-                            : a >= 61 && (i = (0, Ce.K)("a_legion"));
+                            ? (i = (0, Ae.K)("a_plethora"))
+                            : a >= 61 && (i = (0, Ae.K)("a_legion"));
                           var n =
                             a > 1
-                              ? (0, Ce.K)("uni_" + t.id + "_plural")
-                              : (0, Ce.K)("uni_" + t.id);
+                              ? (0, Ae.K)("uni_" + t.id + "_plural")
+                              : (0, Ae.K)("uni_" + t.id);
                           "" !== l && ((i = i.toLowerCase()), (l += "，")),
                             (l +=
                               i +
                               "" +
                               n.toLowerCase() +
                               " (" +
-                              (0, Ce.K)(
+                              (0, Ae.K)(
                                 "uni_cat_" + We.b[r].category
                               ).toLowerCase() +
                               ")");
@@ -40224,7 +40776,7 @@
                             !1
                           ),
                           this.MainStore.addNotification(
-                            (0, Ce.K)("log_spy_up50") + "" + l.toLowerCase(),
+                            (0, Ae.K)("log_spy_up50") + "" + l.toLowerCase(),
                             "spy_success",
                             "green",
                             !1,
@@ -40234,13 +40786,13 @@
                           );
                       } else
                         this.MainStore.addLog(
-                          a + "：" + (0, Ce.K)("log_spy_down50"),
+                          a + "：" + (0, Ae.K)("log_spy_down50"),
                           "text-red-600",
                           !0,
                           !1
                         ),
                           this.MainStore.addNotification(
-                            (0, Ce.K)("log_spy_down50"),
+                            (0, Ae.K)("log_spy_down50"),
                             "spy",
                             "red",
                             !1,
@@ -40408,10 +40960,12 @@
                           (l = l.filter(function (e) {
                             return void 0 !== e;
                           })),
+                          0 ===
                           (n = n.filter(function (e) {
                             return void 0 !== e;
-                          })),
-                          0 === n.length ? (s = 2) : 0 === l.length && (s = 1);
+                          })).length
+                            ? (s = 2)
+                            : 0 === l.length && (s = 1);
                       };
                     0 === s;
 
@@ -40487,16 +41041,16 @@
                   return (
                     this.dCombat ||
                       ("attack" === e
-                        ? Fe(
+                        ? De(
                             "event",
                             "attack",
                             this.MainStore.run.enemy,
                             1 === s ? 1 : 0
                           )
-                        : Fe("event", "defense", a, 1 === s ? 1 : 0)),
+                        : De("event", "defense", a, 1 === s ? 1 : 0)),
                     "attack" === e
                       ? this._battleLog(s, u, _, c, this.enemyOption.label)
-                      : this._battleLog(s, u, _, c, (0, Ce.K)("dip_" + a)),
+                      : this._battleLog(s, u, _, c, (0, Ae.K)("dip_" + a)),
                     "attack" === e &&
                       (this.dCombat ||
                         (1 === s &&
@@ -40517,25 +41071,25 @@
                   this._fight("oracle")
                     ? (this.MainStore.addLog(
                         "神谕：" +
-                          (0, Ce.K)("oracle_prediction_victory_" + e),
+                          (0, Ae.K)("oracle_prediction_victory_" + e),
                         "text-indigo-700 dark:text-indigo-400",
                         !0,
                         !1
                       ),
                       this.MainStore.addNotification(
-                        (0, Ce.K)("oracle_prediction_victory_" + e),
+                        (0, Ae.K)("oracle_prediction_victory_" + e),
                         "oracle",
                         "green",
                         !1
                       ))
                     : (this.MainStore.addLog(
-                        "神谕：" + (0, Ce.K)("oracle_prediction_defeat_" + e),
+                        "神谕：" + (0, Ae.K)("oracle_prediction_defeat_" + e),
                         "text-indigo-700 dark:text-indigo-400",
                         !0,
                         !1
                       ),
                       this.MainStore.addNotification(
-                        (0, Ce.K)("oracle_prediction_defeat_" + e),
+                        (0, Ae.K)("oracle_prediction_defeat_" + e),
                         "oracle",
                         "red",
                         !1
@@ -40696,20 +41250,20 @@
                       ((l = r.reduce(function (e, t) {
                         return e[t] ? ++e[t] : (e[t] = 1), e;
                       }, {})),
-                      (s = (0, Ce.K)("injured") + "："),
+                      (s = (0, Ae.K)("injured") + "："),
                       Object.keys(l).forEach(function (e, t) {
                         "settlement_defenses" !== e &&
                           (t > 0 &&
-                            s !== (0, Ce.K)("injured") + "：" &&
+                            s !== (0, Ae.K)("injured") + "：" &&
                             (s += "，"),
                           (s +=
                             l[e] +
                             "" +
                             (l[e] > 1
-                              ? (0, Ce.K)("uni_" + e + "_plural")
-                              : (0, Ce.K)("uni_" + e))));
+                              ? (0, Ae.K)("uni_" + e + "_plural")
+                              : (0, Ae.K)("uni_" + e))));
                       }),
-                      s !== (0, Ce.K)("injured") + "：" &&
+                      s !== (0, Ae.K)("injured") + "：" &&
                         (this.MainStore.addLog(s, o, !0, !1),
                         this.lastBattleLog.push(s),
                         (u += s + "。"))),
@@ -40717,20 +41271,20 @@
                       ((l = t.reduce(function (e, t) {
                         return e[t] ? ++e[t] : (e[t] = 1), e;
                       }, {})),
-                      (s = (0, Ce.K)("died") + "："),
+                      (s = (0, Ae.K)("died") + "："),
                       Object.keys(l).forEach(function (e, t) {
                         "settlement_defenses" !== e &&
                           (t > 0 &&
-                            s !== (0, Ce.K)("died") + "：" &&
+                            s !== (0, Ae.K)("died") + "：" &&
                             (s += "，"),
                           (s +=
                             l[e] +
                             "" +
                             (l[e] > 1
-                              ? (0, Ce.K)("uni_" + e + "_plural")
-                              : (0, Ce.K)("uni_" + e))));
+                              ? (0, Ae.K)("uni_" + e + "_plural")
+                              : (0, Ae.K)("uni_" + e))));
                       }),
-                      s !== (0, Ce.K)("died") + "：" &&
+                      s !== (0, Ae.K)("died") + "：" &&
                         (this.MainStore.addLog(s, o, !0, !1),
                         this.lastBattleLog.push(s),
                         (u += s + "。"))),
@@ -40740,15 +41294,15 @@
                     (l = a.reduce(function (e, t) {
                       return e[t] ? ++e[t] : (e[t] = 1), e;
                     }, {})),
-                      (s = (0, Ce.K)("killed") + "："),
+                      (s = (0, Ae.K)("killed") + "："),
                       Object.keys(l).forEach(function (e, t) {
                         t > 0 && (s += "，"),
                           (s +=
                             l[e] +
                             "" +
                             (l[e] > 1
-                              ? (0, Ce.K)("uni_" + e + "_plural")
-                              : (0, Ce.K)("uni_" + e))),
+                              ? (0, Ae.K)("uni_" + e + "_plural")
+                              : (0, Ae.K)("uni_" + e))),
                           (c += l[e]);
                       }),
                       this.MainStore.addLog(s, o, !0, !1),
@@ -40757,9 +41311,9 @@
                       (u += s);
                   }
                   1 === e
-                    ? ((s = (0, Ce.K)("victory")),
+                    ? ((s = (0, Ae.K)("victory")),
                       this.MainStore.addNotification(
-                        (0, Ce.K)("victory") + "" + u,
+                        (0, Ae.K)("victory") + "" + u,
                         "battle",
                         "green",
                         !1,
@@ -40767,9 +41321,9 @@
                         !1,
                         i
                       ))
-                    : ((s = (0, Ce.K)("defeat")),
+                    : ((s = (0, Ae.K)("defeat")),
                       this.MainStore.addNotification(
-                        (0, Ce.K)("defeat") + "" + u,
+                        (0, Ae.K)("defeat") + "" + u,
                         "battle",
                         "red",
                         !1,
@@ -40926,7 +41480,7 @@
                       !1
                     ),
                       this.MainStore.addNotification(
-                        (0, Ce.K)("log_ene_death_" + n),
+                        (0, Ae.K)("log_ene_death_" + n),
                         "death",
                         "red",
                         !1
@@ -40976,11 +41530,11 @@
                   if (!(e <= 0)) {
                     var a =
                         e > 1
-                          ? (0, Ce.K)("log_ene_loots").replace(
+                          ? (0, Ae.K)("log_ene_loots").replace(
                               "侦察兵们",
                               "侦察兵们(" + e + ")"
                             )
-                          : (0, Ce.K)("log_ene_loot"),
+                          : (0, Ae.K)("log_ene_loot"),
                       i = t.reduce(function (e, t) {
                         return e.set(
                           t.id,
@@ -40991,7 +41545,7 @@
                     i.forEach(function (e, t) {
                       r.MainStore.ResourcesStore.addResource(t, e, !0),
                         "" !== n && (n += "，"),
-                        (n += e + "" + (0, Ce.K)("res_" + t));
+                        (n += e + "" + (0, Ae.K)("res_" + t));
                     }),
                       this.MainStore.addLog(
                         a + "：" + n,
@@ -41078,12 +41632,12 @@
                           "img_" + e + "_description"
                         )
                       : this.MainStore.addNotification(
-                          (0, Ce.K)("log_ene_" + e),
+                          (0, Ae.K)("log_ene_" + e),
                           "enemy",
                           "green",
                           !1
                         ),
-                    Fe(
+                    De(
                       "event",
                       "enemy",
                       e,
@@ -41647,6 +42201,42 @@
             ],
           },
           {
+            id: "sacred_den_b",
+            cat: "resource",
+            tab: 1,
+            age: 1,
+            req: [
+              { type: "resource", id: "food", value: 1400, multi: 1.2 },
+              { type: "resource", id: "wood", value: 1200, multi: 1.4 },
+              { type: "resource", id: "faith", value: 600, multi: 1.4 },
+              { type: "prayer", id: "sacred_den_f", value: 1 },
+            ],
+            gen: [
+              { type: "population", id: "lumberjack", value: 1 },
+              { type: "population", id: "quarryman", value: 1 },
+              {
+                type: "modifier",
+                type_id: "population",
+                id: "lumberjack",
+                type_gen: "resource",
+                gen: "wood",
+                value: 2,
+                perc: !0,
+              },
+              {
+                type: "modifier",
+                type_id: "population",
+                id: "quarryman",
+                type_gen: "resource",
+                gen: "stone",
+                value: 2,
+                perc: !0,
+              },
+              { type: "cap", id: "faith", value: 400 },
+              { type: "population", id: "unemployed", value: 1 },
+            ],
+          },
+          {
             id: "undead_herd",
             cat: "resource",
             tab: 1,
@@ -42153,6 +42743,23 @@
             ],
           },
           {
+            id: "mage_academy_b",
+            cat: "science",
+            tab: 1,
+            age: 1,
+            req: [
+              { type: "resource", id: "gold", value: 2e3, multi: 1.4 },
+              { type: "resource", id: "wood", value: 1200, multi: 1.4 },
+              { type: "resource", id: "stone", value: 900, multi: 1.4 },
+              { type: "prayer", id: "mage_academy_f", value: 1 },
+            ],
+            gen: [
+              { type: "resource", id: "research", value: 2 },
+              { type: "cap", id: "research", value: 1e3 },
+              { type: "cap", id: "faith", value: 400 },
+            ],
+          },
+          {
             id: "university",
             cat: "science",
             tab: 1,
@@ -42313,6 +42920,28 @@
               { type: "population", id: "skymancer", value: 1 },
               { type: "cap", id: "research", value: 2500 },
               { type: "cap", id: "crystal", value: 100 },
+            ],
+          },
+          {
+            id: "highschool_magic_b",
+            cat: "science",
+            tab: 1,
+            age: 3,
+            req: [
+              { type: "resource", id: "gold", value: 8e3, multi: 1.4 },
+              { type: "resource", id: "stone", value: 4e3, multi: 1.4 },
+              { type: "resource", id: "faith", value: 4e3, multi: 1.3 },
+              { type: "resource", id: "steel", value: 2500, multi: 1.2 },
+              { type: "resource", id: "mana", value: 1500, multi: 1.2 },
+              { type: "prayer", id: "highschool_magic_f", value: 1 },
+            ],
+            gen: [
+              { type: "resource", id: "research", value: 4 },
+              { type: "resource", id: "mana", value: 4 },
+              { type: "resource", id: "crystal", value: 0.6 },
+              { type: "resource", id: "research", value: 2, perc: !0 },
+              { type: "resource", id: "mana", value: 2, perc: !0 },
+              { type: "resource", id: "crystal", value: 2, perc: !0 },
             ],
           },
           {
@@ -43034,6 +43663,50 @@
             ],
           },
           {
+            id: "magic_workshop_b",
+            cat: "defense",
+            tab: 1,
+            age: 3,
+            cap: 10,
+            req: [
+              { type: "resource", id: "gold", value: 1e4, multi: 1.4 },
+              { type: "resource", id: "faith", value: 1e4, multi: 1.3 },
+              { type: "resource", id: "mana", value: 8e3, multi: 1.3 },
+              { type: "prayer", id: "magic_workshop_f", value: 1 },
+            ],
+            gen: [
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "priest",
+                type_gen: "stat",
+                gen: "defense",
+                value: 2,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "cleric",
+                type_gen: "stat",
+                gen: "defense",
+                value: 2,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "sacred_golem",
+                type_gen: "stat",
+                gen: "defense",
+                value: 4,
+                perc: !1,
+              },
+              { type: "resource", id: "mana", value: 5 },
+              { type: "resource", id: "luck", value: 1, fix: !0 },
+            ],
+          },
+          {
             id: "officer_training_ground",
             cat: "defense",
             tab: 1,
@@ -43132,6 +43805,76 @@
                 value: 50,
                 perc: !1,
               },
+            ],
+          },
+          {
+            id: "magic_stable_b",
+            cat: "defense",
+            tab: 1,
+            age: 4,
+            cap: 10,
+            req: [
+              { type: "resource", id: "faith", value: 15e3, multi: 1.2 },
+              { type: "resource", id: "mana", value: 12e3, multi: 1.2 },
+              { type: "resource", id: "horse", value: 7500, multi: 1.2 },
+              { type: "prayer", id: "magic_stable_f", value: 1 },
+            ],
+            gen: [
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "light_cavarly",
+                type_gen: "stat",
+                gen: "attack",
+                value: 2,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "light_cavarly",
+                type_gen: "stat",
+                gen: "defense",
+                value: 1,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "knight",
+                type_gen: "stat",
+                gen: "attack",
+                value: 4,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "knight",
+                type_gen: "stat",
+                gen: "defense",
+                value: 2,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "cuirassier",
+                type_gen: "stat",
+                gen: "attack",
+                value: 5,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "cuirassier",
+                type_gen: "stat",
+                gen: "defense",
+                value: 3,
+                perc: !1,
+              },
+              { type: "cap", id: "army", value: 10 },
             ],
           },
           {
@@ -43655,6 +44398,74 @@
               { type: "resource", id: "mana", value: 1e4 },
               { type: "resource", id: "natronite", value: 8e3 },
               { type: "tech", id: "natrocity", value: 1 },
+            ],
+          },
+          {
+            id: "steel_palace_b",
+            cat: "wonders",
+            tab: 1,
+            cap: 1,
+            age: 4,
+            req: [
+              {
+                type: "building",
+                id: "steel_palace_b_part",
+                value: 10,
+                consume: !0,
+              },
+            ],
+            gen: [
+              { type: "resource", id: "fame", value: 300, fix: !0 },
+              { type: "resource", id: "gold", value: 100 },
+              { type: "population", id: "unemployed", value: 10 },
+            ],
+          },
+          {
+            id: "steel_palace_b_part",
+            cat: "wonders",
+            tab: 1,
+            cap: 10,
+            age: 4,
+            req: [
+              { type: "resource", id: "faith", value: 6e4 },
+              { type: "resource", id: "mana", value: 6e4 },
+              { type: "resource", id: "steel", value: 4e4 },
+              { type: "prayer", id: "steel_palace_f", value: 1 },
+            ],
+          },
+          {
+            id: "ivory_tower_b",
+            cat: "wonders",
+            tab: 1,
+            cap: 1,
+            age: 4,
+            req: [
+              {
+                type: "building",
+                id: "ivory_tower_b_part",
+                value: 10,
+                consume: !0,
+              },
+            ],
+            gen: [
+              { type: "resource", id: "fame", value: 200, fix: !0 },
+              { type: "resource", id: "research", value: 25 },
+              { type: "resource", id: "mana", value: 25 },
+              { type: "resource", id: "research", value: 10, perc: !0 },
+              { type: "resource", id: "mana", value: 10, perc: !0 },
+            ],
+          },
+          {
+            id: "ivory_tower_b_part",
+            cat: "wonders",
+            tab: 1,
+            cap: 10,
+            age: 4,
+            req: [
+              { type: "resource", id: "faith", value: 6e4 },
+              { type: "resource", id: "mana", value: 6e4 },
+              { type: "resource", id: "crystal", value: 4e4 },
+              { type: "prayer", id: "ivory_tower_f", value: 1 },
             ],
           },
           {
@@ -44202,6 +45013,22 @@
               { type: "tech", id: "fortune_sanctuary", value: 1 },
             ],
             gen: [{ type: "resource", id: "luck", value: 1, fix: !0 }],
+          },
+          {
+            id: "mana_fields_b",
+            cat: "faith",
+            tab: 1,
+            age: 1,
+            req: [
+              { type: "resource", id: "faith", value: 1500, multi: 1.3 },
+              { type: "resource", id: "mana", value: 1e3, multi: 1.3 },
+              { type: "prayer", id: "mage_fields_f", value: 1 },
+            ],
+            gen: [
+              { type: "resource", id: "mana", value: 4 },
+              { type: "cap", id: "faith", value: 400 },
+              { type: "cap", id: "mana", value: 400 },
+            ],
           },
           {
             id: "pillars_of_mana",
@@ -45644,7 +46471,7 @@
                         ),
                     "watchman_outpost" === e &&
                       this.MainStore.DiplomacyStore.checkShowAttack(),
-                    Fe(
+                    De(
                       "event",
                       "building",
                       e,
@@ -45787,7 +46614,7 @@
                       !1,
                       !1
                     ),
-                    Fe(
+                    De(
                       "event",
                       "kingdom",
                       e.id,
@@ -45822,7 +46649,7 @@
                   });
                   (this.MainStore.run.diplomacy[t].war = 1),
                     (this.MainStore.ArmyStore._recomputeEnemies = !0),
-                    Fe(
+                    De(
                       "event",
                       "war",
                       e,
@@ -45865,7 +46692,7 @@
                       gen: Be[r].alliance,
                     }),
                       (this.MainStore.run.diplomacy[t].alliance = 1),
-                      Fe(
+                      De(
                         "event",
                         "alliance",
                         e,
@@ -46085,7 +46912,7 @@
                   e < this.negativeRelationship
                     ? ((t = Math.round((100 * e) / this.negativeRelationship)),
                       this.MainStore.addLog(
-                        (0, Ce.K)("log_dip_relationship_negative") +
+                        (0, Ae.K)("log_dip_relationship_negative") +
                           " (" +
                           t +
                           "%)",
@@ -46094,7 +46921,7 @@
                         !1
                       ),
                       this.MainStore.addNotification(
-                        (0, Ce.K)("log_dip_relationship_negative") +
+                        (0, Ae.K)("log_dip_relationship_negative") +
                           " (" +
                           t +
                           "%)",
@@ -46110,14 +46937,14 @@
                         !1
                       ),
                       this.MainStore.addNotification(
-                        (0, Ce.K)("log_dip_relationship_positive"),
+                        (0, Ae.K)("log_dip_relationship_positive"),
                         "relationship",
                         "green",
                         !1
                       ))
                     : ((t = Math.round((100 * e) / this.positiveRelationship)),
                       this.MainStore.addLog(
-                        (0, Ce.K)("log_dip_relationship_neutral") +
+                        (0, Ae.K)("log_dip_relationship_neutral") +
                           " (" +
                           t +
                           "%)",
@@ -46126,7 +46953,7 @@
                         !1
                       ),
                       this.MainStore.addNotification(
-                        (0, Ce.K)("log_dip_relationship_neutral") +
+                        (0, Ae.K)("log_dip_relationship_neutral") +
                           " (" +
                           t +
                           "%)",
@@ -46226,6 +47053,14 @@
               { type: "cap", id: "stone", value: 1e3 },
               { type: "cap", id: "copper", value: 500 },
               { type: "cap", id: "iron", value: 500 },
+            ],
+          },
+          {
+            id: "service_gods",
+            req: [{ type: "resource", id: "legacy", value: 2 }],
+            gen: [
+              { type: "cap", id: "faith", value: 1e3 },
+              { type: "cap", id: "mana", value: 1e3 },
             ],
           },
           {
@@ -46342,6 +47177,17 @@
               { type: "cap", id: "tools", value: 1e3 },
               { type: "cap", id: "cow", value: 250 },
               { type: "cap", id: "horse", value: 250 },
+            ],
+          },
+          {
+            id: "service_gods_II",
+            req: [
+              { type: "resource", id: "legacy", value: 4 },
+              { type: "legacy", id: "service_gods", value: 1 },
+            ],
+            gen: [
+              { type: "cap", id: "faith", value: 2500 },
+              { type: "cap", id: "mana", value: 2500 },
             ],
           },
           {
@@ -46709,6 +47555,17 @@
               { type: "cap", id: "crystal", value: 2500 },
               { type: "cap", id: "supplies", value: 2500 },
               { type: "cap", id: "saltpetre", value: 2500 },
+            ],
+          },
+          {
+            id: "service_gods_III",
+            req: [
+              { type: "resource", id: "legacy", value: 8 },
+              { type: "legacy", id: "service_gods_II", value: 1 },
+            ],
+            gen: [
+              { type: "cap", id: "faith", value: 6e3 },
+              { type: "cap", id: "mana", value: 6e3 },
             ],
           },
           {
@@ -47306,6 +48163,17 @@
             ],
           },
           {
+            id: "service_gods_IV",
+            req: [
+              { type: "resource", id: "legacy", value: 16 },
+              { type: "legacy", id: "service_gods_III", value: 1 },
+            ],
+            gen: [
+              { type: "cap", id: "faith", value: 12e3 },
+              { type: "cap", id: "mana", value: 12e3 },
+            ],
+          },
+          {
             id: "clever_villagers_III",
             req: [
               { type: "resource", id: "legacy", value: 18 },
@@ -47604,6 +48472,17 @@
             id: "acolyte_fate",
             req: [{ type: "resource", id: "legacy", value: 32 }],
             gen: [{ type: "resource", id: "luck", value: 6, fix: !0 }],
+          },
+          {
+            id: "service_gods_V",
+            req: [
+              { type: "resource", id: "legacy", value: 32 },
+              { type: "legacy", id: "service_gods_IV", value: 1 },
+            ],
+            gen: [
+              { type: "cap", id: "faith", value: 25e3 },
+              { type: "cap", id: "mana", value: 25e3 },
+            ],
           },
           {
             id: "powered_weapons_VI",
@@ -48208,7 +49087,7 @@
                                     className:
                                       "px-4 2xl:py-1 text-left whitespace-nowrap text-green-600",
                                   },
-                                  (0, Ce.K)("all_resources")
+                                  (0, Ae.K)("all_resources")
                                 ),
                                 o.createElement(
                                   "td",
@@ -48251,7 +49130,7 @@
                                       className:
                                         "px-4 2xl:py-1 text-left whitespace-nowrap text-green-600",
                                     },
-                                    (0, Ce.K)("all_caps")
+                                    (0, Ae.K)("all_caps")
                                   ),
                                   o.createElement(
                                     "td",
@@ -48286,7 +49165,7 @@
                                     className:
                                       "text-gray-700 dark:text-mydark-50 mt-4",
                                   },
-                                  (0, Ce.K)("leg_" + a.id)
+                                  (0, Ae.K)("leg_" + a.id)
                                 )
                               )
                             );
@@ -48377,7 +49256,7 @@
                     )
                       return !1;
                     this.MainStore.legacies.push({ id: e, date: Date.now() }),
-                      Fe(
+                      De(
                         "event",
                         "legacy",
                         e,
@@ -48429,8 +49308,8 @@
                       : "dip_fallen_angel_army_2" === e
                       ? (t = 8)
                       : "dip_orc_horde_boss" === e && (t = 9),
-                    (this.softResetTitle = (0, Ce.K)(e)),
-                    (this.softResetDescription = (0, Ce.K)(
+                    (this.softResetTitle = (0, Ae.K)(e)),
+                    (this.softResetDescription = (0, Ae.K)(
                       "soft_reset_description_" + t + (r ? "_true" : "_false")
                     ))),
                     (this.softResetCounter = t),
@@ -48536,7 +49415,8 @@
           );
         })(),
         at = rt,
-        it = [
+        it = ["army", "defense", "resource"],
+        nt = [
           {
             id: "praise_gods",
             type: "prayer",
@@ -48787,6 +49667,66 @@
             ],
           },
           {
+            id: "focus_development",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 2e3 },
+              { type: "building", id: "magic_circle", value: 3 },
+            ],
+            gen: [
+              { type: "prayer", id: "focus_research", value: -1 },
+              { type: "prayer", id: "focus_magic", value: -1 },
+            ],
+          },
+          {
+            id: "focus_magic",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 2e3 },
+              { type: "building", id: "magic_circle", value: 3 },
+            ],
+            gen: [
+              { type: "prayer", id: "focus_research", value: -1 },
+              { type: "prayer", id: "focus_development", value: -1 },
+            ],
+          },
+          {
+            id: "focus_research",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 2e3 },
+              { type: "building", id: "magic_circle", value: 3 },
+            ],
+            gen: [
+              { type: "prayer", id: "focus_development", value: -1 },
+              { type: "prayer", id: "focus_magic", value: -1 },
+            ],
+          },
+          {
+            id: "life_magic_p",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 2e3 },
+              { type: "prayer", id: "focus_development", value: 1 },
+            ],
+          },
+          {
+            id: "highlightment_p",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 2e3 },
+              { type: "prayer", id: "focus_research", value: 1 },
+            ],
+          },
+          {
+            id: "mana_flowers_p",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 2e3 },
+              { type: "prayer", id: "focus_magic", value: 1 },
+            ],
+          },
+          {
             id: "demonology",
             type: "prayer",
             req: [
@@ -48862,11 +49802,54 @@
             ],
           },
           {
+            id: "mage_p",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 2600 },
+              { type: "prayer", id: "mage_academy_f", value: 1 },
+            ],
+          },
+          {
+            id: "mana_armor_p",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 2600 },
+              { type: "prayer", id: "mage_fields_f", value: 1 },
+            ],
+          },
+          {
             id: "the_aid",
             type: "prayer",
             req: [
               { type: "resource", id: "faith", value: 4e3 },
               { type: "tech", id: "the_scourge", value: 1 },
+            ],
+          },
+          {
+            id: "sacred_den_f",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 4e3 },
+              { type: "prayer", id: "focus_development", value: 1 },
+              { type: "building", id: "magic_circle", value: 6 },
+            ],
+          },
+          {
+            id: "mage_academy_f",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 4e3 },
+              { type: "prayer", id: "focus_research", value: 1 },
+              { type: "building", id: "magic_circle", value: 6 },
+            ],
+          },
+          {
+            id: "mage_fields_f",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 4e3 },
+              { type: "prayer", id: "focus_magic", value: 1 },
+              { type: "building", id: "magic_circle", value: 6 },
             ],
           },
           {
@@ -48984,6 +49967,70 @@
             ],
           },
           {
+            id: "legion_light_p",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 6e3 },
+              { type: "building", id: "magic_circle", value: 8 },
+            ],
+            gen: [
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "warrior_monk",
+                type_gen: "stat",
+                gen: "defense",
+                value: 4,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "sacred_golem",
+                type_gen: "stat",
+                gen: "defense",
+                value: 8,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "battle_angel",
+                type_gen: "stat",
+                gen: "attack",
+                value: 8,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "battle_angel",
+                type_gen: "stat",
+                gen: "defense",
+                value: 6,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "seraphim",
+                type_gen: "stat",
+                gen: "attack",
+                value: 120,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "seraphim",
+                type_gen: "stat",
+                gen: "defense",
+                value: 80,
+                perc: !1,
+              },
+            ],
+          },
+          {
             id: "old_small_one_2",
             type: "prayer",
             req: [
@@ -49017,6 +50064,22 @@
             ],
           },
           {
+            id: "archmage_p",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 1e4 },
+              { type: "prayer", id: "highschool_magic_f", value: 1 },
+            ],
+          },
+          {
+            id: "armored_caravan_p",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 1e4 },
+              { type: "prayer", id: "philosopher_stone_p", value: 1 },
+            ],
+          },
+          {
             id: "army_faith",
             type: "prayer",
             req: [
@@ -49042,6 +50105,49 @@
                 value: 5,
                 perc: !1,
               },
+            ],
+          },
+          {
+            id: "highschool_magic_f",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 1e4 },
+              { type: "prayer", id: "focus_research", value: 1 },
+              { type: "building", id: "magic_circle", value: 9 },
+            ],
+          },
+          {
+            id: "magic_workshop_f",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 1e4 },
+              { type: "prayer", id: "mana_forest_p", value: 1 },
+            ],
+          },
+          {
+            id: "mana_forest_p",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 1e4 },
+              { type: "prayer", id: "focus_magic", value: 1 },
+              { type: "building", id: "magic_circle", value: 9 },
+            ],
+          },
+          {
+            id: "philosopher_stone_p",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 1e4 },
+              { type: "prayer", id: "focus_development", value: 1 },
+              { type: "building", id: "magic_circle", value: 9 },
+            ],
+          },
+          {
+            id: "spell_book_p",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 1e4 },
+              { type: "prayer", id: "highschool_magic_f", value: 1 },
             ],
           },
           {
@@ -49116,6 +50222,65 @@
             ],
           },
           {
+            id: "ivory_tower_f",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 18e3 },
+              { type: "prayer", id: "focus_research", value: 1 },
+              { type: "building", id: "magic_circle", value: 13 },
+            ],
+          },
+          {
+            id: "magic_stable_f",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 18e3 },
+              { type: "prayer", id: "mana_fortress_p", value: 1 },
+            ],
+          },
+          {
+            id: "mana_fortress_p",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 18e3 },
+              { type: "prayer", id: "mana_spiral_p", value: 1 },
+            ],
+          },
+          {
+            id: "mana_materials_p",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 18e3 },
+              { type: "prayer", id: "steel_palace_f", value: 1 },
+            ],
+          },
+          {
+            id: "mana_spiral_p",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 18e3 },
+              { type: "prayer", id: "focus_magic", value: 1 },
+              { type: "building", id: "magic_circle", value: 13 },
+            ],
+          },
+          {
+            id: "steel_palace_f",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 18e3 },
+              { type: "prayer", id: "focus_development", value: 1 },
+              { type: "building", id: "magic_circle", value: 13 },
+            ],
+          },
+          {
+            id: "tome_wisdom_p",
+            type: "prayer",
+            req: [
+              { type: "resource", id: "faith", value: 18e3 },
+              { type: "prayer", id: "ivory_tower_f", value: 1 },
+            ],
+          },
+          {
             id: "warrior_gods",
             type: "prayer",
             req: [
@@ -49185,6 +50350,7 @@
           {
             id: "temple_ritual",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "praise_gods", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -2 },
@@ -49195,6 +50361,7 @@
           {
             id: "minor_blessing",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "blessing", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -2 },
@@ -49205,6 +50372,7 @@
           {
             id: "acolyte_hymn",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "acolyte_circle", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -5 },
@@ -49215,6 +50383,7 @@
           {
             id: "great_seeker_blessing",
             type: "spell",
+            cat: "army",
             req: [
               { type: "prayer", id: "prayer_for_the_great_seeker", value: 1 },
             ],
@@ -49244,6 +50413,7 @@
           {
             id: "great_warrior_blessing",
             type: "spell",
+            cat: "army",
             req: [
               { type: "prayer", id: "prayer_for_the_great_warrior", value: 1 },
             ],
@@ -49290,6 +50460,7 @@
           {
             id: "mana_energy_shield",
             type: "spell",
+            cat: "defense",
             req: [{ type: "prayer", id: "mana_defense", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -5 },
@@ -49307,6 +50478,7 @@
           {
             id: "mother_earth_blessing",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "prayer_for_mother_earth", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -5 },
@@ -49317,6 +50489,7 @@
           {
             id: "old_small_one_blessing",
             type: "spell",
+            cat: "resource",
             req: [
               { type: "prayer", id: "prayer_for_the_old_small_one", value: 1 },
             ],
@@ -49330,6 +50503,7 @@
           {
             id: "sacred_armor",
             type: "spell",
+            cat: "army",
             req: [{ type: "prayer", id: "sacred_equipments", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -5 },
@@ -49354,8 +50528,44 @@
             ],
           },
           {
+            id: "mana_armor_s",
+            type: "spell",
+            req: [{ type: "prayer", id: "mana_armor_p", value: 1 }],
+            gen: [
+              { type: "resource", id: "mana", value: -25 },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "light_cavarly",
+                type_gen: "stat",
+                gen: "defense",
+                value: 7,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "knight",
+                type_gen: "stat",
+                gen: "defense",
+                value: 7,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "commander",
+                type_gen: "stat",
+                gen: "defense",
+                value: 12,
+                perc: !1,
+              },
+            ],
+          },
+          {
             id: "spell_ancient",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "ancient_spell_p", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -5 },
@@ -49369,6 +50579,7 @@
           {
             id: "theresmore_revealed",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "unveil_theresmore", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -5 },
@@ -49379,6 +50590,7 @@
           {
             id: "wild_man_blessing",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "prayer_wild_man", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -5 },
@@ -49389,6 +50601,7 @@
           {
             id: "wild_man_spear",
             type: "spell",
+            cat: "army",
             req: [{ type: "prayer", id: "spear_wild_man", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -5 },
@@ -49415,6 +50628,7 @@
           {
             id: "growth_of_nature",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "growth_nature", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -7 },
@@ -49422,8 +50636,19 @@
             ],
           },
           {
+            id: "mana_flowers_s",
+            type: "spell",
+            cat: "resource",
+            req: [{ type: "prayer", id: "mana_flowers_p", value: 1 }],
+            gen: [
+              { type: "resource", id: "mana", value: 10 },
+              { type: "resource", id: "mana", value: 2, perc: !0 },
+            ],
+          },
+          {
             id: "lighten_of_rocks",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "lighten_rocks", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -7 },
@@ -49433,6 +50658,7 @@
           {
             id: "magic_tools",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "magical_tools", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -7 },
@@ -49442,6 +50668,7 @@
           {
             id: "magic_lights",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "magical_lights", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -7 },
@@ -49452,6 +50679,7 @@
           {
             id: "mirune_blessing",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "temple_mirune", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -10 },
@@ -49462,6 +50690,7 @@
           {
             id: "dark_ritual",
             type: "spell",
+            cat: "army",
             req: [{ type: "prayer", id: "demonology", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -10 },
@@ -49497,6 +50726,7 @@
           {
             id: "great_builder_blessing",
             type: "spell",
+            cat: "resource",
             req: [
               { type: "prayer", id: "prayer_for_the_great_builder", value: 1 },
             ],
@@ -49511,6 +50741,7 @@
           {
             id: "mana_dome",
             type: "spell",
+            cat: "defense",
             req: [{ type: "prayer", id: "mana_defense_II", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -10 },
@@ -49528,6 +50759,7 @@
           {
             id: "mysterious_arcane_blessing",
             type: "spell",
+            cat: "resource",
             req: [
               {
                 type: "prayer",
@@ -49544,6 +50776,7 @@
           {
             id: "sacred_weapon",
             type: "spell",
+            cat: "army",
             req: [{ type: "prayer", id: "sacred_equipments_II", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -10 },
@@ -49570,6 +50803,7 @@
           {
             id: "church_ritual",
             type: "spell",
+            cat: "army",
             req: [{ type: "prayer", id: "blessing_church", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -20 },
@@ -49597,6 +50831,7 @@
           {
             id: "great_seeker_eyesight",
             type: "spell",
+            cat: "army",
             req: [{ type: "prayer", id: "great_seeker_2", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -20 },
@@ -49624,6 +50859,7 @@
           {
             id: "great_warrior_fury",
             type: "spell",
+            cat: "army",
             req: [{ type: "prayer", id: "great_warrior_2", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -20 },
@@ -49668,6 +50904,7 @@
           {
             id: "mother_earth_grace",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "mother_earth_2", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -20 },
@@ -49678,6 +50915,7 @@
           {
             id: "new_world_chant",
             type: "spell",
+            cat: "army",
             req: [{ type: "prayer", id: "pilgrim_chant", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -20 },
@@ -49707,6 +50945,7 @@
           {
             id: "old_small_one_grace",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "old_small_one_2", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -20 },
@@ -49718,6 +50957,7 @@
           {
             id: "wild_man_dexterity",
             type: "spell",
+            cat: "army",
             req: [{ type: "prayer", id: "wild_man_2", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -20 },
@@ -49762,6 +51002,7 @@
           {
             id: "dragon_armor",
             type: "spell",
+            cat: "army",
             req: [{ type: "prayer", id: "dragon_skull", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -20 },
@@ -49806,6 +51047,7 @@
           {
             id: "dragon_weapon",
             type: "spell",
+            cat: "army",
             req: [{ type: "prayer", id: "dragon_skull", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -20 },
@@ -49848,8 +51090,59 @@
             ],
           },
           {
+            id: "life_magic_s",
+            type: "spell",
+            cat: "resource",
+            req: [{ type: "prayer", id: "life_magic_p", value: 1 }],
+            gen: [
+              { type: "resource", id: "mana", value: -25 },
+              { type: "resource", id: "food", value: 4 },
+              { type: "resource", id: "wood", value: 4 },
+              { type: "resource", id: "stone", value: 4 },
+            ],
+          },
+          {
+            id: "highlightment_s",
+            type: "spell",
+            cat: "resource",
+            req: [{ type: "prayer", id: "highlightment_p", value: 1 }],
+            gen: [
+              { type: "resource", id: "mana", value: -25 },
+              { type: "resource", id: "research", value: 5 },
+              { type: "resource", id: "research", value: 3, perc: !0 },
+            ],
+          },
+          {
+            id: "spell_book_s",
+            type: "spell",
+            cat: "army",
+            req: [{ type: "prayer", id: "spell_book_p", value: 1 }],
+            gen: [
+              { type: "resource", id: "mana", value: -25 },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "mage_u",
+                type_gen: "stat",
+                gen: "attack",
+                value: 12,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "mage_u",
+                type_gen: "stat",
+                gen: "defense",
+                value: 12,
+                perc: !1,
+              },
+            ],
+          },
+          {
             id: "mana_armor",
             type: "spell",
+            cat: "army",
             req: [{ type: "prayer", id: "shape_mana", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -30 },
@@ -49892,8 +51185,19 @@
             ],
           },
           {
+            id: "mana_forest_s",
+            type: "spell",
+            cat: "resource",
+            req: [{ type: "prayer", id: "mana_forest_p", value: 1 }],
+            gen: [
+              { type: "resource", id: "mana", value: 35 },
+              { type: "resource", id: "mana", value: 3, perc: !0 },
+            ],
+          },
+          {
             id: "druid_blessing",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "prayer_lonely_druid", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -40 },
@@ -49905,6 +51209,7 @@
           {
             id: "blessing_city",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "city_blessing", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -40 },
@@ -49933,6 +51238,7 @@
           {
             id: "northern_star_protection",
             type: "spell",
+            cat: "defense",
             req: [{ type: "prayer", id: "protection_power", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -50 },
@@ -49950,6 +51256,7 @@
           {
             id: "northern_star_incremental",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "incremental_power", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -50 },
@@ -49967,8 +51274,20 @@
             ],
           },
           {
+            id: "philosopher_stone_s",
+            type: "spell",
+            cat: "resource",
+            req: [{ type: "prayer", id: "philosopher_stone_p", value: 1 }],
+            gen: [
+              { type: "resource", id: "mana", value: -50 },
+              { type: "resource", id: "gold", value: 15 },
+              { type: "resource", id: "gold", value: 3, perc: !0 },
+            ],
+          },
+          {
             id: "army_blessing",
             type: "spell",
+            cat: "army",
             req: [{ type: "prayer", id: "blessing_prelate", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -60 },
@@ -50002,8 +51321,78 @@
             ],
           },
           {
+            id: "mana_materials_s",
+            type: "spell",
+            cat: "resource",
+            req: [{ type: "prayer", id: "mana_materials_p", value: 1 }],
+            gen: [
+              { type: "resource", id: "mana", value: -75 },
+              { type: "resource", id: "building_material", value: 7 },
+              { type: "resource", id: "steel", value: 7 },
+              { type: "resource", id: "supplies", value: 7 },
+              { type: "resource", id: "crystal", value: 7 },
+              { type: "resource", id: "saltpetre", value: 7 },
+            ],
+          },
+          {
+            id: "tome_wisdom_s",
+            type: "spell",
+            cat: "army",
+            req: [{ type: "prayer", id: "tome_wisdom_p", value: 1 }],
+            gen: [
+              { type: "resource", id: "mana", value: -75 },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "mage_u",
+                type_gen: "stat",
+                gen: "attack",
+                value: 24,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "mage_u",
+                type_gen: "stat",
+                gen: "defense",
+                value: 12,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "archmage_u",
+                type_gen: "stat",
+                gen: "attack",
+                value: 120,
+                perc: !1,
+              },
+              {
+                type: "modifier",
+                type_id: "army",
+                id: "archmage_u",
+                type_gen: "stat",
+                gen: "defense",
+                value: 80,
+                perc: !1,
+              },
+            ],
+          },
+          {
+            id: "mana_spiral_s",
+            type: "spell",
+            cat: "resource",
+            req: [{ type: "prayer", id: "mana_spiral_p", value: 1 }],
+            gen: [
+              { type: "resource", id: "mana", value: 100 },
+              { type: "resource", id: "mana", value: 7, perc: !0 },
+            ],
+          },
+          {
             id: "children_hope",
             type: "spell",
+            cat: "resource",
             req: [{ type: "prayer", id: "hope_children", value: 1 }],
             gen: [
               { type: "resource", id: "mana", value: -200 },
@@ -50016,16 +51405,20 @@
             ],
           },
         ],
-        nt = (function () {
+        ot = (function () {
           function e(t) {
             (0, i.Z)(this, e),
               (this.MainStore = void 0),
               (this.selectedTab = 0),
+              (this.spellFilters = ["all"].concat((0, R.Z)(it))),
+              (this.filterSpells = (0, je.qn)("filterSpells", "all")),
               (this._emptyInProgress = !1),
               (this.MainStore = t),
               (0, l.rC)(this, {
                 selectedTab: l.LO,
                 selectTab: l.aD,
+                filterSpells: l.LO,
+                setFilterSpells: l.aD,
                 showMagic: l.Fl,
                 buildablePrayers: l.Fl,
                 visiblePrayers: l.Fl,
@@ -50054,7 +51447,7 @@
                 key: "ownedPrayers",
                 get: function () {
                   var e = this;
-                  return it.filter(function (t) {
+                  return nt.filter(function (t) {
                     return (
                       "prayer" === t.type &&
                       !!e.MainStore.ReqGenStore.checkOwned("prayer", t.id, 1)
@@ -50066,7 +51459,7 @@
                 key: "buildablePrayers",
                 get: function () {
                   var e = this;
-                  return it.filter(function (t) {
+                  return nt.filter(function (t) {
                     return (
                       "prayer" === t.type &&
                       !e.MainStore.ReqGenStore.checkOwned("prayer", t.id, 1) &&
@@ -50079,7 +51472,7 @@
                 key: "visiblePrayers",
                 get: function () {
                   var e = this;
-                  return it.filter(function (t) {
+                  return nt.filter(function (t) {
                     return (
                       "prayer" === t.type &&
                       !e.MainStore.ReqGenStore.checkOwned("prayer", t.id, 1) &&
@@ -50092,10 +51485,11 @@
                 key: "visibleSpells",
                 get: function () {
                   var e = this;
-                  return it.filter(function (t) {
+                  return nt.filter(function (t) {
                     return (
                       "spell" === t.type &&
                       "goddess_luck_blessing" !== t.id &&
+                      ("all" === e.filterSpells || t.cat === e.filterSpells) &&
                       (!!e.activeSpell(t.id) ||
                         e.MainStore.ReqGenStore.checkReq("spell", t.id, t, !1))
                     );
@@ -50106,6 +51500,16 @@
                 key: "selectTab",
                 value: function (e) {
                   this.selectedTab = e;
+                },
+              },
+              {
+                key: "setFilterSpells",
+                value: function (e) {
+                  (this.filterSpells = e),
+                    localStorage.setItem(
+                      "filterSpells",
+                      JSON.stringify(this.filterSpells)
+                    );
                 },
               },
               {
@@ -50183,28 +51587,28 @@
                     var r = this.MainStore.run.spells.indexOf(e);
                     this.MainStore.run.spells.splice(r, 1);
                   }
-                  var a = it.findIndex(function (t) {
+                  var a = nt.findIndex(function (t) {
                     return t.id === e;
                   });
-                  this.MainStore.ReqGenStore.deleteGen("spell", e, it[a]);
+                  this.MainStore.ReqGenStore.deleteGen("spell", e, nt[a]);
                 },
               },
               {
                 key: "_addSpell",
                 value: function (e) {
                   this.MainStore.run.spells.push(e);
-                  var t = it.findIndex(function (t) {
+                  var t = nt.findIndex(function (t) {
                     return t.id === e;
                   });
-                  this.MainStore.ReqGenStore.runGen("spell", e, it[t]);
+                  this.MainStore.ReqGenStore.runGen("spell", e, nt[t]);
                 },
               },
             ]),
             e
           );
         })(),
-        ot = nt,
-        lt = [
+        lt = ot,
+        st = [
           {
             id: "horse",
             sell_min: 16,
@@ -50294,11 +51698,11 @@
             buy_duration: 0.01,
           },
         ],
-        st = (function () {
+        ut = (function () {
           function e(t) {
             (0, i.Z)(this, e),
               (this.MainStore = void 0),
-              (this.stocks = (0, R.Z)(lt).reverse()),
+              (this.stocks = (0, R.Z)(st).reverse()),
               (this.stocksData = []),
               (this.workerInstanceStocks = void 0),
               (this.MainStore = t),
@@ -50532,8 +51936,8 @@
             e
           );
         })(),
-        ut = st,
-        ct = [
+        ct = ut,
+        dt = [
           { id: "unemployed" },
           {
             id: "farmer",
@@ -50671,7 +52075,7 @@
             ],
           },
         ],
-        dt = (function () {
+        pt = (function () {
           function e(t) {
             (0, i.Z)(this, e),
               (this.MainStore = void 0),
@@ -50738,11 +52142,11 @@
                     "undefined" === typeof r &&
                       (r =
                         this.MainStore.PopulationStore.getPopulationTotal(t));
-                    var i = ct.findIndex(function (e) {
+                    var i = dt.findIndex(function (e) {
                       return e.id === t;
                     });
-                    ct[i].gen &&
-                      ct[i].gen.forEach(function (i) {
+                    dt[i].gen &&
+                      dt[i].gen.forEach(function (i) {
                         var n = i.value * r;
                         a._getMods(i.id, t).forEach(function (e) {
                           e.perc ? (n += (n * e.value) / 100) : (n += e.value);
@@ -50842,9 +52246,9 @@
                                 ((u = "ancestor"),
                                 r.push({
                                   label:
-                                    (0, Ce.K)("ancestor") +
+                                    (0, Ae.K)("ancestor") +
                                     "-" +
-                                    (0, Ce.K)(a.id).toLowerCase(),
+                                    (0, Ae.K)(a.id).toLowerCase(),
                                   value: i + "%",
                                 }));
                               break;
@@ -50854,7 +52258,7 @@
                                   u = "achievements";
                                   var p =
                                     r.push({
-                                      label: (0, Ce.K)("achievements"),
+                                      label: (0, Ae.K)("achievements"),
                                       value: i + "%",
                                     }) - 1;
                                   (n.perc = d.value), (n.percIdx = p);
@@ -50864,14 +52268,14 @@
                                       Math.round(100 * n.perc) / 100
                                     )),
                                     (r[n.percIdx] = {
-                                      label: (0, Ce.K)("achievements"),
+                                      label: (0, Ae.K)("achievements"),
                                       value: i + "%",
                                     });
                               else if (!1 === n.value) {
                                 u = "achievements";
                                 var _ =
                                   r.push({
-                                    label: (0, Ce.K)("achievements"),
+                                    label: (0, Ae.K)("achievements"),
                                     value: i + "/秒",
                                   }) - 1;
                                 (n.value = d.value), (n.valueIdx = _);
@@ -50881,7 +52285,7 @@
                                     Math.round(100 * n.value) / 100
                                   )),
                                   (r[n.valueIdx] = {
-                                    label: (0, Ce.K)("achievements"),
+                                    label: (0, Ae.K)("achievements"),
                                     value: i + "/秒",
                                   });
                               break;
@@ -50891,7 +52295,7 @@
                                   u = "armies";
                                   var y =
                                     r.push({
-                                      label: (0, Ce.K)("armies"),
+                                      label: (0, Ae.K)("armies"),
                                       value: i + "%",
                                     }) - 1;
                                   (o.perc = d.value), (o.percIdx = y);
@@ -50901,14 +52305,14 @@
                                       Math.round(100 * o.perc) / 100
                                     )),
                                     (r[o.percIdx] = {
-                                      label: (0, Ce.K)("armies"),
+                                      label: (0, Ae.K)("armies"),
                                       value: i + "%",
                                     });
                               else if (!1 === o.value) {
                                 u = "armies";
                                 var h =
                                   r.push({
-                                    label: (0, Ce.K)("armies"),
+                                    label: (0, Ae.K)("armies"),
                                     value: i + "/秒",
                                   }) - 1;
                                 (o.value = d.value), (o.valueIdx = h);
@@ -50918,7 +52322,7 @@
                                     Math.round(100 * o.value) / 100
                                   )),
                                   (r[o.valueIdx] = {
-                                    label: (0, Ce.K)("armies"),
+                                    label: (0, Ae.K)("armies"),
                                     value: i + "/秒",
                                   });
                               break;
@@ -50930,11 +52334,11 @@
                                 : ((u = "bui_" + a.id),
                                   (c = d.perc
                                     ? r.push({
-                                        label: (0, Ce.K)("bui_" + a.id),
+                                        label: (0, Ae.K)("bui_" + a.id),
                                         value: i + "%",
                                       }) - 1
                                     : r.push({
-                                        label: (0, Ce.K)("bui_" + a.id),
+                                        label: (0, Ae.K)("bui_" + a.id),
                                         value: i + "/秒",
                                       }) - 1));
                               break;
@@ -50944,7 +52348,7 @@
                                   u = "enemies";
                                   var f =
                                     r.push({
-                                      label: (0, Ce.K)("enemies"),
+                                      label: (0, Ae.K)("enemies"),
                                       value: i + "%",
                                     }) - 1;
                                   (l.perc = d.value), (l.percIdx = f);
@@ -50954,14 +52358,14 @@
                                       Math.round(100 * l.perc) / 100
                                     )),
                                     (r[l.percIdx] = {
-                                      label: (0, Ce.K)("enemies"),
+                                      label: (0, Ae.K)("enemies"),
                                       value: i + "%",
                                     });
                               else if (!1 === l.value) {
                                 u = "enemies";
                                 var m =
                                   r.push({
-                                    label: (0, Ce.K)("enemies"),
+                                    label: (0, Ae.K)("enemies"),
                                     value: i + "/秒",
                                   }) - 1;
                                 (l.value = d.value), (l.valueIdx = m);
@@ -50971,14 +52375,14 @@
                                     Math.round(100 * l.value) / 100
                                   )),
                                   (r[l.valueIdx] = {
-                                    label: (0, Ce.K)("enemies"),
+                                    label: (0, Ae.K)("enemies"),
                                     value: i + "/秒",
                                   });
                               break;
                             case "resource":
                               (u = "res_" + a.id),
                                 r.push({
-                                  label: (0, Ce.K)("res_" + a.id),
+                                  label: (0, Ae.K)("res_" + a.id),
                                   value: i + "/秒",
                                 });
                               break;
@@ -50999,7 +52403,7 @@
                                   u = "spells";
                                   var g =
                                     r.push({
-                                      label: (0, Ce.K)("spells"),
+                                      label: (0, Ae.K)("spells"),
                                       value: i + "%",
                                     }) - 1;
                                   (s.perc = d.value), (s.percIdx = g);
@@ -51009,14 +52413,14 @@
                                       Math.round(100 * s.perc) / 100
                                     )),
                                     (r[s.percIdx] = {
-                                      label: (0, Ce.K)("spells"),
+                                      label: (0, Ae.K)("spells"),
                                       value: i + "%",
                                     });
                               else if (!1 === s.value) {
                                 u = "spells";
                                 var v =
                                   r.push({
-                                    label: (0, Ce.K)("spells"),
+                                    label: (0, Ae.K)("spells"),
                                     value: i + "/秒",
                                   }) - 1;
                                 (s.value = d.value), (s.valueIdx = v);
@@ -51026,7 +52430,7 @@
                                     Math.round(100 * s.value) / 100
                                   )),
                                   (r[s.valueIdx] = {
-                                    label: (0, Ce.K)("spells"),
+                                    label: (0, Ae.K)("spells"),
                                     value: i + "/秒",
                                   });
                               break;
@@ -51034,11 +52438,11 @@
                               (u = "tec_" + a.id),
                                 d.perc
                                   ? r.push({
-                                      label: (0, Ce.K)("tec_" + a.id),
+                                      label: (0, Ae.K)("tec_" + a.id),
                                       value: i + "%",
                                     })
                                   : r.push({
-                                      label: (0, Ce.K)("tec_" + a.id),
+                                      label: (0, Ae.K)("tec_" + a.id),
                                       value: i + "/秒",
                                     });
                               break;
@@ -51046,11 +52450,11 @@
                               (u = "dip_" + a.id),
                                 d.perc
                                   ? r.push({
-                                      label: (0, Ce.K)("dip_" + a.id),
+                                      label: (0, Ae.K)("dip_" + a.id),
                                       value: i + "%",
                                     })
                                   : r.push({
-                                      label: (0, Ce.K)("dip_" + a.id),
+                                      label: (0, Ae.K)("dip_" + a.id),
                                       value: i + "/秒",
                                     });
                           }
@@ -51066,7 +52470,7 @@
                         ) {
                           case "population":
                             r.push({
-                              label: (0, Ce.K)("pop_" + e.id),
+                              label: (0, Ae.K)("pop_" + e.id),
                               value: i + "/秒",
                               flag: 1,
                             });
@@ -51076,9 +52480,9 @@
                               case "building":
                                 r.push({
                                   label:
-                                    (0, Ce.K)("bui_" + e.idOrig) +
+                                    (0, Ae.K)("bui_" + e.idOrig) +
                                     "-" +
-                                    (0, Ce.K)("res_" + e.id).toLowerCase(),
+                                    (0, Ae.K)("res_" + e.id).toLowerCase(),
                                   value: i + (e.perc ? "%" : "/秒"),
                                   flag: 1,
                                 });
@@ -51086,9 +52490,9 @@
                               case "tech":
                                 r.push({
                                   label:
-                                    (0, Ce.K)("tec_" + e.idOrig) +
+                                    (0, Ae.K)("tec_" + e.idOrig) +
                                     "-" +
-                                    (0, Ce.K)("res_" + e.id).toLowerCase(),
+                                    (0, Ae.K)("res_" + e.id).toLowerCase(),
                                   value: i + (e.perc ? "%" : "/秒"),
                                   flag: 1,
                                 });
@@ -51140,8 +52544,8 @@
             e
           );
         })(),
-        pt = dt,
-        _t = (function () {
+        _t = pt,
+        yt = (function () {
           function e(t) {
             (0, i.Z)(this, e),
               (this.MainStore = void 0),
@@ -51187,7 +52591,7 @@
                 key: "population",
                 get: function () {
                   var e = this;
-                  return ct.filter(function (t) {
+                  return dt.filter(function (t) {
                     return e.MainStore.ReqGenStore.checkReq(
                       "population",
                       t.id,
@@ -51209,11 +52613,11 @@
                             value: 0,
                           }) - 1),
                         (this.MainStore.idxs.population[e] = r),
-                        (r = ct.findIndex(function (t) {
+                        (r = dt.findIndex(function (t) {
                           return t.id === e;
                         })),
-                        ct[r].gen &&
-                          ct[r].gen.forEach(function (e) {
+                        dt[r].gen &&
+                          dt[r].gen.forEach(function (e) {
                             "resource" === e.type &&
                               "undefined" ===
                                 typeof a.MainStore.idxs.resources[e.id] &&
@@ -51259,7 +52663,7 @@
                 key: "resetPopulation",
                 value: function () {
                   var e = this;
-                  ct.forEach(function (t) {
+                  dt.forEach(function (t) {
                     var r = e.MainStore.run.population.findIndex(function (e) {
                         return e.id === t.id;
                       }),
@@ -51308,7 +52712,7 @@
                 key: "removeNegativePopulation",
                 value: function (e) {
                   var t = this,
-                    r = ct.filter(function (t) {
+                    r = dt.filter(function (t) {
                       var r = !1;
                       return (
                         t.gen &&
@@ -51360,9 +52764,9 @@
             e
           );
         })(),
-        yt = _t,
-        ht = r(8033),
-        ft = [
+        ht = yt,
+        ft = r(8033),
+        mt = [
           {
             id: "trading_woods",
             req: [{ type: "building", id: "lucky_grove_b", value: 5 }],
@@ -55403,7 +56807,7 @@
             ],
           },
         ],
-        mt = (function () {
+        gt = (function () {
           function e(t) {
             (0, i.Z)(this, e), (this.MainStore = void 0), (this.MainStore = t);
           }
@@ -55778,7 +57182,7 @@
                         switch (t.type) {
                           case "building":
                             if ("building" === e) {
-                              var o = (0, Ce.K)("bui_" + t.id),
+                              var o = (0, Ae.K)("bui_" + t.id),
                                 l = t.value.toString(),
                                 s = r.checkOwned("building", t.id);
                               s >= 0 &&
@@ -55793,7 +57197,7 @@
                               a > 0 &&
                               t.multi &&
                               (u *= Math.pow(t.multi, a));
-                            var c = (0, Ce.K)("res_" + t.id),
+                            var c = (0, Ae.K)("res_" + t.id),
                               d = "";
                             if ("armyAttack" === e)
                               (u *= i),
@@ -55839,7 +57243,7 @@
                         switch (e.type) {
                           case "cap":
                             r.push({
-                              label: (0, Ce.K)("res_" + e.id) + "上限",
+                              label: (0, Ae.K)("res_" + e.id) + "上限",
                               value:
                                 "+" +
                                 t.MainStore.defaultNumberFormat.format(e.value),
@@ -55850,16 +57254,16 @@
                             switch (e.type_id) {
                               case "army":
                                 a +=
-                                  (0, Ce.K)("uni_" + e.id) +
+                                  (0, Ae.K)("uni_" + e.id) +
                                   "" +
-                                  (0, Ce.K)("army_" + e.gen).toLowerCase();
+                                  (0, Ae.K)("army_" + e.gen).toLowerCase();
                                 break;
                               case "population":
                                 if (
-                                  ((a += (0, Ce.K)("pop_" + e.id) + "-"),
+                                  ((a += (0, Ae.K)("pop_" + e.id) + "-"),
                                   "resource" === e.type_gen)
                                 )
-                                  a += (0, Ce.K)("res_" + e.gen).toLowerCase();
+                                  a += (0, Ae.K)("res_" + e.gen).toLowerCase();
                             }
                             var i = t.MainStore.defaultNumberFormat.format(
                               e.value
@@ -55870,11 +57274,11 @@
                           case "population":
                             "unemployed" === e.id
                               ? r.push({
-                                  label: (0, Ce.K)("population"),
+                                  label: (0, Ae.K)("population"),
                                   value: "+" + e.value,
                                 })
                               : r.push({
-                                  label: (0, Ce.K)("pop_" + e.id),
+                                  label: (0, Ae.K)("pop_" + e.id),
                                   value: "+" + e.value,
                                 });
                             break;
@@ -55882,7 +57286,7 @@
                             var n = e.value > 0 ? "+" : "";
                             e.manual
                               ? r.push({
-                                  label: (0, Ce.K)("res_" + e.id),
+                                  label: (0, Ae.K)("res_" + e.id),
                                   value:
                                     n +
                                     t.MainStore.defaultNumberFormat.format(
@@ -55892,7 +57296,7 @@
                                 })
                               : e.perc
                               ? r.push({
-                                  label: (0, Ce.K)("res_" + e.id),
+                                  label: (0, Ae.K)("res_" + e.id),
                                   value:
                                     n +
                                     t.MainStore.defaultNumberFormat.format(
@@ -55902,7 +57306,7 @@
                                 })
                               : e.fix
                               ? r.push({
-                                  label: (0, Ce.K)("res_" + e.id),
+                                  label: (0, Ae.K)("res_" + e.id),
                                   value:
                                     n +
                                     t.MainStore.defaultNumberFormat.format(
@@ -55910,7 +57314,7 @@
                                     ),
                                 })
                               : r.push({
-                                  label: (0, Ce.K)("res_" + e.id),
+                                  label: (0, Ae.K)("res_" + e.id),
                                   value:
                                     n +
                                     t.MainStore.defaultNumberFormat.format(
@@ -55956,21 +57360,21 @@
                       break;
                     case "prayer":
                       -1 !==
-                        (r = it.findIndex(function (e) {
+                        (r = nt.findIndex(function (e) {
                           return e.id === t;
-                        })) && (a = it[r]);
+                        })) && (a = nt[r]);
                       break;
                     case "resource":
                       -1 !==
-                        (r = ht.v.findIndex(function (e) {
+                        (r = ft.v.findIndex(function (e) {
                           return e.id === t;
-                        })) && (a = ht.v[r]);
+                        })) && (a = ft.v[r]);
                       break;
                     case "tech":
                       -1 !==
-                        (r = ft.findIndex(function (e) {
+                        (r = mt.findIndex(function (e) {
                           return e.id === t;
-                        })) && (a = ft[r]);
+                        })) && (a = mt[r]);
                   }
                   return a;
                 },
@@ -55979,8 +57383,8 @@
             e
           );
         })(),
-        gt = mt,
-        vt = (function () {
+        vt = gt,
+        bt = (function () {
           function e(t) {
             (0, i.Z)(this, e),
               (this.MainStore = void 0),
@@ -56015,7 +57419,7 @@
                 key: "manualResources",
                 get: function () {
                   return this.showManual
-                    ? ht.v.filter(function (e) {
+                    ? ft.v.filter(function (e) {
                         return !(e.hidden || !e.manual);
                       })
                     : [];
@@ -56025,7 +57429,7 @@
                 key: "resources",
                 get: function () {
                   var e = this;
-                  return ht.v.filter(function (t) {
+                  return ft.v.filter(function (t) {
                     return (
                       !t.hidden &&
                       e.MainStore.ReqGenStore.checkReq("resource", t.id, t)
@@ -56285,10 +57689,10 @@
               {
                 key: "_getResourceBaseCap",
                 value: function (e) {
-                  var t = ht.v.findIndex(function (t) {
+                  var t = ft.v.findIndex(function (t) {
                     return t.id === e;
                   });
-                  return -1 === t ? 0 : ht.v[t].cap ? ht.v[t].cap : 0;
+                  return -1 === t ? 0 : ft.v[t].cap ? ft.v[t].cap : 0;
                 },
               },
               {
@@ -56308,10 +57712,10 @@
             e
           );
         })(),
-        bt = vt,
-        wt = r(4162),
-        kt = r.n(wt),
-        xt = (function () {
+        wt = bt,
+        kt = r(4162),
+        xt = r.n(kt),
+        St = (function () {
           function e(t) {
             (0, i.Z)(this, e),
               (this.MainStore = void 0),
@@ -56465,7 +57869,7 @@
                 value: function (e) {
                   var t = null;
                   try {
-                    var r = kt().decompressFromBase64(e);
+                    var r = xt().decompressFromBase64(e);
                     null !== r && (t = JSON.parse(r));
                   } catch (a) {}
                   return (
@@ -56494,7 +57898,7 @@
                     a = (0, je.qn)("ach", []),
                     i = (0, je.qn)("stats", []),
                     n = (0, je.qn)("leg", []);
-                  return kt().compressToBase64(
+                  return xt().compressToBase64(
                     JSON.stringify([e, t, r, a, i, n])
                   );
                 },
@@ -56548,8 +57952,8 @@
             e
           );
         })(),
-        St = xt,
-        Mt = (function () {
+        Mt = St,
+        At = (function () {
           function e(t) {
             (0, i.Z)(this, e),
               (this.MainStore = void 0),
@@ -56577,7 +57981,7 @@
                     this.MainStore.stats.length > 0 &&
                       this.MainStore.stats.forEach(function (t) {
                         var r = (0, a.Z)({}, t);
-                        (r.lang = (0, Ce.K)("stat_" + t.id)), e.push(r);
+                        (r.lang = (0, Ae.K)("stat_" + t.id)), e.push(r);
                       }),
                     e.sort(function (e, t) {
                       return e.lang > t.lang ? 1 : t.lang > e.lang ? -1 : 0;
@@ -56640,8 +58044,8 @@
             e
           );
         })(),
-        Ct = Mt,
-        At = (function () {
+        Ct = At,
+        Tt = (function () {
           function e(t) {
             (0, i.Z)(this, e),
               (this.MainStore = void 0),
@@ -56663,7 +58067,7 @@
                 key: "ownedTechs",
                 get: function () {
                   var e = this;
-                  return ft.filter(function (t) {
+                  return mt.filter(function (t) {
                     return (
                       !("oracle_t" === t.id && !e.MainStore.showOracle) &&
                       ("favor_gods" !== t.id ||
@@ -56677,7 +58081,7 @@
                 key: "buildableTechs",
                 get: function () {
                   var e = this;
-                  return ft.filter(function (t) {
+                  return mt.filter(function (t) {
                     return (
                       !("oracle_t" === t.id && !e.MainStore.showOracle) &&
                       ("favor_gods" !== t.id ||
@@ -56692,7 +58096,7 @@
                 key: "visibleTechs",
                 get: function () {
                   var e = this;
-                  return ft.filter(function (t) {
+                  return mt.filter(function (t) {
                     return (
                       !("oracle_t" === t.id && !e.MainStore.showOracle) &&
                       ("favor_gods" !== t.id ||
@@ -56802,7 +58206,7 @@
                     this.MainStore.AchievementsStore.runAchievement(e),
                     this.MainStore.addLog("tec_" + e, "text-violet-500"),
                     this.MainStore.save(),
-                    Fe(
+                    De(
                       "event",
                       "tech",
                       e,
@@ -56834,8 +58238,8 @@
             e
           );
         })(),
-        Tt = At,
-        qt = {
+        qt = Tt,
+        Nt = {
           race: "humans",
           ancestors: "",
           enemy: "",
@@ -56860,7 +58264,7 @@
           boss: "",
           donation: 0,
         },
-        Nt = {
+        Ot = {
           caps: {},
           resources: {},
           buildings: {},
@@ -56877,7 +58281,7 @@
         reactionRequiresObservable: !0,
         disableErrorBoundaries: !0,
       });
-      var Ot = (function () {
+      var It = (function () {
           function e() {
             var t = this;
             (0, i.Z)(this, e),
@@ -56889,11 +58293,11 @@
                   WDS_SOCKET_PATH: void 0,
                   WDS_SOCKET_PORT: void 0,
                   FAST_REFRESH: !0,
-                  REACT_APP_VERSION: "0.70",
+                  REACT_APP_VERSION: "0.71",
                 }.REACT_APP_DEV ||
                 "preview" === window.location.hostname.split(".")[0]
               )),
-              (this.version = (0, je.JC)("0.70")),
+              (this.version = (0, je.JC)("0.71")),
               (this.intervalMs = 250),
               (this.intervalRandomAttackDice = 8800),
               (this.lastInterval = 0),
@@ -56901,8 +58305,8 @@
               (this.ads = !1),
               (this.isPWA = !1),
               (this.isTWA = !1),
-              (this.idxs = (0, a.Z)({}, (0, je.qn)("idxs", Nt))),
-              (this.run = (0, a.Z)({}, (0, je.qn)("run", qt))),
+              (this.idxs = (0, a.Z)({}, (0, je.qn)("idxs", Ot))),
+              (this.run = (0, a.Z)({}, (0, je.qn)("run", Nt))),
               (this.achievements = (0, je.qn)("ach", [])),
               (this.stats = (0, je.qn)("stats", [])),
               (this.legacies = (0, je.qn)("leg", [])),
@@ -56963,14 +58367,14 @@
               (this.BuildingsStore = new Xe(this)),
               (this.DiplomacyStore = new Je(this)),
               (this.LegacyStore = new at(this)),
-              (this.MagicStore = new ot(this)),
-              (this.MarketStore = new ut(this)),
-              (this.ModifiersStore = new pt(this)),
-              (this.PopulationStore = new yt(this)),
-              (this.ReqGenStore = new gt(this)),
-              (this.ResourcesStore = new bt(this)),
-              (this.SettingsStore = new St(this)),
-              (this.TechsStore = new Tt(this)),
+              (this.MagicStore = new lt(this)),
+              (this.MarketStore = new ct(this)),
+              (this.ModifiersStore = new _t(this)),
+              (this.PopulationStore = new ht(this)),
+              (this.ReqGenStore = new vt(this)),
+              (this.ResourcesStore = new wt(this)),
+              (this.SettingsStore = new Mt(this)),
+              (this.TechsStore = new qt(this)),
               (this.confirmCancel = function () {
                 return t.confirmCancelFunc();
               }),
@@ -57103,8 +58507,8 @@
               {
                 key: "_initNewRun",
                 value: function (e, t, r, i, n, o) {
-                  (this.idxs = (0, a.Z)({}, Nt)),
-                    (this.run = (0, a.Z)({}, qt)),
+                  (this.idxs = (0, a.Z)({}, Ot)),
+                    (this.run = (0, a.Z)({}, Nt)),
                     localStorage.removeItem("logs"),
                     this.ResourcesStore.addResource("legacy", e, !0),
                     this.ResourcesStore.addResource("relic", t, !0),
@@ -57135,8 +58539,8 @@
                 key: "_initNewGamePlus",
                 value: function () {
                   var e = this.legacies.length;
-                  (this.idxs = (0, a.Z)({}, Nt)),
-                    (this.run = (0, a.Z)({}, qt)),
+                  (this.idxs = (0, a.Z)({}, Ot)),
+                    (this.run = (0, a.Z)({}, Nt)),
                     (this.legacies = []),
                     localStorage.removeItem("logs"),
                     this.AchievementsStore.restoreAchievementsMods(),
@@ -57176,7 +58580,7 @@
                       ? "[debug] " + e
                       : i
                       ? e
-                      : (0, Ce.K)("log_" + e)).startsWith("UNDEFINED_")
+                      : (0, Ae.K)("log_" + e)).startsWith("UNDEFINED_")
                   ) {
                     t = t.split(" | ");
                     var s = new Date(),
@@ -57240,7 +58644,7 @@
                           "reward" === r ||
                           "oracle" === r
                         ? ""
-                        : (0, Ce.K)("not_" + e + "_title"),
+                        : (0, Ae.K)("not_" + e + "_title"),
                     d =
                       "text" === r ||
                       "loot" === r ||
@@ -57253,7 +58657,7 @@
                       "reward" === r ||
                       "oracle" === r
                         ? e
-                        : (0, Ce.K)("not_" + e);
+                        : (0, Ae.K)("not_" + e);
                   if ("achievement" === r) {
                     var p = c;
                     (c = d), (d = p);
@@ -57423,8 +58827,8 @@
                         : "green";
                   "" !== e &&
                     ((this.imageNotificationKey = e),
-                    (this.imageNotificationTitle = (0, Ce.K)(e)),
-                    (this.imageNotificationText = (0, Ce.K)(t)),
+                    (this.imageNotificationTitle = (0, Ae.K)(e)),
+                    (this.imageNotificationText = (0, Ae.K)(t)),
                     (this.imageNotificationType = r)),
                     (this.imageNotificationShow = !this.imageNotificationShow);
                 },
@@ -57549,14 +58953,14 @@
             e
           );
         })(),
-        It = new Ot(),
-        Et = r(1875),
-        jt = r(2453),
-        Lt = r(1048),
-        Pt = r(6934),
-        Rt = r(927),
+        Et = new It(),
+        jt = r(7794),
+        Lt = r(4254),
+        Pt = r(1048),
+        Rt = r(6934),
+        Ft = r(927),
         Dt = r(1231),
-        Ft = (function (e) {
+        Vt = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -57580,41 +58984,41 @@
                   }
                   return (
                     (a += t % 2 === 0 ? " bg-gray-200 dark:bg-mydark-300" : ""),
-                    (0, Ae.jsxs)(
+                    (0, Ce.jsxs)(
                       "tr",
                       {
                         className: a,
                         children: [
-                          (0, Ae.jsxs)("td", {
+                          (0, Ce.jsxs)("td", {
                             className:
                               "py-4 block lg:table-cell text-center lg:text-left border lg:border-0 border-gray-300 dark:border-mydark-200 mx-6 mt-6 lg:px-6 rounded-t-lg lg:rounded-none",
                             children: [
-                              (0, Ae.jsx)("h5", {
+                              (0, Ce.jsx)("h5", {
                                 className: "text-xl font-bold",
-                                children: (0, Ce.K)("not_" + e.id),
+                                children: (0, Ae.K)("not_" + e.id),
                               }),
-                              (0, Ce.K)("not_" + e.id + "_title"),
+                              (0, Ae.K)("not_" + e.id + "_title"),
                             ],
                           }),
-                          (0, Ae.jsx)("td", {
+                          (0, Ce.jsx)("td", {
                             className:
                               "px-4 lg:px-6 py-2 lg:py-4 block lg:table-cell border-x lg:border-0 border-gray-300 dark:border-mydark-200 mx-6",
-                            children: (0, Ae.jsx)("table", {
+                            children: (0, Ce.jsx)("table", {
                               className: "w-min mx-auto lg:mx-0",
-                              children: (0, Ae.jsx)("tbody", {
+                              children: (0, Ce.jsx)("tbody", {
                                 className: "text-sm",
                                 children: r.map(function (t, r) {
                                   return (0,
-                                  Ae.jsxs)("tr", { children: [(0, Ae.jsx)("td", { className: "text-left whitespace-nowrap", children: t.label }), (0, Ae.jsx)("td", { className: "pl-2 text-right", children: t.value })] }, "achievement_gen_" + e.id + r);
+                                  Ce.jsxs)("tr", { children: [(0, Ce.jsx)("td", { className: "text-left whitespace-nowrap", children: t.label }), (0, Ce.jsx)("td", { className: "pl-2 text-right", children: t.value })] }, "achievement_gen_" + e.id + r);
                                 }),
                               }),
                             }),
                           }),
-                          (0, Ae.jsxs)("td", {
+                          (0, Ce.jsxs)("td", {
                             className:
                               "py-4 text-center lg:text-right block lg:table-cell border lg:border-0 border-gray-300 dark:border-mydark-200 mx-6 mb-6 lg:px-6 rounded-b-lg lg:rounded-none",
                             children: [
-                              (0, Ce.K)("unlocked"),
+                              (0, Ae.K)("unlocked"),
                               " ",
                               new Date(e.date).toLocaleString([], {
                                 dateStyle: "short",
@@ -57634,13 +59038,13 @@
                 value: function () {
                   var e = this,
                     t = this.props.MainStore.AchievementsStore.achievements;
-                  return (0, Ae.jsx)("div", {
+                  return (0, Ce.jsx)("div", {
                     className: "mt-5",
                     children:
                       this.props.total > 0
-                        ? (0, Ae.jsx)("table", {
+                        ? (0, Ce.jsx)("table", {
                             className: "min-w-full",
-                            children: (0, Ae.jsx)("tbody", {
+                            children: (0, Ce.jsx)("tbody", {
                               className:
                                 "bg-gray-100 dark:bg-mydark-600 text-sm",
                               children: t.map(function (t, r) {
@@ -57652,10 +59056,10 @@
                               }),
                             }),
                           })
-                        : (0, Ae.jsx)("div", {
+                        : (0, Ce.jsx)("div", {
                             className: "px-4 pb-4 lg:px-6 lg:pb-6",
-                            children: (0, Ae.jsx)(Dt.Z, {
-                              text: (0, Ce.K)("achievements_empty"),
+                            children: (0, Ce.jsx)(Dt.Z, {
+                              text: (0, Ae.K)("achievements_empty"),
                               type: "info",
                             }),
                           }),
@@ -57666,8 +59070,8 @@
             r
           );
         })(o.Component),
-        Vt = (0, t.f3)("MainStore")((0, t.Pi)(Ft)),
-        Ht = (function (e) {
+        Ht = (0, t.f3)("MainStore")((0, t.Pi)(Vt)),
+        zt = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -57704,38 +59108,38 @@
                       0 !== r
                         ? " block border border-t-0 mb-6 rounded-b-lg lg:rounded-none"
                         : " hidden"),
-                    (0, Ae.jsxs)(
+                    (0, Ce.jsxs)(
                       "tr",
                       {
                         className: a,
                         children: [
-                          (0, Ae.jsx)("td", {
+                          (0, Ce.jsx)("td", {
                             className: "py-4 hidden lg:table-cell mx-6 pl-6",
                             children:
                               0 !== r
-                                ? (0, Ae.jsx)(Se(), {
+                                ? (0, Ce.jsx)(Se(), {
                                     path: Me.YKm,
                                     className: "icon",
                                   })
                                 : "",
                           }),
-                          (0, Ae.jsxs)("td", {
+                          (0, Ce.jsxs)("td", {
                             className: n,
                             children: [
-                              (0, Ae.jsx)("h5", {
+                              (0, Ce.jsx)("h5", {
                                 className: "text-xl font-bold" + i,
-                                children: (0, Ce.K)("not_" + e.id),
+                                children: (0, Ae.K)("not_" + e.id),
                               }),
-                              (0, Ae.jsx)("span", {
+                              (0, Ce.jsx)("span", {
                                 className: i,
-                                children: (0, Ce.K)("not_" + e.id + "_title"),
+                                children: (0, Ae.K)("not_" + e.id + "_title"),
                               }),
                             ],
                           }),
-                          (0, Ae.jsxs)("td", {
+                          (0, Ce.jsxs)("td", {
                             className: o,
                             children: [
-                              0 !== r ? (0, Ce.K)("unlocked") : "",
+                              0 !== r ? (0, Ae.K)("unlocked") : "",
                               " ",
                               0 !== r
                                 ? new Date(r).toLocaleString([], {
@@ -57759,11 +59163,11 @@
                     t = this.props.MainStore.AchievementsStore,
                     r = t.achievements,
                     a = t.achievementsGlobal;
-                  return (0, Ae.jsx)("div", {
+                  return (0, Ce.jsx)("div", {
                     className: "mt-5",
-                    children: (0, Ae.jsx)("table", {
+                    children: (0, Ce.jsx)("table", {
                       className: "min-w-full",
-                      children: (0, Ae.jsx)("tbody", {
+                      children: (0, Ce.jsx)("tbody", {
                         className: "bg-gray-100 dark:bg-mydark-600 text-sm",
                         children: a.map(function (t, a) {
                           var i = r.findIndex(function (e) {
@@ -57780,8 +59184,8 @@
             r
           );
         })(o.Component),
-        zt = (0, t.f3)("MainStore")((0, t.Pi)(Ht)),
-        Wt = (function (e) {
+        Wt = (0, t.f3)("MainStore")((0, t.Pi)(zt)),
+        Zt = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -57823,21 +59227,21 @@
                   var p = "!border-ancestor text-ancestor",
                     _ =
                       "xl:border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-mydark-50 hover:border-gray-400 dark:hover:border-gray-500";
-                  return (0, Ae.jsx)(Et.u.Root, {
+                  return (0, Ce.jsx)(jt.u.Root, {
                     show: t,
                     as: o.Fragment,
-                    children: (0, Ae.jsxs)(jt.V, {
+                    children: (0, Ce.jsxs)(Lt.V, {
                       as: "div",
                       className: "relative z-50",
                       onClose: this.handleClose,
                       children: [
-                        (0, Ae.jsx)(Pt.Z, {}),
-                        (0, Ae.jsx)("div", {
+                        (0, Ce.jsx)(Rt.Z, {}),
+                        (0, Ce.jsx)("div", {
                           className: "fixed z-10 inset-0 overflow-y-auto",
-                          children: (0, Ae.jsx)("div", {
+                          children: (0, Ce.jsx)("div", {
                             className:
                               "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                            children: (0, Ae.jsx)(Et.u.Child, {
+                            children: (0, Ce.jsx)(jt.u.Child, {
                               as: o.Fragment,
                               enter: "ease-out duration-300",
                               enterFrom: "opacity-0 translate-y-4",
@@ -57845,52 +59249,52 @@
                               leave: "ease-in duration-200",
                               leaveFrom: "opacity-100 translate-y-0",
                               leaveTo: "opacity-0 translate-y-4",
-                              children: (0, Ae.jsxs)(jt.V.Panel, {
+                              children: (0, Ce.jsxs)(Lt.V.Panel, {
                                 className:
                                   "modal-container lg:my-8 lg:max-w-4xl lg:pt-6",
                                 children: [
-                                  (0, Ae.jsx)(Lt.Z, {
+                                  (0, Ce.jsx)(Pt.Z, {
                                     onClick: this.handleClose,
                                   }),
                                   i > 0
-                                    ? (0, Ae.jsxs)("div", {
+                                    ? (0, Ce.jsxs)("div", {
                                         className:
                                           "absolute right-0 pt-6 pr-4 lg:pr-6 text-sm font-bold",
                                         children: [n, "%"],
                                       })
                                     : null,
-                                  (0, Ae.jsx)("div", {
-                                    children: (0, Ae.jsxs)("div", {
+                                  (0, Ce.jsx)("div", {
+                                    children: (0, Ce.jsxs)("div", {
                                       className: "mt-0",
                                       children: [
-                                        (0, Ae.jsx)(jt.V.Title, {
+                                        (0, Ce.jsx)(Lt.V.Title, {
                                           as: "h3",
                                           className: "modal-title",
-                                          children: (0, Ce.K)("achievements"),
+                                          children: (0, Ae.K)("achievements"),
                                         }),
                                         i > 0
-                                          ? (0, Ae.jsx)("div", {
+                                          ? (0, Ce.jsx)("div", {
                                               className: "relative",
-                                              children: (0, Ae.jsxs)("div", {
+                                              children: (0, Ce.jsxs)("div", {
                                                 className:
                                                   "overflow-hidden h-2 m-4 mb-1 lg:m-6 lg:mb-1 flex rounded bg-gray-100 dark:bg-mydark-500 border border-gray-300 dark:border-mydark-200",
                                                 children: [
-                                                  (0, Ae.jsx)("div", {
+                                                  (0, Ce.jsx)("div", {
                                                     style: { width: c + "%" },
                                                     className:
                                                       "flex flex-col bg-orange-500",
                                                   }),
-                                                  (0, Ae.jsx)("div", {
+                                                  (0, Ce.jsx)("div", {
                                                     style: { width: u + "%" },
                                                     className:
                                                       "flex flex-col bg-violet-500",
                                                   }),
-                                                  (0, Ae.jsx)("div", {
+                                                  (0, Ce.jsx)("div", {
                                                     style: { width: s + "%" },
                                                     className:
                                                       "flex flex-col bg-blue-500",
                                                   }),
-                                                  (0, Ae.jsx)("div", {
+                                                  (0, Ce.jsx)("div", {
                                                     style: { width: l + "%" },
                                                     className:
                                                       "flex flex-col bg-gray-400",
@@ -57899,20 +59303,20 @@
                                               }),
                                             })
                                           : null,
-                                        (0, Ae.jsxs)(Rt.O.Group, {
+                                        (0, Ce.jsxs)(Ft.O.Group, {
                                           selectedIndex: a,
                                           onChange: this.handleSelect,
                                           children: [
-                                            (0, Ae.jsx)("div", {
+                                            (0, Ce.jsx)("div", {
                                               className:
                                                 "mx-auto border-b border-gray-300 dark:border-mydark-200 flex justify-center mt-1 xl:mt-0",
-                                              children: (0, Ae.jsxs)(
-                                                Rt.O.List,
+                                              children: (0, Ce.jsxs)(
+                                                Ft.O.List,
                                                 {
                                                   className:
                                                     "grid grid-cols-2 gap-3 my-2 mb-3 lg:flex lg:gap-1 lg:mt-0 lg:mb-1 xl:mb-0 2xl:gap-3",
                                                   children: [
-                                                    (0, Ae.jsx)(Rt.O, {
+                                                    (0, Ce.jsx)(Ft.O, {
                                                       className: function (e) {
                                                         var t = e.selected;
                                                         return (0, je.AK)(
@@ -57920,11 +59324,11 @@
                                                           t ? p : _
                                                         );
                                                       },
-                                                      children: (0, Ce.K)(
+                                                      children: (0, Ae.K)(
                                                         "achievements_mine"
                                                       ),
                                                     }),
-                                                    (0, Ae.jsx)(Rt.O, {
+                                                    (0, Ce.jsx)(Ft.O, {
                                                       className: function (e) {
                                                         var t = e.selected;
                                                         return (0, je.AK)(
@@ -57932,7 +59336,7 @@
                                                           t ? p : _
                                                         );
                                                       },
-                                                      children: (0, Ce.K)(
+                                                      children: (0, Ae.K)(
                                                         "achievements_global"
                                                       ),
                                                     }),
@@ -57940,15 +59344,15 @@
                                                 }
                                               ),
                                             }),
-                                            (0, Ae.jsxs)(Rt.O.Panels, {
+                                            (0, Ce.jsxs)(Ft.O.Panels, {
                                               children: [
-                                                (0, Ae.jsx)(Rt.O.Panel, {
-                                                  children: (0, Ae.jsx)(Vt, {
+                                                (0, Ce.jsx)(Ft.O.Panel, {
+                                                  children: (0, Ce.jsx)(Ht, {
                                                     total: i,
                                                   }),
                                                 }),
-                                                (0, Ae.jsx)(Rt.O.Panel, {
-                                                  children: (0, Ae.jsx)(zt, {}),
+                                                (0, Ce.jsx)(Ft.O.Panel, {
+                                                  children: (0, Ce.jsx)(Wt, {}),
                                                 }),
                                               ],
                                             }),
@@ -57971,8 +59375,8 @@
             r
           );
         })(o.Component),
-        Zt = (0, t.f3)("MainStore")((0, t.Pi)(Wt)),
-        Bt = (function (e) {
+        Bt = (0, t.f3)("MainStore")((0, t.Pi)(Zt)),
+        Gt = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -57997,21 +59401,21 @@
                     "danger" === i
                       ? ((s += " border-red-600"), (u += " btn-red"))
                       : ((s += " border-blue-600"), (u += " btn-blue")),
-                    (0, Ae.jsx)(Et.u.Root, {
+                    (0, Ce.jsx)(jt.u.Root, {
                       show: t,
                       as: o.Fragment,
-                      children: (0, Ae.jsxs)(jt.V, {
+                      children: (0, Ce.jsxs)(Lt.V, {
                         as: "div",
                         className: "relative z-50",
                         onClose: function () {},
                         children: [
-                          (0, Ae.jsx)(Pt.Z, {}),
-                          (0, Ae.jsx)("div", {
+                          (0, Ce.jsx)(Rt.Z, {}),
+                          (0, Ce.jsx)("div", {
                             className: "fixed z-10 inset-0 overflow-y-auto",
-                            children: (0, Ae.jsx)("div", {
+                            children: (0, Ce.jsx)("div", {
                               className:
                                 "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                              children: (0, Ae.jsx)(Et.u.Child, {
+                              children: (0, Ce.jsx)(jt.u.Child, {
                                 as: o.Fragment,
                                 enter: "ease-out duration-300",
                                 enterFrom: "opacity-0 translate-y-4",
@@ -58019,45 +59423,45 @@
                                 leave: "ease-in duration-200",
                                 leaveFrom: "opacity-100 translate-y-0",
                                 leaveTo: "opacity-0 translate-y-4",
-                                children: (0, Ae.jsx)(jt.V.Panel, {
+                                children: (0, Ce.jsx)(Lt.V.Panel, {
                                   className: s,
-                                  children: (0, Ae.jsx)("div", {
-                                    children: (0, Ae.jsxs)("div", {
+                                  children: (0, Ce.jsx)("div", {
+                                    children: (0, Ce.jsxs)("div", {
                                       className: "mt-0",
                                       children: [
-                                        (0, Ae.jsx)(jt.V.Title, {
+                                        (0, Ce.jsx)(Lt.V.Title, {
                                           as: "h3",
                                           className:
                                             "text-2xl leading-6 font-game",
                                           children:
                                             "danger" === i
-                                              ? (0, Ce.K)("warning") + " " + r
-                                              : (0, Ce.K)(r),
+                                              ? (0, Ae.K)("warning") + " " + r
+                                              : (0, Ae.K)(r),
                                         }),
-                                        (0, Ae.jsx)("div", {
+                                        (0, Ce.jsx)("div", {
                                           className: "my-5",
-                                          children: (0, Ae.jsx)(Dt.Z, {
+                                          children: (0, Ce.jsx)(Dt.Z, {
                                             text:
-                                              "danger" === i ? (0, Ce.K)(a) : a,
+                                              "danger" === i ? (0, Ae.K)(a) : a,
                                             type: i,
                                           }),
                                         }),
-                                        (0, Ae.jsxs)("div", {
+                                        (0, Ce.jsxs)("div", {
                                           className:
                                             "w-full text-center flex lg:block lg:text-right",
                                           children: [
-                                            (0, Ae.jsx)("button", {
+                                            (0, Ce.jsx)("button", {
                                               type: "button",
                                               className:
                                                 "btn bg-gray-300 hover:bg-gray-400 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-700 mr-2 px-6",
                                               onClick: n,
-                                              children: (0, Ce.K)("cancel"),
+                                              children: (0, Ae.K)("cancel"),
                                             }),
-                                            (0, Ae.jsx)("button", {
+                                            (0, Ce.jsx)("button", {
                                               type: "button",
                                               className: u,
                                               onClick: l,
-                                              children: (0, Ce.K)("confirm"),
+                                              children: (0, Ae.K)("confirm"),
                                             }),
                                           ],
                                         }),
@@ -58078,9 +59482,9 @@
             r
           );
         })(o.Component),
-        Gt = (0, t.f3)("MainStore")((0, t.Pi)(Bt)),
-        Kt = r(7914),
-        Ut = (function (e) {
+        Kt = (0, t.f3)("MainStore")((0, t.Pi)(Gt)),
+        Ut = r(7914),
+        Yt = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -58091,10 +59495,10 @@
               {
                 key: "render",
                 value: function () {
-                  return (0, Ae.jsx)(Ae.Fragment, {
+                  return (0, Ce.jsx)(Ce.Fragment, {
                     children:
                       "ancestor_farmer" === this.props.id
-                        ? (0, Ae.jsx)(Se(), {
+                        ? (0, Ce.jsx)(Se(), {
                             path: Me.S8v,
                             className:
                               "icon inline " +
@@ -58104,7 +59508,7 @@
                               this.props.addClasses,
                           })
                         : "ancestor_gatherer" === this.props.id
-                        ? (0, Ae.jsx)(Se(), {
+                        ? (0, Ce.jsx)(Se(), {
                             path: Me.tZK,
                             className:
                               "icon inline " +
@@ -58114,7 +59518,7 @@
                               this.props.addClasses,
                           })
                         : "ancestor_miner" === this.props.id
-                        ? (0, Ae.jsx)(Se(), {
+                        ? (0, Ce.jsx)(Se(), {
                             path: Me.f_y,
                             className:
                               "icon inline " +
@@ -58124,7 +59528,7 @@
                               this.props.addClasses,
                           })
                         : "ancestor_trader" === this.props.id
-                        ? (0, Ae.jsx)(Se(), {
+                        ? (0, Ce.jsx)(Se(), {
                             path: Me.Fjp,
                             className:
                               "icon inline " +
@@ -58134,7 +59538,7 @@
                               this.props.addClasses,
                           })
                         : "ancestor_warrior" === this.props.id
-                        ? (0, Ae.jsx)(Se(), {
+                        ? (0, Ce.jsx)(Se(), {
                             path: Me.Hne,
                             className:
                               "icon inline " +
@@ -58144,7 +59548,7 @@
                               this.props.addClasses,
                           })
                         : "ancestor_researcher" === this.props.id
-                        ? (0, Ae.jsx)(Se(), {
+                        ? (0, Ce.jsx)(Se(), {
                             path: Me.bWf,
                             className:
                               "icon inline " +
@@ -58154,7 +59558,7 @@
                               this.props.addClasses,
                           })
                         : "ancestor_spellcrafter" === this.props.id
-                        ? (0, Ae.jsx)(Se(), {
+                        ? (0, Ce.jsx)(Se(), {
                             path: Me.g7x,
                             className:
                               "icon inline " +
@@ -58164,7 +59568,7 @@
                               this.props.addClasses,
                           })
                         : "ancestor_forager" === this.props.id
-                        ? (0, Ae.jsx)(Se(), {
+                        ? (0, Ce.jsx)(Se(), {
                             path: Me.oHt,
                             className:
                               "icon inline " +
@@ -58174,7 +59578,7 @@
                               this.props.addClasses,
                           })
                         : "ancestor_believer" === this.props.id
-                        ? (0, Ae.jsx)(Se(), {
+                        ? (0, Ce.jsx)(Se(), {
                             path: Me.h_8,
                             className:
                               "icon inline " +
@@ -58191,7 +59595,7 @@
             r
           );
         })(o.Component),
-        Yt = (function (e) {
+        Qt = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -58202,20 +59606,20 @@
               {
                 key: "render",
                 value: function () {
-                  return (0, Ae.jsxs)(Ae.Fragment, {
+                  return (0, Ce.jsxs)(Ce.Fragment, {
                     children: [
                       "The",
-                      (0, Ae.jsx)("span", {
+                      (0, Ce.jsx)("span", {
                         className: "uppercase",
                         children: "r",
                       }),
                       "es",
-                      (0, Ae.jsx)("span", {
+                      (0, Ce.jsx)("span", {
                         className: "uppercase",
                         children: "m",
                       }),
                       "o",
-                      (0, Ae.jsx)("span", {
+                      (0, Ce.jsx)("span", {
                         className: "uppercase",
                         children: "r",
                       }),
@@ -58228,8 +59632,8 @@
             r
           );
         })(o.Component),
-        Qt = Yt,
-        Xt = (function (e) {
+        Xt = Qt,
+        $t = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -58275,53 +59679,53 @@
                     u = this.props.MainStore.StatsStore,
                     c = u.resetNumber,
                     d = u.ngResetBonus;
-                  return (0, Ae.jsx)("header", {
+                  return (0, Ce.jsx)("header", {
                     className:
                       "relative flex items-stretch py-1.5 lg:p-0 border-b border-gray-300 dark:border-black drop-shadow-sm bg-gray-200 [&>*]:bg-gray-200 dark:bg-mydark-700 dark:[&>*]:bg-mydark-700 z-40 [&>*]:z-40",
-                    children: (0, Ae.jsxs)("div", {
+                    children: (0, Ce.jsxs)("div", {
                       className:
                         "w-full flex mx-auto items-center whitespace-no-wrap relative py-1 px-3",
                       children: [
-                        (0, Ae.jsx)("h3", {
+                        (0, Ce.jsx)("h3", {
                           className:
                             "items-center mr-auto w-1/6 hidden lg:block font-game z-30 mt-2.5 mb-2 text-[1.75rem] leading-5",
-                          children: (0, Ae.jsx)(Qt, {}),
+                          children: (0, Ce.jsx)(Xt, {}),
                         }),
                         "" !== r
-                          ? (0, Ae.jsx)("h5", {
+                          ? (0, Ce.jsx)("h5", {
                               className:
                                 "flex items-center lg:justify-center whitespace-nowrap mb-0 w-1/3 mr-1 lg:mr-auto font-game text-xl cursor-pointer [&>*]:cursor-pointer z-30",
-                              children: (0, Ae.jsx)(Kt.a, {
+                              children: (0, Ce.jsx)(Ut.a, {
                                 trigger: "click",
                                 interactive: !0,
-                                content: (0, Ae.jsxs)("div", {
+                                content: (0, Ce.jsxs)("div", {
                                   className:
                                     "text-ancestor overflow-y-auto font-sans cursor-default max-h-[calc(50vh)]",
                                   children: [
-                                    (0, Ae.jsx)("span", {
+                                    (0, Ce.jsx)("span", {
                                       className: "inline lg:hidden",
-                                      children: (0, Ce.K)(t) + "：",
+                                      children: (0, Ae.K)(t) + "：",
                                     }),
-                                    (0, Ce.K)(t + "_description"),
-                                    (0, Ae.jsx)("hr", {
+                                    (0, Ae.K)(t + "_description"),
+                                    (0, Ce.jsx)("hr", {
                                       className:
                                         "h-px opacity-25 bg-current my-4 text-inherit border-0",
                                     }),
-                                    (0, Ce.K)(r + "_description"),
+                                    (0, Ae.K)(r + "_description"),
                                     !1 !== a && "undefined" !== typeof a.gen
-                                      ? (0, Ae.jsxs)(Ae.Fragment, {
+                                      ? (0, Ce.jsxs)(Ce.Fragment, {
                                           children: [
-                                            (0, Ae.jsx)("div", {
+                                            (0, Ce.jsx)("div", {
                                               className: "px-4",
-                                              children: (0, Ae.jsx)("table", {
+                                              children: (0, Ce.jsx)("table", {
                                                 className: "min-w-full my-2",
-                                                children: (0, Ae.jsx)("tbody", {
+                                                children: (0, Ce.jsx)("tbody", {
                                                   className: "text-sm",
                                                   children: a.gen.map(function (
                                                     e,
                                                     t
                                                   ) {
-                                                    return (0, Ae.jsxs)(
+                                                    return (0, Ce.jsxs)(
                                                       "tr",
                                                       {
                                                         className:
@@ -58329,28 +59733,28 @@
                                                             ? "bg-gray-100 dark:bg-mydark-400"
                                                             : "bg-gray-200 dark:bg-mydark-300",
                                                         children: [
-                                                          (0, Ae.jsx)("td", {
+                                                          (0, Ce.jsx)("td", {
                                                             className:
                                                               "px-4 2xl:py-1 text-left whitespace-nowrap",
                                                             children:
                                                               "resource" ===
                                                               e.type
-                                                                ? (0, Ce.K)(
+                                                                ? (0, Ae.K)(
                                                                     "res_" +
                                                                       e.id
                                                                   )
                                                                 : "cap" ===
                                                                   e.type
-                                                                ? (0, Ce.K)(
+                                                                ? (0, Ae.K)(
                                                                     e.id
                                                                   ) +
                                                                   "" +
-                                                                  (0, Ce.K)(
+                                                                  (0, Ae.K)(
                                                                     "cap"
                                                                   )
                                                                 : "",
                                                           }),
-                                                          (0, Ae.jsx)("td", {
+                                                          (0, Ce.jsx)("td", {
                                                             className:
                                                               "px-4 2xl:py-1 text-right whitespace-nowrap",
                                                             children:
@@ -58376,7 +59780,7 @@
                                               }),
                                             }),
                                             i.length > 0
-                                              ? (0, Ae.jsx)("hr", {
+                                              ? (0, Ce.jsx)("hr", {
                                                   className:
                                                     "h-px opacity-25 bg-current my-4 text-inherit border-0",
                                                 })
@@ -58387,7 +59791,7 @@
                                     i.map(function (e) {
                                       return e.map(function (e, t) {
                                         return (0,
-                                        Ae.jsx)(o.Fragment, { children: e }, "tooltip_mod_leg_" + t);
+                                        Ce.jsx)(o.Fragment, { children: e }, "tooltip_mod_leg_" + t);
                                       });
                                     }),
                                   ],
@@ -58398,92 +59802,92 @@
                                     : "!max-w-[260px]",
                                 touch: ["hold", 500],
                                 placement: "bottom",
-                                children: (0, Ae.jsxs)("span", {
+                                children: (0, Ce.jsxs)("span", {
                                   className: "text-ancestor",
                                   children: [
-                                    (0, Ae.jsx)("span", {
+                                    (0, Ce.jsx)("span", {
                                       className: "hidden lg:inline",
-                                      children: (0, Ce.K)(t) + " ",
+                                      children: (0, Ae.K)(t) + " ",
                                     }),
-                                    (0, Ae.jsxs)("span", {
+                                    (0, Ce.jsxs)("span", {
                                       className: "inline lg:hidden",
-                                      children: [(0, Ae.jsx)(Qt, {}), " "],
+                                      children: [(0, Ce.jsx)(Xt, {}), " "],
                                     }),
-                                    (0, Ae.jsx)(Ut, { id: r }),
+                                    (0, Ce.jsx)(Yt, { id: r }),
                                   ],
                                 }),
                               }),
                             })
                           : null,
-                        (0, Ae.jsxs)("div", {
+                        (0, Ce.jsxs)("div", {
                           className:
                             "" === r
                               ? "text-center w-full lg:text-right lg:w-1/4 z-30"
                               : "text-right w-2/3 lg:w-1/4 z-30",
                           children: [
                             this.props.MainStore.d
-                              ? (0, Ae.jsx)("button", {
+                              ? (0, Ce.jsx)("button", {
                                   type: "button",
                                   className: "py-1.5 px-3 text-red-600",
                                   onClick: this.handleD,
-                                  children: (0, Ae.jsx)(Se(), {
+                                  children: (0, Ce.jsx)(Se(), {
                                     path: Me.iZA,
                                     className: "icon",
                                   }),
                                 })
                               : null,
-                            (0, Ae.jsx)(Kt.a, {
-                              content: (0, Ce.K)("achievements"),
+                            (0, Ce.jsx)(Ut.a, {
+                              content: (0, Ae.K)("achievements"),
                               touch: ["hold", 500],
                               placement: "bottom",
-                              children: (0, Ae.jsx)("button", {
+                              children: (0, Ce.jsx)("button", {
                                 type: "button",
                                 className: "py-1.5 px-3 text-amber-500",
                                 onClick: this.handleAchievements,
-                                children: (0, Ae.jsx)(Se(), {
+                                children: (0, Ce.jsx)(Se(), {
                                   path: Me.lEW,
                                   className: "icon",
                                 }),
                               }),
                             }),
-                            (0, Ae.jsx)(Kt.a, {
-                              content: (0, Ce.K)("statistics"),
+                            (0, Ce.jsx)(Ut.a, {
+                              content: (0, Ae.K)("statistics"),
                               touch: ["hold", 500],
                               placement: "bottom",
-                              children: (0, Ae.jsx)("button", {
+                              children: (0, Ce.jsx)("button", {
                                 type: "button",
                                 className: "py-1.5 px-3 text-green-600",
                                 onClick: this.handleStatistics,
-                                children: (0, Ae.jsx)(Se(), {
+                                children: (0, Ce.jsx)(Se(), {
                                   path: Me.btf,
                                   className: "icon",
                                 }),
                               }),
                             }),
-                            (0, Ae.jsx)(Kt.a, {
-                              content: (0, Ce.K)("support_us"),
+                            (0, Ce.jsx)(Ut.a, {
+                              content: (0, Ae.K)("support_us"),
                               touch: ["hold", 500],
                               placement: "bottom",
-                              children: (0, Ae.jsx)("button", {
+                              children: (0, Ce.jsx)("button", {
                                 type: "button",
                                 className: "py-1.5 px-3 text-red-600",
                                 onClick: this.handleSupport,
-                                children: (0, Ae.jsx)(Se(), {
+                                children: (0, Ce.jsx)(Se(), {
                                   path: Me.sMo,
                                   className: "icon",
                                 }),
                               }),
                             }),
-                            (0, Ae.jsx)(Kt.a, {
-                              content: (0, Ce.K)("settings"),
+                            (0, Ce.jsx)(Ut.a, {
+                              content: (0, Ae.K)("settings"),
                               touch: ["hold", 500],
                               placement: "bottom",
-                              children: (0, Ae.jsx)("button", {
+                              children: (0, Ce.jsx)("button", {
                                 type: "button",
                                 className:
                                   "py-1.5 px-3 text-gray-600 dark:text-gray-400",
                                 onClick: this.handleSettings,
-                                children: (0, Ae.jsx)(Se(), {
+                                children: (0, Ce.jsx)(Se(), {
                                   path: Me.Shd,
                                   className: "icon",
                                 }),
@@ -58492,7 +59896,7 @@
                           ],
                         }),
                         l
-                          ? (0, Ae.jsx)("div", {
+                          ? (0, Ce.jsx)("div", {
                               className:
                                 "py-6 pt-7 lg:p-0 lg:h-full absolute left-0 z-0 bg-gradient-to-b from-red-100 to-red-300 dark:from-mydark-700 dark:to-red-700",
                               style: { width: 100 - s + "%" },
@@ -58507,8 +59911,8 @@
             r
           );
         })(o.Component),
-        $t = (0, t.f3)("MainStore")((0, t.Pi)(Xt)),
-        Jt = (function (e) {
+        Jt = (0, t.f3)("MainStore")((0, t.Pi)($t)),
+        er = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -58520,14 +59924,14 @@
                 key: "render",
                 value: function () {
                   var e = this.props.MainStore.logs;
-                  return (0, Ae.jsxs)("div", {
+                  return (0, Ce.jsxs)("div", {
                     className:
                       "w-full order-2 flex-grow overflow-x-hidden overflow-y-auto pr-4",
                     children: [
                       " ",
                       e.map(function (e, t) {
                         return (0,
-                        Ae.jsx)("p", { className: "text-xs mb-2 " + e.c, children: e.t }, "log-" + t);
+                        Ce.jsx)("p", { className: "text-xs mb-2 " + e.c, children: e.t }, "log-" + t);
                       }),
                     ],
                   });
@@ -58537,11 +59941,11 @@
             r
           );
         })(o.Component),
-        er = (0, t.f3)("MainStore")((0, t.Pi)(Jt)),
-        tr = o.lazy(function () {
+        tr = (0, t.f3)("MainStore")((0, t.Pi)(er)),
+        rr = o.lazy(function () {
           return r.e(885).then(r.bind(r, 4885));
         }),
-        rr = (function (e) {
+        ar = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -58602,103 +60006,103 @@
                     l = t.visibleMausoleum,
                     s = t.visibleAscension,
                     u = t.visibleNewGamePlus;
-                  return (0, Ae.jsx)(Ae.Fragment, {
+                  return (0, Ce.jsx)(Ce.Fragment, {
                     children:
                       r > 0
-                        ? (0, Ae.jsx)("div", {
+                        ? (0, Ce.jsx)("div", {
                             className: "order-1 w-full h-min mb-3",
-                            children: (0, Ae.jsx)("div", {
+                            children: (0, Ce.jsx)("div", {
                               className:
                                 "p-4 xl:p-2 2xl:p-3 3xl:p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 rounded-lg shadow flex flex-col",
-                              children: (0, Ae.jsx)("div", {
+                              children: (0, Ce.jsx)("div", {
                                 className: "flex-1 text-center w-min mx-auto",
-                                children: (0, Ae.jsxs)("div", {
+                                children: (0, Ce.jsxs)("div", {
                                   className: "grid gap-3 min-w-full",
                                   children: [
                                     a
-                                      ? (0, Ae.jsx)("button", {
+                                      ? (0, Ce.jsx)("button", {
                                           type: "button",
                                           className:
                                             "btn xl:text-xs 3xl:text-sm btn-red hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
                                           onClick: this.handleSoftReset,
-                                          children: (0, Ce.K)(
+                                          children: (0, Ae.K)(
                                             "tec_glorious_retirement"
                                           ),
                                         })
                                       : null,
                                     i
-                                      ? (0, Ae.jsx)("button", {
+                                      ? (0, Ce.jsx)("button", {
                                           type: "button",
                                           className:
                                             "btn xl:text-xs 3xl:text-sm btn-red !bg-red-600 dark:!bg-red-700 hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
                                           onClick: this.handleSoftReset2,
                                           children:
                                             0 === e
-                                              ? (0, Ce.K)(
+                                              ? (0, Ae.K)(
                                                   "light_portal_of_the_dead"
                                                 )
-                                              : (0, Ce.K)(
+                                              : (0, Ae.K)(
                                                   "tec_portal_of_the_dead"
                                                 ),
                                         })
                                       : null,
                                     n
-                                      ? (0, Ae.jsx)("button", {
+                                      ? (0, Ce.jsx)("button", {
                                           type: "button",
                                           className:
                                             "btn xl:text-xs 3xl:text-sm btn-red !bg-red-700 dark:!bg-red-600 hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
                                           onClick: this.handleSoftReset3,
-                                          children: (0, Ce.K)(
+                                          children: (0, Ae.K)(
                                             "theresmore_richest_nation"
                                           ),
                                         })
                                       : null,
                                     s
-                                      ? (0, Ae.jsx)("button", {
+                                      ? (0, Ce.jsx)("button", {
                                           type: "button",
                                           className:
                                             "btn xl:text-xs 3xl:text-sm btn-red !bg-red-800 dark:!bg-red-500 hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
                                           onClick: this.handleSoftReset4,
-                                          children: (0, Ce.K)("ascension"),
+                                          children: (0, Ae.K)("ascension"),
                                         })
                                       : l
                                       ? r > 1
-                                        ? (0, Ae.jsx)("button", {
+                                        ? (0, Ce.jsx)("button", {
                                             type: "button",
                                             className:
                                               "btn xl:text-xs 3xl:text-sm btn-off !text-red-900 dark:!text-red-100 border-red-800 dark:border-red-500 btn-progress-manual btn-progress-red cursor-pointer",
                                             id: "btn-progress-mausoleum",
                                             onClick: this.handleMausoleum,
-                                            children: (0, Ce.K)(
+                                            children: (0, Ae.K)(
                                               "bui_mausoleum_gods"
                                             ),
                                           })
-                                        : (0, Ae.jsx)("div", {
-                                            children: (0, Ae.jsx)("button", {
+                                        : (0, Ce.jsx)("div", {
+                                            children: (0, Ce.jsx)("button", {
                                               type: "button",
                                               className:
                                                 "btn xl:text-xs 3xl:text-sm btn-off !text-red-900 dark:!text-red-100 border-red-800 dark:border-red-500 btn-progress-manual btn-progress-red cursor-pointer",
                                               id: "btn-progress-mausoleum",
                                               onClick: this.handleMausoleum,
-                                              children: (0, Ce.K)(
+                                              children: (0, Ae.K)(
                                                 "bui_mausoleum_gods"
                                               ),
                                             }),
                                           })
                                       : null,
                                     s || l
-                                      ? (0, Ae.jsx)(o.Suspense, {
+                                      ? (0, Ce.jsx)(o.Suspense, {
                                           fallback: null,
-                                          children: (0, Ae.jsx)(tr, {}),
+                                          children: (0, Ce.jsx)(rr, {}),
                                         })
                                       : null,
                                     u
-                                      ? (0, Ae.jsx)("button", {
+                                      ? (0, Ce.jsx)("button", {
                                           type: "button",
                                           className:
                                             "btn xl:text-xs 3xl:text-sm btn-red hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
                                           onClick: this.handleNewGamePlus,
-                                          children: (0, Ce.K)("new_game_plus"),
+                                          children: (0, Ae.K)("new_game_plus"),
                                         })
                                       : null,
                                   ],
@@ -58714,8 +60118,8 @@
             r
           );
         })(o.Component),
-        ar = (0, t.f3)("MainStore")((0, t.Pi)(rr)),
-        ir = (function (e) {
+        ir = (0, t.f3)("MainStore")((0, t.Pi)(ar)),
+        nr = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -58750,13 +60154,13 @@
                   var e = "btn btn-radial w-full lg:w-3/5 4xl:w-1/2 mx-auto";
                   return (
                     (e += this.props.evid ? " btn-green" : " btn-dark"),
-                    (0, Ae.jsx)("button", {
+                    (0, Ce.jsx)("button", {
                       type: "button",
                       className: e,
                       onClick: this.handleAdd,
                       onMouseEnter: this.handleMouseEnter,
                       onMouseLeave: this.handleMouseLeave,
-                      children: (0, Ce.K)("res_" + this.props.id),
+                      children: (0, Ae.K)("res_" + this.props.id),
                     })
                   );
                 },
@@ -58765,8 +60169,8 @@
             r
           );
         })(o.Component),
-        nr = (0, t.f3)("MainStore")((0, t.Pi)(ir)),
-        or = (function (e) {
+        or = (0, t.f3)("MainStore")((0, t.Pi)(nr)),
+        lr = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -58782,9 +60186,9 @@
                     r = t.showManual,
                     a = t.manualResources,
                     i = t.food;
-                  return (0, Ae.jsx)(Ae.Fragment, {
+                  return (0, Ce.jsx)(Ce.Fragment, {
                     children: r
-                      ? (0, Ae.jsx)("div", {
+                      ? (0, Ce.jsx)("div", {
                           className:
                             "order-2 flex flex-wrap gap-3 min-w-full mt-3 py-3 px-16 lg:px-3 shadow rounded-lg ring-1 ring-gray-300 dark:ring-mydark-200 bg-gray-100 dark:bg-mydark-600",
                           children: a.map(function (t) {
@@ -58797,7 +60201,7 @@
                                   : 1,
                               n = "food" === t.id && 0 === i;
                             return (0,
-                            Ae.jsx)(nr, { id: t.id, manual: a, evid: n }, "manual_" + t.id);
+                            Ce.jsx)(or, { id: t.id, manual: a, evid: n }, "manual_" + t.id);
                           }),
                         })
                       : null,
@@ -58808,9 +60212,9 @@
             r
           );
         })(o.Component),
-        lr = (0, t.f3)("MainStore")((0, t.Pi)(or)),
-        sr = r(5339),
-        ur = (function (e) {
+        sr = (0, t.f3)("MainStore")((0, t.Pi)(lr)),
+        ur = r(5339),
+        cr = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r(e) {
@@ -58818,7 +60222,7 @@
             return (
               (0, i.Z)(this, r),
               ((a = t.call(this, e)).state = {
-                formatId: (0, Ce.K)("res_" + a.props.id),
+                formatId: (0, Ae.K)("res_" + a.props.id),
                 formatQty: a.props.qty,
                 formatQtyStr: (0, je.uf)(
                   Math.floor(a.props.qty),
@@ -58881,17 +60285,17 @@
                     i =
                       "px-3 3xl:px-5 py-3 lg:py-2 3xl:py-3 whitespace-nowrap w-1/3 text-right" +
                       e;
-                  return (0, Ae.jsxs)("tr", {
+                  return (0, Ce.jsxs)("tr", {
                     className:
                       r + " hover:bg-gray-300 dark:hover:bg-mydark-700",
                     children: [
-                      (0, Ae.jsx)("td", {
+                      (0, Ce.jsx)("td", {
                         className: a,
-                        children: (0, Ae.jsx)("span", {
+                        children: (0, Ce.jsx)("span", {
                           children: this.state.formatId,
                         }),
                       }),
-                      (0, Ae.jsxs)("td", {
+                      (0, Ce.jsxs)("td", {
                         className: i,
                         children: [
                           this.state.formatQtyStr,
@@ -58899,7 +60303,7 @@
                           this.state.formatCapStr,
                         ],
                       }),
-                      (0, Ae.jsxs)("td", {
+                      (0, Ce.jsxs)("td", {
                         className: i,
                         children: [this.state.formatTimerStr, "/秒"],
                       }),
@@ -58917,14 +60321,14 @@
                         : "food" === this.props.id && 0 === e
                         ? " text-red-600"
                         : "";
-                  return (0, Ae.jsx)(Ae.Fragment, {
+                  return (0, Ce.jsx)(Ce.Fragment, {
                     children:
                       0 === this.props.modTooltip.length
                         ? this.resRow(t, this.props.idx)
-                        : (0, Ae.jsx)(Kt.a, {
-                            content: (0, Ae.jsx)(sr.Z, {
+                        : (0, Ce.jsx)(Ut.a, {
+                            content: (0, Ce.jsx)(ur.Z, {
                               id: this.props.id,
-                              title: (0, Ce.K)("res_" + this.props.id),
+                              title: (0, Ae.K)("res_" + this.props.id),
                               modTooltipData: this.props.modTooltip,
                               prefix: "res",
                               titleClasses: t + " pt-3",
@@ -58956,7 +60360,7 @@
             r
           );
         })(o.Component),
-        cr = (function (e) {
+        dr = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -58973,12 +60377,12 @@
                     a = t.defaultNumberFormat,
                     i = t.bigNumberFormat,
                     n = this.props.MainStore.ResourcesStore.resources;
-                  return (0, Ae.jsx)("div", {
+                  return (0, Ce.jsx)("div", {
                     className:
                       "overflow-hidden shadow ring-1 ring-gray-300 dark:ring-mydark-200 rounded-lg",
-                    children: (0, Ae.jsx)("table", {
+                    children: (0, Ce.jsx)("table", {
                       className: "min-w-full",
-                      children: (0, Ae.jsx)("tbody", {
+                      children: (0, Ce.jsx)("tbody", {
                         className: "bg-gray-100 dark:bg-mydark-600 text-sm",
                         children: n.map(function (t, n) {
                           var o = 0,
@@ -59005,7 +60409,7 @@
                               t.id
                             );
                           return (0,
-                          Ae.jsx)(ur, { idx: n, id: t.id, cap: u, qty: l, timer: o, modTooltip: c, bigNumberFormat: i, defaultNumberFormat: a }, "resource_" + t.id);
+                          Ce.jsx)(cr, { idx: n, id: t.id, cap: u, qty: l, timer: o, modTooltip: c, bigNumberFormat: i, defaultNumberFormat: a }, "resource_" + t.id);
                         }),
                       }),
                     }),
@@ -59016,8 +60420,8 @@
             r
           );
         })(o.Component),
-        dr = (0, t.f3)("MainStore")((0, t.Pi)(cr)),
-        pr = (function (e) {
+        pr = (0, t.f3)("MainStore")((0, t.Pi)(dr)),
+        _r = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r(e) {
@@ -59105,14 +60509,14 @@
                           : {}),
                     !e ||
                     (e && this.props.MainStore.SettingsStore.showCapBuildings)
-                      ? (0, Ae.jsx)("div", {
+                      ? (0, Ce.jsx)("div", {
                           className: "flex flex-col",
-                          children: (0, Ae.jsx)(Kt.a, {
-                            content: (0, Ae.jsx)(sr.Z, {
+                          children: (0, Ce.jsx)(Ut.a, {
+                            content: (0, Ce.jsx)(ur.Z, {
                               id: this.props.id,
-                              title: (0, Ce.K)("bui_" + this.props.id),
+                              title: (0, Ae.K)("bui_" + this.props.id),
                               titleClasses: i,
-                              description: (0, Ce.K)(
+                              description: (0, Ae.K)(
                                 "bui_" + this.props.id + "_description"
                               ),
                               owned: e,
@@ -59138,16 +60542,16 @@
                                 },
                               ],
                             },
-                            children: (0, Ae.jsxs)("button", {
+                            children: (0, Ce.jsxs)("button", {
                               type: "button",
                               className: a,
                               onClick: this.handleAdd,
                               children: [
-                                (0, Ce.K)("bui_" + this.props.id),
+                                (0, Ae.K)("bui_" + this.props.id),
                                 this.props.qty > 0 &&
                                 !this.state.progress &&
                                 (!e || (e && this.props.qty > 1))
-                                  ? (0, Ae.jsx)("span", {
+                                  ? (0, Ce.jsx)("span", {
                                       className:
                                         "absolute -top-2 right-0 inline-block py-px px-2 rounded-full font-bold text-xs bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
                                       children: this.props.qty,
@@ -59156,10 +60560,10 @@
                                 "oracle_b" !== this.props.id ||
                                 this.state.progress
                                   ? null
-                                  : (0, Ae.jsx)("span", {
+                                  : (0, Ce.jsx)("span", {
                                       className:
                                         "absolute -top-2 left-0 inline-block py-px px-2 rounded-full font-bold text-xs text-indigo-500",
-                                      children: (0, Ae.jsx)(Se(), {
+                                      children: (0, Ce.jsx)(Se(), {
                                         path: Me.mOX,
                                         className: "icon !w-4 !h-4",
                                         style: n,
@@ -59168,10 +60572,10 @@
                                 "glory_gods" !== this.props.id ||
                                 this.state.progress
                                   ? null
-                                  : (0, Ae.jsx)("span", {
+                                  : (0, Ce.jsx)("span", {
                                       className:
                                         "absolute -top-2 left-0 inline-block py-px px-2 rounded-full font-bold text-xs text-indigo-500",
-                                      children: (0, Ae.jsx)(Se(), {
+                                      children: (0, Ce.jsx)(Se(), {
                                         path: Me.Ze$,
                                         className: "icon !w-4 !h-4",
                                         style: n,
@@ -59179,10 +60583,10 @@
                                     }),
                                 13 !== this.props.age || this.state.progress
                                   ? null
-                                  : (0, Ae.jsx)("span", {
+                                  : (0, Ce.jsx)("span", {
                                       className:
                                         "absolute -top-2 left-0 inline-block py-px px-2 rounded-full font-bold text-xs text-green-600",
-                                      children: (0, Ae.jsx)(Se(), {
+                                      children: (0, Ce.jsx)(Se(), {
                                         path: Me.Iwx,
                                         className: "icon !w-4 !h-4",
                                       }),
@@ -59191,10 +60595,10 @@
                                 1 !== this.props.tab ||
                                 this.state.progress
                                   ? null
-                                  : (0, Ae.jsx)("span", {
+                                  : (0, Ce.jsx)("span", {
                                       className:
                                         "absolute -top-2 left-0 inline-block py-px px-2 rounded-full font-bold text-xs text-orange-600 dark:text-orange-500",
-                                      children: (0, Ae.jsx)(Se(), {
+                                      children: (0, Ce.jsx)(Se(), {
                                         path: Me.lG8,
                                         className: "icon !w-4 !h-4",
                                       }),
@@ -59211,8 +60615,8 @@
             r
           );
         })(o.Component),
-        _r = (0, t.f3)("MainStore")((0, t.Pi)(pr)),
-        yr = (function (e) {
+        yr = (0, t.f3)("MainStore")((0, t.Pi)(_r)),
+        hr = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -59232,68 +60636,68 @@
                     o = i.buildableBuildings,
                     l = i.buildableCapBuildings,
                     s = i.visibleColony;
-                  return (0, Ae.jsx)("div", {
+                  return (0, Ce.jsx)("div", {
                     className: s
                       ? "tab-container sub-container"
                       : "tab-container",
                     children:
                       this.props.categories.length > 0
                         ? this.props.categories.map(function (t, i) {
-                            return (0, Ae.jsxs)(
+                            return (0, Ce.jsxs)(
                               "div",
                               {
                                 className:
                                   "flex flex-wrap min-w-full mt-3 p-3 shadow rounded-lg ring-1 ring-gray-300 dark:ring-mydark-200 bg-gray-100 dark:bg-mydark-600",
                                 children: [
-                                  (0, Ae.jsxs)("div", {
+                                  (0, Ce.jsxs)("div", {
                                     className:
                                       "w-full pb-3 font-bold text-center xl:text-left",
                                     children: [
                                       "living_quarters" === t
-                                        ? (0, Ae.jsx)(Se(), {
+                                        ? (0, Ce.jsx)(Se(), {
                                             path: Me.ns6,
                                             className: "icon inline -mt-1 mr-2",
                                           })
                                         : "resource" === t
-                                        ? (0, Ae.jsx)(Se(), {
+                                        ? (0, Ce.jsx)(Se(), {
                                             path: Me.f_y,
                                             className: "icon inline -mt-1 mr-2",
                                           })
                                         : "science" === t
-                                        ? (0, Ae.jsx)(Se(), {
+                                        ? (0, Ce.jsx)(Se(), {
                                             path: Me.bWf,
                                             className: "icon inline -mt-1 mr-2",
                                           })
                                         : "commercial_area" === t
-                                        ? (0, Ae.jsx)(Se(), {
+                                        ? (0, Ce.jsx)(Se(), {
                                             path: Me.Fjp,
                                             className: "icon inline -mt-1 mr-2",
                                           })
                                         : "defense" === t
-                                        ? (0, Ae.jsx)(Se(), {
+                                        ? (0, Ce.jsx)(Se(), {
                                             path: Me.pCE,
                                             className: "icon inline -mt-1 mr-2",
                                           })
                                         : "faith" === t
-                                        ? (0, Ae.jsx)(Se(), {
+                                        ? (0, Ce.jsx)(Se(), {
                                             path: Me.g7x,
                                             className: "icon inline -mt-1 mr-2",
                                           })
                                         : "warehouse" === t
-                                        ? (0, Ae.jsx)(Se(), {
+                                        ? (0, Ce.jsx)(Se(), {
                                             path: Me._MI,
                                             className: "icon inline -mt-1 mr-2",
                                           })
                                         : "wonders" === t
-                                        ? (0, Ae.jsx)(Se(), {
+                                        ? (0, Ce.jsx)(Se(), {
                                             path: Me.BGt,
                                             className: "icon inline -mt-1 mr-2",
                                           })
                                         : null,
-                                      (0, Ce.K)("cat_" + t),
+                                      (0, Ae.K)("cat_" + t),
                                     ],
                                   }),
-                                  (0, Ae.jsx)("div", {
+                                  (0, Ce.jsx)("div", {
                                     className:
                                       "grid gap-3 grid-cols-fill-180 min-w-full px-12 xl:px-0",
                                     children: n.map(function (i) {
@@ -59318,8 +60722,8 @@
                                             (n = l.findIndex(function (e) {
                                               return e.id === i.id;
                                             }));
-                                        return (0, Ae.jsx)(
-                                          _r,
+                                        return (0, Ce.jsx)(
+                                          yr,
                                           {
                                             id: i.id,
                                             qty: s,
@@ -59343,12 +60747,12 @@
                               "bui_cat_" + i
                             );
                           })
-                        : (0, Ae.jsx)("div", {
+                        : (0, Ce.jsx)("div", {
                             className: "flex justify-center mt-6 text-lg",
-                            children: (0, Ae.jsx)("div", {
+                            children: (0, Ce.jsx)("div", {
                               className: "min-w-[40%] w-auto",
-                              children: (0, Ae.jsx)(Dt.Z, {
-                                text: (0, Ce.K)("build_empty"),
+                              children: (0, Ce.jsx)(Dt.Z, {
+                                text: (0, Ae.K)("build_empty"),
                                 type: "info",
                               }),
                             }),
@@ -59360,8 +60764,8 @@
             r
           );
         })(o.Component),
-        hr = (0, t.f3)("MainStore")((0, t.Pi)(yr)),
-        fr = (function (e) {
+        fr = (0, t.f3)("MainStore")((0, t.Pi)(hr)),
+        mr = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -59396,58 +60800,58 @@
                   var o = "!border-ancestor text-ancestor",
                     l =
                       "xl:border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-mydark-50 hover:border-gray-400 dark:hover:border-gray-500";
-                  return (0, Ae.jsx)(Ae.Fragment, {
+                  return (0, Ce.jsx)(Ce.Fragment, {
                     children: a
-                      ? (0, Ae.jsxs)(Rt.O.Group, {
+                      ? (0, Ce.jsxs)(Ft.O.Group, {
                           selectedIndex: i,
                           onChange: this.handleSelect,
                           children: [
-                            (0, Ae.jsx)("div", {
+                            (0, Ce.jsx)("div", {
                               className:
                                 "mx-auto border-b border-gray-300 dark:border-mydark-200 flex justify-center mt-1 xl:mt-0",
-                              children: (0, Ae.jsxs)(Rt.O.List, {
+                              children: (0, Ce.jsxs)(Ft.O.List, {
                                 className:
                                   "grid grid-cols-2 gap-3 my-2 mb-3 lg:flex lg:gap-1 lg:mt-0 lg:mb-1 xl:mb-0 2xl:gap-3",
                                 children: [
-                                  (0, Ae.jsxs)(Rt.O, {
+                                  (0, Ce.jsxs)(Ft.O, {
                                     className: function (e) {
                                       var t = e.selected;
                                       return (0, je.AK)(n, t ? o : l);
                                     },
                                     children: [
-                                      (0, Ae.jsx)(Se(), {
+                                      (0, Ce.jsx)(Se(), {
                                         path: Me.MxW,
                                         className: "icon inline 3xl:-mt-1 mr-1",
                                       }),
-                                      (0, Ce.K)("main_build"),
+                                      (0, Ae.K)("main_build"),
                                     ],
                                   }),
-                                  (0, Ae.jsxs)(Rt.O, {
+                                  (0, Ce.jsxs)(Ft.O, {
                                     className: function (e) {
                                       var t = e.selected;
                                       return (0, je.AK)(n, t ? o : l);
                                     },
                                     children: [
-                                      (0, Ae.jsx)(Se(), {
+                                      (0, Ce.jsx)(Se(), {
                                         path: Me.lG8,
                                         className: "icon inline lg:-mt-1 mr-1",
                                       }),
-                                      (0, Ce.K)("colony"),
+                                      (0, Ae.K)("colony"),
                                     ],
                                   }),
                                 ],
                               }),
                             }),
-                            (0, Ae.jsxs)(Rt.O.Panels, {
+                            (0, Ce.jsxs)(Ft.O.Panels, {
                               children: [
-                                (0, Ae.jsx)(Rt.O.Panel, {
-                                  children: (0, Ae.jsx)(hr, {
+                                (0, Ce.jsx)(Ft.O.Panel, {
+                                  children: (0, Ce.jsx)(fr, {
                                     tab: 1,
                                     categories: t,
                                   }),
                                 }),
-                                (0, Ae.jsx)(Rt.O.Panel, {
-                                  children: (0, Ae.jsx)(hr, {
+                                (0, Ce.jsx)(Ft.O.Panel, {
+                                  children: (0, Ce.jsx)(fr, {
                                     tab: 2,
                                     categories: r,
                                   }),
@@ -59456,7 +60860,7 @@
                             }),
                           ],
                         })
-                      : (0, Ae.jsx)(hr, { tab: 1, categories: t }),
+                      : (0, Ce.jsx)(fr, { tab: 1, categories: t }),
                   });
                 },
               },
@@ -59464,8 +60868,8 @@
             r
           );
         })(o.Component),
-        mr = (0, t.f3)("MainStore")((0, t.Pi)(fr)),
-        gr = (function (e) {
+        gr = (0, t.f3)("MainStore")((0, t.Pi)(mr)),
+        vr = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r(e) {
@@ -59516,13 +60920,13 @@
                       : this.props.buildable
                       ? this.state.progress && (r += " btn-progress")
                       : (r += " btn-off"),
-                    (0, Ae.jsx)("div", {
+                    (0, Ce.jsx)("div", {
                       className: "flex flex-col",
-                      children: (0, Ae.jsx)(Kt.a, {
-                        content: (0, Ae.jsx)(sr.Z, {
+                      children: (0, Ce.jsx)(Ut.a, {
+                        content: (0, Ce.jsx)(ur.Z, {
                           id: this.props.id,
-                          title: (0, Ce.K)("tec_" + this.props.id),
-                          description: (0, Ce.K)(
+                          title: (0, Ae.K)("tec_" + this.props.id),
+                          description: (0, Ae.K)(
                             "tec_" + this.props.id + "_description"
                           ),
                           owned: this.props.owned,
@@ -59548,11 +60952,11 @@
                             },
                           ],
                         },
-                        children: (0, Ae.jsx)("button", {
+                        children: (0, Ce.jsx)("button", {
                           type: "button",
                           className: r,
                           onClick: this.handleAdd,
-                          children: (0, Ce.K)("tec_" + this.props.id),
+                          children: (0, Ae.K)("tec_" + this.props.id),
                         }),
                       }),
                     })
@@ -59563,8 +60967,8 @@
             r
           );
         })(o.Component),
-        vr = (0, t.f3)("MainStore")((0, t.Pi)(gr)),
-        br = (function (e) {
+        br = (0, t.f3)("MainStore")((0, t.Pi)(vr)),
+        wr = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -59600,57 +61004,57 @@
                   var l = "!border-ancestor text-ancestor",
                     s =
                       "xl:border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-mydark-50 hover:border-gray-400 dark:hover:border-gray-500";
-                  return (0, Ae.jsxs)(Rt.O.Group, {
+                  return (0, Ce.jsxs)(Ft.O.Group, {
                     selectedIndex: n,
                     onChange: this.handleSelect,
                     children: [
-                      (0, Ae.jsx)("div", {
+                      (0, Ce.jsx)("div", {
                         className:
                           "mx-auto border-b border-gray-300 dark:border-mydark-200 flex justify-center mt-1 xl:mt-0",
-                        children: (0, Ae.jsxs)(Rt.O.List, {
+                        children: (0, Ce.jsxs)(Ft.O.List, {
                           className:
                             "grid grid-cols-2 gap-3 my-2 mb-3 lg:flex lg:gap-1 lg:mt-0 lg:mb-1 xl:mb-0 2xl:gap-3",
                           children: [
-                            (0, Ae.jsxs)(Rt.O, {
+                            (0, Ce.jsxs)(Ft.O, {
                               className: function (e) {
                                 var t = e.selected;
                                 return (0, je.AK)(o, t ? l : s);
                               },
                               children: [
-                                (0, Ae.jsx)(Se(), {
+                                (0, Ce.jsx)(Se(), {
                                   path: Me.VG3,
                                   className: "icon inline 3xl:-mt-1 mr-1",
                                 }),
-                                (0, Ce.K)("research"),
+                                (0, Ae.K)("research"),
                               ],
                             }),
-                            (0, Ae.jsxs)(Rt.O, {
+                            (0, Ce.jsxs)(Ft.O, {
                               className: function (e) {
                                 var t = e.selected;
                                 return (0, je.AK)(o, t ? l : s);
                               },
                               children: [
-                                (0, Ae.jsx)(Se(), {
+                                (0, Ce.jsx)(Se(), {
                                   path: Me.YKm,
                                   className: "icon inline lg:-mt-1 mr-1",
                                 }),
-                                (0, Ce.K)("completed"),
+                                (0, Ae.K)("completed"),
                               ],
                             }),
                           ],
                         }),
                       }),
-                      (0, Ae.jsxs)(Rt.O.Panels, {
+                      (0, Ce.jsxs)(Ft.O.Panels, {
                         children: [
-                          (0, Ae.jsxs)(Rt.O.Panel, {
+                          (0, Ce.jsxs)(Ft.O.Panel, {
                             children: [
                               r.length > 0
-                                ? (0, Ae.jsx)("div", {
+                                ? (0, Ce.jsx)("div", {
                                     className: "tab-container sub-container",
-                                    children: (0, Ae.jsx)("div", {
+                                    children: (0, Ce.jsx)("div", {
                                       className:
                                         "flex flex-wrap min-w-full mt-3 p-3 shadow rounded-lg ring-1 ring-gray-300 dark:ring-mydark-200 bg-gray-100 dark:bg-mydark-600",
-                                      children: (0, Ae.jsx)("div", {
+                                      children: (0, Ce.jsx)("div", {
                                         className:
                                           "grid gap-3 grid-cols-fill-180 min-w-full px-12 xl:px-0",
                                         children: r.map(function (t) {
@@ -59660,20 +61064,20 @@
                                               return e.id === t.id;
                                             });
                                           return (0,
-                                          Ae.jsx)(vr, { id: t.id, buildable: r, req: t.req, gen: t.gen, sD: e, confirm: t.confirm }, "tec_" + t.id);
+                                          Ce.jsx)(br, { id: t.id, buildable: r, req: t.req, gen: t.gen, sD: e, confirm: t.confirm }, "tec_" + t.id);
                                         }),
                                       }),
                                     }),
                                   })
                                 : null,
                               0 === r.length
-                                ? (0, Ae.jsx)("div", {
+                                ? (0, Ce.jsx)("div", {
                                     className:
                                       "flex justify-center my-6 text-lg",
-                                    children: (0, Ae.jsx)("div", {
+                                    children: (0, Ce.jsx)("div", {
                                       className: "min-w-[40%] w-auto",
-                                      children: (0, Ae.jsx)(Dt.Z, {
-                                        text: (0, Ce.K)("tech_empty"),
+                                      children: (0, Ce.jsx)(Dt.Z, {
+                                        text: (0, Ae.K)("tech_empty"),
                                         type: "info",
                                       }),
                                     }),
@@ -59681,33 +61085,33 @@
                                 : null,
                             ],
                           }),
-                          (0, Ae.jsxs)(Rt.O.Panel, {
+                          (0, Ce.jsxs)(Ft.O.Panel, {
                             children: [
                               i.length > 0
-                                ? (0, Ae.jsx)("div", {
+                                ? (0, Ce.jsx)("div", {
                                     className: "tab-container sub-container",
-                                    children: (0, Ae.jsx)("div", {
+                                    children: (0, Ce.jsx)("div", {
                                       className:
                                         "flex flex-wrap min-w-full mt-3 p-3 shadow rounded-lg ring-1 ring-gray-300 dark:ring-mydark-200 bg-gray-100 dark:bg-mydark-600",
-                                      children: (0, Ae.jsx)("div", {
+                                      children: (0, Ce.jsx)("div", {
                                         className:
                                           "grid gap-3 grid-cols-fill-180 min-w-full px-12 xl:px-0",
                                         children: i.map(function (t) {
                                           return (0,
-                                          Ae.jsx)(vr, { id: t.id, buildable: !1, req: t.req, gen: t.gen, sD: e, owned: !0 }, "tec_" + t.id);
+                                          Ce.jsx)(br, { id: t.id, buildable: !1, req: t.req, gen: t.gen, sD: e, owned: !0 }, "tec_" + t.id);
                                         }),
                                       }),
                                     }),
                                   })
                                 : null,
                               0 === i.length
-                                ? (0, Ae.jsx)("div", {
+                                ? (0, Ce.jsx)("div", {
                                     className:
                                       "flex justify-center my-6 text-lg",
-                                    children: (0, Ae.jsx)("div", {
+                                    children: (0, Ce.jsx)("div", {
                                       className: "w-auto",
-                                      children: (0, Ae.jsx)(Dt.Z, {
-                                        text: (0, Ce.K)("log_village_empty"),
+                                      children: (0, Ce.jsx)(Dt.Z, {
+                                        text: (0, Ae.K)("log_village_empty"),
                                         type: "info",
                                       }),
                                     }),
@@ -59725,23 +61129,23 @@
             r
           );
         })(o.Component),
-        wr = (0, t.f3)("MainStore")((0, t.Pi)(br)),
-        kr = o.lazy(function () {
+        kr = (0, t.f3)("MainStore")((0, t.Pi)(wr)),
+        xr = o.lazy(function () {
           return r.e(191).then(r.bind(r, 8191));
         }),
-        xr = o.lazy(function () {
+        Sr = o.lazy(function () {
           return r.e(124).then(r.bind(r, 2124));
         }),
-        Sr = o.lazy(function () {
-          return r.e(883).then(r.bind(r, 1883));
-        }),
         Mr = o.lazy(function () {
+          return r.e(911).then(r.bind(r, 5911));
+        }),
+        Ar = o.lazy(function () {
           return r.e(173).then(r.bind(r, 4173));
         }),
         Cr = o.lazy(function () {
           return r.e(394).then(r.bind(r, 7394));
         }),
-        Ar = (function (e) {
+        Tr = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -59797,49 +61201,49 @@
                   var y = "!border-ancestor text-ancestor",
                     h =
                       "xl:border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-mydark-50 hover:border-gray-400 dark:hover:border-gray-500";
-                  return (0, Ae.jsxs)(
-                    Rt.O.Group,
+                  return (0, Ce.jsxs)(
+                    Ft.O.Group,
                     {
                       selectedIndex: e,
                       onChange: this.handleSelect,
                       children: [
-                        (0, Ae.jsx)("div", {
+                        (0, Ce.jsx)("div", {
                           className:
                             "mx-auto border-b border-gray-300 dark:border-mydark-200 flex justify-center py-2 mt-2 lg:py-0 lg:mt-0",
                           id: "main-tabs",
-                          children: (0, Ae.jsxs)(Rt.O.List, {
+                          children: (0, Ce.jsxs)(Ft.O.List, {
                             className:
                               "grid gap-3 lg:gap-1 grid-cols-2 lg:grid-cols-3 mb-1 xl:flex xl:mb-0 2xl:space-x-1",
                             children: [
-                              (0, Ae.jsxs)(Rt.O, {
+                              (0, Ce.jsxs)(Ft.O, {
                                 className: function (e) {
                                   var t = e.selected;
                                   return (0, je.AK)(_, t ? y : h);
                                 },
                                 children: [
-                                  (0, Ae.jsx)(Se(), {
+                                  (0, Ce.jsx)(Se(), {
                                     path: Me.MxW,
                                     className:
                                       "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1",
                                   }),
-                                  (0, Ce.K)("build"),
+                                  (0, Ae.K)("build"),
                                 ],
                               }),
-                              (0, Ae.jsxs)(Rt.O, {
+                              (0, Ce.jsxs)(Ft.O, {
                                 className: function (e) {
                                   var t = e.selected;
                                   return (0, je.AK)(_, t ? y : h);
                                 },
                                 children: [
-                                  (0, Ae.jsx)(Se(), {
+                                  (0, Ce.jsx)(Se(), {
                                     path: Me.VG3,
                                     className:
                                       "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1" +
                                       (d.length > 0 ? " hidden xl:inline" : ""),
                                   }),
-                                  (0, Ce.K)("research"),
+                                  (0, Ae.K)("research"),
                                   d.length > 0
-                                    ? (0, Ae.jsx)("span", {
+                                    ? (0, Ce.jsx)("span", {
                                         className:
                                           "inline-block ml-2 lg:py-px px-2 rounded-full font-bold text-xs leading-6 lg:leading-4 bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
                                         children: d.length,
@@ -59848,21 +61252,21 @@
                                 ],
                               }),
                               n.length > 1
-                                ? (0, Ae.jsxs)(Rt.O, {
+                                ? (0, Ce.jsxs)(Ft.O, {
                                     className: function (e) {
                                       var t = e.selected;
                                       return (0, je.AK)(_, t ? y : h);
                                     },
                                     children: [
-                                      (0, Ae.jsx)(Se(), {
+                                      (0, Ce.jsx)(Se(), {
                                         path: Me.kMq,
                                         className:
                                           "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1" +
                                           (i > 0 ? " hidden xl:inline" : ""),
                                       }),
-                                      (0, Ce.K)("population"),
+                                      (0, Ae.K)("population"),
                                       i > 0
-                                        ? (0, Ae.jsx)("span", {
+                                        ? (0, Ce.jsx)("span", {
                                             className:
                                               "inline-block ml-2 lg:py-px px-2 rounded-full font-bold text-xs leading-6 lg:leading-4 bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
                                             children: i,
@@ -59872,13 +61276,13 @@
                                   })
                                 : null,
                               s
-                                ? (0, Ae.jsxs)(Rt.O, {
+                                ? (0, Ce.jsxs)(Ft.O, {
                                     className: function (e) {
                                       var t = e.selected;
                                       return (0, je.AK)(_, t ? y : h);
                                     },
                                     children: [
-                                      (0, Ae.jsx)(Se(), {
+                                      (0, Ce.jsx)(Se(), {
                                         path: Me._VZ,
                                         className:
                                           "icon inline mt-0.5 lg:mt-0 3xl:-mt-1 mr-1" +
@@ -59886,9 +61290,9 @@
                                             ? " hidden xl:inline"
                                             : ""),
                                       }),
-                                      (0, Ce.K)("magic"),
+                                      (0, Ae.K)("magic"),
                                       u.length > 0
-                                        ? (0, Ae.jsx)("span", {
+                                        ? (0, Ce.jsx)("span", {
                                             className:
                                               "inline-block ml-2 lg:py-px px-2 rounded-full font-bold text-xs leading-6 lg:leading-4 bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
                                             children: u.length,
@@ -59898,111 +61302,111 @@
                                   })
                                 : null,
                               t.length > 0
-                                ? (0, Ae.jsxs)(Rt.O, {
+                                ? (0, Ce.jsxs)(Ft.O, {
                                     className: function (e) {
                                       var t = e.selected;
                                       return (0, je.AK)(_, t ? y : h);
                                     },
                                     children: [
-                                      (0, Ae.jsx)(Se(), {
+                                      (0, Ce.jsx)(Se(), {
                                         path: Me.UeY,
                                         className:
                                           "icon inline mt-0.5 lg:mt-0 3xl:-mt-1 mr-1",
                                       }),
-                                      (0, Ce.K)("army"),
+                                      (0, Ae.K)("army"),
                                     ],
                                   })
                                 : null,
                               r.length > 0
-                                ? (0, Ae.jsxs)(Rt.O, {
+                                ? (0, Ce.jsxs)(Ft.O, {
                                     className: function (e) {
                                       var t = e.selected;
                                       return (0, je.AK)(_, t ? y : h);
                                     },
                                     children: [
-                                      (0, Ae.jsx)(Se(), {
+                                      (0, Ce.jsx)(Se(), {
                                         path: Me.L_H,
                                         className:
                                           "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1",
                                       }),
-                                      (0, Ce.K)("diplomacy"),
+                                      (0, Ae.K)("diplomacy"),
                                     ],
                                   })
                                 : null,
                               c
-                                ? (0, Ae.jsxs)(Rt.O, {
+                                ? (0, Ce.jsxs)(Ft.O, {
                                     className: function (e) {
                                       var t = e.selected;
                                       return (0, je.AK)(_, t ? y : h);
                                     },
                                     children: [
-                                      (0, Ae.jsx)(Se(), {
+                                      (0, Ce.jsx)(Se(), {
                                         path: Me._5E,
                                         className:
                                           "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1",
                                       }),
-                                      (0, Ce.K)("bui_marketplace"),
+                                      (0, Ae.K)("bui_marketplace"),
                                     ],
                                   })
                                 : null,
                             ],
                           }),
                         }),
-                        (0, Ae.jsxs)(Rt.O.Panels, {
+                        (0, Ce.jsxs)(Ft.O.Panels, {
                           children: [
-                            (0, Ae.jsx)(Rt.O.Panel, {
-                              children: (0, Ae.jsx)(mr, {}),
+                            (0, Ce.jsx)(Ft.O.Panel, {
+                              children: (0, Ce.jsx)(gr, {}),
                             }),
-                            (0, Ae.jsx)(Rt.O.Panel, {
-                              children: (0, Ae.jsx)(wr, {}),
+                            (0, Ce.jsx)(Ft.O.Panel, {
+                              children: (0, Ce.jsx)(kr, {}),
                             }),
                             n.length > 1
-                              ? (0, Ae.jsx)(Rt.O.Panel, {
-                                  children: (0, Ae.jsx)(o.Suspense, {
-                                    fallback: (0, Ae.jsx)("div", {
+                              ? (0, Ce.jsx)(Ft.O.Panel, {
+                                  children: (0, Ce.jsx)(o.Suspense, {
+                                    fallback: (0, Ce.jsx)("div", {
                                       className: "h-screen lg:hidden",
                                     }),
-                                    children: (0, Ae.jsx)(Cr, {}),
+                                    children: (0, Ce.jsx)(Cr, {}),
                                   }),
                                 })
                               : null,
                             s
-                              ? (0, Ae.jsx)(Rt.O.Panel, {
-                                  children: (0, Ae.jsx)(o.Suspense, {
-                                    fallback: (0, Ae.jsx)("div", {
+                              ? (0, Ce.jsx)(Ft.O.Panel, {
+                                  children: (0, Ce.jsx)(o.Suspense, {
+                                    fallback: (0, Ce.jsx)("div", {
                                       className: "h-screen lg:hidden",
                                     }),
-                                    children: (0, Ae.jsx)(Sr, {}),
+                                    children: (0, Ce.jsx)(Mr, {}),
                                   }),
                                 })
                               : null,
                             t.length > 0
-                              ? (0, Ae.jsx)(Rt.O.Panel, {
-                                  children: (0, Ae.jsx)(o.Suspense, {
-                                    fallback: (0, Ae.jsx)("div", {
+                              ? (0, Ce.jsx)(Ft.O.Panel, {
+                                  children: (0, Ce.jsx)(o.Suspense, {
+                                    fallback: (0, Ce.jsx)("div", {
                                       className: "h-screen lg:hidden",
                                     }),
-                                    children: (0, Ae.jsx)(kr, {}),
+                                    children: (0, Ce.jsx)(xr, {}),
                                   }),
                                 })
                               : null,
                             r.length > 0
-                              ? (0, Ae.jsx)(Rt.O.Panel, {
-                                  children: (0, Ae.jsx)(o.Suspense, {
-                                    fallback: (0, Ae.jsx)("div", {
+                              ? (0, Ce.jsx)(Ft.O.Panel, {
+                                  children: (0, Ce.jsx)(o.Suspense, {
+                                    fallback: (0, Ce.jsx)("div", {
                                       className: "h-screen lg:hidden",
                                     }),
-                                    children: (0, Ae.jsx)(xr, {}),
+                                    children: (0, Ce.jsx)(Sr, {}),
                                   }),
                                 })
                               : null,
                             c
-                              ? (0, Ae.jsx)(Rt.O.Panel, {
-                                  children: (0, Ae.jsx)(o.Suspense, {
-                                    fallback: (0, Ae.jsx)("div", {
+                              ? (0, Ce.jsx)(Ft.O.Panel, {
+                                  children: (0, Ce.jsx)(o.Suspense, {
+                                    fallback: (0, Ce.jsx)("div", {
                                       className: "h-screen lg:hidden",
                                     }),
-                                    children: (0, Ae.jsx)(Mr, {}),
+                                    children: (0, Ce.jsx)(Ar, {}),
                                   }),
                                 })
                               : null,
@@ -60018,8 +61422,8 @@
             r
           );
         })(o.Component),
-        Tr = (0, t.f3)("MainStore")((0, t.Pi)(Ar)),
-        qr = (function (e) {
+        qr = (0, t.f3)("MainStore")((0, t.Pi)(Tr)),
+        Nr = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -60030,36 +61434,36 @@
               {
                 key: "render",
                 value: function () {
-                  return (0, Ae.jsxs)("div", {
+                  return (0, Ce.jsxs)("div", {
                     className: "flex flex-wrap w-full mx-auto p-2 lg:p-3",
                     children: [
-                      (0, Ae.jsx)("div", {
+                      (0, Ce.jsx)("div", {
                         className:
                           "w-full lg:w-4/12 xl:w-1/4 order-1 lg:order-3 z-20 lg:pl-2",
-                        children: (0, Ae.jsxs)("div", {
+                        children: (0, Ce.jsxs)("div", {
                           className: "flex flex-wrap",
                           children: [
-                            (0, Ae.jsx)("div", {
+                            (0, Ce.jsx)("div", {
                               className: "w-full order-1",
-                              children: (0, Ae.jsx)(dr, {}),
+                              children: (0, Ce.jsx)(pr, {}),
                             }),
-                            (0, Ae.jsx)(lr, {}),
+                            (0, Ce.jsx)(sr, {}),
                           ],
                         }),
                       }),
-                      (0, Ae.jsx)("div", {
+                      (0, Ce.jsx)("div", {
                         className:
                           "w-full lg:w-5/12 xl:w-7/12 order-2 lg:order-2 lg:px-1",
                         id: "maintabs-container",
-                        children: (0, Ae.jsx)(Tr, {}),
+                        children: (0, Ce.jsx)(qr, {}),
                       }),
-                      (0, Ae.jsx)("div", {
+                      (0, Ce.jsx)("div", {
                         className:
                           "w-full lg:w-1/4 xl:w-1/6 order-3 lg:order-1 lg:pr-2",
-                        children: (0, Ae.jsxs)("div", {
+                        children: (0, Ce.jsxs)("div", {
                           className:
                             "flex flex-col mb-14 lg:mb-0 max-h-[calc(100vh-83px)]",
-                          children: [(0, Ae.jsx)(ar, {}), (0, Ae.jsx)(er, {})],
+                          children: [(0, Ce.jsx)(ir, {}), (0, Ce.jsx)(tr, {})],
                         }),
                       }),
                     ],
@@ -60070,8 +61474,8 @@
             r
           );
         })(o.Component),
-        Nr = qr,
-        Or = (function (e) {
+        Or = Nr,
+        Ir = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -60095,7 +61499,7 @@
                 key: "render",
                 value: function () {
                   var e = this;
-                  return (0, Ae.jsxs)("div", {
+                  return (0, Ce.jsxs)("div", {
                     className:
                       "p-8 bg-white dark:bg-mydark-700 border rounded-xl shadow-sm flex flex-col",
                     style: {
@@ -60103,42 +61507,42 @@
                       color: this.props.data.color,
                     },
                     children: [
-                      (0, Ae.jsxs)("div", {
+                      (0, Ce.jsxs)("div", {
                         className: "flex-1 text-center",
                         children: [
-                          (0, Ae.jsx)("h5", {
+                          (0, Ce.jsx)("h5", {
                             className:
                               "text-2xl font-bold whitespace-nowrap inline mr-2",
-                            children: (0, Ce.K)(this.props.data.id),
+                            children: (0, Ae.K)(this.props.data.id),
                           }),
-                          (0, Ae.jsx)(Ut, {
+                          (0, Ce.jsx)(Yt, {
                             id: this.props.data.id,
                             bigIcon: !0,
                           }),
-                          (0, Ae.jsx)("p", {
+                          (0, Ce.jsx)("p", {
                             className: "mt-4 text-left",
-                            children: (0, Ce.K)(
+                            children: (0, Ae.K)(
                               this.props.data.id + "_description"
                             ),
                           }),
-                          (0, Ae.jsx)("ul", {
+                          (0, Ce.jsx)("ul", {
                             className: "my-6 space-y-3",
                             children: this.props.data.gen.map(function (t) {
                               return (0,
-                              Ae.jsxs)("li", { className: "flex", children: [(0, Ae.jsx)(Se(), { path: Me.YKm, className: "icon" }), "resource" === t.type ? (0, Ae.jsxs)("span", { className: "ml-3", children: ["+", t.value, "% ", (0, Ce.K)("res_" + t.id)] }) : "cap" === t.type ? (0, Ae.jsxs)("span", { className: "ml-3", children: ["+", t.value, " ", (0, Ce.K)(t.id), "", (0, Ce.K)("cap")] }) : null] }, "ancestor_gen_" + e.props.data.id + "_" + t.id);
+                              Ce.jsxs)("li", { className: "flex", children: [(0, Ce.jsx)(Se(), { path: Me.YKm, className: "icon" }), "resource" === t.type ? (0, Ce.jsxs)("span", { className: "ml-3", children: ["+", t.value, "% ", (0, Ae.K)("res_" + t.id)] }) : "cap" === t.type ? (0, Ce.jsxs)("span", { className: "ml-3", children: ["+", t.value, " ", (0, Ae.K)(t.id), "", (0, Ae.K)("cap")] }) : null] }, "ancestor_gen_" + e.props.data.id + "_" + t.id);
                             }),
                           }),
                         ],
                       }),
-                      (0, Ae.jsxs)("button", {
+                      (0, Ce.jsxs)("button", {
                         type: "button",
                         className:
                           "btn text-white w-full text-base hover:opacity-[.85]",
                         style: { backgroundColor: this.props.data.color },
                         onClick: this.handleAncestor,
                         children: [
-                          (0, Ce.K)("start_game"),
-                          (0, Ae.jsx)(Ut, {
+                          (0, Ae.K)("start_game"),
+                          (0, Ce.jsx)(Yt, {
                             id: this.props.data.id,
                             addClasses: "ml-1",
                           }),
@@ -60152,8 +61556,8 @@
             r
           );
         })(o.Component),
-        Ir = (0, t.f3)("MainStore")((0, t.Pi)(Or)),
-        Er = (function (e) {
+        Er = (0, t.f3)("MainStore")((0, t.Pi)(Ir)),
+        jr = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -60197,39 +61601,39 @@
                       (r += "lg:grid-cols-3"),
                         (t += "w-11/12 xl:w-10/12 3xl:w-9/12 4xl:w-7/12");
                   }
-                  return (0, Ae.jsx)(Ae.Fragment, {
-                    children: (0, Ae.jsx)("div", {
+                  return (0, Ce.jsx)(Ce.Fragment, {
+                    children: (0, Ce.jsx)("div", {
                       className: "mt-6 lg:mt-12 xl:mt-24 2xl:mt-12 4xl:mt-24",
-                      children: (0, Ae.jsxs)("div", {
+                      children: (0, Ce.jsxs)("div", {
                         className: "max-w-full mx-auto",
                         children: [
-                          (0, Ae.jsxs)("div", {
+                          (0, Ce.jsxs)("div", {
                             className: "text-center",
                             children: [
-                              (0, Ae.jsx)("h1", {
+                              (0, Ce.jsx)("h1", {
                                 className:
                                   "text-4xl lg:text-7xl font-game font-bold title-gradient",
-                                children: (0, Ae.jsx)(Qt, {}),
+                                children: (0, Ce.jsx)(Xt, {}),
                               }),
-                              (0, Ae.jsx)("p", {
+                              (0, Ce.jsx)("p", {
                                 className:
                                   "my-2 lg:text-xl text-gray-500 dark:text-gray-400",
-                                children: (0, Ce.K)("runstart_subtitle"),
+                                children: (0, Ae.K)("runstart_subtitle"),
                               }),
-                              (0, Ae.jsx)("p", {
+                              (0, Ce.jsx)("p", {
                                 className:
                                   "mt-6 lg:mt-8 text-lg lg:text-xl text-gray-500 dark:text-gray-400",
-                                children: (0, Ce.K)("runstart_subtitle_2"),
+                                children: (0, Ae.K)("runstart_subtitle_2"),
                               }),
                             ],
                           }),
-                          (0, Ae.jsx)("div", {
+                          (0, Ce.jsx)("div", {
                             className: t,
-                            children: (0, Ae.jsx)("div", {
+                            children: (0, Ce.jsx)("div", {
                               className: r,
                               children: e.map(function (e) {
                                 return (0,
-                                Ae.jsx)(Ir, { data: e }, "ancestor_" + e.id);
+                                Ce.jsx)(Er, { data: e }, "ancestor_" + e.id);
                               }),
                             }),
                           }),
@@ -60243,27 +61647,27 @@
             r
           );
         })(o.Component),
-        jr = (0, t.f3)("MainStore")(Er),
-        Lr = r(6497),
-        Pr = r(6971),
-        Rr = r(3352),
+        Lr = (0, t.f3)("MainStore")(jr),
+        Pr = r(6497),
+        Rr = r(6971),
+        Fr = r(3352),
         Dr = r(6698),
-        Fr = r(200),
-        Vr = r(1267),
-        Hr = r(1464),
-        zr = ["passive"],
-        Wr = (0, o.createContext)(null);
-      function Zr() {
-        var e = (0, o.useContext)(Wr);
+        Vr = r(200),
+        Hr = r(1267),
+        zr = r(1464),
+        Wr = ["passive"],
+        Zr = (0, o.createContext)(null);
+      function Br() {
+        var e = (0, o.useContext)(Zr);
         if (null === e) {
           var t = new Error(
             "You used a <Label /> component, but it is not inside a relevant parent."
           );
-          throw (Error.captureStackTrace && Error.captureStackTrace(t, Zr), t);
+          throw (Error.captureStackTrace && Error.captureStackTrace(t, Br), t);
         }
         return e;
       }
-      function Br() {
+      function Gr() {
         var e = (0, o.useState)([]),
           t = (0, L.Z)(e, 2),
           r = t[0],
@@ -60273,7 +61677,7 @@
           (0, o.useMemo)(
             function () {
               return function (e) {
-                var t = (0, Hr.z)(function (e) {
+                var t = (0, zr.z)(function (e) {
                     return (
                       a(function (t) {
                         return [].concat((0, R.Z)(t), [e]);
@@ -60298,21 +61702,21 @@
                     },
                     [t, e.slot, e.name, e.props]
                   );
-                return o.createElement(Wr.Provider, { value: r }, e.children);
+                return o.createElement(Zr.Provider, { value: r }, e.children);
               };
             },
             [a]
           ),
         ];
       }
-      var Gr = (0, Lr.yV)(function (e, t) {
+      var Kr = (0, Pr.yV)(function (e, t) {
           var r = e.passive,
             i = void 0 !== r && r,
-            n = (0, P.Z)(e, zr),
-            o = Zr(),
-            l = "headlessui-label-".concat((0, Pr.M)()),
-            s = (0, Vr.T)(t);
-          (0, Fr.e)(
+            n = (0, P.Z)(e, Wr),
+            o = Br(),
+            l = "headlessui-label-".concat((0, Rr.M)()),
+            s = (0, Hr.T)(t);
+          (0, Vr.e)(
             function () {
               return o.register(l);
             },
@@ -60323,7 +61727,7 @@
             i &&
               ("onClick" in u && delete u.onClick,
               "onClick" in n && delete n.onClick),
-            (0, Lr.sY)({
+            (0, Pr.sY)({
               ourProps: u,
               theirProps: n,
               slot: o.slot || {},
@@ -60332,63 +61736,37 @@
             })
           );
         }),
-        Kr = r(3873),
-        Ur = r(4527),
-        Yr = r(5678),
-        Qr = r(7762);
-      var Xr = ["checked", "onChange", "name", "value"],
-        $r = (0, o.createContext)(null);
-      $r.displayName = "GroupContext";
-      var Jr = o.Fragment;
-      var ea = (0, Lr.yV)(function (e, t) {
+        Ur = r(3873),
+        Yr = r(4527),
+        Qr = r(5678),
+        Xr = r(375),
+        $r = ["checked", "onChange", "name", "value"],
+        Jr = (0, o.createContext)(null);
+      Jr.displayName = "GroupContext";
+      var ea = o.Fragment;
+      var ta = (0, Pr.yV)(function (e, t) {
           var r = e.checked,
             i = e.onChange,
             n = e.name,
             l = e.value,
-            s = (0, P.Z)(e, Xr),
-            u = "headlessui-switch-".concat((0, Pr.M)()),
-            c = (0, o.useContext)($r),
+            s = (0, P.Z)(e, $r),
+            u = "headlessui-switch-".concat((0, Rr.M)()),
+            c = (0, o.useContext)(Jr),
             d = (0, o.useRef)(null),
-            p = (0, Vr.T)(d, t, null === c ? null : c.setSwitch),
-            _ = (0, Hr.z)(function () {
+            p = (0, Hr.T)(d, t, null === c ? null : c.setSwitch),
+            _ = (0, zr.z)(function () {
               return i(!r);
             }),
-            y = (0, Hr.z)(function (e) {
+            y = (0, zr.z)(function (e) {
               if ((0, Dr.P)(e.currentTarget)) return e.preventDefault();
               e.preventDefault(), _();
             }),
-            h = (0, Hr.z)(function (e) {
-              e.key === Rr.R.Space
+            h = (0, zr.z)(function (e) {
+              e.key === Fr.R.Space
                 ? (e.preventDefault(), _())
-                : e.key === Rr.R.Enter &&
-                  (function (e) {
-                    var t,
-                      r =
-                        null != (t = null == e ? void 0 : e.form)
-                          ? t
-                          : e.closest("form");
-                    if (r) {
-                      var a,
-                        i = (0, Qr.Z)(r.elements);
-                      try {
-                        for (i.s(); !(a = i.n()).done; ) {
-                          var n = a.value;
-                          if (
-                            ("INPUT" === n.tagName && "submit" === n.type) ||
-                            ("BUTTON" === n.tagName && "submit" === n.type) ||
-                            ("INPUT" === n.nodeName && "image" === n.type)
-                          )
-                            return void n.click();
-                        }
-                      } catch (o) {
-                        i.e(o);
-                      } finally {
-                        i.f();
-                      }
-                    }
-                  })(e.currentTarget);
+                : e.key === Fr.R.Enter && (0, Xr.g)(e.currentTarget);
             }),
-            f = (0, Hr.z)(function (e) {
+            f = (0, zr.z)(function (e) {
               return e.preventDefault();
             }),
             m = (0, o.useMemo)(
@@ -60401,7 +61779,7 @@
               id: u,
               ref: p,
               role: "switch",
-              type: (0, Ur.f)(e, d),
+              type: (0, Yr.f)(e, d),
               tabIndex: 0,
               "aria-checked": r,
               "aria-labelledby": null == c ? void 0 : c.labelledby,
@@ -60416,10 +61794,10 @@
             null != n &&
               r &&
               o.createElement(
-                Yr._,
+                Qr._,
                 (0, a.Z)(
-                  { features: Yr.A.Hidden },
-                  (0, Lr.oA)({
+                  { features: Qr.A.Hidden },
+                  (0, Pr.oA)({
                     as: "input",
                     type: "checkbox",
                     hidden: !0,
@@ -60430,7 +61808,7 @@
                   })
                 )
               ),
-            (0, Lr.sY)({
+            (0, Pr.sY)({
               ourProps: g,
               theirProps: s,
               slot: m,
@@ -60439,17 +61817,17 @@
             })
           );
         }),
-        ta = Object.assign(ea, {
+        ra = Object.assign(ta, {
           Group: function (e) {
             var t = (0, o.useState)(null),
               r = (0, L.Z)(t, 2),
               a = r[0],
               i = r[1],
-              n = Br(),
+              n = Gr(),
               l = (0, L.Z)(n, 2),
               s = l[0],
               u = l[1],
-              c = (0, Kr.f)(),
+              c = (0, Ur.f)(),
               d = (0, L.Z)(c, 2),
               p = d[0],
               _ = d[1],
@@ -60479,22 +61857,22 @@
                   },
                 },
                 o.createElement(
-                  $r.Provider,
+                  Jr.Provider,
                   { value: y },
-                  (0, Lr.sY)({
+                  (0, Pr.sY)({
                     ourProps: {},
                     theirProps: h,
-                    defaultTag: Jr,
+                    defaultTag: ea,
                     name: "Switch.Group",
                   })
                 )
               )
             );
           },
-          Label: Gr,
-          Description: Kr.d,
+          Label: Kr,
+          Description: Ur.d,
         }),
-        ra = (function (e) {
+        aa = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -60505,20 +61883,20 @@
               {
                 key: "render",
                 value: function () {
-                  return (0, Ae.jsx)(ta, {
+                  return (0, Ce.jsx)(ra, {
                     checked: this.props.checked,
                     onChange: this.props.onChange,
                     className: "".concat(
                       this.props.checked ? "bg-blue-600" : "bg-gray-400",
                       " relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none"
                     ),
-                    children: (0, Ae.jsxs)("span", {
+                    children: (0, Ce.jsxs)("span", {
                       className: "".concat(
                         this.props.checked ? "translate-x-5" : "translate-x-0",
                         " pointer-events-none relative inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
                       ),
                       children: [
-                        (0, Ae.jsx)("span", {
+                        (0, Ce.jsx)("span", {
                           className: "".concat(
                             this.props.checked
                               ? "opacity-0 ease-out duration-100"
@@ -60526,11 +61904,11 @@
                             " absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
                           ),
                           "aria-hidden": "true",
-                          children: (0, Ae.jsx)("svg", {
+                          children: (0, Ce.jsx)("svg", {
                             className: "h-3 w-3 text-gray-400",
                             fill: "none",
                             viewBox: "0 0 12 12",
-                            children: (0, Ae.jsx)("path", {
+                            children: (0, Ce.jsx)("path", {
                               d: "M4 8l2-2m0 0l2-2M6 6L4 4m2 2l2 2",
                               stroke: "currentColor",
                               strokeWidth: 2,
@@ -60539,7 +61917,7 @@
                             }),
                           }),
                         }),
-                        (0, Ae.jsx)("span", {
+                        (0, Ce.jsx)("span", {
                           className: "".concat(
                             this.props.checked
                               ? "opacity-100 ease-in duration-200"
@@ -60547,11 +61925,11 @@
                             " absolute inset-0 flex h-full w-full items-center justify-center transition-opacity"
                           ),
                           "aria-hidden": "true",
-                          children: (0, Ae.jsx)("svg", {
+                          children: (0, Ce.jsx)("svg", {
                             className: "h-3 w-3 text-indigo-600",
                             fill: "currentColor",
                             viewBox: "0 0 12 12",
-                            children: (0, Ae.jsx)("path", {
+                            children: (0, Ce.jsx)("path", {
                               d: "M3.707 5.293a1 1 0 00-1.414 1.414l1.414-1.414zM5 8l-.707.707a1 1 0 001.414 0L5 8zm4.707-3.293a1 1 0 00-1.414-1.414l1.414 1.414zm-7.414 2l2 2 1.414-1.414-2-2-1.414 1.414zm3.414 2l4-4-1.414-1.414-4 4 1.414 1.414z",
                             }),
                           }),
@@ -60565,8 +61943,21 @@
             r
           );
         })(o.Component),
-        aa = ra,
-        ia = [
+        ia = aa,
+        na = [
+          {
+            version: "0.71 Faith and Magic",
+            changes: [
+              "Spells can be filtered by category",
+              "Added 25 new prayers",
+              "Added 8 new buildings",
+              "Added 5 legacy perks",
+              "Added 5 new units",
+              "Added 10 new spells",
+              "Added 5 new enemies",
+              "Fixed typos",
+            ],
+          },
           {
             version: "0.70 Ad impossibilia nemo tenetur",
             changes: [
@@ -60832,7 +62223,7 @@
             ],
           },
         ],
-        na = (function (e) {
+        oa = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -60854,21 +62245,21 @@
                 key: "render",
                 value: function () {
                   var e = this.props.MainStore.SettingsStore.showChangelog;
-                  return (0, Ae.jsx)(Et.u.Root, {
+                  return (0, Ce.jsx)(jt.u.Root, {
                     show: e,
                     as: o.Fragment,
-                    children: (0, Ae.jsxs)(jt.V, {
+                    children: (0, Ce.jsxs)(Lt.V, {
                       as: "div",
                       className: "relative z-50",
                       onClose: this.handleClose,
                       children: [
-                        (0, Ae.jsx)(Pt.Z, {}),
-                        (0, Ae.jsx)("div", {
+                        (0, Ce.jsx)(Rt.Z, {}),
+                        (0, Ce.jsx)("div", {
                           className: "fixed z-10 inset-0 overflow-y-auto",
-                          children: (0, Ae.jsx)("div", {
+                          children: (0, Ce.jsx)("div", {
                             className:
                               "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                            children: (0, Ae.jsx)(Et.u.Child, {
+                            children: (0, Ce.jsx)(jt.u.Child, {
                               as: o.Fragment,
                               enter: "ease-out duration-300",
                               enterFrom: "opacity-0 translate-y-4",
@@ -60876,39 +62267,39 @@
                               leave: "ease-in duration-200",
                               leaveFrom: "opacity-100 translate-y-0",
                               leaveTo: "opacity-0 translate-y-4",
-                              children: (0, Ae.jsxs)(jt.V.Panel, {
+                              children: (0, Ce.jsxs)(Lt.V.Panel, {
                                 className:
                                   "modal-container lg:my-8 lg:max-w-xl lg:pt-6",
                                 children: [
-                                  (0, Ae.jsx)(Lt.Z, {
+                                  (0, Ce.jsx)(Pt.Z, {
                                     onClick: this.handleClose,
                                   }),
-                                  (0, Ae.jsx)("div", {
-                                    children: (0, Ae.jsxs)("div", {
+                                  (0, Ce.jsx)("div", {
+                                    children: (0, Ce.jsxs)("div", {
                                       className: "mt-0",
                                       children: [
-                                        (0, Ae.jsx)(jt.V.Title, {
+                                        (0, Ce.jsx)(Lt.V.Title, {
                                           as: "h3",
                                           className: "modal-title",
-                                          children: (0, Ce.K)("changelog"),
+                                          children: (0, Ae.K)("changelog"),
                                         }),
-                                        (0, Ae.jsx)("div", {
+                                        (0, Ce.jsx)("div", {
                                           className: "p-6 pt-1",
-                                          children: ia.map(function (e) {
-                                            return (0, Ae.jsxs)(
+                                          children: na.map(function (e) {
+                                            return (0, Ce.jsxs)(
                                               o.Fragment,
                                               {
                                                 children: [
-                                                  (0, Ae.jsx)("h5", {
+                                                  (0, Ce.jsx)("h5", {
                                                     className:
                                                       "text-xl font-bold pt-3",
                                                     children: e.version,
                                                   }),
-                                                  (0, Ae.jsx)("ul", {
+                                                  (0, Ce.jsx)("ul", {
                                                     className: "list-disc pl-5",
                                                     children: e.changes.map(
                                                       function (e) {
-                                                        return (0, Ae.jsx)(
+                                                        return (0, Ce.jsx)(
                                                           "li",
                                                           { children: e },
                                                           et()
@@ -60939,8 +62330,8 @@
             r
           );
         })(o.Component),
-        oa = (0, t.f3)("MainStore")((0, t.Pi)(na)),
-        la = (function (e) {
+        la = (0, t.f3)("MainStore")((0, t.Pi)(oa)),
+        sa = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r(e) {
@@ -60965,14 +62356,14 @@
               (a.handleSaveClipboard = function () {
                 a.props.MainStore.SettingsStore.saveToClipboard(),
                   a.setState({
-                    saveMessage: (0, Ce.K)("save_to_clipboard_success"),
+                    saveMessage: (0, Ae.K)("save_to_clipboard_success"),
                     showPaste: !1,
                   });
               }),
               (a.handleSaveFile = function () {
                 a.props.MainStore.SettingsStore.saveToFile(),
                   a.setState({
-                    saveMessage: (0, Ce.K)("save_to_file_success"),
+                    saveMessage: (0, Ae.K)("save_to_file_success"),
                     showPaste: !1,
                   });
               }),
@@ -61004,7 +62395,7 @@
                 a.props.MainStore.SettingsStore.loadFromBackup() ||
                   (a.props.MainStore.confirmCancelFunc(),
                   a.setState({
-                    saveMessage: (0, Ce.K)("paste_error"),
+                    saveMessage: (0, Ae.K)("paste_error"),
                     showPaste: !1,
                   }));
               }),
@@ -61058,11 +62449,11 @@
               (a.onPaste = function (e) {
                 a.props.MainStore.SettingsStore.loadFromClipboard(e)
                   ? a.setState({
-                      saveMessage: (0, Ce.K)("paste_success"),
+                      saveMessage: (0, Ae.K)("paste_success"),
                       showPaste: !1,
                     })
                   : a.setState({
-                      saveMessage: (0, Ce.K)("paste_error"),
+                      saveMessage: (0, Ae.K)("paste_error"),
                       showPaste: !1,
                     }),
                   a.pastezone.blur();
@@ -61070,13 +62461,13 @@
               (a.onPasteClick = function () {
                 a.setState({
                   pasteFocus: !0,
-                  pasteMessage: (0, Ce.K)("paste_message_click"),
+                  pasteMessage: (0, Ae.K)("paste_message_click"),
                 });
               }),
               (a.onPasteBlur = function () {
                 a.setState({
                   pasteFocus: !1,
-                  pasteMessage: (0, Ce.K)("paste_message"),
+                  pasteMessage: (0, Ae.K)("paste_message"),
                 });
               }),
               (a.handleChangeTextarea = function (e) {
@@ -61087,11 +62478,11 @@
                   a.state.valueTextarea
                 )
                   ? a.setState({
-                      saveMessage: (0, Ce.K)("paste_success"),
+                      saveMessage: (0, Ae.K)("paste_success"),
                       showPaste: !1,
                     })
                   : a.setState({
-                      saveMessage: (0, Ce.K)("paste_error"),
+                      saveMessage: (0, Ae.K)("paste_error"),
                       showPaste: !1,
                     });
               }),
@@ -61102,7 +62493,7 @@
                 saveMessage: "",
                 showPaste: !1,
                 pasteFocus: !1,
-                pasteMessage: (0, Ce.K)("paste_message"),
+                pasteMessage: (0, Ae.K)("paste_message"),
                 valueTextarea: "",
               }),
               a
@@ -61151,21 +62542,21 @@
                   }
                   return (
                     2 === l && (_ = "btn w-full text-white bg-transparent"),
-                    (0, Ae.jsx)(Et.u.Root, {
+                    (0, Ce.jsx)(jt.u.Root, {
                       show: r,
                       as: o.Fragment,
-                      children: (0, Ae.jsxs)(jt.V, {
+                      children: (0, Ce.jsxs)(Lt.V, {
                         as: "div",
                         className: "relative z-50",
                         onClose: this.handleClose,
                         children: [
-                          (0, Ae.jsx)(Pt.Z, {}),
-                          (0, Ae.jsx)("div", {
+                          (0, Ce.jsx)(Rt.Z, {}),
+                          (0, Ce.jsx)("div", {
                             className: "fixed z-10 inset-0",
-                            children: (0, Ae.jsx)("div", {
+                            children: (0, Ce.jsx)("div", {
                               className:
                                 "flex items-center justify-end min-h-full text-center",
-                              children: (0, Ae.jsx)(Et.u.Child, {
+                              children: (0, Ce.jsx)(jt.u.Child, {
                                 as: o.Fragment,
                                 enter:
                                   "transition ease-in-out duration-300 transform",
@@ -61175,44 +62566,44 @@
                                   "transition ease-in-out duration-200 transform",
                                 leaveFrom: "translate-x-0",
                                 leaveTo: "translate-x-full",
-                                children: (0, Ae.jsxs)(jt.V.Panel, {
+                                children: (0, Ce.jsxs)(Lt.V.Panel, {
                                   className:
                                     "relative bg-gray-100 dark:bg-mydark-600 px-4 py-5 text-left overflow-hidden shadow-xl transform transition-all h-screen lg:max-w-sm lg:w-full lg:p-6",
                                   children: [
-                                    (0, Ae.jsx)(Lt.Z, {
+                                    (0, Ce.jsx)(Pt.Z, {
                                       onClick: this.handleClose,
                                     }),
-                                    (0, Ae.jsx)("div", {
+                                    (0, Ce.jsx)("div", {
                                       className: "lg:flex lg:items-start",
-                                      children: (0, Ae.jsxs)("div", {
+                                      children: (0, Ce.jsxs)("div", {
                                         children: [
-                                          (0, Ae.jsx)(jt.V.Title, {
+                                          (0, Ce.jsx)(Lt.V.Title, {
                                             as: "h3",
                                             className:
                                               "text-2xl leading-6 font-game",
-                                            children: (0, Ce.K)("settings"),
+                                            children: (0, Ae.K)("settings"),
                                           }),
-                                          (0, Ae.jsxs)("div", {
+                                          (0, Ce.jsxs)("div", {
                                             className: "mt-5 overflow-y-auto",
                                             children: [
-                                              (0, Ae.jsxs)("div", {
+                                              (0, Ce.jsxs)("div", {
                                                 className:
                                                   "relative flex flex-col p-5 rounded-lg lg:border border-gray-300 dark:border-mydark-200 bg-logo h-[calc(100vh-100px)]",
                                                 children: [
-                                                  (0, Ae.jsxs)("div", {
+                                                  (0, Ce.jsxs)("div", {
                                                     className:
                                                       "flex flex-wrap mt-2 mb-5",
                                                     children: [
-                                                      (0, Ae.jsx)("div", {
+                                                      (0, Ce.jsx)("div", {
                                                         className:
                                                           "w-full text-center",
-                                                        children: (0, Ce.K)(
+                                                        children: (0, Ae.K)(
                                                           "battery_mode"
                                                         ),
                                                       }),
-                                                      (0, Ae.jsx)("div", {
+                                                      (0, Ce.jsx)("div", {
                                                         className: "w-full",
-                                                        children: (0, Ae.jsx)(
+                                                        children: (0, Ce.jsx)(
                                                           "input",
                                                           {
                                                             type: "range",
@@ -61226,15 +62617,15 @@
                                                           }
                                                         ),
                                                       }),
-                                                      (0, Ae.jsxs)("div", {
+                                                      (0, Ce.jsxs)("div", {
                                                         className:
                                                           "flex w-full",
                                                         children: [
-                                                          (0, Ae.jsxs)("div", {
+                                                          (0, Ce.jsxs)("div", {
                                                             className:
                                                               "w-1/2 text-left whitespace-nowrap",
                                                             children: [
-                                                              (0, Ae.jsx)(
+                                                              (0, Ce.jsx)(
                                                                 Se(),
                                                                 {
                                                                   path: Me.Ake,
@@ -61242,19 +62633,19 @@
                                                                     "icon inline mt-[-2px] mr-1",
                                                                 }
                                                               ),
-                                                              (0, Ce.K)(
+                                                              (0, Ae.K)(
                                                                 "performance"
                                                               ),
                                                             ],
                                                           }),
-                                                          (0, Ae.jsxs)("div", {
+                                                          (0, Ce.jsxs)("div", {
                                                             className:
                                                               "w-1/2 text-right whitespace-nowrap",
                                                             children: [
-                                                              (0, Ce.K)(
+                                                              (0, Ae.K)(
                                                                 "battery_life"
                                                               ),
-                                                              (0, Ae.jsx)(
+                                                              (0, Ce.jsx)(
                                                                 Se(),
                                                                 {
                                                                   path: Me.Z8d,
@@ -61268,21 +62659,21 @@
                                                       }),
                                                     ],
                                                   }),
-                                                  (0, Ae.jsxs)("div", {
+                                                  (0, Ce.jsxs)("div", {
                                                     className: "flex flex-wrap",
                                                     children: [
-                                                      (0, Ae.jsx)("div", {
+                                                      (0, Ce.jsx)("div", {
                                                         className:
                                                           "w-[63%] py-1 align-middle text-right whitespace-no-wrap",
-                                                        children: (0, Ce.K)(
+                                                        children: (0, Ae.K)(
                                                           "dark_mode"
                                                         ),
                                                       }),
-                                                      (0, Ae.jsx)("div", {
+                                                      (0, Ce.jsx)("div", {
                                                         className:
                                                           "relative flex-grow max-w-full flex-1 px-4 text-left mt-1",
-                                                        children: (0, Ae.jsx)(
-                                                          aa,
+                                                        children: (0, Ce.jsx)(
+                                                          ia,
                                                           {
                                                             checked: a,
                                                             onChange:
@@ -61293,22 +62684,22 @@
                                                       }),
                                                     ],
                                                   }),
-                                                  (0, Ae.jsxs)("div", {
+                                                  (0, Ce.jsxs)("div", {
                                                     className:
                                                       "flex flex-wrap mt-2",
                                                     children: [
-                                                      (0, Ae.jsx)("div", {
+                                                      (0, Ce.jsx)("div", {
                                                         className:
                                                           "w-[63%] py-1 align-middle text-right whitespace-no-wrap",
-                                                        children: (0, Ce.K)(
+                                                        children: (0, Ae.K)(
                                                           "enable_notifications"
                                                         ),
                                                       }),
-                                                      (0, Ae.jsx)("div", {
+                                                      (0, Ce.jsx)("div", {
                                                         className:
                                                           "relative flex-grow max-w-full flex-1 px-4 text-left mt-1",
-                                                        children: (0, Ae.jsx)(
-                                                          aa,
+                                                        children: (0, Ce.jsx)(
+                                                          ia,
                                                           {
                                                             checked: d,
                                                             onChange:
@@ -61319,22 +62710,22 @@
                                                       }),
                                                     ],
                                                   }),
-                                                  (0, Ae.jsxs)("div", {
+                                                  (0, Ce.jsxs)("div", {
                                                     className:
                                                       "flex flex-wrap mt-2 mb-5",
                                                     children: [
-                                                      (0, Ae.jsx)("div", {
+                                                      (0, Ce.jsx)("div", {
                                                         className:
                                                           "w-[63%] py-1 align-middle text-right whitespace-no-wrap",
-                                                        children: (0, Ce.K)(
+                                                        children: (0, Ae.K)(
                                                           "show_cap_buildings"
                                                         ),
                                                       }),
-                                                      (0, Ae.jsx)("div", {
+                                                      (0, Ce.jsx)("div", {
                                                         className:
                                                           "relative flex-grow max-w-full flex-1 px-4 text-left mt-1",
-                                                        children: (0, Ae.jsx)(
-                                                          aa,
+                                                        children: (0, Ce.jsx)(
+                                                          ia,
                                                           {
                                                             checked: c,
                                                             onChange:
@@ -61345,28 +62736,28 @@
                                                       }),
                                                     ],
                                                   }),
-                                                  (0, Ae.jsxs)("div", {
+                                                  (0, Ce.jsxs)("div", {
                                                     className:
                                                       "flex flex-wrap d-grid gap-3 w-3/4 lg:w-2/3 mx-auto",
                                                     children: [
-                                                      (0, Ae.jsxs)("button", {
+                                                      (0, Ce.jsxs)("button", {
                                                         type: "button",
                                                         className:
                                                           "btn btn-blue w-full",
                                                         onClick:
                                                           this.handleSaveFile,
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.ZkO,
                                                             className:
                                                               "icon mr-1",
                                                           }),
-                                                          (0, Ce.K)(
+                                                          (0, Ae.K)(
                                                             "save_to_file"
                                                           ),
                                                         ],
                                                       }),
-                                                      (0, Ae.jsxs)("button", {
+                                                      (0, Ce.jsxs)("button", {
                                                         type: "button",
                                                         className:
                                                           "btn btn-blue w-full bg-blue-500",
@@ -61374,17 +62765,17 @@
                                                           this
                                                             .handleSaveClipboard,
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.bp3,
                                                             className:
                                                               "icon mr-1",
                                                           }),
-                                                          (0, Ce.K)(
+                                                          (0, Ae.K)(
                                                             "save_to_clipboard"
                                                           ),
                                                         ],
                                                       }),
-                                                      (0, Ae.jsxs)("button", {
+                                                      (0, Ce.jsxs)("button", {
                                                         type: "button",
                                                         className:
                                                           "btn btn-green w-full px-4 dark:bg-green-700 dark:hover:bg-green-800 dark:focus:bg-green-900",
@@ -61392,12 +62783,12 @@
                                                           this
                                                             .handleLoadClipboard,
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.PZJ,
                                                             className:
                                                               "icon mr-1 mt-[1px]",
                                                           }),
-                                                          (0, Ce.K)(
+                                                          (0, Ae.K)(
                                                             "load_from_clipboard"
                                                           ),
                                                         ],
@@ -61406,18 +62797,18 @@
                                                   }),
                                                   this.state.showPaste
                                                     ? u.tq
-                                                      ? (0, Ae.jsxs)("div", {
+                                                      ? (0, Ce.jsxs)("div", {
                                                           className:
                                                             "w-full p-0 block my-3 text-center",
                                                           children: [
-                                                            (0, Ae.jsx)("div", {
+                                                            (0, Ce.jsx)("div", {
                                                               className: "my-2",
                                                               children: (0,
-                                                              Ce.K)(
+                                                              Ae.K)(
                                                                 "load_from_textarea_description"
                                                               ),
                                                             }),
-                                                            (0, Ae.jsx)(
+                                                            (0, Ce.jsx)(
                                                               "textarea",
                                                               {
                                                                 value:
@@ -61431,7 +62822,7 @@
                                                                   "select-text w-full shadow-sm border focus:border-blue-500 block text-sm border-gray-400 rounded-lg resize-none bg-white dark:bg-mydark-300",
                                                               }
                                                             ),
-                                                            (0, Ae.jsx)(
+                                                            (0, Ce.jsx)(
                                                               "button",
                                                               {
                                                                 type: "button",
@@ -61441,17 +62832,17 @@
                                                                   this
                                                                     .handleLoadTextarea,
                                                                 children: (0,
-                                                                Ce.K)(
+                                                                Ae.K)(
                                                                   "load_from_textarea"
                                                                 ),
                                                               }
                                                             ),
                                                           ],
                                                         })
-                                                      : (0, Ae.jsx)("div", {
+                                                      : (0, Ce.jsx)("div", {
                                                           className:
                                                             "select-text w-full p-0 block",
-                                                          children: (0, Ae.jsx)(
+                                                          children: (0, Ce.jsx)(
                                                             "div",
                                                             {
                                                               tabIndex: 0,
@@ -61475,7 +62866,7 @@
                                                                 e.pastezone = t;
                                                               },
                                                               children: (0,
-                                                              Ae.jsx)("p", {
+                                                              Ce.jsx)("p", {
                                                                 className:
                                                                   "select-text",
                                                                 children:
@@ -61487,10 +62878,10 @@
                                                         })
                                                     : null,
                                                   "" !== this.state.saveMessage
-                                                    ? (0, Ae.jsx)("div", {
+                                                    ? (0, Ce.jsx)("div", {
                                                         className:
                                                           "flex-1 flex-col text-center my-5 py-5 border-2 border-transparent",
-                                                        children: (0, Ae.jsx)(
+                                                        children: (0, Ce.jsx)(
                                                           "p",
                                                           {
                                                             children:
@@ -61500,15 +62891,15 @@
                                                         ),
                                                       })
                                                     : null,
-                                                  (0, Ae.jsx)("div", {
+                                                  (0, Ce.jsx)("div", {
                                                     className: "mt-auto",
-                                                    children: (0, Ae.jsxs)(
+                                                    children: (0, Ce.jsxs)(
                                                       "div",
                                                       {
                                                         className:
                                                           "flex flex-wrap d-grid gap-3 w-3/4 lg:w-2/3 mx-auto mt-3",
                                                         children: [
-                                                          (0, Ae.jsxs)(
+                                                          (0, Ce.jsxs)(
                                                             "button",
                                                             {
                                                               type: "button",
@@ -61518,7 +62909,7 @@
                                                                   .handleChangeDifficulty1,
                                                               disabled: 2 === l,
                                                               children: [
-                                                                (0, Ae.jsx)(
+                                                                (0, Ce.jsx)(
                                                                   Se(),
                                                                   {
                                                                     path: p,
@@ -61526,11 +62917,11 @@
                                                                       "icon mr-1",
                                                                   }
                                                                 ),
-                                                                (0, Ce.K)(
+                                                                (0, Ae.K)(
                                                                   "difficulty"
                                                                 ) +
                                                                   "-" +
-                                                                  (0, Ce.K)(
+                                                                  (0, Ae.K)(
                                                                     "difficulty_" +
                                                                       n
                                                                   ),
@@ -61538,7 +62929,7 @@
                                                             }
                                                           ),
                                                           s
-                                                            ? (0, Ae.jsxs)(
+                                                            ? (0, Ce.jsxs)(
                                                                 "button",
                                                                 {
                                                                   type: "button",
@@ -61548,7 +62939,7 @@
                                                                     this
                                                                       .handleLoadFromBackup1,
                                                                   children: [
-                                                                    (0, Ae.jsx)(
+                                                                    (0, Ce.jsx)(
                                                                       Se(),
                                                                       {
                                                                         path: Me.C$b,
@@ -61558,14 +62949,14 @@
                                                                           !0,
                                                                       }
                                                                     ),
-                                                                    (0, Ce.K)(
+                                                                    (0, Ae.K)(
                                                                       "soft_reset"
                                                                     ),
                                                                   ],
                                                                 }
                                                               )
                                                             : null,
-                                                          (0, Ae.jsxs)(
+                                                          (0, Ce.jsxs)(
                                                             "button",
                                                             {
                                                               type: "button",
@@ -61575,7 +62966,7 @@
                                                                 this
                                                                   .handleHardReset1,
                                                               children: [
-                                                                (0, Ae.jsx)(
+                                                                (0, Ce.jsx)(
                                                                   Se(),
                                                                   {
                                                                     path: Me.SlK,
@@ -61583,13 +62974,13 @@
                                                                       "icon mr-1",
                                                                   }
                                                                 ),
-                                                                (0, Ce.K)(
+                                                                (0, Ae.K)(
                                                                   "hard_reset"
                                                                 ),
                                                               ],
                                                             }
                                                           ),
-                                                          (0, Ae.jsxs)("div", {
+                                                          (0, Ce.jsxs)("div", {
                                                             className:
                                                               "w-full text-center text-gray-500 cursor-pointer text-sm",
                                                             onClick:
@@ -61597,7 +62988,7 @@
                                                                 .showChangelog,
                                                             children: [
                                                               "v ",
-                                                              "0.70",
+                                                              "0.71",
                                                               this.props
                                                                 .MainStore.d
                                                                 ? " d"
@@ -61610,7 +63001,7 @@
                                                   }),
                                                 ],
                                               }),
-                                              (0, Ae.jsx)(oa, {}),
+                                              (0, Ce.jsx)(la, {}),
                                             ],
                                           }),
                                         ],
@@ -61631,8 +63022,8 @@
             r
           );
         })(o.Component),
-        sa = (0, t.f3)("MainStore")((0, t.Pi)(la)),
-        ua = (function (e) {
+        ua = (0, t.f3)("MainStore")((0, t.Pi)(sa)),
+        ca = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -61654,24 +63045,24 @@
                 key: "statRow",
                 value: function (e, t) {
                   var r = t % 2 === 0 ? "bg-gray-200 dark:bg-mydark-300" : "";
-                  return (0, Ae.jsxs)(
+                  return (0, Ce.jsxs)(
                     "tr",
                     {
                       className: r,
                       children: [
-                        (0, Ae.jsxs)("td", {
+                        (0, Ce.jsxs)("td", {
                           className: "px-4 lg:px-6 py-4",
                           children: [
-                            (0, Ae.jsx)("h5", {
+                            (0, Ce.jsx)("h5", {
                               className: "text-xl font-bold",
-                              children: (0, Ce.K)("stat_" + e.id),
+                              children: (0, Ae.K)("stat_" + e.id),
                             }),
-                            (0, Ce.K)("stat_" + e.id + "_title"),
+                            (0, Ae.K)("stat_" + e.id + "_title"),
                           ],
                         }),
-                        (0, Ae.jsx)("td", {
+                        (0, Ce.jsx)("td", {
                           className: "px-4 lg:px-6 py-4 text-right",
-                          children: (0, Ae.jsx)("h5", {
+                          children: (0, Ce.jsx)("h5", {
                             className: "text-xl",
                             children: e.value.toLocaleString(),
                           }),
@@ -61689,21 +63080,21 @@
                     t = this.props.MainStore.StatsStore,
                     r = t.showStats,
                     a = t.stats;
-                  return (0, Ae.jsx)(Et.u.Root, {
+                  return (0, Ce.jsx)(jt.u.Root, {
                     show: r,
                     as: o.Fragment,
-                    children: (0, Ae.jsxs)(jt.V, {
+                    children: (0, Ce.jsxs)(Lt.V, {
                       as: "div",
                       className: "relative z-50",
                       onClose: this.handleClose,
                       children: [
-                        (0, Ae.jsx)(Pt.Z, {}),
-                        (0, Ae.jsx)("div", {
+                        (0, Ce.jsx)(Rt.Z, {}),
+                        (0, Ce.jsx)("div", {
                           className: "fixed z-10 inset-0 overflow-y-auto",
-                          children: (0, Ae.jsx)("div", {
+                          children: (0, Ce.jsx)("div", {
                             className:
                               "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                            children: (0, Ae.jsx)(Et.u.Child, {
+                            children: (0, Ce.jsx)(jt.u.Child, {
                               as: o.Fragment,
                               enter: "ease-out duration-300",
                               enterFrom: "opacity-0 translate-y-4",
@@ -61711,29 +63102,29 @@
                               leave: "ease-in duration-200",
                               leaveFrom: "opacity-100 translate-y-0",
                               leaveTo: "opacity-0 translate-y-4",
-                              children: (0, Ae.jsxs)(jt.V.Panel, {
+                              children: (0, Ce.jsxs)(Lt.V.Panel, {
                                 className:
                                   "modal-container lg:my-8 lg:max-w-xl lg:pt-6",
                                 children: [
-                                  (0, Ae.jsx)(Lt.Z, {
+                                  (0, Ce.jsx)(Pt.Z, {
                                     onClick: this.handleClose,
                                   }),
-                                  (0, Ae.jsx)("div", {
-                                    children: (0, Ae.jsxs)("div", {
+                                  (0, Ce.jsx)("div", {
+                                    children: (0, Ce.jsxs)("div", {
                                       className: "mt-0",
                                       children: [
-                                        (0, Ae.jsx)(jt.V.Title, {
+                                        (0, Ce.jsx)(Lt.V.Title, {
                                           as: "h3",
                                           className: "modal-title",
-                                          children: (0, Ce.K)("statistics"),
+                                          children: (0, Ae.K)("statistics"),
                                         }),
-                                        (0, Ae.jsx)("div", {
+                                        (0, Ce.jsx)("div", {
                                           className: "mt-5",
                                           children:
                                             a.length > 0
-                                              ? (0, Ae.jsx)("table", {
+                                              ? (0, Ce.jsx)("table", {
                                                   className: "min-w-full",
-                                                  children: (0, Ae.jsx)(
+                                                  children: (0, Ce.jsx)(
                                                     "tbody",
                                                     {
                                                       className:
@@ -61747,11 +63138,11 @@
                                                     }
                                                   ),
                                                 })
-                                              : (0, Ae.jsx)("div", {
+                                              : (0, Ce.jsx)("div", {
                                                   className:
                                                     "px-4 pb-4 lg:px-6 lg:pb-6",
-                                                  children: (0, Ae.jsx)(Dt.Z, {
-                                                    text: (0, Ce.K)(
+                                                  children: (0, Ce.jsx)(Dt.Z, {
+                                                    text: (0, Ae.K)(
                                                       "stat_empty"
                                                     ),
                                                     type: "info",
@@ -61775,8 +63166,8 @@
             r
           );
         })(o.Component),
-        ca = (0, t.f3)("MainStore")((0, t.Pi)(ua)),
-        da = (function (e) {
+        da = (0, t.f3)("MainStore")((0, t.Pi)(ca)),
+        pa = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -61787,11 +63178,11 @@
               {
                 key: "render",
                 value: function () {
-                  return (0, Ae.jsx)(de, {
+                  return (0, Ce.jsx)(de, {
                     position: "bottom-right",
                     closeButton: function (e) {
                       var t = e.closeToast;
-                      return (0, Ae.jsx)(Lt.Z, { small: !0, onClick: t });
+                      return (0, Ce.jsx)(Pt.Z, { small: !0, onClick: t });
                     },
                     closeOnClick: !1,
                     newestOnTop: !0,
@@ -61809,8 +63200,8 @@
             r
           );
         })(o.Component),
-        pa = da,
-        _a = (function (e) {
+        _a = pa,
+        ya = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -61834,21 +63225,21 @@
                   var e = this.props.MainStore,
                     t = e.showSupport,
                     r = e.isTWA;
-                  return (0, Ae.jsx)(Et.u.Root, {
+                  return (0, Ce.jsx)(jt.u.Root, {
                     show: t,
                     as: o.Fragment,
-                    children: (0, Ae.jsxs)(jt.V, {
+                    children: (0, Ce.jsxs)(Lt.V, {
                       as: "div",
                       className: "relative z-50",
                       onClose: this.handleClose,
                       children: [
-                        (0, Ae.jsx)(Pt.Z, {}),
-                        (0, Ae.jsx)("div", {
+                        (0, Ce.jsx)(Rt.Z, {}),
+                        (0, Ce.jsx)("div", {
                           className: "fixed z-10 inset-0 overflow-y-auto",
-                          children: (0, Ae.jsx)("div", {
+                          children: (0, Ce.jsx)("div", {
                             className:
                               "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                            children: (0, Ae.jsx)(Et.u.Child, {
+                            children: (0, Ce.jsx)(jt.u.Child, {
                               as: o.Fragment,
                               enter: "ease-out duration-300",
                               enterFrom: "opacity-0 translate-y-4",
@@ -61856,48 +63247,48 @@
                               leave: "ease-in duration-200",
                               leaveFrom: "opacity-100 translate-y-0",
                               leaveTo: "opacity-0 translate-y-4",
-                              children: (0, Ae.jsxs)(jt.V.Panel, {
+                              children: (0, Ce.jsxs)(Lt.V.Panel, {
                                 className:
                                   "modal-container lg:my-8 lg:max-w-4xl lg:pt-6",
                                 children: [
-                                  (0, Ae.jsx)(Lt.Z, {
+                                  (0, Ce.jsx)(Pt.Z, {
                                     onClick: this.handleClose,
                                   }),
-                                  (0, Ae.jsx)("div", {
-                                    children: (0, Ae.jsxs)("div", {
+                                  (0, Ce.jsx)("div", {
+                                    children: (0, Ce.jsxs)("div", {
                                       className: "mt-0",
                                       children: [
-                                        (0, Ae.jsx)(jt.V.Title, {
+                                        (0, Ce.jsx)(Lt.V.Title, {
                                           as: "h3",
                                           className: "modal-title",
-                                          children: (0, Ce.K)("support_us"),
+                                          children: (0, Ae.K)("support_us"),
                                         }),
-                                        (0, Ae.jsx)("div", {
+                                        (0, Ce.jsx)("div", {
                                           className: "m-4 lg:m-6 mt-5",
-                                          children: (0, Ae.jsxs)("dl", {
+                                          children: (0, Ce.jsxs)("dl", {
                                             className:
                                               "grid grid-cols-1 gap-4 lg:gap-6 lg:grid-cols-5 px-12 mb-6 lg:mb-0 lg:px-0",
                                             children: [
                                               r
                                                 ? null
-                                                : (0, Ae.jsx)("a", {
+                                                : (0, Ce.jsx)("a", {
                                                     href: "https://www.paypal.com/donate/?hosted_button_id=VRA6X28CP3NDQ",
                                                     target: "_blank",
                                                     rel: "noreferrer",
                                                     className:
                                                       "text-decoration-none cursor-pointer text-green-600",
-                                                    children: (0, Ae.jsx)(
+                                                    children: (0, Ce.jsx)(
                                                       "div",
                                                       {
                                                         className:
                                                           "p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-6",
-                                                        children: (0, Ae.jsxs)(
+                                                        children: (0, Ce.jsxs)(
                                                           "div",
                                                           {
                                                             className:
                                                               "lg:my-3 text-center",
                                                             children: [
-                                                              (0, Ae.jsx)(
+                                                              (0, Ce.jsx)(
                                                                 Se(),
                                                                 {
                                                                   path: Me.sMo,
@@ -61905,13 +63296,13 @@
                                                                     "inline w-2/12 lg:w-1/2",
                                                                 }
                                                               ),
-                                                              (0, Ae.jsx)(
+                                                              (0, Ce.jsx)(
                                                                 "h5",
                                                                 {
                                                                   className:
                                                                     "text-xl",
                                                                   children: (0,
-                                                                  Ce.K)(
+                                                                  Ae.K)(
                                                                     "donate"
                                                                   ),
                                                                 }
@@ -61922,28 +63313,28 @@
                                                       }
                                                     ),
                                                   }),
-                                              (0, Ae.jsx)("a", {
+                                              (0, Ce.jsx)("a", {
                                                 href: "https://www.patreon.com/TheresmoreGame",
                                                 target: "_blank",
                                                 rel: "noreferrer",
                                                 className:
                                                   "text-decoration-none cursor-pointer",
                                                 style: { color: "#ff424d" },
-                                                children: (0, Ae.jsx)("div", {
+                                                children: (0, Ce.jsx)("div", {
                                                   className:
                                                     "p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-6",
-                                                  children: (0, Ae.jsxs)(
+                                                  children: (0, Ce.jsxs)(
                                                     "div",
                                                     {
                                                       className:
                                                         "lg:my-3 text-center",
                                                       children: [
-                                                        (0, Ae.jsx)(Se(), {
+                                                        (0, Ce.jsx)(Se(), {
                                                           path: Me.bGv,
                                                           className:
                                                             "inline w-2/12 lg:w-1/2",
                                                         }),
-                                                        (0, Ae.jsx)("h5", {
+                                                        (0, Ce.jsx)("h5", {
                                                           className: "text-xl",
                                                           children: "Patreon",
                                                         }),
@@ -61952,28 +63343,28 @@
                                                   ),
                                                 }),
                                               }),
-                                              (0, Ae.jsx)("a", {
+                                              (0, Ce.jsx)("a", {
                                                 href: "https://discord.gg/GZgGKf2gdC",
                                                 target: "_blank",
                                                 rel: "noreferrer",
                                                 className:
                                                   "text-decoration-none cursor-pointer",
                                                 style: { color: "#5865f2" },
-                                                children: (0, Ae.jsx)("div", {
+                                                children: (0, Ce.jsx)("div", {
                                                   className:
                                                     "p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-6",
-                                                  children: (0, Ae.jsxs)(
+                                                  children: (0, Ce.jsxs)(
                                                     "div",
                                                     {
                                                       className:
                                                         "lg:my-3 text-center",
                                                       children: [
-                                                        (0, Ae.jsx)(Se(), {
+                                                        (0, Ce.jsx)(Se(), {
                                                           path: Me.Vrx,
                                                           className:
                                                             "inline w-2/12 lg:w-1/2",
                                                         }),
-                                                        (0, Ae.jsx)("h5", {
+                                                        (0, Ce.jsx)("h5", {
                                                           className: "text-xl",
                                                           children: "Discord",
                                                         }),
@@ -61982,28 +63373,28 @@
                                                   ),
                                                 }),
                                               }),
-                                              (0, Ae.jsx)("a", {
+                                              (0, Ce.jsx)("a", {
                                                 href: "https://twitter.com/TheresmoreGame",
                                                 target: "_blank",
                                                 rel: "noreferrer",
                                                 className:
                                                   "text-decoration-none cursor-pointer",
                                                 style: { color: "#1d9bf0" },
-                                                children: (0, Ae.jsx)("div", {
+                                                children: (0, Ce.jsx)("div", {
                                                   className:
                                                     "p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-6",
-                                                  children: (0, Ae.jsxs)(
+                                                  children: (0, Ce.jsxs)(
                                                     "div",
                                                     {
                                                       className:
                                                         "lg:my-3 text-center",
                                                       children: [
-                                                        (0, Ae.jsx)(Se(), {
+                                                        (0, Ce.jsx)(Se(), {
                                                           path: Me.SGh,
                                                           className:
                                                             "inline w-2/12 lg:w-1/2",
                                                         }),
-                                                        (0, Ae.jsx)("h5", {
+                                                        (0, Ce.jsx)("h5", {
                                                           className: "text-xl",
                                                           children: "Twitter",
                                                         }),
@@ -62012,28 +63403,28 @@
                                                   ),
                                                 }),
                                               }),
-                                              (0, Ae.jsx)("a", {
+                                              (0, Ce.jsx)("a", {
                                                 href: "https://www.reddit.com/r/TheresmoreGame",
                                                 target: "_blank",
                                                 rel: "noreferrer",
                                                 className:
                                                   "text-decoration-none cursor-pointer",
                                                 style: { color: "#ff4500" },
-                                                children: (0, Ae.jsx)("div", {
+                                                children: (0, Ce.jsx)("div", {
                                                   className:
                                                     "p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-6",
-                                                  children: (0, Ae.jsxs)(
+                                                  children: (0, Ce.jsxs)(
                                                     "div",
                                                     {
                                                       className:
                                                         "lg:my-3 text-center",
                                                       children: [
-                                                        (0, Ae.jsx)(Se(), {
+                                                        (0, Ce.jsx)(Se(), {
                                                           path: Me.J1f,
                                                           className:
                                                             "inline w-2/12 lg:w-1/2",
                                                         }),
-                                                        (0, Ae.jsx)("h5", {
+                                                        (0, Ce.jsx)("h5", {
                                                           className: "text-xl",
                                                           children: "Reddit",
                                                         }),
@@ -62062,8 +63453,8 @@
             r
           );
         })(o.Component),
-        ya = (0, t.f3)("MainStore")((0, t.Pi)(_a)),
-        ha = (function (e) {
+        ha = (0, t.f3)("MainStore")((0, t.Pi)(ya)),
+        fa = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -62105,79 +63496,79 @@
                     a = t.percAttackInProgress,
                     i = this.props.MainStore.AdsStore.rewardAdAvailable,
                     n = this.props.MainStore.isTWA;
-                  return (0, Ae.jsxs)(Ae.Fragment, {
+                  return (0, Ce.jsxs)(Ce.Fragment, {
                     children: [
-                      (0, Ae.jsxs)("div", {
+                      (0, Ce.jsxs)("div", {
                         className:
                           "hidden lg:block fixed bottom-0 right-0 max-w-full px-1 py-2 pointer-events-auto text-xs 4xl:text-sm z-20 lg:z-10",
                         children: [
-                          (0, Ae.jsxs)("a", {
+                          (0, Ce.jsxs)("a", {
                             href: "https://www.reddit.com/r/TheresmoreGame",
                             target: "_blank",
                             rel: "noreferrer",
                             className: "p-2",
                             style: { color: "#ff4500" },
                             children: [
-                              (0, Ae.jsx)(Se(), {
+                              (0, Ce.jsx)(Se(), {
                                 path: Me.J1f,
                                 className: "icon inline mt-[-3px]",
                               }),
                               " ",
-                              (0, Ae.jsx)("span", {
+                              (0, Ce.jsx)("span", {
                                 className: "hover:underline hidden 3xl:inline",
                                 children: "Reddit",
                               }),
                             ],
                           }),
-                          (0, Ae.jsxs)("a", {
+                          (0, Ce.jsxs)("a", {
                             href: "https://twitter.com/TheresmoreGame",
                             target: "_blank",
                             rel: "noreferrer",
                             className: "p-2",
                             style: { color: "#1d9bf0" },
                             children: [
-                              (0, Ae.jsx)(Se(), {
+                              (0, Ce.jsx)(Se(), {
                                 path: Me.SGh,
                                 className: "icon inline mt-[-3px]",
                               }),
                               " ",
-                              (0, Ae.jsx)("span", {
+                              (0, Ce.jsx)("span", {
                                 className: "hover:underline hidden 3xl:inline",
                                 children: "Twitter",
                               }),
                             ],
                           }),
-                          (0, Ae.jsxs)("a", {
+                          (0, Ce.jsxs)("a", {
                             href: "https://discord.gg/GZgGKf2gdC",
                             target: "_blank",
                             rel: "noreferrer",
                             className: "p-2",
                             style: { color: "#5865f2" },
                             children: [
-                              (0, Ae.jsx)(Se(), {
+                              (0, Ce.jsx)(Se(), {
                                 path: Me.Vrx,
                                 className: "icon inline mt-[-3px]",
                               }),
                               " ",
-                              (0, Ae.jsx)("span", {
+                              (0, Ce.jsx)("span", {
                                 className: "hover:underline hidden 3xl:inline",
                                 children: "Discord",
                               }),
                             ],
                           }),
-                          (0, Ae.jsxs)("a", {
+                          (0, Ce.jsxs)("a", {
                             href: "https://www.patreon.com/TheresmoreGame",
                             target: "_blank",
                             rel: "noreferrer",
                             className: "p-2",
                             style: { color: "#ff424d" },
                             children: [
-                              (0, Ae.jsx)(Se(), {
+                              (0, Ce.jsx)(Se(), {
                                 path: Me.bGv,
                                 className: "icon inline mt-[-3px]",
                               }),
                               " ",
-                              (0, Ae.jsx)("span", {
+                              (0, Ce.jsx)("span", {
                                 className: "hover:underline hidden 3xl:inline",
                                 children: "Patreon",
                               }),
@@ -62185,82 +63576,82 @@
                           }),
                           n
                             ? null
-                            : (0, Ae.jsxs)("a", {
+                            : (0, Ce.jsxs)("a", {
                                 href: "https://www.paypal.com/donate/?hosted_button_id=VRA6X28CP3NDQ",
                                 target: "_blank",
                                 rel: "noreferrer",
                                 className: "p-2 text-green-600",
                                 children: [
-                                  (0, Ae.jsx)(Se(), {
+                                  (0, Ce.jsx)(Se(), {
                                     path: Me.sMo,
                                     className: "icon inline mt-[-3px]",
                                   }),
                                   " ",
-                                  (0, Ae.jsx)("span", {
+                                  (0, Ce.jsx)("span", {
                                     className:
                                       "hover:underline hidden 3xl:inline",
-                                    children: (0, Ce.K)("donate"),
+                                    children: (0, Ae.K)("donate"),
                                   }),
                                 ],
                               }),
                         ],
                       }),
                       "" !== e
-                        ? (0, Ae.jsxs)("div", {
+                        ? (0, Ce.jsxs)("div", {
                             className:
                               "lg:hidden fixed flex justify-evenly bg-white dark:bg-mydark-700 bottom-0 w-full py-2 z-40",
                             children: [
-                              (0, Ae.jsx)("button", {
+                              (0, Ce.jsx)("button", {
                                 type: "button",
                                 className: "z-40 py-1.5 px-3 text-ancestor",
                                 onClick: this.handleTabs,
-                                children: (0, Ae.jsx)(Se(), {
+                                children: (0, Ce.jsx)(Se(), {
                                   path: Me.kvM,
                                   className: "icon !w-7 !h-7",
                                 }),
                               }),
-                              (0, Ae.jsx)("button", {
+                              (0, Ce.jsx)("button", {
                                 type: "button",
                                 className:
                                   "z-40 py-1.5 px-3 text-gray-600 dark:text-gray-300",
                                 onClick: this.handleTop,
-                                children: (0, Ae.jsx)(Se(), {
+                                children: (0, Ce.jsx)(Se(), {
                                   path: Me.ss0,
                                   className: "icon !w-7 !h-7",
                                 }),
                               }),
-                              (0, Ae.jsx)("button", {
+                              (0, Ce.jsx)("button", {
                                 type: "button",
                                 className:
                                   "z-40 py-1.5 px-3 text-gray-600 dark:text-gray-300",
                                 onClick: this.handleBottom,
-                                children: (0, Ae.jsx)(Se(), {
+                                children: (0, Ce.jsx)(Se(), {
                                   path: Me.$J3,
                                   className: "icon !w-7 !h-7",
                                 }),
                               }),
                               i
-                                ? (0, Ae.jsx)("button", {
+                                ? (0, Ce.jsx)("button", {
                                     type: "button",
                                     className:
                                       "z-40 py-1.5 px-3 text-red-600 animate-bounce",
                                     onClick: this.handleRewardAd,
-                                    children: (0, Ae.jsx)(Se(), {
+                                    children: (0, Ce.jsx)(Se(), {
                                       path: Me.nvf,
                                       className: "icon !w-7 !h-7",
                                     }),
                                   })
-                                : (0, Ae.jsx)("button", {
+                                : (0, Ce.jsx)("button", {
                                     type: "button",
                                     className: "z-40 py-1.5 px-3 text-red-600",
                                     onClick: this.handleSupport,
-                                    children: (0, Ae.jsx)(Se(), {
+                                    children: (0, Ce.jsx)(Se(), {
                                       path: Me.sMo,
                                       className: "icon !w-7 !h-7",
                                     }),
                                   }),
                               r
-                                ? (0, Ae.jsx)("div", {
+                                ? (0, Ce.jsx)("div", {
                                     className:
                                       "h-full absolute top-0 left-0 z-0 bg-gradient-to-t from-red-100 to-red-300 dark:from-mydark-700 dark:to-red-700 block lg:hidden",
                                     style: { width: 100 - a + "%" },
@@ -62277,8 +63668,8 @@
             r
           );
         })(o.Component),
-        fa = (0, t.f3)("MainStore")((0, t.Pi)(ha)),
-        ma = (function (e) {
+        ma = (0, t.f3)("MainStore")((0, t.Pi)(fa)),
+        ga = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r(e) {
@@ -62297,18 +63688,18 @@
               {
                 key: "render",
                 value: function () {
-                  return (0, Ae.jsxs)(Ae.Fragment, {
+                  return (0, Ce.jsxs)(Ce.Fragment, {
                     children: [
                       this.state.loading
-                        ? (0, Ae.jsxs)(Ae.Fragment, {
+                        ? (0, Ce.jsxs)(Ce.Fragment, {
                             children: [
-                              (0, Ae.jsx)("img", {
+                              (0, Ce.jsx)("img", {
                                 src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAAHCCAAAAAB9Y4w1AAAIxElEQVR42u2d3XrzqA6FJWHnu//L3Y1Bc9A0TVp+JIxt+uz1HszBzNReFgshMMFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4S/D4KzIz8feFlUhJVXVi6czCzOULqqqmgU8wSLoIi+1SmjSlWaSLCPsuoxqTXi5dgvRdQuPe4PMlur/UR71EOkuQ3Y2eYjxd+s6Ajwh93/1lERpHjOks6WOFd4vnCYQTEcVNj5bOSzioJHGLd0pfluPKKd3icdLDwnQkaUvHSD/OK99s2xHSjw75wzX3NFr6GSF3Bt4oXVZHyJVUifR5ByZXZZnuOlC6NbEk1cJ8iJnZWhsbTcOjzKIpafOOLCwyyjQG6Xxr/k8p2YtvFmlXbvE+QnrT5sk/5REJvNvwTelhPaZmbVXNbcPzrg7aWa4+bh2qoW9qb0hfQ61jbnvnxqE60brHHdJryuM2YkmlWkLXtXOn8jHCWwVGNUmGLuXpbqtPg+H5NJYHW6HUJb2oXDdjyMPKlm6cEkuH9uBXnqzFndzqYXstIEqZUsqLlMGrXO2V3Y2rt37PVqXAh+IFgjOfm0P+VT8E41BbDHzxAsE3hlpqiwe3RxjF+KyaCtpLDRdKLt1nlhfDcbC2U8ybhgsPHxwVl2Py9Wo4FutMP1FBe7RKL1S5+mEfhd4Mx2x95JQ3Tf4CoeLSvnlXxnDGFElEmu+s2QtkpOfnROnDURP+bDYxv0LSlC0nJZNmQsboO1NLznB27VTSnmmKn/dd825xFFSZTs72FYV8l8rICiaje9ySH4ftKbIQd/5l92Axukt5YRy2p8iC9l92D4aGVY9binNZe4okyuYZjlXpObuoIyuWxmFfiiTNZb6flgk/Ziy5qUralVy60ozmxtUflglNu3gW7BurTZ4U2bbM28PlZolp8ySXegp0pEjKuVRCKeq5wcjVRdfW2iSLw3yhMTC9Rj1rdEcXNayqymq+Wu49Noe89NxyTnIYPVhWsh3ac1F7Tfgvj5HpYh67VNJiZ4rMWOZ1cJDsAz0bzW4XXsfZ6uvuqRp2qTld7dnFsAj/vJH5bXfu9stv6bmgO/KiI+3ZU2Sup33rlFrQ7X109ewbMHurHnYZEnTnm0lzmskF7znMSjn/24MevDsHzH9Qy+1f6zxi+rNCEP17HqzNlCrTaSkvDMTh3a6jc1TCLo/aIvPAxpzuSIsd2nMjy5v0XIVpDfrat+vB2lap2FGl2EnT2JbvTZGxWCBIyS/GWcGODRu2FJm0Kr2/k4Y9G6psf5xyZf9Tutj+YkhadDdZypafj390+4XXnRuTLB2lKr036J1p0ZmeckEUrkjXMfcd8fSlsO+I+jpil6khRWpZenYxXsf0sREpsiadenppGLXPtHmh7Jr1p+6uoMu4HbKt5stq4XLUj06LjsmqFhwjxHxMYhhfif2SLuSP+jp2j2wjEvl9kyR04DxhUIosmL0gXU9Ii10T7Tfp7giGI7bfuy/aIXxkWtzTlEzen8+NTYuOFJmTfmVa3BGTonQ+KS3u0e6M+ip0HKU0wy7pfFpa7E6R7IpiWOhY8jco7SN0RF2OVl5IM+yKOp+ZFhudqbhrtvBIfGJabMSHnV7nM9NivRIr7/c1Sj80LVbTDDvzupybFmtpZmfUw0Ln8R6mYpG1FLvvW8me/te43T+PtrvnxylFoxaj+b5Va+xZHa6DM2Tcfzibvyu9XB+KDqluLgh65b+EOaQXZah0tNQcfikbZhLHlNu+EvUpHMMVEeWok8jMQa9GnZapg16L+gRhr/0gVWvSLw97Neh16XJxT62eF1GXfnHYq5HTxuZmvlR79eZK0lhKv7Cn1u/dlH6hZbje0VJTulymvbEC0Y76ZZZp3VcNG5vXSyrI1jxelaQ5UeT1CqO3fJqIpL0JQ87X3l4k/JTe3smwTtZFP5coxLL1JZycZm7N1KAPwxj2vpyq3bC8mR7TasNa1IlLju2fCPmk07rMpJzSY6A3rQAunp8/HOpzenhcyLp9dzkjz7BJ+Wewhaxhp3CbRfmLdON+bzn6bZL1BvotXc2nphxaiy3W0HyGWsgRduLbcYmG7UksvkwlklqtsMhdjzGLvUJ9jKFCHscQkdzCMR3U3o8eHhFyOYaIeF2vXQPWd+muo63D7dKFgq8wC7nDTsTLvzCRdHWmg9tVyxxPpUI9YSciuV0k/in0eXv/wW9yu11gm+9eKdQbdiKS9d9ydrbZXmrZ578LPVuqlyWN+G6A3S4pI522vqpWhNKgbzZ4nP4mPXY3/nmvP15/5C5ZG83K20/spfBIc/I2+rw19V3/UNDfpWucW/r7MRjvHWybOuw/DC2155rZLr+kp4mzzM+e+DMjb+mP2CWzlWfWLPP7qBppOWpa5ZkNVHHKDLkZThZ0bqA8y+i5I0sMXfl6smcyis1X0xm9IN138OQZytUsfbKuWhhrCpOE+0TaS1pK85t50kzxZMPi1OxjEu2xOESWZ5VzxL1yyK5U+nWaWnltm/oE2qsHGwtNrL1+JHN9a9i1fXWrj4yNxZ+PC/N765z61vuJu170BqP9aTnZ2WrH1S3N9m7HNOoFr70s59RbzlE6v7NGy7cBLGu0enZntZnU1gnv6cS3F9bhxJg/Yjrt96bmzxlZBenHdlLIzTNje9be0gmZxvMFKcfrw9o3mZwCf+vjhXwfenHuT9/ikY7X6POkb5jXj+M+Fer+2lhwh0b3/64wZ5jkHjtCR7vutnxuL4V/xa3nLX/aKz4OWRns26CQou4Rf6V0Io2pP/TXSv/8Fmun+KulE5HG2PWV9zHSd07fdLN9JfYIxtxU2C4/pUEvxcfFi1mYq+ZX1aRpsqi/PgATM39emD8HGiVVKnwUGgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/zf8B6KSrSmqzHxqAAAAAElFTkSuQmCC",
                                 className:
                                   "hidden lg:block max-w-full h-auto p-0 mx-auto",
                                 alt: "",
                               }),
-                              (0, Ae.jsx)("img", {
+                              (0, Ce.jsx)("img", {
                                 src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAADICAAAAAB6j6TnAAAIIUlEQVR42u1d0bajKgxNgvb8/+feVpL70J6e2iaQICqzVnmYh5mpbDc7m4ARAb7t277t277to2H/KyIi4N+FBUBARGRg6IiEiPYFRUS44x10gk6E5LuUsDCPAp2IMHYZkcxyOnRK1HYJyVvJx1Nw/6LPcgp0pESbB51zPhz6RsJ7UN/WP00E/VrOfBT0vsCbweMAwAEA8iJ7Q8cp7ZSShMEHoU/TfumULHk/6GlC2LPxwvtA308rf21Z9oC+N+UP1dy4N/QjKA8S74ROc4ByAREAefaAEMos+SYdoXuNhUWM9RAiojc3dooGe4lFmKXaIxIS9RKNAzpeqv+J2Z98I1E9c8u3HtCrMuf4koco4WbBV6GneZ+ctZY11wWPmwK0MV19dJ2K1FexV6DPqRSYy9a1cSoutG55A/QS8rz02FIpptBl7NiIvA/wWoJRNMnUhJxvvvw0Oe5Psj3ZEnATdBO5LE7K04yeMGZGasCe4sjZm9zRpUzbawJhOSXZm5Qpilz8md0Fi12v3coiPpkXSEE/d1P+mz8k51RrEm9eIMXmUE9u8WiXB43kvFdhA7s1cMlS6TaxvAgOk3ecsi4aNG4+BTKuwOLrVXBI3pU+g4E9e6EbWa5c/bPQSnCI3ltmXTT6BVJBpW3rLkVwTosEANGDVb2AAl1fE/E1kBO+Dxu5HyEJq+kkKTaTFKFvtBZNcH7sYGFXhuK931lXSyChUoIc/TsKekgpsJJL6BG16POw3yIN3vFD7skj9BByYx72W6SB/UPuyTGwElGLuZb1WySA6jOYi9A1uUjAFa15OGaRIJrzvUsmva1YtKUKbzKXJpsRbV59k0yqyiWyYV/ZbYpYZF0yq5vTVom8RMylbIEBiwRNpZQs1rXJKBSic21vEikgvlSZmF5ZV4UeCFHHrirN7qtpz7Ex6dC17RwOCD15drID2DXWXg3/5TaUEIvIpWCLjRapSOZ1ciD1hp6D5pcLzv1k9ds7F2mnktLF7y6OTfhnR+6n3Vr30yd0jfSALwZsz2+RWqT94aQS6f4YnSN1A25tlWmnLqQHn0y6bUYj7znNku3/ftJTtHLA/YOSt//u85DrZwaJ8ZoH7zBxYTlN9sZA7h52DcFRoJ0euYVyw05PD9hiA3ZtZllB1zJML+lzW9WDd6zYDFQyg5T7jnyrRWYzQSBLL85VwYaCDZ9FshShtwdp2lJQ5fsxa2n/Ezr5ftHFFsNDxmr6+fijWS84byxM8gRKEXor6Y22GLQnjUTCAnTp02+Pu7do38D63KPK1GGRYkNXN+OlT4z1sMgSdGiJ0tSrzrR6IXXP+o67iXTqVyFbGz4VC9qs722LgcWqGIohQNzHGPpnYh/QCeKsz31rZCtM6HWTQLDjOqGTRRpiN6DLAbbYtNBeQQ8zmPYovw9ftAF4T1vcMpQI0dfn+tpiwCI16Gfa4gZOTOh4kC1uwR5kfSbYr1k2gyHoeJgtNlskhlhME+zb9A6sOsIA67Q3csNmMMQ6HmmLlWAyq2aNW8IDbbHCDwa1jkfaYjkTs+t9ndB3tcWizWDQ1+lYWyzZzEbW0wTHtTVNZpI1meG7Stn5v0p3PxFst8jLKaZQTTbXpVp9z+oIHZxB/f7h6PbvQrfzQ5Iu2c0JpBf+JY0B3YQh1DBSY+jFFswgirHHvsD6EIrBAgibdSAamfQi6zANTXqJ9QFoL72QKiXop9NeJL0MnU6O1OJ5EWXoJ9NeZE4qxc14KvZi5wJU2Uo/MVLLfVehnygZLAcaV6HTadgrOxB11k+TTK1fcRQ2z6dkkLV1vAhQdaGI8xlCr+mUAahehEHHY69vEt6h1ysZ5sFC9L5FQZ7Sl3SwzVyq1iAPwThqXw7F7tje5Mey2rEXdeCWY/0VoRh0mKeRkAM/JnrXDuAUef1hV53DQ+ME3vLd6QifQRfyO9kEXtohXUZB/gLdWe9Nez9N8nYgf9DFfWrKrrnY5KXmTjVBgHbAy35Gg34Tyy9LCRavFCa6yT5i8WeojzmUIKIYAKBL2idA/XH00AhBSDEAgPN87h6wrKGHjrZOl1M3Cn5pJgjTDoDTTxoIugTt4HLWNscTKUEL7QBAl5PAP4E+u48f/EaXywmy+YtKglbaAYDmn+lot1lectnn36WWkupp4h7fDfDLhRXosLRltUTAnb7ZEFH6CnpuHvzjHn+8vuROqoxGbatX7Mm4pTHbavZZDfVN/iHS19Aljw19fQzGOsCWoWl/EzSV7mtkuXxA54Fd5j0S3x154X9ELkopz6gu83lUDdUUNSxypYAqD+mQi+NkwWAB5VFC144scYTy+U09k5F8uhpO6Ab02MGTRyAXN/TBQtWYa4xFwm0g7BYWa30zjs2YJxuaS7PrINizOUXaq8oxeC8cskuFuOahkZfK1AfAXjzYmGBg7OUjmculYefG6lKeGSubP9cT/b12Tn3t+cRNTnqCUf+0HG0ctf3ylup41znNcsJjL8859Z5zlI4P1uz5NoBnj1aODlafSH1BeOMDn154pxOnf2Q+7H1T9+eMvIDkuhxEuXtl7HfthQ9wmsgXpAKPD0vfZAoC/MSHE8Q+9BKsT1/ynoqXHNNkbJqX636fCg1/bSyFqZHt7xVqguHw3JEaxnWz5LVaiviOW8tTft4KPnfZGWwrUOAsW8CfCR1AMrdTfy70+7dYG8GfDR0AJOemr7z3gb5x+SaL7yuxe7Q+nRL64TN3eijejy9EQiyKX0RYeDDWX28AARHvF8b7RCMgAsZHob/t277t276tb/sfpfOtKVFdQNEAAAAASUVORK5CYII=",
                                 className:
                                   "block lg:hidden max-w-full h-auto p-0 mx-auto",
@@ -62317,7 +63708,7 @@
                             ],
                           })
                         : null,
-                      (0, Ae.jsx)("img", {
+                      (0, Ce.jsx)("img", {
                         src: this.props.dataSrc,
                         className: this.state.loading
                           ? "max-w-full h-auto p-0 hidden"
@@ -62333,7 +63724,7 @@
             r
           );
         })(o.Component),
-        ga = (function (e) {
+        va = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -62360,21 +63751,21 @@
                     a = e.imageNotificationTitle,
                     i = e.imageNotificationText,
                     n = e.imageNotificationType;
-                  return (0, Ae.jsx)(Et.u.Root, {
+                  return (0, Ce.jsx)(jt.u.Root, {
                     show: t,
                     as: o.Fragment,
-                    children: (0, Ae.jsxs)(jt.V, {
+                    children: (0, Ce.jsxs)(Lt.V, {
                       as: "div",
                       className: "relative z-50",
                       onClose: function () {},
                       children: [
-                        (0, Ae.jsx)(Pt.Z, {}),
-                        (0, Ae.jsx)("div", {
+                        (0, Ce.jsx)(Rt.Z, {}),
+                        (0, Ce.jsx)("div", {
                           className: "fixed z-10 inset-0 overflow-y-auto",
-                          children: (0, Ae.jsx)("div", {
+                          children: (0, Ce.jsx)("div", {
                             className:
                               "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                            children: (0, Ae.jsx)(Et.u.Child, {
+                            children: (0, Ce.jsx)(jt.u.Child, {
                               as: o.Fragment,
                               enter: "ease-out duration-300",
                               enterFrom: "opacity-0 translate-y-4",
@@ -62382,45 +63773,45 @@
                               leave: "ease-in duration-200",
                               leaveFrom: "opacity-100 translate-y-0",
                               leaveTo: "opacity-0 translate-y-4",
-                              children: (0, Ae.jsxs)(jt.V.Panel, {
+                              children: (0, Ce.jsxs)(Lt.V.Panel, {
                                 className:
                                   "modal-container lg:my-8 lg:max-w-[802px] lg:pt-6",
                                 children: [
-                                  (0, Ae.jsx)(Lt.Z, {
+                                  (0, Ce.jsx)(Pt.Z, {
                                     onClick: this.handleClose,
                                   }),
-                                  (0, Ae.jsx)("div", {
-                                    children: (0, Ae.jsxs)("div", {
+                                  (0, Ce.jsx)("div", {
+                                    children: (0, Ce.jsxs)("div", {
                                       className: "mt-0",
                                       children: [
-                                        (0, Ae.jsx)(jt.V.Title, {
+                                        (0, Ce.jsx)(Lt.V.Title, {
                                           as: "h3",
                                           className: "modal-title",
                                           children: a,
                                         }),
-                                        (0, Ae.jsxs)("div", {
+                                        (0, Ce.jsxs)("div", {
                                           className: "mt-5",
                                           children: [
-                                            (0, Ae.jsx)("div", {
+                                            (0, Ce.jsx)("div", {
                                               className:
                                                 "flex flex-wrap bg-black relative",
-                                              children: (0, Ae.jsx)(ma, {
+                                              children: (0, Ce.jsx)(ga, {
                                                 dataSrc:
-                                                  "/" +
+                                                  "./" +
                                                   ("localhost" ===
                                                   window.location.hostname
-                                                    ? "/"
+                                                    ? "./"
                                                     : "") +
                                                   "images/" +
                                                   r +
                                                   ".webp",
                                               }),
                                             }),
-                                            (0, Ae.jsx)("div", {
+                                            (0, Ce.jsx)("div", {
                                               className: "flex flex-wrap",
-                                              children: (0, Ae.jsx)("div", {
+                                              children: (0, Ce.jsx)("div", {
                                                 className: "p-4 lg:p-6",
-                                                children: (0, Ae.jsx)(Dt.Z, {
+                                                children: (0, Ce.jsx)(Dt.Z, {
                                                   text: i,
                                                   type:
                                                     "war" === n
@@ -62448,8 +63839,8 @@
             r
           );
         })(o.Component),
-        va = (0, t.f3)("MainStore")((0, t.Pi)(ga)),
-        ba = (function (e) {
+        ba = (0, t.f3)("MainStore")((0, t.Pi)(va)),
+        wa = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -62482,21 +63873,21 @@
                     n =
                       a +
                       " bg-gray-200 dark:bg-mydark-300 border border-gray-500 dark:border-gray-50";
-                  return (0, Ae.jsx)(Et.u.Root, {
+                  return (0, Ce.jsx)(jt.u.Root, {
                     show: t,
                     as: o.Fragment,
-                    children: (0, Ae.jsxs)(jt.V, {
+                    children: (0, Ce.jsxs)(Lt.V, {
                       as: "div",
                       className: "relative z-40",
                       onClose: function () {},
                       children: [
-                        (0, Ae.jsx)(Pt.Z, {}),
-                        (0, Ae.jsx)("div", {
+                        (0, Ce.jsx)(Rt.Z, {}),
+                        (0, Ce.jsx)("div", {
                           className: "fixed z-10 inset-0 overflow-y-auto",
-                          children: (0, Ae.jsx)("div", {
+                          children: (0, Ce.jsx)("div", {
                             className:
                               "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                            children: (0, Ae.jsx)(Et.u.Child, {
+                            children: (0, Ce.jsx)(jt.u.Child, {
                               as: o.Fragment,
                               enter: "ease-out duration-300",
                               enterFrom: "opacity-0 translate-y-4",
@@ -62504,100 +63895,100 @@
                               leave: "ease-in duration-200",
                               leaveFrom: "opacity-100 translate-y-0",
                               leaveTo: "opacity-0 translate-y-4",
-                              children: (0, Ae.jsx)(jt.V.Panel, {
+                              children: (0, Ce.jsx)(Lt.V.Panel, {
                                 className:
                                   "modal-container lg:my-8 lg:max-w-7xl lg:pt-6",
-                                children: (0, Ae.jsx)("div", {
-                                  children: (0, Ae.jsxs)("div", {
+                                children: (0, Ce.jsx)("div", {
+                                  children: (0, Ce.jsxs)("div", {
                                     className: "mt-0",
                                     children: [
-                                      (0, Ae.jsx)(jt.V.Title, {
+                                      (0, Ce.jsx)(Lt.V.Title, {
                                         as: "h3",
                                         className: "modal-title",
-                                        children: (0, Ce.K)("difficulty"),
+                                        children: (0, Ae.K)("difficulty"),
                                       }),
-                                      (0, Ae.jsx)("div", {
+                                      (0, Ce.jsx)("div", {
                                         className: "m-4 lg:m-6 mt-5",
-                                        children: (0, Ae.jsxs)("dl", {
+                                        children: (0, Ce.jsxs)("dl", {
                                           className:
                                             "grid grid-cols-1 gap-4 lg:grid-cols-5 px-6 sm:px-12 mb-6 lg:mb-0 lg:px-0",
                                           children: [
-                                            (0, Ae.jsx)("div", {
+                                            (0, Ce.jsx)("div", {
                                               className: 99 === r ? n : i,
                                               onClick: function () {
                                                 return e.handleDifficulty(99);
                                               },
-                                              children: (0, Ae.jsxs)("div", {
+                                              children: (0, Ce.jsxs)("div", {
                                                 className:
                                                   "lg:my-3 text-center text-green-700 dark:text-green-600",
                                                 children: [
-                                                  (0, Ae.jsx)(Se(), {
+                                                  (0, Ce.jsx)(Se(), {
                                                     path: Me.dV7,
                                                     className:
                                                       "inline w-2/12 lg:w-1/2 text-green-600",
                                                   }),
-                                                  (0, Ae.jsx)("h5", {
+                                                  (0, Ce.jsx)("h5", {
                                                     className: "text-xl",
-                                                    children: (0, Ce.K)(
+                                                    children: (0, Ae.K)(
                                                       "difficulty_99"
                                                     ),
                                                   }),
-                                                  (0, Ae.jsx)("p", {
+                                                  (0, Ce.jsx)("p", {
                                                     className:
                                                       "mt-5 text-left text-sm",
-                                                    children: (0, Ce.K)(
+                                                    children: (0, Ae.K)(
                                                       "difficulty_99_1_description"
                                                     ),
                                                   }),
-                                                  (0, Ae.jsxs)("ul", {
+                                                  (0, Ce.jsxs)("ul", {
                                                     className: "mt-2 space-y-2",
                                                     children: [
-                                                      (0, Ae.jsxs)("li", {
+                                                      (0, Ce.jsxs)("li", {
                                                         className: "flex",
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.dV7,
                                                             className:
                                                               "icon flex-shrink-0 text-green-600",
                                                           }),
-                                                          (0, Ae.jsx)("span", {
+                                                          (0, Ce.jsx)("span", {
                                                             className:
                                                               "ml-2 text-left text-xs",
-                                                            children: (0, Ce.K)(
+                                                            children: (0, Ae.K)(
                                                               "difficulty_99_2_description"
                                                             ),
                                                           }),
                                                         ],
                                                       }),
-                                                      (0, Ae.jsxs)("li", {
+                                                      (0, Ce.jsxs)("li", {
                                                         className: "flex",
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.dV7,
                                                             className:
                                                               "icon flex-shrink-0 text-green-600",
                                                           }),
-                                                          (0, Ae.jsx)("span", {
+                                                          (0, Ce.jsx)("span", {
                                                             className:
                                                               "ml-2 text-left text-xs",
-                                                            children: (0, Ce.K)(
+                                                            children: (0, Ae.K)(
                                                               "difficulty_99_3_description"
                                                             ),
                                                           }),
                                                         ],
                                                       }),
-                                                      (0, Ae.jsxs)("li", {
+                                                      (0, Ce.jsxs)("li", {
                                                         className: "flex",
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.lEW,
                                                             className:
                                                               "icon flex-shrink-0 text-red-600",
                                                           }),
-                                                          (0, Ae.jsx)("span", {
+                                                          (0, Ce.jsx)("span", {
                                                             className:
                                                               "ml-2 text-left text-xs",
-                                                            children: (0, Ce.K)(
+                                                            children: (0, Ae.K)(
                                                               "difficulty_99_4_description"
                                                             ),
                                                           }),
@@ -62608,65 +63999,65 @@
                                                 ],
                                               }),
                                             }),
-                                            (0, Ae.jsx)("div", {
+                                            (0, Ce.jsx)("div", {
                                               className: 0 === r ? n : i,
                                               onClick: function () {
                                                 return e.handleDifficulty(0);
                                               },
-                                              children: (0, Ae.jsxs)("div", {
+                                              children: (0, Ce.jsxs)("div", {
                                                 className:
                                                   "lg:my-3 text-center",
                                                 children: [
-                                                  (0, Ae.jsx)(Se(), {
+                                                  (0, Ce.jsx)(Se(), {
                                                     path: Me.sMk,
                                                     className:
                                                       "inline w-2/12 lg:w-1/2",
                                                   }),
-                                                  (0, Ae.jsx)("h5", {
+                                                  (0, Ce.jsx)("h5", {
                                                     className: "text-xl",
-                                                    children: (0, Ce.K)(
+                                                    children: (0, Ae.K)(
                                                       "difficulty_0"
                                                     ),
                                                   }),
-                                                  (0, Ae.jsx)("p", {
+                                                  (0, Ce.jsx)("p", {
                                                     className:
                                                       "mt-5 text-left text-sm",
-                                                    children: (0, Ce.K)(
+                                                    children: (0, Ae.K)(
                                                       "difficulty_0_1_description"
                                                     ),
                                                   }),
-                                                  (0, Ae.jsxs)("ul", {
+                                                  (0, Ce.jsxs)("ul", {
                                                     className: "mt-2 space-y-2",
                                                     children: [
-                                                      (0, Ae.jsxs)("li", {
+                                                      (0, Ce.jsxs)("li", {
                                                         className: "flex",
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.dV7,
                                                             className:
                                                               "icon flex-shrink-0 text-green-600",
                                                           }),
-                                                          (0, Ae.jsx)("span", {
+                                                          (0, Ce.jsx)("span", {
                                                             className:
                                                               "ml-2 text-left text-xs",
-                                                            children: (0, Ce.K)(
+                                                            children: (0, Ae.K)(
                                                               "difficulty_0_3_description"
                                                             ),
                                                           }),
                                                         ],
                                                       }),
-                                                      (0, Ae.jsxs)("li", {
+                                                      (0, Ce.jsxs)("li", {
                                                         className: "flex",
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.sMk,
                                                             className:
                                                               "icon flex-shrink-0",
                                                           }),
-                                                          (0, Ae.jsx)("span", {
+                                                          (0, Ce.jsx)("span", {
                                                             className:
                                                               "ml-2 text-left text-xs",
-                                                            children: (0, Ce.K)(
+                                                            children: (0, Ae.K)(
                                                               "difficulty_0_2_description"
                                                             ),
                                                           }),
@@ -62677,83 +64068,83 @@
                                                 ],
                                               }),
                                             }),
-                                            (0, Ae.jsx)("div", {
+                                            (0, Ce.jsx)("div", {
                                               className: 1 === r ? n : i,
                                               onClick: function () {
                                                 return e.handleDifficulty(1);
                                               },
-                                              children: (0, Ae.jsxs)("div", {
+                                              children: (0, Ce.jsxs)("div", {
                                                 className:
                                                   "lg:my-3 text-center text-orange-700 dark:text-orange-500",
                                                 children: [
-                                                  (0, Ae.jsx)(Se(), {
+                                                  (0, Ce.jsx)(Se(), {
                                                     path: Me.Hne,
                                                     className:
                                                       "inline w-2/12 lg:w-1/2 text-orange-500",
                                                   }),
-                                                  (0, Ae.jsx)("h5", {
+                                                  (0, Ce.jsx)("h5", {
                                                     className:
                                                       "text-xl text-orange-600",
-                                                    children: (0, Ce.K)(
+                                                    children: (0, Ae.K)(
                                                       "difficulty_1"
                                                     ),
                                                   }),
-                                                  (0, Ae.jsx)("p", {
+                                                  (0, Ce.jsx)("p", {
                                                     className:
                                                       "mt-5 text-left text-sm",
-                                                    children: (0, Ce.K)(
+                                                    children: (0, Ae.K)(
                                                       "difficulty_1_1_description"
                                                     ),
                                                   }),
-                                                  (0, Ae.jsxs)("ul", {
+                                                  (0, Ce.jsxs)("ul", {
                                                     className: "mt-2 space-y-2",
                                                     children: [
-                                                      (0, Ae.jsxs)("li", {
+                                                      (0, Ce.jsxs)("li", {
                                                         className: "flex",
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.lEW,
                                                             className:
                                                               "icon flex-shrink-0",
                                                           }),
-                                                          (0, Ae.jsx)("span", {
+                                                          (0, Ce.jsx)("span", {
                                                             className:
                                                               "ml-2 text-left text-xs",
-                                                            children: (0, Ce.K)(
+                                                            children: (0, Ae.K)(
                                                               "difficulty_1_4_description"
                                                             ),
                                                           }),
                                                         ],
                                                       }),
-                                                      (0, Ae.jsxs)("li", {
+                                                      (0, Ce.jsxs)("li", {
                                                         className: "flex",
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.Hne,
                                                             className:
                                                               "icon flex-shrink-0",
                                                           }),
-                                                          (0, Ae.jsx)("span", {
+                                                          (0, Ce.jsx)("span", {
                                                             className:
                                                               "ml-2 text-left text-xs",
-                                                            children: (0, Ce.K)(
+                                                            children: (0, Ae.K)(
                                                               "difficulty_1_2_description"
                                                             ),
                                                           }),
                                                         ],
                                                       }),
-                                                      (0, Ae.jsxs)("li", {
+                                                      (0, Ce.jsxs)("li", {
                                                         className: "flex",
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.Hne,
                                                             className:
                                                               "icon flex-shrink-0",
                                                           }),
-                                                          (0, Ae.jsx)("span", {
+                                                          (0, Ce.jsx)("span", {
                                                             className:
                                                               "ml-2 text-left text-xs",
-                                                            children: (0, Ce.K)(
+                                                            children: (0, Ae.K)(
                                                               "difficulty_1_3_description"
                                                             ),
                                                           }),
@@ -62764,82 +64155,82 @@
                                                 ],
                                               }),
                                             }),
-                                            (0, Ae.jsx)("div", {
+                                            (0, Ce.jsx)("div", {
                                               className: 2 === r ? n : i,
                                               onClick: function () {
                                                 return e.handleDifficulty(2);
                                               },
-                                              children: (0, Ae.jsxs)("div", {
+                                              children: (0, Ce.jsxs)("div", {
                                                 className:
                                                   "lg:my-3 text-center text-red-600",
                                                 children: [
-                                                  (0, Ae.jsx)(Se(), {
+                                                  (0, Ce.jsx)(Se(), {
                                                     path: Me.h27,
                                                     className:
                                                       "inline w-2/12 lg:w-1/2",
                                                   }),
-                                                  (0, Ae.jsx)("h5", {
+                                                  (0, Ce.jsx)("h5", {
                                                     className: "text-xl",
-                                                    children: (0, Ce.K)(
+                                                    children: (0, Ae.K)(
                                                       "difficulty_2"
                                                     ),
                                                   }),
-                                                  (0, Ae.jsx)("p", {
+                                                  (0, Ce.jsx)("p", {
                                                     className:
                                                       "mt-5 text-left text-sm",
-                                                    children: (0, Ce.K)(
+                                                    children: (0, Ae.K)(
                                                       "difficulty_2_1_description"
                                                     ),
                                                   }),
-                                                  (0, Ae.jsxs)("ul", {
+                                                  (0, Ce.jsxs)("ul", {
                                                     className: "mt-2 space-y-2",
                                                     children: [
-                                                      (0, Ae.jsxs)("li", {
+                                                      (0, Ce.jsxs)("li", {
                                                         className: "flex",
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.lEW,
                                                             className:
                                                               "icon flex-shrink-0",
                                                           }),
-                                                          (0, Ae.jsx)("span", {
+                                                          (0, Ce.jsx)("span", {
                                                             className:
                                                               "ml-2 text-left text-xs",
-                                                            children: (0, Ce.K)(
+                                                            children: (0, Ae.K)(
                                                               "difficulty_2_4_description"
                                                             ),
                                                           }),
                                                         ],
                                                       }),
-                                                      (0, Ae.jsxs)("li", {
+                                                      (0, Ce.jsxs)("li", {
                                                         className: "flex",
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.h27,
                                                             className:
                                                               "icon flex-shrink-0",
                                                           }),
-                                                          (0, Ae.jsx)("span", {
+                                                          (0, Ce.jsx)("span", {
                                                             className:
                                                               "ml-2 text-left text-xs",
-                                                            children: (0, Ce.K)(
+                                                            children: (0, Ae.K)(
                                                               "difficulty_2_2_description"
                                                             ),
                                                           }),
                                                         ],
                                                       }),
-                                                      (0, Ae.jsxs)("li", {
+                                                      (0, Ce.jsxs)("li", {
                                                         className: "flex",
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.h27,
                                                             className:
                                                               "icon flex-shrink-0",
                                                           }),
-                                                          (0, Ae.jsx)("span", {
+                                                          (0, Ce.jsx)("span", {
                                                             className:
                                                               "ml-2 text-left text-xs",
-                                                            children: (0, Ce.K)(
+                                                            children: (0, Ae.K)(
                                                               "difficulty_2_3_description"
                                                             ),
                                                           }),
@@ -62850,99 +64241,99 @@
                                                 ],
                                               }),
                                             }),
-                                            (0, Ae.jsx)("div", {
+                                            (0, Ce.jsx)("div", {
                                               className: 3 === r ? n : i,
                                               onClick: function () {
                                                 return e.handleDifficulty(3);
                                               },
-                                              children: (0, Ae.jsxs)("div", {
+                                              children: (0, Ce.jsxs)("div", {
                                                 className:
                                                   "lg:my-3 text-center text-purple-600",
                                                 children: [
-                                                  (0, Ae.jsx)(Se(), {
+                                                  (0, Ce.jsx)(Se(), {
                                                     path: Me.Ze$,
                                                     className:
                                                       "inline w-2/12 lg:w-1/2",
                                                   }),
-                                                  (0, Ae.jsx)("h5", {
+                                                  (0, Ce.jsx)("h5", {
                                                     className: "text-xl",
-                                                    children: (0, Ce.K)(
+                                                    children: (0, Ae.K)(
                                                       "difficulty_3"
                                                     ),
                                                   }),
-                                                  (0, Ae.jsx)("p", {
+                                                  (0, Ce.jsx)("p", {
                                                     className:
                                                       "mt-5 text-left text-sm",
-                                                    children: (0, Ce.K)(
+                                                    children: (0, Ae.K)(
                                                       "difficulty_3_1_description"
                                                     ),
                                                   }),
-                                                  (0, Ae.jsxs)("ul", {
+                                                  (0, Ce.jsxs)("ul", {
                                                     className: "mt-2 space-y-2",
                                                     children: [
-                                                      (0, Ae.jsxs)("li", {
+                                                      (0, Ce.jsxs)("li", {
                                                         className: "flex",
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.lEW,
                                                             className:
                                                               "icon flex-shrink-0",
                                                           }),
-                                                          (0, Ae.jsx)("span", {
+                                                          (0, Ce.jsx)("span", {
                                                             className:
                                                               "ml-2 text-left text-xs",
-                                                            children: (0, Ce.K)(
+                                                            children: (0, Ae.K)(
                                                               "difficulty_3_4_description"
                                                             ),
                                                           }),
                                                         ],
                                                       }),
-                                                      (0, Ae.jsxs)("li", {
+                                                      (0, Ce.jsxs)("li", {
                                                         className: "flex",
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.Ze$,
                                                             className:
                                                               "icon flex-shrink-0",
                                                           }),
-                                                          (0, Ae.jsx)("span", {
+                                                          (0, Ce.jsx)("span", {
                                                             className:
                                                               "ml-2 text-left text-xs",
-                                                            children: (0, Ce.K)(
+                                                            children: (0, Ae.K)(
                                                               "difficulty_3_2_description"
                                                             ),
                                                           }),
                                                         ],
                                                       }),
-                                                      (0, Ae.jsxs)("li", {
+                                                      (0, Ce.jsxs)("li", {
                                                         className: "flex",
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.Ze$,
                                                             className:
                                                               "icon flex-shrink-0",
                                                           }),
-                                                          (0, Ae.jsx)("span", {
+                                                          (0, Ce.jsx)("span", {
                                                             className:
                                                               "ml-2 text-left text-xs",
-                                                            children: (0, Ce.K)(
+                                                            children: (0, Ae.K)(
                                                               "difficulty_3_3_description"
                                                             ),
                                                           }),
                                                         ],
                                                       }),
-                                                      (0, Ae.jsxs)("li", {
+                                                      (0, Ce.jsxs)("li", {
                                                         className: "flex",
                                                         children: [
-                                                          (0, Ae.jsx)(Se(), {
+                                                          (0, Ce.jsx)(Se(), {
                                                             path: Me.Ze$,
                                                             className:
                                                               "icon flex-shrink-0",
                                                           }),
-                                                          (0, Ae.jsx)("span", {
+                                                          (0, Ce.jsx)("span", {
                                                             className:
                                                               "ml-2 text-left text-xs",
-                                                            children: (0, Ce.K)(
+                                                            children: (0, Ae.K)(
                                                               "difficulty_3_5_description"
                                                             ),
                                                           }),
@@ -62972,17 +64363,17 @@
             r
           );
         })(o.Component),
-        wa = (0, t.f3)("MainStore")((0, t.Pi)(ba)),
-        ka = o.lazy(function () {
+        ka = (0, t.f3)("MainStore")((0, t.Pi)(wa)),
+        xa = o.lazy(function () {
           return r.e(688).then(r.bind(r, 4688));
         }),
-        xa = o.lazy(function () {
+        Sa = o.lazy(function () {
           return r.e(126).then(r.bind(r, 126));
         }),
-        Sa = o.lazy(function () {
+        Ma = o.lazy(function () {
           return r.e(940).then(r.bind(r, 2940));
         }),
-        Ma = (function (e) {
+        Aa = (function (e) {
           (0, we.Z)(r, e);
           var t = (0, ke.Z)(r);
           function r() {
@@ -63003,41 +64394,41 @@
                     s = this.props.MainStore.LegacyStore,
                     u = s.countVisibleLegacy,
                     c = s.visibleNewGamePlus;
-                  return (0, Ae.jsxs)(Ae.Fragment, {
+                  return (0, Ce.jsxs)(Ce.Fragment, {
                     children: [
-                      (0, Ae.jsx)($t, {}),
-                      (0, Ae.jsx)(Zt, {}),
-                      (0, Ae.jsx)(ca, {}),
-                      (0, Ae.jsx)(sa, {}),
+                      (0, Ce.jsx)(Jt, {}),
+                      (0, Ce.jsx)(Bt, {}),
+                      (0, Ce.jsx)(da, {}),
+                      (0, Ce.jsx)(ua, {}),
                       "" === t || 2 === r || 2 === a
-                        ? (0, Ae.jsx)(jr, {})
-                        : (0, Ae.jsx)(Nr, {}),
-                      (0, Ae.jsx)(va, {}),
-                      (0, Ae.jsx)(Gt, {}),
+                        ? (0, Ce.jsx)(Lr, {})
+                        : (0, Ce.jsx)(Or, {}),
+                      (0, Ce.jsx)(ba, {}),
+                      (0, Ce.jsx)(Kt, {}),
                       u > 0 || n || 2 === a
-                        ? (0, Ae.jsx)(o.Suspense, {
+                        ? (0, Ce.jsx)(o.Suspense, {
                             fallback: null,
-                            children: (0, Ae.jsx)(ka, {}),
+                            children: (0, Ce.jsx)(xa, {}),
                           })
                         : null,
                       c || l
-                        ? (0, Ae.jsx)(o.Suspense, {
+                        ? (0, Ce.jsx)(o.Suspense, {
                             fallback: null,
-                            children: (0, Ae.jsx)(xa, {}),
+                            children: (0, Ce.jsx)(Sa, {}),
                           })
                         : null,
                       this.props.MainStore.d
-                        ? (0, Ae.jsx)(o.Suspense, {
+                        ? (0, Ce.jsx)(o.Suspense, {
                             fallback: null,
-                            children: (0, Ae.jsx)(Sa, {}),
+                            children: (0, Ce.jsx)(Ma, {}),
                           })
                         : null,
                       "" === t || 2 === r || 2 === a
                         ? null
-                        : (0, Ae.jsx)(wa, {}),
-                      (0, Ae.jsx)(ya, {}),
-                      (0, Ae.jsx)(fa, {}),
-                      (0, Ae.jsx)(pa, {}),
+                        : (0, Ce.jsx)(ka, {}),
+                      (0, Ce.jsx)(ha, {}),
+                      (0, Ce.jsx)(ma, {}),
+                      (0, Ce.jsx)(_a, {}),
                     ],
                   });
                 },
@@ -63046,17 +64437,17 @@
             r
           );
         })(o.Component),
-        Ca = (0, t.f3)("MainStore")((0, t.Pi)(Ma)),
-        Aa = Boolean(
+        Ca = (0, t.f3)("MainStore")((0, t.Pi)(Aa)),
+        Ta = Boolean(
           "localhost" === window.location.hostname ||
             "[::1]" === window.location.hostname ||
             window.location.hostname.match(
               /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
             )
         );
-      function Ta(e, t) {
+      function qa(e, t) {
         navigator.serviceWorker
-          .register(e, { scope: "./" })
+          .register(e, { scope: "/" })
           .then(function (e) {
             e.onupdatefound = function () {
               var r = e.installing;
@@ -63074,7 +64465,7 @@
           });
       }
       (0, e.s)(document.getElementById("root")).render(
-        (0, Ae.jsx)(t.zt, { MainStore: It, children: (0, Ae.jsx)(Ca, {}) })
+        (0, Ce.jsx)(t.zt, { MainStore: Et, children: (0, Ce.jsx)(Ca, {}) })
       ),
         (function (e) {
           if ("serviceWorker" in navigator) {
@@ -63085,7 +64476,7 @@
               return;
             window.addEventListener("load", function () {
               var t = "".concat("./", "service-worker.js");
-              Aa
+              Ta
                 ? (!(function (e, t) {
                     fetch(e, { headers: { "Service-Worker": "script" } })
                       .then(function (r) {
@@ -63097,17 +64488,17 @@
                                 window.location.reload();
                               });
                             })
-                          : Ta(e, t);
+                          : qa(e, t);
                       })
                       .catch(function () {});
                   })(t, e),
                   navigator.serviceWorker.ready.then(function () {}))
-                : Ta(t, e);
+                : qa(t, e);
             });
           }
         })({
           onUpdate: function (e) {
-            return It.addNotification(
+            return Et.addNotification(
               "new_version",
               "key",
               "common",
