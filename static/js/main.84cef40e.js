@@ -32346,7 +32346,7 @@
         Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
         Object.defineProperty(e, "__esModule", { value: !0 });
     }),
-    (r.p = "/play/"),
+    (r.p = "/"),
     (() => {
       var e = { 792: 0 };
       r.f.j = (t, a) => {
@@ -38496,7 +38496,7 @@
       ke.Ay.initialize(
         {
           NODE_ENV: "production",
-          PUBLIC_URL: "/play",
+          PUBLIC_URL: "./",
           WDS_SOCKET_HOST: void 0,
           WDS_SOCKET_PATH: void 0,
           WDS_SOCKET_PORT: void 0,
@@ -57669,7 +57669,7 @@
           (this.d = !(
             !{
               NODE_ENV: "production",
-              PUBLIC_URL: "/play",
+              PUBLIC_URL: "./",
               WDS_SOCKET_HOST: void 0,
               WDS_SOCKET_PATH: void 0,
               WDS_SOCKET_PORT: void 0,
@@ -58151,7 +58151,7 @@
             (this.isTWA =
               window.matchMedia &&
               window.matchMedia("(display-mode: fullscreen)").matches &&
-              "/play/" === window.location.pathname &&
+              "/" === window.location.pathname &&
               window.location.hash.startsWith("#play-store-twa")),
             this.isTWA
               ? "#play-store-twa" === window.location.hash && (this.ads = !1)
@@ -60747,8 +60747,8 @@
                 loop: !0,
                 children: (0, _e.jsx)("source", {
                   src:
-                    "/play" +
-                    ("localhost" === window.location.hostname ? "/play" : "") +
+                    "./" +
+                    ("localhost" === window.location.hostname ? "./" : "") +
                     "/sounds/track_1.ogg",
                   type: "audio/ogg",
                 }),
@@ -60759,8 +60759,8 @@
                 loop: !0,
                 children: (0, _e.jsx)("source", {
                   src:
-                    "/play" +
-                    ("localhost" === window.location.hostname ? "/play" : "") +
+                    "./" +
+                    ("localhost" === window.location.hostname ? "./" : "") +
                     "/sounds/track_2.ogg",
                   type: "audio/ogg",
                 }),
@@ -60771,8 +60771,8 @@
                 loop: !0,
                 children: (0, _e.jsx)("source", {
                   src:
-                    "/play" +
-                    ("localhost" === window.location.hostname ? "/play" : "") +
+                    "./" +
+                    ("localhost" === window.location.hostname ? "./" : "") +
                     "/sounds/track_3.ogg",
                   type: "audio/ogg",
                 }),
@@ -60783,8 +60783,8 @@
                 loop: !0,
                 children: (0, _e.jsx)("source", {
                   src:
-                    "/play" +
-                    ("localhost" === window.location.hostname ? "/play" : "") +
+                    "./" +
+                    ("localhost" === window.location.hostname ? "./" : "") +
                     "/sounds/track_4.ogg",
                   type: "audio/ogg",
                 }),
@@ -60795,8 +60795,8 @@
                 loop: !0,
                 children: (0, _e.jsx)("source", {
                   src:
-                    "/play" +
-                    ("localhost" === window.location.hostname ? "/play" : "") +
+                    "./" +
+                    ("localhost" === window.location.hostname ? "./" : "") +
                     "/sounds/track_5.ogg",
                   type: "audio/ogg",
                 }),
@@ -60807,8 +60807,8 @@
                 loop: !0,
                 children: (0, _e.jsx)("source", {
                   src:
-                    "/play" +
-                    ("localhost" === window.location.hostname ? "/play" : "") +
+                    "./" +
+                    ("localhost" === window.location.hostname ? "./" : "") +
                     "/sounds/incoming_attack.ogg",
                   type: "audio/ogg",
                 }),
@@ -62687,12 +62687,12 @@
                                         "flex flex-wrap bg-black relative",
                                       children: (0, _e.jsx)(Zr, {
                                         dataSrc:
-                                          "/play" +
+                                          "./" +
                                           ("localhost" ===
                                           window.location.hostname
-                                            ? "/play"
+                                            ? "./"
                                             : "") +
-                                          "/images/" +
+                                          "images/" +
                                           t +
                                           ".webp",
                                       }),
@@ -63303,7 +63303,7 @@
         );
       function sa(e, t) {
         navigator.serviceWorker
-          .register(e, { scope: "/play/" })
+          .register(e, { scope: "./" })
           .then((e) => {
             e.onupdatefound = () => {
               const r = e.installing;
@@ -63326,12 +63326,12 @@
         (function (e) {
           if ("serviceWorker" in navigator) {
             if (
-              new URL("/play", window.location.href).origin !==
+              new URL("./", window.location.href).origin !==
               window.location.origin
             )
               return;
             window.addEventListener("load", () => {
-              const t = "".concat("/play", "/service-worker.js");
+              const t = "".concat("./", "/service-worker.js");
               oa
                 ? (!(function (e, t) {
                     fetch(e, { headers: { "Service-Worker": "script" } })
