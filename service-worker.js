@@ -1,1045 +1,168 @@
-/*!For license information please see service-worker.js.LICENSE.txt*/ !(function () {
+(() => {
   "use strict";
   var e = {
-      642: function () {
+      775: () => {
         try {
-          self["workbox:background-sync:6.5.2"] && _();
+          self["workbox:background-sync:6.6.0"] && _();
         } catch (e) {}
       },
-      906: function () {
+      930: () => {
         try {
-          self["workbox:core:6.5.2"] && _();
+          self["workbox:core:6.6.0"] && _();
         } catch (e) {}
       },
-      83: function () {
+      172: () => {
         try {
-          self["workbox:expiration:6.5.2"] && _();
+          self["workbox:expiration:6.6.0"] && _();
         } catch (e) {}
       },
-      988: function () {
+      973: () => {
         try {
-          self["workbox:google-analytics:6.5.2"] && _();
+          self["workbox:google-analytics:6.6.0"] && _();
         } catch (e) {}
       },
-      143: function () {
+      769: () => {
         try {
-          self["workbox:precaching:6.5.2"] && _();
+          self["workbox:precaching:6.6.0"] && _();
         } catch (e) {}
       },
-      337: function () {
+      357: () => {
         try {
-          self["workbox:routing:6.5.2"] && _();
+          self["workbox:routing:6.6.0"] && _();
         } catch (e) {}
       },
-      139: function () {
+      124: () => {
         try {
-          self["workbox:strategies:6.5.2"] && _();
+          self["workbox:strategies:6.6.0"] && _();
         } catch (e) {}
       },
     },
     t = {};
-  function r(n) {
+  function s(n) {
     var a = t[n];
     if (void 0 !== a) return a.exports;
-    var s = (t[n] = { exports: {} });
-    return e[n](s, s.exports, r), s.exports;
+    var r = (t[n] = { exports: {} });
+    return e[n](r, r.exports, s), r.exports;
   }
-  !(function () {
-    r(906);
-    var e = null;
-    function t(e, t) {
-      for (var r = 0; r < t.length; r++) {
-        var n = t[r];
-        (n.enumerable = n.enumerable || !1),
-          (n.configurable = !0),
-          "value" in n && (n.writable = !0),
-          Object.defineProperty(e, n.key, n);
+  (() => {
+    s(930);
+    const e = function (e) {
+      let t = e;
+      for (
+        var s = arguments.length, n = new Array(s > 1 ? s - 1 : 0), a = 1;
+        a < s;
+        a++
+      )
+        n[a - 1] = arguments[a];
+      return n.length > 0 && (t += " :: ".concat(JSON.stringify(n))), t;
+    };
+    class t extends Error {
+      constructor(t, s) {
+        super(e(t, s)), (this.name = t), (this.details = s);
       }
     }
-    function n(e, r, n) {
-      return (
-        r && t(e.prototype, r),
-        n && t(e, n),
-        Object.defineProperty(e, "prototype", { writable: !1 }),
-        e
-      );
-    }
-    function a(e, t) {
-      if (!(e instanceof t))
-        throw new TypeError("Cannot call a class as a function");
-    }
-    function s(e, t) {
-      return (
-        (s = Object.setPrototypeOf
-          ? Object.setPrototypeOf.bind()
-          : function (e, t) {
-              return (e.__proto__ = t), e;
-            }),
-        s(e, t)
-      );
-    }
-    function i(e, t) {
-      if ("function" !== typeof t && null !== t)
-        throw new TypeError(
-          "Super expression must either be null or a function"
-        );
-      (e.prototype = Object.create(t && t.prototype, {
-        constructor: { value: e, writable: !0, configurable: !0 },
-      })),
-        Object.defineProperty(e, "prototype", { writable: !1 }),
-        t && s(e, t);
-    }
-    function u(e) {
-      return (
-        (u = Object.setPrototypeOf
-          ? Object.getPrototypeOf.bind()
-          : function (e) {
-              return e.__proto__ || Object.getPrototypeOf(e);
-            }),
-        u(e)
-      );
-    }
-    function c() {
-      if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
-      if (Reflect.construct.sham) return !1;
-      if ("function" === typeof Proxy) return !0;
-      try {
-        return (
-          Boolean.prototype.valueOf.call(
-            Reflect.construct(Boolean, [], function () {})
-          ),
-          !0
-        );
-      } catch (e) {
-        return !1;
-      }
-    }
-    function o(e) {
-      return (
-        (o =
-          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-            ? function (e) {
-                return typeof e;
-              }
-            : function (e) {
-                return e &&
-                  "function" == typeof Symbol &&
-                  e.constructor === Symbol &&
-                  e !== Symbol.prototype
-                  ? "symbol"
-                  : typeof e;
-              }),
-        o(e)
-      );
-    }
-    function h(e, t) {
-      if (t && ("object" === o(t) || "function" === typeof t)) return t;
-      if (void 0 !== t)
-        throw new TypeError(
-          "Derived constructors may only return object or undefined"
-        );
-      return (function (e) {
-        if (void 0 === e)
-          throw new ReferenceError(
-            "this hasn't been initialised - super() hasn't been called"
-          );
-        return e;
-      })(e);
-    }
-    function f(e) {
-      var t = c();
-      return function () {
-        var r,
-          n = u(e);
-        if (t) {
-          var a = u(this).constructor;
-          r = Reflect.construct(n, arguments, a);
-        } else r = n.apply(this, arguments);
-        return h(this, r);
-      };
-    }
-    function l(e, t, r) {
-      return (
-        (l = c()
-          ? Reflect.construct.bind()
-          : function (e, t, r) {
-              var n = [null];
-              n.push.apply(n, t);
-              var a = new (Function.bind.apply(e, n))();
-              return r && s(a, r.prototype), a;
-            }),
-        l.apply(null, arguments)
-      );
-    }
-    function p(e) {
-      var t = "function" === typeof Map ? new Map() : void 0;
-      return (
-        (p = function (e) {
-          if (
-            null === e ||
-            ((r = e), -1 === Function.toString.call(r).indexOf("[native code]"))
-          )
-            return e;
-          var r;
-          if ("function" !== typeof e)
-            throw new TypeError(
-              "Super expression must either be null or a function"
-            );
-          if ("undefined" !== typeof t) {
-            if (t.has(e)) return t.get(e);
-            t.set(e, n);
-          }
-          function n() {
-            return l(e, arguments, u(this).constructor);
-          }
-          return (
-            (n.prototype = Object.create(e.prototype, {
-              constructor: {
-                value: n,
-                enumerable: !1,
-                writable: !0,
-                configurable: !0,
-              },
-            })),
-            s(n, e)
-          );
-        }),
-        p(e)
-      );
-    }
-    var v = function (e) {
-        for (
-          var t = e,
-            r = arguments.length,
-            n = new Array(r > 1 ? r - 1 : 0),
-            a = 1;
-          a < r;
-          a++
-        )
-          n[a - 1] = arguments[a];
-        return n.length > 0 && (t += " :: ".concat(JSON.stringify(n))), t;
-      },
-      d = (function (e) {
-        i(r, e);
-        var t = f(r);
-        function r(e, n) {
-          var s;
-          a(this, r);
-          var i = v(e, n);
-          return ((s = t.call(this, i)).name = e), (s.details = n), s;
-        }
-        return n(r);
-      })(p(Error)),
-      y = new Set();
-    function m(e) {
-      y.add(e);
-    }
-    var x,
-      b = {
+    const n = new Set();
+    const a = {
         googleAnalytics: "googleAnalytics",
         precache: "precache-v2",
         prefix: "workbox",
         runtime: "runtime",
         suffix: "undefined" !== typeof registration ? registration.scope : "",
       },
-      g = function (e) {
-        return [b.prefix, e, b.suffix]
-          .filter(function (e) {
-            return e && e.length > 0;
-          })
-          .join("-");
-      },
-      w = function (e) {
-        return e || g(b.googleAnalytics);
-      },
-      k = function (e) {
-        return e || g(b.precache);
-      },
-      _ = function (e) {
-        return e || g(b.runtime);
-      };
-    function q() {
-      q = function () {
-        return e;
-      };
-      var e = {},
-        t = Object.prototype,
-        r = t.hasOwnProperty,
-        n = "function" == typeof Symbol ? Symbol : {},
-        a = n.iterator || "@@iterator",
-        s = n.asyncIterator || "@@asyncIterator",
-        i = n.toStringTag || "@@toStringTag";
-      function u(e, t, r) {
-        return (
-          Object.defineProperty(e, t, {
-            value: r,
-            enumerable: !0,
-            configurable: !0,
-            writable: !0,
-          }),
-          e[t]
-        );
-      }
-      try {
-        u({}, "");
-      } catch (L) {
-        u = function (e, t, r) {
-          return (e[t] = r);
-        };
-      }
-      function c(e, t, r, n) {
-        var a = t && t.prototype instanceof l ? t : l,
-          s = Object.create(a.prototype),
-          i = new E(n || []);
-        return (
-          (s._invoke = (function (e, t, r) {
-            var n = "suspendedStart";
-            return function (a, s) {
-              if ("executing" === n)
-                throw new Error("Generator is already running");
-              if ("completed" === n) {
-                if ("throw" === a) throw s;
-                return S();
-              }
-              for (r.method = a, r.arg = s; ; ) {
-                var i = r.delegate;
-                if (i) {
-                  var u = w(i, r);
-                  if (u) {
-                    if (u === f) continue;
-                    return u;
-                  }
-                }
-                if ("next" === r.method) r.sent = r._sent = r.arg;
-                else if ("throw" === r.method) {
-                  if ("suspendedStart" === n) throw ((n = "completed"), r.arg);
-                  r.dispatchException(r.arg);
-                } else "return" === r.method && r.abrupt("return", r.arg);
-                n = "executing";
-                var c = h(e, t, r);
-                if ("normal" === c.type) {
-                  if (
-                    ((n = r.done ? "completed" : "suspendedYield"), c.arg === f)
-                  )
-                    continue;
-                  return { value: c.arg, done: r.done };
-                }
-                "throw" === c.type &&
-                  ((n = "completed"), (r.method = "throw"), (r.arg = c.arg));
-              }
-            };
-          })(e, r, i)),
-          s
-        );
-      }
-      function h(e, t, r) {
-        try {
-          return { type: "normal", arg: e.call(t, r) };
-        } catch (L) {
-          return { type: "throw", arg: L };
-        }
-      }
-      e.wrap = c;
-      var f = {};
-      function l() {}
-      function p() {}
-      function v() {}
-      var d = {};
-      u(d, a, function () {
-        return this;
-      });
-      var y = Object.getPrototypeOf,
-        m = y && y(y(R([])));
-      m && m !== t && r.call(m, a) && (d = m);
-      var x = (v.prototype = l.prototype = Object.create(d));
-      function b(e) {
-        ["next", "throw", "return"].forEach(function (t) {
-          u(e, t, function (e) {
-            return this._invoke(t, e);
-          });
+      r = (e) =>
+        [a.prefix, e, a.suffix].filter((e) => e && e.length > 0).join("-"),
+      i = (e) => e || r(a.googleAnalytics),
+      o = (e) => e || r(a.precache),
+      c = (e) => e || r(a.runtime);
+    function h(e, t) {
+      const s = new URL(e);
+      for (const n of t) s.searchParams.delete(n);
+      return s.href;
+    }
+    let u;
+    function l(e) {
+      e.then(() => {});
+    }
+    class d {
+      constructor() {
+        this.promise = new Promise((e, t) => {
+          (this.resolve = e), (this.reject = t);
         });
       }
-      function g(e, t) {
-        function n(a, s, i, u) {
-          var c = h(e[a], e, s);
-          if ("throw" !== c.type) {
-            var f = c.arg,
-              l = f.value;
-            return l && "object" == o(l) && r.call(l, "__await")
-              ? t.resolve(l.__await).then(
-                  function (e) {
-                    n("next", e, i, u);
-                  },
-                  function (e) {
-                    n("throw", e, i, u);
-                  }
-                )
-              : t.resolve(l).then(
-                  function (e) {
-                    (f.value = e), i(f);
-                  },
-                  function (e) {
-                    return n("throw", e, i, u);
-                  }
-                );
-          }
-          u(c.arg);
-        }
-        var a;
-        this._invoke = function (e, r) {
-          function s() {
-            return new t(function (t, a) {
-              n(e, r, t, a);
-            });
-          }
-          return (a = a ? a.then(s, s) : s());
-        };
-      }
-      function w(e, t) {
-        var r = e.iterator[t.method];
-        if (void 0 === r) {
-          if (((t.delegate = null), "throw" === t.method)) {
-            if (
-              e.iterator.return &&
-              ((t.method = "return"),
-              (t.arg = void 0),
-              w(e, t),
-              "throw" === t.method)
-            )
-              return f;
-            (t.method = "throw"),
-              (t.arg = new TypeError(
-                "The iterator does not provide a 'throw' method"
-              ));
-          }
-          return f;
-        }
-        var n = h(r, e.iterator, t.arg);
-        if ("throw" === n.type)
-          return (t.method = "throw"), (t.arg = n.arg), (t.delegate = null), f;
-        var a = n.arg;
-        return a
-          ? a.done
-            ? ((t[e.resultName] = a.value),
-              (t.next = e.nextLoc),
-              "return" !== t.method && ((t.method = "next"), (t.arg = void 0)),
-              (t.delegate = null),
-              f)
-            : a
-          : ((t.method = "throw"),
-            (t.arg = new TypeError("iterator result is not an object")),
-            (t.delegate = null),
-            f);
-      }
-      function k(e) {
-        var t = { tryLoc: e[0] };
-        1 in e && (t.catchLoc = e[1]),
-          2 in e && ((t.finallyLoc = e[2]), (t.afterLoc = e[3])),
-          this.tryEntries.push(t);
-      }
-      function _(e) {
-        var t = e.completion || {};
-        (t.type = "normal"), delete t.arg, (e.completion = t);
-      }
-      function E(e) {
-        (this.tryEntries = [{ tryLoc: "root" }]),
-          e.forEach(k, this),
-          this.reset(!0);
-      }
-      function R(e) {
-        if (e) {
-          var t = e[a];
-          if (t) return t.call(e);
-          if ("function" == typeof e.next) return e;
-          if (!isNaN(e.length)) {
-            var n = -1,
-              s = function t() {
-                for (; ++n < e.length; )
-                  if (r.call(e, n)) return (t.value = e[n]), (t.done = !1), t;
-                return (t.value = void 0), (t.done = !0), t;
-              };
-            return (s.next = s);
-          }
-        }
-        return { next: S };
-      }
-      function S() {
-        return { value: void 0, done: !0 };
-      }
-      return (
-        (p.prototype = v),
-        u(x, "constructor", v),
-        u(v, "constructor", p),
-        (p.displayName = u(v, i, "GeneratorFunction")),
-        (e.isGeneratorFunction = function (e) {
-          var t = "function" == typeof e && e.constructor;
-          return (
-            !!t &&
-            (t === p || "GeneratorFunction" === (t.displayName || t.name))
-          );
-        }),
-        (e.mark = function (e) {
-          return (
-            Object.setPrototypeOf
-              ? Object.setPrototypeOf(e, v)
-              : ((e.__proto__ = v), u(e, i, "GeneratorFunction")),
-            (e.prototype = Object.create(x)),
-            e
-          );
-        }),
-        (e.awrap = function (e) {
-          return { __await: e };
-        }),
-        b(g.prototype),
-        u(g.prototype, s, function () {
-          return this;
-        }),
-        (e.AsyncIterator = g),
-        (e.async = function (t, r, n, a, s) {
-          void 0 === s && (s = Promise);
-          var i = new g(c(t, r, n, a), s);
-          return e.isGeneratorFunction(r)
-            ? i
-            : i.next().then(function (e) {
-                return e.done ? e.value : i.next();
-              });
-        }),
-        b(x),
-        u(x, i, "Generator"),
-        u(x, a, function () {
-          return this;
-        }),
-        u(x, "toString", function () {
-          return "[object Generator]";
-        }),
-        (e.keys = function (e) {
-          var t = [];
-          for (var r in e) t.push(r);
-          return (
-            t.reverse(),
-            function r() {
-              for (; t.length; ) {
-                var n = t.pop();
-                if (n in e) return (r.value = n), (r.done = !1), r;
-              }
-              return (r.done = !0), r;
-            }
-          );
-        }),
-        (e.values = R),
-        (E.prototype = {
-          constructor: E,
-          reset: function (e) {
-            if (
-              ((this.prev = 0),
-              (this.next = 0),
-              (this.sent = this._sent = void 0),
-              (this.done = !1),
-              (this.delegate = null),
-              (this.method = "next"),
-              (this.arg = void 0),
-              this.tryEntries.forEach(_),
-              !e)
-            )
-              for (var t in this)
-                "t" === t.charAt(0) &&
-                  r.call(this, t) &&
-                  !isNaN(+t.slice(1)) &&
-                  (this[t] = void 0);
-          },
-          stop: function () {
-            this.done = !0;
-            var e = this.tryEntries[0].completion;
-            if ("throw" === e.type) throw e.arg;
-            return this.rval;
-          },
-          dispatchException: function (e) {
-            if (this.done) throw e;
-            var t = this;
-            function n(r, n) {
-              return (
-                (i.type = "throw"),
-                (i.arg = e),
-                (t.next = r),
-                n && ((t.method = "next"), (t.arg = void 0)),
-                !!n
-              );
-            }
-            for (var a = this.tryEntries.length - 1; a >= 0; --a) {
-              var s = this.tryEntries[a],
-                i = s.completion;
-              if ("root" === s.tryLoc) return n("end");
-              if (s.tryLoc <= this.prev) {
-                var u = r.call(s, "catchLoc"),
-                  c = r.call(s, "finallyLoc");
-                if (u && c) {
-                  if (this.prev < s.catchLoc) return n(s.catchLoc, !0);
-                  if (this.prev < s.finallyLoc) return n(s.finallyLoc);
-                } else if (u) {
-                  if (this.prev < s.catchLoc) return n(s.catchLoc, !0);
-                } else {
-                  if (!c)
-                    throw new Error("try statement without catch or finally");
-                  if (this.prev < s.finallyLoc) return n(s.finallyLoc);
-                }
-              }
-            }
-          },
-          abrupt: function (e, t) {
-            for (var n = this.tryEntries.length - 1; n >= 0; --n) {
-              var a = this.tryEntries[n];
-              if (
-                a.tryLoc <= this.prev &&
-                r.call(a, "finallyLoc") &&
-                this.prev < a.finallyLoc
-              ) {
-                var s = a;
-                break;
-              }
-            }
-            s &&
-              ("break" === e || "continue" === e) &&
-              s.tryLoc <= t &&
-              t <= s.finallyLoc &&
-              (s = null);
-            var i = s ? s.completion : {};
-            return (
-              (i.type = e),
-              (i.arg = t),
-              s
-                ? ((this.method = "next"), (this.next = s.finallyLoc), f)
-                : this.complete(i)
-            );
-          },
-          complete: function (e, t) {
-            if ("throw" === e.type) throw e.arg;
-            return (
-              "break" === e.type || "continue" === e.type
-                ? (this.next = e.arg)
-                : "return" === e.type
-                ? ((this.rval = this.arg = e.arg),
-                  (this.method = "return"),
-                  (this.next = "end"))
-                : "normal" === e.type && t && (this.next = t),
-              f
-            );
-          },
-          finish: function (e) {
-            for (var t = this.tryEntries.length - 1; t >= 0; --t) {
-              var r = this.tryEntries[t];
-              if (r.finallyLoc === e)
-                return this.complete(r.completion, r.afterLoc), _(r), f;
-            }
-          },
-          catch: function (e) {
-            for (var t = this.tryEntries.length - 1; t >= 0; --t) {
-              var r = this.tryEntries[t];
-              if (r.tryLoc === e) {
-                var n = r.completion;
-                if ("throw" === n.type) {
-                  var a = n.arg;
-                  _(r);
-                }
-                return a;
-              }
-            }
-            throw new Error("illegal catch attempt");
-          },
-          delegateYield: function (e, t, r) {
-            return (
-              (this.delegate = { iterator: R(e), resultName: t, nextLoc: r }),
-              "next" === this.method && (this.arg = void 0),
-              f
-            );
-          },
-        }),
-        e
-      );
     }
-    function E(e, t, r, n, a, s, i) {
-      try {
-        var u = e[s](i),
-          c = u.value;
-      } catch (o) {
-        return void r(o);
-      }
-      u.done ? t(c) : Promise.resolve(c).then(n, a);
-    }
-    function R(e) {
-      return function () {
-        var t = this,
-          r = arguments;
-        return new Promise(function (n, a) {
-          var s = e.apply(t, r);
-          function i(e) {
-            E(s, n, a, i, u, "next", e);
-          }
-          function u(e) {
-            E(s, n, a, i, u, "throw", e);
-          }
-          i(void 0);
-        });
-      };
-    }
-    function S(e, t) {
-      (null == t || t > e.length) && (t = e.length);
-      for (var r = 0, n = new Array(t); r < t; r++) n[r] = e[r];
-      return n;
-    }
-    function L(e, t) {
-      if (e) {
-        if ("string" === typeof e) return S(e, t);
-        var r = Object.prototype.toString.call(e).slice(8, -1);
-        return (
-          "Object" === r && e.constructor && (r = e.constructor.name),
-          "Map" === r || "Set" === r
-            ? Array.from(e)
-            : "Arguments" === r ||
-              /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)
-            ? S(e, t)
-            : void 0
-        );
-      }
-    }
-    function D(e, t) {
-      var r =
-        ("undefined" !== typeof Symbol && e[Symbol.iterator]) ||
-        e["@@iterator"];
-      if (!r) {
-        if (
-          Array.isArray(e) ||
-          (r = L(e)) ||
-          (t && e && "number" === typeof e.length)
-        ) {
-          r && (e = r);
-          var n = 0,
-            a = function () {};
-          return {
-            s: a,
-            n: function () {
-              return n >= e.length ? { done: !0 } : { done: !1, value: e[n++] };
-            },
-            e: function (e) {
-              throw e;
-            },
-            f: a,
-          };
-        }
-        throw new TypeError(
-          "Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
-        );
-      }
-      var s,
-        i = !0,
-        u = !1;
-      return {
-        s: function () {
-          r = r.call(e);
-        },
-        n: function () {
-          var e = r.next();
-          return (i = e.done), e;
-        },
-        e: function (e) {
-          (u = !0), (s = e);
-        },
-        f: function () {
-          try {
-            i || null == r.return || r.return();
-          } finally {
-            if (u) throw s;
-          }
-        },
-      };
-    }
-    function O(e, t) {
-      var r,
-        n = new URL(e),
-        a = D(t);
-      try {
-        for (a.s(); !(r = a.n()).done; ) {
-          var s = r.value;
-          n.searchParams.delete(s);
-        }
-      } catch (i) {
-        a.e(i);
-      } finally {
-        a.f();
-      }
-      return n.href;
-    }
-    function T(e, t, r, n) {
-      return C.apply(this, arguments);
-    }
-    function C() {
-      return (C = R(
-        q().mark(function e(t, r, n, a) {
-          var s, i, u, c, o, h, f;
-          return q().wrap(
-            function (e) {
-              for (;;)
-                switch ((e.prev = e.next)) {
-                  case 0:
-                    if (((s = O(r.url, n)), r.url !== s)) {
-                      e.next = 3;
-                      break;
-                    }
-                    return e.abrupt("return", t.match(r, a));
-                  case 3:
-                    return (
-                      (i = Object.assign(Object.assign({}, a), {
-                        ignoreSearch: !0,
-                      })),
-                      (e.next = 6),
-                      t.keys(r, i)
-                    );
-                  case 6:
-                    (u = e.sent), (c = D(u)), (e.prev = 8), c.s();
-                  case 10:
-                    if ((o = c.n()).done) {
-                      e.next = 17;
-                      break;
-                    }
-                    if (((h = o.value), (f = O(h.url, n)), s !== f)) {
-                      e.next = 15;
-                      break;
-                    }
-                    return e.abrupt("return", t.match(h, a));
-                  case 15:
-                    e.next = 10;
-                    break;
-                  case 17:
-                    e.next = 22;
-                    break;
-                  case 19:
-                    (e.prev = 19), (e.t0 = e.catch(8)), c.e(e.t0);
-                  case 22:
-                    return (e.prev = 22), c.f(), e.finish(22);
-                  case 25:
-                    return e.abrupt("return");
-                  case 26:
-                  case "end":
-                    return e.stop();
-                }
-            },
-            e,
-            null,
-            [[8, 19, 22, 25]]
-          );
-        })
-      )).apply(this, arguments);
-    }
-    function N() {
-      if (void 0 === x) {
-        var e = new Response("");
-        if ("body" in e)
-          try {
-            new Response(e.body), (x = !0);
-          } catch (t) {
-            x = !1;
-          }
-        x = !1;
-      }
-      return x;
-    }
-    function P(e) {
-      e.then(function () {});
-    }
-    var I = n(function e() {
-      var t = this;
-      a(this, e),
-        (this.promise = new Promise(function (e, r) {
-          (t.resolve = e), (t.reject = r);
-        }));
-    });
-    function j() {
-      return U.apply(this, arguments);
-    }
-    function U() {
-      return (U = R(
-        q().mark(function e() {
-          var t, r, n;
-          return q().wrap(
-            function (e) {
-              for (;;)
-                switch ((e.prev = e.next)) {
-                  case 0:
-                    0, (t = D(y)), (e.prev = 2), t.s();
-                  case 4:
-                    if ((r = t.n()).done) {
-                      e.next = 11;
-                      break;
-                    }
-                    return (n = r.value), (e.next = 8), n();
-                  case 8:
-                    0;
-                  case 9:
-                    e.next = 4;
-                    break;
-                  case 11:
-                    e.next = 16;
-                    break;
-                  case 13:
-                    (e.prev = 13), (e.t0 = e.catch(2)), t.e(e.t0);
-                  case 16:
-                    return (e.prev = 16), t.f(), e.finish(16);
-                  case 19:
-                    0;
-                  case 20:
-                  case "end":
-                    return e.stop();
-                }
-            },
-            e,
-            null,
-            [[2, 13, 16, 19]]
-          );
-        })
-      )).apply(this, arguments);
-    }
-    var A = function (e) {
-      return new URL(String(e), location.href).href.replace(
+    const f = (e) =>
+      new URL(String(e), location.href).href.replace(
         new RegExp("^".concat(location.origin)),
         ""
       );
-    };
-    function K(e) {
-      return new Promise(function (t) {
-        return setTimeout(t, e);
-      });
+    function p(e) {
+      return new Promise((t) => setTimeout(t, e));
     }
-    function M(e, t) {
-      var r = t();
-      return e.waitUntil(r), r;
+    function g(e, t) {
+      const s = t();
+      return e.waitUntil(s), s;
     }
-    function B(e, t) {
-      return F.apply(this, arguments);
-    }
-    function F() {
-      return (F = R(
-        q().mark(function e(t, r) {
-          var n, a, s, i, u, c;
-          return q().wrap(function (e) {
-            for (;;)
-              switch ((e.prev = e.next)) {
-                case 0:
-                  if (
-                    ((n = null),
-                    t.url && ((a = new URL(t.url)), (n = a.origin)),
-                    n === self.location.origin)
-                  ) {
-                    e.next = 4;
-                    break;
-                  }
-                  throw new d("cross-origin-copy-response", { origin: n });
-                case 4:
-                  if (
-                    ((s = t.clone()),
-                    (i = {
-                      headers: new Headers(s.headers),
-                      status: s.status,
-                      statusText: s.statusText,
-                    }),
-                    (u = r ? r(i) : i),
-                    !N())
-                  ) {
-                    e.next = 11;
-                    break;
-                  }
-                  (e.t0 = s.body), (e.next = 14);
-                  break;
-                case 11:
-                  return (e.next = 13), s.blob();
-                case 13:
-                  e.t0 = e.sent;
-                case 14:
-                  return (c = e.t0), e.abrupt("return", new Response(c, u));
-                case 16:
-                case "end":
-                  return e.stop();
+    async function y(e, s) {
+      let n = null;
+      if (e.url) {
+        n = new URL(e.url).origin;
+      }
+      if (n !== self.location.origin)
+        throw new t("cross-origin-copy-response", { origin: n });
+      const a = e.clone(),
+        r = {
+          headers: new Headers(a.headers),
+          status: a.status,
+          statusText: a.statusText,
+        },
+        i = s ? s(r) : r,
+        o = (function () {
+          if (void 0 === u) {
+            const t = new Response("");
+            if ("body" in t)
+              try {
+                new Response(t.body), (u = !0);
+              } catch (e) {
+                u = !1;
               }
-          }, e);
-        })
-      )).apply(this, arguments);
+            u = !1;
+          }
+          return u;
+        })()
+          ? a.body
+          : await a.blob();
+      return new Response(o, i);
     }
-    function W(e, t, r) {
-      return (
-        t in e
-          ? Object.defineProperty(e, t, {
-              value: r,
-              enumerable: !0,
-              configurable: !0,
-              writable: !0,
-            })
-          : (e[t] = r),
-        e
-      );
-    }
-    function H(e, t) {
-      var r = Object.keys(e);
-      if (Object.getOwnPropertySymbols) {
-        var n = Object.getOwnPropertySymbols(e);
-        t &&
-          (n = n.filter(function (t) {
-            return Object.getOwnPropertyDescriptor(e, t).enumerable;
-          })),
-          r.push.apply(r, n);
-      }
-      return r;
-    }
-    function G(e) {
-      for (var t = 1; t < arguments.length; t++) {
-        var r = null != arguments[t] ? arguments[t] : {};
-        t % 2
-          ? H(Object(r), !0).forEach(function (t) {
-              W(e, t, r[t]);
-            })
-          : Object.getOwnPropertyDescriptors
-          ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-          : H(Object(r)).forEach(function (t) {
-              Object.defineProperty(
-                e,
-                t,
-                Object.getOwnPropertyDescriptor(r, t)
-              );
-            });
-      }
-      return e;
-    }
-    var Q, V;
-    var $ = new WeakMap(),
-      z = new WeakMap(),
-      Y = new WeakMap(),
-      J = new WeakMap(),
-      X = new WeakMap();
-    var Z = {
-      get: function (e, t, r) {
+    const m = (e, t) => t.some((t) => e instanceof t);
+    let w, _;
+    const b = new WeakMap(),
+      v = new WeakMap(),
+      q = new WeakMap(),
+      R = new WeakMap(),
+      E = new WeakMap();
+    let x = {
+      get(e, t, s) {
         if (e instanceof IDBTransaction) {
-          if ("done" === t) return z.get(e);
-          if ("objectStoreNames" === t) return e.objectStoreNames || Y.get(e);
+          if ("done" === t) return v.get(e);
+          if ("objectStoreNames" === t) return e.objectStoreNames || q.get(e);
           if ("store" === t)
-            return r.objectStoreNames[1]
+            return s.objectStoreNames[1]
               ? void 0
-              : r.objectStore(r.objectStoreNames[0]);
+              : s.objectStore(s.objectStoreNames[0]);
         }
-        return re(e[t]);
+        return k(e[t]);
       },
-      set: function (e, t, r) {
-        return (e[t] = r), !0;
-      },
-      has: function (e, t) {
-        return (
-          (e instanceof IDBTransaction && ("done" === t || "store" === t)) ||
-          t in e
-        );
-      },
+      set: (e, t, s) => ((e[t] = s), !0),
+      has: (e, t) =>
+        (e instanceof IDBTransaction && ("done" === t || "store" === t)) ||
+        t in e,
     };
-    function ee(e) {
+    function D(e) {
       return e !== IDBDatabase.prototype.transaction ||
         "objectStoreNames" in IDBTransaction.prototype
         ? (
-            V ||
-            (V = [
+            _ ||
+            (_ = [
               IDBCursor.prototype.advance,
               IDBCursor.prototype.continue,
               IDBCursor.prototype.continuePrimaryKey,
@@ -1047,5078 +170,1567 @@
           ).includes(e)
           ? function () {
               for (
-                var t = arguments.length, r = new Array(t), n = 0;
+                var t = arguments.length, s = new Array(t), n = 0;
                 n < t;
                 n++
               )
-                r[n] = arguments[n];
-              return e.apply(ne(this), r), re($.get(this));
+                s[n] = arguments[n];
+              return e.apply(T(this), s), k(b.get(this));
             }
           : function () {
               for (
-                var t = arguments.length, r = new Array(t), n = 0;
+                var t = arguments.length, s = new Array(t), n = 0;
                 n < t;
                 n++
               )
-                r[n] = arguments[n];
-              return re(e.apply(ne(this), r));
+                s[n] = arguments[n];
+              return k(e.apply(T(this), s));
             }
         : function (t) {
             for (
-              var r = arguments.length, n = new Array(r > 1 ? r - 1 : 0), a = 1;
-              a < r;
+              var s = arguments.length, n = new Array(s > 1 ? s - 1 : 0), a = 1;
+              a < s;
               a++
             )
               n[a - 1] = arguments[a];
-            var s = e.call.apply(e, [ne(this), t].concat(n));
-            return Y.set(s, t.sort ? t.sort() : [t]), re(s);
+            const r = e.call(T(this), t, ...n);
+            return q.set(r, t.sort ? t.sort() : [t]), k(r);
           };
     }
-    function te(e) {
+    function C(e) {
       return "function" === typeof e
-        ? ee(e)
+        ? D(e)
         : (e instanceof IDBTransaction &&
             (function (e) {
-              if (!z.has(e)) {
-                var t = new Promise(function (t, r) {
-                  var n = function () {
-                      e.removeEventListener("complete", a),
-                        e.removeEventListener("error", s),
-                        e.removeEventListener("abort", s);
-                    },
-                    a = function () {
-                      t(), n();
-                    },
-                    s = function () {
-                      r(
-                        e.error || new DOMException("AbortError", "AbortError")
-                      ),
-                        n();
-                    };
-                  e.addEventListener("complete", a),
-                    e.addEventListener("error", s),
-                    e.addEventListener("abort", s);
-                });
-                z.set(e, t);
-              }
+              if (v.has(e)) return;
+              const t = new Promise((t, s) => {
+                const n = () => {
+                    e.removeEventListener("complete", a),
+                      e.removeEventListener("error", r),
+                      e.removeEventListener("abort", r);
+                  },
+                  a = () => {
+                    t(), n();
+                  },
+                  r = () => {
+                    s(e.error || new DOMException("AbortError", "AbortError")),
+                      n();
+                  };
+                e.addEventListener("complete", a),
+                  e.addEventListener("error", r),
+                  e.addEventListener("abort", r);
+              });
+              v.set(e, t);
             })(e),
-          (t = e),
-          (
-            Q ||
-            (Q = [
-              IDBDatabase,
-              IDBObjectStore,
-              IDBIndex,
-              IDBCursor,
-              IDBTransaction,
-            ])
-          ).some(function (e) {
-            return t instanceof e;
-          })
-            ? new Proxy(e, Z)
+          m(
+            e,
+            w ||
+              (w = [
+                IDBDatabase,
+                IDBObjectStore,
+                IDBIndex,
+                IDBCursor,
+                IDBTransaction,
+              ])
+          )
+            ? new Proxy(e, x)
             : e);
-      var t;
     }
-    function re(e) {
+    function k(e) {
       if (e instanceof IDBRequest)
         return (function (e) {
-          var t = new Promise(function (t, r) {
-            var n = function () {
+          const t = new Promise((t, s) => {
+            const n = () => {
                 e.removeEventListener("success", a),
-                  e.removeEventListener("error", s);
+                  e.removeEventListener("error", r);
               },
-              a = function () {
-                t(re(e.result)), n();
+              a = () => {
+                t(k(e.result)), n();
               },
-              s = function () {
-                r(e.error), n();
+              r = () => {
+                s(e.error), n();
               };
-            e.addEventListener("success", a), e.addEventListener("error", s);
+            e.addEventListener("success", a), e.addEventListener("error", r);
           });
           return (
             t
-              .then(function (t) {
-                t instanceof IDBCursor && $.set(t, e);
+              .then((t) => {
+                t instanceof IDBCursor && b.set(t, e);
               })
-              .catch(function () {}),
-            X.set(t, e),
+              .catch(() => {}),
+            E.set(t, e),
             t
           );
         })(e);
-      if (J.has(e)) return J.get(e);
-      var t = te(e);
-      return t !== e && (J.set(e, t), X.set(t, e)), t;
+      if (R.has(e)) return R.get(e);
+      const t = C(e);
+      return t !== e && (R.set(e, t), E.set(t, e)), t;
     }
-    var ne = function (e) {
-      return X.get(e);
-    };
-    function ae(e, t) {
-      var r =
-          arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
-        n = r.blocked,
-        a = r.upgrade,
-        s = r.blocking,
-        i = r.terminated,
-        u = indexedDB.open(e, t),
-        c = re(u);
+    const T = (e) => E.get(e);
+    function N(e, t) {
+      let {
+        blocked: s,
+        upgrade: n,
+        blocking: a,
+        terminated: r,
+      } = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {};
+      const i = indexedDB.open(e, t),
+        o = k(i);
       return (
-        a &&
-          u.addEventListener("upgradeneeded", function (e) {
-            a(re(u.result), e.oldVersion, e.newVersion, re(u.transaction));
-          }),
         n &&
-          u.addEventListener("blocked", function () {
-            return n();
+          i.addEventListener("upgradeneeded", (e) => {
+            n(k(i.result), e.oldVersion, e.newVersion, k(i.transaction), e);
           }),
-        c
-          .then(function (e) {
-            i &&
-              e.addEventListener("close", function () {
-                return i();
-              }),
-              s &&
-                e.addEventListener("versionchange", function () {
-                  return s();
-                });
+        s &&
+          i.addEventListener("blocked", (e) =>
+            s(e.oldVersion, e.newVersion, e)
+          ),
+        o
+          .then((e) => {
+            r && e.addEventListener("close", () => r()),
+              a &&
+                e.addEventListener("versionchange", (e) =>
+                  a(e.oldVersion, e.newVersion, e)
+                );
           })
-          .catch(function () {}),
-        c
+          .catch(() => {}),
+        o
       );
     }
-    var se = ["get", "getKey", "getAll", "getAllKeys", "count"],
-      ie = ["put", "add", "delete", "clear"],
-      ue = new Map();
-    function ce(e, t) {
-      if (e instanceof IDBDatabase && !(t in e) && "string" === typeof t) {
-        if (ue.get(t)) return ue.get(t);
-        var r = t.replace(/FromIndex$/, ""),
-          n = t !== r,
-          a = ie.includes(r);
-        if (
-          r in (n ? IDBIndex : IDBObjectStore).prototype &&
-          (a || se.includes(r))
-        ) {
-          var s = (function () {
-            var e = R(
-              q().mark(function e(t) {
-                var s,
-                  i,
-                  u,
-                  c,
-                  o,
-                  h,
-                  f = arguments;
-                return q().wrap(
-                  function (e) {
-                    for (;;)
-                      switch ((e.prev = e.next)) {
-                        case 0:
-                          for (
-                            i = this.transaction(
-                              t,
-                              a ? "readwrite" : "readonly"
-                            ),
-                              u = i.store,
-                              c = f.length,
-                              o = new Array(c > 1 ? c - 1 : 0),
-                              h = 1;
-                            h < c;
-                            h++
-                          )
-                            o[h - 1] = f[h];
-                          return (
-                            n && (u = u.index(o.shift())),
-                            (e.next = 6),
-                            Promise.all([(s = u)[r].apply(s, o), a && i.done])
-                          );
-                        case 6:
-                          return e.abrupt("return", e.sent[0]);
-                        case 7:
-                        case "end":
-                          return e.stop();
-                      }
-                  },
-                  e,
-                  this
-                );
-              })
-            );
-            return function (t) {
-              return e.apply(this, arguments);
-            };
-          })();
-          return ue.set(t, s), s;
-        }
-      }
+    const S = ["get", "getKey", "getAll", "getAllKeys", "count"],
+      L = ["put", "add", "delete", "clear"],
+      U = new Map();
+    function I(e, t) {
+      if (!(e instanceof IDBDatabase) || t in e || "string" !== typeof t)
+        return;
+      if (U.get(t)) return U.get(t);
+      const s = t.replace(/FromIndex$/, ""),
+        n = t !== s,
+        a = L.includes(s);
+      if (
+        !(s in (n ? IDBIndex : IDBObjectStore).prototype) ||
+        (!a && !S.includes(s))
+      )
+        return;
+      const r = async function (e) {
+        const t = this.transaction(e, a ? "readwrite" : "readonly");
+        let r = t.store;
+        for (
+          var i = arguments.length, o = new Array(i > 1 ? i - 1 : 0), c = 1;
+          c < i;
+          c++
+        )
+          o[c - 1] = arguments[c];
+        return (
+          n && (r = r.index(o.shift())),
+          (await Promise.all([r[s](...o), a && t.done]))[0]
+        );
+      };
+      return U.set(t, r), r;
     }
-    Z = (function (e) {
-      return G(
-        G({}, e),
-        {},
-        {
-          get: function (t, r, n) {
-            return ce(t, r) || e.get(t, r, n);
-          },
-          has: function (t, r) {
-            return !!ce(t, r) || e.has(t, r);
-          },
-        }
-      );
-    })(Z);
-    r(83);
-    var oe = "cache-entries",
-      he = function (e) {
-        var t = new URL(e, location.href);
+    x = ((e) => ({
+      ...e,
+      get: (t, s, n) => I(t, s) || e.get(t, s, n),
+      has: (t, s) => !!I(t, s) || e.has(t, s),
+    }))(x);
+    s(172);
+    const P = "cache-entries",
+      A = (e) => {
+        const t = new URL(e, location.href);
         return (t.hash = ""), t.href;
-      },
-      fe = (function () {
-        function e(t) {
-          a(this, e), (this._db = null), (this._cacheName = t);
-        }
-        return (
-          n(e, [
-            {
-              key: "_upgradeDb",
-              value: function (e) {
-                var t = e.createObjectStore(oe, { keyPath: "id" });
-                t.createIndex("cacheName", "cacheName", { unique: !1 }),
-                  t.createIndex("timestamp", "timestamp", { unique: !1 });
-              },
-            },
-            {
-              key: "_upgradeDbAndDeleteOldDbs",
-              value: function (e) {
-                this._upgradeDb(e),
-                  this._cacheName &&
-                    (function (e) {
-                      var t = (
-                          arguments.length > 1 && void 0 !== arguments[1]
-                            ? arguments[1]
-                            : {}
-                        ).blocked,
-                        r = indexedDB.deleteDatabase(e);
-                      t &&
-                        r.addEventListener("blocked", function () {
-                          return t();
-                        }),
-                        re(r).then(function () {});
-                    })(this._cacheName);
-              },
-            },
-            {
-              key: "setTimestamp",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t, r) {
-                    var n, a, s;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (t = he(t)),
-                                (n = {
-                                  url: t,
-                                  timestamp: r,
-                                  cacheName: this._cacheName,
-                                  id: this._getId(t),
-                                }),
-                                (e.next = 4),
-                                this.getDb()
-                              );
-                            case 4:
-                              return (
-                                (a = e.sent),
-                                (s = a.transaction(oe, "readwrite", {
-                                  durability: "relaxed",
-                                })),
-                                (e.next = 8),
-                                s.store.put(n)
-                              );
-                            case 8:
-                              return (e.next = 10), s.done;
-                            case 10:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t, r) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "getTimestamp",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    var r, n;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (e.next = 2), this.getDb();
-                            case 2:
-                              return (
-                                (r = e.sent),
-                                (e.next = 5),
-                                r.get(oe, this._getId(t))
-                              );
-                            case 5:
-                              return (
-                                (n = e.sent),
-                                e.abrupt(
-                                  "return",
-                                  null === n || void 0 === n
-                                    ? void 0
-                                    : n.timestamp
-                                )
-                              );
-                            case 7:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "expireEntries",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t, r) {
-                    var n, a, s, i, u, c, o, h, f;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (e.next = 2), this.getDb();
-                            case 2:
-                              return (
-                                (n = e.sent),
-                                (e.next = 5),
-                                n
-                                  .transaction(oe)
-                                  .store.index("timestamp")
-                                  .openCursor(null, "prev")
-                              );
-                            case 5:
-                              (a = e.sent), (s = []), (i = 0);
-                            case 8:
-                              if (!a) {
-                                e.next = 16;
-                                break;
-                              }
-                              return (
-                                (u = a.value).cacheName === this._cacheName &&
-                                  ((t && u.timestamp < t) || (r && i >= r)
-                                    ? s.push(a.value)
-                                    : i++),
-                                (e.next = 13),
-                                a.continue()
-                              );
-                            case 13:
-                              (a = e.sent), (e.next = 8);
-                              break;
-                            case 16:
-                              (c = []), (o = 0), (h = s);
-                            case 18:
-                              if (!(o < h.length)) {
-                                e.next = 26;
-                                break;
-                              }
-                              return (
-                                (f = h[o]), (e.next = 22), n.delete(oe, f.id)
-                              );
-                            case 22:
-                              c.push(f.url);
-                            case 23:
-                              o++, (e.next = 18);
-                              break;
-                            case 26:
-                              return e.abrupt("return", c);
-                            case 27:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t, r) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "_getId",
-              value: function (e) {
-                return this._cacheName + "|" + he(e);
-              },
-            },
-            {
-              key: "getDb",
-              value: (function () {
-                var e = R(
-                  q().mark(function e() {
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              if (this._db) {
-                                e.next = 4;
-                                break;
-                              }
-                              return (
-                                (e.next = 3),
-                                ae("workbox-expiration", 1, {
-                                  upgrade:
-                                    this._upgradeDbAndDeleteOldDbs.bind(this),
-                                })
-                              );
-                            case 3:
-                              this._db = e.sent;
-                            case 4:
-                              return e.abrupt("return", this._db);
-                            case 5:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function () {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-          ]),
-          e
-        );
-      })(),
-      le = (function () {
-        function e(t) {
-          var r =
-            arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
-          a(this, e),
-            (this._isRunning = !1),
-            (this._rerunRequested = !1),
-            (this._maxEntries = r.maxEntries),
-            (this._maxAgeSeconds = r.maxAgeSeconds),
-            (this._matchOptions = r.matchOptions),
-            (this._cacheName = t),
-            (this._timestampModel = new fe(t));
-        }
-        return (
-          n(e, [
-            {
-              key: "expireEntries",
-              value: (function () {
-                var e = R(
-                  q().mark(function e() {
-                    var t, r, n, a, s, i;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              if (!this._isRunning) {
-                                e.next = 3;
-                                break;
-                              }
-                              return (
-                                (this._rerunRequested = !0), e.abrupt("return")
-                              );
-                            case 3:
-                              return (
-                                (this._isRunning = !0),
-                                (t = this._maxAgeSeconds
-                                  ? Date.now() - 1e3 * this._maxAgeSeconds
-                                  : 0),
-                                (e.next = 7),
-                                this._timestampModel.expireEntries(
-                                  t,
-                                  this._maxEntries
-                                )
-                              );
-                            case 7:
-                              return (
-                                (r = e.sent),
-                                (e.next = 10),
-                                self.caches.open(this._cacheName)
-                              );
-                            case 10:
-                              (n = e.sent), (a = D(r)), (e.prev = 12), a.s();
-                            case 14:
-                              if ((s = a.n()).done) {
-                                e.next = 20;
-                                break;
-                              }
-                              return (
-                                (i = s.value),
-                                (e.next = 18),
-                                n.delete(i, this._matchOptions)
-                              );
-                            case 18:
-                              e.next = 14;
-                              break;
-                            case 20:
-                              e.next = 25;
-                              break;
-                            case 22:
-                              (e.prev = 22), (e.t0 = e.catch(12)), a.e(e.t0);
-                            case 25:
-                              return (e.prev = 25), a.f(), e.finish(25);
-                            case 28:
-                              0,
-                                (this._isRunning = !1),
-                                this._rerunRequested &&
-                                  ((this._rerunRequested = !1),
-                                  P(this.expireEntries()));
-                            case 31:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this,
-                      [[12, 22, 25, 28]]
-                    );
-                  })
-                );
-                return function () {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "updateTimestamp",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (e.next = 3),
-                                this._timestampModel.setTimestamp(t, Date.now())
-                              );
-                            case 3:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "isURLExpired",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    var r, n;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              if (this._maxAgeSeconds) {
-                                e.next = 6;
-                                break;
-                              }
-                              e.next = 3;
-                              break;
-                            case 3:
-                              return e.abrupt("return", !1);
-                            case 6:
-                              return (
-                                (e.next = 8),
-                                this._timestampModel.getTimestamp(t)
-                              );
-                            case 8:
-                              return (
-                                (r = e.sent),
-                                (n = Date.now() - 1e3 * this._maxAgeSeconds),
-                                e.abrupt("return", void 0 === r || r < n)
-                              );
-                            case 11:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "delete",
-              value: (function () {
-                var e = R(
-                  q().mark(function e() {
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (this._rerunRequested = !1),
-                                (e.next = 3),
-                                this._timestampModel.expireEntries(1 / 0)
-                              );
-                            case 3:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function () {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-          ]),
-          e
-        );
-      })();
-    function pe(e, t) {
-      return (
-        (function (e) {
-          if (Array.isArray(e)) return e;
-        })(e) ||
-        (function (e, t) {
-          var r =
-            null == e
-              ? null
-              : ("undefined" !== typeof Symbol && e[Symbol.iterator]) ||
-                e["@@iterator"];
-          if (null != r) {
-            var n,
-              a,
-              s = [],
-              i = !0,
-              u = !1;
-            try {
-              for (
-                r = r.call(e);
-                !(i = (n = r.next()).done) &&
-                (s.push(n.value), !t || s.length !== t);
-                i = !0
-              );
-            } catch (c) {
-              (u = !0), (a = c);
-            } finally {
-              try {
-                i || null == r.return || r.return();
-              } finally {
-                if (u) throw a;
-              }
-            }
-            return s;
-          }
-        })(e, t) ||
-        L(e, t) ||
-        (function () {
-          throw new TypeError(
-            "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
-          );
-        })()
-      );
-    }
-    var ve = (function () {
-      function e() {
-        var t = this,
-          r =
-            arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-        a(this, e),
-          (this.cachedResponseWillBeUsed = (function () {
-            var e = R(
-              q().mark(function e(r) {
-                var n, a, s, i, u, c, o;
-                return q().wrap(function (e) {
-                  for (;;)
-                    switch ((e.prev = e.next)) {
-                      case 0:
-                        if (
-                          ((n = r.event),
-                          (a = r.request),
-                          (s = r.cacheName),
-                          (i = r.cachedResponse))
-                        ) {
-                          e.next = 3;
-                          break;
-                        }
-                        return e.abrupt("return", null);
-                      case 3:
-                        if (
-                          ((u = t._isResponseDateFresh(i)),
-                          P((c = t._getCacheExpiration(s)).expireEntries()),
-                          (o = c.updateTimestamp(a.url)),
-                          n)
-                        )
-                          try {
-                            n.waitUntil(o);
-                          } catch (h) {
-                            0;
-                          }
-                        return e.abrupt("return", u ? i : null);
-                      case 9:
-                      case "end":
-                        return e.stop();
-                    }
-                }, e);
-              })
-            );
-            return function (t) {
-              return e.apply(this, arguments);
-            };
-          })()),
-          (this.cacheDidUpdate = (function () {
-            var e = R(
-              q().mark(function e(r) {
-                var n, a, s;
-                return q().wrap(function (e) {
-                  for (;;)
-                    switch ((e.prev = e.next)) {
-                      case 0:
-                        return (
-                          (n = r.cacheName),
-                          (a = r.request),
-                          (s = t._getCacheExpiration(n)),
-                          (e.next = 5),
-                          s.updateTimestamp(a.url)
-                        );
-                      case 5:
-                        return (e.next = 7), s.expireEntries();
-                      case 7:
-                      case "end":
-                        return e.stop();
-                    }
-                }, e);
-              })
-            );
-            return function (t) {
-              return e.apply(this, arguments);
-            };
-          })()),
-          (this._config = r),
-          (this._maxAgeSeconds = r.maxAgeSeconds),
-          (this._cacheExpirations = new Map()),
-          r.purgeOnQuotaError &&
-            m(function () {
-              return t.deleteCacheAndMetadata();
-            });
+      };
+    class O {
+      constructor(e) {
+        (this._db = null), (this._cacheName = e);
       }
+      _upgradeDb(e) {
+        const t = e.createObjectStore(P, { keyPath: "id" });
+        t.createIndex("cacheName", "cacheName", { unique: !1 }),
+          t.createIndex("timestamp", "timestamp", { unique: !1 });
+      }
+      _upgradeDbAndDeleteOldDbs(e) {
+        this._upgradeDb(e),
+          this._cacheName &&
+            (function (e) {
+              let { blocked: t } =
+                arguments.length > 1 && void 0 !== arguments[1]
+                  ? arguments[1]
+                  : {};
+              const s = indexedDB.deleteDatabase(e);
+              t && s.addEventListener("blocked", (e) => t(e.oldVersion, e)),
+                k(s).then(() => {});
+            })(this._cacheName);
+      }
+      async setTimestamp(e, t) {
+        const s = {
+            url: (e = A(e)),
+            timestamp: t,
+            cacheName: this._cacheName,
+            id: this._getId(e),
+          },
+          n = (await this.getDb()).transaction(P, "readwrite", {
+            durability: "relaxed",
+          });
+        await n.store.put(s), await n.done;
+      }
+      async getTimestamp(e) {
+        const t = await this.getDb(),
+          s = await t.get(P, this._getId(e));
+        return null === s || void 0 === s ? void 0 : s.timestamp;
+      }
+      async expireEntries(e, t) {
+        const s = await this.getDb();
+        let n = await s
+          .transaction(P)
+          .store.index("timestamp")
+          .openCursor(null, "prev");
+        const a = [];
+        let r = 0;
+        for (; n; ) {
+          const s = n.value;
+          s.cacheName === this._cacheName &&
+            ((e && s.timestamp < e) || (t && r >= t) ? a.push(n.value) : r++),
+            (n = await n.continue());
+        }
+        const i = [];
+        for (const o of a) await s.delete(P, o.id), i.push(o.url);
+        return i;
+      }
+      _getId(e) {
+        return this._cacheName + "|" + A(e);
+      }
+      async getDb() {
+        return (
+          this._db ||
+            (this._db = await N("workbox-expiration", 1, {
+              upgrade: this._upgradeDbAndDeleteOldDbs.bind(this),
+            })),
+          this._db
+        );
+      }
+    }
+    class K {
+      constructor(e) {
+        let t =
+          arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
+        (this._isRunning = !1),
+          (this._rerunRequested = !1),
+          (this._maxEntries = t.maxEntries),
+          (this._maxAgeSeconds = t.maxAgeSeconds),
+          (this._matchOptions = t.matchOptions),
+          (this._cacheName = e),
+          (this._timestampModel = new O(e));
+      }
+      async expireEntries() {
+        if (this._isRunning) return void (this._rerunRequested = !0);
+        this._isRunning = !0;
+        const e = this._maxAgeSeconds
+            ? Date.now() - 1e3 * this._maxAgeSeconds
+            : 0,
+          t = await this._timestampModel.expireEntries(e, this._maxEntries),
+          s = await self.caches.open(this._cacheName);
+        for (const n of t) await s.delete(n, this._matchOptions);
+        (this._isRunning = !1),
+          this._rerunRequested &&
+            ((this._rerunRequested = !1), l(this.expireEntries()));
+      }
+      async updateTimestamp(e) {
+        await this._timestampModel.setTimestamp(e, Date.now());
+      }
+      async isURLExpired(e) {
+        if (this._maxAgeSeconds) {
+          const t = await this._timestampModel.getTimestamp(e),
+            s = Date.now() - 1e3 * this._maxAgeSeconds;
+          return void 0 === t || t < s;
+        }
+        return !1;
+      }
+      async delete() {
+        (this._rerunRequested = !1),
+          await this._timestampModel.expireEntries(1 / 0);
+      }
+    }
+    s(769);
+    function B(e) {
+      if (!e) throw new t("add-to-cache-list-unexpected-type", { entry: e });
+      if ("string" === typeof e) {
+        const t = new URL(e, location.href);
+        return { cacheKey: t.href, url: t.href };
+      }
+      const { revision: s, url: n } = e;
+      if (!n) throw new t("add-to-cache-list-unexpected-type", { entry: e });
+      if (!s) {
+        const e = new URL(n, location.href);
+        return { cacheKey: e.href, url: e.href };
+      }
+      const a = new URL(n, location.href),
+        r = new URL(n, location.href);
       return (
-        n(e, [
-          {
-            key: "_getCacheExpiration",
-            value: function (e) {
-              if (e === _()) throw new d("expire-custom-caches-only");
-              var t = this._cacheExpirations.get(e);
-              return (
-                t ||
-                  ((t = new le(e, this._config)),
-                  this._cacheExpirations.set(e, t)),
-                t
-              );
-            },
-          },
-          {
-            key: "_isResponseDateFresh",
-            value: function (e) {
-              if (!this._maxAgeSeconds) return !0;
-              var t = this._getDateHeaderTimestamp(e);
-              return null === t || t >= Date.now() - 1e3 * this._maxAgeSeconds;
-            },
-          },
-          {
-            key: "_getDateHeaderTimestamp",
-            value: function (e) {
-              if (!e.headers.has("date")) return null;
-              var t = e.headers.get("date"),
-                r = new Date(t).getTime();
-              return isNaN(r) ? null : r;
-            },
-          },
-          {
-            key: "deleteCacheAndMetadata",
-            value: (function () {
-              var e = R(
-                q().mark(function e() {
-                  var t, r, n, a, s;
-                  return q().wrap(
-                    function (e) {
-                      for (;;)
-                        switch ((e.prev = e.next)) {
-                          case 0:
-                            (t = D(this._cacheExpirations)),
-                              (e.prev = 1),
-                              t.s();
-                          case 3:
-                            if ((r = t.n()).done) {
-                              e.next = 11;
-                              break;
-                            }
-                            return (
-                              (n = pe(r.value, 2)),
-                              (a = n[0]),
-                              (s = n[1]),
-                              (e.next = 7),
-                              self.caches.delete(a)
-                            );
-                          case 7:
-                            return (e.next = 9), s.delete();
-                          case 9:
-                            e.next = 3;
-                            break;
-                          case 11:
-                            e.next = 16;
-                            break;
-                          case 13:
-                            (e.prev = 13), (e.t0 = e.catch(1)), t.e(e.t0);
-                          case 16:
-                            return (e.prev = 16), t.f(), e.finish(16);
-                          case 19:
-                            this._cacheExpirations = new Map();
-                          case 20:
-                          case "end":
-                            return e.stop();
-                        }
-                    },
-                    e,
-                    this,
-                    [[1, 13, 16, 19]]
-                  );
-                })
-              );
-              return function () {
-                return e.apply(this, arguments);
-              };
-            })(),
-          },
-        ]),
-        e
-      );
-    })();
-    function de(e) {
-      return (
-        (function (e) {
-          if (Array.isArray(e)) return S(e);
-        })(e) ||
-        (function (e) {
-          if (
-            ("undefined" !== typeof Symbol && null != e[Symbol.iterator]) ||
-            null != e["@@iterator"]
-          )
-            return Array.from(e);
-        })(e) ||
-        L(e) ||
-        (function () {
-          throw new TypeError(
-            "Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
-          );
-        })()
+        a.searchParams.set("__WB_REVISION__", s),
+        { cacheKey: a.href, url: r.href }
       );
     }
-    r(143);
-    function ye(e) {
-      if (!e) throw new d("add-to-cache-list-unexpected-type", { entry: e });
-      if ("string" === typeof e)
-        return { cacheKey: (t = new URL(e, location.href)).href, url: t.href };
-      var t,
-        r = e.revision,
-        n = e.url;
-      if (!n) throw new d("add-to-cache-list-unexpected-type", { entry: e });
-      if (!r)
-        return { cacheKey: (t = new URL(n, location.href)).href, url: t.href };
-      var a = new URL(n, location.href),
-        s = new URL(n, location.href);
-      return (
-        a.searchParams.set("__WB_REVISION__", r),
-        { cacheKey: a.href, url: s.href }
-      );
-    }
-    var me = n(function e() {
-        var t = this;
-        a(this, e),
-          (this.updatedURLs = []),
+    class M {
+      constructor() {
+        (this.updatedURLs = []),
           (this.notUpdatedURLs = []),
-          (this.handlerWillStart = (function () {
-            var e = R(
-              q().mark(function e(t) {
-                var r, n;
-                return q().wrap(function (e) {
-                  for (;;)
-                    switch ((e.prev = e.next)) {
-                      case 0:
-                        (r = t.request),
-                          (n = t.state) && (n.originalRequest = r);
-                      case 2:
-                      case "end":
-                        return e.stop();
-                    }
-                }, e);
-              })
-            );
-            return function (t) {
-              return e.apply(this, arguments);
-            };
-          })()),
-          (this.cachedResponseWillBeUsed = (function () {
-            var e = R(
-              q().mark(function e(r) {
-                var n, a, s, i;
-                return q().wrap(function (e) {
-                  for (;;)
-                    switch ((e.prev = e.next)) {
-                      case 0:
-                        return (
-                          (n = r.event),
-                          (a = r.state),
-                          (s = r.cachedResponse),
-                          "install" === n.type &&
-                            a &&
-                            a.originalRequest &&
-                            a.originalRequest instanceof Request &&
-                            ((i = a.originalRequest.url),
-                            s
-                              ? t.notUpdatedURLs.push(i)
-                              : t.updatedURLs.push(i)),
-                          e.abrupt("return", s)
-                        );
-                      case 3:
-                      case "end":
-                        return e.stop();
-                    }
-                }, e);
-              })
-            );
-            return function (t) {
-              return e.apply(this, arguments);
-            };
-          })());
-      }),
-      xe = n(function e(t) {
-        var r = this,
-          n = t.precacheController;
-        a(this, e),
-          (this.cacheKeyWillBeUsed = (function () {
-            var e = R(
-              q().mark(function e(t) {
-                var n, a, s;
-                return q().wrap(function (e) {
-                  for (;;)
-                    switch ((e.prev = e.next)) {
-                      case 0:
-                        return (
-                          (n = t.request),
-                          (a = t.params),
-                          (s =
-                            (null === a || void 0 === a
-                              ? void 0
-                              : a.cacheKey) ||
-                            r._precacheController.getCacheKeyForURL(n.url)),
-                          e.abrupt(
-                            "return",
-                            s ? new Request(s, { headers: n.headers }) : n
-                          )
-                        );
-                      case 3:
-                      case "end":
-                        return e.stop();
-                    }
-                }, e);
-              })
-            );
-            return function (t) {
-              return e.apply(this, arguments);
-            };
-          })()),
-          (this._precacheController = n);
-      });
-    r(139);
-    function be(e) {
+          (this.handlerWillStart = async (e) => {
+            let { request: t, state: s } = e;
+            s && (s.originalRequest = t);
+          }),
+          (this.cachedResponseWillBeUsed = async (e) => {
+            let { event: t, state: s, cachedResponse: n } = e;
+            if (
+              "install" === t.type &&
+              s &&
+              s.originalRequest &&
+              s.originalRequest instanceof Request
+            ) {
+              const e = s.originalRequest.url;
+              n ? this.notUpdatedURLs.push(e) : this.updatedURLs.push(e);
+            }
+            return n;
+          });
+      }
+    }
+    class j {
+      constructor(e) {
+        let { precacheController: t } = e;
+        (this.cacheKeyWillBeUsed = async (e) => {
+          let { request: t, params: s } = e;
+          const n =
+            (null === s || void 0 === s ? void 0 : s.cacheKey) ||
+            this._precacheController.getCacheKeyForURL(t.url);
+          return n ? new Request(n, { headers: t.headers }) : t;
+        }),
+          (this._precacheController = t);
+      }
+    }
+    s(124);
+    function F(e) {
       return "string" === typeof e ? new Request(e) : e;
     }
-    var ge = (function () {
-        function t(e, r) {
-          a(this, t),
-            (this._cacheKeys = {}),
-            Object.assign(this, r),
-            (this.event = r.event),
-            (this._strategy = e),
-            (this._handlerDeferred = new I()),
-            (this._extendLifetimePromises = []),
-            (this._plugins = de(e.plugins)),
-            (this._pluginStateMap = new Map());
-          var n,
-            s = D(this._plugins);
-          try {
-            for (s.s(); !(n = s.n()).done; ) {
-              var i = n.value;
-              this._pluginStateMap.set(i, {});
-            }
-          } catch (u) {
-            s.e(u);
-          } finally {
-            s.f();
-          }
-          this.event.waitUntil(this._handlerDeferred.promise);
+    class W {
+      constructor(e, t) {
+        (this._cacheKeys = {}),
+          Object.assign(this, t),
+          (this.event = t.event),
+          (this._strategy = e),
+          (this._handlerDeferred = new d()),
+          (this._extendLifetimePromises = []),
+          (this._plugins = [...e.plugins]),
+          (this._pluginStateMap = new Map());
+        for (const s of this._plugins) this._pluginStateMap.set(s, {});
+        this.event.waitUntil(this._handlerDeferred.promise);
+      }
+      async fetch(e) {
+        const { event: s } = this;
+        let n = F(e);
+        if (
+          "navigate" === n.mode &&
+          s instanceof FetchEvent &&
+          s.preloadResponse
+        ) {
+          const e = await s.preloadResponse;
+          if (e) return e;
         }
-        return (
-          n(t, [
-            {
-              key: "fetch",
-              value: (function (e) {
-                function t(t) {
-                  return e.apply(this, arguments);
-                }
-                return (
-                  (t.toString = function () {
-                    return e.toString();
-                  }),
-                  t
-                );
-              })(
-                (function () {
-                  var e = R(
-                    q().mark(function e(t) {
-                      var r, n, a, s, i, u, c, o, h, f, l, p;
-                      return q().wrap(
-                        function (e) {
-                          for (;;)
-                            switch ((e.prev = e.next)) {
-                              case 0:
-                                if (
-                                  ((r = this.event),
-                                  !(
-                                    "navigate" === (n = be(t)).mode &&
-                                    r instanceof FetchEvent &&
-                                    r.preloadResponse
-                                  ))
-                                ) {
-                                  e.next = 9;
-                                  break;
-                                }
-                                return (e.next = 5), r.preloadResponse;
-                              case 5:
-                                if (!(a = e.sent)) {
-                                  e.next = 9;
-                                  break;
-                                }
-                                return e.abrupt("return", a);
-                              case 9:
-                                (s = this.hasCallback("fetchDidFail")
-                                  ? n.clone()
-                                  : null),
-                                  (e.prev = 10),
-                                  (i = D(
-                                    this.iterateCallbacks("requestWillFetch")
-                                  )),
-                                  (e.prev = 12),
-                                  i.s();
-                              case 14:
-                                if ((u = i.n()).done) {
-                                  e.next = 21;
-                                  break;
-                                }
-                                return (
-                                  (c = u.value),
-                                  (e.next = 18),
-                                  c({ request: n.clone(), event: r })
-                                );
-                              case 18:
-                                n = e.sent;
-                              case 19:
-                                e.next = 14;
-                                break;
-                              case 21:
-                                e.next = 26;
-                                break;
-                              case 23:
-                                (e.prev = 23), (e.t0 = e.catch(12)), i.e(e.t0);
-                              case 26:
-                                return (e.prev = 26), i.f(), e.finish(26);
-                              case 29:
-                                e.next = 35;
-                                break;
-                              case 31:
-                                if (
-                                  ((e.prev = 31),
-                                  (e.t1 = e.catch(10)),
-                                  !(e.t1 instanceof Error))
-                                ) {
-                                  e.next = 35;
-                                  break;
-                                }
-                                throw new d("plugin-error-request-will-fetch", {
-                                  thrownErrorMessage: e.t1.message,
-                                });
-                              case 35:
-                                return (
-                                  (o = n.clone()),
-                                  (e.prev = 36),
-                                  (e.next = 39),
-                                  fetch(
-                                    n,
-                                    "navigate" === n.mode
-                                      ? void 0
-                                      : this._strategy.fetchOptions
-                                  )
-                                );
-                              case 39:
-                                (h = e.sent),
-                                  (f = D(
-                                    this.iterateCallbacks("fetchDidSucceed")
-                                  )),
-                                  (e.prev = 42),
-                                  f.s();
-                              case 44:
-                                if ((l = f.n()).done) {
-                                  e.next = 51;
-                                  break;
-                                }
-                                return (
-                                  (p = l.value),
-                                  (e.next = 48),
-                                  p({ event: r, request: o, response: h })
-                                );
-                              case 48:
-                                h = e.sent;
-                              case 49:
-                                e.next = 44;
-                                break;
-                              case 51:
-                                e.next = 56;
-                                break;
-                              case 53:
-                                (e.prev = 53), (e.t2 = e.catch(42)), f.e(e.t2);
-                              case 56:
-                                return (e.prev = 56), f.f(), e.finish(56);
-                              case 59:
-                                return e.abrupt("return", h);
-                              case 62:
-                                if (((e.prev = 62), (e.t3 = e.catch(36)), !s)) {
-                                  e.next = 68;
-                                  break;
-                                }
-                                return (
-                                  (e.next = 68),
-                                  this.runCallbacks("fetchDidFail", {
-                                    error: e.t3,
-                                    event: r,
-                                    originalRequest: s.clone(),
-                                    request: o.clone(),
-                                  })
-                                );
-                              case 68:
-                                throw e.t3;
-                              case 69:
-                              case "end":
-                                return e.stop();
-                            }
-                        },
-                        e,
-                        this,
-                        [
-                          [10, 31],
-                          [12, 23, 26, 29],
-                          [36, 62],
-                          [42, 53, 56, 59],
-                        ]
-                      );
-                    })
-                  );
-                  return function (t) {
-                    return e.apply(this, arguments);
-                  };
-                })()
-              ),
-            },
-            {
-              key: "fetchAndCachePut",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    var r, n;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (e.next = 2), this.fetch(t);
-                            case 2:
-                              return (
-                                (r = e.sent),
-                                (n = r.clone()),
-                                this.waitUntil(this.cachePut(t, n)),
-                                e.abrupt("return", r)
-                              );
-                            case 6:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "cacheMatch",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    var r, n, a, s, i, u, c, o, h, f;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (r = be(t)),
-                                (a = this._strategy),
-                                (s = a.cacheName),
-                                (i = a.matchOptions),
-                                (e.next = 4),
-                                this.getCacheKey(r, "read")
-                              );
-                            case 4:
-                              return (
-                                (u = e.sent),
-                                (c = Object.assign(Object.assign({}, i), {
-                                  cacheName: s,
-                                })),
-                                (e.next = 8),
-                                caches.match(u, c)
-                              );
-                            case 8:
-                              (n = e.sent),
-                                (o = D(
-                                  this.iterateCallbacks(
-                                    "cachedResponseWillBeUsed"
-                                  )
-                                )),
-                                (e.prev = 11),
-                                o.s();
-                            case 13:
-                              if ((h = o.n()).done) {
-                                e.next = 23;
-                                break;
-                              }
-                              return (
-                                (f = h.value),
-                                (e.next = 17),
-                                f({
-                                  cacheName: s,
-                                  matchOptions: i,
-                                  cachedResponse: n,
-                                  request: u,
-                                  event: this.event,
-                                })
-                              );
-                            case 17:
-                              if (((e.t0 = e.sent), e.t0)) {
-                                e.next = 20;
-                                break;
-                              }
-                              e.t0 = void 0;
-                            case 20:
-                              n = e.t0;
-                            case 21:
-                              e.next = 13;
-                              break;
-                            case 23:
-                              e.next = 28;
-                              break;
-                            case 25:
-                              (e.prev = 25), (e.t1 = e.catch(11)), o.e(e.t1);
-                            case 28:
-                              return (e.prev = 28), o.f(), e.finish(28);
-                            case 31:
-                              return e.abrupt("return", n);
-                            case 32:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this,
-                      [[11, 25, 28, 31]]
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "cachePut",
-              value: (function () {
-                var t = R(
-                  q().mark(function t(r, n) {
-                    var a, s, i, u, c, o, h, f, l, p, v, y, m;
-                    return q().wrap(
-                      function (t) {
-                        for (;;)
-                          switch ((t.prev = t.next)) {
-                            case 0:
-                              return (a = be(r)), (t.next = 3), K(0);
-                            case 3:
-                              return (t.next = 5), this.getCacheKey(a, "write");
-                            case 5:
-                              (s = t.sent), (t.next = 11);
-                              break;
-                            case 9:
-                              (i = n.headers.get("Vary")) &&
-                                e.debug(
-                                  "The response for ".concat(A(s.url), " ") +
-                                    "has a 'Vary: ".concat(i, "' header. ") +
-                                    "Consider setting the {ignoreVary: true} option on your strategy to ensure cache matching and deletion works as expected."
-                                );
-                            case 11:
-                              if (n) {
-                                t.next = 14;
-                                break;
-                              }
-                              throw new d("cache-put-with-no-response", {
-                                url: A(s.url),
-                              });
-                            case 14:
-                              return (
-                                (t.next = 16),
-                                this._ensureResponseSafeToCache(n)
-                              );
-                            case 16:
-                              if ((u = t.sent)) {
-                                t.next = 20;
-                                break;
-                              }
-                              return t.abrupt("return", !1);
-                            case 20:
-                              return (
-                                (c = this._strategy),
-                                (o = c.cacheName),
-                                (h = c.matchOptions),
-                                (t.next = 23),
-                                self.caches.open(o)
-                              );
-                            case 23:
-                              if (
-                                ((f = t.sent),
-                                !(l = this.hasCallback("cacheDidUpdate")))
-                              ) {
-                                t.next = 31;
-                                break;
-                              }
-                              return (
-                                (t.next = 28),
-                                T(f, s.clone(), ["__WB_REVISION__"], h)
-                              );
-                            case 28:
-                              (t.t0 = t.sent), (t.next = 32);
-                              break;
-                            case 31:
-                              t.t0 = null;
-                            case 32:
-                              return (
-                                (p = t.t0),
-                                (t.prev = 34),
-                                (t.next = 37),
-                                f.put(s, l ? u.clone() : u)
-                              );
-                            case 37:
-                              t.next = 46;
-                              break;
-                            case 39:
-                              if (
-                                ((t.prev = 39),
-                                (t.t1 = t.catch(34)),
-                                !(t.t1 instanceof Error))
-                              ) {
-                                t.next = 46;
-                                break;
-                              }
-                              if ("QuotaExceededError" !== t.t1.name) {
-                                t.next = 45;
-                                break;
-                              }
-                              return (t.next = 45), j();
-                            case 45:
-                              throw t.t1;
-                            case 46:
-                              (v = D(this.iterateCallbacks("cacheDidUpdate"))),
-                                (t.prev = 47),
-                                v.s();
-                            case 49:
-                              if ((y = v.n()).done) {
-                                t.next = 55;
-                                break;
-                              }
-                              return (
-                                (m = y.value),
-                                (t.next = 53),
-                                m({
-                                  cacheName: o,
-                                  oldResponse: p,
-                                  newResponse: u.clone(),
-                                  request: s,
-                                  event: this.event,
-                                })
-                              );
-                            case 53:
-                              t.next = 49;
-                              break;
-                            case 55:
-                              t.next = 60;
-                              break;
-                            case 57:
-                              (t.prev = 57), (t.t2 = t.catch(47)), v.e(t.t2);
-                            case 60:
-                              return (t.prev = 60), v.f(), t.finish(60);
-                            case 63:
-                              return t.abrupt("return", !0);
-                            case 64:
-                            case "end":
-                              return t.stop();
-                          }
-                      },
-                      t,
-                      this,
-                      [
-                        [34, 39],
-                        [47, 57, 60, 63],
-                      ]
-                    );
-                  })
-                );
-                return function (e, r) {
-                  return t.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "getCacheKey",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t, r) {
-                    var n, a, s, i, u;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              if (
-                                ((n = "".concat(t.url, " | ").concat(r)),
-                                this._cacheKeys[n])
-                              ) {
-                                e.next = 24;
-                                break;
-                              }
-                              (a = t),
-                                (s = D(
-                                  this.iterateCallbacks("cacheKeyWillBeUsed")
-                                )),
-                                (e.prev = 4),
-                                s.s();
-                            case 6:
-                              if ((i = s.n()).done) {
-                                e.next = 15;
-                                break;
-                              }
-                              return (
-                                (u = i.value),
-                                (e.t0 = be),
-                                (e.next = 11),
-                                u({
-                                  mode: r,
-                                  request: a,
-                                  event: this.event,
-                                  params: this.params,
-                                })
-                              );
-                            case 11:
-                              (e.t1 = e.sent), (a = (0, e.t0)(e.t1));
-                            case 13:
-                              e.next = 6;
-                              break;
-                            case 15:
-                              e.next = 20;
-                              break;
-                            case 17:
-                              (e.prev = 17), (e.t2 = e.catch(4)), s.e(e.t2);
-                            case 20:
-                              return (e.prev = 20), s.f(), e.finish(20);
-                            case 23:
-                              this._cacheKeys[n] = a;
-                            case 24:
-                              return e.abrupt("return", this._cacheKeys[n]);
-                            case 25:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this,
-                      [[4, 17, 20, 23]]
-                    );
-                  })
-                );
-                return function (t, r) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "hasCallback",
-              value: function (e) {
-                var t,
-                  r = D(this._strategy.plugins);
-                try {
-                  for (r.s(); !(t = r.n()).done; ) {
-                    if (e in t.value) return !0;
-                  }
-                } catch (n) {
-                  r.e(n);
-                } finally {
-                  r.f();
-                }
-                return !1;
-              },
-            },
-            {
-              key: "runCallbacks",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t, r) {
-                    var n, a, s;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              (n = D(this.iterateCallbacks(t))),
-                                (e.prev = 1),
-                                n.s();
-                            case 3:
-                              if ((a = n.n()).done) {
-                                e.next = 9;
-                                break;
-                              }
-                              return (s = a.value), (e.next = 7), s(r);
-                            case 7:
-                              e.next = 3;
-                              break;
-                            case 9:
-                              e.next = 14;
-                              break;
-                            case 11:
-                              (e.prev = 11), (e.t0 = e.catch(1)), n.e(e.t0);
-                            case 14:
-                              return (e.prev = 14), n.f(), e.finish(14);
-                            case 17:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this,
-                      [[1, 11, 14, 17]]
-                    );
-                  })
-                );
-                return function (t, r) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "iterateCallbacks",
-              value: q().mark(function e(t) {
-                var r,
-                  n,
-                  a,
-                  s = this;
-                return q().wrap(
-                  function (e) {
-                    for (;;)
-                      switch ((e.prev = e.next)) {
-                        case 0:
-                          (r = D(this._strategy.plugins)),
-                            (e.prev = 1),
-                            (a = q().mark(function e() {
-                              var r, a, i;
-                              return q().wrap(function (e) {
-                                for (;;)
-                                  switch ((e.prev = e.next)) {
-                                    case 0:
-                                      if (
-                                        "function" !== typeof (r = n.value)[t]
-                                      ) {
-                                        e.next = 6;
-                                        break;
-                                      }
-                                      return (
-                                        (a = s._pluginStateMap.get(r)),
-                                        (i = function (e) {
-                                          var n = Object.assign(
-                                            Object.assign({}, e),
-                                            { state: a }
-                                          );
-                                          return r[t](n);
-                                        }),
-                                        (e.next = 6),
-                                        i
-                                      );
-                                    case 6:
-                                    case "end":
-                                      return e.stop();
-                                  }
-                              }, e);
-                            })),
-                            r.s();
-                        case 4:
-                          if ((n = r.n()).done) {
-                            e.next = 8;
-                            break;
-                          }
-                          return e.delegateYield(a(), "t0", 6);
-                        case 6:
-                          e.next = 4;
-                          break;
-                        case 8:
-                          e.next = 13;
-                          break;
-                        case 10:
-                          (e.prev = 10), (e.t1 = e.catch(1)), r.e(e.t1);
-                        case 13:
-                          return (e.prev = 13), r.f(), e.finish(13);
-                        case 16:
-                        case "end":
-                          return e.stop();
-                      }
-                  },
-                  e,
-                  this,
-                  [[1, 10, 13, 16]]
-                );
-              }),
-            },
-            {
-              key: "waitUntil",
-              value: function (e) {
-                return this._extendLifetimePromises.push(e), e;
-              },
-            },
-            {
-              key: "doneWaiting",
-              value: (function () {
-                var e = R(
-                  q().mark(function e() {
-                    var t;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              if (!(t = this._extendLifetimePromises.shift())) {
-                                e.next = 5;
-                                break;
-                              }
-                              return (e.next = 3), t;
-                            case 3:
-                              e.next = 0;
-                              break;
-                            case 5:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function () {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "destroy",
-              value: function () {
-                this._handlerDeferred.resolve(null);
-              },
-            },
-            {
-              key: "_ensureResponseSafeToCache",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    var r, n, a, s, i;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              (r = t),
-                                (n = !1),
-                                (a = D(
-                                  this.iterateCallbacks("cacheWillUpdate")
-                                )),
-                                (e.prev = 3),
-                                a.s();
-                            case 5:
-                              if ((s = a.n()).done) {
-                                e.next = 18;
-                                break;
-                              }
-                              return (
-                                (i = s.value),
-                                (e.next = 9),
-                                i({
-                                  request: this.request,
-                                  response: r,
-                                  event: this.event,
-                                })
-                              );
-                            case 9:
-                              if (((e.t0 = e.sent), e.t0)) {
-                                e.next = 12;
-                                break;
-                              }
-                              e.t0 = void 0;
-                            case 12:
-                              if (((r = e.t0), (n = !0), r)) {
-                                e.next = 16;
-                                break;
-                              }
-                              return e.abrupt("break", 18);
-                            case 16:
-                              e.next = 5;
-                              break;
-                            case 18:
-                              e.next = 23;
-                              break;
-                            case 20:
-                              (e.prev = 20), (e.t1 = e.catch(3)), a.e(e.t1);
-                            case 23:
-                              return (e.prev = 23), a.f(), e.finish(23);
-                            case 26:
-                              return (
-                                n || (r && 200 !== r.status && (r = void 0)),
-                                e.abrupt("return", r)
-                              );
-                            case 28:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this,
-                      [[3, 20, 23, 26]]
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-          ]),
-          t
-        );
-      })(),
-      we = (function () {
-        function e() {
-          var t =
-            arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-          a(this, e),
-            (this.cacheName = _(t.cacheName)),
-            (this.plugins = t.plugins || []),
-            (this.fetchOptions = t.fetchOptions),
-            (this.matchOptions = t.matchOptions);
+        const a = this.hasCallback("fetchDidFail") ? n.clone() : null;
+        try {
+          for (const e of this.iterateCallbacks("requestWillFetch"))
+            n = await e({ request: n.clone(), event: s });
+        } catch (i) {
+          if (i instanceof Error)
+            throw new t("plugin-error-request-will-fetch", {
+              thrownErrorMessage: i.message,
+            });
         }
-        return (
-          n(e, [
-            {
-              key: "handle",
-              value: function (e) {
-                return pe(this.handleAll(e), 1)[0];
-              },
-            },
-            {
-              key: "handleAll",
-              value: function (e) {
-                e instanceof FetchEvent &&
-                  (e = { event: e, request: e.request });
-                var t = e.event,
-                  r =
-                    "string" === typeof e.request
-                      ? new Request(e.request)
-                      : e.request,
-                  n = "params" in e ? e.params : void 0,
-                  a = new ge(this, { event: t, request: r, params: n }),
-                  s = this._getResponse(a, r, t);
-                return [s, this._awaitComplete(s, a, r, t)];
-              },
-            },
-            {
-              key: "_getResponse",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t, r, n) {
-                    var a, s, i, u, c, o, h;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (e.next = 2),
-                                t.runCallbacks("handlerWillStart", {
-                                  event: n,
-                                  request: r,
-                                })
-                              );
-                            case 2:
-                              return (
-                                (a = void 0),
-                                (e.prev = 3),
-                                (e.next = 6),
-                                this._handle(r, t)
-                              );
-                            case 6:
-                              if ((a = e.sent) && "error" !== a.type) {
-                                e.next = 9;
-                                break;
-                              }
-                              throw new d("no-response", { url: r.url });
-                            case 9:
-                              e.next = 39;
-                              break;
-                            case 11:
-                              if (
-                                ((e.prev = 11),
-                                (e.t0 = e.catch(3)),
-                                !(e.t0 instanceof Error))
-                              ) {
-                                e.next = 34;
-                                break;
-                              }
-                              (s = D(t.iterateCallbacks("handlerDidError"))),
-                                (e.prev = 15),
-                                s.s();
-                            case 17:
-                              if ((i = s.n()).done) {
-                                e.next = 26;
-                                break;
-                              }
-                              return (
-                                (u = i.value),
-                                (e.next = 21),
-                                u({ error: e.t0, event: n, request: r })
-                              );
-                            case 21:
-                              if (!(a = e.sent)) {
-                                e.next = 24;
-                                break;
-                              }
-                              return e.abrupt("break", 26);
-                            case 24:
-                              e.next = 17;
-                              break;
-                            case 26:
-                              e.next = 31;
-                              break;
-                            case 28:
-                              (e.prev = 28), (e.t1 = e.catch(15)), s.e(e.t1);
-                            case 31:
-                              return (e.prev = 31), s.f(), e.finish(31);
-                            case 34:
-                              if (a) {
-                                e.next = 38;
-                                break;
-                              }
-                              throw e.t0;
-                            case 38:
-                              0;
-                            case 39:
-                              (c = D(t.iterateCallbacks("handlerWillRespond"))),
-                                (e.prev = 40),
-                                c.s();
-                            case 42:
-                              if ((o = c.n()).done) {
-                                e.next = 49;
-                                break;
-                              }
-                              return (
-                                (h = o.value),
-                                (e.next = 46),
-                                h({ event: n, request: r, response: a })
-                              );
-                            case 46:
-                              a = e.sent;
-                            case 47:
-                              e.next = 42;
-                              break;
-                            case 49:
-                              e.next = 54;
-                              break;
-                            case 51:
-                              (e.prev = 51), (e.t2 = e.catch(40)), c.e(e.t2);
-                            case 54:
-                              return (e.prev = 54), c.f(), e.finish(54);
-                            case 57:
-                              return e.abrupt("return", a);
-                            case 58:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this,
-                      [
-                        [3, 11],
-                        [15, 28, 31, 34],
-                        [40, 51, 54, 57],
-                      ]
-                    );
-                  })
-                );
-                return function (t, r, n) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "_awaitComplete",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t, r, n, a) {
-                    var s, i;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (e.prev = 0), (e.next = 3), t;
-                            case 3:
-                              (s = e.sent), (e.next = 8);
-                              break;
-                            case 6:
-                              (e.prev = 6), (e.t0 = e.catch(0));
-                            case 8:
-                              return (
-                                (e.prev = 8),
-                                (e.next = 11),
-                                r.runCallbacks("handlerDidRespond", {
-                                  event: a,
-                                  request: n,
-                                  response: s,
-                                })
-                              );
-                            case 11:
-                              return (e.next = 13), r.doneWaiting();
-                            case 13:
-                              e.next = 18;
-                              break;
-                            case 15:
-                              (e.prev = 15),
-                                (e.t1 = e.catch(8)),
-                                e.t1 instanceof Error && (i = e.t1);
-                            case 18:
-                              return (
-                                (e.next = 20),
-                                r.runCallbacks("handlerDidComplete", {
-                                  event: a,
-                                  request: n,
-                                  response: s,
-                                  error: i,
-                                })
-                              );
-                            case 20:
-                              if ((r.destroy(), !i)) {
-                                e.next = 23;
-                                break;
-                              }
-                              throw i;
-                            case 23:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      null,
-                      [
-                        [0, 6],
-                        [8, 15],
-                      ]
-                    );
-                  })
-                );
-                return function (t, r, n, a) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-          ]),
-          e
-        );
-      })(),
-      ke = (function (t) {
-        i(s, t);
-        var r = f(s);
-        function s() {
-          var e,
-            t =
-              arguments.length > 0 && void 0 !== arguments[0]
-                ? arguments[0]
-                : {};
-          return (
-            a(this, s),
-            (t.cacheName = k(t.cacheName)),
-            ((e = r.call(this, t))._fallbackToNetwork =
-              !1 !== t.fallbackToNetwork),
-            e.plugins.push(s.copyRedirectedCacheableResponsesPlugin),
-            e
+        const r = n.clone();
+        try {
+          let e;
+          e = await fetch(
+            n,
+            "navigate" === n.mode ? void 0 : this._strategy.fetchOptions
+          );
+          for (const t of this.iterateCallbacks("fetchDidSucceed"))
+            e = await t({ event: s, request: r, response: e });
+          return e;
+        } catch (o) {
+          throw (
+            (a &&
+              (await this.runCallbacks("fetchDidFail", {
+                error: o,
+                event: s,
+                originalRequest: a.clone(),
+                request: r.clone(),
+              })),
+            o)
           );
         }
+      }
+      async fetchAndCachePut(e) {
+        const t = await this.fetch(e),
+          s = t.clone();
+        return this.waitUntil(this.cachePut(e, s)), t;
+      }
+      async cacheMatch(e) {
+        const t = F(e);
+        let s;
+        const { cacheName: n, matchOptions: a } = this._strategy,
+          r = await this.getCacheKey(t, "read"),
+          i = Object.assign(Object.assign({}, a), { cacheName: n });
+        s = await caches.match(r, i);
+        for (const o of this.iterateCallbacks("cachedResponseWillBeUsed"))
+          s =
+            (await o({
+              cacheName: n,
+              matchOptions: a,
+              cachedResponse: s,
+              request: r,
+              event: this.event,
+            })) || void 0;
+        return s;
+      }
+      async cachePut(e, s) {
+        const a = F(e);
+        await p(0);
+        const r = await this.getCacheKey(a, "write");
+        if (!s) throw new t("cache-put-with-no-response", { url: f(r.url) });
+        const i = await this._ensureResponseSafeToCache(s);
+        if (!i) return !1;
+        const { cacheName: o, matchOptions: c } = this._strategy,
+          u = await self.caches.open(o),
+          l = this.hasCallback("cacheDidUpdate"),
+          d = l
+            ? await (async function (e, t, s, n) {
+                const a = h(t.url, s);
+                if (t.url === a) return e.match(t, n);
+                const r = Object.assign(Object.assign({}, n), {
+                    ignoreSearch: !0,
+                  }),
+                  i = await e.keys(t, r);
+                for (const o of i) if (a === h(o.url, s)) return e.match(o, n);
+              })(u, r.clone(), ["__WB_REVISION__"], c)
+            : null;
+        try {
+          await u.put(r, l ? i.clone() : i);
+        } catch (g) {
+          if (g instanceof Error)
+            throw (
+              ("QuotaExceededError" === g.name &&
+                (await (async function () {
+                  for (const e of n) await e();
+                })()),
+              g)
+            );
+        }
+        for (const t of this.iterateCallbacks("cacheDidUpdate"))
+          await t({
+            cacheName: o,
+            oldResponse: d,
+            newResponse: i.clone(),
+            request: r,
+            event: this.event,
+          });
+        return !0;
+      }
+      async getCacheKey(e, t) {
+        const s = "".concat(e.url, " | ").concat(t);
+        if (!this._cacheKeys[s]) {
+          let n = e;
+          for (const e of this.iterateCallbacks("cacheKeyWillBeUsed"))
+            n = F(
+              await e({
+                mode: t,
+                request: n,
+                event: this.event,
+                params: this.params,
+              })
+            );
+          this._cacheKeys[s] = n;
+        }
+        return this._cacheKeys[s];
+      }
+      hasCallback(e) {
+        for (const t of this._strategy.plugins) if (e in t) return !0;
+        return !1;
+      }
+      async runCallbacks(e, t) {
+        for (const s of this.iterateCallbacks(e)) await s(t);
+      }
+      *iterateCallbacks(e) {
+        for (const t of this._strategy.plugins)
+          if ("function" === typeof t[e]) {
+            const s = this._pluginStateMap.get(t),
+              n = (n) => {
+                const a = Object.assign(Object.assign({}, n), { state: s });
+                return t[e](a);
+              };
+            yield n;
+          }
+      }
+      waitUntil(e) {
+        return this._extendLifetimePromises.push(e), e;
+      }
+      async doneWaiting() {
+        let e;
+        for (; (e = this._extendLifetimePromises.shift()); ) await e;
+      }
+      destroy() {
+        this._handlerDeferred.resolve(null);
+      }
+      async _ensureResponseSafeToCache(e) {
+        let t = e,
+          s = !1;
+        for (const n of this.iterateCallbacks("cacheWillUpdate"))
+          if (
+            ((t =
+              (await n({
+                request: this.request,
+                response: t,
+                event: this.event,
+              })) || void 0),
+            (s = !0),
+            !t)
+          )
+            break;
+        return s || (t && 200 !== t.status && (t = void 0)), t;
+      }
+    }
+    class H {
+      constructor() {
+        let e =
+          arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+        (this.cacheName = c(e.cacheName)),
+          (this.plugins = e.plugins || []),
+          (this.fetchOptions = e.fetchOptions),
+          (this.matchOptions = e.matchOptions);
+      }
+      handle(e) {
+        const [t] = this.handleAll(e);
+        return t;
+      }
+      handleAll(e) {
+        e instanceof FetchEvent && (e = { event: e, request: e.request });
+        const t = e.event,
+          s =
+            "string" === typeof e.request ? new Request(e.request) : e.request,
+          n = "params" in e ? e.params : void 0,
+          a = new W(this, { event: t, request: s, params: n }),
+          r = this._getResponse(a, s, t);
+        return [r, this._awaitComplete(r, a, s, t)];
+      }
+      async _getResponse(e, s, n) {
+        let a;
+        await e.runCallbacks("handlerWillStart", { event: n, request: s });
+        try {
+          if (((a = await this._handle(s, e)), !a || "error" === a.type))
+            throw new t("no-response", { url: s.url });
+        } catch (r) {
+          if (r instanceof Error)
+            for (const t of e.iterateCallbacks("handlerDidError"))
+              if (((a = await t({ error: r, event: n, request: s })), a)) break;
+          if (!a) throw r;
+        }
+        for (const t of e.iterateCallbacks("handlerWillRespond"))
+          a = await t({ event: n, request: s, response: a });
+        return a;
+      }
+      async _awaitComplete(e, t, s, n) {
+        let a, r;
+        try {
+          a = await e;
+        } catch (r) {}
+        try {
+          await t.runCallbacks("handlerDidRespond", {
+            event: n,
+            request: s,
+            response: a,
+          }),
+            await t.doneWaiting();
+        } catch (i) {
+          i instanceof Error && (r = i);
+        }
+        if (
+          (await t.runCallbacks("handlerDidComplete", {
+            event: n,
+            request: s,
+            response: a,
+            error: r,
+          }),
+          t.destroy(),
+          r)
+        )
+          throw r;
+      }
+    }
+    class Q extends H {
+      constructor() {
+        let e =
+          arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+        (e.cacheName = o(e.cacheName)),
+          super(e),
+          (this._fallbackToNetwork = !1 !== e.fallbackToNetwork),
+          this.plugins.push(Q.copyRedirectedCacheableResponsesPlugin);
+      }
+      async _handle(e, t) {
+        const s = await t.cacheMatch(e);
         return (
-          n(s, [
-            {
-              key: "_handle",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t, r) {
-                    var n;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (e.next = 2), r.cacheMatch(t);
-                            case 2:
-                              if (!(n = e.sent)) {
-                                e.next = 5;
-                                break;
-                              }
-                              return e.abrupt("return", n);
-                            case 5:
-                              if (!r.event || "install" !== r.event.type) {
-                                e.next = 9;
-                                break;
-                              }
-                              return (e.next = 8), this._handleInstall(t, r);
-                            case 8:
-                            case 11:
-                              return e.abrupt("return", e.sent);
-                            case 9:
-                              return (e.next = 11), this._handleFetch(t, r);
-                            case 12:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t, r) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "_handleFetch",
-              value: (function () {
-                var t = R(
-                  q().mark(function t(r, n) {
-                    var a, s, i, u, c, o;
-                    return q().wrap(
-                      function (t) {
-                        for (;;)
-                          switch ((t.prev = t.next)) {
-                            case 0:
-                              if (
-                                ((s = n.params || {}), !this._fallbackToNetwork)
-                              ) {
-                                t.next = 17;
-                                break;
-                              }
-                              return (
-                                (i = s.integrity),
-                                (u = r.integrity),
-                                (c = !u || u === i),
-                                (t.next = 8),
-                                n.fetch(new Request(r, { integrity: u || i }))
-                              );
-                            case 8:
-                              if (((a = t.sent), !i || !c)) {
-                                t.next = 15;
-                                break;
-                              }
-                              return (
-                                this._useDefaultCacheabilityPluginIfNeeded(),
-                                (t.next = 13),
-                                n.cachePut(r, a.clone())
-                              );
-                            case 13:
-                              t.sent;
-                            case 15:
-                              t.next = 18;
-                              break;
-                            case 17:
-                              throw new d("missing-precache-entry", {
-                                cacheName: this.cacheName,
-                                url: r.url,
-                              });
-                            case 18:
-                              t.next = 34;
-                              break;
-                            case 23:
-                              t.t0 = t.sent;
-                            case 24:
-                              (o = t.t0),
-                                e.groupCollapsed(
-                                  "Precaching is responding to: " + A(r.url)
-                                ),
-                                e.log(
-                                  "Serving the precached url: ".concat(
-                                    A(o instanceof Request ? o.url : o)
-                                  )
-                                ),
-                                e.groupCollapsed("View request details here."),
-                                e.log(r),
-                                e.groupEnd(),
-                                e.groupCollapsed("View response details here."),
-                                e.log(a),
-                                e.groupEnd(),
-                                e.groupEnd();
-                            case 34:
-                              return t.abrupt("return", a);
-                            case 35:
-                            case "end":
-                              return t.stop();
-                          }
-                      },
-                      t,
-                      this
-                    );
-                  })
-                );
-                return function (e, r) {
-                  return t.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "_handleInstall",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t, r) {
-                    var n;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                this._useDefaultCacheabilityPluginIfNeeded(),
-                                (e.next = 3),
-                                r.fetch(t)
-                              );
-                            case 3:
-                              return (
-                                (n = e.sent),
-                                (e.next = 6),
-                                r.cachePut(t, n.clone())
-                              );
-                            case 6:
-                              if (e.sent) {
-                                e.next = 9;
-                                break;
-                              }
-                              throw new d("bad-precaching-response", {
-                                url: t.url,
-                                status: n.status,
-                              });
-                            case 9:
-                              return e.abrupt("return", n);
-                            case 10:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t, r) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "_useDefaultCacheabilityPluginIfNeeded",
-              value: function () {
-                var e,
-                  t = null,
-                  r = 0,
-                  n = D(this.plugins.entries());
-                try {
-                  for (n.s(); !(e = n.n()).done; ) {
-                    var a = pe(e.value, 2),
-                      i = a[0],
-                      u = a[1];
-                    u !== s.copyRedirectedCacheableResponsesPlugin &&
-                      (u === s.defaultPrecacheCacheabilityPlugin && (t = i),
-                      u.cacheWillUpdate && r++);
-                  }
-                } catch (c) {
-                  n.e(c);
-                } finally {
-                  n.f();
-                }
-                0 === r
-                  ? this.plugins.push(s.defaultPrecacheCacheabilityPlugin)
-                  : r > 1 && null !== t && this.plugins.splice(t, 1);
-              },
-            },
-          ]),
-          s
+          s ||
+          (t.event && "install" === t.event.type
+            ? await this._handleInstall(e, t)
+            : await this._handleFetch(e, t))
         );
-      })(we);
-    (ke.defaultPrecacheCacheabilityPlugin = {
-      cacheWillUpdate: function (e) {
-        return R(
-          q().mark(function t() {
-            var r;
-            return q().wrap(function (t) {
-              for (;;)
-                switch ((t.prev = t.next)) {
-                  case 0:
-                    if ((r = e.response) && !(r.status >= 400)) {
-                      t.next = 3;
-                      break;
-                    }
-                    return t.abrupt("return", null);
-                  case 3:
-                    return t.abrupt("return", r);
-                  case 4:
-                  case "end":
-                    return t.stop();
-                }
-            }, t);
-          })
-        )();
+      }
+      async _handleFetch(e, s) {
+        let n;
+        const a = s.params || {};
+        if (!this._fallbackToNetwork)
+          throw new t("missing-precache-entry", {
+            cacheName: this.cacheName,
+            url: e.url,
+          });
+        {
+          0;
+          const t = a.integrity,
+            r = e.integrity,
+            i = !r || r === t;
+          if (
+            ((n = await s.fetch(
+              new Request(e, {
+                integrity: "no-cors" !== e.mode ? r || t : void 0,
+              })
+            )),
+            t && i && "no-cors" !== e.mode)
+          ) {
+            this._useDefaultCacheabilityPluginIfNeeded();
+            await s.cachePut(e, n.clone());
+            0;
+          }
+        }
+        return n;
+      }
+      async _handleInstall(e, s) {
+        this._useDefaultCacheabilityPluginIfNeeded();
+        const n = await s.fetch(e);
+        if (!(await s.cachePut(e, n.clone())))
+          throw new t("bad-precaching-response", {
+            url: e.url,
+            status: n.status,
+          });
+        return n;
+      }
+      _useDefaultCacheabilityPluginIfNeeded() {
+        let e = null,
+          t = 0;
+        for (const [s, n] of this.plugins.entries())
+          n !== Q.copyRedirectedCacheableResponsesPlugin &&
+            (n === Q.defaultPrecacheCacheabilityPlugin && (e = s),
+            n.cacheWillUpdate && t++);
+        0 === t
+          ? this.plugins.push(Q.defaultPrecacheCacheabilityPlugin)
+          : t > 1 && null !== e && this.plugins.splice(e, 1);
+      }
+    }
+    (Q.defaultPrecacheCacheabilityPlugin = {
+      async cacheWillUpdate(e) {
+        let { response: t } = e;
+        return !t || t.status >= 400 ? null : t;
       },
     }),
-      (ke.copyRedirectedCacheableResponsesPlugin = {
-        cacheWillUpdate: function (e) {
-          return R(
-            q().mark(function t() {
-              var r;
-              return q().wrap(function (t) {
-                for (;;)
-                  switch ((t.prev = t.next)) {
-                    case 0:
-                      if (!(r = e.response).redirected) {
-                        t.next = 7;
-                        break;
-                      }
-                      return (t.next = 4), B(r);
-                    case 4:
-                      (t.t0 = t.sent), (t.next = 8);
-                      break;
-                    case 7:
-                      t.t0 = r;
-                    case 8:
-                      return t.abrupt("return", t.t0);
-                    case 9:
-                    case "end":
-                      return t.stop();
-                  }
-              }, t);
-            })
-          )();
+      (Q.copyRedirectedCacheableResponsesPlugin = {
+        async cacheWillUpdate(e) {
+          let { response: t } = e;
+          return t.redirected ? await y(t) : t;
         },
       });
-    var _e,
-      qe = (function () {
-        function e() {
-          var t =
-              arguments.length > 0 && void 0 !== arguments[0]
-                ? arguments[0]
-                : {},
-            r = t.cacheName,
-            n = t.plugins,
-            s = void 0 === n ? [] : n,
-            i = t.fallbackToNetwork,
-            u = void 0 === i || i;
-          a(this, e),
-            (this._urlsToCacheKeys = new Map()),
-            (this._urlsToCacheModes = new Map()),
-            (this._cacheKeysToIntegrities = new Map()),
-            (this._strategy = new ke({
-              cacheName: k(r),
-              plugins: [].concat(de(s), [new xe({ precacheController: this })]),
-              fallbackToNetwork: u,
-            })),
-            (this.install = this.install.bind(this)),
-            (this.activate = this.activate.bind(this));
+    class V {
+      constructor() {
+        let {
+          cacheName: e,
+          plugins: t = [],
+          fallbackToNetwork: s = !0,
+        } = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+        (this._urlsToCacheKeys = new Map()),
+          (this._urlsToCacheModes = new Map()),
+          (this._cacheKeysToIntegrities = new Map()),
+          (this._strategy = new Q({
+            cacheName: o(e),
+            plugins: [...t, new j({ precacheController: this })],
+            fallbackToNetwork: s,
+          })),
+          (this.install = this.install.bind(this)),
+          (this.activate = this.activate.bind(this));
+      }
+      get strategy() {
+        return this._strategy;
+      }
+      precache(e) {
+        this.addToCacheList(e),
+          this._installAndActiveListenersAdded ||
+            (self.addEventListener("install", this.install),
+            self.addEventListener("activate", this.activate),
+            (this._installAndActiveListenersAdded = !0));
+      }
+      addToCacheList(e) {
+        const s = [];
+        for (const n of e) {
+          "string" === typeof n
+            ? s.push(n)
+            : n && void 0 === n.revision && s.push(n.url);
+          const { cacheKey: e, url: a } = B(n),
+            r = "string" !== typeof n && n.revision ? "reload" : "default";
+          if (
+            this._urlsToCacheKeys.has(a) &&
+            this._urlsToCacheKeys.get(a) !== e
+          )
+            throw new t("add-to-cache-list-conflicting-entries", {
+              firstEntry: this._urlsToCacheKeys.get(a),
+              secondEntry: e,
+            });
+          if ("string" !== typeof n && n.integrity) {
+            if (
+              this._cacheKeysToIntegrities.has(e) &&
+              this._cacheKeysToIntegrities.get(e) !== n.integrity
+            )
+              throw new t("add-to-cache-list-conflicting-integrities", {
+                url: a,
+              });
+            this._cacheKeysToIntegrities.set(e, n.integrity);
+          }
+          if (
+            (this._urlsToCacheKeys.set(a, e),
+            this._urlsToCacheModes.set(a, r),
+            s.length > 0)
+          ) {
+            const e =
+              "Workbox is precaching URLs without revision " +
+              "info: ".concat(s.join(", "), "\nThis is generally NOT safe. ") +
+              "Learn more at https://bit.ly/wb-precache";
+            console.warn(e);
+          }
         }
-        return (
-          n(e, [
-            {
-              key: "strategy",
-              get: function () {
-                return this._strategy;
-              },
-            },
-            {
-              key: "precache",
-              value: function (e) {
-                this.addToCacheList(e),
-                  this._installAndActiveListenersAdded ||
-                    (self.addEventListener("install", this.install),
-                    self.addEventListener("activate", this.activate),
-                    (this._installAndActiveListenersAdded = !0));
-              },
-            },
-            {
-              key: "addToCacheList",
-              value: function (e) {
-                var t,
-                  r = [],
-                  n = D(e);
-                try {
-                  for (n.s(); !(t = n.n()).done; ) {
-                    var a = t.value;
-                    "string" === typeof a
-                      ? r.push(a)
-                      : a && void 0 === a.revision && r.push(a.url);
-                    var s = ye(a),
-                      i = s.cacheKey,
-                      u = s.url,
-                      c =
-                        "string" !== typeof a && a.revision
-                          ? "reload"
-                          : "default";
-                    if (
-                      this._urlsToCacheKeys.has(u) &&
-                      this._urlsToCacheKeys.get(u) !== i
-                    )
-                      throw new d("add-to-cache-list-conflicting-entries", {
-                        firstEntry: this._urlsToCacheKeys.get(u),
-                        secondEntry: i,
-                      });
-                    if ("string" !== typeof a && a.integrity) {
-                      if (
-                        this._cacheKeysToIntegrities.has(i) &&
-                        this._cacheKeysToIntegrities.get(i) !== a.integrity
-                      )
-                        throw new d(
-                          "add-to-cache-list-conflicting-integrities",
-                          { url: u }
-                        );
-                      this._cacheKeysToIntegrities.set(i, a.integrity);
-                    }
-                    if (
-                      (this._urlsToCacheKeys.set(u, i),
-                      this._urlsToCacheModes.set(u, c),
-                      r.length > 0)
-                    ) {
-                      var o =
-                        "Workbox is precaching URLs without revision " +
-                        "info: ".concat(
-                          r.join(", "),
-                          "\nThis is generally NOT safe. "
-                        ) +
-                        "Learn more at https://bit.ly/wb-precache";
-                      console.warn(o);
-                    }
-                  }
-                } catch (h) {
-                  n.e(h);
-                } finally {
-                  n.f();
-                }
-              },
-            },
-            {
-              key: "install",
-              value: function (e) {
-                var t = this;
-                return M(
-                  e,
-                  R(
-                    q().mark(function r() {
-                      var n, a, s, i, u, c, o, h, f, l, p;
-                      return q().wrap(
-                        function (r) {
-                          for (;;)
-                            switch ((r.prev = r.next)) {
-                              case 0:
-                                (n = new me()),
-                                  t.strategy.plugins.push(n),
-                                  (a = D(t._urlsToCacheKeys)),
-                                  (r.prev = 3),
-                                  a.s();
-                              case 5:
-                                if ((s = a.n()).done) {
-                                  r.next = 14;
-                                  break;
-                                }
-                                return (
-                                  (i = pe(s.value, 2)),
-                                  (u = i[0]),
-                                  (c = i[1]),
-                                  (o = t._cacheKeysToIntegrities.get(c)),
-                                  (h = t._urlsToCacheModes.get(u)),
-                                  (f = new Request(u, {
-                                    integrity: o,
-                                    cache: h,
-                                    credentials: "same-origin",
-                                  })),
-                                  (r.next = 12),
-                                  Promise.all(
-                                    t.strategy.handleAll({
-                                      params: { cacheKey: c },
-                                      request: f,
-                                      event: e,
-                                    })
-                                  )
-                                );
-                              case 12:
-                                r.next = 5;
-                                break;
-                              case 14:
-                                r.next = 19;
-                                break;
-                              case 16:
-                                (r.prev = 16), (r.t0 = r.catch(3)), a.e(r.t0);
-                              case 19:
-                                return (r.prev = 19), a.f(), r.finish(19);
-                              case 22:
-                                return (
-                                  (l = n.updatedURLs),
-                                  (p = n.notUpdatedURLs),
-                                  r.abrupt("return", {
-                                    updatedURLs: l,
-                                    notUpdatedURLs: p,
-                                  })
-                                );
-                              case 25:
-                              case "end":
-                                return r.stop();
-                            }
-                        },
-                        r,
-                        null,
-                        [[3, 16, 19, 22]]
-                      );
-                    })
-                  )
-                );
-              },
-            },
-            {
-              key: "activate",
-              value: function (e) {
-                var t = this;
-                return M(
-                  e,
-                  R(
-                    q().mark(function e() {
-                      var r, n, a, s, i, u, c;
-                      return q().wrap(
-                        function (e) {
-                          for (;;)
-                            switch ((e.prev = e.next)) {
-                              case 0:
-                                return (
-                                  (e.next = 2),
-                                  self.caches.open(t.strategy.cacheName)
-                                );
-                              case 2:
-                                return (r = e.sent), (e.next = 5), r.keys();
-                              case 5:
-                                (n = e.sent),
-                                  (a = new Set(t._urlsToCacheKeys.values())),
-                                  (s = []),
-                                  (i = D(n)),
-                                  (e.prev = 9),
-                                  i.s();
-                              case 11:
-                                if ((u = i.n()).done) {
-                                  e.next = 19;
-                                  break;
-                                }
-                                if (((c = u.value), a.has(c.url))) {
-                                  e.next = 17;
-                                  break;
-                                }
-                                return (e.next = 16), r.delete(c);
-                              case 16:
-                                s.push(c.url);
-                              case 17:
-                                e.next = 11;
-                                break;
-                              case 19:
-                                e.next = 24;
-                                break;
-                              case 21:
-                                (e.prev = 21), (e.t0 = e.catch(9)), i.e(e.t0);
-                              case 24:
-                                return (e.prev = 24), i.f(), e.finish(24);
-                              case 27:
-                                return e.abrupt("return", { deletedURLs: s });
-                              case 29:
-                              case "end":
-                                return e.stop();
-                            }
-                        },
-                        e,
-                        null,
-                        [[9, 21, 24, 27]]
-                      );
-                    })
-                  )
-                );
-              },
-            },
-            {
-              key: "getURLsToCacheKeys",
-              value: function () {
-                return this._urlsToCacheKeys;
-              },
-            },
-            {
-              key: "getCachedURLs",
-              value: function () {
-                return de(this._urlsToCacheKeys.keys());
-              },
-            },
-            {
-              key: "getCacheKeyForURL",
-              value: function (e) {
-                var t = new URL(e, location.href);
-                return this._urlsToCacheKeys.get(t.href);
-              },
-            },
-            {
-              key: "getIntegrityForCacheKey",
-              value: function (e) {
-                return this._cacheKeysToIntegrities.get(e);
-              },
-            },
-            {
-              key: "matchPrecache",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    var r, n, a;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              if (
-                                ((r = t instanceof Request ? t.url : t),
-                                !(n = this.getCacheKeyForURL(r)))
-                              ) {
-                                e.next = 7;
-                                break;
-                              }
-                              return (
-                                (e.next = 5),
-                                self.caches.open(this.strategy.cacheName)
-                              );
-                            case 5:
-                              return (
-                                (a = e.sent), e.abrupt("return", a.match(n))
-                              );
-                            case 7:
-                              return e.abrupt("return", void 0);
-                            case 8:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "createHandlerBoundToURL",
-              value: function (e) {
-                var t = this,
-                  r = this.getCacheKeyForURL(e);
-                if (!r) throw new d("non-precached-url", { url: e });
-                return function (n) {
-                  return (
-                    (n.request = new Request(e)),
-                    (n.params = Object.assign({ cacheKey: r }, n.params)),
-                    t.strategy.handle(n)
-                  );
-                };
-              },
-            },
-          ]),
-          e
-        );
-      })(),
-      Ee = function () {
-        return _e || (_e = new qe()), _e;
-      };
-    r(337);
-    var Re,
-      Se = "GET",
-      Le = function (e) {
-        return e && "object" === typeof e ? e : { handle: e };
-      },
-      De = (function () {
-        function e(t, r) {
-          var n =
-            arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : Se;
-          a(this, e),
-            (this.handler = Le(r)),
-            (this.match = t),
-            (this.method = n);
+      }
+      install(e) {
+        return g(e, async () => {
+          const t = new M();
+          this.strategy.plugins.push(t);
+          for (const [a, r] of this._urlsToCacheKeys) {
+            const t = this._cacheKeysToIntegrities.get(r),
+              s = this._urlsToCacheModes.get(a),
+              n = new Request(a, {
+                integrity: t,
+                cache: s,
+                credentials: "same-origin",
+              });
+            await Promise.all(
+              this.strategy.handleAll({
+                params: { cacheKey: r },
+                request: n,
+                event: e,
+              })
+            );
+          }
+          const { updatedURLs: s, notUpdatedURLs: n } = t;
+          return { updatedURLs: s, notUpdatedURLs: n };
+        });
+      }
+      activate(e) {
+        return g(e, async () => {
+          const e = await self.caches.open(this.strategy.cacheName),
+            t = await e.keys(),
+            s = new Set(this._urlsToCacheKeys.values()),
+            n = [];
+          for (const a of t) s.has(a.url) || (await e.delete(a), n.push(a.url));
+          return { deletedURLs: n };
+        });
+      }
+      getURLsToCacheKeys() {
+        return this._urlsToCacheKeys;
+      }
+      getCachedURLs() {
+        return [...this._urlsToCacheKeys.keys()];
+      }
+      getCacheKeyForURL(e) {
+        const t = new URL(e, location.href);
+        return this._urlsToCacheKeys.get(t.href);
+      }
+      getIntegrityForCacheKey(e) {
+        return this._cacheKeysToIntegrities.get(e);
+      }
+      async matchPrecache(e) {
+        const t = e instanceof Request ? e.url : e,
+          s = this.getCacheKeyForURL(t);
+        if (s) {
+          return (await self.caches.open(this.strategy.cacheName)).match(s);
         }
-        return (
-          n(e, [
-            {
-              key: "setCatchHandler",
-              value: function (e) {
-                this.catchHandler = Le(e);
-              },
-            },
-          ]),
-          e
+      }
+      createHandlerBoundToURL(e) {
+        const s = this.getCacheKeyForURL(e);
+        if (!s) throw new t("non-precached-url", { url: e });
+        return (t) => (
+          (t.request = new Request(e)),
+          (t.params = Object.assign({ cacheKey: s }, t.params)),
+          this.strategy.handle(t)
         );
-      })(),
-      Oe = (function (e) {
-        i(r, e);
-        var t = f(r);
-        function r(e, n, s) {
-          a(this, r);
-          return t.call(
-            this,
-            function (t) {
-              var r = t.url,
-                n = e.exec(r.href);
-              if (n && (r.origin === location.origin || 0 === n.index))
-                return n.slice(1);
-            },
-            n,
-            s
-          );
-        }
-        return n(r);
-      })(De),
-      Te = (function () {
-        function e() {
-          a(this, e),
-            (this._routes = new Map()),
-            (this._defaultHandlerMap = new Map());
-        }
-        return (
-          n(e, [
-            {
-              key: "routes",
-              get: function () {
-                return this._routes;
-              },
-            },
-            {
-              key: "addFetchListener",
-              value: function () {
-                var e = this;
-                self.addEventListener("fetch", function (t) {
-                  var r = t.request,
-                    n = e.handleRequest({ request: r, event: t });
-                  n && t.respondWith(n);
-                });
-              },
-            },
-            {
-              key: "addCacheListener",
-              value: function () {
-                var e = this;
-                self.addEventListener("message", function (t) {
-                  if (t.data && "CACHE_URLS" === t.data.type) {
-                    var r = t.data.payload;
-                    0;
-                    var n = Promise.all(
-                      r.urlsToCache.map(function (r) {
-                        "string" === typeof r && (r = [r]);
-                        var n = l(Request, de(r));
-                        return e.handleRequest({ request: n, event: t });
-                      })
-                    );
-                    t.waitUntil(n),
-                      t.ports &&
-                        t.ports[0] &&
-                        n.then(function () {
-                          return t.ports[0].postMessage(!0);
-                        });
-                  }
-                });
-              },
-            },
-            {
-              key: "handleRequest",
-              value: function (e) {
-                var t = this,
-                  r = e.request,
-                  n = e.event;
-                var a = new URL(r.url, location.href);
-                if (a.protocol.startsWith("http")) {
-                  var s = a.origin === location.origin,
-                    i = this.findMatchingRoute({
-                      event: n,
-                      request: r,
-                      sameOrigin: s,
-                      url: a,
-                    }),
-                    u = i.params,
-                    c = i.route,
-                    o = c && c.handler;
-                  0;
-                  var h = r.method;
-                  if (
-                    (!o &&
-                      this._defaultHandlerMap.has(h) &&
-                      (o = this._defaultHandlerMap.get(h)),
-                    o)
-                  ) {
-                    var f;
-                    0;
-                    try {
-                      f = o.handle({ url: a, request: r, event: n, params: u });
-                    } catch (p) {
-                      f = Promise.reject(p);
-                    }
-                    var l = c && c.catchHandler;
-                    return (
-                      f instanceof Promise &&
-                        (this._catchHandler || l) &&
-                        (f = f.catch(
-                          (function () {
-                            var e = R(
-                              q().mark(function e(s) {
-                                return q().wrap(
-                                  function (e) {
-                                    for (;;)
-                                      switch ((e.prev = e.next)) {
-                                        case 0:
-                                          if (!l) {
-                                            e.next = 11;
-                                            break;
-                                          }
-                                          return (
-                                            (e.prev = 2),
-                                            (e.next = 5),
-                                            l.handle({
-                                              url: a,
-                                              request: r,
-                                              event: n,
-                                              params: u,
-                                            })
-                                          );
-                                        case 5:
-                                          return e.abrupt("return", e.sent);
-                                        case 8:
-                                          (e.prev = 8),
-                                            (e.t0 = e.catch(2)),
-                                            e.t0 instanceof Error && (s = e.t0);
-                                        case 11:
-                                          if (!t._catchHandler) {
-                                            e.next = 14;
-                                            break;
-                                          }
-                                          return e.abrupt(
-                                            "return",
-                                            t._catchHandler.handle({
-                                              url: a,
-                                              request: r,
-                                              event: n,
-                                            })
-                                          );
-                                        case 14:
-                                          throw s;
-                                        case 15:
-                                        case "end":
-                                          return e.stop();
-                                      }
-                                  },
-                                  e,
-                                  null,
-                                  [[2, 8]]
-                                );
-                              })
-                            );
-                            return function (t) {
-                              return e.apply(this, arguments);
-                            };
-                          })()
-                        )),
-                      f
-                    );
-                  }
-                }
-              },
-            },
-            {
-              key: "findMatchingRoute",
-              value: function (e) {
-                var t,
-                  r = e.url,
-                  n = e.sameOrigin,
-                  a = e.request,
-                  s = e.event,
-                  i = D(this._routes.get(a.method) || []);
-                try {
-                  for (i.s(); !(t = i.n()).done; ) {
-                    var u = t.value,
-                      c = void 0,
-                      o = u.match({
-                        url: r,
-                        sameOrigin: n,
-                        request: a,
-                        event: s,
-                      });
-                    if (o)
-                      return (
-                        (c = o),
-                        ((Array.isArray(c) && 0 === c.length) ||
-                          (o.constructor === Object &&
-                            0 === Object.keys(o).length) ||
-                          "boolean" === typeof o) &&
-                          (c = void 0),
-                        { route: u, params: c }
-                      );
-                  }
-                } catch (h) {
-                  i.e(h);
-                } finally {
-                  i.f();
-                }
-                return {};
-              },
-            },
-            {
-              key: "setDefaultHandler",
-              value: function (e) {
-                var t =
-                  arguments.length > 1 && void 0 !== arguments[1]
-                    ? arguments[1]
-                    : Se;
-                this._defaultHandlerMap.set(t, Le(e));
-              },
-            },
-            {
-              key: "setCatchHandler",
-              value: function (e) {
-                this._catchHandler = Le(e);
-              },
-            },
-            {
-              key: "registerRoute",
-              value: function (e) {
-                this._routes.has(e.method) || this._routes.set(e.method, []),
-                  this._routes.get(e.method).push(e);
-              },
-            },
-            {
-              key: "unregisterRoute",
-              value: function (e) {
-                if (!this._routes.has(e.method))
-                  throw new d("unregister-route-but-not-found-with-method", {
-                    method: e.method,
-                  });
-                var t = this._routes.get(e.method).indexOf(e);
-                if (!(t > -1))
-                  throw new d("unregister-route-route-not-registered");
-                this._routes.get(e.method).splice(t, 1);
-              },
-            },
-          ]),
-          e
-        );
-      })(),
-      Ce = function () {
-        return (
-          Re || ((Re = new Te()).addFetchListener(), Re.addCacheListener()), Re
-        );
-      };
-    function Ne(e, t, r) {
-      var n;
-      if ("string" === typeof e) {
-        var a = new URL(e, location.href);
-        n = new De(
-          function (e) {
-            return e.url.href === a.href;
+      }
+    }
+    let G;
+    const z = () => (G || (G = new V()), G);
+    s(357);
+    const $ = (e) => (e && "object" === typeof e ? e : { handle: e });
+    class J {
+      constructor(e, t) {
+        let s =
+          arguments.length > 2 && void 0 !== arguments[2]
+            ? arguments[2]
+            : "GET";
+        (this.handler = $(t)), (this.match = e), (this.method = s);
+      }
+      setCatchHandler(e) {
+        this.catchHandler = $(e);
+      }
+    }
+    class X extends J {
+      constructor(e, t, s) {
+        super(
+          (t) => {
+            let { url: s } = t;
+            const n = e.exec(s.href);
+            if (n && (s.origin === location.origin || 0 === n.index))
+              return n.slice(1);
           },
           t,
-          r
+          s
         );
-      } else if (e instanceof RegExp) n = new Oe(e, t, r);
-      else if ("function" === typeof e) n = new De(e, t, r);
+      }
+    }
+    class Y {
+      constructor() {
+        (this._routes = new Map()), (this._defaultHandlerMap = new Map());
+      }
+      get routes() {
+        return this._routes;
+      }
+      addFetchListener() {
+        self.addEventListener("fetch", (e) => {
+          const { request: t } = e,
+            s = this.handleRequest({ request: t, event: e });
+          s && e.respondWith(s);
+        });
+      }
+      addCacheListener() {
+        self.addEventListener("message", (e) => {
+          if (e.data && "CACHE_URLS" === e.data.type) {
+            const { payload: t } = e.data;
+            0;
+            const s = Promise.all(
+              t.urlsToCache.map((t) => {
+                "string" === typeof t && (t = [t]);
+                const s = new Request(...t);
+                return this.handleRequest({ request: s, event: e });
+              })
+            );
+            e.waitUntil(s),
+              e.ports && e.ports[0] && s.then(() => e.ports[0].postMessage(!0));
+          }
+        });
+      }
+      handleRequest(e) {
+        let { request: t, event: s } = e;
+        const n = new URL(t.url, location.href);
+        if (!n.protocol.startsWith("http")) return void 0;
+        const a = n.origin === location.origin,
+          { params: r, route: i } = this.findMatchingRoute({
+            event: s,
+            request: t,
+            sameOrigin: a,
+            url: n,
+          });
+        let o = i && i.handler;
+        const c = t.method;
+        if (
+          (!o &&
+            this._defaultHandlerMap.has(c) &&
+            (o = this._defaultHandlerMap.get(c)),
+          !o)
+        )
+          return void 0;
+        let h;
+        try {
+          h = o.handle({ url: n, request: t, event: s, params: r });
+        } catch (l) {
+          h = Promise.reject(l);
+        }
+        const u = i && i.catchHandler;
+        return (
+          h instanceof Promise &&
+            (this._catchHandler || u) &&
+            (h = h.catch(async (e) => {
+              if (u) {
+                0;
+                try {
+                  return await u.handle({
+                    url: n,
+                    request: t,
+                    event: s,
+                    params: r,
+                  });
+                } catch (a) {
+                  a instanceof Error && (e = a);
+                }
+              }
+              if (this._catchHandler)
+                return this._catchHandler.handle({
+                  url: n,
+                  request: t,
+                  event: s,
+                });
+              throw e;
+            })),
+          h
+        );
+      }
+      findMatchingRoute(e) {
+        let { url: t, sameOrigin: s, request: n, event: a } = e;
+        const r = this._routes.get(n.method) || [];
+        for (const i of r) {
+          let e;
+          const r = i.match({ url: t, sameOrigin: s, request: n, event: a });
+          if (r)
+            return (
+              (e = r),
+              ((Array.isArray(e) && 0 === e.length) ||
+                (r.constructor === Object && 0 === Object.keys(r).length) ||
+                "boolean" === typeof r) &&
+                (e = void 0),
+              { route: i, params: e }
+            );
+        }
+        return {};
+      }
+      setDefaultHandler(e) {
+        let t =
+          arguments.length > 1 && void 0 !== arguments[1]
+            ? arguments[1]
+            : "GET";
+        this._defaultHandlerMap.set(t, $(e));
+      }
+      setCatchHandler(e) {
+        this._catchHandler = $(e);
+      }
+      registerRoute(e) {
+        this._routes.has(e.method) || this._routes.set(e.method, []),
+          this._routes.get(e.method).push(e);
+      }
+      unregisterRoute(e) {
+        if (!this._routes.has(e.method))
+          throw new t("unregister-route-but-not-found-with-method", {
+            method: e.method,
+          });
+        const s = this._routes.get(e.method).indexOf(e);
+        if (!(s > -1)) throw new t("unregister-route-route-not-registered");
+        this._routes.get(e.method).splice(s, 1);
+      }
+    }
+    let Z;
+    const ee = () => (
+      Z || ((Z = new Y()), Z.addFetchListener(), Z.addCacheListener()), Z
+    );
+    function te(e, s, n) {
+      let a;
+      if ("string" === typeof e) {
+        const t = new URL(e, location.href);
+        0;
+        a = new J(
+          (e) => {
+            let { url: s } = e;
+            return s.href === t.href;
+          },
+          s,
+          n
+        );
+      } else if (e instanceof RegExp) a = new X(e, s, n);
+      else if ("function" === typeof e) a = new J(e, s, n);
       else {
-        if (!(e instanceof De))
-          throw new d("unsupported-route-type", {
+        if (!(e instanceof J))
+          throw new t("unsupported-route-type", {
             moduleName: "workbox-routing",
             funcName: "registerRoute",
             paramName: "capture",
           });
-        n = e;
+        a = e;
       }
-      return Ce().registerRoute(n), n;
+      return ee().registerRoute(a), a;
     }
-    function Pe(e) {
-      for (
-        var t =
-            arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : [],
-          r = function () {
-            var r = a[n];
-            t.some(function (e) {
-              return e.test(r);
-            }) && e.searchParams.delete(r);
-          },
-          n = 0,
-          a = de(e.searchParams.keys());
-        n < a.length;
-        n++
-      )
-        r();
-      return e;
-    }
-    var Ie = q().mark(je);
-    function je(e) {
-      var t,
-        r,
-        n,
-        a,
-        s,
-        i,
-        u,
-        c,
-        o,
-        h,
-        f,
-        l,
-        p,
-        v,
-        d,
-        y,
-        m = arguments;
-      return q().wrap(
-        function (x) {
-          for (;;)
-            switch ((x.prev = x.next)) {
-              case 0:
-                return (
-                  (t = m.length > 1 && void 0 !== m[1] ? m[1] : {}),
-                  (r = t.ignoreURLParametersMatching),
-                  (n = void 0 === r ? [/^utm_/, /^fbclid$/] : r),
-                  (a = t.directoryIndex),
-                  (s = void 0 === a ? "index.html" : a),
-                  (i = t.cleanURLs),
-                  (u = void 0 === i || i),
-                  (c = t.urlManipulation),
-                  ((o = new URL(e, location.href)).hash = ""),
-                  (x.next = 5),
-                  o.href
-                );
-              case 5:
-                return (h = Pe(o, n)), (x.next = 8), h.href;
-              case 8:
-                if (!s || !h.pathname.endsWith("/")) {
-                  x.next = 13;
-                  break;
-                }
-                return (
-                  ((f = new URL(h.href)).pathname += s), (x.next = 13), f.href
-                );
-              case 13:
-                if (!u) {
-                  x.next = 18;
-                  break;
-                }
-                return (
-                  ((l = new URL(h.href)).pathname += ".html"),
-                  (x.next = 18),
-                  l.href
-                );
-              case 18:
-                if (!c) {
-                  x.next = 37;
-                  break;
-                }
-                (p = c({ url: o })), (v = D(p)), (x.prev = 21), v.s();
-              case 23:
-                if ((d = v.n()).done) {
-                  x.next = 29;
-                  break;
-                }
-                return (y = d.value), (x.next = 27), y.href;
-              case 27:
-                x.next = 23;
-                break;
-              case 29:
-                x.next = 34;
-                break;
-              case 31:
-                (x.prev = 31), (x.t0 = x.catch(21)), v.e(x.t0);
-              case 34:
-                return (x.prev = 34), v.f(), x.finish(34);
-              case 37:
-              case "end":
-                return x.stop();
-            }
-        },
-        Ie,
-        null,
-        [[21, 31, 34, 37]]
-      );
-    }
-    var Ue = (function (e) {
-      i(r, e);
-      var t = f(r);
-      function r(e, n) {
-        a(this, r);
-        return t.call(
-          this,
-          function (t) {
-            var r,
-              a = t.request,
-              s = e.getURLsToCacheKeys(),
-              i = D(je(a.url, n));
-            try {
-              for (i.s(); !(r = i.n()).done; ) {
-                var u = r.value,
-                  c = s.get(u);
-                if (c)
-                  return {
-                    cacheKey: c,
-                    integrity: e.getIntegrityForCacheKey(c),
-                  };
+    class se extends J {
+      constructor(e, t) {
+        super((s) => {
+          let { request: n } = s;
+          const a = e.getURLsToCacheKeys();
+          for (const r of (function (e) {
+            let {
+              ignoreURLParametersMatching: t = [/^utm_/, /^fbclid$/],
+              directoryIndex: s = "index.html",
+              cleanURLs: n = !0,
+              urlManipulation: a,
+            } = arguments.length > 1 && void 0 !== arguments[1]
+              ? arguments[1]
+              : {};
+            return (function* () {
+              const r = new URL(e, location.href);
+              (r.hash = ""), yield r.href;
+              const i = (function (e) {
+                let t =
+                  arguments.length > 1 && void 0 !== arguments[1]
+                    ? arguments[1]
+                    : [];
+                for (const s of [...e.searchParams.keys()])
+                  t.some((e) => e.test(s)) && e.searchParams.delete(s);
+                return e;
+              })(r, t);
+              if ((yield i.href, s && i.pathname.endsWith("/"))) {
+                const e = new URL(i.href);
+                (e.pathname += s), yield e.href;
               }
-            } catch (o) {
-              i.e(o);
-            } finally {
-              i.f();
+              if (n) {
+                const e = new URL(i.href);
+                (e.pathname += ".html"), yield e.href;
+              }
+              if (a) {
+                const e = a({ url: r });
+                for (const t of e) yield t.href;
+              }
+            })();
+          })(n.url, t)) {
+            const t = a.get(r);
+            if (t) {
+              return { cacheKey: t, integrity: e.getIntegrityForCacheKey(t) };
             }
-          },
-          e.strategy
+          }
+        }, e.strategy);
+      }
+    }
+    const ne = {
+      cacheWillUpdate: async (e) => {
+        let { response: t } = e;
+        return 200 === t.status || 0 === t.status ? t : null;
+      },
+    };
+    class ae extends H {
+      constructor() {
+        let e =
+          arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+        super(e),
+          this.plugins.some((e) => "cacheWillUpdate" in e) ||
+            this.plugins.unshift(ne),
+          (this._networkTimeoutSeconds = e.networkTimeoutSeconds || 0);
+      }
+      async _handle(e, s) {
+        const n = [];
+        const a = [];
+        let r;
+        if (this._networkTimeoutSeconds) {
+          const { id: t, promise: i } = this._getTimeoutPromise({
+            request: e,
+            logs: n,
+            handler: s,
+          });
+          (r = t), a.push(i);
+        }
+        const i = this._getNetworkPromise({
+          timeoutId: r,
+          request: e,
+          logs: n,
+          handler: s,
+        });
+        a.push(i);
+        const o = await s.waitUntil(
+          (async () => (await s.waitUntil(Promise.race(a))) || (await i))()
+        );
+        if (!o) throw new t("no-response", { url: e.url });
+        return o;
+      }
+      _getTimeoutPromise(e) {
+        let t,
+          { request: s, logs: n, handler: a } = e;
+        return {
+          promise: new Promise((e) => {
+            t = setTimeout(async () => {
+              e(await a.cacheMatch(s));
+            }, 1e3 * this._networkTimeoutSeconds);
+          }),
+          id: t,
+        };
+      }
+      async _getNetworkPromise(e) {
+        let t,
+          s,
+          { timeoutId: n, request: a, logs: r, handler: i } = e;
+        try {
+          s = await i.fetchAndCachePut(a);
+        } catch (o) {
+          o instanceof Error && (t = o);
+        }
+        return (
+          n && clearTimeout(n), (!t && s) || (s = await i.cacheMatch(a)), s
         );
       }
-      return n(r);
-    })(De);
-    var Ae,
-      Ke = {
-        cacheWillUpdate: (function () {
-          var e = R(
-            q().mark(function e(t) {
-              var r;
-              return q().wrap(function (e) {
-                for (;;)
-                  switch ((e.prev = e.next)) {
-                    case 0:
-                      if (200 !== (r = t.response).status && 0 !== r.status) {
-                        e.next = 3;
-                        break;
-                      }
-                      return e.abrupt("return", r);
-                    case 3:
-                      return e.abrupt("return", null);
-                    case 4:
-                    case "end":
-                      return e.stop();
-                  }
-              }, e);
-            })
-          );
-          return function (t) {
-            return e.apply(this, arguments);
-          };
-        })(),
-      },
-      Me = (function (e) {
-        i(r, e);
-        var t = f(r);
-        function r() {
-          var e,
-            n =
-              arguments.length > 0 && void 0 !== arguments[0]
-                ? arguments[0]
-                : {};
-          return (
-            a(this, r),
-            (e = t.call(this, n)).plugins.some(function (e) {
-              return "cacheWillUpdate" in e;
-            }) || e.plugins.unshift(Ke),
-            (e._networkTimeoutSeconds = n.networkTimeoutSeconds || 0),
-            e
-          );
+    }
+    class re extends H {
+      constructor() {
+        let e =
+          arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+        super(e), (this._networkTimeoutSeconds = e.networkTimeoutSeconds || 0);
+      }
+      async _handle(e, s) {
+        let n, a;
+        try {
+          const t = [s.fetch(e)];
+          if (this._networkTimeoutSeconds) {
+            const e = p(1e3 * this._networkTimeoutSeconds);
+            t.push(e);
+          }
+          if (((a = await Promise.race(t)), !a))
+            throw new Error(
+              "Timed out the network response after " +
+                "".concat(this._networkTimeoutSeconds, " seconds.")
+            );
+        } catch (r) {
+          r instanceof Error && (n = r);
         }
+        if (!a) throw new t("no-response", { url: e.url, error: n });
+        return a;
+      }
+    }
+    class ie extends H {
+      constructor() {
+        super(
+          arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}
+        ),
+          this.plugins.some((e) => "cacheWillUpdate" in e) ||
+            this.plugins.unshift(ne);
+      }
+      async _handle(e, s) {
+        const n = s.fetchAndCachePut(e).catch(() => {});
+        s.waitUntil(n);
+        let a,
+          r = await s.cacheMatch(e);
+        if (r) 0;
+        else {
+          0;
+          try {
+            r = await n;
+          } catch (i) {
+            i instanceof Error && (a = i);
+          }
+        }
+        if (!r) throw new t("no-response", { url: e.url, error: a });
+        return r;
+      }
+    }
+    s(775);
+    const oe = "requests",
+      ce = "queueName";
+    class he {
+      constructor() {
+        this._db = null;
+      }
+      async addEntry(e) {
+        const t = (await this.getDb()).transaction(oe, "readwrite", {
+          durability: "relaxed",
+        });
+        await t.store.add(e), await t.done;
+      }
+      async getFirstEntryId() {
+        const e = await this.getDb(),
+          t = await e.transaction(oe).store.openCursor();
+        return null === t || void 0 === t ? void 0 : t.value.id;
+      }
+      async getAllEntriesByQueueName(e) {
+        const t = await this.getDb(),
+          s = await t.getAllFromIndex(oe, ce, IDBKeyRange.only(e));
+        return s || new Array();
+      }
+      async getEntryCountByQueueName(e) {
+        return (await this.getDb()).countFromIndex(oe, ce, IDBKeyRange.only(e));
+      }
+      async deleteEntry(e) {
+        const t = await this.getDb();
+        await t.delete(oe, e);
+      }
+      async getFirstEntryByQueueName(e) {
+        return await this.getEndEntryFromIndex(IDBKeyRange.only(e), "next");
+      }
+      async getLastEntryByQueueName(e) {
+        return await this.getEndEntryFromIndex(IDBKeyRange.only(e), "prev");
+      }
+      async getEndEntryFromIndex(e, t) {
+        const s = await this.getDb(),
+          n = await s.transaction(oe).store.index(ce).openCursor(e, t);
+        return null === n || void 0 === n ? void 0 : n.value;
+      }
+      async getDb() {
         return (
-          n(r, [
-            {
-              key: "_handle",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t, r) {
-                    var n, a, s, i, u, c, o, h;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (n = []),
-                                (a = []),
-                                this._networkTimeoutSeconds &&
-                                  ((i = this._getTimeoutPromise({
-                                    request: t,
-                                    logs: n,
-                                    handler: r,
-                                  })),
-                                  (u = i.id),
-                                  (c = i.promise),
-                                  (s = u),
-                                  a.push(c)),
-                                (o = this._getNetworkPromise({
-                                  timeoutId: s,
-                                  request: t,
-                                  logs: n,
-                                  handler: r,
-                                })),
-                                a.push(o),
-                                (e.next = 8),
-                                r.waitUntil(
-                                  R(
-                                    q().mark(function e() {
-                                      return q().wrap(function (e) {
-                                        for (;;)
-                                          switch ((e.prev = e.next)) {
-                                            case 0:
-                                              return (
-                                                (e.next = 2),
-                                                r.waitUntil(Promise.race(a))
-                                              );
-                                            case 2:
-                                              if (((e.t0 = e.sent), e.t0)) {
-                                                e.next = 7;
-                                                break;
-                                              }
-                                              return (e.next = 6), o;
-                                            case 6:
-                                              e.t0 = e.sent;
-                                            case 7:
-                                              return e.abrupt("return", e.t0);
-                                            case 8:
-                                            case "end":
-                                              return e.stop();
-                                          }
-                                      }, e);
-                                    })
-                                  )()
-                                )
-                              );
-                            case 8:
-                              if ((h = e.sent)) {
-                                e.next = 12;
-                                break;
-                              }
-                              throw new d("no-response", { url: t.url });
-                            case 12:
-                              return e.abrupt("return", h);
-                            case 13:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t, r) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "_getTimeoutPromise",
-              value: function (e) {
-                var t,
-                  r = this,
-                  n = e.request,
-                  a = (e.logs, e.handler),
-                  s = new Promise(function (e) {
-                    var s = (function () {
-                      var t = R(
-                        q().mark(function t() {
-                          return q().wrap(function (t) {
-                            for (;;)
-                              switch ((t.prev = t.next)) {
-                                case 0:
-                                  return (
-                                    (t.t0 = e), (t.next = 4), a.cacheMatch(n)
-                                  );
-                                case 4:
-                                  (t.t1 = t.sent), (0, t.t0)(t.t1);
-                                case 6:
-                                case "end":
-                                  return t.stop();
-                              }
-                          }, t);
-                        })
-                      );
-                      return function () {
-                        return t.apply(this, arguments);
-                      };
-                    })();
-                    t = setTimeout(s, 1e3 * r._networkTimeoutSeconds);
-                  });
-                return { promise: s, id: t };
-              },
-            },
-            {
-              key: "_getNetworkPromise",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    var r, n, a, s, i;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (r = t.timeoutId),
-                                (n = t.request),
-                                t.logs,
-                                (a = t.handler),
-                                (e.prev = 1),
-                                (e.next = 4),
-                                a.fetchAndCachePut(n)
-                              );
-                            case 4:
-                              (i = e.sent), (e.next = 10);
-                              break;
-                            case 7:
-                              (e.prev = 7),
-                                (e.t0 = e.catch(1)),
-                                e.t0 instanceof Error && (s = e.t0);
-                            case 10:
-                              if ((r && clearTimeout(r), !s && i)) {
-                                e.next = 17;
-                                break;
-                              }
-                              return (e.next = 15), a.cacheMatch(n);
-                            case 15:
-                              i = e.sent;
-                            case 17:
-                              return e.abrupt("return", i);
-                            case 18:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this,
-                      [[1, 7]]
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-          ]),
-          r
+          this._db ||
+            (this._db = await N("workbox-background-sync", 3, {
+              upgrade: this._upgradeDb,
+            })),
+          this._db
         );
-      })(we),
-      Be = (function (e) {
-        i(r, e);
-        var t = f(r);
-        function r() {
-          var e,
-            n =
-              arguments.length > 0 && void 0 !== arguments[0]
-                ? arguments[0]
-                : {};
-          return (
-            a(this, r),
-            ((e = t.call(this, n))._networkTimeoutSeconds =
-              n.networkTimeoutSeconds || 0),
-            e
-          );
-        }
-        return (
-          n(r, [
-            {
-              key: "_handle",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t, r) {
-                    var n, a, s, i;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (n = void 0),
-                                (e.prev = 2),
-                                (s = [r.fetch(t)]),
-                                this._networkTimeoutSeconds &&
-                                  ((i = K(1e3 * this._networkTimeoutSeconds)),
-                                  s.push(i)),
-                                (e.next = 7),
-                                Promise.race(s)
-                              );
-                            case 7:
-                              if ((a = e.sent)) {
-                                e.next = 10;
-                                break;
-                              }
-                              throw new Error(
-                                "Timed out the network response after " +
-                                  "".concat(
-                                    this._networkTimeoutSeconds,
-                                    " seconds."
-                                  )
-                              );
-                            case 10:
-                              e.next = 15;
-                              break;
-                            case 12:
-                              (e.prev = 12),
-                                (e.t0 = e.catch(2)),
-                                e.t0 instanceof Error && (n = e.t0);
-                            case 15:
-                              if (a) {
-                                e.next = 18;
-                                break;
-                              }
-                              throw new d("no-response", {
-                                url: t.url,
-                                error: n,
-                              });
-                            case 18:
-                              return e.abrupt("return", a);
-                            case 19:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this,
-                      [[2, 12]]
-                    );
-                  })
-                );
-                return function (t, r) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-          ]),
-          r
+      }
+      _upgradeDb(e, t) {
+        t > 0 &&
+          t < 3 &&
+          e.objectStoreNames.contains(oe) &&
+          e.deleteObjectStore(oe);
+        e.createObjectStore(oe, {
+          autoIncrement: !0,
+          keyPath: "id",
+        }).createIndex(ce, ce, { unique: !1 });
+      }
+    }
+    class ue {
+      constructor(e) {
+        (this._queueName = e), (this._queueDb = new he());
+      }
+      async pushEntry(e) {
+        delete e.id,
+          (e.queueName = this._queueName),
+          await this._queueDb.addEntry(e);
+      }
+      async unshiftEntry(e) {
+        const t = await this._queueDb.getFirstEntryId();
+        t ? (e.id = t - 1) : delete e.id,
+          (e.queueName = this._queueName),
+          await this._queueDb.addEntry(e);
+      }
+      async popEntry() {
+        return this._removeEntry(
+          await this._queueDb.getLastEntryByQueueName(this._queueName)
         );
-      })(we),
-      Fe = (function (e) {
-        i(r, e);
-        var t = f(r);
-        function r() {
-          var e,
-            n =
-              arguments.length > 0 && void 0 !== arguments[0]
-                ? arguments[0]
-                : {};
-          return (
-            a(this, r),
-            (e = t.call(this, n)).plugins.some(function (e) {
-              return "cacheWillUpdate" in e;
-            }) || e.plugins.unshift(Ke),
-            e
-          );
-        }
-        return (
-          n(r, [
-            {
-              key: "_handle",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t, r) {
-                    var n, a, s;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                [],
-                                (n = r
-                                  .fetchAndCachePut(t)
-                                  .catch(function () {})),
-                                r.waitUntil(n),
-                                (e.next = 6),
-                                r.cacheMatch(t)
-                              );
-                            case 6:
-                              if (!(a = e.sent)) {
-                                e.next = 11;
-                                break;
-                              }
-                              0, (e.next = 21);
-                              break;
-                            case 11:
-                              return (e.prev = 12), (e.next = 15), n;
-                            case 15:
-                              (a = e.sent), (e.next = 21);
-                              break;
-                            case 18:
-                              (e.prev = 18),
-                                (e.t0 = e.catch(12)),
-                                e.t0 instanceof Error && (s = e.t0);
-                            case 21:
-                              if (a) {
-                                e.next = 24;
-                                break;
-                              }
-                              throw new d("no-response", {
-                                url: t.url,
-                                error: s,
-                              });
-                            case 24:
-                              return e.abrupt("return", a);
-                            case 25:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this,
-                      [[12, 18]]
-                    );
-                  })
-                );
-                return function (t, r) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-          ]),
-          r
+      }
+      async shiftEntry() {
+        return this._removeEntry(
+          await this._queueDb.getFirstEntryByQueueName(this._queueName)
         );
-      })(we),
-      We = (r(642), "requests"),
-      He = "queueName",
-      Ge = (function () {
-        function e() {
-          a(this, e), (this._db = null);
-        }
+      }
+      async getAll() {
+        return await this._queueDb.getAllEntriesByQueueName(this._queueName);
+      }
+      async size() {
+        return await this._queueDb.getEntryCountByQueueName(this._queueName);
+      }
+      async deleteEntry(e) {
+        await this._queueDb.deleteEntry(e);
+      }
+      async _removeEntry(e) {
+        return e && (await this.deleteEntry(e.id)), e;
+      }
+    }
+    const le = [
+      "method",
+      "referrer",
+      "referrerPolicy",
+      "mode",
+      "credentials",
+      "cache",
+      "redirect",
+      "integrity",
+      "keepalive",
+    ];
+    class de {
+      static async fromRequest(e) {
+        const t = { url: e.url, headers: {} };
+        "GET" !== e.method && (t.body = await e.clone().arrayBuffer());
+        for (const [s, n] of e.headers.entries()) t.headers[s] = n;
+        for (const s of le) void 0 !== e[s] && (t[s] = e[s]);
+        return new de(t);
+      }
+      constructor(e) {
+        "navigate" === e.mode && (e.mode = "same-origin"),
+          (this._requestData = e);
+      }
+      toObject() {
+        const e = Object.assign({}, this._requestData);
         return (
-          n(e, [
-            {
-              key: "addEntry",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    var r, n;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (e.next = 2), this.getDb();
-                            case 2:
-                              return (
-                                (r = e.sent),
-                                (n = r.transaction(We, "readwrite", {
-                                  durability: "relaxed",
-                                })),
-                                (e.next = 6),
-                                n.store.add(t)
-                              );
-                            case 6:
-                              return (e.next = 8), n.done;
-                            case 8:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "getFirstEntryId",
-              value: (function () {
-                var e = R(
-                  q().mark(function e() {
-                    var t, r;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (e.next = 2), this.getDb();
-                            case 2:
-                              return (
-                                (t = e.sent),
-                                (e.next = 5),
-                                t.transaction(We).store.openCursor()
-                              );
-                            case 5:
-                              return (
-                                (r = e.sent),
-                                e.abrupt(
-                                  "return",
-                                  null === r || void 0 === r
-                                    ? void 0
-                                    : r.value.id
-                                )
-                              );
-                            case 7:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function () {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "getAllEntriesByQueueName",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    var r, n;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (e.next = 2), this.getDb();
-                            case 2:
-                              return (
-                                (r = e.sent),
-                                (e.next = 5),
-                                r.getAllFromIndex(We, He, IDBKeyRange.only(t))
-                              );
-                            case 5:
-                              return (
-                                (n = e.sent),
-                                e.abrupt("return", n || new Array())
-                              );
-                            case 7:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "getEntryCountByQueueName",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    var r;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (e.next = 2), this.getDb();
-                            case 2:
-                              return (
-                                (r = e.sent),
-                                e.abrupt(
-                                  "return",
-                                  r.countFromIndex(We, He, IDBKeyRange.only(t))
-                                )
-                              );
-                            case 4:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "deleteEntry",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    var r;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (e.next = 2), this.getDb();
-                            case 2:
-                              return (
-                                (r = e.sent), (e.next = 5), r.delete(We, t)
-                              );
-                            case 5:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "getFirstEntryByQueueName",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (e.next = 2),
-                                this.getEndEntryFromIndex(
-                                  IDBKeyRange.only(t),
-                                  "next"
-                                )
-                              );
-                            case 2:
-                              return e.abrupt("return", e.sent);
-                            case 3:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "getLastEntryByQueueName",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (e.next = 2),
-                                this.getEndEntryFromIndex(
-                                  IDBKeyRange.only(t),
-                                  "prev"
-                                )
-                              );
-                            case 2:
-                              return e.abrupt("return", e.sent);
-                            case 3:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "getEndEntryFromIndex",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t, r) {
-                    var n, a;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (e.next = 2), this.getDb();
-                            case 2:
-                              return (
-                                (n = e.sent),
-                                (e.next = 5),
-                                n
-                                  .transaction(We)
-                                  .store.index(He)
-                                  .openCursor(t, r)
-                              );
-                            case 5:
-                              return (
-                                (a = e.sent),
-                                e.abrupt(
-                                  "return",
-                                  null === a || void 0 === a ? void 0 : a.value
-                                )
-                              );
-                            case 7:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t, r) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "getDb",
-              value: (function () {
-                var e = R(
-                  q().mark(function e() {
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              if (this._db) {
-                                e.next = 4;
-                                break;
-                              }
-                              return (
-                                (e.next = 3),
-                                ae("workbox-background-sync", 3, {
-                                  upgrade: this._upgradeDb,
-                                })
-                              );
-                            case 3:
-                              this._db = e.sent;
-                            case 4:
-                              return e.abrupt("return", this._db);
-                            case 5:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function () {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "_upgradeDb",
-              value: function (e, t) {
-                t > 0 &&
-                  t < 3 &&
-                  e.objectStoreNames.contains(We) &&
-                  e.deleteObjectStore(We),
-                  e
-                    .createObjectStore(We, { autoIncrement: !0, keyPath: "id" })
-                    .createIndex(He, He, { unique: !1 });
-              },
-            },
-          ]),
+          (e.headers = Object.assign({}, this._requestData.headers)),
+          e.body && (e.body = e.body.slice(0)),
           e
         );
-      })(),
-      Qe = (function () {
-        function e(t) {
-          a(this, e), (this._queueName = t), (this._queueDb = new Ge());
-        }
-        return (
-          n(e, [
-            {
-              key: "pushEntry",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                delete t.id,
-                                (t.queueName = this._queueName),
-                                (e.next = 5),
-                                this._queueDb.addEntry(t)
-                              );
-                            case 5:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "unshiftEntry",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    var r;
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (e.next = 3), this._queueDb.getFirstEntryId()
-                              );
-                            case 3:
-                              return (
-                                (r = e.sent) ? (t.id = r - 1) : delete t.id,
-                                (t.queueName = this._queueName),
-                                (e.next = 8),
-                                this._queueDb.addEntry(t)
-                              );
-                            case 8:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "popEntry",
-              value: (function () {
-                var e = R(
-                  q().mark(function e() {
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (e.t0 = this),
-                                (e.next = 3),
-                                this._queueDb.getLastEntryByQueueName(
-                                  this._queueName
-                                )
-                              );
-                            case 3:
-                              return (
-                                (e.t1 = e.sent),
-                                e.abrupt(
-                                  "return",
-                                  e.t0._removeEntry.call(e.t0, e.t1)
-                                )
-                              );
-                            case 5:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function () {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "shiftEntry",
-              value: (function () {
-                var e = R(
-                  q().mark(function e() {
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (e.t0 = this),
-                                (e.next = 3),
-                                this._queueDb.getFirstEntryByQueueName(
-                                  this._queueName
-                                )
-                              );
-                            case 3:
-                              return (
-                                (e.t1 = e.sent),
-                                e.abrupt(
-                                  "return",
-                                  e.t0._removeEntry.call(e.t0, e.t1)
-                                )
-                              );
-                            case 5:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function () {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "getAll",
-              value: (function () {
-                var e = R(
-                  q().mark(function e() {
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (e.next = 2),
-                                this._queueDb.getAllEntriesByQueueName(
-                                  this._queueName
-                                )
-                              );
-                            case 2:
-                              return e.abrupt("return", e.sent);
-                            case 3:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function () {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "size",
-              value: (function () {
-                var e = R(
-                  q().mark(function e() {
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (e.next = 2),
-                                this._queueDb.getEntryCountByQueueName(
-                                  this._queueName
-                                )
-                              );
-                            case 2:
-                              return e.abrupt("return", e.sent);
-                            case 3:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function () {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "deleteEntry",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (e.next = 2), this._queueDb.deleteEntry(t);
-                            case 2:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-            {
-              key: "_removeEntry",
-              value: (function () {
-                var e = R(
-                  q().mark(function e(t) {
-                    return q().wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              if (!t) {
-                                e.next = 3;
-                                break;
-                              }
-                              return (e.next = 3), this.deleteEntry(t.id);
-                            case 3:
-                              return e.abrupt("return", t);
-                            case 4:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-          ]),
-          e
-        );
-      })(),
-      Ve = [
-        "method",
-        "referrer",
-        "referrerPolicy",
-        "mode",
-        "credentials",
-        "cache",
-        "redirect",
-        "integrity",
-        "keepalive",
-      ],
-      $e = (function () {
-        function e(t) {
-          a(this, e),
-            "navigate" === t.mode && (t.mode = "same-origin"),
-            (this._requestData = t);
-        }
-        return (
-          n(
-            e,
-            [
-              {
-                key: "toObject",
-                value: function () {
-                  var e = Object.assign({}, this._requestData);
-                  return (
-                    (e.headers = Object.assign({}, this._requestData.headers)),
-                    e.body && (e.body = e.body.slice(0)),
-                    e
-                  );
-                },
-              },
-              {
-                key: "toRequest",
-                value: function () {
-                  return new Request(this._requestData.url, this._requestData);
-                },
-              },
-              {
-                key: "clone",
-                value: function () {
-                  return new e(this.toObject());
-                },
-              },
-            ],
-            [
-              {
-                key: "fromRequest",
-                value: (function () {
-                  var t = R(
-                    q().mark(function t(r) {
-                      var n, a, s, i, u, c, o, h, f;
-                      return q().wrap(function (t) {
-                        for (;;)
-                          switch ((t.prev = t.next)) {
-                            case 0:
-                              if (
-                                ((n = { url: r.url, headers: {} }),
-                                "GET" === r.method)
-                              ) {
-                                t.next = 5;
-                                break;
-                              }
-                              return (t.next = 4), r.clone().arrayBuffer();
-                            case 4:
-                              n.body = t.sent;
-                            case 5:
-                              a = D(r.headers.entries());
-                              try {
-                                for (a.s(); !(s = a.n()).done; )
-                                  (i = pe(s.value, 2)),
-                                    (u = i[0]),
-                                    (c = i[1]),
-                                    (n.headers[u] = c);
-                              } catch (l) {
-                                a.e(l);
-                              } finally {
-                                a.f();
-                              }
-                              o = D(Ve);
-                              try {
-                                for (o.s(); !(h = o.n()).done; )
-                                  (f = h.value),
-                                    void 0 !== r[f] && (n[f] = r[f]);
-                              } catch (l) {
-                                o.e(l);
-                              } finally {
-                                o.f();
-                              }
-                              return t.abrupt("return", new e(n));
-                            case 10:
-                            case "end":
-                              return t.stop();
-                          }
-                      }, t);
-                    })
-                  );
-                  return function (e) {
-                    return t.apply(this, arguments);
-                  };
-                })(),
-              },
-            ]
-          ),
-          e
-        );
-      })(),
-      ze = "workbox-background-sync",
-      Ye = new Set(),
-      Je = function (e) {
-        var t = {
-          request: new $e(e.requestData).toRequest(),
+      }
+      toRequest() {
+        return new Request(this._requestData.url, this._requestData);
+      }
+      clone() {
+        return new de(this.toObject());
+      }
+    }
+    const fe = "workbox-background-sync",
+      pe = new Set(),
+      ge = (e) => {
+        const t = {
+          request: new de(e.requestData).toRequest(),
           timestamp: e.timestamp,
         };
         return e.metadata && (t.metadata = e.metadata), t;
-      },
-      Xe = (function () {
-        function e(t) {
-          var r =
-              arguments.length > 1 && void 0 !== arguments[1]
-                ? arguments[1]
-                : {},
-            n = r.forceSyncFallback,
-            s = r.onSync,
-            i = r.maxRetentionTime;
-          if (
-            (a(this, e),
-            (this._syncInProgress = !1),
-            (this._requestsAddedDuringSync = !1),
-            Ye.has(t))
-          )
-            throw new d("duplicate-queue-name", { name: t });
-          Ye.add(t),
-            (this._name = t),
-            (this._onSync = s || this.replayRequests),
-            (this._maxRetentionTime = i || 10080),
-            (this._forceSyncFallback = Boolean(n)),
-            (this._queueStore = new Qe(this._name)),
-            this._addSyncListener();
+      };
+    class ye {
+      constructor(e) {
+        let {
+          forceSyncFallback: s,
+          onSync: n,
+          maxRetentionTime: a,
+        } = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
+        if (
+          ((this._syncInProgress = !1),
+          (this._requestsAddedDuringSync = !1),
+          pe.has(e))
+        )
+          throw new t("duplicate-queue-name", { name: e });
+        pe.add(e),
+          (this._name = e),
+          (this._onSync = n || this.replayRequests),
+          (this._maxRetentionTime = a || 10080),
+          (this._forceSyncFallback = Boolean(s)),
+          (this._queueStore = new ue(this._name)),
+          this._addSyncListener();
+      }
+      get name() {
+        return this._name;
+      }
+      async pushRequest(e) {
+        await this._addRequest(e, "push");
+      }
+      async unshiftRequest(e) {
+        await this._addRequest(e, "unshift");
+      }
+      async popRequest() {
+        return this._removeRequest("pop");
+      }
+      async shiftRequest() {
+        return this._removeRequest("shift");
+      }
+      async getAll() {
+        const e = await this._queueStore.getAll(),
+          t = Date.now(),
+          s = [];
+        for (const n of e) {
+          const e = 60 * this._maxRetentionTime * 1e3;
+          t - n.timestamp > e
+            ? await this._queueStore.deleteEntry(n.id)
+            : s.push(ge(n));
         }
-        return (
-          n(
-            e,
-            [
-              {
-                key: "name",
-                get: function () {
-                  return this._name;
-                },
-              },
-              {
-                key: "pushRequest",
-                value: (function () {
-                  var e = R(
-                    q().mark(function e(t) {
-                      return q().wrap(
-                        function (e) {
-                          for (;;)
-                            switch ((e.prev = e.next)) {
-                              case 0:
-                                return (
-                                  (e.next = 3), this._addRequest(t, "push")
-                                );
-                              case 3:
-                              case "end":
-                                return e.stop();
-                            }
-                        },
-                        e,
-                        this
-                      );
-                    })
-                  );
-                  return function (t) {
-                    return e.apply(this, arguments);
-                  };
-                })(),
-              },
-              {
-                key: "unshiftRequest",
-                value: (function () {
-                  var e = R(
-                    q().mark(function e(t) {
-                      return q().wrap(
-                        function (e) {
-                          for (;;)
-                            switch ((e.prev = e.next)) {
-                              case 0:
-                                return (
-                                  (e.next = 3), this._addRequest(t, "unshift")
-                                );
-                              case 3:
-                              case "end":
-                                return e.stop();
-                            }
-                        },
-                        e,
-                        this
-                      );
-                    })
-                  );
-                  return function (t) {
-                    return e.apply(this, arguments);
-                  };
-                })(),
-              },
-              {
-                key: "popRequest",
-                value: (function () {
-                  var e = R(
-                    q().mark(function e() {
-                      return q().wrap(
-                        function (e) {
-                          for (;;)
-                            switch ((e.prev = e.next)) {
-                              case 0:
-                                return e.abrupt(
-                                  "return",
-                                  this._removeRequest("pop")
-                                );
-                              case 1:
-                              case "end":
-                                return e.stop();
-                            }
-                        },
-                        e,
-                        this
-                      );
-                    })
-                  );
-                  return function () {
-                    return e.apply(this, arguments);
-                  };
-                })(),
-              },
-              {
-                key: "shiftRequest",
-                value: (function () {
-                  var e = R(
-                    q().mark(function e() {
-                      return q().wrap(
-                        function (e) {
-                          for (;;)
-                            switch ((e.prev = e.next)) {
-                              case 0:
-                                return e.abrupt(
-                                  "return",
-                                  this._removeRequest("shift")
-                                );
-                              case 1:
-                              case "end":
-                                return e.stop();
-                            }
-                        },
-                        e,
-                        this
-                      );
-                    })
-                  );
-                  return function () {
-                    return e.apply(this, arguments);
-                  };
-                })(),
-              },
-              {
-                key: "getAll",
-                value: (function () {
-                  var e = R(
-                    q().mark(function e() {
-                      var t, r, n, a, s, i, u;
-                      return q().wrap(
-                        function (e) {
-                          for (;;)
-                            switch ((e.prev = e.next)) {
-                              case 0:
-                                return (e.next = 2), this._queueStore.getAll();
-                              case 2:
-                                (t = e.sent),
-                                  (r = Date.now()),
-                                  (n = []),
-                                  (a = D(t)),
-                                  (e.prev = 6),
-                                  a.s();
-                              case 8:
-                                if ((s = a.n()).done) {
-                                  e.next = 19;
-                                  break;
-                                }
-                                if (
-                                  ((i = s.value),
-                                  (u = 60 * this._maxRetentionTime * 1e3),
-                                  !(r - i.timestamp > u))
-                                ) {
-                                  e.next = 16;
-                                  break;
-                                }
-                                return (
-                                  (e.next = 14),
-                                  this._queueStore.deleteEntry(i.id)
-                                );
-                              case 14:
-                                e.next = 17;
-                                break;
-                              case 16:
-                                n.push(Je(i));
-                              case 17:
-                                e.next = 8;
-                                break;
-                              case 19:
-                                e.next = 24;
-                                break;
-                              case 21:
-                                (e.prev = 21), (e.t0 = e.catch(6)), a.e(e.t0);
-                              case 24:
-                                return (e.prev = 24), a.f(), e.finish(24);
-                              case 27:
-                                return e.abrupt("return", n);
-                              case 28:
-                              case "end":
-                                return e.stop();
-                            }
-                        },
-                        e,
-                        this,
-                        [[6, 21, 24, 27]]
-                      );
-                    })
-                  );
-                  return function () {
-                    return e.apply(this, arguments);
-                  };
-                })(),
-              },
-              {
-                key: "size",
-                value: (function () {
-                  var e = R(
-                    q().mark(function e() {
-                      return q().wrap(
-                        function (e) {
-                          for (;;)
-                            switch ((e.prev = e.next)) {
-                              case 0:
-                                return (e.next = 2), this._queueStore.size();
-                              case 2:
-                                return e.abrupt("return", e.sent);
-                              case 3:
-                              case "end":
-                                return e.stop();
-                            }
-                        },
-                        e,
-                        this
-                      );
-                    })
-                  );
-                  return function () {
-                    return e.apply(this, arguments);
-                  };
-                })(),
-              },
-              {
-                key: "_addRequest",
-                value: (function () {
-                  var e = R(
-                    q().mark(function e(t, r) {
-                      var n, a, s, i, u, c;
-                      return q().wrap(
-                        function (e) {
-                          for (;;)
-                            switch ((e.prev = e.next)) {
-                              case 0:
-                                return (
-                                  (n = t.request),
-                                  (a = t.metadata),
-                                  (s = t.timestamp),
-                                  (i = void 0 === s ? Date.now() : s),
-                                  (e.next = 3),
-                                  $e.fromRequest(n.clone())
-                                );
-                              case 3:
-                                (u = e.sent),
-                                  (c = {
-                                    requestData: u.toObject(),
-                                    timestamp: i,
-                                  }),
-                                  a && (c.metadata = a),
-                                  (e.t0 = r),
-                                  (e.next =
-                                    "push" === e.t0
-                                      ? 9
-                                      : "unshift" === e.t0
-                                      ? 12
-                                      : 15);
-                                break;
-                              case 9:
-                                return (
-                                  (e.next = 11), this._queueStore.pushEntry(c)
-                                );
-                              case 11:
-                              case 14:
-                                return e.abrupt("break", 15);
-                              case 12:
-                                return (
-                                  (e.next = 14),
-                                  this._queueStore.unshiftEntry(c)
-                                );
-                              case 15:
-                                if (!this._syncInProgress) {
-                                  e.next = 20;
-                                  break;
-                                }
-                                (this._requestsAddedDuringSync = !0),
-                                  (e.next = 22);
-                                break;
-                              case 20:
-                                return (e.next = 22), this.registerSync();
-                              case 22:
-                              case "end":
-                                return e.stop();
-                            }
-                        },
-                        e,
-                        this
-                      );
-                    })
-                  );
-                  return function (t, r) {
-                    return e.apply(this, arguments);
-                  };
-                })(),
-              },
-              {
-                key: "_removeRequest",
-                value: (function () {
-                  var e = R(
-                    q().mark(function e(t) {
-                      var r, n, a;
-                      return q().wrap(
-                        function (e) {
-                          for (;;)
-                            switch ((e.prev = e.next)) {
-                              case 0:
-                                (r = Date.now()),
-                                  (e.t0 = t),
-                                  (e.next =
-                                    "pop" === e.t0
-                                      ? 4
-                                      : "shift" === e.t0
-                                      ? 8
-                                      : 12);
-                                break;
-                              case 4:
-                                return (
-                                  (e.next = 6), this._queueStore.popEntry()
-                                );
-                              case 6:
-                              case 10:
-                                return (n = e.sent), e.abrupt("break", 12);
-                              case 8:
-                                return (
-                                  (e.next = 10), this._queueStore.shiftEntry()
-                                );
-                              case 12:
-                                if (!n) {
-                                  e.next = 19;
-                                  break;
-                                }
-                                if (
-                                  ((a = 60 * this._maxRetentionTime * 1e3),
-                                  !(r - n.timestamp > a))
-                                ) {
-                                  e.next = 16;
-                                  break;
-                                }
-                                return e.abrupt(
-                                  "return",
-                                  this._removeRequest(t)
-                                );
-                              case 16:
-                                return e.abrupt("return", Je(n));
-                              case 19:
-                                return e.abrupt("return", void 0);
-                              case 20:
-                              case "end":
-                                return e.stop();
-                            }
-                        },
-                        e,
-                        this
-                      );
-                    })
-                  );
-                  return function (t) {
-                    return e.apply(this, arguments);
-                  };
-                })(),
-              },
-              {
-                key: "replayRequests",
-                value: (function () {
-                  var e = R(
-                    q().mark(function e() {
-                      var t;
-                      return q().wrap(
-                        function (e) {
-                          for (;;)
-                            switch ((e.prev = e.next)) {
-                              case 0:
-                                return (e.next = 2), this.shiftRequest();
-                              case 2:
-                                if (!(t = e.sent)) {
-                                  e.next = 17;
-                                  break;
-                                }
-                                return (
-                                  (e.prev = 3),
-                                  (e.next = 6),
-                                  fetch(t.request.clone())
-                                );
-                              case 6:
-                                0, (e.next = 15);
-                                break;
-                              case 9:
-                                return (
-                                  (e.prev = 9),
-                                  (e.t0 = e.catch(3)),
-                                  (e.next = 13),
-                                  this.unshiftRequest(t)
-                                );
-                              case 13:
-                                throw new d("queue-replay-failed", {
-                                  name: this._name,
-                                });
-                              case 15:
-                                e.next = 0;
-                                break;
-                              case 17:
-                                0;
-                              case 18:
-                              case "end":
-                                return e.stop();
-                            }
-                        },
-                        e,
-                        this,
-                        [[3, 9]]
-                      );
-                    })
-                  );
-                  return function () {
-                    return e.apply(this, arguments);
-                  };
-                })(),
-              },
-              {
-                key: "registerSync",
-                value: (function () {
-                  var e = R(
-                    q().mark(function e() {
-                      return q().wrap(
-                        function (e) {
-                          for (;;)
-                            switch ((e.prev = e.next)) {
-                              case 0:
-                                if (
-                                  !("sync" in self.registration) ||
-                                  this._forceSyncFallback
-                                ) {
-                                  e.next = 9;
-                                  break;
-                                }
-                                return (
-                                  (e.prev = 1),
-                                  (e.next = 4),
-                                  self.registration.sync.register(
-                                    "".concat(ze, ":").concat(this._name)
-                                  )
-                                );
-                              case 4:
-                                e.next = 9;
-                                break;
-                              case 6:
-                                (e.prev = 6), (e.t0 = e.catch(1));
-                              case 9:
-                              case "end":
-                                return e.stop();
-                            }
-                        },
-                        e,
-                        this,
-                        [[1, 6]]
-                      );
-                    })
-                  );
-                  return function () {
-                    return e.apply(this, arguments);
-                  };
-                })(),
-              },
-              {
-                key: "_addSyncListener",
-                value: function () {
-                  var e = this;
-                  "sync" in self.registration && !this._forceSyncFallback
-                    ? self.addEventListener("sync", function (t) {
-                        if (t.tag === "".concat(ze, ":").concat(e._name)) {
-                          0;
-                          var r = (function () {
-                            var r = R(
-                              q().mark(function r() {
-                                var n;
-                                return q().wrap(
-                                  function (r) {
-                                    for (;;)
-                                      switch ((r.prev = r.next)) {
-                                        case 0:
-                                          return (
-                                            (e._syncInProgress = !0),
-                                            (r.prev = 1),
-                                            (r.next = 4),
-                                            e._onSync({ queue: e })
-                                          );
-                                        case 4:
-                                          r.next = 11;
-                                          break;
-                                        case 6:
-                                          if (
-                                            ((r.prev = 6),
-                                            (r.t0 = r.catch(1)),
-                                            !(r.t0 instanceof Error))
-                                          ) {
-                                            r.next = 11;
-                                            break;
-                                          }
-                                          throw (n = r.t0);
-                                        case 11:
-                                          if (
-                                            ((r.prev = 11),
-                                            !e._requestsAddedDuringSync ||
-                                              (n && !t.lastChance))
-                                          ) {
-                                            r.next = 15;
-                                            break;
-                                          }
-                                          return (
-                                            (r.next = 15), e.registerSync()
-                                          );
-                                        case 15:
-                                          return (
-                                            (e._syncInProgress = !1),
-                                            (e._requestsAddedDuringSync = !1),
-                                            r.finish(11)
-                                          );
-                                        case 18:
-                                        case "end":
-                                          return r.stop();
-                                      }
-                                  },
-                                  r,
-                                  null,
-                                  [[1, 6, 11, 18]]
-                                );
-                              })
-                            );
-                            return function () {
-                              return r.apply(this, arguments);
-                            };
-                          })();
-                          t.waitUntil(r());
-                        }
-                      })
-                    : this._onSync({ queue: this });
-                },
-              },
-            ],
-            [
-              {
-                key: "_queueNames",
-                get: function () {
-                  return Ye;
-                },
-              },
-            ]
-          ),
-          e
-        );
-      })(),
-      Ze = n(function e(t, r) {
-        var n = this;
-        a(this, e),
-          (this.fetchDidFail = (function () {
-            var e = R(
-              q().mark(function e(t) {
-                var r;
-                return q().wrap(function (e) {
-                  for (;;)
-                    switch ((e.prev = e.next)) {
-                      case 0:
-                        return (
-                          (r = t.request),
-                          (e.next = 3),
-                          n._queue.pushRequest({ request: r })
-                        );
-                      case 3:
-                      case "end":
-                        return e.stop();
-                    }
-                }, e);
-              })
+        return s;
+      }
+      async size() {
+        return await this._queueStore.size();
+      }
+      async _addRequest(e, t) {
+        let { request: s, metadata: n, timestamp: a = Date.now() } = e;
+        const r = {
+          requestData: (await de.fromRequest(s.clone())).toObject(),
+          timestamp: a,
+        };
+        switch ((n && (r.metadata = n), t)) {
+          case "push":
+            await this._queueStore.pushEntry(r);
+            break;
+          case "unshift":
+            await this._queueStore.unshiftEntry(r);
+        }
+        this._syncInProgress
+          ? (this._requestsAddedDuringSync = !0)
+          : await this.registerSync();
+      }
+      async _removeRequest(e) {
+        const t = Date.now();
+        let s;
+        switch (e) {
+          case "pop":
+            s = await this._queueStore.popEntry();
+            break;
+          case "shift":
+            s = await this._queueStore.shiftEntry();
+        }
+        if (s) {
+          const n = 60 * this._maxRetentionTime * 1e3;
+          return t - s.timestamp > n ? this._removeRequest(e) : ge(s);
+        }
+      }
+      async replayRequests() {
+        let e;
+        for (; (e = await this.shiftRequest()); )
+          try {
+            await fetch(e.request.clone());
+          } catch (s) {
+            throw (
+              (await this.unshiftRequest(e),
+              new t("queue-replay-failed", { name: this._name }))
             );
-            return function (t) {
-              return e.apply(this, arguments);
-            };
-          })()),
-          (this._queue = new Xe(t, r));
-      }),
-      et = (r(988), "workbox-google-analytics"),
-      tt = "www.google-analytics.com",
-      rt = "www.googletagmanager.com",
-      nt = /^\/(\w+\/)?collect/,
-      at = function (e) {
-        return (function () {
-          var t = R(
-            q().mark(function t(r) {
-              var n, a, s, i, u, c, o, h, f, l, p, v, d;
-              return q().wrap(
-                function (t) {
-                  for (;;)
-                    switch ((t.prev = t.next)) {
-                      case 0:
-                        n = r.queue;
-                      case 1:
-                        return (t.next = 3), n.shiftRequest();
-                      case 3:
-                        if (!(a = t.sent)) {
-                          t.next = 35;
-                          break;
-                        }
-                        if (
-                          ((i = (s = a).request),
-                          (u = s.timestamp),
-                          (c = new URL(i.url)),
-                          (t.prev = 6),
-                          "POST" !== i.method)
-                        ) {
-                          t.next = 15;
-                          break;
-                        }
-                        return (
-                          (t.t1 = URLSearchParams),
-                          (t.next = 11),
-                          i.clone().text()
-                        );
-                      case 11:
-                        (t.t2 = t.sent), (t.t0 = new t.t1(t.t2)), (t.next = 16);
-                        break;
-                      case 15:
-                        t.t0 = c.searchParams;
-                      case 16:
-                        if (
-                          ((o = t.t0),
-                          (h = u - (Number(o.get("qt")) || 0)),
-                          (f = Date.now() - h),
-                          o.set("qt", String(f)),
-                          e.parameterOverrides)
-                        )
-                          for (
-                            l = 0, p = Object.keys(e.parameterOverrides);
-                            l < p.length;
-                            l++
-                          )
-                            (v = p[l]),
-                              (d = e.parameterOverrides[v]),
-                              o.set(v, d);
-                        return (
-                          "function" === typeof e.hitFilter &&
-                            e.hitFilter.call(null, o),
-                          (t.next = 24),
-                          fetch(
-                            new Request(c.origin + c.pathname, {
-                              body: o.toString(),
-                              method: "POST",
-                              mode: "cors",
-                              credentials: "omit",
-                              headers: { "Content-Type": "text/plain" },
-                            })
-                          )
-                        );
-                      case 24:
-                        0, (t.next = 33);
-                        break;
-                      case 27:
-                        return (
-                          (t.prev = 27),
-                          (t.t3 = t.catch(6)),
-                          (t.next = 31),
-                          n.unshiftRequest(a)
-                        );
-                      case 31:
-                        throw t.t3;
-                      case 33:
-                        t.next = 1;
-                        break;
-                      case 35:
-                        0;
-                      case 36:
-                      case "end":
-                        return t.stop();
-                    }
-                },
-                t,
-                null,
-                [[6, 27]]
-              );
+          }
+      }
+      async registerSync() {
+        if ("sync" in self.registration && !this._forceSyncFallback)
+          try {
+            await self.registration.sync.register(
+              "".concat(fe, ":").concat(this._name)
+            );
+          } catch (e) {
+            0;
+          }
+      }
+      _addSyncListener() {
+        "sync" in self.registration && !this._forceSyncFallback
+          ? self.addEventListener("sync", (e) => {
+              if (e.tag === "".concat(fe, ":").concat(this._name)) {
+                0;
+                const t = async () => {
+                  let t;
+                  this._syncInProgress = !0;
+                  try {
+                    await this._onSync({ queue: this });
+                  } catch (s) {
+                    if (s instanceof Error) throw ((t = s), t);
+                  } finally {
+                    !this._requestsAddedDuringSync ||
+                      (t && !e.lastChance) ||
+                      (await this.registerSync()),
+                      (this._syncInProgress = !1),
+                      (this._requestsAddedDuringSync = !1);
+                  }
+                };
+                e.waitUntil(t());
+              }
             })
-          );
-          return function (e) {
-            return t.apply(this, arguments);
-          };
-        })();
-      },
-      st = function (e) {
-        var t = function (e) {
-            var t = e.url;
-            return t.hostname === tt && nt.test(t.pathname);
+          : this._onSync({ queue: this });
+      }
+      static get _queueNames() {
+        return pe;
+      }
+    }
+    class me {
+      constructor(e, t) {
+        (this.fetchDidFail = async (e) => {
+          let { request: t } = e;
+          await this._queue.pushRequest({ request: t });
+        }),
+          (this._queue = new ye(e, t));
+      }
+    }
+    s(973);
+    const we = "www.google-analytics.com",
+      _e = "www.googletagmanager.com",
+      be = /^\/(\w+\/)?collect/,
+      ve = (e) => {
+        const t = (e) => {
+            let { url: t } = e;
+            return t.hostname === we && be.test(t.pathname);
           },
-          r = new Be({ plugins: [e] });
-        return [new De(t, r, "GET"), new De(t, r, "POST")];
+          s = new re({ plugins: [e] });
+        return [new J(t, s, "GET"), new J(t, s, "POST")];
       },
-      it = function (e) {
-        var t = new Me({ cacheName: e });
-        return new De(
-          function (e) {
-            var t = e.url;
-            return t.hostname === tt && "/analytics.js" === t.pathname;
+      qe = (e) => {
+        const t = new ae({ cacheName: e });
+        return new J(
+          (e) => {
+            let { url: t } = e;
+            return t.hostname === we && "/analytics.js" === t.pathname;
           },
           t,
           "GET"
         );
       },
-      ut = function (e) {
-        var t = new Me({ cacheName: e });
-        return new De(
-          function (e) {
-            var t = e.url;
-            return t.hostname === rt && "/gtag/js" === t.pathname;
+      Re = (e) => {
+        const t = new ae({ cacheName: e });
+        return new J(
+          (e) => {
+            let { url: t } = e;
+            return t.hostname === _e && "/gtag/js" === t.pathname;
           },
           t,
           "GET"
         );
       },
-      ct = function (e) {
-        var t = new Me({ cacheName: e });
-        return new De(
-          function (e) {
-            var t = e.url;
-            return t.hostname === rt && "/gtm.js" === t.pathname;
+      Ee = (e) => {
+        const t = new ae({ cacheName: e });
+        return new J(
+          (e) => {
+            let { url: t } = e;
+            return t.hostname === _e && "/gtm.js" === t.pathname;
           },
           t,
           "GET"
         );
       };
+    var xe;
     !(function () {
-      var e,
-        t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
-        r = w(t.cacheName),
-        n = new Ze(et, { maxRetentionTime: 2880, onSync: at(t) }),
-        a = [ct(r), it(r), ut(r)].concat(de(st(n))),
-        s = new Te(),
-        i = D(a);
-      try {
-        for (i.s(); !(e = i.n()).done; ) {
-          var u = e.value;
-          s.registerRoute(u);
-        }
-      } catch (c) {
-        i.e(c);
-      } finally {
-        i.f();
-      }
-      s.addFetchListener();
+      let e =
+        arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+      const t = i(e.cacheName),
+        s = new me("workbox-google-analytics", {
+          maxRetentionTime: 2880,
+          onSync:
+            ((n = e),
+            async (e) => {
+              let t,
+                { queue: s } = e;
+              for (; (t = await s.shiftRequest()); ) {
+                const { request: e, timestamp: r } = t,
+                  i = new URL(e.url);
+                try {
+                  const t =
+                      "POST" === e.method
+                        ? new URLSearchParams(await e.clone().text())
+                        : i.searchParams,
+                    s = r - (Number(t.get("qt")) || 0),
+                    a = Date.now() - s;
+                  if ((t.set("qt", String(a)), n.parameterOverrides))
+                    for (const e of Object.keys(n.parameterOverrides)) {
+                      const s = n.parameterOverrides[e];
+                      t.set(e, s);
+                    }
+                  "function" === typeof n.hitFilter &&
+                    n.hitFilter.call(null, t),
+                    await fetch(
+                      new Request(i.origin + i.pathname, {
+                        body: t.toString(),
+                        method: "POST",
+                        mode: "cors",
+                        credentials: "omit",
+                        headers: { "Content-Type": "text/plain" },
+                      })
+                    );
+                } catch (a) {
+                  throw (await s.unshiftRequest(t), a);
+                }
+              }
+            }),
+        });
+      var n;
+      const a = [Ee(t), qe(t), Re(t), ...ve(s)],
+        r = new Y();
+      for (const i of a) r.registerRoute(i);
+      r.addFetchListener();
     })(),
-      self.addEventListener("activate", function () {
-        return self.clients.claim();
-      }),
+      self.addEventListener("activate", () => self.clients.claim()),
       (function (e) {
-        Ee().precache(e);
+        z().precache(e);
       })([
         {
-          revision: "1a0582ed0d0a99d18fbcd22ed4475a13",
+          revision: "bc640aa867fd63e4cca7c0baeffd7324",
           url: "./index.html",
         },
-        { revision: null, url: "./static/css/main.6bcd350a.css" },
-        { revision: null, url: "./static/js/124.d4c2bd60.chunk.js" },
-        { revision: null, url: "./static/js/126.0745b633.chunk.js" },
-        { revision: null, url: "./static/js/173.06aaf120.chunk.js" },
-        { revision: null, url: "./static/js/191.8b1fd33a.chunk.js" },
-        { revision: null, url: "./static/js/394.7eeaddb7.chunk.js" },
-        { revision: null, url: "./static/js/688.03565789.chunk.js" },
-        { revision: null, url: "./static/js/885.6db71e5c.chunk.js" },
-        { revision: null, url: "./static/js/911.95d10796.chunk.js" },
-        { revision: null, url: "./static/js/940.9724fd4b.chunk.js" },
-        { revision: null, url: "./static/js/main.d8e084fa.js" },
+        { revision: null, url: "./static/css/main.da2667bc.css" },
+        { revision: null, url: "./static/js/180.1094752b.chunk.js" },
+        { revision: null, url: "./static/js/284.058fd6d6.chunk.js" },
+        { revision: null, url: "./static/js/321.39608cdd.chunk.js" },
+        { revision: null, url: "./static/js/455.c847dff7.chunk.js" },
+        { revision: null, url: "./static/js/51.d4915333.chunk.js" },
+        { revision: null, url: "./static/js/648.73157f28.chunk.js" },
+        { revision: null, url: "./static/js/673.d3cd7235.chunk.js" },
+        { revision: null, url: "./static/js/697.669ade44.chunk.js" },
+        { revision: null, url: "./static/js/813.8e63b726.chunk.js" },
+        { revision: null, url: "./static/js/main.84cef40e.js" },
         {
           revision: null,
           url: "./static/media/CinzelDecorative-Bold.4701e9921703cb64dfce.ttf",
@@ -6149,35 +1761,105 @@
         },
       ]),
       (function (e) {
-        var t = Ee();
-        Ne(new Ue(t, e));
-      })(Ae);
-    var ot,
-      ht = new RegExp("/[^/?]+\\.[^/]+$");
-    Ne(function (e) {
-      var t = e.request,
-        r = e.url;
+        const t = z();
+        te(new se(t, e));
+      })(xe);
+    const De = new RegExp("/[^/?]+\\.[^/]+$");
+    var Ce;
+    te((e) => {
+      let { request: t, url: s } = e;
       return (
         "navigate" === t.mode &&
-        !r.pathname.startsWith("/_") &&
-        !r.pathname.match(ht)
+        !s.pathname.startsWith("/_") &&
+        !s.pathname.match(De)
       );
-    }, ((ot = "./index.html"), Ee().createHandlerBoundToURL(ot))),
-      Ne(function (e) {
-        var t = e.url;
-        return (
-          t.origin === self.location.origin &&
-          (t.pathname.endsWith(".png") || t.pathname.endsWith(".webp"))
-        );
-      }, new Fe({
-        cacheName: "images",
-        plugins: [new ve({ maxEntries: 50 })],
-      })),
-      Ne(function (e) {
-        var t = e.url;
+    }, ((Ce = "./index.html"), z().createHandlerBoundToURL(Ce))),
+      te(
+        (e) => {
+          let { url: t } = e;
+          return (
+            t.origin === self.location.origin &&
+            (t.pathname.endsWith(".png") || t.pathname.endsWith(".webp"))
+          );
+        },
+        new ie({
+          cacheName: "images",
+          plugins: [
+            new (class {
+              constructor() {
+                let e =
+                  arguments.length > 0 && void 0 !== arguments[0]
+                    ? arguments[0]
+                    : {};
+                (this.cachedResponseWillBeUsed = async (e) => {
+                  let {
+                    event: t,
+                    request: s,
+                    cacheName: n,
+                    cachedResponse: a,
+                  } = e;
+                  if (!a) return null;
+                  const r = this._isResponseDateFresh(a),
+                    i = this._getCacheExpiration(n);
+                  l(i.expireEntries());
+                  const o = i.updateTimestamp(s.url);
+                  if (t)
+                    try {
+                      t.waitUntil(o);
+                    } catch (c) {
+                      0;
+                    }
+                  return r ? a : null;
+                }),
+                  (this.cacheDidUpdate = async (e) => {
+                    let { cacheName: t, request: s } = e;
+                    const n = this._getCacheExpiration(t);
+                    await n.updateTimestamp(s.url), await n.expireEntries();
+                  }),
+                  (this._config = e),
+                  (this._maxAgeSeconds = e.maxAgeSeconds),
+                  (this._cacheExpirations = new Map()),
+                  e.purgeOnQuotaError &&
+                    (function (e) {
+                      n.add(e);
+                    })(() => this.deleteCacheAndMetadata());
+              }
+              _getCacheExpiration(e) {
+                if (e === c()) throw new t("expire-custom-caches-only");
+                let s = this._cacheExpirations.get(e);
+                return (
+                  s ||
+                    ((s = new K(e, this._config)),
+                    this._cacheExpirations.set(e, s)),
+                  s
+                );
+              }
+              _isResponseDateFresh(e) {
+                if (!this._maxAgeSeconds) return !0;
+                const t = this._getDateHeaderTimestamp(e);
+                if (null === t) return !0;
+                return t >= Date.now() - 1e3 * this._maxAgeSeconds;
+              }
+              _getDateHeaderTimestamp(e) {
+                if (!e.headers.has("date")) return null;
+                const t = e.headers.get("date"),
+                  s = new Date(t).getTime();
+                return isNaN(s) ? null : s;
+              }
+              async deleteCacheAndMetadata() {
+                for (const [e, t] of this._cacheExpirations)
+                  await self.caches.delete(e), await t.delete();
+                this._cacheExpirations = new Map();
+              }
+            })({ maxEntries: 50 }),
+          ],
+        })
+      ),
+      te((e) => {
+        let { url: t } = e;
         return t.origin === self.location.origin && t.pathname.endsWith(".css");
-      }, new Fe({ cacheName: "external-cache" })),
-      self.addEventListener("message", function (e) {
+      }, new ie({ cacheName: "external-cache" })),
+      self.addEventListener("message", (e) => {
         e.data && "SKIP_WAITING" === e.data.type && self.skipWaiting();
       });
   })();
