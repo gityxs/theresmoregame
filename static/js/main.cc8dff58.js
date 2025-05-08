@@ -53025,7 +53025,7 @@
                         var t = this;
                         (0, i.Z)(this, e), this.d = !(!{
                             NODE_ENV: "production",
-                            PUBLIC_URL: "/",
+                            PUBLIC_URL: "./",
                             WDS_SOCKET_HOST: void 0,
                             WDS_SOCKET_PATH: void 0,
                             WDS_SOCKET_PORT: void 0,

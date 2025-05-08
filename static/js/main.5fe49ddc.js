@@ -69376,7 +69376,7 @@
             )
               return;
             window.addEventListener("load", () => {
-              const t = "".concat("/", "service-worker.js");
+              const t = "".concat("./", "service-worker.js");
               ca
                 ? (!(function (e, t) {
                     fetch(e, { headers: { "Service-Worker": "script" } })

@@ -31367,7 +31367,7 @@
         Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
         Object.defineProperty(e, "__esModule", { value: !0 });
     }),
-    (r.p = ".//"),
+    (r.p = "./"),
     (function () {
       var e = { 179: 0 };
       r.f.j = function (t, a) {
