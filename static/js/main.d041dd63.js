@@ -1,4 +1,4 @@
-/*! For license information please see main.bcd0e40b.js.LICENSE.txt */
+/*! For license information please see main.d041dd63.js.LICENSE.txt */
 (() => {
   var e = {
       9135: (e, t, r) => {
@@ -81,12 +81,19 @@
                               : null,
                         })
                       : null,
-                    (0, s.jsx)("div", {
+                    (0, s.jsxs)("div", {
                       className: r,
-                      children: (0, s.jsx)("p", {
-                        className: t,
-                        children: this.props.text,
-                      }),
+                      children: [
+                        (0, s.jsx)("p", {
+                          className: t,
+                          children: this.props.text,
+                        }),
+                        this.props.button &&
+                          (0, s.jsx)("div", {
+                            className: "mt-2",
+                            children: this.props.button,
+                          }),
+                      ],
                     }),
                   ],
                 }),
@@ -363,19 +370,19 @@
           T = "bottom",
           I = "right",
           N = "left",
-          E = "auto",
-          j = [q, T, I, N],
-          O = "start",
-          L = "end",
+          j = "auto",
+          E = [q, T, I, N],
+          L = "start",
+          O = "end",
           P = "clippingParents",
           R = "viewport",
           F = "popper",
           H = "reference",
-          V = j.reduce(function (e, t) {
-            return e.concat([t + "-" + O, t + "-" + L]);
+          V = E.reduce(function (e, t) {
+            return e.concat([t + "-" + L, t + "-" + O]);
           }, []),
-          D = [].concat(j, [E]).reduce(function (e, t) {
-            return e.concat([t, t + "-" + O, t + "-" + L]);
+          D = [].concat(E, [j]).reduce(function (e, t) {
+            return e.concat([t, t + "-" + L, t + "-" + O]);
           }, []),
           W = [
             "beforeRead",
@@ -625,10 +632,10 @@
           if (null != d) {
             var c = "y" === d ? "height" : "width";
             switch (o) {
-              case O:
+              case L:
                 t[d] = t[d] - (r[c] / 2 - a[c] / 2);
                 break;
-              case L:
+              case O:
                 t[d] = t[d] + (r[c] / 2 - a[c] / 2);
             }
           }
@@ -660,30 +667,30 @@
             M = window;
           if (u) {
             var A = C(r),
-              E = "clientHeight",
-              j = "clientWidth";
+              j = "clientHeight",
+              E = "clientWidth";
             if (
               (A === i(r) &&
                 "static" !== f((A = m(r))).position &&
                 "absolute" === l &&
-                ((E = "scrollHeight"), (j = "scrollWidth")),
-              n === q || ((n === N || n === I) && o === L))
+                ((j = "scrollHeight"), (E = "scrollWidth")),
+              n === q || ((n === N || n === I) && o === O))
             )
               (S = T),
                 (v -=
                   (_ && A === M && M.visualViewport
                     ? M.visualViewport.height
-                    : A[E]) - a.height),
+                    : A[j]) - a.height),
                 (v *= d ? 1 : -1);
-            if (n === N || ((n === q || n === T) && o === L))
+            if (n === N || ((n === q || n === T) && o === O))
               (x = I),
                 (y -=
                   (_ && A === M && M.visualViewport
                     ? M.visualViewport.width
-                    : A[j]) - a.width),
+                    : A[E]) - a.width),
                 (y *= d ? 1 : -1);
           }
-          var O,
+          var L,
             P = Object.assign({ position: l }, u && J),
             R =
               !0 === p
@@ -701,13 +708,13 @@
               ? Object.assign(
                   {},
                   P,
-                  (((O = {})[S] = k ? "0" : ""),
-                  (O[x] = w ? "0" : ""),
-                  (O.transform =
+                  (((L = {})[S] = k ? "0" : ""),
+                  (L[x] = w ? "0" : ""),
+                  (L.transform =
                     (M.devicePixelRatio || 1) <= 1
                       ? "translate(" + y + "px, " + v + "px)"
                       : "translate3d(" + y + "px, " + v + "px, 0)"),
-                  O)
+                  L)
                 )
               : Object.assign(
                   {},
@@ -975,7 +982,7 @@
             g = void 0 !== y && y,
             f = r.padding,
             v = void 0 === f ? 0 : f,
-            b = ue("number" !== typeof v ? v : pe(v, j)),
+            b = ue("number" !== typeof v ? v : pe(v, E)),
             w = h === F ? H : F,
             k = e.rects.popper,
             x = e.elements[g ? w : h],
@@ -994,22 +1001,22 @@
             }),
             C = le(Object.assign({}, k, A)),
             N = h === F ? C : M,
-            E = {
+            j = {
               top: S.top - N.top + b.top,
               bottom: N.bottom - S.bottom + b.bottom,
               left: S.left - N.left + b.left,
               right: N.right - S.right + b.right,
             },
-            O = e.modifiersData.offset;
-          if (h === F && O) {
-            var L = O[i];
-            Object.keys(E).forEach(function (e) {
+            L = e.modifiersData.offset;
+          if (h === F && L) {
+            var O = L[i];
+            Object.keys(j).forEach(function (e) {
               var t = [I, T].indexOf(e) >= 0 ? 1 : -1,
                 r = [q, T].indexOf(e) >= 0 ? "y" : "x";
-              E[e] += L[r] * t;
+              j[e] += O[r] * t;
             });
           }
-          return E;
+          return j;
         }
         function he(e, t, r) {
           return l(e, d(t, r));
@@ -1047,15 +1054,15 @@
               S = "x" === x ? "y" : "x",
               M = t.modifiersData.popperOffsets,
               A = t.rects.reference,
-              E = t.rects.popper,
-              j =
+              j = t.rects.popper,
+              E =
                 "function" === typeof g
                   ? g(Object.assign({}, t.rects, { placement: t.placement }))
                   : g,
-              L =
-                "number" === typeof j
-                  ? { mainAxis: j, altAxis: j }
-                  : Object.assign({ mainAxis: 0, altAxis: 0 }, j),
+              O =
+                "number" === typeof E
+                  ? { mainAxis: E, altAxis: E }
+                  : Object.assign({ mainAxis: 0, altAxis: 0 }, E),
               P = t.modifiersData.offset
                 ? t.modifiersData.offset[t.placement]
                 : null,
@@ -1069,9 +1076,9 @@
                   W = M[x],
                   z = W + f[H],
                   B = W - f[V],
-                  G = y ? -E[D] / 2 : 0,
-                  U = b === O ? A[D] : E[D],
-                  Y = b === O ? -E[D] : -A[D],
+                  G = y ? -j[D] / 2 : 0,
+                  U = b === L ? A[D] : j[D],
+                  Y = b === L ? -j[D] : -A[D],
                   X = t.elements.arrow,
                   $ = y && X ? w(X) : { width: 0, height: 0 },
                   J = t.modifiersData["arrow#persistent"]
@@ -1081,11 +1088,11 @@
                   te = J[V],
                   re = he(0, A[D], $[D]),
                   ae = k
-                    ? A[D] / 2 - G - re - ee - L.mainAxis
-                    : U - re - ee - L.mainAxis,
+                    ? A[D] / 2 - G - re - ee - O.mainAxis
+                    : U - re - ee - O.mainAxis,
                   ie = k
-                    ? -A[D] / 2 + G + re + te + L.mainAxis
-                    : Y + re + te + L.mainAxis,
+                    ? -A[D] / 2 + G + re + te + O.mainAxis
+                    : Y + re + te + O.mainAxis,
                   ne = t.elements.arrow && C(t.elements.arrow),
                   oe = ne
                     ? "y" === x
@@ -1107,8 +1114,8 @@
                   fe = ye - f[pe],
                   ve = -1 !== [q, N].indexOf(v),
                   be = null != (ce = null == P ? void 0 : P[S]) ? ce : 0,
-                  we = ve ? ge : ye - A[me] - E[me] - be + L.altAxis,
-                  ke = ve ? ye + A[me] + E[me] - be - L.altAxis : fe,
+                  we = ve ? ge : ye - A[me] - j[me] - be + O.altAxis,
+                  ke = ve ? ye + A[me] + j[me] - be - O.altAxis : fe,
                   xe =
                     y && ve
                       ? (function (e, t, r) {
@@ -1150,7 +1157,7 @@
                             )
                           : e)
                       ? e
-                      : pe(e, j)
+                      : pe(e, E)
                   );
                 })(i.padding, r),
                 u = w(n),
@@ -1346,13 +1353,13 @@
                           (g === m || !h
                             ? [ie(m)]
                             : (function (e) {
-                                if (K(e) === E) return [];
+                                if (K(e) === j) return [];
                                 var t = ie(e);
                                 return [oe(e), t, oe(t)];
                               })(m)),
                         v = [m].concat(f).reduce(function (e, r) {
                           return e.concat(
-                            K(r) === E
+                            K(r) === j
                               ? (function (e, t) {
                                   void 0 === t && (t = {});
                                   var r = t,
@@ -1370,7 +1377,7 @@
                                         : V.filter(function (e) {
                                             return Z(e) === c;
                                           })
-                                      : j,
+                                      : E,
                                     p = u.filter(function (e) {
                                       return d.indexOf(e) >= 0;
                                     });
@@ -1411,7 +1418,7 @@
                     ) {
                       var A = v[M],
                         C = K(A),
-                        L = Z(A) === O,
+                        O = Z(A) === L,
                         P = [q, T].indexOf(C) >= 0,
                         R = P ? "width" : "height",
                         F = _e(t, {
@@ -1421,7 +1428,7 @@
                           altBoundary: p,
                           padding: d,
                         }),
-                        H = P ? (L ? I : N) : L ? T : q;
+                        H = P ? (O ? I : N) : O ? T : q;
                       b[R] > w[R] && (H = ie(H));
                       var W = ie(H),
                         z = [];
@@ -1540,18 +1547,18 @@
         function Ne(e, t) {
           -1 === e.indexOf(t) && e.push(t);
         }
-        function Ee(e) {
+        function je(e) {
           return e.split("-")[0];
         }
-        function je(e) {
+        function Ee(e) {
           return [].slice.call(e);
         }
-        function Oe(e) {
+        function Le(e) {
           return Object.keys(e).reduce(function (t, r) {
             return void 0 !== e[r] && (t[r] = e[r]), t;
           }, {});
         }
-        function Le() {
+        function Oe() {
           return document.createElement("div");
         }
         function Pe(e) {
@@ -1571,10 +1578,10 @@
             : (function (e) {
                 return Ce(e, "NodeList");
               })(e)
-            ? je(e)
+            ? Ee(e)
             : Array.isArray(e)
             ? e
-            : je(document.querySelectorAll(e));
+            : Ee(document.querySelectorAll(e));
         }
         function Ve(e, t) {
           e.forEach(function (e) {
@@ -1747,7 +1754,7 @@
           e[rt()] = t;
         }
         function it(e) {
-          var t = Le();
+          var t = Oe();
           return (
             !0 === e
               ? (t.className = ke)
@@ -1763,7 +1770,7 @@
         }
         function ot(e) {
           var t = e.firstElementChild,
-            r = je(t.children);
+            r = Ee(t.children);
           return {
             box: t,
             content: r.find(function (e) {
@@ -1778,12 +1785,12 @@
           };
         }
         function st(e) {
-          var t = Le(),
-            r = Le();
+          var t = Oe(),
+            r = Oe();
           (r.className = "tippy-box"),
             r.setAttribute("data-state", "hidden"),
             r.setAttribute("tabindex", "-1");
-          var a = Le();
+          var a = Oe();
           function i(r, a) {
             var i = ot(t),
               n = i.box,
@@ -1837,7 +1844,7 @@
             s,
             l,
             d,
-            c = tt(e, Object.assign({}, $e, et(Oe(t)))),
+            c = tt(e, Object.assign({}, $e, et(Le(t)))),
             u = !1,
             p = !1,
             _ = !1,
@@ -1851,7 +1858,7 @@
             v = {
               id: g,
               reference: e,
-              popper: Le(),
+              popper: Oe(),
               popperInstance: null,
               props: c,
               state: {
@@ -1868,11 +1875,11 @@
               setProps: function (t) {
                 0;
                 if (v.state.isDestroyed) return;
-                j("onBeforeUpdate", [v, t]), G();
+                E("onBeforeUpdate", [v, t]), G();
                 var r = v.props,
                   a = tt(
                     e,
-                    Object.assign({}, r, Oe(t), { ignoreAttributes: !0 })
+                    Object.assign({}, r, Le(t), { ignoreAttributes: !0 })
                   );
                 (v.props = a),
                   B(),
@@ -1883,13 +1890,13 @@
                       e.removeAttribute("aria-expanded");
                     })
                   : a.triggerTarget && e.removeAttribute("aria-expanded");
-                L(), E(), k && k(r, a);
+                O(), j(), k && k(r, a);
                 v.popperInstance &&
                   (Q(),
                   J().forEach(function (e) {
                     requestAnimationFrame(e._tippy.popperInstance.forceUpdate);
                   }));
-                j("onAfterUpdate", [v, t]);
+                E("onAfterUpdate", [v, t]);
               },
               setContent: function (e) {
                 v.setProps({ content: e });
@@ -1903,10 +1910,10 @@
                   i = Ae(v.props.duration, 0, $e.duration);
                 if (e || t || r || a) return;
                 if (q().hasAttribute("disabled")) return;
-                if ((j("onShow", [v], !1), !1 === v.props.onShow(v))) return;
+                if ((E("onShow", [v], !1), !1 === v.props.onShow(v))) return;
                 (v.state.isVisible = !0),
                   C() && (w.style.visibility = "visible");
-                E(), V(), v.state.isMounted || (w.style.transition = "none");
+                j(), V(), v.state.isMounted || (w.style.transition = "none");
                 if (C()) {
                   var n = I();
                   Ve([n.box, n.content], 0);
@@ -1925,17 +1932,17 @@
                         a = t.content;
                       Ve([r, a], i), De([r, a], "visible");
                     }
-                    O(),
-                      L(),
+                    L(),
+                      O(),
                       Ne(ct, v),
                       null == (e = v.popperInstance) || e.forceUpdate(),
-                      j("onMount", [v]),
+                      E("onMount", [v]),
                       v.props.animation &&
                         C() &&
                         (function (e, t) {
                           W(e, t);
                         })(i, function () {
-                          (v.state.isShown = !0), j("onShown", [v]);
+                          (v.state.isShown = !0), E("onShown", [v]);
                         });
                   }
                 }),
@@ -1958,20 +1965,20 @@
                   r = !v.state.isEnabled,
                   a = Ae(v.props.duration, 1, $e.duration);
                 if (e || t || r) return;
-                if ((j("onHide", [v], !1), !1 === v.props.onHide(v))) return;
+                if ((E("onHide", [v], !1), !1 === v.props.onHide(v))) return;
                 (v.state.isVisible = !1),
                   (v.state.isShown = !1),
                   (h = !1),
                   (u = !1),
                   C() && (w.style.visibility = "hidden");
-                if ((P(), D(), E(!0), C())) {
+                if ((P(), D(), j(!0), C())) {
                   var i = I(),
                     n = i.box,
                     o = i.content;
                   v.props.animation && (Ve([n, o], a), De([n, o], "hidden"));
                 }
-                O(),
-                  L(),
+                L(),
+                  O(),
                   v.props.animation
                     ? C() &&
                       (function (e, t) {
@@ -2007,7 +2014,7 @@
                   return e !== v;
                 })),
                   (v.state.isMounted = !1),
-                  j("onHidden", [v]);
+                  E("onHidden", [v]);
               },
               destroy: function () {
                 0;
@@ -2017,7 +2024,7 @@
                   G(),
                   delete e._tippy,
                   (v.state.isDestroyed = !0),
-                  j("onDestroy", [v]);
+                  E("onDestroy", [v]);
               },
             };
           if (!c.render) return v;
@@ -2035,9 +2042,9 @@
             S = e.hasAttribute("aria-expanded");
           return (
             B(),
-            L(),
-            E(),
-            j("onCreate", [v]),
+            O(),
+            j(),
+            E("onCreate", [v]),
             c.showOnCreate && ee(),
             w.addEventListener("mouseenter", function () {
               v.props.interactive &&
@@ -2079,12 +2086,12 @@
               ? 0
               : Ae(v.props.delay, e ? 0 : 1, $e.delay);
           }
-          function E(e) {
+          function j(e) {
             void 0 === e && (e = !1),
               (w.style.pointerEvents = v.props.interactive && !e ? "" : "none"),
               (w.style.zIndex = "" + v.props.zIndex);
           }
-          function j(e, t, r) {
+          function E(e, t, r) {
             var a;
             (void 0 === r && (r = !0),
             x.forEach(function (r) {
@@ -2092,7 +2099,7 @@
             }),
             r) && (a = v.props)[e].apply(a, t);
           }
-          function O() {
+          function L() {
             var t = v.props.aria;
             if (t.content) {
               var r = "aria-" + t.content,
@@ -2107,7 +2114,7 @@
               });
             }
           }
-          function L() {
+          function O() {
             !S &&
               v.props.aria.expanded &&
               Ie(v.props.triggerTarget || e).forEach(function (e) {
@@ -2140,7 +2147,7 @@
                     v.props.trigger.indexOf("click") >= 0
                   )
                     return;
-                } else j("onClickOutside", [v, t]);
+                } else E("onClickOutside", [v, t]);
                 !0 === v.props.hideOnClick &&
                   (v.clearDelayTimeouts(),
                   v.hide(),
@@ -2225,7 +2232,7 @@
               var a = "focus" === (null == (t = n) ? void 0 : t.type);
               (n = e),
                 (l = e.currentTarget),
-                L(),
+                O(),
                 !v.state.isVisible &&
                   Re(e) &&
                   dt.forEach(function (t) {
@@ -2267,7 +2274,7 @@
                   var t = e.popperRect,
                     i = e.popperState,
                     n = e.props.interactiveBorder,
-                    o = Ee(i.placement),
+                    o = je(i.placement),
                     s = i.modifiersData.offset;
                   if (!s) return !0;
                   var l = "bottom" === o ? s.top.y : 0,
@@ -2366,10 +2373,10 @@
               (v.popperInstance.destroy(), (v.popperInstance = null));
           }
           function J() {
-            return je(w.querySelectorAll("[data-tippy-root]"));
+            return Ee(w.querySelectorAll("[data-tippy-root]"));
           }
           function ee(e) {
-            v.clearDelayTimeouts(), e && j("onTrigger", [v, e]), V();
+            v.clearDelayTimeouts(), e && E("onTrigger", [v, e]), V();
             var t = N(!0),
               a = M(),
               i = a[0],
@@ -2384,7 +2391,7 @@
           function te(e) {
             if (
               (v.clearDelayTimeouts(),
-              j("onUntrigger", [v, e]),
+              E("onUntrigger", [v, e]),
               v.state.isVisible)
             ) {
               if (
@@ -2779,14 +2786,15 @@
       },
       2073: (e, t, r) => {
         "use strict";
-        r.d(t, { A: () => c });
+        r.d(t, { A: () => u });
         var a = r(9950),
           i = r(5970),
-          n = r(4090),
-          o = r.n(n),
-          s = r(2631),
-          l = r(4414);
-        class d extends a.Component {
+          n = r(443),
+          o = r(4090),
+          s = r.n(o),
+          l = r(2631),
+          d = r(4414);
+        class c extends a.Component {
           render() {
             const e =
                 "undefined" !== typeof this.props.reqTooltipData &&
@@ -2798,79 +2806,210 @@
               r =
                 "undefined" !== typeof this.props.modTooltipData &&
                 this.props.modTooltipData.length > 0;
-            return (0, l.jsxs)(l.Fragment, {
+            return (0, d.jsxs)(d.Fragment, {
               children: [
-                (0, l.jsx)("p", {
+                (0, d.jsx)("p", {
                   className:
                     "3xl:pt-2 text-base font-bold" +
                     (this.props.titleClasses ? this.props.titleClasses : ""),
                   children: this.props.title,
                 }),
                 this.props.attack || this.props.defense
-                  ? (0, l.jsxs)("div", {
-                      className: "px-1 3xl:px-3 text-center whitespace-nowrap",
-                      children: [
-                        this.props.attack
-                          ? (0, l.jsxs)("span", {
-                              className: "mx-3",
-                              children: [
-                                (0, l.jsxs)("span", {
-                                  className: "text-red-500",
+                  ? (0, d.jsx)("div", {
+                      className: "px-1 3xl:px-3 pt-2 pb-1",
+                      children: this.props.trample
+                        ? (0, d.jsxs)("div", {
+                            className: "grid grid-cols-2 gap-2 text-sm",
+                            children: [
+                              this.props.attack
+                                ? (0, d.jsxs)("div", {
+                                    className:
+                                      "flex flex-col items-center justify-center bg-red-50 dark:bg-red-900/20 rounded-lg p-2 border border-red-200 dark:border-red-800",
+                                    children: [
+                                      (0, d.jsxs)("div", {
+                                        className:
+                                          "flex items-center text-red-500",
+                                        children: [
+                                          (0, d.jsx)(s(), {
+                                            path: l.mSZ,
+                                            className: "icon inline mr-1 !w-4",
+                                          }),
+                                          (0, d.jsx)("span", {
+                                            className: "font-medium",
+                                            children: this.props.attack,
+                                          }),
+                                        ],
+                                      }),
+                                      this.props.attackMod > 0 &&
+                                        (0, d.jsxs)("div", {
+                                          className:
+                                            "text-green-600 dark:text-green-500 text-xs mt-1 font-medium",
+                                          children: ["+", this.props.attackMod],
+                                        }),
+                                    ],
+                                  })
+                                : null,
+                              this.props.defense
+                                ? (0, d.jsxs)("div", {
+                                    className:
+                                      "flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 rounded-lg p-2 border border-blue-200 dark:border-blue-600",
+                                    children: [
+                                      (0, d.jsxs)("div", {
+                                        className:
+                                          "flex items-center text-blue-500",
+                                        children: [
+                                          (0, d.jsx)(s(), {
+                                            path: l.wgn,
+                                            className: "icon inline mr-1 !w-4",
+                                          }),
+                                          (0, d.jsx)("span", {
+                                            className: "font-medium",
+                                            children: this.props.defense,
+                                          }),
+                                        ],
+                                      }),
+                                      this.props.defenseMod > 0 &&
+                                        (0, d.jsxs)("div", {
+                                          className:
+                                            "text-green-600 dark:text-green-500 text-xs mt-1 font-medium",
+                                          children: [
+                                            "+",
+                                            this.props.defenseMod,
+                                          ],
+                                        }),
+                                    ],
+                                  })
+                                : null,
+                              (0, d.jsx)("div", {
+                                className:
+                                  "flex flex-col items-center justify-center bg-orange-50 dark:bg-orange-900/20 rounded-lg p-2 border border-orange-200 dark:border-orange-800",
+                                children: (0, d.jsxs)("div", {
+                                  className:
+                                    "flex items-center text-orange-500",
                                   children: [
-                                    (0, l.jsx)(o(), {
-                                      path: s.mSZ,
-                                      className:
-                                        "icon inline -mt-0.5 mr-1 !w-3.5",
+                                    (0, d.jsx)(s(), {
+                                      path: l.B0y,
+                                      className: "icon inline mr-1 !w-4",
                                     }),
-                                    this.props.attack,
+                                    (0, d.jsx)("span", {
+                                      className: "font-medium",
+                                      children: this.props.splash || 1,
+                                    }),
                                   ],
                                 }),
-                                this.props.attackMod > 0
-                                  ? (0, l.jsxs)("span", {
-                                      className:
-                                        "text-green-600 dark:text-green-500",
-                                      children: [" +", this.props.attackMod],
-                                    })
-                                  : null,
-                              ],
-                            })
-                          : null,
-                        this.props.defense
-                          ? (0, l.jsxs)("span", {
-                              className: "mx-3",
-                              children: [
-                                (0, l.jsxs)("span", {
-                                  className: "text-blue-500",
+                              }),
+                              (0, d.jsx)("div", {
+                                className:
+                                  "flex flex-col items-center justify-center bg-purple-50 dark:bg-purple-900/20 rounded-lg p-2 border border-purple-200 dark:border-purple-800",
+                                children: (0, d.jsxs)("div", {
+                                  className:
+                                    "flex items-center text-purple-500",
                                   children: [
-                                    (0, l.jsx)(o(), {
-                                      path: s.wgn,
-                                      className:
-                                        "icon inline -mt-0.5 mr-1 !w-3.5",
+                                    (0, d.jsx)(s(), {
+                                      path: l.wSG,
+                                      className: "icon inline mr-1 !w-4",
                                     }),
-                                    this.props.defense,
+                                    (0, d.jsxs)("span", {
+                                      className: "font-medium",
+                                      children: [this.props.trample, "%"],
+                                    }),
                                   ],
                                 }),
-                                this.props.defenseMod > 0
-                                  ? (0, l.jsxs)("span", {
-                                      className:
-                                        "text-green-600 dark:text-green-500",
-                                      children: [" +", this.props.defenseMod],
-                                    })
-                                  : null,
-                              ],
-                            })
-                          : null,
-                      ],
+                              }),
+                            ],
+                          })
+                        : (0, d.jsxs)("div", {
+                            className: "grid grid-cols-3 gap-2 text-sm",
+                            children: [
+                              this.props.attack
+                                ? (0, d.jsxs)("div", {
+                                    className:
+                                      "flex flex-col items-center justify-center bg-red-50 dark:bg-red-900/20 rounded-lg p-2 border border-red-200 dark:border-red-800 min-h-[60px]",
+                                    children: [
+                                      (0, d.jsxs)("div", {
+                                        className:
+                                          "flex items-center text-red-500",
+                                        children: [
+                                          (0, d.jsx)(s(), {
+                                            path: l.mSZ,
+                                            className: "icon inline mr-1 !w-4",
+                                          }),
+                                          (0, d.jsx)("span", {
+                                            className: "font-medium",
+                                            children: this.props.attack,
+                                          }),
+                                        ],
+                                      }),
+                                      this.props.attackMod > 0 &&
+                                        (0, d.jsxs)("div", {
+                                          className:
+                                            "text-green-600 dark:text-green-500 text-xs mt-1 font-medium",
+                                          children: ["+", this.props.attackMod],
+                                        }),
+                                    ],
+                                  })
+                                : null,
+                              this.props.defense
+                                ? (0, d.jsxs)("div", {
+                                    className:
+                                      "flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 rounded-lg p-2 border border-blue-200 dark:border-blue-600 min-h-[60px]",
+                                    children: [
+                                      (0, d.jsxs)("div", {
+                                        className:
+                                          "flex items-center text-blue-500",
+                                        children: [
+                                          (0, d.jsx)(s(), {
+                                            path: l.wgn,
+                                            className: "icon inline mr-1 !w-4",
+                                          }),
+                                          (0, d.jsx)("span", {
+                                            className: "font-medium",
+                                            children: this.props.defense,
+                                          }),
+                                        ],
+                                      }),
+                                      this.props.defenseMod > 0 &&
+                                        (0, d.jsxs)("div", {
+                                          className:
+                                            "text-green-600 dark:text-green-500 text-xs mt-1 font-medium",
+                                          children: [
+                                            "+",
+                                            this.props.defenseMod,
+                                          ],
+                                        }),
+                                    ],
+                                  })
+                                : null,
+                              (0, d.jsx)("div", {
+                                className:
+                                  "flex flex-col items-center justify-center bg-orange-50 dark:bg-orange-900/20 rounded-lg p-2 border border-orange-200 dark:border-orange-800 min-h-[60px]",
+                                children: (0, d.jsxs)("div", {
+                                  className:
+                                    "flex items-center text-orange-500",
+                                  children: [
+                                    (0, d.jsx)(s(), {
+                                      path: l.B0y,
+                                      className: "icon inline mr-1 !w-4",
+                                    }),
+                                    (0, d.jsx)("span", {
+                                      className: "font-medium",
+                                      children: this.props.splash || 1,
+                                    }),
+                                  ],
+                                }),
+                              }),
+                            ],
+                          }),
                     })
                   : null,
                 this.props.description
-                  ? (0, l.jsx)("p", {
+                  ? (0, d.jsx)("p", {
                       className: "px-3 3xl:py-2",
                       children: this.props.description,
                     })
                   : null,
                 e || t || r
-                  ? (0, l.jsxs)("div", {
+                  ? (0, d.jsxs)("div", {
                       className:
                         "px-1 3xl:px-3 3xl:pb-3" +
                         (this.props.containerClasses
@@ -2878,44 +3017,92 @@
                           : ""),
                       children: [
                         e
-                          ? (0, l.jsx)("table", {
-                              className: "min-w-full my-2 lg:mt-3",
-                              children: (0, l.jsx)("tbody", {
-                                className: "text-sm",
+                          ? (0, d.jsx)("div", {
+                              className: "my-1 lg:mt-2",
+                              children: (0, d.jsx)("div", {
+                                className:
+                                  "rounded border border-red-200 dark:border-red-800 overflow-hidden",
                                 children: this.props.reqTooltipData.map(
                                   (e, t) => {
-                                    let r =
-                                      t % 2 === 0
-                                        ? "bg-red-200 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-red-900"
-                                        : "bg-red-100 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-red-800";
-                                    return (
-                                      (r +=
-                                        -1 !== e.value.indexOf("(")
-                                          ? " font-bold text-red-900 dark:text-red-50 whitespace-nowrap"
-                                          : ""),
-                                      (0, l.jsxs)(
-                                        "tr",
-                                        {
-                                          className: r,
-                                          children: [
-                                            (0, l.jsx)("td", {
-                                              className:
-                                                "px-4 3xl:py-1 text-left whitespace-nowrap",
-                                              children: e.label,
-                                            }),
-                                            (0, l.jsx)("td", {
-                                              className:
-                                                "px-4 3xl:py-1 text-right",
-                                              children: e.value,
-                                            }),
-                                          ],
-                                        },
-                                        "tooltip_req_" +
-                                          this.props.prefix +
-                                          "_" +
-                                          this.props.id +
-                                          t
-                                      )
+                                    const r = -1 !== e.value.indexOf("["),
+                                      a = e.value.includes("timeIcon"),
+                                      n = t % 2 === 0;
+                                    let o = "",
+                                      c = "",
+                                      u = "";
+                                    if (r) {
+                                      const t = e.value.split(" [");
+                                      o = t[0];
+                                      const r = t[1];
+                                      if (a) {
+                                        const e = r.split("] timeIcon ");
+                                        (c = e[0].replace("-", "")), (u = e[1]);
+                                      } else
+                                        c = r.replace("-", "").replace("]", "");
+                                    } else if (a) {
+                                      const t = e.value.split(" timeIcon ");
+                                      (o = t[0]), (u = t[1]);
+                                    } else o = e.value;
+                                    return (0, d.jsxs)(
+                                      "div",
+                                      {
+                                        className: (0, i.xW)(
+                                          "flex items-center justify-between px-2 py-1 text-sm",
+                                          n
+                                            ? "bg-red-200 dark:bg-red-900/30"
+                                            : "bg-red-100 dark:bg-red-900/15",
+                                          r
+                                            ? "border-l-2 border-red-500 dark:border-red-500"
+                                            : ""
+                                        ),
+                                        children: [
+                                          (0, d.jsx)("span", {
+                                            className: "whitespace-nowrap",
+                                            children: e.label,
+                                          }),
+                                          (0, d.jsxs)("div", {
+                                            className:
+                                              "flex flex-col items-end gap-1 ml-2",
+                                            children: [
+                                              (0, d.jsxs)("div", {
+                                                className:
+                                                  "flex items-center gap-1",
+                                                children: [
+                                                  (0, d.jsx)("span", {
+                                                    className:
+                                                      "font-medium px-1.5 py-0.5 rounded-md font-mono text-xs text-red-900 dark:text-red-100 bg-red-400/60 dark:bg-red-400/20",
+                                                    children: o,
+                                                  }),
+                                                  r &&
+                                                    (0, d.jsxs)("span", {
+                                                      className:
+                                                        "px-1.5 py-0.5 rounded-md font-mono text-xs text-white dark:text-red-100 bg-red-600/80 dark:bg-red-700/70",
+                                                      children: ["-", c],
+                                                    }),
+                                                ],
+                                              }),
+                                              u &&
+                                                (0, d.jsxs)("span", {
+                                                  className:
+                                                    "font-medium px-1.5 py-0.5 rounded-md font-mono text-xs text-gray-700 dark:text-gray-300 bg-gray-500/30 dark:bg-gray-500/40 whitespace-nowrap",
+                                                  children: [
+                                                    (0, d.jsx)(s(), {
+                                                      path: l.F5B,
+                                                      className:
+                                                        "icon inline -mt-[2px] mr-1 !w-3 !h-3",
+                                                    }),
+                                                    u,
+                                                  ],
+                                                }),
+                                            ],
+                                          }),
+                                        ],
+                                      },
+                                      "tooltip_req_" +
+                                        this.props.prefix +
+                                        "_" +
+                                        this.props.id +
+                                        t
                                     );
                                   }
                                 ),
@@ -2923,31 +3110,36 @@
                             })
                           : null,
                         t
-                          ? (0, l.jsx)("table", {
-                              className: "min-w-full my-2 lg:mt-3",
-                              children: (0, l.jsx)("tbody", {
-                                className: "text-sm",
+                          ? (0, d.jsx)("div", {
+                              className: "my-1 lg:mt-2",
+                              children: (0, d.jsx)("div", {
+                                className:
+                                  "rounded border border-green-200 dark:border-green-800 overflow-hidden",
                                 children: this.props.genTooltipData.map(
-                                  (e, t) =>
-                                    (0, l.jsxs)(
-                                      "tr",
+                                  (e, t) => {
+                                    const r = e.value.indexOf("-") >= 0,
+                                      a = t % 2 === 0;
+                                    return (0, d.jsxs)(
+                                      "div",
                                       {
-                                        className:
-                                          t % 2 === 0
-                                            ? "bg-green-300/60 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-green-900"
-                                            : "bg-green-200 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-green-800",
+                                        className: (0, i.xW)(
+                                          "flex items-center justify-between px-2 py-1 text-sm",
+                                          a
+                                            ? "bg-green-300/60 dark:bg-green-900/30"
+                                            : "bg-green-200 dark:bg-green-900/15",
+                                          ""
+                                        ),
                                         children: [
-                                          (0, l.jsx)("td", {
-                                            className:
-                                              "px-4 3xl:py-1 text-left truncate max-w-[168px]",
+                                          (0, d.jsx)("span", {
+                                            className: "truncate max-w-[140px]",
                                             children: e.label,
                                           }),
-                                          (0, l.jsx)("td", {
+                                          (0, d.jsx)("span", {
                                             className: (0, i.xW)(
-                                              e.value.indexOf("-") >= 0
-                                                ? "text-red-500"
-                                                : "",
-                                              "px-4 3xl:py-1 text-right"
+                                              "font-medium ml-3 px-1.5 py-0.5 rounded-md font-mono text-xs",
+                                              r
+                                                ? "text-white bg-red-400/90 dark:bg-red-600/50"
+                                                : "text-green-900 dark:text-green-300 bg-green-400/60 dark:bg-green-400/10"
                                             ),
                                             children: e.value,
                                           }),
@@ -2958,59 +3150,117 @@
                                         "_" +
                                         this.props.id +
                                         t
-                                    )
+                                    );
+                                  }
                                 ),
                               }),
                             })
                           : null,
                         r
-                          ? (0, l.jsx)("table", {
-                              className: "min-w-full my-2 lg:mt-3",
-                              children: (0, l.jsx)("tbody", {
-                                className: "text-sm",
-                                children: this.props.modTooltipData.map(
-                                  (e, t) =>
-                                    (0, l.jsxs)(
-                                      "tr",
-                                      {
-                                        className: (0, i.xW)(
+                          ? (0, d.jsxs)("div", {
+                              className: "my-1 lg:mt-2",
+                              children: [
+                                this.props.modTooltipData.map((e, t) => {
+                                  const r = "time_to_cap" === e.label;
+                                  return (0, d.jsx)(
+                                    a.Fragment,
+                                    {
+                                      children: r
+                                        ? (0, d.jsx)("div", {
+                                            className:
+                                              "mb-2 px-2 py-1 rounded border border-gray-300 dark:border-gray-700",
+                                            children: (0, d.jsxs)("div", {
+                                              className:
+                                                "flex items-center justify-between",
+                                              children: [
+                                                (0, d.jsx)("span", {
+                                                  className:
+                                                    "text-sm font-medium text-blue-500 dark:text-blue-300 whitespace-nowrap",
+                                                  children: (0, n.v)(e.label),
+                                                }),
+                                                (0, d.jsxs)("div", {
+                                                  className:
+                                                    "flex items-center gap-1 ml-3 font-medium px-1.5 py-0.5 rounded-md font-mono text-xs text-blue-500 dark:text-blue-300 bg-gray-400/10 dark:bg-gray-400/10 whitespace-nowrap",
+                                                  children: [
+                                                    (0, d.jsx)(s(), {
+                                                      path: l.F5B,
+                                                      className: "!w-3 !h-3",
+                                                    }),
+                                                    (0, d.jsx)("span", {
+                                                      className:
+                                                        "whitespace-nowrap",
+                                                      children: e.value,
+                                                    }),
+                                                  ],
+                                                }),
+                                              ],
+                                            }),
+                                          })
+                                        : null,
+                                    },
+                                    "tooltip_mod_time_" +
+                                      this.props.prefix +
+                                      "_" +
+                                      this.props.id +
+                                      t
+                                  );
+                                }),
+                                (0, d.jsx)("div", {
+                                  className:
+                                    "rounded border border-gray-300 dark:border-gray-700 overflow-hidden",
+                                  children: this.props.modTooltipData.map(
+                                    (e, t) => {
+                                      const r =
                                           1 !== e.flag &&
-                                            !0 !== this.props.showAllMods
-                                            ? "lg:hidden"
-                                            : "",
-                                          t % 2 === 0
-                                            ? "bg-gray-100 dark:bg-mydark-400"
-                                            : "bg-gray-200 dark:bg-mydark-300"
-                                        ),
-                                        children: [
-                                          (0, l.jsx)("td", {
-                                            className: (0, i.xW)(
-                                              "-" === e.value
-                                                ? "text-red-500"
-                                                : "",
-                                              "px-4 3xl:py-1 text-left whitespace-nowrap"
-                                            ),
-                                            children: e.label,
-                                          }),
-                                          (0, l.jsx)("td", {
-                                            className: (0, i.xW)(
-                                              e.value.indexOf("-") >= 0
-                                                ? "text-red-500"
-                                                : "",
-                                              "px-4 3xl:py-1 text-right whitespace-nowrap"
-                                            ),
-                                            children: e.value,
-                                          }),
-                                        ],
-                                      },
-                                      "tooltip_mod_" +
-                                        this.props.prefix +
-                                        "_" +
-                                        this.props.id +
-                                        t
-                                    )
-                                ),
-                              }),
+                                          !0 !== this.props.showAllMods,
+                                        n = e.value.indexOf("-") >= 0,
+                                        o = "-" === e.value,
+                                        s = t % 2 === 0,
+                                        l = "time_to_cap" === e.label;
+                                      return (0, d.jsx)(
+                                        a.Fragment,
+                                        {
+                                          children: l
+                                            ? null
+                                            : (0, d.jsxs)("div", {
+                                                className: (0, i.xW)(
+                                                  "flex items-center justify-between px-2 py-1 text-sm",
+                                                  r ? "lg:hidden" : "",
+                                                  s
+                                                    ? "bg-gray-50/30 dark:bg-gray-900/20"
+                                                    : "bg-gray-50/10 dark:bg-gray-900/10",
+                                                  ""
+                                                ),
+                                                children: [
+                                                  (0, d.jsx)("span", {
+                                                    className: (0, i.xW)(
+                                                      "whitespace-nowrap",
+                                                      o ? "text-red-500" : ""
+                                                    ),
+                                                    children: e.label,
+                                                  }),
+                                                  (0, d.jsx)("span", {
+                                                    className: (0, i.xW)(
+                                                      "font-medium whitespace-nowrap ml-3 px-1.5 py-0.5 rounded-md font-mono text-xs",
+                                                      n || o
+                                                        ? "text-red-600 dark:text-red-500 bg-red-500/10 dark:bg-red-400/10"
+                                                        : "text-gray-700 dark:text-gray-300 bg-gray-400/10 dark:bg-gray-400/10"
+                                                    ),
+                                                    children: e.value,
+                                                  }),
+                                                ],
+                                              }),
+                                        },
+                                        "tooltip_mod_regular_" +
+                                          this.props.prefix +
+                                          "_" +
+                                          this.props.id +
+                                          t
+                                      );
+                                    }
+                                  ),
+                                }),
+                              ],
                             })
                           : null,
                       ],
@@ -3020,7 +3270,7 @@
             });
           }
         }
-        const c = d;
+        const u = c;
       },
       2039: (e, t, r) => {
         "use strict";
@@ -3033,6 +3283,7 @@
             defense: 50,
             order: 0,
             category: 0,
+            splash: 20,
           },
           {
             id: "scout",
@@ -3143,6 +3394,7 @@
             defense: 2,
             order: 3,
             category: 1,
+            splash: 2,
             req: [
               { type: "tech", id: "warfare", value: 1 },
               { type: "resource", id: "gold", value: 800 },
@@ -3152,7 +3404,7 @@
               { type: "resource", id: "gold", value: 80 },
               { type: "resource", id: "food", value: 50 },
             ],
-            gen: [{ type: "resource", id: "gold", value: -4 }],
+            gen: [{ type: "resource", id: "gold", value: -5 }],
           },
           {
             id: "crossbowman",
@@ -3180,6 +3432,7 @@
             defense: 3,
             order: 3,
             category: 1,
+            splash: 3,
             req: [
               { type: "tech", id: "siege_techniques", value: 1 },
               { type: "resource", id: "gold", value: 1200 },
@@ -3189,7 +3442,7 @@
               { type: "resource", id: "gold", value: 100 },
               { type: "resource", id: "food", value: 100 },
             ],
-            gen: [{ type: "resource", id: "gold", value: -5 }],
+            gen: [{ type: "resource", id: "gold", value: -10 }],
           },
           {
             id: "white_company",
@@ -3213,6 +3466,7 @@
             order: 3,
             cap: 1,
             category: 1,
+            splash: 4,
             req: [
               { type: "prayer", id: "zenix_aid", value: 1 },
               { type: "resource", id: "gold", value: 7500 },
@@ -3224,8 +3478,8 @@
             ],
             gen: [
               { type: "resource", id: "mana", value: 3 },
-              { type: "resource", id: "food", value: -1 },
-              { type: "resource", id: "gold", value: -6 },
+              { type: "resource", id: "food", value: -3 },
+              { type: "resource", id: "gold", value: -12 },
             ],
           },
           {
@@ -3236,6 +3490,7 @@
             order: 3,
             cap: 50,
             category: 1,
+            splash: 3,
             req: [
               { type: "prayer", id: "mage_p", value: 1 },
               { type: "resource", id: "faith", value: 1250 },
@@ -3247,7 +3502,7 @@
             ],
             gen: [
               { type: "resource", id: "mana", value: 1.2 },
-              { type: "resource", id: "gold", value: -1.5 },
+              { type: "resource", id: "gold", value: -4 },
             ],
           },
           {
@@ -3275,6 +3530,7 @@
             defense: 4,
             order: 3,
             category: 1,
+            splash: 4,
             req: [
               { type: "tech", id: "military_science", value: 1 },
               { type: "resource", id: "gold", value: 2e3 },
@@ -3282,7 +3538,7 @@
               { type: "resource", id: "saltpetre", value: 200 },
             ],
             reqAttack: [{ type: "resource", id: "gold", value: 200 }],
-            gen: [{ type: "resource", id: "gold", value: -7 }],
+            gen: [{ type: "resource", id: "gold", value: -15 }],
           },
           {
             id: "cannon",
@@ -3291,6 +3547,7 @@
             defense: 8,
             order: 3,
             category: 1,
+            splash: 5,
             req: [
               { type: "tech", id: "field_artillery", value: 1 },
               { type: "resource", id: "gold", value: 5e3 },
@@ -3298,7 +3555,7 @@
               { type: "resource", id: "steel", value: 500 },
             ],
             reqAttack: [{ type: "resource", id: "gold", value: 500 }],
-            gen: [{ type: "resource", id: "gold", value: -15 }],
+            gen: [{ type: "resource", id: "gold", value: -30 }],
           },
           {
             id: "artillery",
@@ -3307,6 +3564,7 @@
             defense: 15,
             order: 3,
             category: 1,
+            splash: 6,
             req: [
               { type: "tech", id: "metal_alloys", value: 1 },
               { type: "resource", id: "gold", value: 15e3 },
@@ -3318,7 +3576,7 @@
               { type: "resource", id: "gold", value: 1e3 },
               { type: "resource", id: "natronite", value: 200 },
             ],
-            gen: [{ type: "resource", id: "gold", value: -25 }],
+            gen: [{ type: "resource", id: "gold", value: -40 }],
           },
           {
             id: "archmage_u",
@@ -3328,6 +3586,7 @@
             order: 3,
             cap: 5,
             category: 1,
+            splash: 7,
             req: [
               { type: "prayer", id: "archmage_p", value: 1 },
               { type: "resource", id: "faith", value: 7e3 },
@@ -3339,7 +3598,7 @@
             ],
             gen: [
               { type: "resource", id: "food", value: -12 },
-              { type: "resource", id: "gold", value: -12 },
+              { type: "resource", id: "gold", value: -24 },
               { type: "resource", id: "mana", value: 7 },
               { type: "resource", id: "crystal", value: 3 },
             ],
@@ -3352,16 +3611,17 @@
             order: 3,
             cap: 50,
             category: 1,
+            splash: 3,
             req: [
               { type: "tech", id: "guerrilla_warfare", value: 1 },
-              { type: "resource", id: "food", value: 1e3 },
-              { type: "resource", id: "supplies", value: 500 },
+              { type: "resource", id: "food", value: 1500 },
+              { type: "resource", id: "supplies", value: 750 },
             ],
             reqAttack: [
-              { type: "resource", id: "gold", value: 100 },
-              { type: "resource", id: "food", value: 50 },
+              { type: "resource", id: "gold", value: 200 },
+              { type: "resource", id: "food", value: 100 },
             ],
-            gen: [{ type: "resource", id: "food", value: 1.2 }],
+            gen: [{ type: "resource", id: "food", value: 1 }],
           },
           {
             id: "elf_warrior",
@@ -3371,6 +3631,7 @@
             order: 3,
             cap: 25,
             category: 1,
+            splash: 3,
             req: [
               { type: "tech", id: "elf_warriors", value: 1 },
               { type: "resource", id: "supplies", value: 2e3 },
@@ -3380,7 +3641,7 @@
               { type: "resource", id: "supplies", value: 250 },
               { type: "resource", id: "crystal", value: 150 },
             ],
-            gen: [{ type: "resource", id: "food", value: -2.5 }],
+            gen: [{ type: "resource", id: "food", value: -4 }],
           },
           {
             id: "marksman",
@@ -3409,16 +3670,17 @@
             defense: 2,
             order: 3,
             category: 1,
+            splash: 2,
             req: [
               { type: "tech", id: "trained_longbowman", value: 1 },
               { type: "resource", id: "gold", value: 8e3 },
               { type: "resource", id: "wood", value: 8e3 },
             ],
             reqAttack: [
-              { type: "resource", id: "gold", value: 50 },
-              { type: "resource", id: "food", value: 10 },
+              { type: "resource", id: "gold", value: 450 },
+              { type: "resource", id: "food", value: 100 },
             ],
-            gen: [{ type: "resource", id: "food", value: -0.25 }],
+            gen: [{ type: "resource", id: "food", value: -2.25 }],
           },
           {
             id: "machine_gun_u",
@@ -3540,6 +3802,7 @@
             defense: 22,
             order: 1,
             category: 3,
+            trample: 50,
             req: [
               { type: "prayer", id: "create_sacred_golem", value: 1 },
               { type: "resource", id: "stone", value: 2e3 },
@@ -3547,7 +3810,7 @@
               { type: "resource", id: "mana", value: 800 },
             ],
             reqAttack: [{ type: "resource", id: "mana", value: 100 }],
-            gen: [{ type: "resource", id: "mana", value: -1 }],
+            gen: [{ type: "resource", id: "mana", value: -1.5 }],
           },
           {
             id: "armored_caravan_u",
@@ -3557,6 +3820,7 @@
             order: 2,
             category: 3,
             cap: 50,
+            trample: 50,
             req: [
               { type: "prayer", id: "armored_caravan_p", value: 1 },
               { type: "resource", id: "wood", value: 1e4 },
@@ -3590,6 +3854,7 @@
             defense: 50,
             order: 1,
             category: 3,
+            trample: 50,
             req: [
               { type: "tech", id: "bronze_working", value: 1 },
               { type: "legacy", id: "juggernaut", value: 1 },
@@ -3603,7 +3868,7 @@
             ],
             gen: [
               { type: "resource", id: "food", value: -2 },
-              { type: "resource", id: "mana", value: -1 },
+              { type: "resource", id: "mana", value: -2 },
             ],
           },
           {
@@ -3635,6 +3900,7 @@
             order: 1,
             cap: 20,
             category: 3,
+            trample: 100,
             req: [
               { type: "tech", id: "steel_flesh", value: 1 },
               { type: "resource", id: "steel", value: 3e3 },
@@ -3645,7 +3911,7 @@
               { type: "resource", id: "saltpetre", value: 100 },
               { type: "resource", id: "natronite", value: 100 },
             ],
-            gen: [{ type: "resource", id: "food", value: -3 }],
+            gen: [{ type: "resource", id: "food", value: -6 }],
           },
           {
             id: "ancient_balor",
@@ -3655,6 +3921,7 @@
             order: 1,
             cap: 1,
             category: 3,
+            splash: 8,
             req: [
               { type: "tech", id: "ancient_balor_t", value: 1 },
               { type: "resource", id: "food", value: 1e4 },
@@ -3667,8 +3934,8 @@
             gen: [
               { type: "resource", id: "iron", value: 5 },
               { type: "resource", id: "steel", value: 2 },
-              { type: "resource", id: "food", value: -30 },
-              { type: "resource", id: "mana", value: -30 },
+              { type: "resource", id: "food", value: -50 },
+              { type: "resource", id: "mana", value: -50 },
             ],
           },
           {
@@ -3697,6 +3964,7 @@
             order: 1,
             cap: 1,
             category: 3,
+            splash: 12,
             req: [
               { type: "prayer", id: "mana_fortress_p", value: 1 },
               { type: "resource", id: "stone", value: 25e3 },
@@ -3706,7 +3974,7 @@
               { type: "resource", id: "stone", value: 1e4 },
               { type: "resource", id: "mana", value: 1e4 },
             ],
-            gen: [{ type: "resource", id: "mana", value: -100 }],
+            gen: [{ type: "resource", id: "mana", value: -150 }],
           },
           {
             id: "high_prelate_u",
@@ -3716,14 +3984,15 @@
             order: 3,
             cap: 1,
             category: 3,
+            splash: 7,
             req: [
               { type: "building", id: "ivory_tower_b", value: 1 },
               { type: "resource", id: "faith", value: 25e3 },
               { type: "resource", id: "mana", value: 25e3 },
             ],
             reqAttack: [
-              { type: "resource", id: "faith", value: 12e3 },
-              { type: "resource", id: "mana", value: 12e3 },
+              { type: "resource", id: "faith", value: 15e3 },
+              { type: "resource", id: "mana", value: 15e3 },
             ],
             gen: [
               { type: "resource", id: "gold", value: 35 },
@@ -3789,6 +4058,7 @@
             defense: 15,
             order: 2,
             category: 2,
+            trample: 50,
             req: [
               { type: "tech", id: "canava_mercenary", value: 1 },
               { type: "resource", id: "gold", value: 2e3 },
@@ -3841,6 +4111,7 @@
             order: 2,
             cap: 100,
             category: 2,
+            trample: 75,
             req: [
               { type: "tech", id: "dimensional_device", value: 1 },
               { type: "resource", id: "gold", value: 2e3 },
@@ -3851,7 +4122,7 @@
               { type: "resource", id: "gold", value: 200 },
               { type: "resource", id: "natronite", value: 100 },
             ],
-            gen: [{ type: "resource", id: "food", value: -1.2 }],
+            gen: [{ type: "resource", id: "food", value: -1.8 }],
           },
           {
             id: "colonial_militia",
@@ -3919,6 +4190,7 @@
             order: 3,
             cap: 1,
             category: 2,
+            trample: 100,
             req: [
               { type: "tech", id: "warfare", value: 1 },
               { type: "resource", id: "gold", value: 2500 },
@@ -3940,6 +4212,7 @@
             order: 2,
             cap: 1,
             category: 2,
+            splash: 4,
             req: [
               { type: "prayer", id: "desire_war", value: 1 },
               { type: "resource", id: "mana", value: 1e3 },
@@ -3955,6 +4228,7 @@
             order: 3,
             cap: 1,
             category: 2,
+            trample: 100,
             req: [
               { type: "building", id: "officer_training_ground", value: 1 },
               { type: "resource", id: "gold", value: 15e3 },
@@ -3976,6 +4250,7 @@
             order: 2,
             cap: 1,
             category: 2,
+            trample: 100,
             req: [
               { type: "tech", id: "seraphim_t", value: 1 },
               { type: "resource", id: "faith", value: 1e4 },
@@ -3989,7 +4264,7 @@
             gen: [
               { type: "resource", id: "research", value: 15 },
               { type: "resource", id: "crystal", value: 1.5 },
-              { type: "resource", id: "mana", value: -20 },
+              { type: "resource", id: "mana", value: -25 },
             ],
           },
           {
@@ -4000,12 +4275,13 @@
             order: 2,
             cap: 1,
             category: 2,
+            splash: 8,
             req: [
               { type: "prayer", id: "summon_nikharul", value: 1 },
               { type: "resource", id: "mana", value: 12500 },
             ],
             reqAttack: [{ type: "resource", id: "mana", value: 6e3 }],
-            gen: [{ type: "resource", id: "mana", value: -100 }],
+            gen: [{ type: "resource", id: "mana", value: -360 }],
           },
           {
             id: "light_cavarly",
@@ -4014,6 +4290,7 @@
             defense: 4,
             order: 2,
             category: 4,
+            trample: 60,
             req: [
               { type: "tech", id: "breeding", value: 1 },
               { type: "resource", id: "gold", value: 400 },
@@ -4024,7 +4301,7 @@
               { type: "resource", id: "gold", value: 60 },
               { type: "resource", id: "food", value: 40 },
             ],
-            gen: [{ type: "resource", id: "food", value: -0.5 }],
+            gen: [{ type: "resource", id: "food", value: -0.8 }],
           },
           {
             id: "knight",
@@ -4033,6 +4310,7 @@
             defense: 22,
             order: 2,
             category: 4,
+            trample: 70,
             req: [
               { type: "tech", id: "knighthood", value: 1 },
               { type: "resource", id: "gold", value: 3e3 },
@@ -4043,7 +4321,7 @@
               { type: "resource", id: "gold", value: 120 },
               { type: "resource", id: "food", value: 100 },
             ],
-            gen: [{ type: "resource", id: "food", value: -1.2 }],
+            gen: [{ type: "resource", id: "food", value: -1.8 }],
           },
           {
             id: "cataphract",
@@ -4052,6 +4330,7 @@
             defense: 48,
             order: 2,
             category: 4,
+            trample: 100,
             req: [
               { type: "tech", id: "persuade_nobility", value: 1 },
               { type: "resource", id: "gold", value: 2e3 },
@@ -4074,6 +4353,7 @@
             defense: 28,
             order: 2,
             category: 4,
+            trample: 80,
             req: [
               { type: "tech", id: "cuirassiers", value: 1 },
               { type: "resource", id: "gold", value: 5e3 },
@@ -4085,7 +4365,7 @@
               { type: "resource", id: "gold", value: 200 },
               { type: "resource", id: "food", value: 200 },
             ],
-            gen: [{ type: "resource", id: "food", value: -2 }],
+            gen: [{ type: "resource", id: "food", value: -2.8 }],
           },
           {
             id: "steel_rider",
@@ -4095,6 +4375,7 @@
             order: 2,
             cap: 100,
             category: 4,
+            trample: 90,
             req: [
               { type: "tech", id: "human_dna", value: 1 },
               { type: "resource", id: "gold", value: 1e4 },
@@ -4106,7 +4387,7 @@
               { type: "resource", id: "food", value: 250 },
               { type: "resource", id: "crystal", value: 100 },
             ],
-            gen: [{ type: "resource", id: "food", value: -4 }],
+            gen: [{ type: "resource", id: "food", value: -5 }],
           },
           {
             id: "cpt_galliard",
@@ -4116,6 +4397,7 @@
             order: 2,
             cap: 1,
             category: 4,
+            trample: 100,
             req: [
               { type: "tech", id: "cpt_galliard_t", value: 1 },
               { type: "resource", id: "gold", value: 1e4 },
@@ -4135,6 +4417,7 @@
             order: 2,
             cap: 1,
             category: 4,
+            splash: 5,
             req: [
               { type: "tech", id: "avatar_fate", value: 1 },
               { type: "resource", id: "faith", value: 9e4 },
@@ -4157,6 +4440,7 @@
             order: 3,
             cap: 1,
             category: 4,
+            splash: 15,
             req: [
               { type: "tech", id: "vaelgoroth_t", value: 1 },
               { type: "resource", id: "mana", value: 1e5 },
@@ -4175,6 +4459,7 @@
             order: 3,
             cap: 1,
             category: 3,
+            trample: 100,
           },
           {
             id: "ancient_ghost",
@@ -4207,6 +4492,7 @@
             defense: 52,
             order: 3,
             category: 2,
+            splash: 2,
           },
           {
             id: "archlich",
@@ -4216,6 +4502,7 @@
             order: 3,
             cap: 1,
             category: 1,
+            splash: 8,
           },
           {
             id: "ball_lightning",
@@ -4224,6 +4511,7 @@
             defense: 20,
             order: 1,
             category: 4,
+            splash: 2,
           },
           {
             id: "balor",
@@ -4232,6 +4520,7 @@
             defense: 150,
             order: 1,
             category: 2,
+            splash: 5,
           },
           {
             id: "bandit",
@@ -4248,6 +4537,7 @@
             defense: 12,
             order: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "barbarian_drummer",
@@ -4264,6 +4554,7 @@
             defense: 22,
             order: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "barbarian_king",
@@ -4273,6 +4564,7 @@
             order: 3,
             cap: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "barbarian_warrior",
@@ -4281,6 +4573,7 @@
             defense: 6,
             order: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "baron_mordecai_darkthorn",
@@ -4290,6 +4583,7 @@
             order: 3,
             cap: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "basilisk",
@@ -4307,6 +4601,7 @@
             order: 3,
             cap: 1,
             category: 1,
+            splash: 5,
           },
           {
             id: "bugbear",
@@ -4324,6 +4619,7 @@
             order: 2,
             cap: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "bulette",
@@ -4332,6 +4628,7 @@
             defense: 110,
             order: 1,
             category: 4,
+            trample: 100,
           },
           {
             id: "cavarly_archer",
@@ -4356,6 +4653,7 @@
             defense: 76,
             order: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "cult_master",
@@ -4374,6 +4672,7 @@
             order: 3,
             cap: 1,
             category: 1,
+            trample: 100,
           },
           {
             id: "dark_knight",
@@ -4382,6 +4681,7 @@
             defense: 250,
             order: 2,
             category: 2,
+            trample: 100,
           },
           {
             id: "dark_knight_lord",
@@ -4391,6 +4691,7 @@
             order: 3,
             cap: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "demoness",
@@ -4449,6 +4750,7 @@
             defense: 65,
             order: 3,
             category: 1,
+            trample: 100,
           },
           {
             id: "draconic_mage",
@@ -4457,6 +4759,7 @@
             defense: 10,
             order: 3,
             category: 1,
+            splash: 2,
           },
           {
             id: "draconic_warrior",
@@ -4473,6 +4776,7 @@
             defense: 48,
             order: 1,
             category: 3,
+            trample: 100,
           },
           {
             id: "eternal_guardian",
@@ -4489,6 +4793,7 @@
             defense: 67,
             order: 1,
             category: 3,
+            trample: 100,
           },
           {
             id: "faceless_horror",
@@ -4497,6 +4802,7 @@
             defense: 108,
             order: 2,
             category: 4,
+            trample: 100,
           },
           {
             id: "fallen_angel",
@@ -4506,6 +4812,7 @@
             order: 3,
             cap: 1,
             category: 2,
+            splash: 5,
           },
           {
             id: "fire_elemental",
@@ -4514,6 +4821,7 @@
             defense: 28,
             order: 1,
             category: 1,
+            splash: 2,
           },
           {
             id: "fire_salamander",
@@ -4539,6 +4847,7 @@
             order: 2,
             cap: 1,
             category: 3,
+            trample: 100,
           },
           {
             id: "galliard",
@@ -4548,6 +4857,7 @@
             order: 2,
             cap: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "gargoyle",
@@ -4589,6 +4899,7 @@
             order: 2,
             cap: 1,
             category: 1,
+            splash: 5,
           },
           {
             id: "giant_snake",
@@ -4622,6 +4933,7 @@
             order: 2,
             cap: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "gnoll_raider",
@@ -4647,6 +4959,7 @@
             order: 3,
             cap: 1,
             category: 2,
+            splash: 5,
           },
           {
             id: "goblin_warrior",
@@ -4663,6 +4976,7 @@
             defense: 7,
             order: 2,
             category: 4,
+            trample: 100,
           },
           {
             id: "golem",
@@ -4688,6 +5002,7 @@
             defense: 16,
             order: 3,
             category: 2,
+            trample: 100,
           },
           {
             id: "griffin",
@@ -4705,6 +5020,7 @@
             order: 3,
             cap: 1,
             category: 1,
+            splash: 6,
           },
           {
             id: "hand_evil",
@@ -4714,6 +5030,7 @@
             order: 3,
             cap: 1,
             category: 2,
+            splash: 7,
           },
           {
             id: "harpy",
@@ -4730,6 +5047,7 @@
             defense: 36,
             order: 1,
             category: 3,
+            trample: 100,
           },
           {
             id: "hobgoblin_archer",
@@ -4747,6 +5065,7 @@
             order: 2,
             cap: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "hobgoblin_grunt",
@@ -4755,6 +5074,7 @@
             defense: 12,
             order: 1,
             category: 3,
+            trample: 100,
           },
           {
             id: "hydra",
@@ -4764,6 +5084,7 @@
             order: 1,
             cap: 1,
             category: 4,
+            splash: 4,
           },
           {
             id: "hover_tank",
@@ -4772,6 +5093,7 @@
             defense: 120,
             order: 1,
             category: 3,
+            trample: 100,
           },
           {
             id: "immense_door",
@@ -4822,6 +5144,7 @@
             order: 1,
             cap: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "korrigan_slinger",
@@ -4863,6 +5186,7 @@
             order: 3,
             cap: 1,
             category: 1,
+            splash: 3,
           },
           {
             id: "lizard_archer",
@@ -4904,6 +5228,7 @@
             order: 1,
             cap: 1,
             category: 4,
+            trample: 100,
           },
           {
             id: "mechanical_wolf",
@@ -4921,6 +5246,7 @@
             order: 3,
             cap: 1,
             category: 1,
+            splash: 12,
           },
           {
             id: "minotaur",
@@ -4930,6 +5256,7 @@
             order: 1,
             cap: 1,
             category: 3,
+            trample: 100,
           },
           {
             id: "mist_evil",
@@ -4939,6 +5266,7 @@
             order: 1,
             cap: 1,
             category: 3,
+            splash: 20,
           },
           {
             id: "mobile_turret",
@@ -4955,6 +5283,7 @@
             defense: 42,
             order: 3,
             category: 3,
+            trample: 100,
           },
           {
             id: "musket_ashigaru",
@@ -4988,6 +5317,7 @@
             order: 3,
             cap: 1,
             category: 4,
+            trample: 100,
           },
           {
             id: "naga_royal_guard",
@@ -4996,6 +5326,7 @@
             defense: 80,
             order: 2,
             category: 2,
+            trample: 100,
           },
           {
             id: "necromancer",
@@ -5005,6 +5336,7 @@
             order: 3,
             cap: 1,
             category: 1,
+            splash: 4,
           },
           {
             id: "nikharul",
@@ -5014,6 +5346,7 @@
             order: 3,
             cap: 1,
             category: 1,
+            splash: 9,
           },
           {
             id: "oni",
@@ -5030,6 +5363,7 @@
             defense: 130,
             order: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "orc_berserker",
@@ -5038,6 +5372,7 @@
             defense: 11,
             order: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "orc_flame_caster",
@@ -5046,6 +5381,7 @@
             defense: 12,
             order: 3,
             category: 1,
+            splash: 3,
           },
           {
             id: "orc_ironskin",
@@ -5078,6 +5414,7 @@
             defense: 70,
             order: 2,
             category: 4,
+            trample: 100,
           },
           {
             id: "orc_warlord",
@@ -5086,6 +5423,7 @@
             defense: 150,
             order: 2,
             category: 2,
+            trample: 100,
           },
           {
             id: "orc_warrior",
@@ -5094,6 +5432,7 @@
             defense: 63,
             order: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "orc_worker",
@@ -5135,6 +5474,7 @@
             order: 3,
             cap: 1,
             category: 4,
+            splash: 12,
           },
           {
             id: "snake",
@@ -5184,6 +5524,7 @@
             order: 3,
             cap: 1,
             category: 1,
+            trample: 100,
           },
           {
             id: "son_atamar",
@@ -5225,6 +5566,7 @@
             order: 2,
             cap: 1,
             category: 1,
+            splash: 5,
           },
           {
             id: "swamp_horror",
@@ -5234,6 +5576,7 @@
             order: 1,
             cap: 1,
             category: 3,
+            trample: 100,
           },
           {
             id: "titan",
@@ -5243,6 +5586,7 @@
             order: 1,
             cap: 1,
             category: 2,
+            splash: 40,
           },
           {
             id: "trap",
@@ -5259,6 +5603,7 @@
             defense: 28,
             order: 1,
             category: 3,
+            trample: 100,
           },
           {
             id: "troll_battle",
@@ -5267,6 +5612,7 @@
             defense: 56,
             order: 1,
             category: 2,
+            trample: 100,
           },
           {
             id: "tyrannosaurus",
@@ -5276,6 +5622,7 @@
             order: 1,
             cap: 1,
             category: 4,
+            trample: 100,
           },
           {
             id: "vampire",
@@ -5317,6 +5664,7 @@
             defense: 18,
             order: 1,
             category: 4,
+            trample: 100,
           },
           {
             id: "werewolf",
@@ -5326,6 +5674,7 @@
             order: 1,
             cap: 1,
             category: 1,
+            trample: 100,
           },
           {
             id: "wendigo",
@@ -5342,6 +5691,7 @@
             defense: 42,
             order: 1,
             category: 1,
+            splash: 3,
           },
           {
             id: "wolf",
@@ -5358,6 +5708,7 @@
             defense: 28,
             order: 2,
             category: 4,
+            trample: 100,
           },
           {
             id: "zombie",
@@ -5374,6 +5725,7 @@
             defense: 128,
             order: 1,
             category: 1,
+            splash: 2,
           },
           {
             id: "vaelgoroth_crimson_doom",
@@ -5383,6 +5735,7 @@
             order: 3,
             cap: 1,
             category: 4,
+            splash: 7,
           },
           {
             id: "azrathis_flamebinder",
@@ -5392,6 +5745,7 @@
             order: 3,
             cap: 1,
             category: 2,
+            splash: 9,
           },
         ];
       },
@@ -5506,7 +5860,9 @@
           );
         }
         function n(e, t, r) {
-          return e > 99999
+          return e > 9999999
+            ? r.format(Math.round((e / 1e6) * 10) / 10) + "M"
+            : e > 99999
             ? r.format(Math.round((e / 1e3) * 10) / 10) + "K"
             : t.format(e);
         }
@@ -5608,6 +5964,31 @@
             t[r] = arguments[r];
           return t.filter(Boolean).join(" ");
         }
+        function y(e) {
+          if (e === 1 / 0 || isNaN(e) || e <= 0) return "\u221e";
+          if (e < 60) return "".concat(Math.ceil(e), "s");
+          if (e < 3600) {
+            const t = Math.floor(e / 60),
+              r = Math.ceil(e % 60);
+            return r > 0
+              ? "".concat(t, "m ").concat(r, "s")
+              : "".concat(t, "m");
+          }
+          if (e < 86400) {
+            const t = Math.floor(e / 3600),
+              r = Math.floor((e % 3600) / 60);
+            return r > 0
+              ? "".concat(t, "h ").concat(r, "m")
+              : "".concat(t, "h");
+          }
+          {
+            const t = Math.floor(e / 86400),
+              r = Math.floor((e % 86400) / 3600);
+            return r > 0
+              ? "".concat(t, "d ").concat(r, "h")
+              : "".concat(t, "d");
+          }
+        }
         r.d(t, {
           $E: () => a,
           HO: () => c,
@@ -5617,6 +5998,7 @@
           S5: () => s,
           TT: () => i,
           ZV: () => n,
+          fU: () => y,
           lW: () => o,
           v$: () => p,
           xW: () => h,
@@ -5649,6 +6031,7 @@
             achievements_empty: "您还需多加努力",
             achievements_mine: "我的成就",
             achievements_global: "成就一览",
+            add_all: "全部增加",
             all_caps: "超转生所有上限",
             all_resources: "所有资源",
             ancestor: "祖先",
@@ -5665,6 +6048,7 @@
             back: "返回",
             battery_life: "节省电源",
             battery_mode: "电源模式",
+            battle_order: "战斗次序",
             beta_message:
               "请注意，目前您玩到的是本游戏的beta版本，还在开发中，内容随时可能变化，您也可能会丢失存档。游玩风险自负。",
             beta_version: "Beta版本",
@@ -5692,13 +6076,17 @@
             confirm_reward_ad_title: "支持游戏开发！",
             confirm_reward_ad_description:
               "本游戏完全免费！您可以通过观看广告支持本游戏开发，并获得以下奖励：",
+            danger_zone: "危险选项",
             dark_mode: "昏暗模式",
             dark_light_mode: "昏暗/明亮模式",
+            default: "默认",
             defeat: "您战败了！",
+            defeated: "战败",
             defense: "防御",
             defense_abbr: "防",
             defense_empty: "您没有士兵",
             died: "阵亡",
+            display: "显示",
             difficulty: "难度",
             difficulty_0: "普通",
             difficulty_0_1_description:
@@ -5753,6 +6141,7 @@
             evil_path: "邪恶",
             evil_path_description: "开发中……",
             explore: "探索",
+            faq: "常见问题解答",
             farmer_bonus: "农民加成",
             garrison: "驻军",
             hall_of_fame: "名人堂",
@@ -5805,6 +6194,7 @@
             next: "继续",
             no_achievements_found: "没有成就可供完成",
             no_attackable_enemy: "没有敌人可供攻击",
+            no_soundtrack_selected: "无配乐",
             no_spy_enemy: "没有敌人可供探查",
             no_requirements: "无需求",
             open_achievements: "打开成就界面",
@@ -5889,6 +6279,7 @@
               "人类的命运已刻在群星之间，即是光荣的胜利！",
             oracle_prediction_victory_20:
               "所有人的内心都随着胜利的韵律跳动，无坚不摧，无物可挡！",
+            paste_here: "请在此处粘贴存档……",
             paste_message: "点击此处以粘贴存档",
             paste_message_click: "按Ctrl+V粘贴存档",
             paste_success:
@@ -5903,10 +6294,14 @@
             prayer_empty: "没有什么可供祈祷",
             prestige: "转生",
             random_soundtrack: "随机配乐",
+            remove_all: "移除所有",
             research: "研究",
             reward_canceled: "取消了奖励，请之后再次尝试",
+            runstart_begin_journey: "选择祖先，开始旅程",
+            runstart_choose_path: "选择道路",
             runstart_subtitle: "登攀者世界欢迎您的到来",
             runstart_subtitle_2: "您的祖先以此闻名：",
+            save_load: "保存/读取",
             save_to_clipboard: "保存至剪贴板",
             save_to_clipboard_success:
               "游戏已保存至剪贴板",
@@ -5956,6 +6351,8 @@
             soft_reset_description_11_false:
               "发射灭世终焉是一种转生。每次发射后，您都可以使所有产量增加4%，声誉增加2%，获得2光明，2幸运石，且军队上限增加10。您可根据声誉数值获得传承点数，用来购买永久加成。转生后，所有游戏进度都将重置(成就，统计和传承加成除外)，并开始下周目游戏",
             soft_reset_in_progress: "转生中",
+            sort_by_battle_order: "按照战斗次序来排序",
+            sort_by_battle_order_disable: "不按照战斗次序来排序",
             sounds_volume: "音量",
             spells: "咒语",
             spells_all: "所有咒语",
@@ -5972,6 +6369,7 @@
             support_us: "支持",
             tech_empty: "没有项目可供研究人员研究",
             theresmore_richest_nation: "登攀者世界富甲天下",
+            time_to_cap: "上限倒计时",
             track_1: "人类之光",
             track_2: "重装骑士",
             track_3: "匹夫有责",
@@ -6618,9 +7016,12 @@
             cat_commercial_area: "商业区域",
             cat_defense: "军事与防御",
             cat_faith: "信念与魔法",
+            cat_fighting: "战斗",
             cat_living_quarters: "生活区域",
+            cat_prestige: "转生重置",
             cat_resource: "生产与制造",
             cat_science: "知识区域",
+            cat_scouting: "侦察",
             cat_warehouse: "存储",
             cat_wonders: "奇观",
             dip_army_of_dragon: "红龙来袭",
@@ -8780,7 +9181,7 @@
             log_tec_black_artifact:
               "水晶的力量吞噬了周围的土地，用不详的邪雾腐蚀它们。雾瘴之中邪孽横行，无情屠戮所有靠近者。必须向这片受诅之地调遣军队，对抗不断膨胀的恶意。立刻派出侦察兵！",
             log_tec_breeding:
-              "我们可以训练轻骑兵了，它是一种优秀而快速的突击部队。我们可以建造马厩了",
+              "我们可以训练轻骑兵了，它是一种优秀的快速突击部队。该单位拥有“践踏”能力，消灭敌人后，将以相应比例的剩余伤害继续对后续敌人发动攻击。我们可以建造马厩了",
             log_tec_boot_camp_t: "我们可以建造新兵训练营了",
             log_tec_bronze_working:
               "我们可以训练长矛兵和战士了，我们的军队可以有效地进行防御和攻击。军队将以既定顺序排列，最前面的是肉盾和近战部队，远程单位将在后方发动攻击，最后才阵亡。我们可以建造兵营了",
@@ -9108,7 +9509,7 @@
             log_tec_veteran_artillerymen:
               "我们可以建造炮兵靶场了",
             log_tec_warfare:
-              "熟悉兵法韬略后，我们的国度将出现伟大的统帅",
+              "熟悉兵法韬略后，我们的国度将出现伟大的指挥官。我们可以建造投石机了，该单位拥有“溅射”能力，每回合可以同时攻击相应数量的敌人",
             log_tec_white_t_company: "我们可以训练白色连队了",
             log_tec_wings_freedom:
               "我们需要让加里亚德摆脱他的困扰。所以，我们必须找到那个远古巨人。让侦察兵开始行动吧！",
@@ -11560,6 +11961,40 @@
             uni_zombie_description:
               "缓慢而腐烂，可以用疾病感染大片地区",
             uni_zombie_plural: "僵尸",
+            combat_reports: "战斗记录",
+            combat_reports_info:
+              "游戏最多保存10份战斗记录。您可以通过星形图标将其中5份设为收藏记录。收藏后的战斗记录不会被自动删除",
+            collapse: "折叠",
+            expand: "展开",
+            delete: "删除",
+            star: "标星",
+            unstar: "取消标星",
+            cannot_delete_starred: "无法删除标星的战斗记录",
+            max_starred_reports: "收藏的战斗记录份数已达上限",
+            damage_statistics: "伤害统计",
+            army_losses: "我方损失",
+            enemy_losses: "敌方损失",
+            special_units: "特殊单位",
+            attack_breakdown: "攻击明细",
+            show_details: "显示详情",
+            hide_details: "隐藏详情",
+            detailed_combat_log: "战斗记录详情",
+            result: "结果",
+            enemy: "敌人",
+            type: "类别",
+            rounds: "回合数",
+            casualties: "损失数",
+            time: "时间",
+            actions: "操作",
+            no_losses: "无损失",
+            no_combat_reports: "无战斗记录",
+            no_combat_reports_description:
+              "战斗后将出现战斗记录。",
+            total: "合计",
+            trample: "践踏",
+            splash: "溅射",
+            bonus: "加成",
+            mvp: "MVP",
           },
         };
         function i(e) {
@@ -11569,230 +12004,303 @@
       2631: (e, t, r) => {
         "use strict";
         r.d(t, {
-          $pT: () => x,
-          BNE: () => he,
-          BgZ: () => T,
-          CKh: () => ce,
-          CZ3: () => w,
-          DIA: () => Y,
-          Dh9: () => m,
-          Du3: () => ye,
-          EwE: () => u,
-          FAn: () => h,
-          F_M: () => v,
-          FpE: () => C,
-          Fx8: () => de,
-          GDm: () => $,
-          GWk: () => te,
-          HY$: () => o,
-          I7R: () => ie,
-          ICu: () => me,
-          JGu: () => l,
-          Jtv: () => S,
-          LU7: () => F,
-          M5b: () => Z,
-          M8b: () => b,
-          MEE: () => A,
-          NKH: () => Ae,
-          NbG: () => se,
-          ORM: () => z,
-          Qdf: () => s,
-          RbI: () => c,
-          Rjk: () => X,
-          Rjl: () => ue,
-          StA: () => H,
-          Szg: () => k,
-          T9J: () => P,
-          XzY: () => Q,
-          YSt: () => n,
-          ZiE: () => M,
+          $pT: () => N,
+          ADG: () => S,
+          B0y: () => h,
+          BNE: () => qe,
+          BgZ: () => R,
+          Bk0: () => V,
+          C6v: () => Te,
+          CKh: () => xe,
+          CLz: () => ye,
+          CZ3: () => C,
+          DIA: () => ae,
+          Dh9: () => f,
+          Du3: () => Ie,
+          EwE: () => p,
+          F5B: () => M,
+          FAn: () => m,
+          F_M: () => x,
+          FpE: () => O,
+          Fx8: () => ke,
+          GDm: () => de,
+          GWk: () => _e,
+          HY$: () => s,
+          HzW: () => Be,
+          I7R: () => ge,
+          ICu: () => Ne,
+          JGu: () => d,
+          Jtv: () => j,
+          LLR: () => je,
+          LU7: () => X,
+          M5b: () => se,
+          M8b: () => A,
+          MEE: () => L,
+          NIi: () => v,
+          NKH: () => Qe,
+          NbG: () => be,
+          ORM: () => J,
+          Qdf: () => l,
+          RbI: () => u,
+          Rjk: () => ie,
+          Rjl: () => Se,
+          StA: () => K,
+          Szg: () => T,
+          T9J: () => U,
+          W71: () => ce,
+          WCY: () => H,
+          XzY: () => le,
+          Y9T: () => Ee,
+          YSt: () => o,
+          YWK: () => Me,
+          ZL5: () => Re,
+          ZiE: () => E,
           Znq: () => i,
-          _9r: () => I,
-          _AM: () => fe,
-          _RU: () => J,
-          _r5: () => N,
-          a2K: () => d,
-          aD$: () => oe,
-          aFw: () => y,
-          aRb: () => ge,
-          ahW: () => D,
-          avO: () => ne,
-          biz: () => le,
-          cVf: () => K,
-          dYe: () => R,
-          dwL: () => Me,
-          f0s: () => V,
-          fk9: () => ae,
-          gp1: () => L,
-          gs2: () => re,
-          jVN: () => j,
-          lnd: () => xe,
-          lu1: () => _,
-          mFy: () => Se,
-          mSZ: () => be,
+          _9r: () => F,
+          _AM: () => De,
+          _RU: () => ue,
+          _r5: () => D,
+          a2K: () => c,
+          aD$: () => ve,
+          aFw: () => g,
+          aRb: () => Pe,
+          ahW: () => Q,
+          avO: () => fe,
+          biz: () => we,
+          cVf: () => oe,
+          dF: () => He,
+          dYe: () => Y,
+          dwL: () => Ze,
+          eWP: () => Fe,
+          f0s: () => Z,
+          fk9: () => me,
+          gp1: () => G,
+          gs2: () => he,
+          h$D: () => w,
+          jVN: () => z,
+          lTU: () => n,
+          lnd: () => Xe,
+          lu1: () => y,
+          mFy: () => Ke,
+          mSZ: () => ze,
           n7C: () => a,
-          nAi: () => we,
-          nC: () => O,
-          o$Y: () => q,
-          o0C: () => g,
-          ol: () => _e,
-          opG: () => f,
-          p2H: () => ke,
-          pA8: () => G,
-          pts: () => U,
-          qQT: () => ve,
-          tpY: () => B,
-          vJ_: () => W,
-          wgn: () => pe,
-          wzK: () => ee,
-          xKU: () => E,
-          xhV: () => p,
+          nAi: () => Ge,
+          nC: () => B,
+          nO4: () => ne,
+          nhs: () => q,
+          o$Y: () => P,
+          o0C: () => b,
+          ol: () => Ce,
+          opG: () => k,
+          p2H: () => Ue,
+          pA8: () => te,
+          pgw: () => Ye,
+          pts: () => re,
+          qQT: () => We,
+          tpY: () => ee,
+          uUn: () => Le,
+          um: () => Oe,
+          vJ_: () => $,
+          wSG: () => Ve,
+          wgn: () => Ae,
+          wzK: () => pe,
+          xKU: () => W,
+          xhV: () => _,
+          y_G: () => I,
         });
         var a =
             "M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z",
           i = "M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z",
           n =
-            "M19.5,3.09L20.91,4.5L16.41,9H20V11H13V4H15V7.59L19.5,3.09M20.91,19.5L19.5,20.91L15,16.41V20H13V13H20V15H16.41L20.91,19.5M4.5,3.09L9,7.59V4H11V11H4V9H7.59L3.09,4.5L4.5,3.09M3.09,19.5L7.59,15H4V13H11V20H9V16.41L4.5,20.91L3.09,19.5Z",
+            "M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
           o =
-            "M12,17L7,12H10V8H14V12H17L12,17M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z",
+            "M19.5,3.09L20.91,4.5L16.41,9H20V11H13V4H15V7.59L19.5,3.09M20.91,19.5L19.5,20.91L15,16.41V20H13V13H20V15H16.41L20.91,19.5M4.5,3.09L9,7.59V4H11V11H4V9H7.59L3.09,4.5L4.5,3.09M3.09,19.5L7.59,15H4V13H11V20H9V16.41L4.5,20.91L3.09,19.5Z",
           s =
-            "M12,7L17,12H14V16H10V12H7L12,7M12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20Z",
+            "M12,17L7,12H10V8H14V12H17L12,17M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z",
           l =
-            "M12,2L22,8C22,12 20,14 16,15L13,10L9,6L12,2M4.11,19.84L2.12,18.33L9.19,9L11,10.81L4.11,19.84Z",
+            "M12,7L17,12H14V16H10V12H7L12,7M12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20Z",
           d =
-            "M16.67,4H15V2H9V4H7.33A1.33,1.33 0 0,0 6,5.33V20.67C6,21.4 6.6,22 7.33,22H16.67A1.33,1.33 0 0,0 18,20.67V5.33C18,4.6 17.4,4 16.67,4Z",
+            "M12,2L22,8C22,12 20,14 16,15L13,10L9,6L12,2M4.11,19.84L2.12,18.33L9.19,9L11,10.81L4.11,19.84Z",
           c =
-            "M17.5 14.33C18.29 14.33 19.13 14.41 20 14.57V16.07C19.38 15.91 18.54 15.83 17.5 15.83C15.6 15.83 14.11 16.16 13 16.82V15.13C14.17 14.6 15.67 14.33 17.5 14.33M13 12.46C14.29 11.93 15.79 11.67 17.5 11.67C18.29 11.67 19.13 11.74 20 11.9V13.4C19.38 13.24 18.54 13.16 17.5 13.16C15.6 13.16 14.11 13.5 13 14.15M17.5 10.5C15.6 10.5 14.11 10.82 13 11.5V9.84C14.23 9.28 15.73 9 17.5 9C18.29 9 19.13 9.08 20 9.23V10.78C19.26 10.59 18.41 10.5 17.5 10.5M21 18.5V7C19.96 6.67 18.79 6.5 17.5 6.5C15.45 6.5 13.62 7 12 8V19.5C13.62 18.5 15.45 18 17.5 18C18.69 18 19.86 18.16 21 18.5M17.5 4.5C19.85 4.5 21.69 5 23 6V20.56C23 20.68 22.95 20.8 22.84 20.91C22.73 21 22.61 21.08 22.5 21.08C22.39 21.08 22.31 21.06 22.25 21.03C20.97 20.34 19.38 20 17.5 20C15.45 20 13.62 20.5 12 21.5C10.66 20.5 8.83 20 6.5 20C4.84 20 3.25 20.36 1.75 21.07C1.72 21.08 1.68 21.08 1.63 21.1C1.59 21.11 1.55 21.12 1.5 21.12C1.39 21.12 1.27 21.08 1.16 21C1.05 20.89 1 20.78 1 20.65V6C2.34 5 4.18 4.5 6.5 4.5C8.83 4.5 10.66 5 12 6C13.34 5 15.17 4.5 17.5 4.5Z",
+            "M16.67,4H15V2H9V4H7.33A1.33,1.33 0 0,0 6,5.33V20.67C6,21.4 6.6,22 7.33,22H16.67A1.33,1.33 0 0,0 18,20.67V5.33C18,4.6 17.4,4 16.67,4Z",
           u =
-            "M19.03 6.03L20 7L22 2L17 4L17.97 4.97L16.15 6.79C10.87 2.16 3.3 3.94 2.97 4L2 4.26L2.5 6.2L3.29 6L10.12 12.82L6.94 16H5L2 19L4 20L5 22L8 19V17.06L11.18 13.88L18 20.71L17.81 21.5L19.74 22L20 21.03C20.06 20.7 21.84 13.13 17.21 7.85L19.03 6.03M4.5 5.78C6.55 5.5 11.28 5.28 14.73 8.21L10.82 12.12L4.5 5.78M18.22 19.5L11.88 13.18L15.79 9.27C18.72 12.72 18.5 17.45 18.22 19.5Z",
+            "M17.5 14.33C18.29 14.33 19.13 14.41 20 14.57V16.07C19.38 15.91 18.54 15.83 17.5 15.83C15.6 15.83 14.11 16.16 13 16.82V15.13C14.17 14.6 15.67 14.33 17.5 14.33M13 12.46C14.29 11.93 15.79 11.67 17.5 11.67C18.29 11.67 19.13 11.74 20 11.9V13.4C19.38 13.24 18.54 13.16 17.5 13.16C15.6 13.16 14.11 13.5 13 14.15M17.5 10.5C15.6 10.5 14.11 10.82 13 11.5V9.84C14.23 9.28 15.73 9 17.5 9C18.29 9 19.13 9.08 20 9.23V10.78C19.26 10.59 18.41 10.5 17.5 10.5M21 18.5V7C19.96 6.67 18.79 6.5 17.5 6.5C15.45 6.5 13.62 7 12 8V19.5C13.62 18.5 15.45 18 17.5 18C18.69 18 19.86 18.16 21 18.5M17.5 4.5C19.85 4.5 21.69 5 23 6V20.56C23 20.68 22.95 20.8 22.84 20.91C22.73 21 22.61 21.08 22.5 21.08C22.39 21.08 22.31 21.06 22.25 21.03C20.97 20.34 19.38 20 17.5 20C15.45 20 13.62 20.5 12 21.5C10.66 20.5 8.83 20 6.5 20C4.84 20 3.25 20.36 1.75 21.07C1.72 21.08 1.68 21.08 1.63 21.1C1.59 21.11 1.55 21.12 1.5 21.12C1.39 21.12 1.27 21.08 1.16 21C1.05 20.89 1 20.78 1 20.65V6C2.34 5 4.18 4.5 6.5 4.5C8.83 4.5 10.66 5 12 6C13.34 5 15.17 4.5 17.5 4.5Z",
           p =
-            "M14,12H10V10H14M14,16H10V14H14M20,8H17.19C16.74,7.22 16.12,6.55 15.37,6.04L17,4.41L15.59,3L13.42,5.17C12.96,5.06 12.5,5 12,5C11.5,5 11.04,5.06 10.59,5.17L8.41,3L7,4.41L8.62,6.04C7.88,6.55 7.26,7.22 6.81,8H4V10H6.09C6.04,10.33 6,10.66 6,11V12H4V14H6V15C6,15.34 6.04,15.67 6.09,16H4V18H6.81C7.85,19.79 9.78,21 12,21C14.22,21 16.15,19.79 17.19,18H20V16H17.91C17.96,15.67 18,15.34 18,15V14H20V12H18V11C18,10.66 17.96,10.33 17.91,10H20V8Z",
+            "M19.03 6.03L20 7L22 2L17 4L17.97 4.97L16.15 6.79C10.87 2.16 3.3 3.94 2.97 4L2 4.26L2.5 6.2L3.29 6L10.12 12.82L6.94 16H5L2 19L4 20L5 22L8 19V17.06L11.18 13.88L18 20.71L17.81 21.5L19.74 22L20 21.03C20.06 20.7 21.84 13.13 17.21 7.85L19.03 6.03M4.5 5.78C6.55 5.5 11.28 5.28 14.73 8.21L10.82 12.12L4.5 5.78M18.22 19.5L11.88 13.18L15.79 9.27C18.72 12.72 18.5 17.45 18.22 19.5Z",
           _ =
-            "M12 2C17.5 2 22 6.5 22 12S17.5 22 12 22 2 17.5 2 12 6.5 2 12 2M12 4C10.1 4 8.4 4.6 7.1 5.7L18.3 16.9C19.3 15.5 20 13.8 20 12C20 7.6 16.4 4 12 4M16.9 18.3L5.7 7.1C4.6 8.4 4 10.1 4 12C4 16.4 7.6 20 12 20C13.9 20 15.6 19.4 16.9 18.3Z",
+            "M14,12H10V10H14M14,16H10V14H14M20,8H17.19C16.74,7.22 16.12,6.55 15.37,6.04L17,4.41L15.59,3L13.42,5.17C12.96,5.06 12.5,5 12,5C11.5,5 11.04,5.06 10.59,5.17L8.41,3L7,4.41L8.62,6.04C7.88,6.55 7.26,7.22 6.81,8H4V10H6.09C6.04,10.33 6,10.66 6,11V12H4V14H6V15C6,15.34 6.04,15.67 6.09,16H4V18H6.81C7.85,19.79 9.78,21 12,21C14.22,21 16.15,19.79 17.19,18H20V16H17.91C17.96,15.67 18,15.34 18,15V14H20V12H18V11C18,10.66 17.96,10.33 17.91,10H20V8Z",
           h =
-            "M17.45,15.18L22,7.31V19L22,21H2V3H4V15.54L9.5,6L16,9.78L20.24,2.45L21.97,3.45L16.74,12.5L10.23,8.75L4.31,19H6.57L10.96,11.44L17.45,15.18Z",
-          y = "M22,21H2V3H4V19H6V10H10V19H12V6H16V19H18V14H22V21Z",
+            "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,10.84 21.79,9.69 21.39,8.61L19.79,10.21C19.93,10.8 20,11.4 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4C12.6,4 13.2,4.07 13.79,4.21L15.4,2.6C14.31,2.21 13.16,2 12,2M19,2L15,6V7.5L12.45,10.05C12.3,10 12.15,10 12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12C14,11.85 14,11.7 13.95,11.55L16.5,9H18L22,5H19V2M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12H16A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8V6Z",
+          y =
+            "M12 2C17.5 2 22 6.5 22 12S17.5 22 12 22 2 17.5 2 12 6.5 2 12 2M12 4C10.1 4 8.4 4.6 7.1 5.7L18.3 16.9C19.3 15.5 20 13.8 20 12C20 7.6 16.4 4 12 4M16.9 18.3L5.7 7.1C4.6 8.4 4 10.1 4 12C4 16.4 7.6 20 12 20C13.9 20 15.6 19.4 16.9 18.3Z",
           m =
-            "M12,3C17.5,3 22,6.58 22,11C22,15.42 17.5,19 12,19C10.76,19 9.57,18.82 8.47,18.5C5.55,21 2,21 2,21C4.33,18.67 4.7,17.1 4.75,16.5C3.05,15.07 2,13.13 2,11C2,6.58 6.5,3 12,3M11,14V16H13V14H11M11,12H13V6H11V12Z",
-          g =
-            "M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z",
+            "M17.45,15.18L22,7.31V19L22,21H2V3H4V15.54L9.5,6L16,9.78L20.24,2.45L21.97,3.45L16.74,12.5L10.23,8.75L4.31,19H6.57L10.96,11.44L17.45,15.18Z",
+          g = "M22,21H2V3H4V19H6V10H10V19H12V6H16V19H18V14H22V21Z",
           f =
-            "M12,18L7,13H10V9H14V13H17M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z",
+            "M12,3C17.5,3 22,6.58 22,11C22,15.42 17.5,19 12,19C10.76,19 9.57,18.82 8.47,18.5C5.55,21 2,21 2,21C4.33,18.67 4.7,17.1 4.75,16.5C3.05,15.07 2,13.13 2,11C2,6.58 6.5,3 12,3M11,14V16H13V14H11M11,12H13V6H11V12Z",
           v =
-            "M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H9.18C9.6,1.84 10.7,1 12,1C13.3,1 14.4,1.84 14.82,3H19M12,8L7,13H10V17H14V13H17L12,8M12,3A1,1 0 0,0 11,4A1,1 0 0,0 12,5A1,1 0 0,0 13,4A1,1 0 0,0 12,3Z",
+            "M12 3C6.5 3 2 6.6 2 11C2 13.1 3 15.1 4.8 16.5C4.8 17.1 4.4 18.7 2 21C2 21 5.5 21 8.5 18.5C9.6 18.8 10.8 19 12 19C17.5 19 22 15.4 22 11S17.5 3 12 3M13 15H11V13H13V15M14.8 10C14.5 10.4 14.1 10.6 13.7 10.8C13.4 11 13.3 11.1 13.2 11.3C13 11.5 13 11.7 13 12H11C11 11.5 11.1 11.2 11.3 10.9C11.5 10.7 11.9 10.4 12.4 10.1C12.7 10 12.9 9.8 13 9.6C13.1 9.4 13.2 9.1 13.2 8.9C13.2 8.6 13.1 8.4 12.9 8.2C12.7 8 12.4 7.9 12.1 7.9C11.8 7.9 11.6 8 11.4 8.1C11.2 8.2 11.1 8.4 11.1 8.7H9.1C9.2 8 9.5 7.4 10 7C10.5 6.6 11.2 6.5 12.1 6.5C13 6.5 13.8 6.7 14.3 7.1C14.8 7.5 15.1 8.1 15.1 8.8C15.2 9.2 15.1 9.6 14.8 10Z",
           b =
-            "M12,11.18C15.3,8.18 17,6.64 17,4.69C17,3.19 15.75,2 14.25,2C13.39,2 12.57,2.36 12,3C11.43,2.36 10.61,2 9.69,2C8.19,2 7,3.25 7,4.75C7,6.64 8.7,8.18 12,11.18M11.18,12C8.18,8.7 6.64,7 4.69,7C3.19,7 2,8.25 2,9.75C2,10.61 2.36,11.43 3,12C2.36,12.57 2,13.39 2,14.31C2,15.81 3.25,17 4.75,17C6.64,17 8.18,15.3 11.18,12M12.83,12C15.82,15.3 17.36,17 19.31,17C20.81,17 22,15.75 22,14.25C22,13.39 21.64,12.57 21,12C21.64,11.43 22,10.61 22,9.69C22,8.19 20.75,7 19.25,7C17.36,7 15.82,8.7 12.83,12M12,12.82C8.7,15.82 7,17.36 7,19.31C7,20.81 8.25,22 9.75,22C10.61,22 11.43,21.64 12,21C12.57,21.64 13.39,22 14.31,22C15.81,22 17,20.75 17,19.25C17,17.36 15.3,15.82 12,12.82Z",
+            "M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z",
           w =
-            "M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z",
+            "M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
           k =
-            "M9.38,8.38L11.5,9.34L13.62,8.38L12.66,10.5L13.62,12.62L11.5,11.66L9.38,12.62L10.34,10.5L9.38,8.38M16.5,2.5L17.59,5.41L20.5,6.5L17.59,7.59L16.5,10.5L15.41,7.59L12.5,6.5L15.41,5.41L16.5,2.5M6,19H7V18A1,1 0 0,1 8,17H8.26C6,15.7 4.5,13.28 4.5,10.5A7.5,7.5 0 0,1 12,3C13.05,3 14.05,3.22 14.96,3.61L14.59,4.59L13.17,5.12C12.79,5.04 12.4,5 12,5A5.5,5.5 0 0,0 6.5,10.5A5.5,5.5 0 0,0 12,16C14.91,16 17.3,13.73 17.5,10.87L18.41,8.41L19.12,8.14C19.37,8.88 19.5,9.68 19.5,10.5C19.5,13.28 18,15.7 15.74,17H16A1,1 0 0,1 17,18V19H18A2,2 0 0,1 20,21V22H4V21A2,2 0 0,1 6,19Z",
+            "M12,18L7,13H10V9H14V13H17M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z",
           x =
-            "M22,24L16.75,19L17.38,21H4.5A2.5,2.5 0 0,1 2,18.5V3.5A2.5,2.5 0 0,1 4.5,1H19.5A2.5,2.5 0 0,1 22,3.5V24M12,6.8C9.32,6.8 7.44,7.95 7.44,7.95C8.47,7.03 10.27,6.5 10.27,6.5L10.1,6.33C8.41,6.36 6.88,7.53 6.88,7.53C5.16,11.12 5.27,14.22 5.27,14.22C6.67,16.03 8.75,15.9 8.75,15.9L9.46,15C8.21,14.73 7.42,13.62 7.42,13.62C7.42,13.62 9.3,14.9 12,14.9C14.7,14.9 16.58,13.62 16.58,13.62C16.58,13.62 15.79,14.73 14.54,15L15.25,15.9C15.25,15.9 17.33,16.03 18.73,14.22C18.73,14.22 18.84,11.12 17.12,7.53C17.12,7.53 15.59,6.36 13.9,6.33L13.73,6.5C13.73,6.5 15.53,7.03 16.56,7.95C16.56,7.95 14.68,6.8 12,6.8M9.93,10.59C10.58,10.59 11.11,11.16 11.1,11.86C11.1,12.55 10.58,13.13 9.93,13.13C9.29,13.13 8.77,12.55 8.77,11.86C8.77,11.16 9.28,10.59 9.93,10.59M14.1,10.59C14.75,10.59 15.27,11.16 15.27,11.86C15.27,12.55 14.75,13.13 14.1,13.13C13.46,13.13 12.94,12.55 12.94,11.86C12.94,11.16 13.45,10.59 14.1,10.59Z",
+            "M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H9.18C9.6,1.84 10.7,1 12,1C13.3,1 14.4,1.84 14.82,3H19M12,8L7,13H10V17H14V13H17L12,8M12,3A1,1 0 0,0 11,4A1,1 0 0,0 12,5A1,1 0 0,0 13,4A1,1 0 0,0 12,3Z",
           S =
-            "M12 16C13.1 16 14 16.9 14 18S13.1 20 12 20 10 19.1 10 18 10.9 16 12 16M12 10C13.1 10 14 10.9 14 12S13.1 14 12 14 10 13.1 10 12 10.9 10 12 10M12 4C13.1 4 14 4.9 14 6S13.1 8 12 8 10 7.1 10 6 10.9 4 12 4M6 16C7.1 16 8 16.9 8 18S7.1 20 6 20 4 19.1 4 18 4.9 16 6 16M6 10C7.1 10 8 10.9 8 12S7.1 14 6 14 4 13.1 4 12 4.9 10 6 10M6 4C7.1 4 8 4.9 8 6S7.1 8 6 8 4 7.1 4 6 4.9 4 6 4M18 16C19.1 16 20 16.9 20 18S19.1 20 18 20 16 19.1 16 18 16.9 16 18 16M18 10C19.1 10 20 10.9 20 12S19.1 14 18 14 16 13.1 16 12 16.9 10 18 10M18 4C19.1 4 20 4.9 20 6S19.1 8 18 8 16 7.1 16 6 16.9 4 18 4Z",
+            "M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z",
           M =
-            "M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
+            "M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z",
           A =
-            "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,14C13.75,14 15.29,14.72 16.19,15.81L14.77,17.23C14.32,16.5 13.25,16 12,16C10.75,16 9.68,16.5 9.23,17.23L7.81,15.81C8.71,14.72 10.25,14 12,14M10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5V8L10,9.5M17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5L17,8V9.5",
+            "M12,11.18C15.3,8.18 17,6.64 17,4.69C17,3.19 15.75,2 14.25,2C13.39,2 12.57,2.36 12,3C11.43,2.36 10.61,2 9.69,2C8.19,2 7,3.25 7,4.75C7,6.64 8.7,8.18 12,11.18M11.18,12C8.18,8.7 6.64,7 4.69,7C3.19,7 2,8.25 2,9.75C2,10.61 2.36,11.43 3,12C2.36,12.57 2,13.39 2,14.31C2,15.81 3.25,17 4.75,17C6.64,17 8.18,15.3 11.18,12M12.83,12C15.82,15.3 17.36,17 19.31,17C20.81,17 22,15.75 22,14.25C22,13.39 21.64,12.57 21,12C21.64,11.43 22,10.61 22,9.69C22,8.19 20.75,7 19.25,7C17.36,7 15.82,8.7 12.83,12M12,12.82C8.7,15.82 7,17.36 7,19.31C7,20.81 8.25,22 9.75,22C10.61,22 11.43,21.64 12,21C12.57,21.64 13.39,22 14.31,22C15.81,22 17,20.75 17,19.25C17,17.36 15.3,15.82 12,12.82Z",
           C =
-            "M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M13,9.94L14.06,11L15.12,9.94L16.18,11L17.24,9.94L15.12,7.82L13,9.94M8.88,9.94L9.94,11L11,9.94L8.88,7.82L6.76,9.94L7.82,11L8.88,9.94M12,17.5C14.33,17.5 16.31,16.04 17.11,14H6.89C7.69,16.04 9.67,17.5 12,17.5Z",
+            "M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z",
           q =
-            "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M8.5,11A1.5,1.5 0 0,1 7,9.5A1.5,1.5 0 0,1 8.5,8A1.5,1.5 0 0,1 10,9.5A1.5,1.5 0 0,1 8.5,11M17,9.5A1.5,1.5 0 0,1 15.5,11A1.5,1.5 0 0,1 14,9.5A1.5,1.5 0 0,1 15.5,8A1.5,1.5 0 0,1 17,9.5M16,14V16H8V14H16Z",
-          T = "M10 3H14V14H10V3M10 21V17H14V21H10Z",
+            "M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z",
+          T =
+            "M9.38,8.38L11.5,9.34L13.62,8.38L12.66,10.5L13.62,12.62L11.5,11.66L9.38,12.62L10.34,10.5L9.38,8.38M16.5,2.5L17.59,5.41L20.5,6.5L17.59,7.59L16.5,10.5L15.41,7.59L12.5,6.5L15.41,5.41L16.5,2.5M6,19H7V18A1,1 0 0,1 8,17H8.26C6,15.7 4.5,13.28 4.5,10.5A7.5,7.5 0 0,1 12,3C13.05,3 14.05,3.22 14.96,3.61L14.59,4.59L13.17,5.12C12.79,5.04 12.4,5 12,5A5.5,5.5 0 0,0 6.5,10.5A5.5,5.5 0 0,0 12,16C14.91,16 17.3,13.73 17.5,10.87L18.41,8.41L19.12,8.14C19.37,8.88 19.5,9.68 19.5,10.5C19.5,13.28 18,15.7 15.74,17H16A1,1 0 0,1 17,18V19H18A2,2 0 0,1 20,21V22H4V21A2,2 0 0,1 6,19Z",
           I =
-            "M12,1L8,5H11V14H13V5H16M18,23H6C4.89,23 4,22.1 4,21V9A2,2 0 0,1 6,7H9V9H6V21H18V9H15V7H18A2,2 0 0,1 20,9V21A2,2 0 0,1 18,23Z",
+            "M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z",
           N =
-            "M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z",
-          E =
-            "M14,2H6C4.89,2 4,2.89 4,4V20C4,21.11 4.89,22 6,22H18C19.11,22 20,21.11 20,20V8L14,2M12,19L8,15H10.5V12H13.5V15H16L12,19M13,9V3.5L18.5,9H13Z",
+            "M22,24L16.75,19L17.38,21H4.5A2.5,2.5 0 0,1 2,18.5V3.5A2.5,2.5 0 0,1 4.5,1H19.5A2.5,2.5 0 0,1 22,3.5V24M12,6.8C9.32,6.8 7.44,7.95 7.44,7.95C8.47,7.03 10.27,6.5 10.27,6.5L10.1,6.33C8.41,6.36 6.88,7.53 6.88,7.53C5.16,11.12 5.27,14.22 5.27,14.22C6.67,16.03 8.75,15.9 8.75,15.9L9.46,15C8.21,14.73 7.42,13.62 7.42,13.62C7.42,13.62 9.3,14.9 12,14.9C14.7,14.9 16.58,13.62 16.58,13.62C16.58,13.62 15.79,14.73 14.54,15L15.25,15.9C15.25,15.9 17.33,16.03 18.73,14.22C18.73,14.22 18.84,11.12 17.12,7.53C17.12,7.53 15.59,6.36 13.9,6.33L13.73,6.5C13.73,6.5 15.53,7.03 16.56,7.95C16.56,7.95 14.68,6.8 12,6.8M9.93,10.59C10.58,10.59 11.11,11.16 11.1,11.86C11.1,12.55 10.58,13.13 9.93,13.13C9.29,13.13 8.77,12.55 8.77,11.86C8.77,11.16 9.28,10.59 9.93,10.59M14.1,10.59C14.75,10.59 15.27,11.16 15.27,11.86C15.27,12.55 14.75,13.13 14.1,13.13C13.46,13.13 12.94,12.55 12.94,11.86C12.94,11.16 13.45,10.59 14.1,10.59Z",
           j =
-            "M15,19.88C15.04,20.18 14.94,20.5 14.71,20.71C14.32,21.1 13.69,21.1 13.3,20.71L9.29,16.7C9.06,16.47 8.96,16.16 9,15.87V10.75L4.21,4.62C3.87,4.19 3.95,3.56 4.38,3.22C4.57,3.08 4.78,3 5,3V3H19V3C19.22,3 19.43,3.08 19.62,3.22C20.05,3.56 20.13,4.19 19.79,4.62L15,10.75V19.88M7.04,5L11,10.06V15.58L13,17.58V10.05L16.96,5H7.04Z",
-          O = "M7,2V13H10V22L17,10H13L17,2H7Z",
+            "M12 16C13.1 16 14 16.9 14 18S13.1 20 12 20 10 19.1 10 18 10.9 16 12 16M12 10C13.1 10 14 10.9 14 12S13.1 14 12 14 10 13.1 10 12 10.9 10 12 10M12 4C13.1 4 14 4.9 14 6S13.1 8 12 8 10 7.1 10 6 10.9 4 12 4M6 16C7.1 16 8 16.9 8 18S7.1 20 6 20 4 19.1 4 18 4.9 16 6 16M6 10C7.1 10 8 10.9 8 12S7.1 14 6 14 4 13.1 4 12 4.9 10 6 10M6 4C7.1 4 8 4.9 8 6S7.1 8 6 8 4 7.1 4 6 4.9 4 6 4M18 16C19.1 16 20 16.9 20 18S19.1 20 18 20 16 19.1 16 18 16.9 16 18 16M18 10C19.1 10 20 10.9 20 12S19.1 14 18 14 16 13.1 16 12 16.9 10 18 10M18 4C19.1 4 20 4.9 20 6S19.1 8 18 8 16 7.1 16 6 16.9 4 18 4Z",
+          E =
+            "M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
           L =
-            "M3,13A9,9 0 0,0 12,22C12,17 7.97,13 3,13M12,5.5A2.5,2.5 0 0,1 14.5,8A2.5,2.5 0 0,1 12,10.5A2.5,2.5 0 0,1 9.5,8A2.5,2.5 0 0,1 12,5.5M5.6,10.25A2.5,2.5 0 0,0 8.1,12.75C8.63,12.75 9.12,12.58 9.5,12.31C9.5,12.37 9.5,12.43 9.5,12.5A2.5,2.5 0 0,0 12,15A2.5,2.5 0 0,0 14.5,12.5C14.5,12.43 14.5,12.37 14.5,12.31C14.88,12.58 15.37,12.75 15.9,12.75C17.28,12.75 18.4,11.63 18.4,10.25C18.4,9.25 17.81,8.4 16.97,8C17.81,7.6 18.4,6.74 18.4,5.75C18.4,4.37 17.28,3.25 15.9,3.25C15.37,3.25 14.88,3.41 14.5,3.69C14.5,3.63 14.5,3.56 14.5,3.5A2.5,2.5 0 0,0 12,1A2.5,2.5 0 0,0 9.5,3.5C9.5,3.56 9.5,3.63 9.5,3.69C9.12,3.41 8.63,3.25 8.1,3.25A2.5,2.5 0 0,0 5.6,5.75C5.6,6.74 6.19,7.6 7.03,8C6.19,8.4 5.6,9.25 5.6,10.25M12,22A9,9 0 0,0 21,13C16,13 12,17 12,22Z",
+            "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,14C13.75,14 15.29,14.72 16.19,15.81L14.77,17.23C14.32,16.5 13.25,16 12,16C10.75,16 9.68,16.5 9.23,17.23L7.81,15.81C8.71,14.72 10.25,14 12,14M10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5V8L10,9.5M17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5L17,8V9.5",
+          O =
+            "M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M13,9.94L14.06,11L15.12,9.94L16.18,11L17.24,9.94L15.12,7.82L13,9.94M8.88,9.94L9.94,11L11,9.94L8.88,7.82L6.76,9.94L7.82,11L8.88,9.94M12,17.5C14.33,17.5 16.31,16.04 17.11,14H6.89C7.69,16.04 9.67,17.5 12,17.5Z",
           P =
-            "M22,12V20A2,2 0 0,1 20,22H4A2,2 0 0,1 2,20V12A1,1 0 0,1 1,11V8A2,2 0 0,1 3,6H6.17C6.06,5.69 6,5.35 6,5A3,3 0 0,1 9,2C10,2 10.88,2.5 11.43,3.24V3.23L12,4L12.57,3.23V3.24C13.12,2.5 14,2 15,2A3,3 0 0,1 18,5C18,5.35 17.94,5.69 17.83,6H21A2,2 0 0,1 23,8V11A1,1 0 0,1 22,12M4,20H11V12H4V20M20,20V12H13V20H20M9,4A1,1 0 0,0 8,5A1,1 0 0,0 9,6A1,1 0 0,0 10,5A1,1 0 0,0 9,4M15,4A1,1 0 0,0 14,5A1,1 0 0,0 15,6A1,1 0 0,0 16,5A1,1 0 0,0 15,4M3,8V10H11V8H3M13,8V10H21V8H13Z",
-          R =
-            "M1 22L2.5 17H9.5L11 22H1M13 22L14.5 17H21.5L23 22H13M6 15L7.5 10H14.5L16 15H6M23 6.05L19.14 7.14L18.05 11L16.96 7.14L13.1 6.05L16.96 4.96L18.05 1.1L19.14 4.96L23 6.05Z",
+            "M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M8.5,11A1.5,1.5 0 0,1 7,9.5A1.5,1.5 0 0,1 8.5,8A1.5,1.5 0 0,1 10,9.5A1.5,1.5 0 0,1 8.5,11M17,9.5A1.5,1.5 0 0,1 15.5,11A1.5,1.5 0 0,1 14,9.5A1.5,1.5 0 0,1 15.5,8A1.5,1.5 0 0,1 17,9.5M16,14V16H8V14H16Z",
+          R = "M10 3H14V14H10V3M10 21V17H14V21H10Z",
           F =
-            "M20 13C20.6 13 21.1 13.2 21.5 13.6C21.8 14 22 14.5 22 15L14 18L7 16V7H8.9L16.2 9.7C16.7 9.9 17 10.3 17 10.8C17 11.1 16.9 11.4 16.7 11.6S16.1 12 15.8 12H13L11.2 11.3L10.9 12.2L13 13H20M1 7H5V18H1V7Z",
+            "M12,1L8,5H11V14H13V5H16M18,23H6C4.89,23 4,22.1 4,21V9A2,2 0 0,1 6,7H9V9H6V21H18V9H15V7H18A2,2 0 0,1 20,9V21A2,2 0 0,1 18,23Z",
           H =
-            "M20 17Q20.86 17 21.45 17.6T22.03 19L14 22L7 20V11H8.95L16.22 13.69Q17 14 17 14.81 17 15.28 16.66 15.63T15.8 16H13L11.25 15.33L10.92 16.27L13 17H20M16 3.23Q17.06 2 18.7 2 20.06 2 21 3T22 5.3Q22 6.33 21 7.76T19.03 10.15 16 13Q13.92 11.11 12.94 10.15T10.97 7.76 10 5.3Q10 3.94 10.97 3T13.31 2Q14.91 2 16 3.23M.984 11H5V22H.984V11Z",
+            "M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z",
           V =
-            "M11.43 9.67C11.47 9.78 11.5 9.88 11.5 10V15.22C11.5 15.72 11.31 16.2 10.97 16.57L8.18 19.62L4.78 16.22L6 15L8.8 2.86C8.92 2.36 9.37 2 9.89 2C10.5 2 11 2.5 11 3.11V8.07C10.84 8.03 10.67 8 10.5 8C9.4 8 8.5 8.9 8.5 10V13C8.5 13.28 8.72 13.5 9 13.5S9.5 13.28 9.5 13V10C9.5 9.45 9.95 9 10.5 9C10.69 9 10.85 9.07 11 9.16C11.12 9.23 11.21 9.32 11.3 9.42C11.33 9.46 11.36 9.5 11.38 9.55C11.4 9.59 11.42 9.63 11.43 9.67M2 19L6 22L7.17 20.73L3.72 17.28L2 19M18 15L15.2 2.86C15.08 2.36 14.63 2 14.11 2C13.5 2 13 2.5 13 3.11V8.07C13.16 8.03 13.33 8 13.5 8C14.6 8 15.5 8.9 15.5 10V13C15.5 13.28 15.28 13.5 15 13.5S14.5 13.28 14.5 13V10C14.5 9.45 14.05 9 13.5 9C13.31 9 13.15 9.07 13 9.16C12.88 9.23 12.79 9.32 12.71 9.42C12.68 9.46 12.64 9.5 12.62 9.55C12.6 9.59 12.58 9.63 12.57 9.67C12.53 9.78 12.5 9.88 12.5 10V15.22C12.5 15.72 12.69 16.2 13.03 16.57L15.82 19.62L19.22 16.22L18 15M20.28 17.28L16.83 20.73L18 22L22 19L20.28 17.28Z",
+            "M11.83,9L15,12.16C15,12.11 15,12.05 15,12A3,3 0 0,0 12,9C11.94,9 11.89,9 11.83,9M7.53,9.8L9.08,11.35C9.03,11.56 9,11.77 9,12A3,3 0 0,0 12,15C12.22,15 12.44,14.97 12.65,14.92L14.2,16.47C13.53,16.8 12.79,17 12,17A5,5 0 0,1 7,12C7,11.21 7.2,10.47 7.53,9.8M2,4.27L4.28,6.55L4.73,7C3.08,8.3 1.78,10 1,12C2.73,16.39 7,19.5 12,19.5C13.55,19.5 15.03,19.2 16.38,18.66L16.81,19.08L19.73,22L21,20.73L3.27,3M12,7A5,5 0 0,1 17,12C17,12.64 16.87,13.26 16.64,13.82L19.57,16.75C21.07,15.5 22.27,13.86 23,12C21.27,7.61 17,4.5 12,4.5C10.6,4.5 9.26,4.75 8,5.2L10.17,7.35C10.74,7.13 11.35,7 12,7Z",
           D =
-            "M21.71 8.71C22.96 7.46 22.39 6 21.71 5.29L18.71 2.29C17.45 1.04 16 1.61 15.29 2.29L13.59 4H11C9.1 4 8 5 7.44 6.15L3 10.59V14.59L2.29 15.29C1.04 16.55 1.61 18 2.29 18.71L5.29 21.71C5.83 22.25 6.41 22.45 6.96 22.45C7.67 22.45 8.32 22.1 8.71 21.71L11.41 19H15C16.7 19 17.56 17.94 17.87 16.9C19 16.6 19.62 15.74 19.87 14.9C21.42 14.5 22 13.03 22 12V9H21.41L21.71 8.71M20 12C20 12.45 19.81 13 19 13L18 13L18 14C18 14.45 17.81 15 17 15L16 15L16 16C16 16.45 15.81 17 15 17H10.59L7.31 20.28C7 20.57 6.82 20.4 6.71 20.29L3.72 17.31C3.43 17 3.6 16.82 3.71 16.71L5 15.41V11.41L7 9.41V11C7 12.21 7.8 14 10 14S13 12.21 13 11H20V12M20.29 7.29L18.59 9H11V11C11 11.45 10.81 12 10 12S9 11.45 9 11V8C9 7.54 9.17 6 11 6H14.41L16.69 3.72C17 3.43 17.18 3.6 17.29 3.71L20.28 6.69C20.57 7 20.4 7.18 20.29 7.29Z",
+            "M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z",
           W =
-            "M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z",
+            "M14,2H6C4.89,2 4,2.89 4,4V20C4,21.11 4.89,22 6,22H18C19.11,22 20,21.11 20,20V8L14,2M12,19L8,15H10.5V12H13.5V15H16L12,19M13,9V3.5L18.5,9H13Z",
           z =
-            "M11,18H13V16H11V18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,6A4,4 0 0,0 8,10H10A2,2 0 0,1 12,8A2,2 0 0,1 14,10C14,12 11,11.75 11,15H13C13,12.75 16,12.5 16,10A4,4 0 0,0 12,6Z",
-          B =
-            "M17,16H15V22H12V17H8V22H5V16H3L10,10L17,16M6,2L10,6H9V9H7V6H5V9H3V6H2L6,2M18,3L23,8H22V12H19V9H17V12H15.34L14,10.87V8H13L18,3Z",
+            "M15,19.88C15.04,20.18 14.94,20.5 14.71,20.71C14.32,21.1 13.69,21.1 13.3,20.71L9.29,16.7C9.06,16.47 8.96,16.16 9,15.87V10.75L4.21,4.62C3.87,4.19 3.95,3.56 4.38,3.22C4.57,3.08 4.78,3 5,3V3H19V3C19.22,3 19.43,3.08 19.62,3.22C20.05,3.56 20.13,4.19 19.79,4.62L15,10.75V19.88M7.04,5L11,10.06V15.58L13,17.58V10.05L16.96,5H7.04Z",
+          B = "M7,2V13H10V22L17,10H13L17,2H7Z",
           G =
-            "M20 8V16L17 17L13.91 11.5C13.65 11.04 12.92 11.27 13 11.81L14 21L4 17L5.15 8.94C5.64 5.53 8.56 3 12 3H20L18.42 5.37C19.36 5.88 20 6.86 20 8Z",
+            "M3,13A9,9 0 0,0 12,22C12,17 7.97,13 3,13M12,5.5A2.5,2.5 0 0,1 14.5,8A2.5,2.5 0 0,1 12,10.5A2.5,2.5 0 0,1 9.5,8A2.5,2.5 0 0,1 12,5.5M5.6,10.25A2.5,2.5 0 0,0 8.1,12.75C8.63,12.75 9.12,12.58 9.5,12.31C9.5,12.37 9.5,12.43 9.5,12.5A2.5,2.5 0 0,0 12,15A2.5,2.5 0 0,0 14.5,12.5C14.5,12.43 14.5,12.37 14.5,12.31C14.88,12.58 15.37,12.75 15.9,12.75C17.28,12.75 18.4,11.63 18.4,10.25C18.4,9.25 17.81,8.4 16.97,8C17.81,7.6 18.4,6.74 18.4,5.75C18.4,4.37 17.28,3.25 15.9,3.25C15.37,3.25 14.88,3.41 14.5,3.69C14.5,3.63 14.5,3.56 14.5,3.5A2.5,2.5 0 0,0 12,1A2.5,2.5 0 0,0 9.5,3.5C9.5,3.56 9.5,3.63 9.5,3.69C9.12,3.41 8.63,3.25 8.1,3.25A2.5,2.5 0 0,0 5.6,5.75C5.6,6.74 6.19,7.6 7.03,8C6.19,8.4 5.6,9.25 5.6,10.25M12,22A9,9 0 0,0 21,13C16,13 12,17 12,22Z",
           U =
-            "M19,4H20V1H16V4C16,4 18,8 18,12C18,16 16,19 12,19C8,19 6,16 6,12C6,8 8,4 8,4V1H4V4H5C5,4 2,8 2,14C2,19 7,23 12,23C17,23 22,19 22,14C22,8 19,4 19,4M4,13C3.4,13 3,12.6 3,12C3,11.4 3.4,11 4,11C4.6,11 5,11.4 5,12C5,12.6 4.6,13 4,13M6,19C5.4,19 5,18.6 5,18C5,17.4 5.4,17 6,17C6.6,17 7,17.4 7,18C7,18.6 6.6,19 6,19M12,22C11.4,22 11,21.6 11,21C11,20.4 11.4,20 12,20C12.6,20 13,20.4 13,21C13,21.6 12.6,22 12,22M18,19C17.4,19 17,18.6 17,18C17,17.4 17.4,17 18,17C18.6,17 19,17.4 19,18C19,18.6 18.6,19 18,19M20,13C19.4,13 19,12.6 19,12C19,11.4 19.4,11 20,11C20.6,11 21,11.4 21,12C21,12.6 20.6,13 20,13Z",
+            "M22,12V20A2,2 0 0,1 20,22H4A2,2 0 0,1 2,20V12A1,1 0 0,1 1,11V8A2,2 0 0,1 3,6H6.17C6.06,5.69 6,5.35 6,5A3,3 0 0,1 9,2C10,2 10.88,2.5 11.43,3.24V3.23L12,4L12.57,3.23V3.24C13.12,2.5 14,2 15,2A3,3 0 0,1 18,5C18,5.35 17.94,5.69 17.83,6H21A2,2 0 0,1 23,8V11A1,1 0 0,1 22,12M4,20H11V12H4V20M20,20V12H13V20H20M9,4A1,1 0 0,0 8,5A1,1 0 0,0 9,6A1,1 0 0,0 10,5A1,1 0 0,0 9,4M15,4A1,1 0 0,0 14,5A1,1 0 0,0 15,6A1,1 0 0,0 16,5A1,1 0 0,0 15,4M3,8V10H11V8H3M13,8V10H21V8H13Z",
           Y =
-            "M5 6C3.9 6 3 6.9 3 8S3.9 10 5 10 7 9.11 7 8 6.11 6 5 6M12 4C10.9 4 10 4.89 10 6S10.9 8 12 8 14 7.11 14 6 13.11 4 12 4M19 2C17.9 2 17 2.9 17 4S17.9 6 19 6 21 5.11 21 4 20.11 2 19 2M3.5 11C2.67 11 2 11.67 2 12.5V17H3V22H7V17H8V12.5C8 11.67 7.33 11 6.5 11H3.5M10.5 9C9.67 9 9 9.67 9 10.5V15H10V20H14V15H15V10.5C15 9.67 14.33 9 13.5 9H10.5M17.5 7C16.67 7 16 7.67 16 8.5V13H17V18H21V13H22V8.5C22 7.67 21.33 7 20.5 7H17.5Z",
+            "M1 22L2.5 17H9.5L11 22H1M13 22L14.5 17H21.5L23 22H13M6 15L7.5 10H14.5L16 15H6M23 6.05L19.14 7.14L18.05 11L16.96 7.14L13.1 6.05L16.96 4.96L18.05 1.1L19.14 4.96L23 6.05Z",
           X =
-            "M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
+            "M20 13C20.6 13 21.1 13.2 21.5 13.6C21.8 14 22 14.5 22 15L14 18L7 16V7H8.9L16.2 9.7C16.7 9.9 17 10.3 17 10.8C17 11.1 16.9 11.4 16.7 11.6S16.1 12 15.8 12H13L11.2 11.3L10.9 12.2L13 13H20M1 7H5V18H1V7Z",
           K =
-            "M12 14.27L10.64 13C9.09 11.57 7.16 10.57 5 10.18V17.13C7.61 17.47 10 18.47 12 19.95C14 18.47 16.39 17.47 19 17.13V10.18C16.84 10.57 14.91 11.57 13.36 13M19 8.15C19.65 8.05 20.32 8 21 8V19C17.5 19 14.36 20.35 12 22.54C9.64 20.35 6.5 19 3 19V8C3.68 8 4.35 8.05 5 8.15C7.69 8.56 10.1 9.78 12 11.54C13.9 9.78 16.31 8.56 19 8.15M12 6C12.27 6 12.5 5.9 12.71 5.71C12.9 5.5 13 5.27 13 5S12.9 4.5 12.71 4.29C12.5 4.11 12.27 4 12 4S11.5 4.11 11.29 4.29C11.11 4.5 11 4.74 11 5S11.11 5.5 11.29 5.71C11.5 5.9 11.74 6 12 6M14.12 7.12C13.56 7.68 12.8 8 12 8S10.44 7.68 9.88 7.12C9.32 6.56 9 5.8 9 5S9.32 3.44 9.88 2.88C10.44 2.32 11.2 2 12 2S13.56 2.32 14.12 2.88 15 4.2 15 5 14.68 6.56 14.12 7.12Z",
-          Z = "M11 15H6L13 1V9H18L11 23V15Z",
-          Q = "M19,13H5V11H19V13Z",
+            "M20 17Q20.86 17 21.45 17.6T22.03 19L14 22L7 20V11H8.95L16.22 13.69Q17 14 17 14.81 17 15.28 16.66 15.63T15.8 16H13L11.25 15.33L10.92 16.27L13 17H20M16 3.23Q17.06 2 18.7 2 20.06 2 21 3T22 5.3Q22 6.33 21 7.76T19.03 10.15 16 13Q13.92 11.11 12.94 10.15T10.97 7.76 10 5.3Q10 3.94 10.97 3T13.31 2Q14.91 2 16 3.23M.984 11H5V22H.984V11Z",
+          Z =
+            "M11.43 9.67C11.47 9.78 11.5 9.88 11.5 10V15.22C11.5 15.72 11.31 16.2 10.97 16.57L8.18 19.62L4.78 16.22L6 15L8.8 2.86C8.92 2.36 9.37 2 9.89 2C10.5 2 11 2.5 11 3.11V8.07C10.84 8.03 10.67 8 10.5 8C9.4 8 8.5 8.9 8.5 10V13C8.5 13.28 8.72 13.5 9 13.5S9.5 13.28 9.5 13V10C9.5 9.45 9.95 9 10.5 9C10.69 9 10.85 9.07 11 9.16C11.12 9.23 11.21 9.32 11.3 9.42C11.33 9.46 11.36 9.5 11.38 9.55C11.4 9.59 11.42 9.63 11.43 9.67M2 19L6 22L7.17 20.73L3.72 17.28L2 19M18 15L15.2 2.86C15.08 2.36 14.63 2 14.11 2C13.5 2 13 2.5 13 3.11V8.07C13.16 8.03 13.33 8 13.5 8C14.6 8 15.5 8.9 15.5 10V13C15.5 13.28 15.28 13.5 15 13.5S14.5 13.28 14.5 13V10C14.5 9.45 14.05 9 13.5 9C13.31 9 13.15 9.07 13 9.16C12.88 9.23 12.79 9.32 12.71 9.42C12.68 9.46 12.64 9.5 12.62 9.55C12.6 9.59 12.58 9.63 12.57 9.67C12.53 9.78 12.5 9.88 12.5 10V15.22C12.5 15.72 12.69 16.2 13.03 16.57L15.82 19.62L19.22 16.22L18 15M20.28 17.28L16.83 20.73L18 22L22 19L20.28 17.28Z",
+          Q =
+            "M21.71 8.71C22.96 7.46 22.39 6 21.71 5.29L18.71 2.29C17.45 1.04 16 1.61 15.29 2.29L13.59 4H11C9.1 4 8 5 7.44 6.15L3 10.59V14.59L2.29 15.29C1.04 16.55 1.61 18 2.29 18.71L5.29 21.71C5.83 22.25 6.41 22.45 6.96 22.45C7.67 22.45 8.32 22.1 8.71 21.71L11.41 19H15C16.7 19 17.56 17.94 17.87 16.9C19 16.6 19.62 15.74 19.87 14.9C21.42 14.5 22 13.03 22 12V9H21.41L21.71 8.71M20 12C20 12.45 19.81 13 19 13L18 13L18 14C18 14.45 17.81 15 17 15L16 15L16 16C16 16.45 15.81 17 15 17H10.59L7.31 20.28C7 20.57 6.82 20.4 6.71 20.29L3.72 17.31C3.43 17 3.6 16.82 3.71 16.71L5 15.41V11.41L7 9.41V11C7 12.21 7.8 14 10 14S13 12.21 13 11H20V12M20.29 7.29L18.59 9H11V11C11 11.45 10.81 12 10 12S9 11.45 9 11V8C9 7.54 9.17 6 11 6H14.41L16.69 3.72C17 3.43 17.18 3.6 17.29 3.71L20.28 6.69C20.57 7 20.4 7.18 20.29 7.29Z",
           $ =
-            "M21,3V15.5A3.5,3.5 0 0,1 17.5,19A3.5,3.5 0 0,1 14,15.5A3.5,3.5 0 0,1 17.5,12C18.04,12 18.55,12.12 19,12.34V6.47L9,8.6V17.5A3.5,3.5 0 0,1 5.5,21A3.5,3.5 0 0,1 2,17.5A3.5,3.5 0 0,1 5.5,14C6.04,14 6.55,14.12 7,14.34V6L21,3Z",
+            "M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z",
           J =
-            "M14.04,12H10V11H5.5A3.5,3.5 0 0,1 2,7.5A3.5,3.5 0 0,1 5.5,4C6.53,4 7.45,4.44 8.09,5.15C8.5,3.35 10.08,2 12,2C13.92,2 15.5,3.35 15.91,5.15C16.55,4.44 17.47,4 18.5,4A3.5,3.5 0 0,1 22,7.5A3.5,3.5 0 0,1 18.5,11H14.04V12M10,16.9V15.76H5V13.76H19V15.76H14.04V16.92L20,19.08C20.58,19.29 21,19.84 21,20.5A1.5,1.5 0 0,1 19.5,22H4.5A1.5,1.5 0 0,1 3,20.5C3,19.84 3.42,19.29 4,19.08L10,16.9Z",
-          ee = "M13 7V9H15V17H17V7H13M11 13H5V11H11V13Z",
-          te = "M13 7V9H15V17H17V7H13M11 13H9V15H7V13H5V11H7V9H9V11H11V13Z",
+            "M11,18H13V16H11V18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,6A4,4 0 0,0 8,10H10A2,2 0 0,1 12,8A2,2 0 0,1 14,10C14,12 11,11.75 11,15H13C13,12.75 16,12.5 16,10A4,4 0 0,0 12,6Z",
+          ee =
+            "M17,16H15V22H12V17H8V22H5V16H3L10,10L17,16M6,2L10,6H9V9H7V6H5V9H3V6H2L6,2M18,3L23,8H22V12H19V9H17V12H15.34L14,10.87V8H13L18,3Z",
+          te =
+            "M20 8V16L17 17L13.91 11.5C13.65 11.04 12.92 11.27 13 11.81L14 21L4 17L5.15 8.94C5.64 5.53 8.56 3 12 3H20L18.42 5.37C19.36 5.88 20 6.86 20 8Z",
           re =
-            "M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z",
+            "M19,4H20V1H16V4C16,4 18,8 18,12C18,16 16,19 12,19C8,19 6,16 6,12C6,8 8,4 8,4V1H4V4H5C5,4 2,8 2,14C2,19 7,23 12,23C17,23 22,19 22,14C22,8 19,4 19,4M4,13C3.4,13 3,12.6 3,12C3,11.4 3.4,11 4,11C4.6,11 5,11.4 5,12C5,12.6 4.6,13 4,13M6,19C5.4,19 5,18.6 5,18C5,17.4 5.4,17 6,17C6.6,17 7,17.4 7,18C7,18.6 6.6,19 6,19M12,22C11.4,22 11,21.6 11,21C11,20.4 11.4,20 12,20C12.6,20 13,20.4 13,21C13,21.6 12.6,22 12,22M18,19C17.4,19 17,18.6 17,18C17,17.4 17.4,17 18,17C18.6,17 19,17.4 19,18C19,18.6 18.6,19 18,19M20,13C19.4,13 19,12.6 19,12C19,11.4 19.4,11 20,11C20.6,11 21,11.4 21,12C21,12.6 20.6,13 20,13Z",
           ae =
-            "M12 9C13.59 16.61 10 22 10 22H13C14.88 16.2 14 12.09 13.5 10M15.66 7.16C15.83 7.37 16 7.59 16.13 7.82C17.84 10.53 17.5 13.95 15.5 16.26C16.34 14.21 16.22 11.79 14.95 9.77C14.87 9.64 14.78 9.53 14.7 9.41C14.11 8.58 13.36 7.92 12.54 7.43C9.66 8.35 7.58 11.04 7.58 14.22C7.58 14.96 7.69 15.67 7.89 16.33C7.05 15.16 6.56 13.73 6.56 12.19C6.56 9.84 7.7 7.76 9.45 6.46C8 6.35 6.46 6.67 5.12 7.5C4.5 7.91 3.96 8.38 3.5 8.91C4.05 7.58 5 6.39 6.3 5.57C7.8 4.63 9.5 4.32 11.14 4.56C10.73 4 10.23 3.47 9.63 3C9.05 2.58 8.42 2.24 7.76 2C9.2 2.04 10.64 2.5 11.87 3.43C12.5 3.9 13 4.47 13.4 5.07C13.5 5.07 13.59 5.06 13.69 5.06C16.89 5.06 19.6 7.17 20.5 10.08C19.38 8.5 17.65 7.43 15.66 7.16Z",
+            "M5 6C3.9 6 3 6.9 3 8S3.9 10 5 10 7 9.11 7 8 6.11 6 5 6M12 4C10.9 4 10 4.89 10 6S10.9 8 12 8 14 7.11 14 6 13.11 4 12 4M19 2C17.9 2 17 2.9 17 4S17.9 6 19 6 21 5.11 21 4 20.11 2 19 2M3.5 11C2.67 11 2 11.67 2 12.5V17H3V22H7V17H8V12.5C8 11.67 7.33 11 6.5 11H3.5M10.5 9C9.67 9 9 9.67 9 10.5V15H10V20H14V15H15V10.5C15 9.67 14.33 9 13.5 9H10.5M17.5 7C16.67 7 16 7.67 16 8.5V13H17V18H21V13H22V8.5C22 7.67 21.33 7 20.5 7H17.5Z",
           ie =
-            "M14.82 2.41C18.78 2.41 22 5.65 22 9.62C22 13.58 18.78 16.8 14.82 16.8C10.85 16.8 7.61 13.58 7.61 9.62C7.61 5.65 10.85 2.41 14.82 2.41M2 21.6H5.5V2.41H2V21.6Z",
+            "M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z",
           ne =
-            "M16.15 14.4L18.71 22.26L12 17.4L5.28 22.3L7.85 14.37L1.15 9.5H9.44L12 1.61L14.56 9.5H22.89L16.15 14.4M13.3 16.47L15.86 18.33L14.88 15.32L13.3 16.47M11 9.5H13L12 6.47L11 9.5M10.74 16.47L9.13 15.3L8.13 18.37L10.74 16.47M18.28 11H15.05L15.67 12.9L18.28 11M10.53 11L9.62 13.8L12 15.54L14.39 13.82L13.47 11H10.53M5.76 11L8.34 12.87L8.95 11H5.76Z",
+            "M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z",
           oe =
-            "M14.79,10.62L3.5,21.9L2.1,20.5L13.38,9.21L14.79,10.62M19.27,7.73L19.86,7.14L19.07,6.35L19.71,5.71L18.29,4.29L17.65,4.93L16.86,4.14L16.27,4.73C14.53,3.31 12.57,2.17 10.47,1.37L9.64,3.16C11.39,4.08 13,5.19 14.5,6.5L14,7L17,10L17.5,9.5C18.81,11 19.92,12.61 20.84,14.36L22.63,13.53C21.83,11.43 20.69,9.47 19.27,7.73Z",
-          se =
-            "M6,5H18A1,1 0 0,1 19,6A1,1 0 0,1 18,7H6A1,1 0 0,1 5,6A1,1 0 0,1 6,5M21,2V4H3V2H21M15,8H17V22H15V8M7,8H9V22H7V8M11,8H13V22H11V8Z",
-          le = "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z",
+            "M12 14.27L10.64 13C9.09 11.57 7.16 10.57 5 10.18V17.13C7.61 17.47 10 18.47 12 19.95C14 18.47 16.39 17.47 19 17.13V10.18C16.84 10.57 14.91 11.57 13.36 13M19 8.15C19.65 8.05 20.32 8 21 8V19C17.5 19 14.36 20.35 12 22.54C9.64 20.35 6.5 19 3 19V8C3.68 8 4.35 8.05 5 8.15C7.69 8.56 10.1 9.78 12 11.54C13.9 9.78 16.31 8.56 19 8.15M12 6C12.27 6 12.5 5.9 12.71 5.71C12.9 5.5 13 5.27 13 5S12.9 4.5 12.71 4.29C12.5 4.11 12.27 4 12 4S11.5 4.11 11.29 4.29C11.11 4.5 11 4.74 11 5S11.11 5.5 11.29 5.71C11.5 5.9 11.74 6 12 6M14.12 7.12C13.56 7.68 12.8 8 12 8S10.44 7.68 9.88 7.12C9.32 6.56 9 5.8 9 5S9.32 3.44 9.88 2.88C10.44 2.32 11.2 2 12 2S13.56 2.32 14.12 2.88 15 4.2 15 5 14.68 6.56 14.12 7.12Z",
+          se = "M11 15H6L13 1V9H18L11 23V15Z",
+          le = "M19,13H5V11H19V13Z",
           de =
-            "M14.5 15.41C14.58 15.5 14.58 15.69 14.5 15.8C13.77 16.5 12.41 16.56 12 16.56C11.61 16.56 10.25 16.5 9.54 15.8C9.44 15.69 9.44 15.5 9.54 15.41C9.65 15.31 9.82 15.31 9.92 15.41C10.38 15.87 11.33 16 12 16C12.69 16 13.66 15.87 14.1 15.41C14.21 15.31 14.38 15.31 14.5 15.41M10.75 13.04C10.75 12.47 10.28 12 9.71 12C9.14 12 8.67 12.47 8.67 13.04C8.67 13.61 9.14 14.09 9.71 14.08C10.28 14.08 10.75 13.61 10.75 13.04M14.29 12C13.72 12 13.25 12.5 13.25 13.05S13.72 14.09 14.29 14.09C14.86 14.09 15.33 13.61 15.33 13.05C15.33 12.5 14.86 12 14.29 12M22 12C22 17.5 17.5 22 12 22S2 17.5 2 12C2 6.5 6.5 2 12 2S22 6.5 22 12M18.67 12C18.67 11.19 18 10.54 17.22 10.54C16.82 10.54 16.46 10.7 16.2 10.95C15.2 10.23 13.83 9.77 12.3 9.71L12.97 6.58L15.14 7.05C15.16 7.6 15.62 8.04 16.18 8.04C16.75 8.04 17.22 7.57 17.22 7C17.22 6.43 16.75 5.96 16.18 5.96C15.77 5.96 15.41 6.2 15.25 6.55L12.82 6.03C12.75 6 12.68 6.03 12.63 6.07C12.57 6.11 12.54 6.17 12.53 6.24L11.79 9.72C10.24 9.77 8.84 10.23 7.82 10.96C7.56 10.71 7.2 10.56 6.81 10.56C6 10.56 5.35 11.21 5.35 12C5.35 12.61 5.71 13.11 6.21 13.34C6.19 13.5 6.18 13.62 6.18 13.78C6.18 16 8.79 17.85 12 17.85C15.23 17.85 17.85 16.03 17.85 13.78C17.85 13.64 17.84 13.5 17.81 13.34C18.31 13.11 18.67 12.6 18.67 12Z",
+            "M21,3V15.5A3.5,3.5 0 0,1 17.5,19A3.5,3.5 0 0,1 14,15.5A3.5,3.5 0 0,1 17.5,12C18.04,12 18.55,12.12 19,12.34V6.47L9,8.6V17.5A3.5,3.5 0 0,1 5.5,21A3.5,3.5 0 0,1 2,17.5A3.5,3.5 0 0,1 5.5,14C6.04,14 6.55,14.12 7,14.34V6L21,3Z",
           ce =
-            "M2 12C2 17 6 21 11 21C13.4 21 15.7 20.1 17.4 18.4L15.9 16.9C14.6 18.3 12.9 19 11 19C4.8 19 1.6 11.5 6.1 7.1S18 5.8 18 12H15L19 16H19.1L23 12H20C20 7 16 3 11 3S2 7 2 12M10 15H12V17H10V15M10 7H12V13H10V7",
+            "M15 3H5A2 2 0 0 0 3 5V19A2 2 0 0 0 5 21H19A2 2 0 0 0 21 19V9L15 3M19 19H5V5H14V10H19M17 14H7V12H17M14 17H7V15H14",
           ue =
-            "M10.7 12.5C10.7 12.8 9.4 13.2 8.4 13.2S6.3 12.5 6.3 12.3C6.3 12 7 11.1 8.6 11C9.5 10.9 10.5 11.5 10.7 12.5M15.4 11C14.4 10.9 13.5 11.5 13.3 12.5C13.3 12.8 14.5 13.2 15.6 13.2C16.7 13.2 17.7 12.5 17.7 12.3S17 11.1 15.4 11M22 12C22 17.5 17.5 22 12 22S2 17.5 2 12 6.5 2 12 2 22 6.5 22 12M20 11.2C20 9.2 19.3 8.5 16.7 8.5C14.1 8.5 13.3 9.6 12 9.6S10 8.5 7.3 8.5 4 9.1 4 11.2C4 14.6 5.5 16.5 7.6 16.5C9.2 16.5 10.4 14.5 12 14.5S14.7 16.5 16.4 16.5C18.5 16.5 20 14.6 20 11.2Z",
-          pe =
-            "M21,11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1L21,5V11M12,21C15.75,20 19,15.54 19,11.22V6.3L12,3.18V21Z",
-          _e =
-            "M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1M12 8.89C13.6 8.89 14.89 10.18 14.89 11.78S13.6 14.67 12 14.67 9.11 13.37 9.11 11.78 10.41 8.89 12 8.89M12 6L13.38 8C12.96 7.82 12.5 7.73 12 7.73S11.05 7.82 10.62 8L12 6M7 8.89L9.4 8.69C9.06 9 8.74 9.34 8.5 9.76C8.25 10.18 8.1 10.62 8 11.08L7 8.89M7 14.67L8.03 12.5C8.11 12.93 8.27 13.38 8.5 13.8C8.75 14.23 9.06 14.59 9.4 14.88L7 14.67M17 8.89L16 11.08C15.9 10.62 15.74 10.18 15.5 9.76C15.26 9.34 14.95 9 14.6 8.68L17 8.89M17 14.67L14.6 14.87C14.94 14.58 15.25 14.22 15.5 13.8C15.74 13.38 15.89 12.93 15.97 12.5L17 14.67M12 17.55L10.61 15.57C11.04 15.72 11.5 15.82 12 15.82C12.5 15.82 12.95 15.72 13.37 15.57L12 17.55Z",
+            "M14.04,12H10V11H5.5A3.5,3.5 0 0,1 2,7.5A3.5,3.5 0 0,1 5.5,4C6.53,4 7.45,4.44 8.09,5.15C8.5,3.35 10.08,2 12,2C13.92,2 15.5,3.35 15.91,5.15C16.55,4.44 17.47,4 18.5,4A3.5,3.5 0 0,1 22,7.5A3.5,3.5 0 0,1 18.5,11H14.04V12M10,16.9V15.76H5V13.76H19V15.76H14.04V16.92L20,19.08C20.58,19.29 21,19.84 21,20.5A1.5,1.5 0 0,1 19.5,22H4.5A1.5,1.5 0 0,1 3,20.5C3,19.84 3.42,19.29 4,19.08L10,16.9Z",
+          pe = "M13 7V9H15V17H17V7H13M11 13H5V11H11V13Z",
+          _e = "M13 7V9H15V17H17V7H13M11 13H9V15H7V13H5V11H7V9H9V11H11V13Z",
           he =
-            "M12 1L21 5V11C21 16.5 17.2 21.7 12 23C6.8 21.7 3 16.5 3 11V5L12 1M12 3.2L5 6.3V11.2C5 15.5 8.2 20 12 21C15.8 20 19 15.5 19 11.2V6.3L12 3.2M12 5.5L14 7.1L13 13H15V15H13V18H11V15H9V13H11L10 7.1L12 5.5Z",
+            "M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z",
           ye =
-            "M15.8,18.5L21.8,20.1L21.4,22L12,19.5L2.6,22L2.1,20.1L8.1,18.5L2,16.9L2.5,15L11.9,17.5L21.3,15L21.8,16.9L15.8,18.5M18,8C18,9.8 17.2,11.3 16,12.4V15H14V13.7L14,13H13V15H11V13H10V13.7L10,15H8V12.4C6.8,11.3 6,9.8 6,8A6,6 0 0,1 12,2A6,6 0 0,1 18,8M11,7.5C11,6.7 10.3,6 9.5,6C8.7,6 8,6.7 8,7.5C8,8.3 8.7,9 9.5,9C10.3,9 11,8.3 11,7.5M13,11L12,9L11,11H13M16,7.5C16,6.7 15.3,6 14.5,6C13.7,6 13,6.7 13,7.5C13,8.3 13.7,9 14.5,9C15.3,9 16,8.3 16,7.5Z",
+            "M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A1.5,1.5 0 0,0 13.5,19.5C13.5,19.11 13.35,18.76 13.11,18.5C12.88,18.23 12.73,17.88 12.73,17.5A1.5,1.5 0 0,1 14.23,16H16A5,5 0 0,0 21,11C21,6.58 16.97,3 12,3Z",
           me =
-            "M8,15A2,2 0 0,1 6,13A2,2 0 0,1 8,11A2,2 0 0,1 10,13A2,2 0 0,1 8,15M10.5,17L12,14L13.5,17H10.5M16,15A2,2 0 0,1 14,13A2,2 0 0,1 16,11A2,2 0 0,1 18,13A2,2 0 0,1 16,15M22,11A10,10 0 0,0 12,1A10,10 0 0,0 2,11C2,13.8 3.2,16.3 5,18.1V22H19V18.1C20.8,16.3 22,13.8 22,11M17,20H15V18H13V20H11V18H9V20H7V17.2C5.2,15.7 4,13.5 4,11A8,8 0 0,1 12,3A8,8 0 0,1 20,11C20,13.5 18.8,15.8 17,17.2V20Z",
+            "M12 9C13.59 16.61 10 22 10 22H13C14.88 16.2 14 12.09 13.5 10M15.66 7.16C15.83 7.37 16 7.59 16.13 7.82C17.84 10.53 17.5 13.95 15.5 16.26C16.34 14.21 16.22 11.79 14.95 9.77C14.87 9.64 14.78 9.53 14.7 9.41C14.11 8.58 13.36 7.92 12.54 7.43C9.66 8.35 7.58 11.04 7.58 14.22C7.58 14.96 7.69 15.67 7.89 16.33C7.05 15.16 6.56 13.73 6.56 12.19C6.56 9.84 7.7 7.76 9.45 6.46C8 6.35 6.46 6.67 5.12 7.5C4.5 7.91 3.96 8.38 3.5 8.91C4.05 7.58 5 6.39 6.3 5.57C7.8 4.63 9.5 4.32 11.14 4.56C10.73 4 10.23 3.47 9.63 3C9.05 2.58 8.42 2.24 7.76 2C9.2 2.04 10.64 2.5 11.87 3.43C12.5 3.9 13 4.47 13.4 5.07C13.5 5.07 13.59 5.06 13.69 5.06C16.89 5.06 19.6 7.17 20.5 10.08C19.38 8.5 17.65 7.43 15.66 7.16Z",
           ge =
-            "M2,22V20C2,20 7,18 12,18C17,18 22,20 22,20V22H2M11.3,9.1C10.1,5.2 4,6.1 4,6.1C4,6.1 4.2,13.9 9.9,12.7C9.5,9.8 8,9 8,9C10.8,9 11,12.4 11,12.4V17C11.3,17 11.7,17 12,17C12.3,17 12.7,17 13,17V12.8C13,12.8 13,8.9 16,7.9C16,7.9 14,10.9 14,12.9C21,13.6 21,4 21,4C21,4 12.1,3 11.3,9.1Z",
-          fe = "M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z",
+            "M14.82 2.41C18.78 2.41 22 5.65 22 9.62C22 13.58 18.78 16.8 14.82 16.8C10.85 16.8 7.61 13.58 7.61 9.62C7.61 5.65 10.85 2.41 14.82 2.41M2 21.6H5.5V2.41H2V21.6Z",
+          fe =
+            "M16.15 14.4L18.71 22.26L12 17.4L5.28 22.3L7.85 14.37L1.15 9.5H9.44L12 1.61L14.56 9.5H22.89L16.15 14.4M13.3 16.47L15.86 18.33L14.88 15.32L13.3 16.47M11 9.5H13L12 6.47L11 9.5M10.74 16.47L9.13 15.3L8.13 18.37L10.74 16.47M18.28 11H15.05L15.67 12.9L18.28 11M10.53 11L9.62 13.8L12 15.54L14.39 13.82L13.47 11H10.53M5.76 11L8.34 12.87L8.95 11H5.76Z",
           ve =
-            "M6.92,5H5L14,14L15,13.06M19.96,19.12L19.12,19.96C18.73,20.35 18.1,20.35 17.71,19.96L14.59,16.84L11.91,19.5L10.5,18.09L11.92,16.67L3,7.75V3H7.75L16.67,11.92L18.09,10.5L19.5,11.91L16.83,14.58L19.95,17.7C20.35,18.1 20.35,18.73 19.96,19.12Z",
+            "M14.79,10.62L3.5,21.9L2.1,20.5L13.38,9.21L14.79,10.62M19.27,7.73L19.86,7.14L19.07,6.35L19.71,5.71L18.29,4.29L17.65,4.93L16.86,4.14L16.27,4.73C14.53,3.31 12.57,2.17 10.47,1.37L9.64,3.16C11.39,4.08 13,5.19 14.5,6.5L14,7L17,10L17.5,9.5C18.81,11 19.92,12.61 20.84,14.36L22.63,13.53C21.83,11.43 20.69,9.47 19.27,7.73Z",
           be =
-            "M6.2,2.44L18.1,14.34L20.22,12.22L21.63,13.63L19.16,16.1L22.34,19.28C22.73,19.67 22.73,20.3 22.34,20.69L21.63,21.4C21.24,21.79 20.61,21.79 20.22,21.4L17,18.23L14.56,20.7L13.15,19.29L15.27,17.17L3.37,5.27V2.44H6.2M15.89,10L20.63,5.26V2.44H17.8L13.06,7.18L15.89,10M10.94,15L8.11,12.13L5.9,14.34L3.78,12.22L2.37,13.63L4.84,16.1L1.66,19.29C1.27,19.68 1.27,20.31 1.66,20.7L2.37,21.41C2.76,21.8 3.39,21.8 3.78,21.41L7,18.23L9.44,20.7L10.85,19.29L8.73,17.17L10.94,15Z",
-          we =
-            "M5,4H19A3,3 0 0,1 22,7V11H15V10H9V11H2V7A3,3 0 0,1 5,4M11,11H13V13H11V11M2,12H9V13L11,15H13L15,13V12H22V20H2V12Z",
+            "M6,5H18A1,1 0 0,1 19,6A1,1 0 0,1 18,7H6A1,1 0 0,1 5,6A1,1 0 0,1 6,5M21,2V4H3V2H21M15,8H17V22H15V8M7,8H9V22H7V8M11,8H13V22H11V8Z",
+          we = "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z",
           ke =
-            "M18 2C17.1 2 16 3 16 4H8C8 3 6.9 2 6 2H2V11C2 12 3 13 4 13H6.2C6.6 15 7.9 16.7 11 17V19.08C8 19.54 8 22 8 22H16C16 22 16 19.54 13 19.08V17C16.1 16.7 17.4 15 17.8 13H20C21 13 22 12 22 11V2H18M6 11H4V4H6V11M20 11H18V4H20V11Z",
+            "M14.5 15.41C14.58 15.5 14.58 15.69 14.5 15.8C13.77 16.5 12.41 16.56 12 16.56C11.61 16.56 10.25 16.5 9.54 15.8C9.44 15.69 9.44 15.5 9.54 15.41C9.65 15.31 9.82 15.31 9.92 15.41C10.38 15.87 11.33 16 12 16C12.69 16 13.66 15.87 14.1 15.41C14.21 15.31 14.38 15.31 14.5 15.41M10.75 13.04C10.75 12.47 10.28 12 9.71 12C9.14 12 8.67 12.47 8.67 13.04C8.67 13.61 9.14 14.09 9.71 14.08C10.28 14.08 10.75 13.61 10.75 13.04M14.29 12C13.72 12 13.25 12.5 13.25 13.05S13.72 14.09 14.29 14.09C14.86 14.09 15.33 13.61 15.33 13.05C15.33 12.5 14.86 12 14.29 12M22 12C22 17.5 17.5 22 12 22S2 17.5 2 12C2 6.5 6.5 2 12 2S22 6.5 22 12M18.67 12C18.67 11.19 18 10.54 17.22 10.54C16.82 10.54 16.46 10.7 16.2 10.95C15.2 10.23 13.83 9.77 12.3 9.71L12.97 6.58L15.14 7.05C15.16 7.6 15.62 8.04 16.18 8.04C16.75 8.04 17.22 7.57 17.22 7C17.22 6.43 16.75 5.96 16.18 5.96C15.77 5.96 15.41 6.2 15.25 6.55L12.82 6.03C12.75 6 12.68 6.03 12.63 6.07C12.57 6.11 12.54 6.17 12.53 6.24L11.79 9.72C10.24 9.77 8.84 10.23 7.82 10.96C7.56 10.71 7.2 10.56 6.81 10.56C6 10.56 5.35 11.21 5.35 12C5.35 12.61 5.71 13.11 6.21 13.34C6.19 13.5 6.18 13.62 6.18 13.78C6.18 16 8.79 17.85 12 17.85C15.23 17.85 17.85 16.03 17.85 13.78C17.85 13.64 17.84 13.5 17.81 13.34C18.31 13.11 18.67 12.6 18.67 12Z",
           xe =
-            "M3,16H12V21H3V16M2,10H8V15H2V10M9,10H15V15H9V10M16,10H22V15H16V10M13,16H21V21H13V16M3,4H11V9H3V4M12,4H21V9H12V4Z",
+            "M2 12C2 17 6 21 11 21C13.4 21 15.7 20.1 17.4 18.4L15.9 16.9C14.6 18.3 12.9 19 11 19C4.8 19 1.6 11.5 6.1 7.1S18 5.8 18 12H15L19 16H19.1L23 12H20C20 7 16 3 11 3S2 7 2 12M10 15H12V17H10V15M10 7H12V13H10V7",
           Se =
-            "M6 19H8V21H6V19M12 3L2 8V21H4V13H20V21H22V8L12 3M8 11H4V9H8V11M14 11H10V9H14V11M20 11H16V9H20V11M6 15H8V17H6V15M10 15H12V17H10V15M10 19H12V21H10V19M14 19H16V21H14V19Z",
+            "M10.7 12.5C10.7 12.8 9.4 13.2 8.4 13.2S6.3 12.5 6.3 12.3C6.3 12 7 11.1 8.6 11C9.5 10.9 10.5 11.5 10.7 12.5M15.4 11C14.4 10.9 13.5 11.5 13.3 12.5C13.3 12.8 14.5 13.2 15.6 13.2C16.7 13.2 17.7 12.5 17.7 12.3S17 11.1 15.4 11M22 12C22 17.5 17.5 22 12 22S2 17.5 2 12 6.5 2 12 2 22 6.5 22 12M20 11.2C20 9.2 19.3 8.5 16.7 8.5C14.1 8.5 13.3 9.6 12 9.6S10 8.5 7.3 8.5 4 9.1 4 11.2C4 14.6 5.5 16.5 7.6 16.5C9.2 16.5 10.4 14.5 12 14.5S14.7 16.5 16.4 16.5C18.5 16.5 20 14.6 20 11.2Z",
           Me =
-            "M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z",
+            "M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1Z",
           Ae =
+            "M21,11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1L21,5V11M12,21C15.75,20 19,15.54 19,11.22V6.3L12,3.18V21Z",
+          Ce =
+            "M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1M12 8.89C13.6 8.89 14.89 10.18 14.89 11.78S13.6 14.67 12 14.67 9.11 13.37 9.11 11.78 10.41 8.89 12 8.89M12 6L13.38 8C12.96 7.82 12.5 7.73 12 7.73S11.05 7.82 10.62 8L12 6M7 8.89L9.4 8.69C9.06 9 8.74 9.34 8.5 9.76C8.25 10.18 8.1 10.62 8 11.08L7 8.89M7 14.67L8.03 12.5C8.11 12.93 8.27 13.38 8.5 13.8C8.75 14.23 9.06 14.59 9.4 14.88L7 14.67M17 8.89L16 11.08C15.9 10.62 15.74 10.18 15.5 9.76C15.26 9.34 14.95 9 14.6 8.68L17 8.89M17 14.67L14.6 14.87C14.94 14.58 15.25 14.22 15.5 13.8C15.74 13.38 15.89 12.93 15.97 12.5L17 14.67M12 17.55L10.61 15.57C11.04 15.72 11.5 15.82 12 15.82C12.5 15.82 12.95 15.72 13.37 15.57L12 17.55Z",
+          qe =
+            "M12 1L21 5V11C21 16.5 17.2 21.7 12 23C6.8 21.7 3 16.5 3 11V5L12 1M12 3.2L5 6.3V11.2C5 15.5 8.2 20 12 21C15.8 20 19 15.5 19 11.2V6.3L12 3.2M12 5.5L14 7.1L13 13H15V15H13V18H11V15H9V13H11L10 7.1L12 5.5Z",
+          Te =
+            "M12,2A9,9 0 0,0 3,11C3,14.03 4.53,16.82 7,18.47V22H9V19H11V22H13V19H15V22H17V18.46C19.47,16.81 21,14 21,11A9,9 0 0,0 12,2M8,11A2,2 0 0,1 10,13A2,2 0 0,1 8,15A2,2 0 0,1 6,13A2,2 0 0,1 8,11M16,11A2,2 0 0,1 18,13A2,2 0 0,1 16,15A2,2 0 0,1 14,13A2,2 0 0,1 16,11M12,14L13.5,17H10.5L12,14Z",
+          Ie =
+            "M15.8,18.5L21.8,20.1L21.4,22L12,19.5L2.6,22L2.1,20.1L8.1,18.5L2,16.9L2.5,15L11.9,17.5L21.3,15L21.8,16.9L15.8,18.5M18,8C18,9.8 17.2,11.3 16,12.4V15H14V13.7L14,13H13V15H11V13H10V13.7L10,15H8V12.4C6.8,11.3 6,9.8 6,8A6,6 0 0,1 12,2A6,6 0 0,1 18,8M11,7.5C11,6.7 10.3,6 9.5,6C8.7,6 8,6.7 8,7.5C8,8.3 8.7,9 9.5,9C10.3,9 11,8.3 11,7.5M13,11L12,9L11,11H13M16,7.5C16,6.7 15.3,6 14.5,6C13.7,6 13,6.7 13,7.5C13,8.3 13.7,9 14.5,9C15.3,9 16,8.3 16,7.5Z",
+          Ne =
+            "M8,15A2,2 0 0,1 6,13A2,2 0 0,1 8,11A2,2 0 0,1 10,13A2,2 0 0,1 8,15M10.5,17L12,14L13.5,17H10.5M16,15A2,2 0 0,1 14,13A2,2 0 0,1 16,11A2,2 0 0,1 18,13A2,2 0 0,1 16,15M22,11A10,10 0 0,0 12,1A10,10 0 0,0 2,11C2,13.8 3.2,16.3 5,18.1V22H19V18.1C20.8,16.3 22,13.8 22,11M17,20H15V18H13V20H11V18H9V20H7V17.2C5.2,15.7 4,13.5 4,11A8,8 0 0,1 12,3A8,8 0 0,1 20,11C20,13.5 18.8,15.8 17,17.2V20Z",
+          je =
+            "M19 7H22L18 3L14 7H17V21H19M2 17H12V19H2M6 5V7H2V5M2 11H9V13H2V11Z",
+          Ee = "M3,13H15V11H3M3,6V8H21V6M3,18H9V16H3V18Z",
+          Le =
+            "M3 13H15V11H3M3 6V8H21V6M3 18H9V16H3V18M22.54 16.88L20.41 19L22.54 21.12L21.12 22.54L19 20.41L16.88 22.54L15.47 21.12L17.59 19L15.47 16.88L16.88 15.47L19 17.59L21.12 15.46L22.54 16.88",
+          Oe =
+            "M12,16A3,3 0 0,1 9,13C9,11.88 9.61,10.9 10.5,10.39L20.21,4.77L14.68,14.35C14.18,15.33 13.17,16 12,16M12,3C13.81,3 15.5,3.5 16.97,4.32L14.87,5.53C14,5.19 13,5 12,5A8,8 0 0,0 4,13C4,15.21 4.89,17.21 6.34,18.65H6.35C6.74,19.04 6.74,19.67 6.35,20.06C5.96,20.45 5.32,20.45 4.93,20.07V20.07C3.12,18.26 2,15.76 2,13A10,10 0 0,1 12,3M22,13C22,15.76 20.88,18.26 19.07,20.07V20.07C18.68,20.45 18.05,20.45 17.66,20.06C17.27,19.67 17.27,19.04 17.66,18.65V18.65C19.11,17.2 20,15.21 20,13C20,12 19.81,11 19.46,10.1L20.67,8C21.5,9.5 22,11.18 22,13Z",
+          Pe =
+            "M2,22V20C2,20 7,18 12,18C17,18 22,20 22,20V22H2M11.3,9.1C10.1,5.2 4,6.1 4,6.1C4,6.1 4.2,13.9 9.9,12.7C9.5,9.8 8,9 8,9C10.8,9 11,12.4 11,12.4V17C11.3,17 11.7,17 12,17C12.3,17 12.7,17 13,17V12.8C13,12.8 13,8.9 16,7.9C16,7.9 14,10.9 14,12.9C21,13.6 21,4 21,4C21,4 12.1,3 11.3,9.1Z",
+          Re =
+            "M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z",
+          Fe = "M12,1L9,9L1,12L9,15L12,23L15,15L23,12L15,9L12,1Z",
+          He =
+            "M12,15.39L8.24,17.66L9.23,13.38L5.91,10.5L10.29,10.13L12,6.09L13.71,10.13L18.09,10.5L14.77,13.38L15.76,17.66M22,9.24L14.81,8.63L12,2L9.19,8.63L2,9.24L7.45,13.97L5.82,21L12,17.27L18.18,21L16.54,13.97L22,9.24Z",
+          Ve =
+            "M6.91 5.5L9.21 7.79L7.79 9.21L5.5 6.91L3.21 9.21L1.79 7.79L4.09 5.5L1.79 3.21L3.21 1.79L5.5 4.09L7.79 1.79L9.21 3.21M22.21 16.21L20.79 14.79L18.5 17.09L16.21 14.79L14.79 16.21L17.09 18.5L14.79 20.79L16.21 22.21L18.5 19.91L20.79 22.21L22.21 20.79L19.91 18.5M20.4 6.83L17.18 11L15.6 9.73L16.77 8.23A9.08 9.08 0 0 0 10.11 13.85A4.5 4.5 0 1 1 7.5 13A4 4 0 0 1 8.28 13.08A11.27 11.27 0 0 1 16.43 6.26L15 5.18L16.27 3.6M10 17.5A2.5 2.5 0 1 0 7.5 20A2.5 2.5 0 0 0 10 17.5Z",
+          De = "M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z",
+          We =
+            "M6.92,5H5L14,14L15,13.06M19.96,19.12L19.12,19.96C18.73,20.35 18.1,20.35 17.71,19.96L14.59,16.84L11.91,19.5L10.5,18.09L11.92,16.67L3,7.75V3H7.75L16.67,11.92L18.09,10.5L19.5,11.91L16.83,14.58L19.95,17.7C20.35,18.1 20.35,18.73 19.96,19.12Z",
+          ze =
+            "M6.2,2.44L18.1,14.34L20.22,12.22L21.63,13.63L19.16,16.1L22.34,19.28C22.73,19.67 22.73,20.3 22.34,20.69L21.63,21.4C21.24,21.79 20.61,21.79 20.22,21.4L17,18.23L14.56,20.7L13.15,19.29L15.27,17.17L3.37,5.27V2.44H6.2M15.89,10L20.63,5.26V2.44H17.8L13.06,7.18L15.89,10M10.94,15L8.11,12.13L5.9,14.34L3.78,12.22L2.37,13.63L4.84,16.1L1.66,19.29C1.27,19.68 1.27,20.31 1.66,20.7L2.37,21.41C2.76,21.8 3.39,21.8 3.78,21.41L7,18.23L9.44,20.7L10.85,19.29L8.73,17.17L10.94,15Z",
+          Be =
+            "M5.5,7A1.5,1.5 0 0,1 4,5.5A1.5,1.5 0 0,1 5.5,4A1.5,1.5 0 0,1 7,5.5A1.5,1.5 0 0,1 5.5,7M21.41,11.58L12.41,2.58C12.05,2.22 11.55,2 11,2H4C2.89,2 2,2.89 2,4V11C2,11.55 2.22,12.05 2.59,12.41L11.58,21.41C11.95,21.77 12.45,22 13,22C13.55,22 14.05,21.77 14.41,21.41L21.41,14.41C21.78,14.05 22,13.55 22,13C22,12.44 21.77,11.94 21.41,11.58Z",
+          Ge =
+            "M5,4H19A3,3 0 0,1 22,7V11H15V10H9V11H2V7A3,3 0 0,1 5,4M11,11H13V13H11V11M2,12H9V13L11,15H13L15,13V12H22V20H2V12Z",
+          Ue =
+            "M18 2C17.1 2 16 3 16 4H8C8 3 6.9 2 6 2H2V11C2 12 3 13 4 13H6.2C6.6 15 7.9 16.7 11 17V19.08C8 19.54 8 22 8 22H16C16 22 16 19.54 13 19.08V17C16.1 16.7 17.4 15 17.8 13H20C21 13 22 12 22 11V2H18M6 11H4V4H6V11M20 11H18V4H20V11Z",
+          Ye =
+            "M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z",
+          Xe =
+            "M3,16H12V21H3V16M2,10H8V15H2V10M9,10H15V15H9V10M16,10H22V15H16V10M13,16H21V21H13V16M3,4H11V9H3V4M12,4H21V9H12V4Z",
+          Ke =
+            "M6 19H8V21H6V19M12 3L2 8V21H4V13H20V21H22V8L12 3M8 11H4V9H8V11M14 11H10V9H14V11M20 11H16V9H20V11M6 15H8V17H6V15M10 15H12V17H10V15M10 19H12V21H10V19M14 19H16V21H14V19Z",
+          Ze =
+            "M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z",
+          Qe =
             "M21 22H3V20H21V22M19 19H5L11.1 2.6C11.3 2.2 11.6 2 12 2L18 5H13.9L19 19M10 7.5L11.04 7.97L11.5 9L11.97 7.97L13 7.5L11.97 7.03L11.5 6L11.04 7.03L10 7.5M13 15L10.94 14.07L10 12L9.07 14.07L7 15L9.07 15.93L10 18L10.94 15.93L13 15M13.97 11.97L15 11.5L13.97 11.03L13.5 10L13.04 11.03L12 11.5L13.04 11.97L13.5 13L13.97 11.97M15.97 15.97L17 15.5L15.97 15.03L15.5 14L15.04 15.03L14 15.5L15.04 15.97L15.5 17L15.97 15.97Z";
       },
       4090: (e, t, r) => {
@@ -12102,12 +12610,12 @@
                     "path",
                     d({ d: r, style: T }, C ? q : {})
                   ),
-                  E = N;
+                  j = N;
                 I.length > 0 &&
                   ((M.transform = I.join(" ")),
                   (M.transformOrigin = "center"),
                   C &&
-                    (E = a.createElement(
+                    (j = a.createElement(
                       "g",
                       { style: M },
                       N,
@@ -12117,14 +12625,14 @@
                         fill: "transparent",
                       })
                     )));
-                var j,
-                  O = E,
-                  L = !0 === x || "number" != typeof x ? 2 : x,
+                var E,
+                  L = j,
+                  O = !0 === x || "number" != typeof x ? 2 : x,
                   P = !C && (g || v);
                 if (
-                  (L < 0 && (P = !P),
+                  (O < 0 && (P = !P),
                   x &&
-                    (O = a.createElement(
+                    (L = a.createElement(
                       "g",
                       {
                         style: {
@@ -12132,12 +12640,12 @@
                             "spin" +
                             (P ? "-inverse" : "") +
                             " linear " +
-                            Math.abs(L) +
+                            Math.abs(O) +
                             "s infinite",
                           transformOrigin: "center",
                         },
                       },
-                      E,
+                      j,
                       !(g || v || 0 !== w) &&
                         a.createElement("rect", {
                           width: "24",
@@ -12147,11 +12655,11 @@
                     )),
                   C)
                 )
-                  return O;
+                  return L;
                 var R,
                   F = "icon_labelledby_" + n,
                   H = "icon_describedby_" + n;
-                if (s) j = u ? F + " " + H : F;
+                if (s) E = u ? F + " " + H : F;
                 else if (((R = "presentation"), u))
                   throw new Error(
                     "title attribute required when description is set"
@@ -12164,7 +12672,7 @@
                       viewBox: "0 0 24 24",
                       style: M,
                       role: R,
-                      "aria-labelledby": j,
+                      "aria-labelledby": E,
                     },
                     q
                   ),
@@ -12183,7 +12691,7 @@
                           null,
                           "@keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }"
                         )),
-                  O
+                  L
                 );
               });
             (u.displayName = "Icon"),
@@ -12849,8 +13357,8 @@
               });
         }
         var N = A("patchMixins"),
-          E = A("patchedDefinition");
-        function j(e, t) {
+          j = A("patchedDefinition");
+        function E(e, t) {
           for (
             var r = this,
               a = arguments.length,
@@ -12872,14 +13380,14 @@
                 });
           }
         }
-        function O(e, t) {
+        function L(e, t) {
           return function () {
             for (var r = arguments.length, a = new Array(r), i = 0; i < r; i++)
               a[i] = arguments[i];
-            j.call.apply(j, [this, e, t].concat(a));
+            E.call.apply(E, [this, e, t].concat(a));
           };
         }
-        function L(e, t, r) {
+        function O(e, t, r) {
           var a = (function (e, t) {
             var r = (e[N] = e[N] || {}),
               a = (r[t] = r[t] || {});
@@ -12887,7 +13395,7 @@
           })(e, t);
           a.methods.indexOf(r) < 0 && a.methods.push(r);
           var i = Object.getOwnPropertyDescriptor(e, t);
-          if (!i || !i[E]) {
+          if (!i || !i[j]) {
             var n = e[t],
               o = P(e, t, i ? i.enumerable : void 0, a, n);
             Object.defineProperty(e, t, o);
@@ -12895,14 +13403,14 @@
         }
         function P(e, t, r, a, i) {
           var n,
-            o = O(i, a);
+            o = L(i, a);
           return (
-            ((n = {})[E] = !0),
+            ((n = {})[j] = !0),
             (n.get = function () {
               return o;
             }),
             (n.set = function (i) {
-              if (this === e) o = O(i, a);
+              if (this === e) o = L(i, a);
               else {
                 var n = P(this, t, r, a, i);
                 Object.defineProperty(this, t, n);
@@ -12953,11 +13461,11 @@
             (t.render = function () {
               return (this.render = u() ? a : B.call(this, a)), this.render();
             }),
-            L(t, "componentDidMount", function () {
+            O(t, "componentDidMount", function () {
               (this[H] = !1),
                 this.render[R] || i.Component.prototype.forceUpdate.call(this);
             }),
-            L(t, "componentWillUnmount", function () {
+            O(t, "componentWillUnmount", function () {
               if (!u()) {
                 var e = this.render[R];
                 if (e) e.dispose(), (this.render[R] = null);
@@ -13204,7 +13712,7 @@
           f2: () => ut,
           jK: () => $t,
           qT: () => Mt,
-          sH: () => Oe,
+          sH: () => Le,
           uz: () => Br,
           vx: () => Ue,
           w6: () => pt,
@@ -13337,7 +13845,7 @@
               t
             );
           };
-        function E(e, t) {
+        function j(e, t) {
           for (var r = 0; r < t.length; r++) {
             var a = t[r];
             (a.enumerable = a.enumerable || !1),
@@ -13346,17 +13854,17 @@
               Object.defineProperty(e, V(a.key), a);
           }
         }
-        function j(e, t, r) {
+        function E(e, t, r) {
           return (
-            t && E(e.prototype, t),
-            r && E(e, r),
+            t && j(e.prototype, t),
+            r && j(e, r),
             Object.defineProperty(e, "prototype", { writable: !1 }),
             e
           );
         }
-        function O() {
+        function L() {
           return (
-            (O = Object.assign
+            (L = Object.assign
               ? Object.assign.bind()
               : function (e) {
                   for (var t = 1; t < arguments.length; t++) {
@@ -13367,10 +13875,10 @@
                   }
                   return e;
                 }),
-            O.apply(this, arguments)
+            L.apply(this, arguments)
           );
         }
-        function L(e, t) {
+        function O(e, t) {
           (e.prototype = Object.create(t.prototype)),
             (e.prototype.constructor = e),
             P(e, t);
@@ -13454,7 +13962,7 @@
           }, e);
         }
         function z(e, t, r) {
-          I(e, D) || k(e, D, O({}, e[D])),
+          I(e, D) || k(e, D, L({}, e[D])),
             (function (e) {
               return e.annotationType_ === $;
             })(r) || (e[D][t] = r);
@@ -13532,13 +14040,13 @@
           return cr(e)
             ? e
             : Array.isArray(e)
-            ? Oe.array(e, { name: r })
+            ? Le.array(e, { name: r })
             : b(e)
-            ? Oe.object(e, void 0, { name: r })
+            ? Le.object(e, void 0, { name: r })
             : M(e)
-            ? Oe.map(e, { name: r })
+            ? Le.map(e, { name: r })
             : A(e)
-            ? Oe.set(e, { name: r })
+            ? Le.set(e, { name: r })
             : "function" !== typeof e || Dt(e) || lr(e)
             ? e
             : w(e)
@@ -13738,7 +14246,7 @@
             })(0, this, 0, r),
             e.defineComputedProperty_(
               t,
-              O({}, this.options_, { get: r.get, set: r.set }),
+              L({}, this.options_, { get: r.get, set: r.set }),
               a
             )
           );
@@ -13749,7 +14257,7 @@
           return (
             (0, t.addInitializer)(function () {
               var t = Qr(this)[G],
-                i = O({}, r.options_, { get: e, context: this });
+                i = L({}, r.options_, { get: e, context: this });
               i.name || (i.name = "ObservableObject." + a.toString()),
                 t.values_.set(a, new et(i));
             }),
@@ -13864,8 +14372,8 @@
           var c,
             u =
               !1 === (null == (i = this.options_) ? void 0 : i.deep)
-                ? Oe.ref
-                : Oe;
+                ? Le.ref
+                : Le;
           "function" === typeof r.value &&
             null != (n = this.options_) &&
             n.autoBind &&
@@ -13889,7 +14397,7 @@
             i.autoBind &&
             (r.value = r.value.bind(null != (o = e.proxy_) ? o : e.target_));
           return (
-            !1 === (null == (n = this.options_) ? void 0 : n.deep) ? Oe.ref : Oe
+            !1 === (null == (n = this.options_) ? void 0 : n.deep) ? Le.ref : Le
           ).extend_(e, t, r, a);
         }
         function ke(e, t) {
@@ -13917,13 +14425,13 @@
                 Yr(e)
                 ? e
                 : Array.isArray(e)
-                ? Oe.array(e, { name: r, deep: !1 })
+                ? Le.array(e, { name: r, deep: !1 })
                 : b(e)
-                ? Oe.object(e, void 0, { name: r, deep: !1 })
+                ? Le.object(e, void 0, { name: r, deep: !1 })
                 : M(e)
-                ? Oe.map(e, { name: r, deep: !1 })
+                ? Le.map(e, { name: r, deep: !1 })
                 : A(e)
-                ? Oe.set(e, { name: r, deep: !1 })
+                ? Le.set(e, { name: r, deep: !1 })
                 : void 0;
             },
           }),
@@ -13954,21 +14462,21 @@
             : cr(e)
             ? e
             : b(e)
-            ? Oe.object(e, t, r)
+            ? Le.object(e, t, r)
             : Array.isArray(e)
-            ? Oe.array(e, t)
+            ? Le.array(e, t)
             : M(e)
-            ? Oe.map(e, t)
+            ? Le.map(e, t)
             : A(e)
-            ? Oe.set(e, t)
+            ? Le.set(e, t)
             : "object" === typeof e && null !== e
             ? e
-            : Oe.box(e, t);
+            : Le.box(e, t);
         }
         o(Ne, Te);
-        var Ee,
-          je,
-          Oe = o(Ne, {
+        var je,
+          Ee,
+          Le = o(Ne, {
             box: function (e, t) {
               var r = Se(t);
               return new Ze(e, Ie(r), r.name, !0, r.equals);
@@ -14014,13 +14522,13 @@
             deep: Te,
             struct: W(qe),
           }),
-          Le = "computed",
-          Pe = de(Le),
+          Oe = "computed",
+          Pe = de(Oe),
           Re = de("computed.struct", { equals: K.structural }),
           Fe = function (e, t) {
             if (B(t)) return Pe.decorate_20223_(e, t);
             if (f(t)) return z(e, t, Pe);
-            if (b(e)) return W(de(Le, e));
+            if (b(e)) return W(de(Oe, e));
             var r = b(t) ? t : {};
             return (r.get = e), r.name || (r.name = e.name || ""), new et(r);
           };
@@ -14030,10 +14538,10 @@
           De = 1,
           We =
             null !=
-              (Ee =
-                null == (je = s(function () {}, "name"))
+              (je =
+                null == (Ee = s(function () {}, "name"))
                   ? void 0
-                  : je.configurable) && Ee,
+                  : Ee.configurable) && je,
           ze = {
             value: "action",
             configurable: !0,
@@ -14134,7 +14642,7 @@
                 o
               );
             }
-            L(t, e);
+            O(t, e);
             var r = t.prototype;
             return (
               (r.dehanceValue = function (e) {
@@ -14741,29 +15249,29 @@
         }
         var It = S("Reaction", Mt);
         var Nt = "action",
-          Et = "autoAction",
-          jt = "<unnamed action>",
-          Ot = J(Nt),
-          Lt = J("action.bound", { bound: !0 }),
-          Pt = J(Et, { autoAction: !0 }),
+          jt = "autoAction",
+          Et = "<unnamed action>",
+          Lt = J(Nt),
+          Ot = J("action.bound", { bound: !0 }),
+          Pt = J(jt, { autoAction: !0 }),
           Rt = J("autoAction.bound", { autoAction: !0, bound: !0 });
         function Ft(e) {
           return function (t, r) {
             return g(t)
-              ? Be(t.name || jt, t, e)
+              ? Be(t.name || Et, t, e)
               : g(r)
               ? Be(t, r, e)
               : B(r)
-              ? (e ? Pt : Ot).decorate_20223_(t, r)
+              ? (e ? Pt : Lt).decorate_20223_(t, r)
               : f(r)
-              ? z(t, r, e ? Pt : Ot)
+              ? z(t, r, e ? Pt : Lt)
               : f(t)
-              ? W(J(e ? Et : Nt, { name: t, autoAction: e }))
+              ? W(J(e ? jt : Nt, { name: t, autoAction: e }))
               : void 0;
           };
         }
         var Ht = Ft(!1);
-        Object.assign(Ht, Ot);
+        Object.assign(Ht, Lt);
         var Vt = Ft(!0);
         function Dt(e) {
           return g(e) && !0 === e.isMobxAction;
@@ -14807,7 +15315,7 @@
             s.getDisposer_(null == (o = t) ? void 0 : o.signal)
           );
         }
-        Object.assign(Vt, Pt), (Ht.bound = W(Lt)), (Vt.bound = W(Rt));
+        Object.assign(Vt, Pt), (Ht.bound = W(Ot)), (Vt.bound = W(Rt));
         var zt = function (e) {
           return e();
         };
@@ -15146,7 +15654,7 @@
               var a = Qr(e, r)[G];
               null != t ||
                 (t = (function (e) {
-                  return I(e, D) || k(e, D, O({}, e[D])), e[D];
+                  return I(e, D) || k(e, D, L({}, e[D])), e[D];
                 })(e)),
                 q(t).forEach(function (e) {
                   return a.make_(e, t[e]);
@@ -15491,7 +15999,7 @@
             return r[e].apply(r, arguments);
           };
         }
-        function Er(e) {
+        function jr(e) {
           return function (t, r) {
             var a = this,
               i = this[G];
@@ -15503,7 +16011,7 @@
             );
           };
         }
-        function jr(e) {
+        function Er(e) {
           return function () {
             var t = this,
               r = this[G];
@@ -15531,21 +16039,21 @@
           Ir("toSorted", Nr),
           Ir("toSpliced", Nr),
           Ir("with", Nr),
-          Ir("every", Er),
-          Ir("filter", Er),
-          Ir("find", Er),
-          Ir("findIndex", Er),
-          Ir("findLast", Er),
-          Ir("findLastIndex", Er),
-          Ir("flatMap", Er),
-          Ir("forEach", Er),
-          Ir("map", Er),
-          Ir("some", Er),
-          Ir("toReversed", Er),
-          Ir("reduce", jr),
-          Ir("reduceRight", jr);
-        var Or,
-          Lr,
+          Ir("every", jr),
+          Ir("filter", jr),
+          Ir("find", jr),
+          Ir("findIndex", jr),
+          Ir("findLast", jr),
+          Ir("findLastIndex", jr),
+          Ir("flatMap", jr),
+          Ir("forEach", jr),
+          Ir("map", jr),
+          Ir("some", jr),
+          Ir("toReversed", jr),
+          Ir("reduce", Er),
+          Ir("reduceRight", Er);
+        var Lr,
+          Or,
           Pr = S("ObservableArrayAdministration", Cr);
         function Rr(e) {
           return v(e) && Pr(e[G]);
@@ -15553,7 +16061,7 @@
         var Fr = {},
           Hr = "add",
           Vr = "delete";
-        (Or = Symbol.iterator), (Lr = Symbol.toStringTag);
+        (Lr = Symbol.iterator), (Or = Symbol.toStringTag);
         var Dr,
           Wr,
           zr = (function () {
@@ -15727,7 +16235,7 @@
                   },
                 });
               }),
-              (t[Or] = function () {
+              (t[Lr] = function () {
                 return this.entries();
               }),
               (t.forEach = function (e, t) {
@@ -15860,7 +16368,7 @@
               (t.intercept_ = function (e) {
                 return fr(this, e);
               }),
-              j(e, [
+              E(e, [
                 {
                   key: "size",
                   get: function () {
@@ -15868,7 +16376,7 @@
                   },
                 },
                 {
-                  key: Lr,
+                  key: Or,
                   get: function () {
                     return "Map";
                   },
@@ -16049,7 +16557,7 @@
               (t[Dr] = function () {
                 return this.values();
               }),
-              j(e, [
+              E(e, [
                 {
                   key: "size",
                   get: function () {
@@ -16215,7 +16723,7 @@
                     });
                     if (!i) return null;
                     var n = i.newValue;
-                    t.value !== n && (t = O({}, t, { value: n }));
+                    t.value !== n && (t = L({}, t, { value: n }));
                   }
                   if (r) {
                     if (!Reflect.defineProperty(this.target_, e, t)) return !1;
@@ -16474,7 +16982,7 @@
               n
             );
           }
-          L(a, e);
+          O(a, e);
           var i = a.prototype;
           return (
             (i.concat = function () {
@@ -16503,7 +17011,7 @@
                 },
               });
             }),
-            j(a, [
+            E(a, [
               {
                 key: "length",
                 get: function () {
@@ -16976,10 +17484,10 @@
           T = "tablet",
           I = "smarttv",
           N = "console",
-          E = "wearable",
-          j = "embedded",
-          O = void 0,
-          L = {
+          j = "wearable",
+          E = "embedded",
+          L = void 0,
+          O = {
             Chrome: "Chrome",
             Firefox: "Firefox",
             Opera: "Opera",
@@ -17081,16 +17589,16 @@
             return e.type === I;
           },
           U = function (e) {
-            return e.type === O;
+            return e.type === L;
           },
           Y = function (e) {
-            return e.type === E;
+            return e.type === j;
           },
           X = function (e) {
             return e.type === N;
           },
           K = function (e) {
-            return e.type === j;
+            return e.type === E;
           },
           Z = function (e) {
             var t = e.vendor;
@@ -17128,39 +17636,39 @@
             return F(t);
           },
           oe = function (e) {
-            return e.name === L.Chrome;
+            return e.name === O.Chrome;
           },
           se = function (e) {
-            return e.name === L.Firefox;
+            return e.name === O.Firefox;
           },
           le = function (e) {
-            return e.name === L.Chromium;
+            return e.name === O.Chromium;
           },
           de = function (e) {
-            return e.name === L.Edge;
+            return e.name === O.Edge;
           },
           ce = function (e) {
-            return e.name === L.Yandex;
+            return e.name === O.Yandex;
           },
           ue = function (e) {
             var t = e.name;
-            return t === L.Safari || t === L.MobileSafari;
+            return t === O.Safari || t === O.MobileSafari;
           },
           pe = function (e) {
-            return e.name === L.MobileSafari;
+            return e.name === O.MobileSafari;
           },
           _e = function (e) {
-            return e.name === L.Opera;
+            return e.name === O.Opera;
           },
           he = function (e) {
             var t = e.name;
-            return t === L.InternetExplorer || t === L.Ie;
+            return t === O.InternetExplorer || t === O.Ie;
           },
           ye = function (e) {
-            return e.name === L.MIUI;
+            return e.name === O.MIUI;
           },
           me = function (e) {
-            return e.name === L.SamsungBrowser;
+            return e.name === O.SamsungBrowser;
           },
           ge = function (e) {
             var t = e.version;
@@ -17266,10 +17774,10 @@
         }
         var Ie = G(c),
           Ne = X(c),
-          Ee = Y(c),
-          je = K(c),
-          Oe = pe(l) || Me(),
-          Le = le(l),
+          je = Y(c),
+          Ee = K(c),
+          Le = pe(l) || Me(),
+          Oe = le(l),
           Pe = B(c) || Me(),
           Re = W(c),
           Fe = z(c) || Me(),
@@ -17529,17 +18037,17 @@
           T = Symbol.for("react.suspense"),
           I = Symbol.for("react.suspense_list"),
           N = Symbol.for("react.memo"),
-          E = Symbol.for("react.lazy");
+          j = Symbol.for("react.lazy");
         Symbol.for("react.scope"), Symbol.for("react.debug_trace_mode");
-        var j = Symbol.for("react.offscreen");
+        var E = Symbol.for("react.offscreen");
         Symbol.for("react.legacy_hidden"),
           Symbol.for("react.cache"),
           Symbol.for("react.tracing_marker");
-        var O = Symbol.iterator;
-        function L(e) {
+        var L = Symbol.iterator;
+        function O(e) {
           return null === e || "object" !== typeof e
             ? null
-            : "function" === typeof (e = (O && e[O]) || e["@@iterator"])
+            : "function" === typeof (e = (L && e[L]) || e["@@iterator"])
             ? e
             : null;
         }
@@ -17689,7 +18197,7 @@
                 return null !== (t = e.displayName || null)
                   ? t
                   : W(e.type) || "Memo";
-              case E:
+              case j:
                 (t = e._payload), (e = e._init);
                 try {
                   return W(e(t));
@@ -18186,7 +18694,7 @@
             (Ie = !1), (null !== xe || null !== Se) && (Te(), Ce());
           }
         }
-        function Ee(e, t) {
+        function je(e, t) {
           var r = e.stateNode;
           if (null === r) return null;
           var a = bi(r);
@@ -18220,21 +18728,21 @@
           if (r && "function" !== typeof r) throw Error(n(231, t, typeof r));
           return r;
         }
-        var je = !1;
+        var Ee = !1;
         if (c)
           try {
-            var Oe = {};
-            Object.defineProperty(Oe, "passive", {
+            var Le = {};
+            Object.defineProperty(Le, "passive", {
               get: function () {
-                je = !0;
+                Ee = !0;
               },
             }),
-              window.addEventListener("test", Oe, Oe),
-              window.removeEventListener("test", Oe, Oe);
+              window.addEventListener("test", Le, Le),
+              window.removeEventListener("test", Le, Le);
           } catch (ce) {
-            je = !1;
+            Ee = !1;
           }
-        function Le(e, t, r, a, i, n, o, s, l) {
+        function Oe(e, t, r, a, i, n, o, s, l) {
           var d = Array.prototype.slice.call(arguments, 3);
           try {
             t.apply(r, d);
@@ -18252,7 +18760,7 @@
             },
           };
         function De(e, t, r, a, i, n, o, s, l) {
-          (Pe = !1), (Re = null), Le.apply(Ve, arguments);
+          (Pe = !1), (Re = null), Oe.apply(Ve, arguments);
         }
         function We(e) {
           var t = e,
@@ -18528,13 +19036,13 @@
           Tt = null,
           It = null,
           Nt = new Map(),
-          Et = new Map(),
-          jt = [],
-          Ot =
+          jt = new Map(),
+          Et = [],
+          Lt =
             "mousedown mouseup touchcancel touchend touchstart auxclick dblclick pointercancel pointerdown pointerup dragend dragstart drop compositionend compositionstart keydown keypress keyup input textInput copy cut paste click change contextmenu reset submit".split(
               " "
             );
-        function Lt(e, t) {
+        function Ot(e, t) {
           switch (e) {
             case "focusin":
             case "focusout":
@@ -18554,7 +19062,7 @@
               break;
             case "gotpointercapture":
             case "lostpointercapture":
-              Et.delete(t.pointerId);
+              jt.delete(t.pointerId);
           }
         }
         function Pt(e, t, r, a, i, n) {
@@ -18615,7 +19123,7 @@
             null !== Tt && Ft(Tt) && (Tt = null),
             null !== It && Ft(It) && (It = null),
             Nt.forEach(Ht),
-            Et.forEach(Ht);
+            jt.forEach(Ht);
         }
         function Dt(e, t) {
           e.blockedOn === t &&
@@ -18640,14 +19148,14 @@
               null !== Tt && Dt(Tt, e),
               null !== It && Dt(It, e),
               Nt.forEach(t),
-              Et.forEach(t),
+              jt.forEach(t),
               r = 0;
-            r < jt.length;
+            r < Et.length;
             r++
           )
-            (a = jt[r]).blockedOn === e && (a.blockedOn = null);
-          for (; 0 < jt.length && null === (r = jt[0]).blockedOn; )
-            Rt(r), null === r.blockedOn && jt.shift();
+            (a = Et[r]).blockedOn === e && (a.blockedOn = null);
+          for (; 0 < Et.length && null === (r = Et[0]).blockedOn; )
+            Rt(r), null === r.blockedOn && Et.shift();
         }
         var zt = b.ReactCurrentBatchConfig,
           Bt = !0;
@@ -18674,7 +19182,7 @@
         function Yt(e, t, r, a) {
           if (Bt) {
             var i = Kt(e, t, r, a);
-            if (null === i) za(e, t, a, Xt, r), Lt(e, a);
+            if (null === i) za(e, t, a, Xt, r), Ot(e, a);
             else if (
               (function (e, t, r, a, i) {
                 switch (t) {
@@ -18690,7 +19198,7 @@
                   case "gotpointercapture":
                     return (
                       (n = i.pointerId),
-                      Et.set(n, Pt(Et.get(n) || null, e, t, r, a, i)),
+                      jt.set(n, Pt(jt.get(n) || null, e, t, r, a, i)),
                       !0
                     );
                 }
@@ -18698,7 +19206,7 @@
               })(i, e, t, r, a)
             )
               a.stopPropagation();
-            else if ((Lt(e, a), 4 & t && -1 < Ot.indexOf(e))) {
+            else if ((Ot(e, a), 4 & t && -1 < Lt.indexOf(e))) {
               for (; null !== i; ) {
                 var n = fi(i);
                 if (
@@ -19122,18 +19630,18 @@
             deltaMode: 0,
           }),
           Nr = ir(Ir),
-          Er = [9, 13, 27, 32],
-          jr = c && "CompositionEvent" in window,
-          Or = null;
-        c && "documentMode" in document && (Or = document.documentMode);
-        var Lr = c && "TextEvent" in window && !Or,
-          Pr = c && (!jr || (Or && 8 < Or && 11 >= Or)),
+          jr = [9, 13, 27, 32],
+          Er = c && "CompositionEvent" in window,
+          Lr = null;
+        c && "documentMode" in document && (Lr = document.documentMode);
+        var Or = c && "TextEvent" in window && !Lr,
+          Pr = c && (!Er || (Lr && 8 < Lr && 11 >= Lr)),
           Rr = String.fromCharCode(32),
           Fr = !1;
         function Hr(e, t) {
           switch (e) {
             case "keyup":
-              return -1 !== Er.indexOf(t.keyCode);
+              return -1 !== jr.indexOf(t.keyCode);
             case "keydown":
               return 229 !== t.keyCode;
             case "keypress":
@@ -19451,9 +19959,9 @@
         function Na(e, t) {
           Ta.set(e, t), l(t, [e]);
         }
-        for (var Ea = 0; Ea < Ia.length; Ea++) {
-          var ja = Ia[Ea];
-          Na(ja.toLowerCase(), "on" + (ja[0].toUpperCase() + ja.slice(1)));
+        for (var ja = 0; ja < Ia.length; ja++) {
+          var Ea = Ia[ja];
+          Na(Ea.toLowerCase(), "on" + (Ea[0].toUpperCase() + Ea.slice(1)));
         }
         Na(Ma, "onAnimationEnd"),
           Na(Aa, "onAnimationIteration"),
@@ -19502,12 +20010,12 @@
               " "
             )
           );
-        var Oa =
+        var La =
             "abort canplay canplaythrough durationchange emptied encrypted ended error loadeddata loadedmetadata loadstart pause play playing progress ratechange resize seeked seeking stalled suspend timeupdate volumechange waiting".split(
               " "
             ),
-          La = new Set(
-            "cancel close invalid load scroll toggle".split(" ").concat(Oa)
+          Oa = new Set(
+            "cancel close invalid load scroll toggle".split(" ").concat(La)
           );
         function Pa(e, t, r) {
           var a = e.type || "unknown-event";
@@ -19569,7 +20077,7 @@
             (e[Va] = !0),
               o.forEach(function (t) {
                 "selectionchange" !== t &&
-                  (La.has(t) || Ha(t, !1, e), Ha(t, !0, e));
+                  (Oa.has(t) || Ha(t, !1, e), Ha(t, !0, e));
               });
             var t = 9 === e.nodeType ? e : e.ownerDocument;
             null === t || t[Va] || ((t[Va] = !0), Ha("selectionchange", !1, t));
@@ -19588,7 +20096,7 @@
           }
           (r = i.bind(null, t, r, e)),
             (i = void 0),
-            !je ||
+            !Ee ||
               ("touchstart" !== t && "touchmove" !== t && "wheel" !== t) ||
               (i = !0),
             a
@@ -19724,7 +20232,7 @@
                       null !== y &&
                       ((_ = y),
                       null !== p &&
-                        null != (y = Ee(h, p)) &&
+                        null != (y = je(h, p)) &&
                         c.push(Ba(h, y, _))),
                     u)
                   )
@@ -19851,7 +20359,7 @@
                   va(o, r, i);
               }
               var f;
-              if (jr)
+              if (Er)
                 e: {
                   switch (e) {
                     case "compositionstart":
@@ -19883,7 +20391,7 @@
                   ((v = new vr(v, e, null, r, i)),
                   o.push({ event: v, listeners: g }),
                   f ? (v.data = f) : null !== (f = Vr(r)) && (v.data = f))),
-                (f = Lr
+                (f = Or
                   ? (function (e, t) {
                       switch (e) {
                         case "compositionend":
@@ -19898,7 +20406,7 @@
                     })(e, r)
                   : (function (e, t) {
                       if (Dr)
-                        return "compositionend" === e || (!jr && Hr(e, t))
+                        return "compositionend" === e || (!Er && Hr(e, t))
                           ? ((e = er()), (Jt = $t = Qt = null), (Dr = !1), e)
                           : null;
                       switch (e) {
@@ -19936,8 +20444,8 @@
             5 === i.tag &&
               null !== n &&
               ((i = n),
-              null != (n = Ee(e, r)) && a.unshift(Ba(e, n, i)),
-              null != (n = Ee(e, t)) && a.push(Ba(e, n, i))),
+              null != (n = je(e, r)) && a.unshift(Ba(e, n, i)),
+              null != (n = je(e, t)) && a.push(Ba(e, n, i))),
               (e = e.return);
           }
           return a;
@@ -19959,8 +20467,8 @@
               null !== d &&
               ((s = d),
               i
-                ? null != (l = Ee(r, n)) && o.unshift(Ba(r, l, s))
-                : i || (null != (l = Ee(r, n)) && o.push(Ba(r, l, s)))),
+                ? null != (l = je(r, n)) && o.unshift(Ba(r, l, s))
+                : i || (null != (l = je(r, n)) && o.push(Ba(r, l, s)))),
               (r = r.return);
           }
           0 !== o.length && e.push({ event: t, listeners: o });
@@ -20118,14 +20626,14 @@
         function Ni(e) {
           return null !== (e = e.childContextTypes) && void 0 !== e;
         }
-        function Ei() {
+        function ji() {
           Si(qi), Si(Ci);
         }
-        function ji(e, t, r) {
+        function Ei(e, t, r) {
           if (Ci.current !== Ai) throw Error(n(168));
           Mi(Ci, t), Mi(qi, r);
         }
-        function Oi(e, t, r) {
+        function Li(e, t, r) {
           var a = e.stateNode;
           if (
             ((t = t.childContextTypes), "function" !== typeof a.getChildContext)
@@ -20135,7 +20643,7 @@
             if (!(i in t)) throw Error(n(108, z(e) || "Unknown", i));
           return R({}, r, a);
         }
-        function Li(e) {
+        function Oi(e) {
           return (
             (e =
               ((e = e.stateNode) &&
@@ -20151,7 +20659,7 @@
           var a = e.stateNode;
           if (!a) throw Error(n(169));
           r
-            ? ((e = Oi(e, t, Ti)),
+            ? ((e = Li(e, t, Ti)),
               (a.__reactInternalMemoizedMergedChildContext = e),
               Si(qi),
               Si(Ci),
@@ -20426,7 +20934,7 @@
             return e;
           }
           function i(e, t) {
-            return ((e = jd(e, t)).index = 0), (e.sibling = null), e;
+            return ((e = Ed(e, t)).index = 0), (e.sibling = null), e;
           }
           function o(t, r, a) {
             return (
@@ -20456,10 +20964,10 @@
                 (t.elementType === n ||
                   ("object" === typeof n &&
                     null !== n &&
-                    n.$$typeof === E &&
+                    n.$$typeof === j &&
                     fn(n) === t.type))
               ? (((a = i(t, r.props)).ref = mn(e, t, r)), (a.return = e), a)
-              : (((a = Od(r.type, r.key, r.props, null, e.mode, a)).ref = mn(
+              : (((a = Ld(r.type, r.key, r.props, null, e.mode, a)).ref = mn(
                   e,
                   t,
                   r
@@ -20477,7 +20985,7 @@
           }
           function u(e, t, r, a, n) {
             return null === t || 7 !== t.tag
-              ? (((t = Ld(r, e.mode, a, n)).return = e), t)
+              ? (((t = Od(r, e.mode, a, n)).return = e), t)
               : (((t = i(t, r)).return = e), t);
           }
           function p(e, t, r) {
@@ -20487,7 +20995,7 @@
               switch (t.$$typeof) {
                 case w:
                   return (
-                    ((r = Od(t.type, t.key, t.props, null, e.mode, r)).ref = mn(
+                    ((r = Ld(t.type, t.key, t.props, null, e.mode, r)).ref = mn(
                       e,
                       null,
                       t
@@ -20497,11 +21005,11 @@
                   );
                 case k:
                   return ((t = Fd(t, e.mode, r)).return = e), t;
-                case E:
+                case j:
                   return p(e, (0, t._init)(t._payload), r);
               }
-              if (te(t) || L(t))
-                return ((t = Ld(t, e.mode, r, null)).return = e), t;
+              if (te(t) || O(t))
+                return ((t = Od(t, e.mode, r, null)).return = e), t;
               gn(e, t);
             }
             return null;
@@ -20516,10 +21024,10 @@
                   return r.key === i ? d(e, t, r, a) : null;
                 case k:
                   return r.key === i ? c(e, t, r, a) : null;
-                case E:
+                case j:
                   return _(e, t, (i = r._init)(r._payload), a);
               }
-              if (te(r) || L(r)) return null !== i ? null : u(e, t, r, a, null);
+              if (te(r) || O(r)) return null !== i ? null : u(e, t, r, a, null);
               gn(e, r);
             }
             return null;
@@ -20543,10 +21051,10 @@
                     a,
                     i
                   );
-                case E:
+                case j:
                   return h(e, t, r, (0, a._init)(a._payload), i);
               }
-              if (te(a) || L(a))
+              if (te(a) || O(a))
                 return u(t, (e = e.get(r) || null), a, i, null);
               gn(t, a);
             }
@@ -20597,7 +21105,7 @@
             );
           }
           function m(i, s, l, d) {
-            var c = L(l);
+            var c = O(l);
             if ("function" !== typeof c) throw Error(n(150));
             if (null == (l = c.call(l))) throw Error(n(151));
             for (
@@ -20668,7 +21176,7 @@
                           c.elementType === d ||
                           ("object" === typeof d &&
                             null !== d &&
-                            d.$$typeof === E &&
+                            d.$$typeof === j &&
                             fn(d) === c.type)
                         ) {
                           r(a, c.sibling),
@@ -20683,10 +21191,10 @@
                       t(a, c), (c = c.sibling);
                     }
                     o.type === x
-                      ? (((n = Ld(o.props.children, a.mode, l, o.key)).return =
+                      ? (((n = Od(o.props.children, a.mode, l, o.key)).return =
                           a),
                         (a = n))
-                      : (((l = Od(
+                      : (((l = Ld(
                           o.type,
                           o.key,
                           o.props,
@@ -20720,11 +21228,11 @@
                     ((n = Fd(o, a.mode, l)).return = a), (a = n);
                   }
                   return s(a);
-                case E:
+                case j:
                   return e(a, n, (c = o._init)(o._payload), l);
               }
               if (te(o)) return y(a, n, o, l);
-              if (L(o)) return m(a, n, o, l);
+              if (O(o)) return m(a, n, o, l);
               gn(a, o);
             }
             return ("string" === typeof o && "" !== o) || "number" === typeof o
@@ -20781,20 +21289,20 @@
           return t;
         }
         var Nn = null;
-        function En(e) {
+        function jn(e) {
           null === Nn ? (Nn = [e]) : Nn.push(e);
         }
-        function jn(e, t, r, a) {
+        function En(e, t, r, a) {
           var i = t.interleaved;
           return (
             null === i
-              ? ((r.next = r), En(t))
+              ? ((r.next = r), jn(t))
               : ((r.next = i.next), (i.next = r)),
             (t.interleaved = r),
-            On(e, a)
+            Ln(e, a)
           );
         }
-        function On(e, t) {
+        function Ln(e, t) {
           e.lanes |= t;
           var r = e.alternate;
           for (null !== r && (r.lanes |= t), r = e, e = e.return; null !== e; )
@@ -20804,7 +21312,7 @@
               (e = e.return);
           return 3 === r.tag ? r.stateNode : null;
         }
-        var Ln = !1;
+        var On = !1;
         function Pn(e) {
           e.updateQueue = {
             baseState: e.memoizedState,
@@ -20843,15 +21351,15 @@
             return (
               null === i ? (t.next = t) : ((t.next = i.next), (i.next = t)),
               (a.pending = t),
-              On(e, r)
+              Ln(e, r)
             );
           }
           return (
             null === (i = a.interleaved)
-              ? ((t.next = t), En(a))
+              ? ((t.next = t), jn(a))
               : ((t.next = i.next), (i.next = t)),
             (a.interleaved = t),
-            On(e, r)
+            Ln(e, r)
           );
         }
         function Vn(e, t, r) {
@@ -20901,7 +21409,7 @@
         }
         function Wn(e, t, r, a) {
           var i = e.updateQueue;
-          Ln = !1;
+          On = !1;
           var n = i.firstBaseUpdate,
             o = i.lastBaseUpdate,
             s = i.shared.pending;
@@ -20958,7 +21466,7 @@
                       u = R({}, u, p);
                       break e;
                     case 2:
-                      Ln = !0;
+                      On = !0;
                   }
                 }
                 null !== s.callback &&
@@ -21305,7 +21813,7 @@
           }
         }
         function To(e) {
-          var t = On(e, 1);
+          var t = Ln(e, 1);
           null !== t && rd(t, e, 1, -1);
         }
         function Io(e) {
@@ -21339,15 +21847,15 @@
             e
           );
         }
-        function Eo() {
+        function jo() {
           return vo().memoizedState;
         }
-        function jo(e, t, r, a) {
+        function Eo(e, t, r, a) {
           var i = fo();
           (oo.flags |= e),
             (i.memoizedState = No(1 | t, r, void 0, void 0 === a ? null : a));
         }
-        function Oo(e, t, r, a) {
+        function Lo(e, t, r, a) {
           var i = vo();
           a = void 0 === a ? null : a;
           var n = void 0;
@@ -21358,17 +21866,17 @@
           }
           (oo.flags |= e), (i.memoizedState = No(1 | t, r, n, a));
         }
-        function Lo(e, t) {
-          return jo(8390656, 8, e, t);
+        function Oo(e, t) {
+          return Eo(8390656, 8, e, t);
         }
         function Po(e, t) {
-          return Oo(2048, 8, e, t);
+          return Lo(2048, 8, e, t);
         }
         function Ro(e, t) {
-          return Oo(4, 2, e, t);
+          return Lo(4, 2, e, t);
         }
         function Fo(e, t) {
-          return Oo(4, 4, e, t);
+          return Lo(4, 4, e, t);
         }
         function Ho(e, t) {
           return "function" === typeof t
@@ -21388,7 +21896,7 @@
         function Vo(e, t, r) {
           return (
             (r = null !== r && void 0 !== r ? r.concat([e]) : null),
-            Oo(4, 4, Ho.bind(null, t, e), r)
+            Lo(4, 4, Ho.bind(null, t, e), r)
           );
         }
         function Do() {}
@@ -21443,7 +21951,7 @@
             Ko(e))
           )
             Zo(t, r);
-          else if (null !== (r = jn(e, t, r, a))) {
+          else if (null !== (r = En(e, t, r, a))) {
             rd(r, e, a, ed()), Qo(r, t, a);
           }
         }
@@ -21471,13 +21979,13 @@
                   var l = t.interleaved;
                   return (
                     null === l
-                      ? ((i.next = i), En(t))
+                      ? ((i.next = i), jn(t))
                       : ((i.next = l.next), (l.next = i)),
                     void (t.interleaved = i)
                   );
                 }
               } catch (d) {}
-            null !== (r = jn(e, t, i, a)) &&
+            null !== (r = En(e, t, i, a)) &&
               (rd(r, e, a, (i = ed())), Qo(r, t, a));
           }
         }
@@ -21523,18 +22031,18 @@
               return (fo().memoizedState = [e, void 0 === t ? null : t]), e;
             },
             useContext: In,
-            useEffect: Lo,
+            useEffect: Oo,
             useImperativeHandle: function (e, t, r) {
               return (
                 (r = null !== r && void 0 !== r ? r.concat([e]) : null),
-                jo(4194308, 4, Ho.bind(null, t, e), r)
+                Eo(4194308, 4, Ho.bind(null, t, e), r)
               );
             },
             useLayoutEffect: function (e, t) {
-              return jo(4194308, 4, e, t);
+              return Eo(4194308, 4, e, t);
             },
             useInsertionEffect: function (e, t) {
-              return jo(4, 2, e, t);
+              return Eo(4, 2, e, t);
             },
             useMemo: function (e, t) {
               var r = fo();
@@ -21593,7 +22101,7 @@
               var o = { value: r, getSnapshot: t };
               return (
                 (i.queue = o),
-                Lo(Co.bind(null, a, o, e), [e]),
+                Oo(Co.bind(null, a, o, e), [e]),
                 (a.flags |= 2048),
                 No(9, Ao.bind(null, a, o, r, t), void 0, null),
                 r
@@ -21626,7 +22134,7 @@
             useLayoutEffect: Fo,
             useMemo: zo,
             useReducer: wo,
-            useRef: Eo,
+            useRef: jo,
             useState: function () {
               return wo(bo);
             },
@@ -21652,7 +22160,7 @@
             useLayoutEffect: Fo,
             useMemo: zo,
             useReducer: ko,
-            useRef: Eo,
+            useRef: jo,
             useState: function () {
               return ko(bo);
             },
@@ -21914,11 +22422,11 @@
           if (null === e) {
             var n = r.type;
             return "function" !== typeof n ||
-              Ed(n) ||
+              jd(n) ||
               void 0 !== n.defaultProps ||
               null !== r.compare ||
               void 0 !== r.defaultProps
-              ? (((e = Od(r.type, null, a, t, t.mode, i)).ref = t.ref),
+              ? (((e = Ld(r.type, null, a, t, t.mode, i)).ref = t.ref),
                 (e.return = t),
                 (t.child = e))
               : ((t.tag = 15), (t.type = n), xs(e, t, n, a, i));
@@ -21933,7 +22441,7 @@
           }
           return (
             (t.flags |= 1),
-            ((e = jd(n, a)).ref = t.ref),
+            ((e = Ed(n, a)).ref = t.ref),
             (e.return = t),
             (t.child = e)
           );
@@ -21960,8 +22468,8 @@
                 cachePool: null,
                 transitions: null,
               }),
-                Mi(jl, El),
-                (El |= r);
+                Mi(El, jl),
+                (jl |= r);
             else {
               if (0 === (1073741824 & r))
                 return (
@@ -21973,8 +22481,8 @@
                     transitions: null,
                   }),
                   (t.updateQueue = null),
-                  Mi(jl, El),
-                  (El |= e),
+                  Mi(El, jl),
+                  (jl |= e),
                   null
                 );
               (t.memoizedState = {
@@ -21983,15 +22491,15 @@
                 transitions: null,
               }),
                 (a = null !== n ? n.baseLanes : r),
-                Mi(jl, El),
-                (El |= a);
+                Mi(El, jl),
+                (jl |= a);
             }
           else
             null !== n
               ? ((a = n.baseLanes | r), (t.memoizedState = null))
               : (a = r),
-              Mi(jl, El),
-              (El |= a);
+              Mi(El, jl),
+              (jl |= a);
           return bs(e, t, i, r), t.child;
         }
         function Ms(e, t) {
@@ -22017,7 +22525,7 @@
         function Cs(e, t, r, a, i) {
           if (Ni(r)) {
             var n = !0;
-            Li(t);
+            Oi(t);
           } else n = !1;
           if ((Tn(t, i), null === t.stateNode))
             zs(e, t), os(t, r, a), ls(t, r, a, i), (a = !0);
@@ -22038,15 +22546,15 @@
               ("function" !== typeof o.UNSAFE_componentWillReceiveProps &&
                 "function" !== typeof o.componentWillReceiveProps) ||
               ((s !== a || l !== d) && ss(t, o, a, d)),
-              (Ln = !1);
+              (On = !1);
             var p = t.memoizedState;
             (o.state = p),
               Wn(t, a, o, i),
               (l = t.memoizedState),
-              s !== a || p !== l || qi.current || Ln
+              s !== a || p !== l || qi.current || On
                 ? ("function" === typeof c &&
                     (as(t, r, c, a), (l = t.memoizedState)),
-                  (s = Ln || ns(t, r, s, a, p, l, d))
+                  (s = On || ns(t, r, s, a, p, l, d))
                     ? (u ||
                         ("function" !== typeof o.UNSAFE_componentWillMount &&
                           "function" !== typeof o.componentWillMount) ||
@@ -22085,15 +22593,15 @@
               ("function" !== typeof o.UNSAFE_componentWillReceiveProps &&
                 "function" !== typeof o.componentWillReceiveProps) ||
               ((s !== u || p !== l) && ss(t, o, a, l)),
-              (Ln = !1),
+              (On = !1),
               (p = t.memoizedState),
               (o.state = p),
               Wn(t, a, o, i);
             var h = t.memoizedState;
-            s !== u || p !== h || qi.current || Ln
+            s !== u || p !== h || qi.current || On
               ? ("function" === typeof _ &&
                   (as(t, r, _, a), (h = t.memoizedState)),
-                (d = Ln || ns(t, r, d, a, p, h, l) || !1)
+                (d = On || ns(t, r, d, a, p, h, l) || !1)
                   ? (c ||
                       ("function" !== typeof o.UNSAFE_componentWillUpdate &&
                         "function" !== typeof o.componentWillUpdate) ||
@@ -22150,18 +22658,18 @@
         function Ts(e) {
           var t = e.stateNode;
           t.pendingContext
-            ? ji(0, t.pendingContext, t.pendingContext !== t.context)
-            : t.context && ji(0, t.context, !1),
+            ? Ei(0, t.pendingContext, t.pendingContext !== t.context)
+            : t.context && Ei(0, t.context, !1),
             Kn(e, t.containerInfo);
         }
         function Is(e, t, r, a, i) {
           return _n(), hn(i), (t.flags |= 256), bs(e, t, r, a), t.child;
         }
         var Ns,
-          Es,
           js,
-          Os,
-          Ls = { dehydrated: null, treeContext: null, retryLane: 0 };
+          Es,
+          Ls,
+          Os = { dehydrated: null, treeContext: null, retryLane: 0 };
         function Ps(e) {
           return { baseLanes: e, cachePool: null, transitions: null };
         }
@@ -22198,13 +22706,13 @@
                       0 === (1 & i) && null !== s
                         ? ((s.childLanes = 0), (s.pendingProps = l))
                         : (s = Pd(l, i, 0, null)),
-                      (e = Ld(e, i, r, null)),
+                      (e = Od(e, i, r, null)),
                       (s.return = t),
                       (e.return = t),
                       (s.sibling = e),
                       (t.child = s),
                       (t.child.memoizedState = Ps(r)),
-                      (t.memoizedState = Ls),
+                      (t.memoizedState = Os),
                       e)
                     : Fs(t, l))
             );
@@ -22223,14 +22731,14 @@
                       0,
                       null
                     )),
-                    ((o = Ld(o, i, s, null)).flags |= 2),
+                    ((o = Od(o, i, s, null)).flags |= 2),
                     (a.return = t),
                     (o.return = t),
                     (a.sibling = o),
                     (t.child = a),
                     0 !== (1 & t.mode) && bn(t, e.child, null, s),
                     (t.child.memoizedState = Ps(s)),
-                    (t.memoizedState = Ls),
+                    (t.memoizedState = Os),
                     o);
               if (0 === (1 & t.mode)) return Hs(e, t, s, null);
               if ("$!" === i.data) {
@@ -22280,7 +22788,7 @@
                   }
                   0 !== (i = 0 !== (i & (a.suspendedLanes | s)) ? 0 : i) &&
                     i !== o.retryLane &&
-                    ((o.retryLane = i), On(e, i), rd(a, e, i, -1));
+                    ((o.retryLane = i), Ln(e, i), rd(a, e, i, -1));
                 }
                 return yd(), Hs(e, t, s, (a = cs(Error(n(421)))));
               }
@@ -22314,10 +22822,10 @@
                 ? (((i = t.child).childLanes = 0),
                   (i.pendingProps = d),
                   (t.deletions = null))
-                : ((i = jd(o, d)).subtreeFlags = 14680064 & o.subtreeFlags),
+                : ((i = Ed(o, d)).subtreeFlags = 14680064 & o.subtreeFlags),
               null !== a
-                ? (s = jd(a, s))
-                : ((s = Ld(s, l, r, null)).flags |= 2),
+                ? (s = Ed(a, s))
+                : ((s = Od(s, l, r, null)).flags |= 2),
               (s.return = t),
               (i.return = t),
               (i.sibling = s),
@@ -22334,13 +22842,13 @@
                     }),
               (s.memoizedState = l),
               (s.childLanes = e.childLanes & ~r),
-              (t.memoizedState = Ls),
+              (t.memoizedState = Os),
               i
             );
           }
           return (
             (e = (s = e.child).sibling),
-            (i = jd(s, { mode: "visible", children: i.children })),
+            (i = Ed(s, { mode: "visible", children: i.children })),
             0 === (1 & t.mode) && (i.lanes = r),
             (i.return = t),
             (i.sibling = null),
@@ -22465,12 +22973,12 @@
           if (null !== e && t.child !== e.child) throw Error(n(153));
           if (null !== t.child) {
             for (
-              r = jd((e = t.child), e.pendingProps), t.child = r, r.return = t;
+              r = Ed((e = t.child), e.pendingProps), t.child = r, r.return = t;
               null !== e.sibling;
 
             )
               (e = e.sibling),
-                ((r = r.sibling = jd(e, e.pendingProps)).return = t);
+                ((r = r.sibling = Ed(e, e.pendingProps)).return = t);
             r.sibling = null;
           }
           return t.child;
@@ -22531,7 +23039,7 @@
               return Us(t), null;
             case 1:
             case 17:
-              return Ni(t.type) && Ei(), Us(t), null;
+              return Ni(t.type) && ji(), Us(t), null;
             case 3:
               return (
                 (a = t.stateNode),
@@ -22548,7 +23056,7 @@
                       (e.memoizedState.isDehydrated && 0 === (256 & t.flags)) ||
                       ((t.flags |= 1024),
                       null !== nn && (od(nn), (nn = null)))),
-                Es(e, t),
+                js(e, t),
                 Us(t),
                 null
               );
@@ -22556,7 +23064,7 @@
               $n(t);
               var i = Xn(Yn.current);
               if (((r = t.type), null !== e && null != t.stateNode))
-                js(e, t, r, a, i),
+                Es(e, t, r, a, i),
                   e.ref !== t.ref && ((t.flags |= 512), (t.flags |= 2097152));
               else {
                 if (!a) {
@@ -22579,7 +23087,7 @@
                       break;
                     case "video":
                     case "audio":
-                      for (i = 0; i < Oa.length; i++) Fa(Oa[i], a);
+                      for (i = 0; i < La.length; i++) Fa(La[i], a);
                       break;
                     case "source":
                       Fa("error", a);
@@ -22668,7 +23176,7 @@
                         break;
                       case "video":
                       case "audio":
-                        for (i = 0; i < Oa.length; i++) Fa(Oa[i], e);
+                        for (i = 0; i < La.length; i++) Fa(La[i], e);
                         i = a;
                         break;
                       case "source":
@@ -22756,7 +23264,7 @@
               }
               return Us(t), null;
             case 6:
-              if (e && null != t.stateNode) Os(e, t, e.memoizedProps, a);
+              if (e && null != t.stateNode) Ls(e, t, e.memoizedProps, a);
               else {
                 if ("string" !== typeof a && null === t.stateNode)
                   throw Error(n(166));
@@ -22823,7 +23331,7 @@
                     ((t.child.flags |= 8192),
                     0 !== (1 & t.mode) &&
                       (null === e || 0 !== (1 & Jn.current)
-                        ? 0 === Ol && (Ol = 3)
+                        ? 0 === Ll && (Ll = 3)
                         : yd())),
                   null !== t.updateQueue && (t.flags |= 4),
                   Us(t),
@@ -22831,7 +23339,7 @@
             case 4:
               return (
                 Zn(),
-                Es(e, t),
+                js(e, t),
                 null === e && Da(t.stateNode.containerInfo),
                 Us(t),
                 null
@@ -22843,7 +23351,7 @@
               if (((a = 0 !== (128 & t.flags)), null === (l = o.rendering)))
                 if (a) Gs(o, !1);
                 else {
-                  if (0 !== Ol || (null !== e && 0 !== (128 & e.flags)))
+                  if (0 !== Ll || (null !== e && 0 !== (128 & e.flags)))
                     for (e = t.child; null !== e; ) {
                       if (null !== (l = eo(e))) {
                         for (
@@ -22944,7 +23452,7 @@
                   (null !== e.memoizedState) !== a &&
                   (t.flags |= 8192),
                 a && 0 !== (1 & t.mode)
-                  ? 0 !== (1073741824 & El) &&
+                  ? 0 !== (1073741824 & jl) &&
                     (Us(t), 6 & t.subtreeFlags && (t.flags |= 8192))
                   : Us(t),
                 null
@@ -22959,7 +23467,7 @@
           switch ((en(t), t.tag)) {
             case 1:
               return (
-                Ni(t.type) && Ei(),
+                Ni(t.type) && ji(),
                 65536 & (e = t.flags)
                   ? ((t.flags = (-65537 & e) | 128), t)
                   : null
@@ -23015,8 +23523,8 @@
             (r.sibling.return = r.return), (r = r.sibling);
           }
         }),
-          (Es = function () {}),
-          (js = function (e, t, r, a) {
+          (js = function () {}),
+          (Es = function (e, t, r, a) {
             var i = e.memoizedProps;
             if (i !== a) {
               (e = t.stateNode), Xn(Gn.current);
@@ -23091,7 +23599,7 @@
               (t.updateQueue = c) && (t.flags |= 4);
             }
           }),
-          (Os = function (e, t, r, a) {
+          (Ls = function (e, t, r, a) {
             r !== a && (t.flags |= 4);
           });
         var Ks = !1,
@@ -23839,10 +24347,10 @@
           Tl = null,
           Il = null,
           Nl = 0,
-          El = 0,
-          jl = xi(0),
-          Ol = 0,
-          Ll = null,
+          jl = 0,
+          El = xi(0),
+          Ll = 0,
+          Ol = null,
           Pl = 0,
           Rl = 0,
           Fl = 0,
@@ -23879,7 +24387,7 @@
           if (50 < Zl) throw ((Zl = 0), (Ql = null), Error(n(185)));
           gt(e, r, a),
             (0 !== (2 & ql) && e === Tl) ||
-              (e === Tl && (0 === (2 & ql) && (Rl |= r), 4 === Ol && sd(e, Nl)),
+              (e === Tl && (0 === (2 & ql) && (Rl |= r), 4 === Ll && sd(e, Nl)),
               ad(e, a),
               1 === r &&
                 0 === ql &&
@@ -23969,14 +24477,14 @@
             An(),
               (Ml.current = o),
               (ql = i),
-              null !== Il ? (t = 0) : ((Tl = null), (Nl = 0), (t = Ol));
+              null !== Il ? (t = 0) : ((Tl = null), (Nl = 0), (t = Ll));
           }
           if (0 !== t) {
             if (
               (2 === t && 0 !== (i = ht(e)) && ((a = i), (t = nd(e, i))),
               1 === t)
             )
-              throw ((r = Ll), pd(e, 0), sd(e, a), ad(e, Qe()), r);
+              throw ((r = Ol), pd(e, 0), sd(e, a), ad(e, Qe()), r);
             if (6 === t) sd(e, a);
             else {
               if (
@@ -24016,7 +24524,7 @@
                     ((a = o), (t = nd(e, o))),
                   1 === t))
               )
-                throw ((r = Ll), pd(e, 0), sd(e, a), ad(e, Qe()), r);
+                throw ((r = Ol), pd(e, 0), sd(e, a), ad(e, Qe()), r);
               switch (((e.finishedWork = i), (e.finishedLanes = a), t)) {
                 case 0:
                 case 1:
@@ -24112,7 +24620,7 @@
             var a = ht(e);
             0 !== a && ((t = a), (r = nd(e, a)));
           }
-          if (1 === r) throw ((r = Ll), pd(e, 0), sd(e, t), ad(e, Qe()), r);
+          if (1 === r) throw ((r = Ol), pd(e, 0), sd(e, t), ad(e, Qe()), r);
           if (6 === r) throw Error(n(345));
           return (
             (e.finishedWork = e.current.alternate),
@@ -24144,7 +24652,7 @@
           }
         }
         function ud() {
-          (El = jl.current), Si(jl);
+          (jl = El.current), Si(El);
         }
         function pd(e, t) {
           (e.finishedWork = null), (e.finishedLanes = 0);
@@ -24156,7 +24664,7 @@
                 case 1:
                   null !== (a = a.type.childContextTypes) &&
                     void 0 !== a &&
-                    Ei();
+                    ji();
                   break;
                 case 3:
                   Zn(), Si(qi), Si(Ci), ro();
@@ -24182,10 +24690,10 @@
             }
           if (
             ((Tl = e),
-            (Il = e = jd(e.current, null)),
-            (Nl = El = t),
-            (Ol = 0),
-            (Ll = null),
+            (Il = e = Ed(e.current, null)),
+            (Nl = jl = t),
+            (Ll = 0),
+            (Ol = null),
             (Fl = Rl = Pl = 0),
             (Vl = Hl = null),
             null !== Nn)
@@ -24224,7 +24732,7 @@
                 (Al.current = null),
                 null === r || null === r.return)
               ) {
-                (Ol = 1), (Ll = t), (Il = null);
+                (Ll = 1), (Ol = t), (Il = null);
                 break;
               }
               e: {
@@ -24278,7 +24786,7 @@
                   }
                 }
                 (o = d = ds(d, l)),
-                  4 !== Ol && (Ol = 2),
+                  4 !== Ll && (Ll = 2),
                   null === Hl ? (Hl = [o]) : Hl.push(o),
                   (o = s);
                 do {
@@ -24323,7 +24831,7 @@
           return (Ml.current = $o), null === e ? $o : e;
         }
         function yd() {
-          (0 !== Ol && 3 !== Ol && 2 !== Ol) || (Ol = 4),
+          (0 !== Ll && 3 !== Ll && 2 !== Ll) || (Ll = 4),
             null === Tl ||
               (0 === (268435455 & Pl) && 0 === (268435455 & Rl)) ||
               sd(Tl, Nl);
@@ -24341,7 +24849,7 @@
             }
           if ((An(), (ql = r), (Ml.current = a), null !== Il))
             throw Error(n(261));
-          return (Tl = null), (Nl = 0), Ol;
+          return (Tl = null), (Nl = 0), Ll;
         }
         function gd() {
           for (; null !== Il; ) vd(Il);
@@ -24350,7 +24858,7 @@
           for (; null !== Il && !Ke(); ) vd(Il);
         }
         function vd(e) {
-          var t = xl(e.alternate, e, El);
+          var t = xl(e.alternate, e, jl);
           (e.memoizedProps = e.pendingProps),
             null === t ? bd(e) : (Il = t),
             (Al.current = null);
@@ -24360,17 +24868,17 @@
           do {
             var r = t.alternate;
             if (((e = t.return), 0 === (32768 & t.flags))) {
-              if (null !== (r = Ys(r, t, El))) return void (Il = r);
+              if (null !== (r = Ys(r, t, jl))) return void (Il = r);
             } else {
               if (null !== (r = Xs(r, t)))
                 return (r.flags &= 32767), void (Il = r);
-              if (null === e) return (Ol = 6), void (Il = null);
+              if (null === e) return (Ll = 6), void (Il = null);
               (e.flags |= 32768), (e.subtreeFlags = 0), (e.deletions = null);
             }
             if (null !== (t = t.sibling)) return void (Il = t);
             Il = t = e;
           } while (null !== t);
-          0 === Ol && (Ol = 5);
+          0 === Ll && (Ll = 5);
         }
         function wd(e, t, r) {
           var a = vt,
@@ -24765,8 +25273,8 @@
             (e.pingedLanes |= e.suspendedLanes & r),
             Tl === e &&
               (Nl & r) === r &&
-              (4 === Ol ||
-              (3 === Ol && (130023424 & Nl) === Nl && 500 > Qe() - Dl)
+              (4 === Ll ||
+              (3 === Ll && (130023424 & Nl) === Nl && 500 > Qe() - Dl)
                 ? pd(e, 0)
                 : (Fl |= r)),
             ad(e, t);
@@ -24777,7 +25285,7 @@
               ? (t = 1)
               : ((t = ct), 0 === (130023424 & (ct <<= 1)) && (ct = 4194304)));
           var r = ed();
-          null !== (e = On(e, t)) && (gt(e, t, r), ad(e, r));
+          null !== (e = Ln(e, t)) && (gt(e, t, r), ad(e, r));
         }
         function Cd(e) {
           var t = e.memoizedState,
@@ -24830,10 +25338,10 @@
         function Nd(e, t, r, a) {
           return new Id(e, t, r, a);
         }
-        function Ed(e) {
+        function jd(e) {
           return !(!(e = e.prototype) || !e.isReactComponent);
         }
-        function jd(e, t) {
+        function Ed(e, t) {
           var r = e.alternate;
           return (
             null === r
@@ -24866,14 +25374,14 @@
             r
           );
         }
-        function Od(e, t, r, a, i, o) {
+        function Ld(e, t, r, a, i, o) {
           var s = 2;
-          if (((a = e), "function" === typeof e)) Ed(e) && (s = 1);
+          if (((a = e), "function" === typeof e)) jd(e) && (s = 1);
           else if ("string" === typeof e) s = 5;
           else
             e: switch (e) {
               case x:
-                return Ld(r.children, i, o, t);
+                return Od(r.children, i, o, t);
               case S:
                 (s = 8), (i |= 8);
                 break;
@@ -24889,7 +25397,7 @@
                 return (
                   ((e = Nd(19, r, t, i)).elementType = I), (e.lanes = o), e
                 );
-              case j:
+              case E:
                 return Pd(r, i, o, t);
               default:
                 if ("object" === typeof e && null !== e)
@@ -24906,7 +25414,7 @@
                     case N:
                       s = 14;
                       break e;
-                    case E:
+                    case j:
                       (s = 16), (a = null);
                       break e;
                   }
@@ -24919,12 +25427,12 @@
             t
           );
         }
-        function Ld(e, t, r, a) {
+        function Od(e, t, r, a) {
           return ((e = Nd(7, e, a, t)).lanes = r), e;
         }
         function Pd(e, t, r, a) {
           return (
-            ((e = Nd(22, e, a, t)).elementType = j),
+            ((e = Nd(22, e, a, t)).elementType = E),
             (e.lanes = r),
             (e.stateNode = { isHidden: !1 }),
             e
@@ -25016,7 +25524,7 @@
           }
           if (1 === e.tag) {
             var r = e.type;
-            if (Ni(r)) return Oi(e, r, t);
+            if (Ni(r)) return Li(e, r, t);
           }
           return t;
         }
@@ -25076,7 +25584,7 @@
                         Qn(t);
                         break;
                       case 1:
-                        Ni(t.type) && Li(t);
+                        Ni(t.type) && Oi(t);
                         break;
                       case 4:
                         Kn(t, t.stateNode.containerInfo);
@@ -25140,7 +25648,7 @@
                   ? ((t.tag = 1),
                     (t.memoizedState = null),
                     (t.updateQueue = null),
-                    Ni(a) ? ((o = !0), Li(t)) : (o = !1),
+                    Ni(a) ? ((o = !0), Oi(t)) : (o = !1),
                     (t.memoizedState =
                       null !== i.state && void 0 !== i.state ? i.state : null),
                     Pn(t),
@@ -25165,7 +25673,7 @@
                   (t.type = a),
                   (i = t.tag =
                     (function (e) {
-                      if ("function" === typeof e) return Ed(e) ? 1 : 0;
+                      if ("function" === typeof e) return jd(e) ? 1 : 0;
                       if (void 0 !== e && null !== e) {
                         if ((e = e.$$typeof) === q) return 11;
                         if (e === N) return 14;
@@ -25386,7 +25894,7 @@
                 (i = t.elementType === a ? i : rs(a, i)),
                 zs(e, t),
                 (t.tag = 1),
-                Ni(a) ? ((e = !0), Li(t)) : (e = !1),
+                Ni(a) ? ((e = !0), Oi(t)) : (e = !1),
                 Tn(t, r),
                 os(t, a, i),
                 ls(t, a, i, r),
@@ -25504,10 +26012,10 @@
               e = { blockedOn: null, target: e, priority: t };
               for (
                 var r = 0;
-                r < jt.length && 0 !== t && t < jt[r].priority;
+                r < Et.length && 0 !== t && t < Et[r].priority;
                 r++
               );
-              jt.splice(r, 0, e), 0 === r && Rt(e);
+              Et.splice(r, 0, e), 0 === r && Rt(e);
             }
           }),
           (wt = function (e) {
@@ -25524,7 +26032,7 @@
                 break;
               case 13:
                 cd(function () {
-                  var t = On(e, 1);
+                  var t = Ln(e, 1);
                   if (null !== t) {
                     var r = ed();
                     rd(t, e, 1, r);
@@ -25535,7 +26043,7 @@
           }),
           (kt = function (e) {
             if (13 === e.tag) {
-              var t = On(e, 134217728);
+              var t = Ln(e, 134217728);
               if (null !== t) rd(t, e, 134217728, ed());
               Ud(e, 134217728);
             }
@@ -25543,7 +26051,7 @@
           (xt = function (e) {
             if (13 === e.tag) {
               var t = td(e),
-                r = On(e, t);
+                r = Ln(e, t);
               if (null !== r) rd(r, e, t, ed());
               Ud(e, t);
             }
@@ -26776,14 +27284,14 @@
           if (1 === e._status) return e._result.default;
           throw e._result;
         }
-        var E = { current: null },
-          j = { transition: null },
-          O = {
-            ReactCurrentDispatcher: E,
-            ReactCurrentBatchConfig: j,
+        var j = { current: null },
+          E = { transition: null },
+          L = {
+            ReactCurrentDispatcher: j,
+            ReactCurrentBatchConfig: E,
             ReactCurrentOwner: x,
           };
-        function L() {
+        function O() {
           throw Error(
             "act(...) is not supported in production builds of React."
           );
@@ -26829,8 +27337,8 @@
           (t.PureComponent = v),
           (t.StrictMode = n),
           (t.Suspense = c),
-          (t.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = O),
-          (t.act = L),
+          (t.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = L),
+          (t.act = O),
           (t.cloneElement = function (e, t, a) {
             if (null === e || void 0 === e)
               throw Error(
@@ -26908,57 +27416,57 @@
             return { $$typeof: u, type: e, compare: void 0 === t ? null : t };
           }),
           (t.startTransition = function (e) {
-            var t = j.transition;
-            j.transition = {};
+            var t = E.transition;
+            E.transition = {};
             try {
               e();
             } finally {
-              j.transition = t;
+              E.transition = t;
             }
           }),
-          (t.unstable_act = L),
+          (t.unstable_act = O),
           (t.useCallback = function (e, t) {
-            return E.current.useCallback(e, t);
+            return j.current.useCallback(e, t);
           }),
           (t.useContext = function (e) {
-            return E.current.useContext(e);
+            return j.current.useContext(e);
           }),
           (t.useDebugValue = function () {}),
           (t.useDeferredValue = function (e) {
-            return E.current.useDeferredValue(e);
+            return j.current.useDeferredValue(e);
           }),
           (t.useEffect = function (e, t) {
-            return E.current.useEffect(e, t);
+            return j.current.useEffect(e, t);
           }),
           (t.useId = function () {
-            return E.current.useId();
+            return j.current.useId();
           }),
           (t.useImperativeHandle = function (e, t, r) {
-            return E.current.useImperativeHandle(e, t, r);
+            return j.current.useImperativeHandle(e, t, r);
           }),
           (t.useInsertionEffect = function (e, t) {
-            return E.current.useInsertionEffect(e, t);
+            return j.current.useInsertionEffect(e, t);
           }),
           (t.useLayoutEffect = function (e, t) {
-            return E.current.useLayoutEffect(e, t);
+            return j.current.useLayoutEffect(e, t);
           }),
           (t.useMemo = function (e, t) {
-            return E.current.useMemo(e, t);
+            return j.current.useMemo(e, t);
           }),
           (t.useReducer = function (e, t, r) {
-            return E.current.useReducer(e, t, r);
+            return j.current.useReducer(e, t, r);
           }),
           (t.useRef = function (e) {
-            return E.current.useRef(e);
+            return j.current.useRef(e);
           }),
           (t.useState = function (e) {
-            return E.current.useState(e);
+            return j.current.useState(e);
           }),
           (t.useSyncExternalStore = function (e, t, r) {
-            return E.current.useSyncExternalStore(e, t, r);
+            return j.current.useSyncExternalStore(e, t, r);
           }),
           (t.useTransition = function () {
-            return E.current.useTransition();
+            return j.current.useTransition();
           }),
           (t.version = "18.3.1");
       },
@@ -27050,10 +27558,10 @@
         }
         function w(e) {
           if (((m = !1), b(e), !y))
-            if (null !== a(d)) (y = !0), j(k);
+            if (null !== a(d)) (y = !0), E(k);
             else {
               var t = a(c);
-              null !== t && O(w, t.startTime - e);
+              null !== t && L(w, t.startTime - e);
             }
         }
         function k(e, r) {
@@ -27080,7 +27588,7 @@
             if (null !== p) var l = !0;
             else {
               var u = a(c);
-              null !== u && O(w, u.startTime - r), (l = !1);
+              null !== u && L(w, u.startTime - r), (l = !1);
             }
             return l;
           } finally {
@@ -27118,19 +27626,19 @@
           };
         else if ("undefined" !== typeof MessageChannel) {
           var N = new MessageChannel(),
-            E = N.port2;
+            j = N.port2;
           (N.port1.onmessage = I),
             (x = function () {
-              E.postMessage(null);
+              j.postMessage(null);
             });
         } else
           x = function () {
             g(I, 0);
           };
-        function j(e) {
+        function E(e) {
           (M = e), S || ((S = !0), x());
         }
-        function O(e, r) {
+        function L(e, r) {
           A = g(function () {
             e(t.unstable_now());
           }, r);
@@ -27145,7 +27653,7 @@
             e.callback = null;
           }),
           (t.unstable_continueExecution = function () {
-            y || h || ((y = !0), j(k));
+            y || h || ((y = !0), E(k));
           }),
           (t.unstable_forceFrameRate = function (e) {
             0 > e || 125 < e
@@ -27236,8 +27744,8 @@
                   r(c, e),
                   null === a(d) &&
                     e === a(c) &&
-                    (m ? (f(A), (A = -1)) : (m = !0), O(w, n - o)))
-                : ((e.sortIndex = s), r(d, e), y || h || ((y = !0), j(k))),
+                    (m ? (f(A), (A = -1)) : (m = !0), L(w, n - o)))
+                : ((e.sortIndex = s), r(d, e), y || h || ((y = !0), E(k))),
               e
             );
           }),
@@ -27289,10 +27797,10 @@
             T = "Firefox",
             I = "Google",
             N = "Huawei",
-            E = "LG",
-            j = "Microsoft",
-            O = "Motorola",
-            L = "Opera",
+            j = "LG",
+            E = "Microsoft",
+            L = "Motorola",
+            O = "Opera",
             P = "Samsung",
             R = "Sharp",
             F = "Sony",
@@ -27378,9 +27886,9 @@
                 ],
                 [p, y],
                 [/opios[\/ ]+([\w\.]+)/i],
-                [y, [p, L + " Mini"]],
+                [y, [p, O + " Mini"]],
                 [/\bopr\/([\w\.]+)/i],
-                [y, [p, L]],
+                [y, [p, O]],
                 [/\bb[ai]*d(?:uhd|[ub]*[aekoprswx]{5,6})[\/ ]?([\w\.]+)/i],
                 [y, [p, "Baidu"]],
                 [
@@ -27414,13 +27922,13 @@
                 [/\bfocus\/([\w\.]+)/i],
                 [y, [p, T + " Focus"]],
                 [/\bopt\/([\w\.]+)/i],
-                [y, [p, L + " Touch"]],
+                [y, [p, O + " Touch"]],
                 [/coc_coc\w+\/([\w\.]+)/i],
                 [y, [p, "Coc Coc"]],
                 [/dolfin\/([\w\.]+)/i],
                 [y, [p, "Dolphin"]],
                 [/coast\/([\w\.]+)/i],
-                [y, [p, L + " Coast"]],
+                [y, [p, O + " Coast"]],
                 [/miuibrowser\/([\w\.]+)/i],
                 [y, [p, "MIUI " + C]],
                 [/fxios\/([-\w\.]+)/i],
@@ -27600,19 +28108,19 @@
                   /\bmot(?:orola)?[- ](\w*)/i,
                   /((?:moto[\w\(\) ]+|xt\d{3,4}|nexus 6)(?= bui|\)))/i,
                 ],
-                [u, [h, O], [_, f]],
+                [u, [h, L], [_, f]],
                 [/\b(mz60\d|xoom[2 ]{0,2}) build\//i],
-                [u, [h, O], [_, v]],
+                [u, [h, L], [_, v]],
                 [
                   /((?=lg)?[vl]k\-?\d{3}) bui| 3\.[-\w; ]{10}lg?-([06cv9]{3,4})/i,
                 ],
-                [u, [h, E], [_, v]],
+                [u, [h, j], [_, v]],
                 [
                   /(lm(?:-?f100[nv]?|-[\w\.]+)(?= bui|\))|nexus [45])/i,
                   /\blg[-e;\/ ]+((?!browser|netcast|android tv)\w+)/i,
                   /\blg-?([\d\w]+) bui/i,
                 ],
-                [u, [h, E], [_, f]],
+                [u, [h, j], [_, f]],
                 [
                   /(ideatab[-\w ]+)/i,
                   /lenovo ?(s[56]000[-\w]+|tab(?:[\w ]+)|yt[-\d\w]{6}|tb[-\d\w]{6})/i,
@@ -27706,7 +28214,7 @@
                 ],
                 [h, u, [_, v]],
                 [/(surface duo)/i],
-                [u, [h, j], [_, v]],
+                [u, [h, E], [_, v]],
                 [/droid [\d\.]+; (fp\du?)(?: b|\))/i],
                 [u, [h, "Fairphone"], [_, f]],
                 [/(u304aa)/i],
@@ -27758,7 +28266,7 @@
                 [/(kin\.[onetw]{3})/i],
                 [
                   [u, /\./g, " "],
-                  [h, j],
+                  [h, E],
                   [_, f],
                 ],
                 [/droid.+; (cc6666?|et5[16]|mc[239][23]x?|vc8[03]x?)\)/i],
@@ -27775,7 +28283,7 @@
                 ],
                 [/(nux; netcast.+smarttv|lg (netcast\.tv-201\d|android tv))/i],
                 [
-                  [h, E],
+                  [h, j],
                   [_, b],
                 ],
                 [/(apple) ?tv/i],
@@ -27814,7 +28322,7 @@
                 [/(playstation [345portablevi]+)/i],
                 [u, [h, F], [_, g]],
                 [/\b(xbox(?: one)?(?!; xbox))[\); ]/i],
-                [u, [h, j], [_, g]],
+                [u, [h, E], [_, g]],
                 [/((pebble))app/i],
                 [h, u, [_, w]],
                 [/(watch)(?: ?os[,\/]|\d,\d\/)[\d\.]+/i],
@@ -28350,14 +28858,14 @@
                   });
               }),
               N = (0, n.L)(),
-              E = (0, a.useRef)(!1),
-              j = {
+              j = (0, a.useRef)(!1),
+              E = {
                 ref: i,
                 onKeyDown(e) {
                   "Tab" == e.key &&
-                    ((E.current = !0),
+                    ((j.current = !0),
                     N.requestAnimationFrame(() => {
-                      E.current = !1;
+                      j.current = !1;
                     }));
                 },
                 onBlur(e) {
@@ -28367,7 +28875,7 @@
                   a instanceof HTMLElement &&
                     "true" !== a.dataset.headlessuiFocusGuard &&
                     (T(t, a) ||
-                      (E.current
+                      (j.current
                         ? (0, w.CU)(
                             r.current,
                             (0, k.Y)(C.current, {
@@ -28392,7 +28900,7 @@
                   features: v.O.Focusable,
                 }),
               (0, x.XX)({
-                ourProps: j,
+                ourProps: E,
                 theirProps: b,
                 defaultTag: "div",
                 name: "FocusTrap",
@@ -28454,14 +28962,14 @@
         }
         var I = r(7119),
           N = r(8307);
-        let E = (0, a.createContext)(!1);
-        function j() {
-          return (0, a.useContext)(E);
+        let j = (0, a.createContext)(!1);
+        function E() {
+          return (0, a.useContext)(j);
         }
-        function O(e) {
-          return a.createElement(E.Provider, { value: e.force }, e.children);
+        function L(e) {
+          return a.createElement(j.Provider, { value: e.force }, e.children);
         }
-        var L = r(2555);
+        var O = r(2555);
         let P = a.Fragment;
         let R = a.Fragment,
           F = (0, a.createContext)(null);
@@ -28503,11 +29011,11 @@
               ),
               o = _(i),
               s = (function (e) {
-                let t = j(),
+                let t = E(),
                   r = (0, a.useContext)(F),
                   i = _(e),
                   [n, o] = (0, a.useState)(() => {
-                    if ((!t && null !== r) || L._.isServer) return null;
+                    if ((!t && null !== r) || O._.isServer) return null;
                     let e =
                       null == i
                         ? void 0
@@ -28535,7 +29043,7 @@
               })(i),
               [l] = (0, a.useState)(() => {
                 var e;
-                return L._.isServer
+                return O._.isServer
                   ? null
                   : null != (e = null == o ? void 0 : o.createElement("div"))
                   ? e
@@ -28987,9 +29495,9 @@
                 descriptionId: null,
                 panelRef: (0, a.createRef)(),
               }),
-              E = (0, o._)(() => s(!1)),
-              j = (0, o._)((e) => N({ type: 0, id: e })),
-              L = !!(0, h.g)() && !u && 0 === T,
+              j = (0, o._)(() => s(!1)),
+              E = (0, o._)((e) => N({ type: 0, id: e })),
+              O = !!(0, h.g)() && !u && 0 === T,
               P = m > 1,
               R = null !== (0, a.useContext)(fe),
               [F, H] = V(),
@@ -29073,7 +29581,7 @@
               })({ portals: F, defaultContainers: [D] }),
               U = P ? "parent" : "leaf",
               Y = null !== b && (b & le.Uw.Closing) === le.Uw.Closing,
-              X = !R && !Y && L,
+              X = !R && !Y && O,
               K = (0, a.useCallback)(() => {
                 var e, t;
                 return null !=
@@ -29092,7 +29600,7 @@
                   : null;
               }, [B]);
             oe(K, X);
-            let Z = !!P || L,
+            let Z = !!P || O,
               Q = (0, a.useCallback)(() => {
                 var e, t;
                 return null !=
@@ -29111,11 +29619,11 @@
                   : null;
               }, [B]);
             oe(Q, Z);
-            let $ = !(!L || P);
+            let $ = !(!O || P);
             (0, se.j)(
               W,
               (e) => {
-                e.preventDefault(), E();
+                e.preventDefault(), j();
               },
               $
             );
@@ -29124,7 +29632,7 @@
               J &&
                 (e.defaultPrevented ||
                   (e.key === he.D.Escape &&
-                    (e.preventDefault(), e.stopPropagation(), E())));
+                    (e.preventDefault(), e.stopPropagation(), j())));
             }),
               (function (e, t) {
                 let r =
@@ -29147,15 +29655,15 @@
                       0 === e.y &&
                       0 === e.width &&
                       0 === e.height &&
-                      E();
+                      j();
                   }
                 });
                 return e.observe(w.current), () => e.disconnect();
-              }, [T, w, E]);
+              }, [T, w, j]);
             let [ee, te] = (0, _e.r)(),
               ie = (0, a.useMemo)(
-                () => [{ dialogState: T, close: E, setTitleId: j }, I],
-                [T, I, E, j]
+                () => [{ dialogState: T, close: j, setTitleId: E }, I],
+                [T, I, j, E]
               ),
               ne = (0, a.useMemo)(() => ({ open: 0 === T }), [T]),
               de = {
@@ -29181,7 +29689,7 @@
                 }),
               },
               a.createElement(
-                O,
+                L,
                 { force: !0 },
                 a.createElement(
                   z,
@@ -29193,7 +29701,7 @@
                       z.Group,
                       { target: w },
                       a.createElement(
-                        O,
+                        L,
                         { force: !1 },
                         a.createElement(
                           te,
@@ -29203,7 +29711,7 @@
                             {
                               initialFocus: d,
                               containers: W,
-                              features: L
+                              features: O
                                 ? (0, k.Y)(U, {
                                     parent: C.features.RestoreFocus,
                                     leaf:
@@ -29247,7 +29755,7 @@
             }, [s.panelRef]);
             let d = (0, a.useMemo)(() => ({ open: 0 === o }), [o]);
             return a.createElement(
-              O,
+              L,
               { force: !0 },
               a.createElement(
                 z,
@@ -29528,13 +30036,13 @@
           }
           return t;
         }
-        function E(e, t) {
+        function j(e, t) {
           return (0, y.Y)(t.type, C, e, t);
         }
         I.displayName = "TabsActionsContext";
-        let j = a.Fragment;
-        let O = f.O5.RenderStrategy | f.O5.Static;
-        let L = (0, f.FX)(function (e, t) {
+        let E = a.Fragment;
+        let L = f.O5.RenderStrategy | f.O5.Static;
+        let O = (0, f.FX)(function (e, t) {
             var r, l;
             let u = (0, o.B)(),
               { id: p = "headlessui-tabs-tab-".concat(u), ..._ } = e,
@@ -29551,10 +30059,10 @@
               q = (0, c.P)(C, t);
             (0, s.s)(() => M.registerTab(C), [M, C]);
             let I = w("tabs"),
-              E = x.indexOf(C);
-            -1 === E && (E = I);
-            let j = E === k,
-              O = (0, n._)((e) => {
+              j = x.indexOf(C);
+            -1 === j && (j = I);
+            let E = j === k,
+              L = (0, n._)((e) => {
                 var t;
                 let r = e();
                 if (r === h.Me.Success && "auto" === b) {
@@ -29564,11 +30072,11 @@
                 }
                 return r;
               }),
-              L = (0, n._)((e) => {
+              O = (0, n._)((e) => {
                 let t = x.map((e) => e.current).filter(Boolean);
                 if (e.key === i.D.Space || e.key === i.D.Enter)
                   return (
-                    e.preventDefault(), e.stopPropagation(), void M.change(E)
+                    e.preventDefault(), e.stopPropagation(), void M.change(j)
                   );
                 switch (e.key) {
                   case i.D.Home:
@@ -29576,17 +30084,17 @@
                     return (
                       e.preventDefault(),
                       e.stopPropagation(),
-                      O(() => (0, h.CU)(t, h.BD.First))
+                      L(() => (0, h.CU)(t, h.BD.First))
                     );
                   case i.D.End:
                   case i.D.PageDown:
                     return (
                       e.preventDefault(),
                       e.stopPropagation(),
-                      O(() => (0, h.CU)(t, h.BD.Last))
+                      L(() => (0, h.CU)(t, h.BD.Last))
                     );
                 }
-                return O(() =>
+                return L(() =>
                   (0, y.Y)(v, {
                     vertical: () =>
                       e.key === i.D.ArrowUp
@@ -29611,7 +30119,7 @@
                 P.current ||
                   ((P.current = !0),
                   null == (e = C.current) || e.focus({ preventScroll: !0 }),
-                  M.change(E),
+                  M.change(j),
                   (0, m._)(() => {
                     P.current = !1;
                   }));
@@ -29621,22 +30129,22 @@
               }),
               H = (0, a.useMemo)(() => {
                 var t;
-                return { selected: j, disabled: null != (t = e.disabled) && t };
-              }, [j, e.disabled]),
+                return { selected: E, disabled: null != (t = e.disabled) && t };
+              }, [E, e.disabled]),
               V = {
                 ref: q,
-                onKeyDown: L,
+                onKeyDown: O,
                 onMouseDown: F,
                 onClick: R,
                 id: p,
                 role: "tab",
                 type: (0, d.c)(e, C),
                 "aria-controls":
-                  null == (l = null == (r = S[E]) ? void 0 : r.current)
+                  null == (l = null == (r = S[j]) ? void 0 : r.current)
                     ? void 0
                     : l.id,
-                "aria-selected": j,
-                tabIndex: j ? 0 : -1,
+                "aria-selected": E,
+                tabIndex: E ? 0 : -1,
               };
             return (0,
             f.XX)({ ourProps: V, theirProps: _, slot: H, defaultTag: "button", name: "Tabs.Tab" });
@@ -29655,7 +30163,7 @@
             let g = null !== u,
               v = (0, l.Y)({ isControlled: g }),
               w = (0, c.P)(t),
-              [k, x] = (0, a.useReducer)(E, {
+              [k, x] = (0, a.useReducer)(j, {
                 info: v,
                 selectedIndex: null != u ? u : r,
                 tabs: [],
@@ -29679,22 +30187,22 @@
                   x({ type: 3, panel: e }), () => x({ type: 4, panel: e })
                 )
               ),
-              O = (0, n._)((e) => {
-                L.current !== e && M.current(e), g || x({ type: 0, index: e });
+              L = (0, n._)((e) => {
+                O.current !== e && M.current(e), g || x({ type: 0, index: e });
               }),
-              L = (0, l.Y)(g ? e.selectedIndex : k.selectedIndex),
+              O = (0, l.Y)(g ? e.selectedIndex : k.selectedIndex),
               P = (0, a.useMemo)(
-                () => ({ registerTab: T, registerPanel: N, change: O }),
+                () => ({ registerTab: T, registerPanel: N, change: L }),
                 []
               );
             (0, s.s)(() => {
               x({ type: 0, index: null != u ? u : r });
             }, [u]),
               (0, s.s)(() => {
-                if (void 0 === L.current || k.tabs.length <= 0) return;
+                if (void 0 === O.current || k.tabs.length <= 0) return;
                 let e = (0, h.wl)(k.tabs, (e) => e.current);
                 e.some((e, t) => k.tabs[t] !== e) &&
-                  O(e.indexOf(k.tabs[L.current]));
+                  L(e.indexOf(k.tabs[O.current]));
               });
             let R = { ref: w };
             return a.createElement(
@@ -29723,7 +30231,7 @@
                     ourProps: R,
                     theirProps: p,
                     slot: S,
-                    defaultTag: j,
+                    defaultTag: E,
                     name: "Tabs",
                   })
                 )
@@ -29779,7 +30287,7 @@
                   theirProps: h,
                   slot: A,
                   defaultTag: "div",
-                  features: O,
+                  features: L,
                   visible: M,
                   name: "Tabs.Panel",
                 })
@@ -29789,11 +30297,11 @@
                   ...C,
                 });
           }),
-          V = Object.assign(L, { Group: P, List: R, Panels: F, Panel: H });
+          V = Object.assign(O, { Group: P, List: R, Panels: F, Panel: H });
       },
       2094: (e, t, r) => {
         "use strict";
-        r.d(t, { e: () => j });
+        r.d(t, { e: () => E });
         var a = r(9950),
           i = r(8064),
           n = r(4263),
@@ -30126,10 +30634,10 @@
                 enter: C,
                 enterFrom: I,
                 enterTo: N,
-                entered: E,
-                leave: j,
-                leaveFrom: O,
-                leaveTo: L,
+                entered: j,
+                leave: E,
+                leaveFrom: L,
+                leaveTo: O,
                 ...P
               } = e,
               R = (0, a.useRef)(null),
@@ -30169,10 +30677,10 @@
                 enter: v(C),
                 enterFrom: v(I),
                 enterTo: v(N),
-                entered: v(E),
-                leave: v(j),
-                leaveFrom: v(O),
-                leaveTo: v(L),
+                entered: v(j),
+                leave: v(E),
+                leaveFrom: v(L),
+                leaveTo: v(O),
               }),
               K = (function (e) {
                 let t = (0, a.useRef)(q(e));
@@ -30342,7 +30850,7 @@
               )
             );
           }),
-          E = (0, f.FX)(function (e, t) {
+          j = (0, f.FX)(function (e, t) {
             let r = null !== (0, a.useContext)(b),
               i = null !== (0, m.O_)();
             return a.createElement(
@@ -30353,7 +30861,7 @@
                 : a.createElement(N, { ref: t, ...e })
             );
           }),
-          j = Object.assign(I, { Child: E, Root: I });
+          E = Object.assign(I, { Child: j, Root: I });
       },
       5460: (e, t, r) => {
         "use strict";
@@ -31450,6 +31958,66 @@
           return r;
         }
       },
+      2593: (e, t, r) => {
+        "use strict";
+        r.r(t),
+          r.d(t, {
+            customAlphabet: () => o,
+            customRandom: () => n,
+            nanoid: () => s,
+            random: () => i,
+            urlAlphabet: () => a,
+          });
+        let a =
+            "useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklqvwyzrict",
+          i = (e) => crypto.getRandomValues(new Uint8Array(e)),
+          n = (e, t, r) => {
+            let a = (2 << (Math.log(e.length - 1) / Math.LN2)) - 1,
+              i = -~((1.6 * a * t) / e.length);
+            return function () {
+              let n =
+                  arguments.length > 0 && void 0 !== arguments[0]
+                    ? arguments[0]
+                    : t,
+                o = "";
+              for (;;) {
+                let t = r(i),
+                  s = i;
+                for (; s--; )
+                  if (((o += e[t[s] & a] || ""), o.length === n)) return o;
+              }
+            };
+          },
+          o = function (e) {
+            return n(
+              e,
+              arguments.length > 1 && void 0 !== arguments[1]
+                ? arguments[1]
+                : 21,
+              i
+            );
+          },
+          s = function () {
+            let e =
+              arguments.length > 0 && void 0 !== arguments[0]
+                ? arguments[0]
+                : 21;
+            return crypto
+              .getRandomValues(new Uint8Array(e))
+              .reduce(
+                (e, t) =>
+                  (e +=
+                    (t &= 63) < 36
+                      ? t.toString(36)
+                      : t < 62
+                      ? (t - 26).toString(36).toUpperCase()
+                      : t > 62
+                      ? "-"
+                      : "_"),
+                ""
+              );
+          };
+      },
     },
     t = {};
   function r(a) {
@@ -31502,14 +32070,14 @@
       e +
       "." +
       {
-        51: "b17c377f",
-        180: "1094752b",
-        284: "058fd6d6",
-        321: "39608cdd",
-        455: "c847dff7",
-        648: "73157f28",
-        673: "61096baa",
-        697: "669ade44",
+        51: "0cb2066f",
+        180: "5b2bdd16",
+        284: "2d3ecaaf",
+        321: "d9245f83",
+        455: "d84a30ae",
+        648: "2113eff1",
+        673: "afa71020",
+        697: "b0a110a7",
         813: "bf64b75e",
       }[e] +
       ".chunk.js"),
@@ -31632,8 +32200,8 @@
       "use strict";
       var e = r(1352),
         t = r(8232),
-        a = r(9950),
-        i = r(5999);
+        a = r(5999),
+        i = r(9950);
       function n(e, t, r) {
         var a,
           i = r || {},
@@ -31678,26 +32246,25 @@
           h
         );
       }
-      var o = r(1377);
-      const s =
+      const o =
         "undefined" !== typeof navigator &&
         navigator.userAgent.toLowerCase().indexOf("firefox") > 0;
-      function l(e, t, r, a) {
+      function s(e, t, r, a) {
         e.addEventListener
           ? e.addEventListener(t, r, a)
           : e.attachEvent && e.attachEvent("on".concat(t), r);
       }
-      function d(e, t, r, a) {
+      function l(e, t, r, a) {
         e.removeEventListener
           ? e.removeEventListener(t, r, a)
           : e.detachEvent && e.detachEvent("on".concat(t), r);
       }
-      function c(e, t) {
+      function d(e, t) {
         const r = t.slice(0, t.length - 1);
         for (let a = 0; a < r.length; a++) r[a] = e[r[a].toLowerCase()];
         return r;
       }
-      function u(e) {
+      function c(e) {
         "string" !== typeof e && (e = "");
         const t = (e = e.replace(/\s/g, "")).split(",");
         let r = t.lastIndexOf("");
@@ -31705,7 +32272,7 @@
           (t[r - 1] += ","), t.splice(r, 1), (r = t.lastIndexOf(""));
         return t;
       }
-      const p = {
+      const u = {
           backspace: 8,
           "\u232b": 8,
           tab: 9,
@@ -31750,15 +32317,15 @@
           ".": 190,
           "/": 191,
           "`": 192,
-          "-": s ? 173 : 189,
-          "=": s ? 61 : 187,
-          ";": s ? 59 : 186,
+          "-": o ? 173 : 189,
+          "=": o ? 61 : 187,
+          ";": o ? 59 : 186,
           "'": 222,
           "[": 219,
           "]": 221,
           "\\": 220,
         },
-        _ = {
+        p = {
           "\u21e7": 16,
           shift: 16,
           "\u2325": 18,
@@ -31771,7 +32338,7 @@
           cmd: 91,
           command: 91,
         },
-        h = {
+        _ = {
           16: "shiftKey",
           18: "altKey",
           17: "ctrlKey",
@@ -31781,34 +32348,34 @@
           altKey: 18,
           metaKey: 91,
         },
-        y = { 16: !1, 18: !1, 17: !1, 91: !1 },
-        m = {};
-      for (let r = 1; r < 20; r++) p["f".concat(r)] = 111 + r;
-      let g = [],
-        f = null,
-        v = "all";
-      const b = new Map(),
-        w = (e) =>
+        h = { 16: !1, 18: !1, 17: !1, 91: !1 },
+        y = {};
+      for (let r = 1; r < 20; r++) u["f".concat(r)] = 111 + r;
+      let m = [],
+        g = null,
+        f = "all";
+      const v = new Map(),
+        b = (e) =>
+          u[e.toLowerCase()] ||
           p[e.toLowerCase()] ||
-          _[e.toLowerCase()] ||
           e.toUpperCase().charCodeAt(0);
-      function k(e) {
-        v = e || "all";
+      function w(e) {
+        f = e || "all";
       }
-      function x() {
-        return v || "all";
+      function k() {
+        return f || "all";
       }
-      function S(e) {
+      function x(e) {
         if ("undefined" === typeof e)
-          Object.keys(m).forEach((e) => {
-            Array.isArray(m[e]) && m[e].forEach((e) => M(e)), delete m[e];
+          Object.keys(y).forEach((e) => {
+            Array.isArray(y[e]) && y[e].forEach((e) => S(e)), delete y[e];
           }),
-            T(null);
+            q(null);
         else if (Array.isArray(e))
           e.forEach((e) => {
-            e.key && M(e);
+            e.key && S(e);
           });
-        else if ("object" === typeof e) e.key && M(e);
+        else if ("object" === typeof e) e.key && S(e);
         else if ("string" === typeof e) {
           for (
             var t = arguments.length, r = new Array(t > 1 ? t - 1 : 0), a = 1;
@@ -31818,21 +32385,21 @@
             r[a - 1] = arguments[a];
           let [i, n] = r;
           "function" === typeof i && ((n = i), (i = "")),
-            M({ key: e, scope: i, method: n, splitKey: "+" });
+            S({ key: e, scope: i, method: n, splitKey: "+" });
         }
       }
-      const M = (e) => {
+      const S = (e) => {
         let { key: t, scope: r, method: a, splitKey: i = "+" } = e;
-        u(t).forEach((e) => {
+        c(t).forEach((e) => {
           const t = e.split(i),
             n = t.length,
             o = t[n - 1],
-            s = "*" === o ? "*" : w(o);
-          if (!m[s]) return;
-          r || (r = x());
-          const l = n > 1 ? c(_, t) : [],
-            d = [];
-          (m[s] = m[s].filter((e) => {
+            s = "*" === o ? "*" : b(o);
+          if (!y[s]) return;
+          r || (r = k());
+          const l = n > 1 ? d(p, t) : [],
+            c = [];
+          (y[s] = y[s].filter((e) => {
             const t =
               (!a || e.method === a) &&
               e.scope === r &&
@@ -31844,77 +32411,77 @@
                   -1 === a.indexOf(r[n]) && (i = !1);
                 return i;
               })(e.mods, l);
-            return t && d.push(e.element), !t;
+            return t && c.push(e.element), !t;
           })),
-            d.forEach((e) => T(e));
+            c.forEach((e) => q(e));
         });
       };
-      function A(e, t, r, a) {
+      function M(e, t, r, a) {
         if (t.element !== a) return;
         let i;
         if (t.scope === r || "all" === t.scope) {
           i = t.mods.length > 0;
-          for (const e in y)
-            Object.prototype.hasOwnProperty.call(y, e) &&
-              ((!y[e] && t.mods.indexOf(+e) > -1) ||
-                (y[e] && -1 === t.mods.indexOf(+e))) &&
+          for (const e in h)
+            Object.prototype.hasOwnProperty.call(h, e) &&
+              ((!h[e] && t.mods.indexOf(+e) > -1) ||
+                (h[e] && -1 === t.mods.indexOf(+e))) &&
               (i = !1);
-          ((0 !== t.mods.length || y[16] || y[18] || y[17] || y[91]) &&
+          ((0 !== t.mods.length || h[16] || h[18] || h[17] || h[91]) &&
             !i &&
             "*" !== t.shortcut) ||
             ((t.keys = []),
-            (t.keys = t.keys.concat(g)),
+            (t.keys = t.keys.concat(m)),
             !1 === t.method(e, t) &&
               (e.preventDefault ? e.preventDefault() : (e.returnValue = !1),
               e.stopPropagation && e.stopPropagation(),
               e.cancelBubble && (e.cancelBubble = !0)));
         }
       }
-      function C(e, t) {
-        const r = m["*"];
+      function A(e, t) {
+        const r = y["*"];
         let a = e.keyCode || e.which || e.charCode;
-        if (!q.filter.call(this, e)) return;
+        if (!C.filter.call(this, e)) return;
         if (
           ((93 !== a && 224 !== a) || (a = 91),
-          -1 === g.indexOf(a) && 229 !== a && g.push(a),
+          -1 === m.indexOf(a) && 229 !== a && m.push(a),
           ["ctrlKey", "altKey", "shiftKey", "metaKey"].forEach((t) => {
-            const r = h[t];
-            e[t] && -1 === g.indexOf(r)
-              ? g.push(r)
-              : !e[t] && g.indexOf(r) > -1
-              ? g.splice(g.indexOf(r), 1)
+            const r = _[t];
+            e[t] && -1 === m.indexOf(r)
+              ? m.push(r)
+              : !e[t] && m.indexOf(r) > -1
+              ? m.splice(m.indexOf(r), 1)
               : "metaKey" === t &&
                 e[t] &&
-                3 === g.length &&
+                3 === m.length &&
                 (e.ctrlKey ||
                   e.shiftKey ||
                   e.altKey ||
-                  (g = g.slice(g.indexOf(r))));
+                  (m = m.slice(m.indexOf(r))));
           }),
-          a in y)
+          a in h)
         ) {
-          y[a] = !0;
-          for (const e in _) _[e] === a && (q[e] = !0);
+          h[a] = !0;
+          for (const e in p) p[e] === a && (C[e] = !0);
           if (!r) return;
         }
-        for (const s in y)
-          Object.prototype.hasOwnProperty.call(y, s) && (y[s] = e[h[s]]);
+        for (const s in h)
+          Object.prototype.hasOwnProperty.call(h, s) && (h[s] = e[_[s]]);
         e.getModifierState &&
           (!e.altKey || e.ctrlKey) &&
           e.getModifierState("AltGraph") &&
-          (-1 === g.indexOf(17) && g.push(17),
-          -1 === g.indexOf(18) && g.push(18),
-          (y[17] = !0),
-          (y[18] = !0));
-        const i = x();
+          (-1 === m.indexOf(17) && m.push(17),
+          -1 === m.indexOf(18) && m.push(18),
+          (h[17] = !0),
+          (h[18] = !0));
+        const i = k();
         if (r)
           for (let s = 0; s < r.length; s++)
             r[s].scope === i &&
               (("keydown" === e.type && r[s].keydown) ||
                 ("keyup" === e.type && r[s].keyup)) &&
-              A(e, r[s], i, t);
-        if (!(a in m)) return;
-        const n = m[a],
+              M(e, r[s], i, t);
+        if (!(a in y)) return;
+        const n = y[a],
           o = n.length;
         for (let s = 0; s < o; s++)
           if (
@@ -31926,56 +32493,56 @@
               { splitKey: a } = r,
               o = r.key.split(a),
               l = [];
-            for (let e = 0; e < o.length; e++) l.push(w(o[e]));
-            l.sort().join("") === g.sort().join("") && A(e, r, i, t);
+            for (let e = 0; e < o.length; e++) l.push(b(o[e]));
+            l.sort().join("") === m.sort().join("") && M(e, r, i, t);
           }
       }
-      function q(e, t, r) {
-        g = [];
-        const a = u(e);
+      function C(e, t, r) {
+        m = [];
+        const a = c(e);
         let i = [],
           n = "all",
           o = document,
-          s = 0,
-          d = !1,
-          p = !0,
-          h = "+",
-          v = !1,
+          l = 0,
+          u = !1,
+          _ = !0,
+          f = "+",
+          w = !1,
           k = !1;
         for (
           void 0 === r && "function" === typeof t && (r = t),
             "[object Object]" === Object.prototype.toString.call(t) &&
               (t.scope && (n = t.scope),
               t.element && (o = t.element),
-              t.keyup && (d = t.keyup),
-              void 0 !== t.keydown && (p = t.keydown),
-              void 0 !== t.capture && (v = t.capture),
-              "string" === typeof t.splitKey && (h = t.splitKey),
+              t.keyup && (u = t.keyup),
+              void 0 !== t.keydown && (_ = t.keydown),
+              void 0 !== t.capture && (w = t.capture),
+              "string" === typeof t.splitKey && (f = t.splitKey),
               !0 === t.single && (k = !0)),
             "string" === typeof t && (n = t),
-            k && S(e, n);
-          s < a.length;
-          s++
+            k && x(e, n);
+          l < a.length;
+          l++
         )
           (i = []),
-            (e = a[s].split(h)).length > 1 && (i = c(_, e)),
-            (e = "*" === (e = e[e.length - 1]) ? "*" : w(e)) in m ||
-              (m[e] = []),
-            m[e].push({
-              keyup: d,
-              keydown: p,
+            (e = a[l].split(f)).length > 1 && (i = d(p, e)),
+            (e = "*" === (e = e[e.length - 1]) ? "*" : b(e)) in y ||
+              (y[e] = []),
+            y[e].push({
+              keyup: u,
+              keydown: _,
               scope: n,
               mods: i,
-              shortcut: a[s],
+              shortcut: a[l],
               method: r,
-              key: a[s],
-              splitKey: h,
+              key: a[l],
+              splitKey: f,
               element: o,
             });
         if ("undefined" !== typeof o && window) {
-          if (!b.has(o)) {
+          if (!v.has(o)) {
             const e = function () {
-                return C(
+                return A(
                   arguments.length > 0 && void 0 !== arguments[0]
                     ? arguments[0]
                     : window.event,
@@ -31987,37 +32554,37 @@
                   arguments.length > 0 && void 0 !== arguments[0]
                     ? arguments[0]
                     : window.event;
-                C(e, o),
+                A(e, o),
                   (function (e) {
                     let t = e.keyCode || e.which || e.charCode;
-                    const r = g.indexOf(t);
+                    const r = m.indexOf(t);
                     if (
-                      (r >= 0 && g.splice(r, 1),
+                      (r >= 0 && m.splice(r, 1),
                       e.key &&
                         "meta" === e.key.toLowerCase() &&
-                        g.splice(0, g.length),
+                        m.splice(0, m.length),
                       (93 !== t && 224 !== t) || (t = 91),
-                      t in y)
+                      t in h)
                     ) {
-                      y[t] = !1;
-                      for (const e in _) _[e] === t && (q[e] = !1);
+                      h[t] = !1;
+                      for (const e in p) p[e] === t && (C[e] = !1);
                     }
                   })(e);
               };
-            b.set(o, { keydownListener: e, keyupListenr: t, capture: v }),
-              l(o, "keydown", e, v),
-              l(o, "keyup", t, v);
+            v.set(o, { keydownListener: e, keyupListenr: t, capture: w }),
+              s(o, "keydown", e, w),
+              s(o, "keyup", t, w);
           }
-          if (!f) {
+          if (!g) {
             const e = () => {
-              g = [];
+              m = [];
             };
-            (f = { listener: e, capture: v }), l(window, "focus", e, v);
+            (g = { listener: e, capture: w }), s(window, "focus", e, w);
           }
         }
       }
-      function T(e) {
-        const t = Object.values(m).flat();
+      function q(e) {
+        const t = Object.values(y).flat();
         if (
           t.findIndex((t) => {
             let { element: r } = t;
@@ -32028,69 +32595,69 @@
             keydownListener: t,
             keyupListenr: r,
             capture: a,
-          } = b.get(e) || {};
-          t && r && (d(e, "keyup", r, a), d(e, "keydown", t, a), b.delete(e));
+          } = v.get(e) || {};
+          t && r && (l(e, "keyup", r, a), l(e, "keydown", t, a), v.delete(e));
         }
-        if (t.length <= 0 || b.size <= 0) {
+        if (t.length <= 0 || v.size <= 0) {
           if (
-            (Object.keys(b).forEach((e) => {
+            (Object.keys(v).forEach((e) => {
               const {
                 keydownListener: t,
                 keyupListenr: r,
                 capture: a,
-              } = b.get(e) || {};
+              } = v.get(e) || {};
               t &&
                 r &&
-                (d(e, "keyup", r, a), d(e, "keydown", t, a), b.delete(e));
+                (l(e, "keyup", r, a), l(e, "keydown", t, a), v.delete(e));
             }),
-            b.clear(),
-            Object.keys(m).forEach((e) => delete m[e]),
-            f)
+            v.clear(),
+            Object.keys(y).forEach((e) => delete y[e]),
+            g)
           ) {
-            const { listener: e, capture: t } = f;
-            d(window, "focus", e, t), (f = null);
+            const { listener: e, capture: t } = g;
+            l(window, "focus", e, t), (g = null);
           }
         }
       }
-      const I = {
+      const T = {
         getPressedKeyString: function () {
-          return g.map(
+          return m.map(
             (e) =>
+              ((e) => Object.keys(u).find((t) => u[t] === e))(e) ||
               ((e) => Object.keys(p).find((t) => p[t] === e))(e) ||
-              ((e) => Object.keys(_).find((t) => _[t] === e))(e) ||
               String.fromCharCode(e)
           );
         },
-        setScope: k,
-        getScope: x,
+        setScope: w,
+        getScope: k,
         deleteScope: function (e, t) {
           let r, a;
-          e || (e = x());
-          for (const i in m)
-            if (Object.prototype.hasOwnProperty.call(m, i))
-              for (r = m[i], a = 0; a < r.length; )
+          e || (e = k());
+          for (const i in y)
+            if (Object.prototype.hasOwnProperty.call(y, i))
+              for (r = y[i], a = 0; a < r.length; )
                 if (r[a].scope === e) {
                   r.splice(a, 1).forEach((e) => {
                     let { element: t } = e;
-                    return T(t);
+                    return q(t);
                   });
                 } else a++;
-          x() === e && k(t || "all");
+          k() === e && w(t || "all");
         },
         getPressedKeyCodes: function () {
-          return g.slice(0);
+          return m.slice(0);
         },
         getAllKeyCodes: function () {
           const e = [];
           return (
-            Object.keys(m).forEach((t) => {
-              m[t].forEach((t) => {
+            Object.keys(y).forEach((t) => {
+              y[t].forEach((t) => {
                 let { key: r, scope: a, mods: i, shortcut: n } = t;
                 e.push({
                   scope: a,
                   shortcut: n,
                   mods: i,
-                  keys: r.split("+").map((e) => w(e)),
+                  keys: r.split("+").map((e) => b(e)),
                 });
               });
             }),
@@ -32098,7 +32665,7 @@
           );
         },
         isPressed: function (e) {
-          return "string" === typeof e && (e = w(e)), -1 !== g.indexOf(e);
+          return "string" === typeof e && (e = b(e)), -1 !== m.indexOf(e);
         },
         filter: function (e) {
           const t = e.target || e.srcElement,
@@ -32128,28 +32695,29 @@
             arguments.length > 1 && void 0 !== arguments[1]
               ? arguments[1]
               : "all";
-          Object.keys(m).forEach((r) => {
-            m[r]
+          Object.keys(y).forEach((r) => {
+            y[r]
               .filter((r) => r.scope === t && r.shortcut === e)
               .forEach((e) => {
                 e && e.method && e.method();
               });
           });
         },
-        unbind: S,
-        keyMap: p,
-        modifier: _,
-        modifierMap: h,
+        unbind: x,
+        keyMap: u,
+        modifier: p,
+        modifierMap: _,
       };
-      for (const r in I)
-        Object.prototype.hasOwnProperty.call(I, r) && (q[r] = I[r]);
+      for (const r in T)
+        Object.prototype.hasOwnProperty.call(T, r) && (C[r] = T[r]);
       if ("undefined" !== typeof window) {
         const e = window.hotkeys;
-        (q.noConflict = (t) => (
-          t && window.hotkeys === q && (window.hotkeys = e), q
+        (C.noConflict = (t) => (
+          t && window.hotkeys === C && (window.hotkeys = e), C
         )),
-          (window.hotkeys = q);
+          (window.hotkeys = C);
       }
+      var I = r(1377);
       function N(e) {
         var t,
           r,
@@ -32162,21 +32730,21 @@
           else for (t in e) e[t] && (a && (a += " "), (a += t));
         return a;
       }
-      const E = function () {
+      const j = function () {
           for (var e, t, r = 0, a = ""; r < arguments.length; )
             (e = arguments[r++]) && (t = N(e)) && (a && (a += " "), (a += t));
           return a;
         },
-        j = (e) => "number" == typeof e && !isNaN(e),
-        O = (e) => "string" == typeof e,
-        L = (e) => "function" == typeof e,
-        P = (e) => (O(e) || L(e) ? e : null),
-        R = (e) => (0, a.isValidElement)(e) || O(e) || L(e) || j(e);
+        E = (e) => "number" == typeof e && !isNaN(e),
+        L = (e) => "string" == typeof e,
+        O = (e) => "function" == typeof e,
+        P = (e) => (L(e) || O(e) ? e : null),
+        R = (e) => (0, i.isValidElement)(e) || L(e) || O(e) || E(e);
       function F(e) {
         let {
           enter: t,
           exit: r,
-          appendPosition: i = !1,
+          appendPosition: a = !1,
           collapse: n = !0,
           collapseDuration: o = 300,
         } = e;
@@ -32189,11 +32757,11 @@
             nodeRef: u,
             isIn: p,
           } = e;
-          const _ = i ? "".concat(t, "--").concat(l) : t,
-            h = i ? "".concat(r, "--").concat(l) : r,
-            y = (0, a.useRef)(0);
+          const _ = a ? "".concat(t, "--").concat(l) : t,
+            h = a ? "".concat(r, "--").concat(l) : r,
+            y = (0, i.useRef)(0);
           return (
-            (0, a.useLayoutEffect)(() => {
+            (0, i.useLayoutEffect)(() => {
               const e = u.current,
                 t = _.split(" "),
                 r = (a) => {
@@ -32209,7 +32777,7 @@
                 e.addEventListener("animationend", r),
                 e.addEventListener("animationcancel", r);
             }, []),
-            (0, a.useEffect)(() => {
+            (0, i.useEffect)(() => {
               const e = u.current,
                 t = () => {
                   e.removeEventListener("animationend", t),
@@ -32238,7 +32806,7 @@
                     (e.className += " ".concat(h)),
                     e.addEventListener("animationend", t)));
             }, [p]),
-            a.createElement(a.Fragment, null, s)
+            i.createElement(i.Fragment, null, s)
           );
         };
       }
@@ -32292,8 +32860,8 @@
           },
         },
         D = (e) => {
-          let { theme: t, type: r, ...i } = e;
-          return a.createElement("svg", {
+          let { theme: t, type: r, ...a } = e;
+          return i.createElement("svg", {
             viewBox: "0 0 24 24",
             width: "100%",
             height: "100%",
@@ -32301,57 +32869,57 @@
               "colored" === t
                 ? "currentColor"
                 : "var(--toastify-icon-color-".concat(r, ")"),
-            ...i,
+            ...a,
           });
         },
         W = {
           info: function (e) {
-            return a.createElement(
+            return i.createElement(
               D,
               { ...e },
-              a.createElement("path", {
+              i.createElement("path", {
                 d: "M12 0a12 12 0 1012 12A12.013 12.013 0 0012 0zm.25 5a1.5 1.5 0 11-1.5 1.5 1.5 1.5 0 011.5-1.5zm2.25 13.5h-4a1 1 0 010-2h.75a.25.25 0 00.25-.25v-4.5a.25.25 0 00-.25-.25h-.75a1 1 0 010-2h1a2 2 0 012 2v4.75a.25.25 0 00.25.25h.75a1 1 0 110 2z",
               })
             );
           },
           warning: function (e) {
-            return a.createElement(
+            return i.createElement(
               D,
               { ...e },
-              a.createElement("path", {
+              i.createElement("path", {
                 d: "M23.32 17.191L15.438 2.184C14.728.833 13.416 0 11.996 0c-1.42 0-2.733.833-3.443 2.184L.533 17.448a4.744 4.744 0 000 4.368C1.243 23.167 2.555 24 3.975 24h16.05C22.22 24 24 22.044 24 19.632c0-.904-.251-1.746-.68-2.44zm-9.622 1.46c0 1.033-.724 1.823-1.698 1.823s-1.698-.79-1.698-1.822v-.043c0-1.028.724-1.822 1.698-1.822s1.698.79 1.698 1.822v.043zm.039-12.285l-.84 8.06c-.057.581-.408.943-.897.943-.49 0-.84-.367-.896-.942l-.84-8.065c-.057-.624.25-1.095.779-1.095h1.91c.528.005.84.476.784 1.1z",
               })
             );
           },
           success: function (e) {
-            return a.createElement(
+            return i.createElement(
               D,
               { ...e },
-              a.createElement("path", {
+              i.createElement("path", {
                 d: "M12 0a12 12 0 1012 12A12.014 12.014 0 0012 0zm6.927 8.2l-6.845 9.289a1.011 1.011 0 01-1.43.188l-4.888-3.908a1 1 0 111.25-1.562l4.076 3.261 6.227-8.451a1 1 0 111.61 1.183z",
               })
             );
           },
           error: function (e) {
-            return a.createElement(
+            return i.createElement(
               D,
               { ...e },
-              a.createElement("path", {
+              i.createElement("path", {
                 d: "M11.983 0a12.206 12.206 0 00-8.51 3.653A11.8 11.8 0 000 12.207 11.779 11.779 0 0011.8 24h.214A12.111 12.111 0 0024 11.791 11.766 11.766 0 0011.983 0zM10.5 16.542a1.476 1.476 0 011.449-1.53h.027a1.527 1.527 0 011.523 1.47 1.475 1.475 0 01-1.449 1.53h-.027a1.529 1.529 0 01-1.523-1.47zM11 12.5v-6a1 1 0 012 0v6a1 1 0 11-2 0z",
               })
             );
           },
           spinner: function () {
-            return a.createElement("div", { className: "Toastify__spinner" });
+            return i.createElement("div", { className: "Toastify__spinner" });
           },
         };
       function z(e) {
-        const [, t] = (0, a.useReducer)((e) => e + 1, 0),
-          [r, i] = (0, a.useState)([]),
-          n = (0, a.useRef)(null),
-          o = (0, a.useRef)(new Map()).current,
+        const [, t] = (0, i.useReducer)((e) => e + 1, 0),
+          [r, a] = (0, i.useState)([]),
+          n = (0, i.useRef)(null),
+          o = (0, i.useRef)(new Map()).current,
           s = (e) => -1 !== r.indexOf(e),
-          l = (0, a.useRef)({
+          l = (0, i.useRef)({
             toastKey: 1,
             displayedToast: 0,
             count: 0,
@@ -32369,7 +32937,7 @@
             ((l.count -= l.queue.length), (l.queue = []));
         }
         function c(e) {
-          i((t) => (null == e ? [] : t.filter((t) => t !== e)));
+          a((t) => (null == e ? [] : t.filter((t) => t !== e)));
         }
         function u() {
           const {
@@ -32380,7 +32948,7 @@
           _(e, t, r);
         }
         function p(e, r) {
-          let { delay: i, staleId: s, ...d } = r;
+          let { delay: a, staleId: s, ...d } = r;
           if (
             !R(e) ||
             (function (e) {
@@ -32420,7 +32988,7 @@
               !d.isLoading &&
               ((b = d.autoClose),
               (w = m.autoClose),
-              !1 === b || (j(b) && b > 0) ? b : w),
+              !1 === b || (E(b) && b > 0) ? b : w),
             deleteToast() {
               const e = H(o.get(p), "removed");
               o.delete(p), V.emit(4, e);
@@ -32443,56 +33011,56 @@
           };
           var b, w;
           (v.iconOut = (function (e) {
-            let { theme: t, type: r, isLoading: i, icon: n } = e,
+            let { theme: t, type: r, isLoading: a, icon: n } = e,
               o = null;
             const s = { theme: t, type: r };
             return (
               !1 === n ||
-                (L(n)
+                (O(n)
                   ? (o = n(s))
-                  : (0, a.isValidElement)(n)
-                  ? (o = (0, a.cloneElement)(n, s))
-                  : O(n) || j(n)
+                  : (0, i.isValidElement)(n)
+                  ? (o = (0, i.cloneElement)(n, s))
+                  : L(n) || E(n)
                   ? (o = n)
-                  : i
+                  : a
                   ? (o = W.spinner())
                   : ((e) => e in W)(r) && (o = W[r](s))),
               o
             );
           })(v)),
-            L(d.onOpen) && (v.onOpen = d.onOpen),
-            L(d.onClose) && (v.onClose = d.onClose),
+            O(d.onOpen) && (v.onOpen = d.onOpen),
+            O(d.onClose) && (v.onClose = d.onClose),
             (v.closeButton = m.closeButton),
             !1 === d.closeButton || R(d.closeButton)
               ? (v.closeButton = d.closeButton)
               : !0 === d.closeButton &&
                 (v.closeButton = !R(m.closeButton) || m.closeButton);
           let k = e;
-          (0, a.isValidElement)(e) && !O(e.type)
-            ? (k = (0, a.cloneElement)(e, {
+          (0, i.isValidElement)(e) && !L(e.type)
+            ? (k = (0, i.cloneElement)(e, {
                 closeToast: g,
                 toastProps: v,
                 data: y,
               }))
-            : L(e) && (k = e({ closeToast: g, toastProps: v, data: y })),
+            : O(e) && (k = e({ closeToast: g, toastProps: v, data: y })),
             m.limit && m.limit > 0 && l.count > m.limit && f
               ? l.queue.push({ toastContent: k, toastProps: v, staleId: s })
-              : j(i)
+              : E(a)
               ? setTimeout(() => {
                   _(k, v, s);
-                }, i)
+                }, a)
               : _(k, v, s);
         }
         function _(e, t, r) {
-          const { toastId: a } = t;
+          const { toastId: i } = t;
           r && o.delete(r);
           const n = { content: e, props: t };
-          o.set(a, n),
-            i((e) => [...e, a].filter((e) => e !== r)),
+          o.set(i, n),
+            a((e) => [...e, i].filter((e) => e !== r)),
             V.emit(4, H(n, null == n.props.updateId ? "added" : "updated"));
         }
         return (
-          (0, a.useEffect)(
+          (0, i.useEffect)(
             () => (
               (l.containerId = e.containerId),
               V.cancelEmit(3)
@@ -32506,7 +33074,7 @@
             ),
             []
           ),
-          (0, a.useEffect)(() => {
+          (0, i.useEffect)(() => {
             (l.props = e), (l.isToastActive = s), (l.displayedToast = r.length);
           }),
           {
@@ -32538,10 +33106,10 @@
           : e.clientY;
       }
       function U(e) {
-        const [t, r] = (0, a.useState)(!1),
-          [i, n] = (0, a.useState)(!1),
-          o = (0, a.useRef)(null),
-          s = (0, a.useRef)({
+        const [t, r] = (0, i.useState)(!1),
+          [a, n] = (0, i.useState)(!1),
+          o = (0, i.useRef)(null),
+          s = (0, i.useRef)({
             start: 0,
             x: 0,
             y: 0,
@@ -32552,7 +33120,7 @@
             boundingRect: null,
             didMove: !1,
           }).current,
-          l = (0, a.useRef)(e),
+          l = (0, i.useRef)(e),
           {
             autoClose: d,
             pauseOnHover: c,
@@ -32641,25 +33209,25 @@
               (t.style.opacity = "1");
           }
         }
-        (0, a.useEffect)(() => {
+        (0, i.useEffect)(() => {
           l.current = e;
         }),
-          (0, a.useEffect)(
+          (0, i.useEffect)(
             () => (
               o.current && o.current.addEventListener("d", m, { once: !0 }),
-              L(e.onOpen) &&
-                e.onOpen((0, a.isValidElement)(e.children) && e.children.props),
+              O(e.onOpen) &&
+                e.onOpen((0, i.isValidElement)(e.children) && e.children.props),
               () => {
                 const e = l.current;
-                L(e.onClose) &&
+                O(e.onClose) &&
                   e.onClose(
-                    (0, a.isValidElement)(e.children) && e.children.props
+                    (0, i.isValidElement)(e.children) && e.children.props
                   );
               }
             ),
             []
           ),
-          (0, a.useEffect)(
+          (0, i.useEffect)(
             () => (
               e.pauseOnFocusLoss &&
                 (document.hasFocus() || g(),
@@ -32689,15 +33257,15 @@
             playToast: m,
             pauseToast: g,
             isRunning: t,
-            preventExitTransition: i,
+            preventExitTransition: a,
             toastRef: o,
             eventHandlers: b,
           }
         );
       }
       function Y(e) {
-        let { closeToast: t, theme: r, ariaLabel: i = "close" } = e;
-        return a.createElement(
+        let { closeToast: t, theme: r, ariaLabel: a = "close" } = e;
+        return i.createElement(
           "button",
           {
             className: "Toastify__close-button Toastify__close-button--".concat(
@@ -32707,12 +33275,12 @@
             onClick: (e) => {
               e.stopPropagation(), t(e);
             },
-            "aria-label": i,
+            "aria-label": a,
           },
-          a.createElement(
+          i.createElement(
             "svg",
             { "aria-hidden": "true", viewBox: "0 0 14 16" },
-            a.createElement("path", {
+            i.createElement("path", {
               fillRule: "evenodd",
               d: "M7.71 8.23l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75L1 11.98l3.75-3.75L1 4.48 2.48 3l3.75 3.75L9.98 3l1.48 1.48-3.75 3.75z",
             })
@@ -32723,7 +33291,7 @@
         let {
           delay: t,
           isRunning: r,
-          closeToast: i,
+          closeToast: a,
           type: n = "default",
           hide: o,
           className: s,
@@ -32742,7 +33310,7 @@
             opacity: h ? 0 : 1,
           };
         d && (y.transform = "scaleX(".concat(c, ")"));
-        const m = E(
+        const m = j(
             "Toastify__progress-bar",
             d
               ? "Toastify__progress-bar--controlled"
@@ -32751,8 +33319,8 @@
             "Toastify__progress-bar--".concat(n),
             { "Toastify__progress-bar--rtl": u }
           ),
-          g = L(s) ? s({ rtl: u, type: n, defaultClassName: m }) : E(m, s);
-        return a.createElement("div", {
+          g = O(s) ? s({ rtl: u, type: n, defaultClassName: m }) : j(m, s);
+        return i.createElement("div", {
           role: "progressbar",
           "aria-hidden": h ? "true" : "false",
           "aria-label": "notification timer",
@@ -32762,7 +33330,7 @@
             d && c < 1
               ? null
               : () => {
-                  p && i();
+                  p && a();
                 },
         });
       }
@@ -32770,7 +33338,7 @@
           const {
               isRunning: t,
               preventExitTransition: r,
-              toastRef: i,
+              toastRef: a,
               eventHandlers: n,
             } = U(e),
             {
@@ -32801,61 +33369,61 @@
               closeOnClick: I,
               theme: N,
             } = e,
-            j = E(
+            E = j(
               "Toastify__toast",
               "Toastify__toast-theme--".concat(N),
               "Toastify__toast--".concat(c),
               { "Toastify__toast--rtl": S },
               { "Toastify__toast--close-on-click": I }
             ),
-            O = L(y)
-              ? y({ rtl: S, position: h, type: c, defaultClassName: j })
-              : E(j, y),
+            L = O(y)
+              ? y({ rtl: S, position: h, type: c, defaultClassName: E })
+              : j(E, y),
             P = !!x || !l,
             R = { closeToast: p, type: c, theme: N };
           let F = null;
           return (
             !1 === o ||
-              (F = L(o)
+              (F = O(o)
                 ? o(R)
-                : (0, a.isValidElement)(o)
-                ? (0, a.cloneElement)(o, R)
+                : (0, i.isValidElement)(o)
+                ? (0, i.cloneElement)(o, R)
                 : Y(R)),
-            a.createElement(
+            i.createElement(
               _,
               {
                 isIn: C,
                 done: A,
                 position: h,
                 preventExitTransition: r,
-                nodeRef: i,
+                nodeRef: a,
               },
-              a.createElement(
+              i.createElement(
                 "div",
-                { id: M, onClick: d, className: O, ...n, style: m, ref: i },
-                a.createElement(
+                { id: M, onClick: d, className: L, ...n, style: m, ref: a },
+                i.createElement(
                   "div",
                   {
                     ...(C && { role: k }),
-                    className: L(g)
+                    className: O(g)
                       ? g({ type: c })
-                      : E("Toastify__toast-body", g),
+                      : j("Toastify__toast-body", g),
                     style: f,
                   },
                   null != T &&
-                    a.createElement(
+                    i.createElement(
                       "div",
                       {
-                        className: E("Toastify__toast-icon", {
+                        className: j("Toastify__toast-icon", {
                           "Toastify--animate-icon Toastify__zoom-enter": !q,
                         }),
                       },
                       T
                     ),
-                  a.createElement("div", null, s)
+                  i.createElement("div", null, s)
                 ),
                 F,
-                a.createElement(X, {
+                i.createElement(X, {
                   ...(w && !P ? { key: "pb-".concat(w) } : {}),
                   rtl: S,
                   theme: N,
@@ -32889,40 +33457,40 @@
           (F(Z("slide", !0)),
           F(Z("zoom")),
           F(Z("flip")),
-          (0, a.forwardRef)((e, t) => {
+          (0, i.forwardRef)((e, t) => {
             const {
                 getToastToRender: r,
-                containerRef: i,
+                containerRef: a,
                 isToastActive: n,
               } = z(e),
               { className: o, style: s, rtl: l, containerId: d } = e;
             function c(e) {
-              const t = E(
+              const t = j(
                 "Toastify__toast-container",
                 "Toastify__toast-container--".concat(e),
                 { "Toastify__toast-container--rtl": l }
               );
-              return L(o)
+              return O(o)
                 ? o({ position: e, rtl: l, defaultClassName: t })
-                : E(t, P(o));
+                : j(t, P(o));
             }
             return (
-              (0, a.useEffect)(() => {
-                t && (t.current = i.current);
+              (0, i.useEffect)(() => {
+                t && (t.current = a.current);
               }, []),
-              a.createElement(
+              i.createElement(
                 "div",
-                { ref: i, className: "Toastify", id: d },
+                { ref: a, className: "Toastify", id: d },
                 r((e, t) => {
                   const r = t.length
                     ? { ...s }
                     : { ...s, pointerEvents: "none" };
-                  return a.createElement(
+                  return i.createElement(
                     "div",
                     { className: c(e), style: r, key: "container-".concat(e) },
                     t.map((e, r) => {
-                      let { content: i, props: o } = e;
-                      return a.createElement(
+                      let { content: a, props: o } = e;
+                      return i.createElement(
                         K,
                         {
                           ...o,
@@ -32934,7 +33502,7 @@
                           },
                           key: "toast-".concat(o.key),
                         },
-                        i
+                        a
                       );
                     })
                   );
@@ -32965,7 +33533,7 @@
         return "" + re++;
       }
       function ie(e) {
-        return e && (O(e.toastId) || j(e.toastId)) ? e.toastId : ae();
+        return e && (L(e.toastId) || E(e.toastId)) ? e.toastId : ae();
       }
       function ne(e, t) {
         return (
@@ -32998,7 +33566,7 @@
           let a,
             { pending: i, error: n, success: o } = t;
           i &&
-            (a = O(i)
+            (a = L(i)
               ? le.loading(i, r)
               : le.loading(i.render, { ...r, ...i }));
           const s = {
@@ -33011,13 +33579,13 @@
             l = (e, t, i) => {
               if (null == t) return void le.dismiss(a);
               const n = { type: e, ...s, ...r, data: i },
-                o = O(t) ? { render: t } : t;
+                o = L(t) ? { render: t } : t;
               return (
                 a ? le.update(a, { ...n, ...o }) : le(o.render, { ...n, ...o }),
                 i
               );
             },
-            d = L(e) ? e() : e;
+            d = O(e) ? e() : e;
           return (
             d.then((e) => l("success", o, e)).catch((e) => l("error", n, e)), d
           );
@@ -33108,7 +33676,7 @@
         ue = r(2631),
         pe = r(443),
         _e = r(4414);
-      class he extends a.Component {
+      class he extends i.Component {
         constructor() {
           super(...arguments),
             (this.handleAchievements = (e) => {
@@ -33117,20 +33685,24 @@
             }),
             (this.handleSaveFile = () => {
               this.props.MainStore.SettingsStore.saveToFile();
+            }),
+            (this.handleCombatResports = () => {
+              this.props.MainStore.ArmyStore.toggleBattleReports();
             });
         }
         render() {
-          let e = "";
+          const { showSoftReset: e } = this.props.MainStore.LegacyStore;
+          let t = "";
           return (
             "common" === this.props.color
-              ? (e = "btn-dark")
+              ? (t = "btn-dark")
               : "rare" === this.props.color
-              ? (e = "btn-blue")
+              ? (t = "btn-blue")
               : "epic" === this.props.color
-              ? (e =
+              ? (t =
                   "text-white bg-violet-600 hover:bg-violet-700 focus:bg-violet-800")
               : "legendary" === this.props.color &&
-                (e =
+                (t =
                   "text-white bg-amber-500 hover:bg-orange-400 focus:bg-orange-500 dark:bg-amber-600 dark:hover:bg-orange-500 dark:focus:bg-orange-600"),
             (0, _e.jsxs)("div", {
               className: "flex items-start",
@@ -33266,7 +33838,7 @@
                           className: "mt-3 flex space-x-7",
                           children: (0, _e.jsxs)("button", {
                             type: "button",
-                            className: "btn " + e,
+                            className: "btn " + t,
                             onClick: this.handleAchievements,
                             children: [
                               (0, _e.jsx)(ce(), {
@@ -33295,6 +33867,26 @@
                           }),
                         })
                       : null,
+                    "battle" !== this.props.type || e
+                      ? null
+                      : (0, _e.jsx)("div", {
+                          className: "mt-3 flex space-x-7",
+                          children: (0, _e.jsxs)("button", {
+                            type: "button",
+                            className:
+                              "red" === this.props.color
+                                ? "btn btn-red !border dark:border-gray-400"
+                                : "btn btn-green !border dark:border-gray-400",
+                            onClick: this.handleCombatResports,
+                            children: [
+                              (0, _e.jsx)(ce(), {
+                                path: ue.W71,
+                                className: "icon mr-1",
+                              }),
+                              (0, pe.v)("combat_reports"),
+                            ],
+                          }),
+                        }),
                   ],
                 }),
               ],
@@ -38174,19 +38766,19 @@
               (this.showOnlyMissing = (0, ge.$E)("showMissingAch", !1)),
               (this.searchText = ""),
               (this.MainStore = e),
-              (0, i.Gn)(this, {
-                selectedTab: i.sH,
-                selectTab: i.XI,
-                achievements: i.EW,
-                achievementsGlobal: i.EW,
-                achievementsProgress: i.EW,
-                showAchievements: i.sH,
-                toggleAchievements: i.XI,
-                showOnlyMissing: i.sH,
-                switchShowOnlyMissing: i.XI,
-                searchText: i.sH,
-                search: i.XI,
-                _runAchievement: i.XI,
+              (0, a.Gn)(this, {
+                selectedTab: a.sH,
+                selectTab: a.XI,
+                achievements: a.EW,
+                achievementsGlobal: a.EW,
+                achievementsProgress: a.EW,
+                showAchievements: a.sH,
+                toggleAchievements: a.XI,
+                showOnlyMissing: a.sH,
+                switchShowOnlyMissing: a.XI,
+                searchText: a.sH,
+                search: a.XI,
+                _runAchievement: a.XI,
               });
           }
           get achievements() {
@@ -38524,14 +39116,14 @@
               this.showAdFn();
             }),
             (this.MainStore = e),
-            (0, i.Gn)(this, {
-              rewardAdAvailable: i.sH,
-              rewardToGet: i.sH,
-              initRewardAd: i.XI,
-              getRewardAd: i.XI,
-              cancelRewardAd: i.XI,
-              runRewards: i.XI,
-              checkAvailableAd: i.XI,
+            (0, a.Gn)(this, {
+              rewardAdAvailable: a.sH,
+              rewardToGet: a.sH,
+              initRewardAd: a.XI,
+              getRewardAd: a.XI,
+              cancelRewardAd: a.XI,
+              runRewards: a.XI,
+              checkAvailableAd: a.XI,
             }),
             this.MainStore.ads)
           ) {
@@ -38598,7 +39190,7 @@
           WDS_SOCKET_PATH: void 0,
           WDS_SOCKET_PORT: void 0,
           FAST_REFRESH: !0,
-          REACT_APP_VERSION: "1.0.1",
+          REACT_APP_VERSION: "1.1.0",
         }.REACT_APP_DEV
           ? "G-ML4EM1RS0Y"
           : "G-Z39X9GG6TF"
@@ -38636,44 +39228,44 @@
           id: "ancestor_warrior",
           color: "#dc2626",
           req: [{ type: "stat", id: "reset", value: 2 }],
-          gen: [{ type: "cap", id: "army", value: 15 }],
+          gen: [{ type: "cap", id: "army", value: 25 }],
         },
         {
           id: "ancestor_researcher",
           color: "#2563eb",
           req: [{ type: "stat", id: "reset", value: 3 }],
-          gen: [{ type: "resource", id: "research", value: 15, perc: !0 }],
+          gen: [{ type: "resource", id: "research", value: 25, perc: !0 }],
         },
         {
           id: "ancestor_spellcrafter",
           color: "#8B5CF6",
           req: [{ type: "stat", id: "reset", value: 4 }],
-          gen: [{ type: "resource", id: "mana", value: 15, perc: !0 }],
+          gen: [{ type: "resource", id: "mana", value: 50, perc: !0 }],
         },
         {
           id: "ancestor_forager",
           color: "#16a34a",
           req: [{ type: "stat", id: "reset", value: 5 }],
           gen: [
-            { type: "resource", id: "cow", value: 20, perc: !0 },
-            { type: "resource", id: "supplies", value: 10, perc: !0 },
+            { type: "resource", id: "cow", value: 50, perc: !0 },
+            { type: "resource", id: "supplies", value: 25, perc: !0 },
           ],
         },
         {
           id: "ancestor_believer",
           color: "#f97316",
           req: [{ type: "stat", id: "reset", value: 6 }],
-          gen: [{ type: "resource", id: "faith", value: 15, perc: !0 }],
+          gen: [{ type: "resource", id: "faith", value: 50, perc: !0 }],
         },
       ];
       const Me = class {
         constructor(e) {
           (this.MainStore = void 0),
             (this.MainStore = e),
-            (0, i.Gn)(this, {
-              ancestorData: i.EW,
-              visibleAncestors: i.EW,
-              updateAncestor: i.XI,
+            (0, a.Gn)(this, {
+              ancestorData: a.EW,
+              visibleAncestors: a.EW,
+              updateAncestor: a.XI,
             }),
             this._updateAncestorColor();
         }
@@ -38740,7 +39332,7 @@
             id: "ancient_lighthouse",
             found: [16],
             esp: 45,
-            level: 6,
+            level: 5,
             reqFound: [{ type: "tech", id: "explore_sorrounding", value: 1 }],
             army: [{ id: "ancient_legionary", value: 280 }],
             gen: [
@@ -38752,7 +39344,7 @@
             id: "ancient_ruin",
             found: [14],
             esp: 45,
-            level: 6,
+            level: 5,
             reqFound: [{ type: "tech", id: "explore_sorrounding", value: 1 }],
             army: [{ id: "ancient_ghost", value: 180 }],
             gen: [
@@ -38791,7 +39383,7 @@
             id: "ball_lightning_field",
             found: [29],
             esp: 32,
-            level: 3,
+            level: 2,
             reqFound: [{ type: "tech", id: "new_world_exploration", value: 1 }],
             army: [{ id: "ball_lightning", value: 26 }],
             gen: [
@@ -38814,7 +39406,7 @@
             id: "barbarian_camp",
             found: [2],
             esp: 7,
-            level: 2,
+            level: 1,
             army: [{ id: "barbarian_warrior", value: 17 }],
             gen: [
               { type: "resource", id: "wood", value: 1 },
@@ -38826,7 +39418,7 @@
             id: "barbarian_village",
             found: [7],
             esp: 16,
-            level: 4,
+            level: 2,
             reqFound: [{ type: "tech", id: "tamed_barbarian", value: 1 }],
             army: [
               { id: "barbarian_warrior", value: 40 },
@@ -38843,7 +39435,7 @@
             id: "barren_hills",
             found: [5],
             esp: 13,
-            level: 3,
+            level: 2,
             army: [
               { id: "hill_giant", value: 7 },
               { id: "kobold", value: 52 },
@@ -38858,7 +39450,7 @@
             id: "basilisk_cave",
             found: [6],
             esp: 12,
-            level: 3,
+            level: 2,
             army: [{ id: "basilisk", value: 7 }],
             gen: [
               { type: "resource", id: "cow", value: 0.3 },
@@ -38884,7 +39476,7 @@
             id: "black_mage_tower",
             found: [39],
             esp: 20,
-            level: 3,
+            level: 2,
             army: [
               { id: "black_mage", value: 1 },
               { id: "goblin_warrior", value: 60 },
@@ -38910,7 +39502,7 @@
             id: "bugbear_war_party",
             found: [9, 10],
             esp: 32,
-            level: 5,
+            level: 4,
             reqFound: [{ type: "tech", id: "long_expedition", value: 1 }],
             army: [
               { id: "bugbear_chieftain", value: 1 },
@@ -38925,7 +39517,7 @@
             id: "church_abyss",
             found: [24],
             esp: 35,
-            level: 6,
+            level: 5,
             reqFound: [{ type: "tech", id: "explore_sorrounding", value: 1 }],
             army: [{ id: "vampire", value: 280 }],
             gen: [
@@ -38970,7 +39562,7 @@
             id: "construction_site",
             found: [18, 19],
             esp: 12,
-            level: 3,
+            level: 2,
             army: [{ id: "mercenary_veteran", value: 25 }],
             gen: [
               { type: "cap", id: "building_material", value: 750 },
@@ -38999,7 +39591,7 @@
             id: "dark_pit",
             found: [18],
             esp: 35,
-            level: 6,
+            level: 5,
             reqFound: [{ type: "tech", id: "explore_sorrounding", value: 1 }],
             army: [
               { id: "greater_demon", value: 220 },
@@ -39014,7 +39606,7 @@
             id: "desecrated_temple",
             found: [28, 29, 30, 31],
             esp: 45,
-            level: 5,
+            level: 4,
             reqFound: [{ type: "tech", id: "temple_luna", value: 1 }],
             army: [
               { id: "orc_shaman", value: 15 },
@@ -39029,7 +39621,7 @@
             id: "deserters_den",
             found: [10],
             esp: 16,
-            level: 3,
+            level: 2,
             army: [
               { id: "bandit", value: 26 },
               { id: "deserter", value: 14 },
@@ -39061,7 +39653,7 @@
             id: "demonic_portal",
             found: [11],
             esp: 28,
-            level: 4,
+            level: 3,
             army: [
               { id: "greater_demon", value: 10 },
               { id: "lesser_demon", value: 22 },
@@ -39116,7 +39708,7 @@
             id: "evil_abode",
             found: [22],
             esp: 35,
-            level: 6,
+            level: 5,
             reqFound: [{ type: "tech", id: "explore_sorrounding", value: 1 }],
             army: [{ id: "succubus", value: 220 }],
             gen: [
@@ -39128,7 +39720,7 @@
             id: "explore_desert",
             found: [21],
             esp: 55,
-            level: 7,
+            level: 6,
             reqFound: [{ type: "tech", id: "myth_south", value: 1 }],
             army: [
               { id: "naga", value: 1200 },
@@ -39145,7 +39737,7 @@
             id: "hell_hole",
             found: [12],
             esp: 42,
-            level: 5,
+            level: 4,
             reqFound: [{ type: "prayer", id: "demonology", value: 1 }],
             army: [
               { id: "archdemon", value: 3 },
@@ -39163,7 +39755,7 @@
             id: "gold_mine",
             found: [28],
             esp: 55,
-            level: 6,
+            level: 5,
             reqFound: [{ type: "tech", id: "long_expedition", value: 1 }],
             army: [
               { id: "troll_battle", value: 70 },
@@ -39178,7 +39770,7 @@
             id: "king_reptiles",
             found: [30],
             esp: 22,
-            level: 5,
+            level: 4,
             reqFound: [{ type: "tech", id: "new_world_exploration", value: 1 }],
             army: [
               { id: "velociraptors", value: 67 },
@@ -39194,7 +39786,7 @@
             id: "fire_mage_domain",
             found: [20],
             esp: 70,
-            level: 9,
+            level: 7,
             reqFound: [{ type: "tech", id: "trail_fire", value: 1 }],
             army: [
               { id: "fire_elemental", value: 2200 },
@@ -39226,7 +39818,7 @@
             id: "east_sacred_place",
             found: [13, 14],
             esp: 32,
-            level: 5,
+            level: 2,
             reqFound: [{ type: "prayer", id: "sacred_place", value: 1 }],
             army: [{ id: "wind_elemental", value: 28 }],
             gen: [
@@ -39238,7 +39830,7 @@
             id: "eternal_halls",
             found: [11],
             esp: 30,
-            level: 5,
+            level: 3,
             reqFound: [{ type: "tech", id: "persuade_people", value: 1 }],
             army: [
               { id: "eternal_guardian", value: 35 },
@@ -39256,7 +39848,7 @@
               20,
             ],
             esp: 19,
-            level: 3,
+            level: 2,
             reqFound: [{ type: "tech", id: "aid_request", value: 1 }],
             army: [{ id: "ettin", value: 12 }],
             gen: [
@@ -39268,7 +39860,7 @@
             id: "ettin_enslaver",
             found: [22],
             esp: 32,
-            level: 5,
+            level: 3,
             reqFound: [{ type: "tech", id: "new_world_exploration", value: 1 }],
             army: [{ id: "ettin", value: 42 }],
             gen: [
@@ -39280,7 +39872,7 @@
             id: "earth_elemental_circle",
             found: [25],
             esp: 32,
-            level: 6,
+            level: 3,
             reqFound: [{ type: "tech", id: "new_world_exploration", value: 1 }],
             army: [{ id: "earth_elemental", value: 56 }],
             gen: [
@@ -39292,7 +39884,7 @@
             id: "fire_elemental_circle",
             found: [23],
             esp: 32,
-            level: 6,
+            level: 3,
             reqFound: [{ type: "tech", id: "new_world_exploration", value: 1 }],
             army: [{ id: "fire_elemental", value: 56 }],
             gen: [
@@ -39304,7 +39896,7 @@
             id: "frost_elemental_circle",
             found: [24],
             esp: 32,
-            level: 6,
+            level: 3,
             reqFound: [{ type: "tech", id: "new_world_exploration", value: 1 }],
             army: [{ id: "frost_elemental", value: 56 }],
             gen: [
@@ -39316,7 +39908,7 @@
             id: "wind_elemental_circle",
             found: [23],
             esp: 32,
-            level: 6,
+            level: 3,
             reqFound: [{ type: "tech", id: "new_world_exploration", value: 1 }],
             army: [{ id: "wind_elemental", value: 56 }],
             gen: [
@@ -39328,7 +39920,7 @@
             id: "fire_salamander_nest",
             found: [23],
             esp: 11,
-            level: 5,
+            level: 4,
             reqFound: [{ type: "tech", id: "new_world_exploration", value: 1 }],
             army: [{ id: "fire_salamander", value: 62 }],
             gen: [
@@ -39355,7 +39947,7 @@
             id: "giant_temple",
             found: [23],
             esp: 27,
-            level: 4,
+            level: 3,
             reqFound: [{ type: "tech", id: "new_world_exploration", value: 1 }],
             army: [{ id: "gargoyle", value: 43 }],
             gen: [
@@ -39397,7 +39989,7 @@
             id: "gorgon_cave",
             found: [17],
             esp: 5,
-            level: 4,
+            level: 3,
             reqFound: [{ type: "tech", id: "monster_hunting", value: 1 }],
             army: [
               { id: "gorgon", value: 1 },
@@ -39425,7 +40017,7 @@
             id: "gnoll_camp",
             found: [17, 18],
             esp: 37,
-            level: 5,
+            level: 4,
             reqFound: [{ type: "tech", id: "long_expedition", value: 1 }],
             army: [
               { id: "gnoll_leader", value: 1 },
@@ -39440,7 +40032,7 @@
             id: "golem_cave",
             found: [21],
             esp: 15,
-            level: 3,
+            level: 2,
             army: [{ id: "golem", value: 15 }],
             gen: [
               { type: "resource", id: "gold", value: 0.7 },
@@ -39452,7 +40044,7 @@
             id: "gulud_ugdun",
             found: [37],
             esp: 25,
-            level: 4,
+            level: 5,
             reqFound: [{ type: "tech", id: "path_children", value: 1 }],
             army: [
               { id: "gulud", value: 1 },
@@ -39502,7 +40094,7 @@
             id: "hobgoblin_chieftain",
             found: [32],
             esp: 21,
-            level: 4,
+            level: 3,
             reqFound: [{ type: "tech", id: "guild", value: 1 }],
             army: [
               { id: "hobgoblin_grunt", value: 50 },
@@ -39545,7 +40137,7 @@
             id: "lead_golem_mine",
             found: [31],
             esp: 28,
-            level: 4,
+            level: 3,
             reqFound: [{ type: "tech", id: "new_world_exploration", value: 1 }],
             army: [{ id: "lead_golem", value: 42 }],
             gen: [
@@ -39683,7 +40275,7 @@
             id: "mountain_valley",
             found: [29],
             esp: 50,
-            level: 5,
+            level: 4,
             reqFound: [{ type: "tech", id: "long_expedition", value: 1 }],
             army: [
               { id: "frost_giant", value: 1 },
@@ -39742,7 +40334,7 @@
             id: "north_sacred_place",
             found: [27],
             esp: 32,
-            level: 5,
+            level: 3,
             reqFound: [{ type: "prayer", id: "sacred_place", value: 1 }],
             army: [{ id: "frost_elemental", value: 28 }],
             gen: [
@@ -39754,7 +40346,7 @@
             id: "mercenary_camp",
             found: [28],
             esp: 32,
-            level: 3,
+            level: 2,
             army: [{ id: "mercenary_veteran", value: 30 }],
             gen: [
               { type: "resource", id: "gold", value: 1 },
@@ -39765,7 +40357,7 @@
             id: "myconid_cavern",
             found: [29],
             esp: 14,
-            level: 3,
+            level: 2,
             army: [{ id: "myconid", value: 42 }],
             gen: [
               { type: "resource", id: "mana", value: 1 },
@@ -39798,7 +40390,7 @@
             id: "orc_gormiak_citadel",
             found: [7, 8, 9],
             esp: 45,
-            level: 6,
+            level: 5,
             reqFound: [{ type: "tech", id: "orcish_citadel", value: 1 }],
             army: [
               { id: "orc_warrior", value: 300 },
@@ -39815,7 +40407,7 @@
             id: "orc_horith_citadel",
             found: [10, 11],
             esp: 50,
-            level: 6,
+            level: 5,
             reqFound: [{ type: "tech", id: "mankind_darkest", value: 1 }],
             army: [
               { id: "orc_ironskin", value: 300 },
@@ -39831,7 +40423,7 @@
             id: "orc_ogsog_citadel",
             found: [12, 13],
             esp: 50,
-            level: 6,
+            level: 5,
             reqFound: [{ type: "tech", id: "mankind_darkest", value: 1 }],
             army: [
               { id: "orc_champion", value: 30 },
@@ -39848,7 +40440,7 @@
             id: "orc_turgon_citadel",
             found: [14, 15],
             esp: 50,
-            level: 6,
+            level: 5,
             reqFound: [{ type: "tech", id: "mankind_darkest", value: 1 }],
             army: [
               { id: "orc_shaman", value: 50 },
@@ -39915,7 +40507,7 @@
             id: "save_damned",
             found: [31],
             esp: 45,
-            level: 6,
+            level: 4,
             reqFound: [{ type: "tech", id: "explore_sorrounding", value: 1 }],
             army: [{ id: "faceless_horror", value: 90 }],
             gen: [
@@ -39928,7 +40520,7 @@
             id: "sleeping_titan",
             found: [38],
             esp: 1,
-            level: 8,
+            level: 7,
             reqFound: [{ type: "tech", id: "titan_mosaic", value: 1 }],
             army: [
               { id: "titan", value: 1 },
@@ -39985,7 +40577,7 @@
             id: "spider_forest",
             found: [31],
             esp: 13,
-            level: 3,
+            level: 2,
             army: [
               { id: "spider", value: 32 },
               { id: "giant_spider", value: 8 },
@@ -39999,7 +40591,7 @@
             id: "son_atamar",
             found: [21],
             esp: 32,
-            level: 5,
+            level: 3,
             reqFound: [{ type: "tech", id: "deserter_origin", value: 1 }],
             army: [
               { id: "deserter", value: 60 },
@@ -40015,7 +40607,7 @@
             id: "strange_village",
             found: [32],
             esp: 17,
-            level: 3,
+            level: 2,
             army: [{ id: "charmed_dweller", value: 47 }],
             gen: [{ type: "population", id: "unemployed", value: 1 }],
           },
@@ -40023,7 +40615,7 @@
             id: "south_sacred_place",
             found: [33, 34],
             esp: 32,
-            level: 5,
+            level: 3,
             reqFound: [{ type: "prayer", id: "sacred_place", value: 1 }],
             army: [{ id: "fire_elemental", value: 28 }],
             gen: [
@@ -40035,7 +40627,7 @@
             id: "succubus_library",
             found: [33],
             esp: 29,
-            level: 5,
+            level: 4,
             reqFound: [{ type: "tech", id: "new_world_exploration", value: 1 }],
             army: [{ id: "succubus", value: 90 }],
             gen: [
@@ -40078,7 +40670,7 @@
             id: "west_sacred_place",
             found: [37, 38],
             esp: 32,
-            level: 5,
+            level: 3,
             reqFound: [{ type: "prayer", id: "sacred_place", value: 1 }],
             army: [{ id: "earth_elemental", value: 28 }],
             gen: [
@@ -40098,7 +40690,7 @@
             id: "worn_down_crypt",
             found: [37],
             esp: 14,
-            level: 4,
+            level: 3,
             reqFound: [{ type: "tech", id: "guild", value: 1 }],
             army: [{ id: "skeletal_knight", value: 67 }],
             gen: [{ type: "resource", id: "research", value: 1 }],
@@ -40119,7 +40711,7 @@
             id: "wyvern_nest",
             found: [36],
             esp: 12,
-            level: 3,
+            level: 2,
             army: [{ id: "wyvern", value: 12 }],
             gen: [
               { type: "resource", id: "fame", value: 30, fix: !0 },
@@ -40205,7 +40797,7 @@
             id: "vampire_crypt",
             found: [35, 36],
             esp: 35,
-            level: 5,
+            level: 4,
             reqFound: [{ type: "tech", id: "long_expedition", value: 1 }],
             army: [
               { id: "vampire_bat", value: 120 },
@@ -40220,7 +40812,7 @@
             id: "vampire_lair",
             found: [37],
             esp: 32,
-            level: 5,
+            level: 4,
             reqFound: [{ type: "tech", id: "trail_blood", value: 1 }],
             army: [
               { id: "vampire", value: 1 },
@@ -40236,7 +40828,7 @@
             id: "far_west_island",
             found: [17, 18, 19, 20, 21, 22, 23, 24, 25, 35, 36],
             esp: 10,
-            level: 1,
+            level: 0,
             reqFound: [{ type: "tech", id: "seafaring", value: 1 }],
             army: [{ id: "ravenous_crab", value: 15 }],
             gen: [{ type: "resource", id: "fame", value: 10, fix: !0 }],
@@ -40245,7 +40837,7 @@
             id: "old_outpost",
             found: [34],
             esp: 12,
-            level: 5,
+            level: 4,
             reqFound: [{ type: "tech", id: "free_old_outpost", value: 1 }],
             army: [
               { id: "bandit", value: 120 },
@@ -40261,7 +40853,7 @@
             id: "forgotten_shelter",
             found: [36],
             esp: 22,
-            level: 5,
+            level: 4,
             reqFound: [{ type: "tech", id: "galliard_secret", value: 1 }],
             army: [{ id: "spectra_memory", value: 250 }],
             gen: [
@@ -40273,7 +40865,7 @@
             id: "ancient_giant",
             found: [38],
             esp: 31,
-            level: 6,
+            level: 5,
             reqFound: [{ type: "tech", id: "wings_freedom", value: 1 }],
             army: [
               { id: "ancient_giant", value: 1 },
@@ -40288,7 +40880,7 @@
             id: "zombie_horde_small",
             found: [23, 24, 25, 26, 27],
             esp: 35,
-            level: 5,
+            level: 4,
             reqFound: [{ type: "tech", id: "explore_sorrounding", value: 1 }],
             army: [{ id: "zombie", value: 920 }],
             gen: [{ type: "resource", id: "light", value: 1, fix: !0 }],
@@ -40297,7 +40889,7 @@
             id: "zombie_horde_large",
             found: [24],
             esp: 35,
-            level: 6,
+            level: 5,
             reqFound: [{ type: "tech", id: "explore_sorrounding", value: 1 }],
             army: [{ id: "zombie", value: 2920 }],
             gen: [
@@ -40343,7 +40935,7 @@
               { type: "cap", id: "army", value: 5 },
             ],
             army: [
-              { id: "archer", value: 80 },
+              { id: "archer", value: 110 },
               { id: "warrior", value: 120 },
               { id: "commander", value: 1 },
             ],
@@ -40377,7 +40969,7 @@
             army: [
               { id: "archer", value: 60 },
               { id: "spearman", value: 40 },
-              { id: "light_cavarly", value: 80 },
+              { id: "light_cavarly", value: 120 },
               { id: "commander", value: 1 },
             ],
             gen: [
@@ -40414,7 +41006,7 @@
             army: [
               { id: "crossbowman", value: 60 },
               { id: "man_at_arms", value: 50 },
-              { id: "knight", value: 50 },
+              { id: "knight", value: 100 },
               { id: "commander", value: 1 },
             ],
             gen: [
@@ -40450,8 +41042,8 @@
             ],
             army: [
               { id: "archer", value: 120 },
-              { id: "spearman", value: 40 },
-              { id: "heavy_warrior", value: 30 },
+              { id: "spearman", value: 80 },
+              { id: "heavy_warrior", value: 50 },
               { id: "commander", value: 1 },
             ],
             gen: [
@@ -40485,7 +41077,7 @@
               { type: "cap", id: "army", value: 15 },
             ],
             army: [
-              { id: "lizard_warrior", value: 200 },
+              { id: "lizard_warrior", value: 250 },
               { id: "lizard_archer", value: 120 },
               { id: "lizard_shaman", value: 20 },
               { id: "lizard_commander", value: 1 },
@@ -40522,7 +41114,7 @@
               { type: "cap", id: "army", value: 15 },
             ],
             army: [
-              { id: "draconic_warrior", value: 200 },
+              { id: "draconic_warrior", value: 250 },
               { id: "draconic_diver", value: 120 },
               { id: "draconic_mage", value: 20 },
               { id: "draconic_leader", value: 1 },
@@ -40566,7 +41158,7 @@
             army: [
               { id: "musket_ashigaru", value: 250 },
               { id: "katana_samurai", value: 150 },
-              { id: "cavarly_archer", value: 60 },
+              { id: "cavarly_archer", value: 100 },
               { id: "daimyo", value: 1 },
             ],
             gen: [
@@ -40592,9 +41184,9 @@
             ],
             alliance: [{ type: "resource", id: "research", value: 30 }],
             army: [
-              { id: "mobile_turret", value: 200 },
-              { id: "hover_tank", value: 400 },
-              { id: "mechanical_wolf", value: 600 },
+              { id: "mobile_turret", value: 250 },
+              { id: "hover_tank", value: 450 },
+              { id: "mechanical_wolf", value: 650 },
               { id: "giant_death_robot", value: 1 },
             ],
             gen: [
@@ -40613,7 +41205,7 @@
             relationship: 0,
             army: [
               { id: "kobold_king", value: 1 },
-              { id: "kobold_champion", value: 50 },
+              { id: "kobold_champion", value: 70 },
               { id: "kobold", value: 180 },
             ],
             gen: [
@@ -40630,9 +41222,9 @@
             relationship: 0,
             army: [
               { id: "barbarian_king", value: 1 },
-              { id: "barbarian_chosen", value: 20 },
+              { id: "barbarian_chosen", value: 50 },
               { id: "barbarian_drummer", value: 5 },
-              { id: "barbarian_warrior", value: 120 },
+              { id: "barbarian_warrior", value: 150 },
             ],
             gen: [
               { type: "resource", id: "fame", value: 100, fix: !0 },
@@ -40651,8 +41243,8 @@
             relationship: 0,
             army: [
               { id: "nikharul", value: 1 },
-              { id: "skeletal_knight", value: 400 },
-              { id: "skeleton", value: 2e3 },
+              { id: "skeletal_knight", value: 500 },
+              { id: "skeleton", value: 2200 },
             ],
             gen: [
               { type: "resource", id: "fame", value: 150, fix: !0 },
@@ -40669,7 +41261,7 @@
             relationship: 0,
             army: [
               { id: "dark_knight_lord", value: 1 },
-              { id: "dark_knight", value: 280 },
+              { id: "dark_knight", value: 320 },
               { id: "ancient_ghost", value: 1300 },
               { id: "ancient_legionary", value: 1800 },
             ],
@@ -40691,7 +41283,7 @@
             army: [
               { id: "baron_mordecai_darkthorn", value: 1 },
               { id: "vampire", value: 350 },
-              { id: "skeleton", value: 2e3 },
+              { id: "skeleton", value: 2200 },
               { id: "ghost", value: 1500 },
               { id: "ghoul", value: 2e3 },
             ],
@@ -40712,9 +41304,9 @@
             relationship: 0,
             army: [
               { id: "hand_evil", value: 1 },
-              { id: "succubus", value: 500 },
-              { id: "spawn_evil", value: 500 },
-              { id: "greater_demon", value: 560 },
+              { id: "succubus", value: 540 },
+              { id: "spawn_evil", value: 540 },
+              { id: "greater_demon", value: 660 },
               { id: "faceless_horror", value: 680 },
             ],
             gen: [
@@ -40730,8 +41322,8 @@
             found: [0],
             relationship: 0,
             army: [
-              { id: "skeleton", value: 1e3 },
-              { id: "zombie", value: 400 },
+              { id: "skeleton", value: 1200 },
+              { id: "zombie", value: 600 },
             ],
           },
           {
@@ -40740,8 +41332,8 @@
             relationship: 0,
             army: [
               { id: "goblin_overlord", value: 1 },
-              { id: "goblin_wolfrider", value: 30 },
-              { id: "goblin_warrior", value: 70 },
+              { id: "goblin_wolfrider", value: 50 },
+              { id: "goblin_warrior", value: 90 },
             ],
           },
           {
@@ -40750,7 +41342,7 @@
             relationship: 0,
             army: [
               { id: "red_dragon", value: 1 },
-              { id: "draconic_warrior", value: 100 },
+              { id: "draconic_warrior", value: 140 },
             ],
           },
           {
@@ -40759,7 +41351,7 @@
             relationship: 0,
             army: [
               { id: "fallen_angel", value: 1 },
-              { id: "demonic_musketeer", value: 120 },
+              { id: "demonic_musketeer", value: 170 },
             ],
           },
           {
@@ -40768,8 +41360,8 @@
             relationship: 0,
             army: [
               { id: "fallen_angel", value: 1 },
-              { id: "lesser_demon", value: 150 },
-              { id: "greater_demon", value: 100 },
+              { id: "lesser_demon", value: 170 },
+              { id: "greater_demon", value: 130 },
             ],
           },
           {
@@ -40777,8 +41369,8 @@
             found: [0],
             relationship: 0,
             army: [
-              { id: "orc_warrior", value: 150 },
-              { id: "orc_stone_thrower", value: 100 },
+              { id: "orc_warrior", value: 160 },
+              { id: "orc_stone_thrower", value: 120 },
             ],
             hidden: !0,
           },
@@ -40787,8 +41379,8 @@
             found: [0],
             relationship: 0,
             army: [
-              { id: "orc_warrior", value: 180 },
-              { id: "orc_berserker", value: 50 },
+              { id: "orc_warrior", value: 190 },
+              { id: "orc_berserker", value: 70 },
             ],
             hidden: !0,
           },
@@ -40975,14 +41567,14 @@
             found: [0],
             relationship: 0,
             army: [
-              { id: "orc_champion", value: 50 },
-              { id: "orc_warrior", value: 135 },
-              { id: "orc_ironskin", value: 135 },
-              { id: "orc_berserker", value: 90 },
-              { id: "orc_stone_thrower", value: 90 },
-              { id: "orc_flame_caster", value: 90 },
-              { id: "orc_shaman", value: 60 },
-              { id: "orc_warg_rider", value: 90 },
+              { id: "orc_champion", value: 70 },
+              { id: "orc_warrior", value: 155 },
+              { id: "orc_ironskin", value: 155 },
+              { id: "orc_berserker", value: 110 },
+              { id: "orc_stone_thrower", value: 110 },
+              { id: "orc_flame_caster", value: 110 },
+              { id: "orc_shaman", value: 80 },
+              { id: "orc_warg_rider", value: 130 },
               { id: "orc_warlord", value: 9 },
             ],
           },
@@ -40995,7 +41587,7 @@
               { id: "spawn_evil", value: 8200 },
               { id: "ghast", value: 700 },
               { id: "faceless_horror", value: 190 },
-              { id: "archdemon", value: 120 },
+              { id: "archdemon", value: 140 },
             ],
           },
         ];
@@ -41011,12 +41603,15 @@
               (this.progressSpy = 0),
               (this.progressOracle = 0),
               (this.armyStepQty = (0, ge.$E)("armyQty", 1)),
+              (this.combatReports = (0, ge.$E)("combatReports", [])),
+              (this.orderByBattleOrder = !1),
               (this.dCombat = !1),
               (this.exploreInProgress = !1),
               (this.attackInProgress = !1),
               (this.spyInProgress = !1),
               (this.oracleInProgress = !1),
               (this.lastBattleLog = []),
+              (this.showBattleReports = !1),
               (this._foundKingdom = !1),
               (this._foundEnemyCount = 0),
               (this._recomputeEnemies = !0),
@@ -41030,71 +41625,87 @@
             }
             this.MainStore.d &&
               ((this.waitTime = 1e3), (this.waitTimeOracle = 1e3)),
-              (0, i.Gn)(this, {
-                dCombat: i.sH,
-                selectedTab: i.sH,
-                selectTab: i.XI,
-                progressScout: i.sH,
-                setProgressScout: i.XI,
-                progressAttack: i.sH,
-                setProgressAttack: i.XI,
-                progressSpy: i.sH,
-                setProgressSpy: i.XI,
-                progressOracle: i.sH,
-                setProgressOracle: i.XI,
-                exploreInProgress: i.sH,
-                attackInProgress: i.sH,
-                spyInProgress: i.sH,
-                oracleInProgress: i.sH,
-                armyStepQty: i.sH,
-                cap: i.EW,
-                oracle: i.EW,
-                ownedCount: i.EW,
-                defenseCount: i.EW,
-                scoutCount: i.EW,
-                scoutAwayCount: i.EW,
-                armyCount: i.EW,
-                armyAwayCount: i.EW,
-                spyCount: i.EW,
-                spyAwayCount: i.EW,
-                visibleArmy: i.EW,
-                buildableArmy: i.EW,
-                ownedScout: i.EW,
-                ownedArmy: i.EW,
-                visibleEspionage: i.EW,
-                ownedSpy: i.EW,
-                costsScout: i.EW,
-                costsAttack: i.EW,
-                costsSpy: i.EW,
-                checkScout: i.EW,
-                checkAttack: i.EW,
-                checkSpy: i.EW,
-                checkOracle: i.EW,
-                enemyOption: i.EW,
-                spyOption: i.EW,
-                ownedEnemies: i.EW,
-                addArmy: i.XI,
-                destroyArmy: i.XI,
-                updateAway: i.XI,
-                updateDefense: i.XI,
-                dismissArmy: i.XI,
-                resetArmy: i.XI,
-                moveAll: i.XI,
-                startExplore: i.XI,
-                processExplore: i.XI,
-                startOracle: i.XI,
-                startAttack: i.XI,
-                _fight: i.XI,
-                startSpy: i.XI,
-                processSpy: i.XI,
-                _addEnemySpyLog: i.XI,
-                addEnemy: i.XI,
-                _ownedOrcs: i.XI,
-                updateFlag: i.XI,
-                updateFlagB: i.XI,
-                setArmyStepQty: i.XI,
-                toggleDCombat: i.XI,
+              (0, a.Gn)(this, {
+                dCombat: a.sH,
+                selectedTab: a.sH,
+                selectTab: a.XI,
+                progressScout: a.sH,
+                setProgressScout: a.XI,
+                progressAttack: a.sH,
+                setProgressAttack: a.XI,
+                progressSpy: a.sH,
+                setProgressSpy: a.XI,
+                progressOracle: a.sH,
+                setProgressOracle: a.XI,
+                exploreInProgress: a.sH,
+                attackInProgress: a.sH,
+                spyInProgress: a.sH,
+                oracleInProgress: a.sH,
+                armyStepQty: a.sH,
+                orderByBattleOrder: a.sH,
+                combatReports: a.sH,
+                cap: a.EW,
+                maxArmyStepQty: a.EW,
+                oracle: a.EW,
+                ownedCount: a.EW,
+                defenseCount: a.EW,
+                scoutCount: a.EW,
+                scoutAwayCount: a.EW,
+                armyCount: a.EW,
+                armyAwayCount: a.EW,
+                spyCount: a.EW,
+                spyAwayCount: a.EW,
+                visibleArmy: a.EW,
+                buildableArmy: a.EW,
+                ownedScout: a.EW,
+                ownedArmy: a.EW,
+                ownedDefense: a.EW,
+                visibleEspionage: a.EW,
+                ownedSpy: a.EW,
+                costsScout: a.EW,
+                costsAttack: a.EW,
+                costsSpy: a.EW,
+                checkScout: a.EW,
+                checkAttack: a.EW,
+                checkSpy: a.EW,
+                checkOracle: a.EW,
+                enemyOption: a.EW,
+                spyOption: a.EW,
+                ownedEnemies: a.EW,
+                addArmy: a.XI,
+                destroyArmy: a.XI,
+                updateAway: a.XI,
+                updateDefense: a.XI,
+                dismissArmy: a.XI,
+                resetArmy: a.XI,
+                moveAll: a.XI,
+                startExplore: a.XI,
+                processExplore: a.XI,
+                startOracle: a.XI,
+                startAttack: a.XI,
+                _fight: a.XI,
+                startSpy: a.XI,
+                processSpy: a.XI,
+                _addEnemySpyLog: a.XI,
+                addEnemy: a.XI,
+                _ownedOrcs: a.XI,
+                updateFlag: a.XI,
+                updateFlagB: a.XI,
+                setArmyStepQty: a.XI,
+                toggleOrderByBattleOrder: a.XI,
+                _saveCombatReport: a.XI,
+                addCombatReport: a.XI,
+                deleteCombatReport: a.XI,
+                toggleStarredReport: a.XI,
+                showBattleReports: a.sH,
+                toggleBattleReports: a.XI,
+                toggleDCombat: a.XI,
               });
+          }
+          get maxArmyStepQty() {
+            const e = 0.05 * this.cap,
+              t = 100 * Math.round(e / 100);
+            return Math.max(t, 50);
           }
           get oracle() {
             if (!this.MainStore.showOracle) return !1;
@@ -41169,11 +41780,22 @@
             );
           }
           get ownedArmy() {
-            return Ae._.filter((e) => {
+            var e, t;
+            const r = Ae._.filter((e) => {
               if ("army" !== e.type) return !1;
               const t = this.MainStore.run.army.findIndex((t) => t.id === e.id);
               return -1 !== t && this.MainStore.run.army[t].value > 0;
             });
+            if (!this.orderByBattleOrder) return r;
+            const a =
+              null !==
+                (e =
+                  null === (t = this.MainStore.run.armyOrder) || void 0 === t
+                    ? void 0
+                    : t.away) && void 0 !== e
+                ? e
+                : [];
+            return r.slice().sort(this.sortByOrderArr(a));
           }
           get ownedScout() {
             return Ae._.filter((e) => {
@@ -41181,6 +41803,22 @@
               const t = this.MainStore.run.army.findIndex((t) => t.id === e.id);
               return -1 !== t && this.MainStore.run.army[t].value > 0;
             });
+          }
+          get ownedDefense() {
+            var e, t;
+            const r = this.ownedScout
+              .concat(this.ownedSpy)
+              .concat(this.ownedArmy);
+            if (!this.orderByBattleOrder) return r;
+            const a =
+              null !==
+                (e =
+                  null === (t = this.MainStore.run.armyOrder) || void 0 === t
+                    ? void 0
+                    : t.defense) && void 0 !== e
+                ? e
+                : [];
+            return r.slice().sort(this.sortByOrderArr(a));
           }
           get visibleEspionage() {
             return this.MainStore.ReqGenStore.checkOwned(
@@ -41429,6 +42067,19 @@
                 };
             }
             return { value: "", label: "" };
+          }
+          sortByOrderArr(e) {
+            return (t, r) => {
+              const a = e.indexOf(t.id),
+                i = e.indexOf(r.id);
+              return -1 === a && -1 === i
+                ? 0
+                : -1 === a
+                ? 1
+                : -1 === i
+                ? -1
+                : a - i;
+            };
           }
           selectTab(e) {
             this.selectedTab = e;
@@ -41771,142 +42422,369 @@
             (this.spyInProgress = !1), this.MainStore.save();
           }
           _fight(e) {
-            let t,
-              r =
+            var t, r, a, i;
+            let n,
+              o =
                 arguments.length > 1 && void 0 !== arguments[1]
                   ? arguments[1]
-                  : "";
+                  : "",
+              s = "";
             "attack" === e || "oracle" === e
-              ? ((t = Ce.find((e) => e.id === this.MainStore.run.enemy)),
-                void 0 === t &&
-                  (t = qe.find((e) => e.id === this.MainStore.run.enemy)))
-              : (t = qe.find((e) => e.id === r));
-            let a = [],
-              i = [];
+              ? ((n = Ce.find((e) => e.id === this.MainStore.run.enemy)),
+                void 0 === n
+                  ? ((n = qe.find((e) => e.id === this.MainStore.run.enemy)),
+                    (s = (0, pe.v)("dip_" + n.id)))
+                  : (s = (0, pe.v)("ene_" + n.id)))
+              : ((n = qe.find((e) => e.id === o)),
+                (s = (0, pe.v)("dip_" + n.id)));
+            let l = [],
+              d = [];
             this.MainStore.run.army.forEach((t) => {
               const r = Ae._.findIndex((e) => e.id === t.id);
-              let n = !1,
-                o = 0;
+              let a = !1,
+                i = 0;
               if (
                 ("attack" === e || "oracle" === e
-                  ? ((o = t.away), "army" === Ae._[r].type && o > 0 && (n = !0))
-                  : ((o = t.value - t.away), o > 0 && (n = !0)),
-                n)
+                  ? ((i = t.away), "army" === Ae._[r].type && i > 0 && (a = !0))
+                  : ((i = t.value - t.away), i > 0 && (a = !0)),
+                a)
               ) {
                 let e = Ae._[r].attack,
-                  n = Ae._[r].defense;
-                const l = this.calcArmyMods(t.id);
-                (e += l[0]), (n += l[1]);
-                for (var s = 0; s < o; s++) {
-                  const o = Number(
-                    Ae._[r].order.toString() +
-                      (1e3 + (0, ge.HO)(0, 900)).toString()
-                  );
-                  i.push({
+                  a = Ae._[r].defense;
+                const o = this.calcArmyMods(t.id);
+                (e += o[0]), (a += o[1]);
+                for (var n = 0; n < i; n++) {
+                  const i = Ae._[r].order;
+                  d.push({
                     id: t.id,
-                    defense: n,
-                    order: o,
+                    defense: a,
+                    order: i,
                     category: Ae._[r].category,
                   });
-                  const s = Number(
-                    Ae._[r].category.toString() +
-                      (1e3 + (0, ge.HO)(0, 900)).toString()
-                  );
-                  a.push({
+                  const n = Ae._[r].category;
+                  l.push({
                     id: t.id,
                     attack: e,
-                    order: s,
+                    order: n,
                     category: Ae._[r].category,
+                    trample: Ae._[r].trample,
+                    splash: Ae._[r].splash,
                   });
                 }
               }
-            }),
-              a.sort((e, t) =>
-                e.order > t.order ? 1 : t.order > e.order ? -1 : 0
-              ),
-              i.sort((e, t) =>
-                e.order > t.order ? 1 : t.order > e.order ? -1 : 0
-              );
-            let n = [],
-              o = [];
-            t.army.forEach((e) => {
+            });
+            const c =
+              "defense" === e
+                ? null !==
+                    (t =
+                      null === (r = this.MainStore.run.armyOrder) ||
+                      void 0 === r
+                        ? void 0
+                        : r.defense) && void 0 !== t
+                  ? t
+                  : []
+                : null !==
+                    (a =
+                      null === (i = this.MainStore.run.armyOrder) ||
+                      void 0 === i
+                        ? void 0
+                        : i.away) && void 0 !== a
+                ? a
+                : [];
+            l.sort(this.sortByOrderArr(c)), d.sort(this.sortByOrderArr(c));
+            let u = [],
+              p = [];
+            n.army.forEach((e) => {
               const t = Ae._.findIndex((t) => t.id === e.id);
               let r = e.value;
               "undefined" === typeof Ae._[t].cap &&
                 (r = this._addEnemiesQtyModifiers(r));
               let a = Ae._[t].attack,
                 i = Ae._[t].defense;
-              for (var s = 0; s < r; s++) {
-                const r = Number(
-                  Ae._[t].order.toString() +
-                    (1e3 + (0, ge.HO)(0, 900)).toString()
-                );
-                o.push({
+              for (var n = 0; n < r; n++) {
+                const r = Ae._[t].order;
+                p.push({
                   id: e.id,
                   defense: i,
                   order: r,
                   category: Ae._[t].category,
                 });
-                const s = Number(
-                  Ae._[t].category.toString() +
-                    (1e3 + (0, ge.HO)(0, 900)).toString()
-                );
-                n.push({
+                const n = Ae._[t].category;
+                u.push({
                   id: e.id,
                   attack: a,
-                  order: s,
+                  order: n,
                   category: Ae._[t].category,
+                  trample: Ae._[t].trample,
+                  splash: Ae._[t].splash,
                 });
               }
             }),
-              n.sort((e, t) =>
+              u.sort((e, t) =>
                 e.order > t.order ? 1 : t.order > e.order ? -1 : 0
               ),
-              o.sort((e, t) =>
+              p.sort((e, t) =>
                 e.order > t.order ? 1 : t.order > e.order ? -1 : 0
               );
-            let s = 0,
-              l = [],
-              d = [];
-            for (; 0 === s; ) {
+            let _ = 0,
+              h = 0,
+              y = [],
+              m = [],
+              g = [],
+              f = [];
+            for (; 0 === _; ) {
+              h++;
               let e = 0,
                 t = [];
-              a.forEach((r) => {
-                if ("undefined" !== typeof o[e]) {
-                  let a = r.attack;
-                  const i = 4 === r.category ? 1 : r.category + 1;
-                  o[e].category === i && (a *= 2),
-                    a >= o[e].defense
-                      ? (d.push(o[e].id), t.push(e), e++)
-                      : (o[e].defense -= r.attack);
-                }
-              });
+              for (let i = 0; i < l.length; i++) {
+                let r = l[i],
+                  a = r.attack;
+                const n = 4 === r.category ? 1 : r.category + 1;
+                for (; e < p.length && t.includes(e); ) e++;
+                if (r.splash && r.splash > 0) {
+                  let i = 0,
+                    o = e;
+                  for (; i < r.splash && o < p.length; ) {
+                    if (t.includes(o)) {
+                      o++;
+                      continue;
+                    }
+                    let e = a;
+                    const s = p[o].category === n;
+                    s && (e *= 2);
+                    const l = e >= p[o].defense,
+                      d = Math.min(e, p[o].defense);
+                    g.push({
+                      round: h,
+                      attacker: r.id,
+                      target: p[o].id,
+                      damage: d,
+                      originalDamage: a,
+                      targetDefense: p[o].defense,
+                      killed: l,
+                      attackType: "splash",
+                      categoryBonus: s,
+                    }),
+                      l ? (m.push(p[o].id), t.push(o)) : (p[o].defense -= e),
+                      i++,
+                      o++;
+                  }
+                } else
+                  for (; e < p.length && a > 0; ) {
+                    const i = p[e],
+                      o = i.defense;
+                    let s = a;
+                    const l = p[e].category === n;
+                    l && (s *= 2);
+                    const d = s >= p[e].defense,
+                      c = Math.min(s, p[e].defense);
+                    let u = 0;
+                    d
+                      ? ((a -= p[e].defense),
+                        r.trample && r.trample > 0
+                          ? ((u = Math.floor(a * (r.trample / 100))), (a = u))
+                          : (a = 0),
+                        m.push(p[e].id),
+                        t.push(e),
+                        e++)
+                      : ((p[e].defense -= s), (a = 0)),
+                      g.push({
+                        round: h,
+                        attacker: r.id,
+                        target: i.id,
+                        damage: c,
+                        originalDamage: r.attack,
+                        targetDefense: o,
+                        killed: d,
+                        attackType:
+                          r.trample && r.trample > 0 && d && u > 0
+                            ? "trample"
+                            : "normal",
+                        categoryBonus: l,
+                        trampleRemaining: u > 0 ? u : void 0,
+                      });
+                  }
+              }
               let r = 0,
-                c = [];
-              n.forEach((e) => {
-                if ("undefined" !== typeof i[r]) {
-                  let t = e.attack;
-                  const a = 4 === e.category ? 1 : e.category + 1;
-                  i[r].category === a && (t *= 2),
-                    t >= i[r].defense
-                      ? (l.push(i[r].id), c.push(r), r++)
-                      : (i[r].defense -= e.attack);
+                a = [];
+              for (let i = 0; i < u.length; i++) {
+                let e = u[i],
+                  t = e.attack;
+                const n = 4 === e.category ? 1 : e.category + 1;
+                for (; r < d.length && a.includes(r); ) r++;
+                if (e.splash && e.splash > 0) {
+                  let i = 0,
+                    o = r;
+                  for (; i < e.splash && o < d.length; ) {
+                    if (a.includes(o)) {
+                      o++;
+                      continue;
+                    }
+                    let r = t;
+                    const s = d[o].category === n;
+                    s && (r *= 2);
+                    const l = r >= d[o].defense,
+                      c = Math.min(r, d[o].defense);
+                    g.push({
+                      round: h,
+                      attacker: e.id,
+                      target: d[o].id,
+                      damage: c,
+                      originalDamage: t,
+                      targetDefense: d[o].defense,
+                      killed: l,
+                      attackType: "splash",
+                      categoryBonus: s,
+                    }),
+                      l ? (y.push(d[o].id), a.push(o)) : (d[o].defense -= r),
+                      i++,
+                      o++;
+                  }
+                } else
+                  for (; r < d.length && t > 0; ) {
+                    const i = d[r],
+                      o = i.defense;
+                    let s = t;
+                    const l = d[r].category === n;
+                    l && (s *= 2);
+                    const c = s >= d[r].defense,
+                      u = Math.min(s, d[r].defense);
+                    let p = 0;
+                    c
+                      ? ((t -= d[r].defense),
+                        e.trample && e.trample > 0
+                          ? ((p = Math.floor(t * (e.trample / 100))), (t = p))
+                          : (t = 0),
+                        y.push(d[r].id),
+                        a.push(r),
+                        r++)
+                      : ((d[r].defense -= s), (t = 0)),
+                      g.push({
+                        round: h,
+                        attacker: e.id,
+                        target: i.id,
+                        damage: u,
+                        originalDamage: e.attack,
+                        targetDefense: o,
+                        killed: c,
+                        attackType:
+                          e.trample && e.trample > 0 && c && p > 0
+                            ? "trample"
+                            : "normal",
+                        categoryBonus: l,
+                        trampleRemaining: p > 0 ? p : void 0,
+                      });
+                  }
+              }
+              if (
+                (t.forEach((e) => {
+                  const t = u.findIndex((t) => t.id === p[e].id);
+                  u.splice(t, 1), delete p[e];
+                }),
+                a.forEach((e) => {
+                  const t = l.findIndex((t) => t.id === d[e].id);
+                  l.splice(t, 1), delete d[e];
+                }),
+                (p = p.filter((e) => void 0 !== e)),
+                (d = d.filter((e) => void 0 !== e)),
+                g.length > 0)
+              ) {
+                const e = h,
+                  t = g.filter((t) => t.round === e);
+                if (t.length > 0) {
+                  let r = "\nRoundIcon ROUND ".concat(e, " DETAILED REPORT:\n");
+                  const a = t.reduce(
+                    (e, t) => (
+                      e[t.attacker] || (e[t.attacker] = []),
+                      e[t.attacker].push(t),
+                      e
+                    ),
+                    {}
+                  );
+                  for (const [e, t] of Object.entries(a)) {
+                    const a = t.filter((e) => e.killed).length,
+                      i = t.reduce((e, t) => e + t.damage, 0);
+                    (r += "AttackerIcon  "
+                      .concat((0, pe.v)("uni_" + e), ": ")
+                      .concat(i, " damage")),
+                      a > 0 && (r += " (".concat(a, " kills)"));
+                    const n = t.filter((e) => "splash" === e.attackType).length,
+                      o = t.filter((e) => "trample" === e.attackType).length,
+                      s = t.filter((e) => e.categoryBonus).length;
+                    n > 0 && (r += " [".concat(n, " splash]")),
+                      o > 0 && (r += " [".concat(o, " trample]")),
+                      s > 0 && (r += " [".concat(s, " bonus dmg]")),
+                      (r += "\n");
+                    const l = t
+                      .filter(
+                        (e) =>
+                          e.killed ||
+                          e.categoryBonus ||
+                          "normal" !== e.attackType
+                      )
+                      .reduce((e, t) => {
+                        let r = "vs "
+                          .concat((0, pe.v)("uni_" + t.target), ": ")
+                          .concat(t.damage, " dmg");
+                        return (
+                          t.categoryBonus && (r += " (2x bonus)"),
+                          t.killed && (r += " KillIcon"),
+                          t.trampleRemaining &&
+                            t.trampleRemaining > 0 &&
+                            (r += " (trample: ".concat(
+                              t.trampleRemaining,
+                              " remaining)"
+                            )),
+                          e[r] || (e[r] = { count: 0, event: t }),
+                          e[r].count++,
+                          e
+                        );
+                      }, {});
+                    for (const [e, { count: t }] of Object.entries(l))
+                      r +=
+                        1 === t
+                          ? "   \u2022 ".concat(e, "\n")
+                          : "   \u2022 ".concat(e, " (\xd7").concat(t, ")\n");
+                  }
+                  const i = t.filter((e) => e.killed).length;
+                  (r += "KillIcon Round kills: ".concat(
+                    i,
+                    " units eliminated"
+                  )),
+                    (r += "\nArmyIcon Remaining: "
+                      .concat(d.length, " army vs ")
+                      .concat(p.length, " enemy\n")),
+                    f.push(r);
                 }
-              }),
-                t.forEach((e) => {
-                  const t = n.findIndex((t) => t.id === o[e].id);
-                  n.splice(t, 1), delete o[e];
-                }),
-                c.forEach((e) => {
-                  const t = a.findIndex((t) => t.id === i[e].id);
-                  a.splice(t, 1), delete i[e];
-                }),
-                (o = o.filter((e) => void 0 !== e)),
-                (i = i.filter((e) => void 0 !== e)),
-                0 === i.length ? (s = 2) : 0 === o.length && (s = 1);
+              }
+              0 === d.length ? (_ = 2) : 0 === p.length && (_ = 1);
             }
-            if ("oracle" === e) return 1 === s;
-            if (1 === s) {
+            const v = y.length,
+              b = m.length,
+              w = y.reduce((e, t) => ((e[t] = (e[t] || 0) + 1), e), {}),
+              k = m.reduce((e, t) => ((e[t] = (e[t] || 0) + 1), e), {}),
+              x = l.filter((e) => e.splash && e.splash > 0).length,
+              S = l.filter((e) => e.trample && e.trample > 0).length;
+            if (
+              ("oracle" !== e &&
+                this._saveCombatReport({
+                  fightType: e,
+                  enemyName: s,
+                  victory: _,
+                  rounds: h,
+                  totalArmyDeaths: v,
+                  totalEnemyDeaths: b,
+                  armyDeathsByType: w,
+                  enemyDeathsByType: k,
+                  splashUnits: x,
+                  trampleUnits: S,
+                  combatReport: g,
+                  detailedLog: f,
+                }),
+              "oracle" === e)
+            )
+              return 1 === _;
+            if (1 === _) {
               if ("attack" === e) {
                 let e = this.MainStore.run.enemies.findIndex(
                   (e) => e.id === this.MainStore.run.enemy
@@ -41919,7 +42797,7 @@
                     this.MainStore.ReqGenStore.runGen(
                       "enemy",
                       this.MainStore.run.enemy,
-                      t
+                      n
                     ),
                     this.MainStore.AchievementsStore.runAchievement(
                       this.MainStore.run.enemy
@@ -41935,7 +42813,7 @@
                       this.MainStore.ReqGenStore.runGen(
                         "trade",
                         this.MainStore.run.enemy,
-                        t
+                        n
                       ),
                     this.MainStore.DiplomacyStore.cancelAttack(
                       this.MainStore.run.enemy
@@ -41956,14 +42834,14 @@
                       "light" !== e.id &&
                       this.MainStore.ResourcesStore.setResource(e.id, 0);
                   }));
-            let c = [];
-            if (l.length > 0) {
+            let M = [];
+            if (y.length > 0) {
               if (99 === this.MainStore.SettingsStore.difficultyMode) {
-                const e = this.extractAndRemoveRandomStrings(l, 20);
-                (c = e[1]), (l = e[0]);
+                const e = this.extractAndRemoveRandomStrings(y, 20);
+                (M = e[1]), (y = e[0]);
               }
               this.dCombat ||
-                l.forEach((t) => {
+                y.forEach((t) => {
                   "attack" === e
                     ? this.destroyArmy(t, 1, "army")
                     : this.destroyArmy(t, 1, "army", !0);
@@ -41976,21 +42854,21 @@
                       "event",
                       "attack",
                       this.MainStore.run.enemy,
-                      1 === s ? 1 : 0
+                      1 === _ ? 1 : 0
                     )
-                  : xe("event", "defense", r, 1 === s ? 1 : 0)),
+                  : xe("event", "defense", o, 1 === _ ? 1 : 0)),
               "attack" === e
-                ? this._battleLog(s, l, c, d, this.enemyOption.label)
-                : this._battleLog(s, l, c, d, (0, pe.v)("dip_" + r)),
+                ? this._battleLog(_, y, M, m, this.enemyOption.label)
+                : this._battleLog(_, y, M, m, (0, pe.v)("dip_" + o)),
               "attack" === e &&
                 (this.dCombat ||
-                  (1 === s &&
+                  (1 === _ &&
                     (this.MainStore.run.spy === this.MainStore.run.enemy &&
                       this.MainStore.updateSpy(""),
                     this.MainStore.updateEnemy(""))),
                 (this.attackInProgress = !1)),
               this.MainStore.save(),
-              1 === s
+              1 === _
             );
           }
           processOracle() {
@@ -42126,7 +43004,12 @@
             this.lastBattleLog = [];
             let n = 1 === e ? "text-green-500" : "text-red-500",
               o = 1 === e ? "text-green-600" : "text-red-600";
-            this.MainStore.addLog("~~~~~~~~~~", n, !0, !1);
+            this.MainStore.addLog(
+              "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550",
+              n,
+              !0,
+              !1
+            );
             let s,
               l = "",
               d = "";
@@ -42214,7 +43097,12 @@
                 )),
               this.MainStore.addLog(i + "：" + l, o, !0, !1),
               this.lastBattleLog.push(l),
-              this.MainStore.addLog("~~~~~~~~~~", n, !0, !1),
+              this.MainStore.addLog(
+                "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550",
+                n,
+                !0,
+                !1
+              ),
               this.lastBattleLog.reverse();
           }
           addArmyQty(e) {
@@ -42228,8 +43116,12 @@
             if ("undefined" === typeof this.MainStore.idxs.army[e]) {
               const t =
                 this.MainStore.run.army.push({ id: e, value: 1, away: 0 }) - 1;
-              this.MainStore.idxs.army[e] = t;
-            } else this.MainStore.run.army[this.MainStore.idxs.army[e]].value++;
+              (this.MainStore.idxs.army[e] = t), this._updateArmyOrder(e, 1, 0);
+            } else {
+              const t = this.MainStore.idxs.army[e],
+                r = this.MainStore.run.army[t];
+              r.value++, this._updateArmyOrder(e, r.value, r.away);
+            }
             this.MainStore.ReqGenStore.runGen("army", e);
             const r = Ae._.findIndex((t) => t.id === e);
             "undefined" !== typeof Ae._[r].cap &&
@@ -42238,58 +43130,162 @@
               this.MainStore.addNotification("max_cap", "key", "common", !1),
               this.MainStore.save();
           }
+          initArmyOrder() {
+            "undefined" === typeof this.MainStore.run.armyOrder &&
+              (this.MainStore.run.armyOrder = { away: [], defense: [] });
+            let e = !1;
+            0 === this.MainStore.run.armyOrder.away.length &&
+              this.MainStore.run.army
+                .filter((e) => {
+                  const t = Ae._.findIndex((t) => t.id === e.id);
+                  return e.away > 0 && "army" === Ae._[t].type;
+                })
+                .sort((e, t) => {
+                  var r, a, i, n;
+                  return (
+                    (null !==
+                      (r =
+                        null === (a = Ae._.find((t) => t.id === e.id)) ||
+                        void 0 === a
+                          ? void 0
+                          : a.order) && void 0 !== r
+                      ? r
+                      : 0) -
+                    (null !==
+                      (i =
+                        null === (n = Ae._.find((e) => e.id === t.id)) ||
+                        void 0 === n
+                          ? void 0
+                          : n.order) && void 0 !== i
+                      ? i
+                      : 0)
+                  );
+                })
+                .forEach((t) => {
+                  (e = !0), this.MainStore.run.armyOrder.away.push(t.id);
+                }),
+              0 === this.MainStore.run.armyOrder.defense.length &&
+                this.MainStore.run.army
+                  .filter((e) => e.value - e.away > 0)
+                  .sort((e, t) => {
+                    var r, a, i, n;
+                    return (
+                      (null !==
+                        (r =
+                          null === (a = Ae._.find((t) => t.id === e.id)) ||
+                          void 0 === a
+                            ? void 0
+                            : a.order) && void 0 !== r
+                        ? r
+                        : 0) -
+                      (null !==
+                        (i =
+                          null === (n = Ae._.find((e) => e.id === t.id)) ||
+                          void 0 === n
+                            ? void 0
+                            : n.order) && void 0 !== i
+                        ? i
+                        : 0)
+                    );
+                  })
+                  .forEach((t) => {
+                    (e = !0), this.MainStore.run.armyOrder.defense.push(t.id);
+                  }),
+              e && this._sortArmyOrder();
+          }
+          _sortArmyOrder() {
+            let e =
+              arguments.length > 0 && void 0 !== arguments[0] && arguments[0];
+            const t = this.MainStore.run.armyOrder.away,
+              r = this.MainStore.run.armyOrder.defense;
+            for (let s = t.length - 1; s >= 0; s--) {
+              var a;
+              "army" !==
+                (null === (a = Ae._.find((e) => e.id === t[s])) || void 0 === a
+                  ? void 0
+                  : a.type) && t.splice(s, 1);
+            }
+            if (!e) return;
+            const i = (e) => {
+                var t, r;
+                return null !==
+                  (t =
+                    null === (r = Ae._.find((t) => t.id === e)) || void 0 === r
+                      ? void 0
+                      : r.order) && void 0 !== t
+                  ? t
+                  : 0;
+              },
+              n = t.slice().sort((e, t) => i(e) - i(t)),
+              o = r.slice().sort((e, t) => i(e) - i(t));
+            t.splice(0, t.length, ...n), r.splice(0, r.length, ...o);
+          }
+          _updateArmyOrder(e, t, r) {
+            const a = this.MainStore.run.armyOrder.away,
+              i = this.MainStore.run.armyOrder.defense,
+              n = a.indexOf(e),
+              o = i.indexOf(e);
+            let s = !1;
+            r > 0
+              ? -1 === n && ((s = !0), a.push(e))
+              : -1 !== n && ((s = !0), a.splice(n, 1)),
+              t === r
+                ? -1 !== o && ((s = !0), i.splice(o, 1))
+                : -1 === o && ((s = !0), i.push(e)),
+              s && this._sortArmyOrder();
+          }
           updateAway(e, t) {
             if ("undefined" === typeof this.MainStore.idxs.army[e]) return !1;
-            t < 0 && (t = 0),
-              this.MainStore.run.army[this.MainStore.idxs.army[e]].value >= t
-                ? (this.MainStore.run.army[this.MainStore.idxs.army[e]].away =
-                    t)
-                : (this.MainStore.run.army[this.MainStore.idxs.army[e]].away =
-                    this.MainStore.run.army[this.MainStore.idxs.army[e]].value);
+            t < 0 && (t = 0);
+            const r = this.MainStore.idxs.army[e],
+              a = this.MainStore.run.army[r];
+            a.value >= t ? (a.away = t) : (a.away = a.value),
+              this._updateArmyOrder(e, a.value, a.away);
           }
           updateDefense(e, t) {
             if ("undefined" === typeof this.MainStore.idxs.army[e]) return !1;
-            t < 0 && (t = 0),
-              this.MainStore.run.army[this.MainStore.idxs.army[e]].value >= t
-                ? (this.MainStore.run.army[this.MainStore.idxs.army[e]].away =
-                    this.MainStore.run.army[this.MainStore.idxs.army[e]].value -
-                    t)
-                : (this.MainStore.run.army[
-                    this.MainStore.idxs.army[e]
-                  ].away = 0);
+            t < 0 && (t = 0);
+            const r = this.MainStore.idxs.army[e],
+              a = this.MainStore.run.army[r];
+            a.value >= t ? (a.away = a.value - t) : (a.away = 0),
+              this._updateArmyOrder(e, a.value, a.away);
           }
           resetArmy(e) {
             this.MainStore.run.army.forEach((t) => {
               const r = Ae._.findIndex((e) => e.id === t.id);
-              Ae._[r].type === e &&
-                (this.MainStore.run.army[
-                  this.MainStore.idxs.army[t.id]
-                ].away = 0);
-            });
+              if (Ae._[r].type === e) {
+                const e = this.MainStore.idxs.army[t.id],
+                  r = this.MainStore.run.army[e];
+                (r.away = 0), this._updateArmyOrder(t.id, r.value, r.away);
+              }
+            }),
+              "army" === e && this._sortArmyOrder(!0);
           }
           moveAll(e) {
             this.MainStore.run.army.forEach((t) => {
               const r = Ae._.findIndex((e) => e.id === t.id);
-              Ae._[r].type === e &&
-                (this.MainStore.run.army[this.MainStore.idxs.army[t.id]].away =
-                  this.MainStore.run.army[
-                    this.MainStore.idxs.army[t.id]
-                  ].value);
-            });
+              if (Ae._[r].type === e) {
+                const e = this.MainStore.idxs.army[t.id],
+                  r = this.MainStore.run.army[e];
+                (r.away = r.value),
+                  this._updateArmyOrder(t.id, r.value, r.away);
+              }
+            }),
+              "army" === e && this._sortArmyOrder(!0);
           }
           destroyArmy(e, t, r) {
             let a =
               arguments.length > 3 && void 0 !== arguments[3] && arguments[3];
             if ("settlement_defenses" === e) return !1;
             if ("undefined" === typeof this.MainStore.idxs.army[e]) return !1;
+            const i = this.MainStore.idxs.army[e],
+              n = this.MainStore.run.army[i];
             a ||
-              (this.MainStore.run.army[this.MainStore.idxs.army[e]].away >= t &&
-                (this.MainStore.run.army[this.MainStore.idxs.army[e]].away -=
-                  t)),
-              this.MainStore.run.army[this.MainStore.idxs.army[e]].value >= t &&
-                (this.MainStore.run.army[this.MainStore.idxs.army[e]].value -=
-                  t);
-            for (var i = 0; i < t; i++)
+              (n.away >= t &&
+                ((n.away -= t), this._updateArmyOrder(e, n.value, n.away))),
+              n.value >= t &&
+                ((n.value -= t), this._updateArmyOrder(e, n.value, n.away));
+            for (var o = 0; o < t; o++)
               this.MainStore.ReqGenStore.deleteGen("army", e);
             if ("recon" === r) {
               const e = (0, ge.zP)(117);
@@ -42306,14 +43302,14 @@
           dismissArmy(e, t) {
             if ("settlement_defenses" === e) return !1;
             if ("undefined" === typeof this.MainStore.idxs.army[e]) return !1;
-            const r =
-              this.MainStore.run.army[this.MainStore.idxs.army[e]].value -
-              this.MainStore.run.army[this.MainStore.idxs.army[e]].away;
-            if (r >= 1) {
-              t > r && (t = r),
-                (this.MainStore.run.army[this.MainStore.idxs.army[e]].value -=
-                  t);
-              for (var a = 0; a < t; a++)
+            const r = this.MainStore.idxs.army[e],
+              a = this.MainStore.run.army[r],
+              i = a.value - a.away;
+            if (i >= 1) {
+              t > i && (t = i),
+                (a.value -= t),
+                this._updateArmyOrder(e, a.value, a.away);
+              for (var n = 0; n < t; n++)
                 this.MainStore.ReqGenStore.deleteGen("army", e);
               this.MainStore.save();
             }
@@ -42446,8 +43442,15 @@
               this.MainStore.saveThrottle();
           }
           setArmyStepQty(e) {
-            (this.armyStepQty = e),
+            1 !== e && 10 !== e && (e = this.maxArmyStepQty),
+              (this.armyStepQty = e),
               localStorage.setItem("armyQty", JSON.stringify(this.armyStepQty));
+          }
+          toggleBattleReports() {
+            this.showBattleReports = !this.showBattleReports;
+          }
+          toggleOrderByBattleOrder() {
+            this.orderByBattleOrder = !this.orderByBattleOrder;
           }
           toggleDCombat() {
             this.dCombat = !this.dCombat;
@@ -42460,6 +43463,111 @@
             }
             const a = e.slice(0, r);
             return e.splice(0, r), [e, a];
+          }
+          addCombatReport(e) {
+            if (
+              (this.combatReports.unshift(e), this.combatReports.length > 10)
+            ) {
+              const e = this.combatReports.length - 10;
+              let t = 0;
+              for (let r = this.combatReports.length - 1; r >= 0 && t < e; r--)
+                this.combatReports[r].starred ||
+                  (this.combatReports.splice(r, 1), t++);
+            }
+            localStorage.setItem(
+              "combatReports",
+              JSON.stringify(this.combatReports)
+            );
+          }
+          deleteCombatReport(e) {
+            const t = this.combatReports.findIndex((t) => t.id === e);
+            if (-1 !== t) {
+              if (this.combatReports[t].starred) return;
+              this.combatReports.splice(t, 1),
+                localStorage.setItem(
+                  "combatReports",
+                  JSON.stringify(this.combatReports)
+                );
+            }
+          }
+          toggleStarredReport(e) {
+            const t = this.combatReports.find((t) => t.id === e);
+            if (t) {
+              const e = this.combatReports.filter((e) => e.starred).length;
+              return (
+                !(!t.starred && e >= 5) &&
+                ((t.starred = !t.starred),
+                (this.combatReports = [...this.combatReports]),
+                localStorage.setItem(
+                  "combatReports",
+                  JSON.stringify(this.combatReports)
+                ),
+                !0)
+              );
+            }
+            return !1;
+          }
+          _saveCombatReport(e) {
+            const { nanoid: t } = r(2593),
+              a = e.combatReport.reduce((e, t) => e + t.damage, 0),
+              i = e.combatReport
+                .filter((e) => "splash" === e.attackType)
+                .reduce((e, t) => e + t.damage, 0),
+              n = e.combatReport
+                .filter((e) => "trample" === e.attackType)
+                .reduce((e, t) => e + t.damage, 0),
+              o = e.combatReport
+                .filter((e) => e.categoryBonus)
+                .reduce((e, t) => e + t.damage, 0),
+              s = e.combatReport.filter(
+                (e) => "normal" === e.attackType
+              ).length,
+              l = e.combatReport.filter(
+                (e) => "splash" === e.attackType
+              ).length,
+              d = e.combatReport.filter(
+                (e) => "trample" === e.attackType
+              ).length,
+              c = e.combatReport.reduce(
+                (e, t) => (
+                  (e[t.attacker] = (e[t.attacker] || 0) + t.damage), e
+                ),
+                {}
+              ),
+              u = Object.entries(c).sort((e, t) => {
+                let [, r] = e,
+                  [, a] = t;
+                return a - r;
+              })[0],
+              p = {
+                id: t(),
+                timestamp: Date.now(),
+                enemyName: e.enemyName,
+                fightType: e.fightType,
+                victory: e.victory,
+                rounds: e.rounds,
+                summary: {
+                  armyCasualties: e.totalArmyDeaths,
+                  enemyCasualties: e.totalEnemyDeaths,
+                  armyLosses: e.armyDeathsByType,
+                  enemyLosses: e.enemyDeathsByType,
+                  splashUnits: e.splashUnits,
+                  trampleUnits: e.trampleUnits,
+                },
+                statistics: {
+                  totalDamageDealt: a,
+                  splashDamage: i,
+                  trampleDamage: n,
+                  bonusDamage: o,
+                  attackBreakdown: { normal: s, splash: l, trample: d },
+                  topDamageDealer: u ? { unit: u[0], damage: u[1] } : void 0,
+                  combatEventsCount: e.combatReport.length,
+                  detailedRounds: e.detailedLog.length,
+                },
+                detailedLog: e.detailedLog,
+                starred: !1,
+              };
+            this.addCombatReport(p);
           }
         },
         Ie = [
@@ -48107,24 +49215,24 @@
           "faith",
           "warehouse",
         ];
-      const Ee = class {
+      const je = class {
         constructor(e) {
           (this.MainStore = void 0),
             (this.selectedTab = 0),
             (this.MainStore = e),
-            (0, i.Gn)(this, {
-              selectedTab: i.sH,
-              selectTab: i.XI,
-              buildings: i.EW,
-              buildableBuildings: i.EW,
-              buildableCapBuildings: i.EW,
-              categories: i.EW,
-              categoriesColony: i.EW,
-              visibleColony: i.EW,
-              categoriesAbyss: i.EW,
-              visibleAbyss: i.EW,
-              addBuilding: i.XI,
-              destroyBuilding: i.XI,
+            (0, a.Gn)(this, {
+              selectedTab: a.sH,
+              selectTab: a.XI,
+              buildings: a.EW,
+              buildableBuildings: a.EW,
+              buildableCapBuildings: a.EW,
+              categories: a.EW,
+              categoriesColony: a.EW,
+              visibleColony: a.EW,
+              categoriesAbyss: a.EW,
+              visibleAbyss: a.EW,
+              addBuilding: a.XI,
+              destroyBuilding: a.XI,
             });
         }
         get categories() {
@@ -48264,7 +49372,7 @@
             -1;
         }
       };
-      const je = class {
+      const Ee = class {
         constructor(e) {
           (this.MainStore = void 0),
             (this.intervalRandomAttackSpeed = 0.16),
@@ -48273,23 +49381,23 @@
             (this.idxAttackInProgress = !1),
             (this.percAttackInProgress = 100),
             (this.MainStore = e),
-            (0, i.Gn)(this, {
-              percAttackInProgress: i.sH,
-              ownedDiplomacy: i.EW,
-              visibleDiplomacy: i.EW,
-              showAttackProgress: i.EW,
-              addDiplomacy: i.XI,
-              improveRelationship: i.XI,
-              insultRelationship: i.XI,
-              alliance: i.XI,
-              war: i.XI,
-              orcsWar: i.XI,
-              _resetAttackVars: i.XI,
-              _startAttack: i.XI,
-              _updateAttackTimer: i.XI,
-              _updateRelationship: i.XI,
-              _enableTrade: i.XI,
-              _disableTrade: i.XI,
+            (0, a.Gn)(this, {
+              percAttackInProgress: a.sH,
+              ownedDiplomacy: a.EW,
+              visibleDiplomacy: a.EW,
+              showAttackProgress: a.EW,
+              addDiplomacy: a.XI,
+              improveRelationship: a.XI,
+              insultRelationship: a.XI,
+              alliance: a.XI,
+              war: a.XI,
+              orcsWar: a.XI,
+              _resetAttackVars: a.XI,
+              _startAttack: a.XI,
+              _updateAttackTimer: a.XI,
+              _updateRelationship: a.XI,
+              _enableTrade: a.XI,
+              _disableTrade: a.XI,
             });
         }
         get visibleDiplomacy() {
@@ -48589,25 +49697,28 @@
           };
         }
       };
-      let Oe = function () {
-        let e =
-          arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 21;
-        return crypto
-          .getRandomValues(new Uint8Array(e))
-          .reduce(
-            (e, t) =>
-              (e +=
-                (t &= 63) < 36
-                  ? t.toString(36)
-                  : t < 62
-                  ? (t - 26).toString(36).toUpperCase()
-                  : t > 62
-                  ? "-"
-                  : "_"),
-            ""
-          );
+      const Le = class {
+        constructor(e) {
+          (this.MainStore = void 0),
+            (this.selectedCat = ""),
+            (this.showFaq = !1),
+            (this.MainStore = e),
+            (0, a.Gn)(this, {
+              selectedCat: a.sH,
+              selectCat: a.XI,
+              showFaq: a.sH,
+              toggleFaq: a.XI,
+            });
+        }
+        selectCat(e) {
+          this.selectedCat = e === this.selectedCat ? "" : e;
+        }
+        toggleFaq() {
+          this.showFaq = !this.showFaq;
+        }
       };
-      const Le = [
+      var Oe = r(2593);
+      const Pe = [
         {
           id: "ancient_treasury",
           req: [{ type: "resource", id: "legacy", value: 2 }],
@@ -50879,7 +51990,7 @@
           gen: [{ type: "cap", id: "army", value: 600 }],
         },
       ];
-      const Pe = class {
+      const Re = class {
           constructor(e) {
             (this.MainStore = void 0),
               (this.showSoftReset = !1),
@@ -50899,36 +52010,36 @@
                 { id: "crystal", value: 5 },
               ]),
               (this.MainStore = e),
-              (0, i.Gn)(this, {
-                legacies: i.EW,
-                buildableLegacies: i.EW,
-                ownedLegacies: i.EW,
-                legacyAvailable: i.EW,
-                legacyValueSelected: i.EW,
-                relicValueSelected: i.EW,
-                coinValueSelected: i.EW,
-                tomeValueSelected: i.EW,
-                gemValueSelected: i.EW,
-                titangiftValueSelected: i.EW,
-                lightValueSelected: i.EW,
-                softResetTitle: i.sH,
-                softResetDescription: i.sH,
-                showSoftReset: i.sH,
-                selectedLegacies: i.sH,
-                selectLegacy: i.XI,
-                toggleSoftReset: i.XI,
-                addLegacy: i.XI,
-                showNewGamePlus: i.sH,
-                toggleNewGamePlus: i.XI,
-                showMausoleum: i.sH,
-                toggleMausoleum: i.XI,
-                countVisibleLegacy: i.EW,
-                visibleGloriousRetirement: i.EW,
-                visibleLightThePortalOfTheDead: i.EW,
-                visibleRichestNation: i.EW,
-                visibleMausoleum: i.EW,
-                visibleAscension: i.EW,
-                visibleNewGamePlus: i.EW,
+              (0, a.Gn)(this, {
+                legacies: a.EW,
+                buildableLegacies: a.EW,
+                ownedLegacies: a.EW,
+                legacyAvailable: a.EW,
+                legacyValueSelected: a.EW,
+                relicValueSelected: a.EW,
+                coinValueSelected: a.EW,
+                tomeValueSelected: a.EW,
+                gemValueSelected: a.EW,
+                titangiftValueSelected: a.EW,
+                lightValueSelected: a.EW,
+                softResetTitle: a.sH,
+                softResetDescription: a.sH,
+                showSoftReset: a.sH,
+                selectedLegacies: a.sH,
+                selectLegacy: a.XI,
+                toggleSoftReset: a.XI,
+                addLegacy: a.XI,
+                showNewGamePlus: a.sH,
+                toggleNewGamePlus: a.XI,
+                showMausoleum: a.sH,
+                toggleMausoleum: a.XI,
+                countVisibleLegacy: a.EW,
+                visibleGloriousRetirement: a.EW,
+                visibleLightThePortalOfTheDead: a.EW,
+                visibleRichestNation: a.EW,
+                visibleMausoleum: a.EW,
+                visibleAscension: a.EW,
+                visibleNewGamePlus: a.EW,
               }),
               2 === this.MainStore.run.flag
                 ? this.softReset2Confirm(3)
@@ -50984,12 +52095,12 @@
             return this.MainStore.legacies.length >= 25;
           }
           get legacies() {
-            return Le.filter((e) =>
+            return Pe.filter((e) =>
               this.MainStore.ReqGenStore.checkReq("legacy", e.id, e, !1)
             );
           }
           get buildableLegacies() {
-            return Le.filter((e) => {
+            return Pe.filter((e) => {
               const t = this._getLegacyCosts(e.id);
               return (
                 !(
@@ -51039,7 +52150,7 @@
             });
           }
           get ownedLegacies() {
-            return Le.filter((e) =>
+            return Pe.filter((e) =>
               this.MainStore.ReqGenStore.checkOwned("legacy", e.id, 1)
             );
           }
@@ -51122,353 +52233,141 @@
             let e = [],
               t = [];
             const {
-              fame: r,
-              luck: i,
-              relic: n,
-              tome_wisdom: o,
-              coin: s,
-              gem: l,
-              titan_gift: d,
-              light: c,
-            } = this.MainStore.ResourcesStore;
+                fame: r,
+                luck: a,
+                relic: n,
+                tome_wisdom: o,
+                coin: s,
+                gem: l,
+                titan_gift: d,
+                light: c,
+              } = this.MainStore.ResourcesStore,
+              u = [];
             if (
               (r > 0 &&
-                t.push(
-                  a.createElement(
-                    "div",
-                    { className: "px-4 mt-1" },
-                    a.createElement(
-                      "table",
-                      { className: "min-w-full my-1" },
-                      a.createElement(
-                        "tbody",
-                        { className: "text-sm" },
-                        a.createElement(
-                          "tr",
-                          {
-                            key: "header_fame",
-                            className: "bg-gray-100 dark:bg-mydark-400",
-                          },
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-left whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            (0, pe.v)("res_fame")
-                          ),
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-right whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            (0, ge.ZV)(
-                              Math.floor(r),
-                              this.MainStore.defaultNumberFormat,
-                              this.MainStore.bigNumberFormat
-                            )
-                          )
-                        )
-                      )
-                    )
-                  )
-                ),
-              i > 0 &&
-                t.push(
-                  a.createElement(
-                    "div",
-                    { className: "px-4 mt-1" },
-                    a.createElement(
-                      "table",
-                      { className: "min-w-full my-1" },
-                      a.createElement(
-                        "tbody",
-                        { className: "text-sm" },
-                        a.createElement(
-                          "tr",
-                          {
-                            key: "header_luck",
-                            className:
-                              "bg-green-300/60 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-green-900 dark:to-mydark-600",
-                          },
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-left whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            (0, pe.v)("res_luck")
-                          ),
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-right whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            (0, ge.ZV)(
-                              Math.floor(i),
-                              this.MainStore.defaultNumberFormat,
-                              this.MainStore.bigNumberFormat
-                            )
-                          )
-                        )
-                      )
-                    )
-                  )
-                ),
+                u.push({
+                  key: "header_fame",
+                  label: (0, pe.v)("res_fame"),
+                  value: (0, ge.ZV)(
+                    Math.floor(r),
+                    this.MainStore.defaultNumberFormat,
+                    this.MainStore.bigNumberFormat
+                  ),
+                  colorClass: "bg-gray-100 dark:bg-mydark-400/90",
+                }),
+              a > 0 &&
+                u.push({
+                  key: "header_luck",
+                  label: (0, pe.v)("res_luck"),
+                  value: (0, ge.ZV)(
+                    Math.floor(a),
+                    this.MainStore.defaultNumberFormat,
+                    this.MainStore.bigNumberFormat
+                  ),
+                  colorClass: "bg-green-300/60 dark:bg-green-800/90",
+                }),
               n > 0 &&
-                t.push(
-                  a.createElement(
-                    "div",
-                    { className: "px-4 mt-1" },
-                    a.createElement(
-                      "table",
-                      { className: "min-w-full my-1" },
-                      a.createElement(
-                        "tbody",
-                        { className: "text-sm" },
-                        a.createElement(
-                          "tr",
-                          {
-                            key: "header_relic",
-                            className:
-                              "bg-orange-500/60 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-orange-800 dark:to-mydark-600",
-                          },
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-left whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            (0, pe.v)("res_relic")
-                          ),
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-right whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            (0, ge.ZV)(
-                              Math.floor(n),
-                              this.MainStore.defaultNumberFormat,
-                              this.MainStore.bigNumberFormat
-                            )
-                          )
-                        )
-                      )
-                    )
-                  )
-                ),
+                u.push({
+                  key: "header_relic",
+                  label: (0, pe.v)("res_relic"),
+                  value: (0, ge.ZV)(
+                    Math.floor(n),
+                    this.MainStore.defaultNumberFormat,
+                    this.MainStore.bigNumberFormat
+                  ),
+                  colorClass: "bg-orange-500/60 dark:bg-orange-800/90",
+                }),
               s > 0 &&
-                t.push(
-                  a.createElement(
-                    "div",
-                    { className: "px-4 mt-1" },
-                    a.createElement(
-                      "table",
-                      { className: "min-w-full my-1" },
-                      a.createElement(
-                        "tbody",
-                        { className: "text-sm" },
-                        a.createElement(
-                          "tr",
-                          {
-                            key: "header_coin",
-                            className:
-                              "bg-amber-400/60 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-amber-600 dark:to-mydark-600",
-                          },
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-left whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            (0, pe.v)("res_coin")
-                          ),
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-right whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            (0, ge.ZV)(
-                              Math.floor(s),
-                              this.MainStore.defaultNumberFormat,
-                              this.MainStore.bigNumberFormat
-                            )
-                          )
-                        )
-                      )
-                    )
-                  )
-                ),
+                u.push({
+                  key: "header_coin",
+                  label: (0, pe.v)("res_coin"),
+                  value: (0, ge.ZV)(
+                    Math.floor(s),
+                    this.MainStore.defaultNumberFormat,
+                    this.MainStore.bigNumberFormat
+                  ),
+                  colorClass: "bg-amber-400/60 dark:bg-amber-600/90",
+                }),
               o > 0 &&
-                t.push(
-                  a.createElement(
-                    "div",
-                    { className: "px-4 mt-1" },
-                    a.createElement(
-                      "table",
-                      { className: "min-w-full my-1" },
-                      a.createElement(
-                        "tbody",
-                        { className: "text-sm" },
-                        a.createElement(
-                          "tr",
-                          {
-                            key: "header_tome",
-                            className:
-                              "bg-gray-500/60 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-gray-600 dark:to-mydark-600",
-                          },
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-left whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            (0, pe.v)("res_tome_wisdom")
-                          ),
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-right whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            (0, ge.ZV)(
-                              Math.floor(o),
-                              this.MainStore.defaultNumberFormat,
-                              this.MainStore.bigNumberFormat
-                            )
-                          )
-                        )
-                      )
-                    )
-                  )
-                ),
+                u.push({
+                  key: "header_tome",
+                  label: (0, pe.v)("res_tome_wisdom"),
+                  value: (0, ge.ZV)(
+                    Math.floor(o),
+                    this.MainStore.defaultNumberFormat,
+                    this.MainStore.bigNumberFormat
+                  ),
+                  colorClass: "bg-gray-500/60 dark:bg-gray-600/90",
+                }),
               l > 0 &&
-                t.push(
-                  a.createElement(
-                    "div",
-                    { className: "px-4 mt-1" },
-                    a.createElement(
-                      "table",
-                      { className: "min-w-full my-1" },
-                      a.createElement(
-                        "tbody",
-                        { className: "text-sm" },
-                        a.createElement(
-                          "tr",
-                          {
-                            key: "header_gem",
-                            className:
-                              "bg-sky-400/60 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-sky-800 dark:to-mydark-600",
-                          },
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-left whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            (0, pe.v)("res_gem")
-                          ),
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-right whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            (0, ge.ZV)(
-                              Math.floor(l),
-                              this.MainStore.defaultNumberFormat,
-                              this.MainStore.bigNumberFormat
-                            )
-                          )
-                        )
-                      )
-                    )
-                  )
-                ),
+                u.push({
+                  key: "header_gem",
+                  label: (0, pe.v)("res_gem"),
+                  value: (0, ge.ZV)(
+                    Math.floor(l),
+                    this.MainStore.defaultNumberFormat,
+                    this.MainStore.bigNumberFormat
+                  ),
+                  colorClass: "bg-sky-400/60 dark:bg-sky-800/90",
+                }),
               d > 0 &&
-                t.push(
-                  a.createElement(
-                    "div",
-                    { className: "px-4 mt-1" },
-                    a.createElement(
-                      "table",
-                      { className: "min-w-full my-1" },
-                      a.createElement(
-                        "tbody",
-                        { className: "text-sm" },
-                        a.createElement(
-                          "tr",
-                          {
-                            key: "header_titan",
-                            className:
-                              "bg-indigo-400/60 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-indigo-800 dark:to-mydark-600",
-                          },
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-left whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            (0, pe.v)("res_titan_gift")
-                          ),
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-right whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            (0, ge.ZV)(
-                              Math.floor(d),
-                              this.MainStore.defaultNumberFormat,
-                              this.MainStore.bigNumberFormat
-                            )
-                          )
-                        )
-                      )
-                    )
-                  )
-                ),
+                u.push({
+                  key: "header_titan",
+                  label: (0, pe.v)("res_titan_gift"),
+                  value: (0, ge.ZV)(
+                    Math.floor(d),
+                    this.MainStore.defaultNumberFormat,
+                    this.MainStore.bigNumberFormat
+                  ),
+                  colorClass: "bg-indigo-400/60 dark:bg-indigo-800/90",
+                }),
               c > 0 &&
+                u.push({
+                  key: "header_light",
+                  label: (0, pe.v)("res_light"),
+                  value: (0, ge.ZV)(
+                    Math.floor(c),
+                    this.MainStore.defaultNumberFormat,
+                    this.MainStore.bigNumberFormat
+                  ),
+                  colorClass: "bg-gray-200/60 dark:bg-gray-400/80",
+                }),
+              u.length > 0 &&
                 t.push(
-                  a.createElement(
+                  i.createElement(
                     "div",
-                    { className: "px-4 mt-1" },
-                    a.createElement(
-                      "table",
-                      { className: "min-w-full my-1" },
-                      a.createElement(
-                        "tbody",
-                        { className: "text-sm" },
-                        a.createElement(
-                          "tr",
+                    { className: "my-1 lg:mt-2 px-4" },
+                    i.createElement(
+                      "div",
+                      {
+                        className:
+                          "rounded border border-gray-300 dark:border-gray-700 overflow-hidden",
+                      },
+                      u.map((e, t) =>
+                        i.createElement(
+                          "div",
                           {
-                            key: "header_light",
+                            key: e.key,
                             className:
-                              "bg-gray-200/60 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-gray-400 dark:to-mydark-600",
+                              "flex items-center justify-between px-2 py-1 text-sm ".concat(
+                                e.colorClass
+                              ),
                           },
-                          a.createElement(
-                            "td",
+                          i.createElement(
+                            "span",
                             {
                               className:
-                                "px-4 2xl:py-1 text-left whitespace-nowrap text-gray-700 dark:text-mydark-50",
+                                "whitespace-nowrap text-gray-700 dark:text-mydark-50",
                             },
-                            (0, pe.v)("res_light")
+                            e.label
                           ),
-                          a.createElement(
-                            "td",
+                          i.createElement(
+                            "span",
                             {
                               className:
-                                "px-4 2xl:py-1 text-right whitespace-nowrap text-gray-700 dark:text-mydark-50",
+                                "font-medium ml-2 whitespace-nowrap text-gray-700 dark:text-mydark-50",
                             },
-                            (0, ge.ZV)(
-                              Math.floor(c),
-                              this.MainStore.defaultNumberFormat,
-                              this.MainStore.bigNumberFormat
-                            )
+                            e.value
                           )
                         )
                       )
@@ -51500,104 +52399,93 @@
                   (r +=
                     (
                       4 * this.MainStore.StatsStore.annLaunchNumber
-                    ).toLocaleString() + "%")),
-                t.push(
-                  a.createElement(
+                    ).toLocaleString() + "%"));
+              const a = [];
+              if (
+                (a.push({
+                  key: "header_all_resources",
+                  label: (0, pe.v)("all_resources"),
+                  value: "+" + r,
+                  colorClass: "bg-red-600/60 dark:bg-red-900/80",
+                }),
+                this.MainStore.StatsStore.ngResetBonus > 0)
+              ) {
+                const e =
+                  (
+                    1 * this.MainStore.StatsStore.ngResetBonus
+                  ).toLocaleString() + "%";
+                a.push({
+                  key: "header_all_caps",
+                  label: (0, pe.v)("all_caps"),
+                  value: "+" + e,
+                  colorClass: "bg-gray-100 dark:bg-mydark-400",
+                });
+              }
+              t.push(
+                i.createElement(
+                  "div",
+                  { className: "my-1 lg:mt-2 px-4" },
+                  i.createElement(
                     "div",
-                    { className: "px-4 mt-4" },
-                    a.createElement(
-                      "table",
-                      { className: "min-w-full my-2" },
-                      a.createElement(
-                        "tbody",
-                        { className: "text-sm" },
-                        a.createElement(
-                          "tr",
-                          {
-                            key: "header_all_resources",
-                            className:
-                              "bg-red-600/60 dark:bg-mydark-300 dark:bg-gradient-to-r dark:from-red-900 dark:to-mydark-600 font-bold",
-                          },
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-left whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            (0, pe.v)("all_resources")
-                          ),
-                          a.createElement(
-                            "td",
-                            {
-                              className:
-                                "px-4 2xl:py-1 text-right whitespace-nowrap text-gray-700 dark:text-mydark-50",
-                            },
-                            "+" + r
-                          )
-                        )
-                      )
-                    )
-                  )
-                ),
-                this.MainStore.StatsStore.ngResetBonus > 0 &&
-                  ((r =
-                    (
-                      1 * this.MainStore.StatsStore.ngResetBonus
-                    ).toLocaleString() + "%"),
-                  t.push(
-                    a.createElement(
-                      "div",
-                      { className: "px-4 mt-4" },
-                      a.createElement(
-                        "table",
-                        { className: "min-w-full my-2" },
-                        a.createElement(
-                          "tbody",
-                          { className: "text-sm" },
-                          a.createElement(
-                            "tr",
-                            {
-                              key: "header_all_caps",
-                              className:
-                                "bg-gray-100 dark:bg-mydark-400 font-bold",
-                            },
-                            a.createElement(
-                              "td",
-                              {
-                                className:
-                                  "px-4 2xl:py-1 text-left whitespace-nowrap text-green-600",
-                              },
-                              (0, pe.v)("all_caps")
+                    {
+                      className:
+                        "rounded border border-gray-300 dark:border-gray-700 overflow-hidden",
+                    },
+                    a.map((e, t) => {
+                      const r = "header_all_caps" === e.key;
+                      return i.createElement(
+                        "div",
+                        {
+                          key: e.key,
+                          className:
+                            "flex items-center justify-between px-2 py-1 text-sm font-bold ".concat(
+                              e.colorClass
                             ),
-                            a.createElement(
-                              "td",
-                              {
-                                className:
-                                  "px-4 2xl:py-1 text-right whitespace-nowrap text-green-600",
-                              },
-                              "+" + r
-                            )
-                          )
+                        },
+                        i.createElement(
+                          "span",
+                          {
+                            className: "whitespace-nowrap ".concat(
+                              r
+                                ? "text-green-600"
+                                : "text-gray-700 dark:text-mydark-50"
+                            ),
+                          },
+                          e.label
+                        ),
+                        i.createElement(
+                          "span",
+                          {
+                            className:
+                              "font-medium whitespace-nowrap ml-2 px-1.5 py-0.5 rounded-md font-mono text-xs bg-gray-400/10 dark:bg-gray-500/10 ".concat(
+                                r
+                                  ? "text-green-600"
+                                  : "text-gray-700 dark:text-mydark-50"
+                              ),
+                          },
+                          e.value
                         )
-                      )
-                    )
-                  )),
+                      );
+                    })
+                  )
+                )
+              ),
                 e.push(t),
                 (t = []),
                 this.MainStore.legacies
                   .slice()
                   .reverse()
                   .forEach((e) => {
-                    const r = Le.find((t) => t.id === e.id);
+                    const r = Pe.find((t) => t.id === e.id);
                     if (
                       "undefined" !== typeof r &&
                       "undefined" !== typeof r.gen
                     ) {
                       t.push(
-                        a.createElement(
-                          a.Fragment,
+                        i.createElement(
+                          i.Fragment,
                           null,
-                          a.createElement(
+                          i.createElement(
                             "div",
                             {
                               className:
@@ -51610,49 +52498,48 @@
                       const e = this.MainStore.ReqGenStore.genTooltipData(
                         r.gen
                       );
-                      let i = [];
-                      e.forEach((e, t) => {
-                        i.push(
-                          a.createElement(
-                            "tr",
-                            {
-                              key: "header_" + Oe(),
-                              className:
-                                t % 2 === 0
-                                  ? "bg-gray-100 dark:bg-mydark-400"
-                                  : "bg-gray-300 dark:bg-mydark-500",
-                            },
-                            a.createElement(
-                              "td",
-                              {
-                                className:
-                                  "px-4 2xl:py-1 text-left whitespace-nowrap",
-                              },
-                              e.label
-                            ),
-                            a.createElement(
-                              "td",
-                              {
-                                className:
-                                  "px-4 2xl:py-1 text-right whitespace-nowrap",
-                              },
-                              e.value
-                            )
-                          )
-                        );
-                      }),
+                      e.length > 0 &&
                         t.push(
-                          a.createElement(
+                          i.createElement(
                             "div",
-                            { className: "px-4" },
-                            a.createElement(
-                              "table",
-                              { className: "min-w-full my-2" },
-                              a.createElement(
-                                "tbody",
-                                { className: "text-sm" },
-                                i
-                              )
+                            { className: "my-1 lg:mt-2 px-4" },
+                            i.createElement(
+                              "div",
+                              {
+                                className:
+                                  "rounded border border-gray-300 dark:border-gray-700 overflow-hidden",
+                              },
+                              e.map((e, t) => {
+                                const r = e.value.indexOf("-") >= 0,
+                                  a = t % 2 === 0;
+                                return i.createElement(
+                                  "div",
+                                  {
+                                    key: "header_" + (0, Oe.nanoid)(),
+                                    className:
+                                      "flex items-center justify-between px-2 py-1 text-sm ".concat(
+                                        a
+                                          ? "bg-gray-50/30 dark:bg-gray-900/20"
+                                          : "bg-gray-50/10 dark:bg-gray-900/10"
+                                      ),
+                                  },
+                                  i.createElement(
+                                    "span",
+                                    { className: "whitespace-nowrap" },
+                                    e.label
+                                  ),
+                                  i.createElement(
+                                    "span",
+                                    {
+                                      className:
+                                        "font-medium whitespace-nowrap ml-2 px-1.5 py-0.5 rounded-md font-mono text-xs bg-gray-400/10 dark:bg-gray-500/10 ".concat(
+                                          r ? "text-red-500" : ""
+                                        ),
+                                    },
+                                    e.value
+                                  )
+                                );
+                              })
                             )
                           )
                         );
@@ -51670,11 +52557,11 @@
               : this.selectedLegacies.push(e);
           }
           addLegacy(e) {
-            const t = Le.findIndex((t) => t.id === e);
+            const t = Pe.findIndex((t) => t.id === e);
             if (-1 !== t) {
               if (!this.MainStore.ReqGenStore.checkOwned("legacy", e, 1)) {
                 if (
-                  !this.MainStore.ReqGenStore.useResources("legacy", e, Le[t])
+                  !this.MainStore.ReqGenStore.useResources("legacy", e, Pe[t])
                 )
                   return !1;
                 this.MainStore.legacies.push({ id: e, date: Date.now() }),
@@ -51689,9 +52576,9 @@
           }
           restoreLegaciesMods() {
             this.MainStore.legacies.forEach((e) => {
-              const t = Le.findIndex((t) => t.id === e.id);
+              const t = Pe.findIndex((t) => t.id === e.id);
               -1 !== t &&
-                this.MainStore.ReqGenStore.runGen("legacy", e.id, Le[t]);
+                this.MainStore.ReqGenStore.runGen("legacy", e.id, Pe[t]);
             });
           }
           toggleMausoleum() {
@@ -51777,7 +52664,7 @@
               n = 0,
               o = 0,
               s = 0;
-            const l = Le.find((t) => t.id === e),
+            const l = Pe.find((t) => t.id === e),
               d = l.req.find((e) => "resource" === e.type && "legacy" === e.id);
             "undefined" !== typeof d && (t = d.value);
             const c = l.req.find(
@@ -51808,8 +52695,8 @@
             );
           }
         },
-        Re = ["army", "defense", "resource"],
-        Fe = [
+        Fe = ["army", "defense", "resource"],
+        He = [
           {
             id: "praise_gods",
             type: "prayer",
@@ -54106,42 +54993,42 @@
             ],
           },
         ];
-      const He = class {
+      const Ve = class {
           constructor(e) {
             (this.MainStore = void 0),
               (this.selectedTab = 0),
-              (this.spellFilters = ["all", ...Re]),
+              (this.spellFilters = ["all", ...Fe]),
               (this.filterSpells = (0, ge.$E)("filterSpells", "all")),
               (this._emptyInProgress = !1),
               (this.MainStore = e),
-              (0, i.Gn)(this, {
-                selectedTab: i.sH,
-                selectTab: i.XI,
-                filterSpells: i.sH,
-                setFilterSpells: i.XI,
-                showMagic: i.EW,
-                buildablePrayers: i.EW,
-                visiblePrayers: i.EW,
-                ownedPrayers: i.EW,
-                visibleSpells: i.EW,
-                addPrayer: i.XI,
-                destroyPrayer: i.XI,
-                emptySpells: i.XI,
-                removeSpell: i.XI,
-                _addSpell: i.XI,
+              (0, a.Gn)(this, {
+                selectedTab: a.sH,
+                selectTab: a.XI,
+                filterSpells: a.sH,
+                setFilterSpells: a.XI,
+                showMagic: a.EW,
+                buildablePrayers: a.EW,
+                visiblePrayers: a.EW,
+                ownedPrayers: a.EW,
+                visibleSpells: a.EW,
+                addPrayer: a.XI,
+                destroyPrayer: a.XI,
+                emptySpells: a.XI,
+                removeSpell: a.XI,
+                _addSpell: a.XI,
               });
           }
           get showMagic() {
             return this.MainStore.ReqGenStore.checkOwned("tech", "religion", 1);
           }
           get ownedPrayers() {
-            return Fe.filter((e) => {
+            return He.filter((e) => {
               if ("prayer" !== e.type) return !1;
               return !!this.MainStore.ReqGenStore.checkOwned("prayer", e.id, 1);
             });
           }
           get buildablePrayers() {
-            return Fe.filter((e) => {
+            return He.filter((e) => {
               if ("prayer" !== e.type) return !1;
               return (
                 !this.MainStore.ReqGenStore.checkOwned("prayer", e.id, 1) &&
@@ -54150,7 +55037,7 @@
             });
           }
           get visiblePrayers() {
-            return Fe.filter((e) => {
+            return He.filter((e) => {
               if ("prayer" !== e.type) return !1;
               return (
                 !this.MainStore.ReqGenStore.checkOwned("prayer", e.id, 1) &&
@@ -54159,7 +55046,7 @@
             });
           }
           get visibleSpells() {
-            return Fe.filter((e) => {
+            return He.filter((e) => {
               if ("spell" !== e.type) return !1;
               if ("goddess_luck_blessing" === e.id) return !1;
               if ("all" !== this.filterSpells && e.cat !== this.filterSpells)
@@ -54233,16 +55120,16 @@
               const t = this.MainStore.run.spells.indexOf(e);
               this.MainStore.run.spells.splice(t, 1);
             }
-            const r = Fe.findIndex((t) => t.id === e);
-            this.MainStore.ReqGenStore.deleteGen("spell", e, Fe[r]);
+            const r = He.findIndex((t) => t.id === e);
+            this.MainStore.ReqGenStore.deleteGen("spell", e, He[r]);
           }
           _addSpell(e) {
             this.MainStore.run.spells.push(e);
-            const t = Fe.findIndex((t) => t.id === e);
-            this.MainStore.ReqGenStore.runGen("spell", e, Fe[t]);
+            const t = He.findIndex((t) => t.id === e);
+            this.MainStore.ReqGenStore.runGen("spell", e, He[t]);
           }
         },
-        Ve = [
+        De = [
           {
             id: "horse",
             sell_min: 16,
@@ -54332,21 +55219,21 @@
             buy_duration: 0.01,
           },
         ];
-      const De = class {
+      const We = class {
           constructor(e) {
             (this.MainStore = void 0),
-              (this.stocks = [...Ve].reverse()),
+              (this.stocks = [...De].reverse()),
               (this.stocksData = []),
               (this.workerInstanceStocks = void 0),
               (this.MainStore = e),
-              (0, i.Gn)(this, {
-                showMarket: i.EW,
-                stocks: i.sH,
-                stocksData: i.sH,
-                initStocks: i.XI,
-                sell: i.XI,
-                buy: i.XI,
-                _stocksInterval: i.XI,
+              (0, a.Gn)(this, {
+                showMarket: a.EW,
+                stocks: a.sH,
+                stocksData: a.sH,
+                initStocks: a.XI,
+                sell: a.XI,
+                buy: a.XI,
+                _stocksInterval: a.XI,
               }),
               this.initStocks();
           }
@@ -54528,7 +55415,7 @@
             });
           }
         },
-        We = [
+        ze = [
           { id: "unemployed" },
           {
             id: "farmer",
@@ -54676,12 +55563,12 @@
             ],
           },
         ];
-      const ze = class {
+      const Be = class {
         constructor(e) {
           (this.MainStore = void 0),
             (this.cacheTooltips = {}),
             (this.MainStore = e),
-            (0, i.Gn)(this, { addModifier: i.XI, _updateModifier: i.XI });
+            (0, a.Gn)(this, { addModifier: a.XI, _updateModifier: a.XI });
         }
         addModifier(e, t, r, a, i, n, o) {
           let s =
@@ -54722,9 +55609,9 @@
           if ("population" === e) {
             "undefined" === typeof r &&
               (r = this.MainStore.PopulationStore.getPopulationTotal(t));
-            const a = We.findIndex((e) => e.id === t);
-            We[a].gen &&
-              We[a].gen.forEach((a) => {
+            const a = ze.findIndex((e) => e.id === t);
+            ze[a].gen &&
+              ze[a].gen.forEach((a) => {
                 let i = a.value * r;
                 this._getMods(a.id, t).forEach((e) => {
                   e.perc ? (i += (i * e.value) / 100) : (i += e.value);
@@ -55080,18 +55967,18 @@
           return [];
         }
       };
-      const Be = class {
+      const Ge = class {
         constructor(e) {
           (this.MainStore = void 0),
             (this.MainStore = e),
-            (0, i.Gn)(this, {
-              population: i.EW,
-              qtyUnemployed: i.EW,
-              qtyEmployed: i.EW,
-              updateCap: i.XI,
-              updatePopulation: i.XI,
-              addPopulation: i.XI,
-              _updateUnemployed: i.XI,
+            (0, a.Gn)(this, {
+              population: a.EW,
+              qtyUnemployed: a.EW,
+              qtyEmployed: a.EW,
+              updateCap: a.XI,
+              updatePopulation: a.XI,
+              addPopulation: a.XI,
+              _updateUnemployed: a.XI,
             });
         }
         get qtyUnemployed() {
@@ -55113,7 +56000,7 @@
           );
         }
         get population() {
-          return We.filter((e) =>
+          return ze.filter((e) =>
             this.MainStore.ReqGenStore.checkReq("population", e.id, e)
           );
         }
@@ -55124,9 +56011,9 @@
               ((r =
                 this.MainStore.run.population.push({ id: e, value: 0 }) - 1),
               (this.MainStore.idxs.population[e] = r),
-              (r = We.findIndex((t) => t.id === e)),
-              We[r].gen &&
-                We[r].gen.forEach((e) => {
+              (r = ze.findIndex((t) => t.id === e)),
+              ze[r].gen &&
+                ze[r].gen.forEach((e) => {
                   "resource" === e.type &&
                     "undefined" ===
                       typeof this.MainStore.idxs.resources[e.id] &&
@@ -55157,7 +56044,7 @@
             this.MainStore.save();
         }
         resetPopulation() {
-          We.forEach((e) => {
+          ze.forEach((e) => {
             let t = this.MainStore.run.population.findIndex(
               (t) => t.id === e.id
             );
@@ -55188,7 +56075,7 @@
           return -1 !== t ? this.MainStore.run.population[t].value : 0;
         }
         removeNegativePopulation(e) {
-          const t = We.filter((t) => {
+          const t = ze.filter((t) => {
             let r = !1;
             return (
               t.gen &&
@@ -55225,8 +56112,8 @@
           return -1 !== t ? this.MainStore.run.caps[t].value : 0;
         }
       };
-      var Ge = r(982);
-      const Ue = [
+      var Ue = r(982);
+      const Ye = [
         {
           id: "trading_woods",
           req: [{ type: "building", id: "lucky_grove_b", value: 5 }],
@@ -59980,7 +60867,7 @@
           gen: [{ type: "resource", id: "fame", value: 750, fix: !0 }],
         },
       ];
-      const Ye = class {
+      const Xe = class {
         constructor(e) {
           (this.MainStore = void 0), (this.MainStore = e);
         }
@@ -60285,7 +61172,7 @@
                         a = this.checkOwned("building", t.id);
                       a >= 0 &&
                         a < t.value &&
-                        (r += " (-" + (t.value - a) + ")"),
+                        (r += " [-" + (t.value - a) + "]"),
                         i.push({ label: e, value: r });
                     }
                     break;
@@ -60309,15 +61196,45 @@
                           this.MainStore.bigNumberFormat
                         ));
                       let e = Math.floor(this.checkOwned("resource", t.id));
-                      e < n &&
-                        (s +=
-                          " (-" +
-                          (0, ge.ZV)(
-                            n - e,
-                            this.MainStore.zeroNumberFormat,
-                            this.MainStore.bigNumberFormat
-                          ) +
-                          ")");
+                      if (e < n) {
+                        const r = n - e;
+                        if (
+                          ((s +=
+                            " [-" +
+                            (0, ge.ZV)(
+                              r,
+                              this.MainStore.zeroNumberFormat,
+                              this.MainStore.bigNumberFormat
+                            ) +
+                            "]"),
+                          "legacy" !== t.id &&
+                            "fame" !== t.id &&
+                            "relic" !== t.id &&
+                            "coin" !== t.id &&
+                            "tome_wisdom" !== t.id &&
+                            "luck" !== t.id &&
+                            "gem" !== t.id &&
+                            "titan_gift" !== t.id &&
+                            "light" !== t.id)
+                        ) {
+                          const a = this.MainStore.idxs.resources[t.id];
+                          if ("undefined" !== typeof a) {
+                            const i =
+                                this.MainStore.ResourcesStore.getResourceCap(
+                                  t.id
+                                ),
+                              o = this.MainStore.ResourcesStore.getTimerValue(
+                                this.MainStore.run.resources[a]
+                              );
+                            s +=
+                              (i > 0 && i < n) || (i > 0 && e >= i)
+                                ? " timeIcon \u221e"
+                                : o > 0
+                                ? " timeIcon " + (0, ge.fU)(r / o)
+                                : " timeIcon \u221e";
+                          }
+                        }
+                      }
                     }
                     i.push({ label: o, value: s });
                 }
@@ -60421,22 +61338,22 @@
               (r = Ie.findIndex((e) => e.id === t)), -1 !== r && (a = Ie[r]);
               break;
             case "legacy":
-              (r = Le.findIndex((e) => e.id === t)), -1 !== r && (a = Le[r]);
+              (r = Pe.findIndex((e) => e.id === t)), -1 !== r && (a = Pe[r]);
               break;
             case "prayer":
-              (r = Fe.findIndex((e) => e.id === t)), -1 !== r && (a = Fe[r]);
+              (r = He.findIndex((e) => e.id === t)), -1 !== r && (a = He[r]);
               break;
             case "resource":
-              (r = Ge.Z.findIndex((e) => e.id === t)),
-                -1 !== r && (a = Ge.Z[r]);
+              (r = Ue.Z.findIndex((e) => e.id === t)),
+                -1 !== r && (a = Ue.Z[r]);
               break;
             case "tech":
-              (r = Ue.findIndex((e) => e.id === t)), -1 !== r && (a = Ue[r]);
+              (r = Ye.findIndex((e) => e.id === t)), -1 !== r && (a = Ye[r]);
           }
           return a;
         }
       };
-      const Xe = class {
+      const Ke = class {
         constructor(e) {
           (this.MainStore = void 0),
             (this.checkEmptyMana = 0),
@@ -60444,14 +61361,14 @@
               noTrailing: !0,
             })),
             (this.MainStore = e),
-            (0, i.Gn)(this, {
-              showManual: i.EW,
-              resources: i.EW,
-              updateCap: i.XI,
-              addResource: i.XI,
-              addProp: i.XI,
-              useResource: i.XI,
-              setResource: i.XI,
+            (0, a.Gn)(this, {
+              showManual: a.EW,
+              resources: a.EW,
+              updateCap: a.XI,
+              addResource: a.XI,
+              addProp: a.XI,
+              useResource: a.XI,
+              setResource: a.XI,
             });
         }
         get showManual() {
@@ -60459,13 +61376,13 @@
         }
         get manualResources() {
           return this.showManual
-            ? Ge.Z.filter(function (e) {
+            ? Ue.Z.filter(function (e) {
                 return !(e.hidden || !e.manual);
               })
             : [];
         }
         get resources() {
-          return Ge.Z.filter(
+          return Ue.Z.filter(
             (e) =>
               !e.hidden &&
               this.MainStore.ReqGenStore.checkReq("resource", e.id, e)
@@ -60551,10 +61468,15 @@
           );
         }
         updateCap(e, t) {
+          "army" !== e &&
+            ((t += (t * (1 * this.MainStore.StatsStore.ngResetBonus)) / 100),
+            (t = Math.ceil(t)));
+          let r = !1;
           if (
-            ("army" !== e &&
-              ((t += (t * (1 * this.MainStore.StatsStore.ngResetBonus)) / 100),
-              (t = Math.ceil(t))),
+            ("army" === e &&
+              (r =
+                1 !== this.MainStore.ArmyStore.armyStepQty &&
+                10 !== this.MainStore.ArmyStore.armyStepQty),
             "undefined" === typeof this.MainStore.idxs.caps[e])
           ) {
             t += this._getResourceBaseCap(e);
@@ -60562,6 +61484,10 @@
             this.MainStore.idxs.caps[e] = r;
           } else
             this.MainStore.run.caps[this.MainStore.idxs.caps[e]].value += t;
+          if ("army" === e && r) {
+            const e = this.MainStore.ArmyStore.maxArmyStepQty;
+            this.MainStore.ArmyStore.setArmyStepQty(e);
+          }
           ("gold" !== e && "wood" !== e && "stone" !== e && "food" !== e) ||
             this.MainStore.StatsStore.updateStat("cap_" + e, t),
             this.MainStore.save();
@@ -60649,16 +61575,16 @@
             : this._getResourceBaseCap(e);
         }
         _getResourceBaseCap(e) {
-          const t = Ge.Z.findIndex((t) => t.id === e);
-          return -1 === t ? 0 : Ge.Z[t].cap ? Ge.Z[t].cap : 0;
+          const t = Ue.Z.findIndex((t) => t.id === e);
+          return -1 === t ? 0 : Ue.Z[t].cap ? Ue.Z[t].cap : 0;
         }
         _getResourceEmptyObj(e) {
           return { id: e, value: 0, manual: 1, timer: 0, timern: 0, perc: 0 };
         }
       };
-      var Ke = r(742),
-        Ze = r.n(Ke);
-      const Qe = class {
+      var Ze = r(742),
+        Qe = r.n(Ze);
+      const $e = class {
         constructor(e) {
           (this.MainStore = void 0),
             (this.difficultyFlag = 0),
@@ -60682,26 +61608,26 @@
               "undefined" === typeof this.MainStore.run.dfc
                 ? 0
                 : this.MainStore.run.dfc),
-            (0, i.Gn)(this, {
-              darkTheme: i.sH,
-              switchTheme: i.XI,
-              showCapBuildings: i.sH,
-              switchShowCapBuildings: i.XI,
-              showNotifications: i.sH,
-              switchShowNotifications: i.XI,
-              batteryMode: i.sH,
-              updateBatteryMode: i.XI,
-              difficultyFlag: i.sH,
-              updateDifficultyFlag: i.XI,
-              difficultyMode: i.sH,
-              updateDifficultyMode: i.XI,
-              showSettings: i.sH,
-              toggleSettings: i.XI,
-              showChangelog: i.sH,
-              toggleChangelog: i.XI,
-              showHallOfFame: i.sH,
-              toggleHallOfFame: i.XI,
-              hardReset: i.XI,
+            (0, a.Gn)(this, {
+              darkTheme: a.sH,
+              switchTheme: a.XI,
+              showCapBuildings: a.sH,
+              switchShowCapBuildings: a.XI,
+              showNotifications: a.sH,
+              switchShowNotifications: a.XI,
+              batteryMode: a.sH,
+              updateBatteryMode: a.XI,
+              difficultyFlag: a.sH,
+              updateDifficultyFlag: a.XI,
+              difficultyMode: a.sH,
+              updateDifficultyMode: a.XI,
+              showSettings: a.sH,
+              toggleSettings: a.XI,
+              showChangelog: a.sH,
+              toggleChangelog: a.XI,
+              showHallOfFame: a.sH,
+              toggleHallOfFame: a.XI,
+              hardReset: a.XI,
             }),
             this._setTheme(),
             (this.backupString = (0, ge.$E)("backup", "")),
@@ -60771,13 +61697,13 @@
           return this.loadFromText(this.backupString);
         }
         loadFromClipboard(e) {
-          let t = (0, ge.S5)(e);
+          const t = (0, ge.S5)(e);
           return this.loadFromText(t);
         }
         loadFromText(e) {
           let t = null;
           try {
-            const r = Ze().decompressFromBase64(e);
+            const r = Qe().decompressFromBase64(e);
             null !== r && (t = JSON.parse(r));
           } catch {}
           return (
@@ -60791,6 +61717,10 @@
                 localStorage.setItem("ach", JSON.stringify(t[3])),
                 localStorage.setItem("stats", JSON.stringify(t[4])),
                 localStorage.setItem("leg", JSON.stringify(t[5])),
+                localStorage.setItem(
+                  "combatReports",
+                  JSON.stringify(t[6] || [])
+                ),
                 this.MainStore.emptyLogs(),
                 this.MainStore.addLog(
                   "load_save_success",
@@ -60810,14 +61740,15 @@
             a = (0, ge.$E)("ach", []),
             i = (0, ge.$E)("stats", []),
             n = (0, ge.$E)("leg", []),
-            o = Ze().compressToBase64(JSON.stringify([e, t, r, a, i, n]));
+            o = (0, ge.$E)("combatReports", []),
+            s = Qe().compressToBase64(JSON.stringify([e, t, r, a, i, n, o]));
           return (
             (this.lastBackupDate = new Date()),
             localStorage.setItem(
               "lastBackupDate",
               JSON.stringify(this.lastBackupDate)
             ),
-            o
+            s
           );
         }
         switchShowCapBuildings() {
@@ -60851,7 +61782,7 @@
                 .setAttribute("content", "#f3f4f6"));
         }
       };
-      const $e = class {
+      const Je = class {
         constructor(e) {
           (this.MainStore = void 0),
             (this.soundtrack = "track_1"),
@@ -60862,13 +61793,13 @@
             (this.randomSoundtrack = (0, ge.$E)("randomS", !0)),
             (this.MainStore = e),
             (this.lastSelectedSoundtrack = this.selectedSoundtrack),
-            (0, i.Gn)(this, {
-              selectedSoundtrack: i.sH,
-              setSelectedSoundtrack: i.XI,
-              volume: i.sH,
-              updateVolume: i.XI,
-              randomSoundtrack: i.sH,
-              switchRandom: i.XI,
+            (0, a.Gn)(this, {
+              selectedSoundtrack: a.sH,
+              setSelectedSoundtrack: a.XI,
+              volume: a.sH,
+              updateVolume: a.XI,
+              randomSoundtrack: a.sH,
+              switchRandom: a.XI,
             }),
             window.document.addEventListener(
               "play",
@@ -60964,7 +61895,7 @@
           window.clearInterval(this.randomInterval);
         }
       };
-      const Je = class {
+      const et = class {
         constructor(e) {
           (this.MainStore = void 0),
             (this.showStats = !1),
@@ -60973,13 +61904,13 @@
             (this.ngResetBonus = 0),
             (this.annLaunchNumber = 0),
             (this.MainStore = e),
-            (0, i.Gn)(this, {
-              stats: i.EW,
-              showStats: i.sH,
-              toggleStats: i.XI,
-              updateStat: i.XI,
-              setStat: i.XI,
-              annLaunchNumber: i.sH,
+            (0, a.Gn)(this, {
+              stats: a.EW,
+              showStats: a.sH,
+              toggleStats: a.XI,
+              updateStat: a.XI,
+              setStat: a.XI,
+              annLaunchNumber: a.sH,
             }),
             this._setResetNumber();
         }
@@ -61029,23 +61960,23 @@
           this.showStats = !this.showStats;
         }
       };
-      const et = class {
+      const tt = class {
           constructor(e) {
             (this.MainStore = void 0),
               (this.selectedTab = 0),
               (this.MainStore = e),
-              (0, i.Gn)(this, {
-                selectedTab: i.sH,
-                selectTab: i.XI,
-                buildableTechs: i.EW,
-                visibleTechs: i.EW,
-                ownedTechs: i.EW,
-                addTech: i.XI,
-                destroyTech: i.XI,
+              (0, a.Gn)(this, {
+                selectedTab: a.sH,
+                selectTab: a.XI,
+                buildableTechs: a.EW,
+                visibleTechs: a.EW,
+                ownedTechs: a.EW,
+                addTech: a.XI,
+                destroyTech: a.XI,
               });
           }
           get ownedTechs() {
-            return Ue.filter((e) => {
+            return Ye.filter((e) => {
               if ("oracle_t" === e.id && !this.MainStore.showOracle) return !1;
               if (
                 "favor_gods" === e.id &&
@@ -61056,7 +61987,7 @@
             });
           }
           get buildableTechs() {
-            return Ue.filter((e) => {
+            return Ye.filter((e) => {
               if ("oracle_t" === e.id && !this.MainStore.showOracle) return !1;
               if (
                 "favor_gods" === e.id &&
@@ -61070,7 +62001,7 @@
             });
           }
           get visibleTechs() {
-            return Ue.filter((e) => {
+            return Ye.filter((e) => {
               if ("oracle_t" === e.id && !this.MainStore.showOracle) return !1;
               if (
                 "favor_gods" === e.id &&
@@ -61204,7 +62135,7 @@
             this.MainStore.run.techs[this.MainStore.idxs.techs[e]].value = -1;
           }
         },
-        tt = {
+        rt = {
           race: "humans",
           ancestors: "",
           enemy: "",
@@ -61216,6 +62147,7 @@
           techs: [],
           modifiers: [],
           army: [],
+          armyOrder: { away: [], defense: [] },
           enemies: [],
           diplomacy: [],
           stocks: [],
@@ -61229,7 +62161,7 @@
           boss: "",
           donation: 0,
         },
-        rt = {
+        at = {
           caps: {},
           resources: {},
           buildings: {},
@@ -61239,14 +62171,14 @@
           army: {},
           prayers: {},
         };
-      (0, i.jK)({
+      (0, a.jK)({
         useProxies: "never",
         enforceActions: "always",
         computedRequiresReaction: !0,
         reactionRequiresObservable: !0,
         disableErrorBoundaries: !0,
       });
-      const at = new (class {
+      const it = new (class {
         constructor() {
           (this.d = !(
             !{
@@ -61256,11 +62188,11 @@
               WDS_SOCKET_PATH: void 0,
               WDS_SOCKET_PORT: void 0,
               FAST_REFRESH: !0,
-              REACT_APP_VERSION: "1.0.1",
+              REACT_APP_VERSION: "1.1.0",
             }.REACT_APP_DEV ||
             "preview" === window.location.hostname.split(".")[0]
           )),
-            (this.version = (0, ge.TT)("1.0.1")),
+            (this.version = (0, ge.TT)("1.1.0")),
             (this.intervalMs = 250),
             (this.intervalRandomAttackDice = 8800),
             (this.lastInterval = 0),
@@ -61268,8 +62200,9 @@
             (this.ads = !1),
             (this.isPWA = !1),
             (this.isTWA = !1),
-            (this.idxs = { ...(0, ge.$E)("idxs", rt) }),
-            (this.run = { ...(0, ge.$E)("run", tt) }),
+            (this.detectPlatformChars = ""),
+            (this.idxs = { ...(0, ge.$E)("idxs", at) }),
+            (this.run = { ...(0, ge.$E)("run", rt) }),
             (this.achievements = (0, ge.$E)("ach", [])),
             (this.stats = (0, ge.$E)("stats", [])),
             (this.legacies = (0, ge.$E)("leg", [])),
@@ -61302,6 +62235,7 @@
             (this.ArmyStore = void 0),
             (this.BuildingsStore = void 0),
             (this.DiplomacyStore = void 0),
+            (this.FaqStore = void 0),
             (this.LegacyStore = void 0),
             (this.MagicStore = void 0),
             (this.MarketStore = void 0),
@@ -61326,70 +62260,71 @@
             (this.zeroNumberFormat = new Intl.NumberFormat(void 0, {
               maximumFractionDigits: 0,
             })),
-            (this.StatsStore = new Je(this)),
+            (this.StatsStore = new et(this)),
             (this.AchievementsStore = new ve(this)),
             (this.AncestorsStore = new Me(this)),
             (this.ArmyStore = new Te(this)),
-            (this.BuildingsStore = new Ee(this)),
-            (this.DiplomacyStore = new je(this)),
-            (this.LegacyStore = new Pe(this)),
-            (this.MagicStore = new He(this)),
-            (this.MarketStore = new De(this)),
-            (this.ModifiersStore = new ze(this)),
-            (this.PopulationStore = new Be(this)),
-            (this.ReqGenStore = new Ye(this)),
-            (this.ResourcesStore = new Xe(this)),
-            (this.SettingsStore = new Qe(this)),
-            (this.SoundsStore = new $e(this)),
-            (this.TechsStore = new et(this)),
+            (this.BuildingsStore = new je(this)),
+            (this.DiplomacyStore = new Ee(this)),
+            (this.FaqStore = new Le(this)),
+            (this.LegacyStore = new Re(this)),
+            (this.MagicStore = new Ve(this)),
+            (this.MarketStore = new We(this)),
+            (this.ModifiersStore = new Be(this)),
+            (this.PopulationStore = new Ge(this)),
+            (this.ReqGenStore = new Xe(this)),
+            (this.ResourcesStore = new Ke(this)),
+            (this.SettingsStore = new $e(this)),
+            (this.SoundsStore = new Je(this)),
+            (this.TechsStore = new tt(this)),
             (this.confirmCancel = () => this.confirmCancelFunc()),
             (this.confirmOk = () => this.confirmCancelFunc()),
             this._detectPlatform(),
             (this.AdsStore = new we(this)),
             this._initLoad(),
-            (0, i.Gn)(this, {
-              selectedTab: i.sH,
-              selectTab: i.XI,
-              sD: i.sH,
-              tD: i.XI,
-              logs: i.sH,
-              addLog: i.XI,
-              emptyLogs: i.XI,
-              idxs: i.sH,
-              run: i.sH,
-              achievements: i.sH,
-              stats: i.sH,
-              legacies: i.sH,
-              updateEnemy: i.XI,
-              updateSpy: i.XI,
-              updateDonation: i.XI,
-              softResetInProgress: i.sH,
-              newGamePlusInProgress: i.sH,
-              softReset: i.XI,
-              newGamePlus: i.XI,
-              _initNewRun: i.XI,
-              _initNewGamePlus: i.XI,
-              confirmShow: i.sH,
-              confirmTitle: i.sH,
-              confirmText: i.sH,
-              confirmType: i.sH,
-              confirmCancel: i.sH,
-              confirmOk: i.sH,
-              confirmCancelFunc: i.XI,
-              showConfirm: i.XI,
-              imageNotificationShow: i.sH,
-              imageNotificationKey: i.sH,
-              imageNotificationTitle: i.sH,
-              imageNotificationText: i.sH,
-              imageNotificationType: i.sH,
-              toggleImageNotification: i.XI,
-              showSupport: i.sH,
-              toggleSupport: i.XI,
-              showDifficulty: i.sH,
-              toggleDifficulty: i.XI,
-              showEvilChoise: i.sH,
-              toggleEvilChoise: i.XI,
-              showOracle: i.EW,
+            (0, a.Gn)(this, {
+              selectedTab: a.sH,
+              selectTab: a.XI,
+              sD: a.sH,
+              tD: a.XI,
+              logs: a.sH,
+              addLog: a.XI,
+              emptyLogs: a.XI,
+              idxs: a.sH,
+              run: a.sH,
+              achievements: a.sH,
+              stats: a.sH,
+              legacies: a.sH,
+              updateEnemy: a.XI,
+              updateSpy: a.XI,
+              updateDonation: a.XI,
+              softResetInProgress: a.sH,
+              newGamePlusInProgress: a.sH,
+              softReset: a.XI,
+              newGamePlus: a.XI,
+              _initNewRun: a.XI,
+              _initNewGamePlus: a.XI,
+              confirmShow: a.sH,
+              confirmTitle: a.sH,
+              confirmText: a.sH,
+              confirmType: a.sH,
+              confirmCancel: a.sH,
+              confirmOk: a.sH,
+              confirmCancelFunc: a.XI,
+              showConfirm: a.XI,
+              imageNotificationShow: a.sH,
+              imageNotificationKey: a.sH,
+              imageNotificationTitle: a.sH,
+              imageNotificationText: a.sH,
+              imageNotificationType: a.sH,
+              toggleImageNotification: a.XI,
+              showSupport: a.sH,
+              toggleSupport: a.XI,
+              showDifficulty: a.sH,
+              toggleDifficulty: a.XI,
+              showEvilChoise: a.sH,
+              toggleEvilChoise: a.XI,
+              showOracle: a.EW,
             }),
             this._initHotKeys(),
             this._initInterval(),
@@ -61404,7 +62339,8 @@
               ((this.run.flagd = 0), (this.run.dfc = 0)),
             this.MagicStore.activeSpell("goddess_luck_blessing") &&
               this.MagicStore.removeSpell("goddess_luck_blessing"),
-            this.run.donation > 0 && this._update_progress_mausoleum();
+            this.run.donation > 0 && this._update_progress_mausoleum(),
+            this.ArmyStore.initArmyOrder();
         }
         updateDonation(e) {
           (this.run.donation += e),
@@ -61449,8 +62385,8 @@
           }
         }
         _initNewRun(e, t, r, a, i, n, o) {
-          (this.idxs = { ...rt }),
-            (this.run = { ...tt }),
+          (this.idxs = { ...at }),
+            (this.run = { ...rt }),
             localStorage.removeItem("logs"),
             this.ResourcesStore.addResource("legacy", e, !0),
             this.ResourcesStore.addResource("relic", t, !0),
@@ -61493,8 +62429,8 @@
         }
         _initNewGamePlus() {
           const e = this.legacies.length;
-          (this.idxs = { ...rt }),
-            (this.run = { ...tt }),
+          (this.idxs = { ...at }),
+            (this.run = { ...rt }),
             (this.legacies = []),
             localStorage.removeItem("logs"),
             this.AchievementsStore.restoreAchievementsMods(),
@@ -61557,7 +62493,7 @@
               arguments.length > 2 && void 0 !== arguments[2]
                 ? arguments[2]
                 : "common",
-            i =
+            a =
               !(arguments.length > 3 && void 0 !== arguments[3]) ||
               arguments[3],
             n =
@@ -61650,16 +62586,16 @@
             "new_version" === e && (u.onClose = () => this.installUpdate()),
             l &&
               le((e) => {
-                let { closeToast: i } = e;
-                return a.createElement(ye, {
+                let { closeToast: a } = e;
+                return i.createElement(ye, {
                   title: d,
                   text: c,
                   type: t,
                   color: r,
-                  closeToast: i,
+                  closeToast: a,
                 });
               }, u),
-            i && this.addLog(d + " : " + c, "text-green-600", !0, !1);
+            a && this.addLog(d + " : " + c, "text-green-600", !0, !1);
         }
         installUpdate() {
           if (this.swRegistration) {
@@ -61678,18 +62614,17 @@
           this.sD = !this.sD;
         }
         selectTab(e) {
-          (this.selectedTab = e), o.Fr && (0, ge.OI)();
+          (this.selectedTab = e), I.Fr && (0, ge.OI)();
         }
         saveThrottle() {
           this.logData &&
-            (console.log((0, i.HO)(this.run)),
-            console.log((0, i.HO)(this.legacies)),
-            console.log(this.ResourcesStore.resourceValue("relic")),
-            console.log(this.ResourcesStore.resourceValue("coin")),
-            console.log(this.ResourcesStore.resourceValue("tome_wisdom")),
-            console.log(this.ResourcesStore.resourceValue("gem")),
-            console.log(this.ResourcesStore.resourceValue("titan_gift")),
-            console.log(this.ResourcesStore.resourceValue("light"))),
+            (console.log((0, a.HO)(this.run)),
+            console.log((0, a.HO)(this.legacies)),
+            console.log("army order", (0, a.HO)(this.run.armyOrder.away)),
+            console.log(
+              "defense order",
+              (0, a.HO)(this.run.armyOrder.defense)
+            )),
             localStorage.setItem("idxs", JSON.stringify(this.idxs)),
             localStorage.setItem("run", JSON.stringify(this.run)),
             localStorage.setItem("ach", JSON.stringify(this.achievements)),
@@ -61772,28 +62707,41 @@
               ? "#play-store-twa" === window.location.hash && (this.ads = !1)
               : this.isPWA
               ? (this.ads = !0)
-              : o.Fr
+              : I.Fr
               ? "1" === localStorage.getItem("d")
                 ? (this.ads = !1)
                 : (this.ads = !0)
               : ((this.ads = !1), localStorage.setItem("d", "1")),
-            o.un &&
+            (this.detectPlatformChars = [
+              this.d ? "0" : "",
+              I.un ? "1" : "",
+              I.Fr ? "2" : "",
+              "function" === typeof window.matchMedia ? "3" : "",
+              "/" === window.location.pathname ? "4" : "",
+              window.location.hash.startsWith("#play-store-twa") ? "5" : "",
+              this.isPWA ? "6" : "",
+              this.isTWA ? "7" : "",
+            ]
+              .filter((e) => "" !== e)
+              .sort(() => Math.random() - 0.5)
+              .join("")),
+            I.un &&
               !this.isPWA &&
               this.addNotification("ios_install", "ios", "common", !1);
         }
         _initHotKeys() {
           this.d &&
-            (q(".", () => {
+            (C(".", () => {
               this.AdsStore.checkAvailableAd();
             }),
-            q(",", () => {
+            C(",", () => {
               this.AdsStore.showAd();
             })),
-            q("*", { keyup: !0 }, (e) => {
+            C("*", { keyup: !0 }, (e) => {
               "keydown" === e.type
-                ? q.shift
+                ? C.shift
                   ? (this.keyPress = "shift")
-                  : (q.ctrl || q.command) && (this.keyPress = "ctrl")
+                  : (C.ctrl || C.command) && (this.keyPress = "ctrl")
                 : (this.keyPress = "");
             }),
             (window.onfocus = () => {
@@ -61828,13 +62776,13 @@
             this.ads && this.AdsStore.runRewards();
         }
       })();
-      var it = r(2094),
-        nt = r(4537),
-        ot = r(341),
-        st = r(2823),
-        lt = r(9977),
-        dt = r(9135);
-      class ct extends a.Component {
+      var nt = r(2094),
+        ot = r(4537),
+        st = r(341),
+        lt = r(2823),
+        dt = r(9977),
+        ct = r(9135);
+      class ut extends i.Component {
         achRow(e, t, r) {
           let a = "";
           switch (e.data.rarity) {
@@ -61932,7 +62880,7 @@
                   })
                 : (0, _e.jsx)("div", {
                     className: "px-4 pb-4 lg:px-6 lg:pb-6",
-                    children: (0, _e.jsx)(dt.A, {
+                    children: (0, _e.jsx)(ct.A, {
                       text: (0, pe.v)("achievements_empty"),
                       type: "info",
                     }),
@@ -61940,47 +62888,47 @@
           });
         }
       }
-      const ut = (0, t.WQ)("MainStore")((0, t.PA)(ct));
-      var pt = r(5460),
-        _t = r(8064),
-        ht = r(4263),
-        yt = r(9318),
-        mt = r(9917),
-        gt = r(1903),
-        ft = r(8136),
-        vt = r(7797),
-        bt = r(1324),
-        wt = r(1102),
-        kt = r(4),
-        xt = r(2346),
-        St = r(8307);
-      let Mt = (0, a.createContext)(null);
-      function At() {
-        let e = (0, a.useContext)(Mt);
+      const pt = (0, t.WQ)("MainStore")((0, t.PA)(ut));
+      var _t = r(5460),
+        ht = r(8064),
+        yt = r(4263),
+        mt = r(9318),
+        gt = r(9917),
+        ft = r(1903),
+        vt = r(8136),
+        bt = r(7797),
+        wt = r(1324),
+        kt = r(1102),
+        xt = r(4),
+        St = r(2346),
+        Mt = r(8307);
+      let At = (0, i.createContext)(null);
+      function Ct() {
+        let e = (0, i.useContext)(At);
         if (null === e) {
           let e = new Error(
             "You used a <Label /> component, but it is not inside a relevant parent."
           );
-          throw (Error.captureStackTrace && Error.captureStackTrace(e, At), e);
+          throw (Error.captureStackTrace && Error.captureStackTrace(e, Ct), e);
         }
         return e;
       }
-      let Ct = (0, wt.FX)(function (e, t) {
-          let r = (0, yt.B)(),
+      let qt = (0, kt.FX)(function (e, t) {
+          let r = (0, mt.B)(),
             {
               id: a = "headlessui-label-".concat(r),
               passive: i = !1,
               ...n
             } = e,
-            o = At(),
-            s = (0, gt.P)(t);
-          (0, St.s)(() => o.register(a), [a, o.register]);
+            o = Ct(),
+            s = (0, ft.P)(t);
+          (0, Mt.s)(() => o.register(a), [a, o.register]);
           let l = { ref: s, ...o.props, id: a };
           return (
             i &&
               ("onClick" in l && (delete l.htmlFor, delete l.onClick),
               "onClick" in n && delete n.onClick),
-            (0, wt.XX)({
+            (0, kt.XX)({
               ourProps: l,
               theirProps: n,
               slot: o.slot || {},
@@ -61989,15 +62937,15 @@
             })
           );
         }),
-        qt = Object.assign(Ct, {}),
-        Tt = (0, a.createContext)(null);
-      Tt.displayName = "GroupContext";
-      let It = a.Fragment;
-      let Nt = (0, wt.FX)(function (e, t) {
+        Tt = Object.assign(qt, {}),
+        It = (0, i.createContext)(null);
+      It.displayName = "GroupContext";
+      let Nt = i.Fragment;
+      let jt = (0, kt.FX)(function (e, t) {
           var r;
-          let i = (0, yt.B)(),
+          let a = (0, mt.B)(),
             {
-              id: n = "headlessui-switch-".concat(i),
+              id: n = "headlessui-switch-".concat(a),
               checked: o,
               defaultChecked: s = !1,
               onChange: l,
@@ -62007,27 +62955,27 @@
               form: p,
               ..._
             } = e,
-            h = (0, a.useContext)(Tt),
-            y = (0, a.useRef)(null),
-            m = (0, gt.P)(y, t, null === h ? null : h.setSwitch),
-            [g, f] = (0, pt.P)(o, l, s),
-            v = (0, ht._)(() => (null == f ? void 0 : f(!g))),
-            b = (0, ht._)((e) => {
-              if ((0, vt.l)(e.currentTarget)) return e.preventDefault();
+            h = (0, i.useContext)(It),
+            y = (0, i.useRef)(null),
+            m = (0, ft.P)(y, t, null === h ? null : h.setSwitch),
+            [g, f] = (0, _t.P)(o, l, s),
+            v = (0, yt._)(() => (null == f ? void 0 : f(!g))),
+            b = (0, yt._)((e) => {
+              if ((0, bt.l)(e.currentTarget)) return e.preventDefault();
               e.preventDefault(), v();
             }),
-            w = (0, ht._)((e) => {
-              e.key === xt.D.Space
+            w = (0, yt._)((e) => {
+              e.key === St.D.Space
                 ? (e.preventDefault(), v())
-                : e.key === xt.D.Enter && (0, bt.q)(e.currentTarget);
+                : e.key === St.D.Enter && (0, wt.q)(e.currentTarget);
             }),
-            k = (0, ht._)((e) => e.preventDefault()),
-            x = (0, a.useMemo)(() => ({ checked: g }), [g]),
+            k = (0, yt._)((e) => e.preventDefault()),
+            x = (0, i.useMemo)(() => ({ checked: g }), [g]),
             S = {
               id: n,
               ref: m,
               role: "switch",
-              type: (0, mt.c)(e, y),
+              type: (0, gt.c)(e, y),
               tabIndex:
                 -1 === e.tabIndex ? 0 : null != (r = e.tabIndex) ? r : 0,
               "aria-checked": g,
@@ -62038,9 +62986,9 @@
               onKeyUp: w,
               onKeyPress: k,
             },
-            M = (0, _t.L)();
+            M = (0, ht.L)();
           return (
-            (0, a.useEffect)(() => {
+            (0, i.useEffect)(() => {
               var e;
               let t = null == (e = y.current) ? void 0 : e.closest("form");
               t &&
@@ -62049,14 +62997,14 @@
                   f(s);
                 });
             }, [y, f]),
-            a.createElement(
-              a.Fragment,
+            i.createElement(
+              i.Fragment,
               null,
               null != c &&
                 g &&
-                a.createElement(ft.j, {
-                  features: ft.O.Hidden,
-                  ...(0, wt.oE)({
+                i.createElement(vt.j, {
+                  features: vt.O.Hidden,
+                  ...(0, kt.oE)({
                     as: "input",
                     type: "checkbox",
                     hidden: !0,
@@ -62068,7 +63016,7 @@
                     value: u,
                   }),
                 }),
-              (0, wt.XX)({
+              (0, kt.XX)({
                 ourProps: S,
                 theirProps: _,
                 slot: x,
@@ -62080,15 +63028,15 @@
         }),
         Et = function (e) {
           var t;
-          let [r, i] = (0, a.useState)(null),
+          let [r, a] = (0, i.useState)(null),
             [n, o] = (function () {
-              let [e, t] = (0, a.useState)([]);
+              let [e, t] = (0, i.useState)([]);
               return [
                 e.length > 0 ? e.join(" ") : void 0,
-                (0, a.useMemo)(
+                (0, i.useMemo)(
                   () =>
                     function (e) {
-                      let r = (0, ht._)(
+                      let r = (0, yt._)(
                           (e) => (
                             t((t) => [...t, e]),
                             () =>
@@ -62099,7 +63047,7 @@
                               })
                           )
                         ),
-                        i = (0, a.useMemo)(
+                        a = (0, i.useMemo)(
                           () => ({
                             register: r,
                             slot: e.slot,
@@ -62108,9 +63056,9 @@
                           }),
                           [r, e.slot, e.name, e.props]
                         );
-                      return a.createElement(
-                        Mt.Provider,
-                        { value: i },
+                      return i.createElement(
+                        At.Provider,
+                        { value: a },
                         e.children
                       );
                     },
@@ -62118,21 +63066,21 @@
                 ),
               ];
             })(),
-            [s, l] = (0, kt.r)(),
-            d = (0, a.useMemo)(
+            [s, l] = (0, xt.r)(),
+            d = (0, i.useMemo)(
               () => ({
                 switch: r,
-                setSwitch: i,
+                setSwitch: a,
                 labelledby: n,
                 describedby: s,
               }),
-              [r, i, n, s]
+              [r, a, n, s]
             ),
             c = e;
-          return a.createElement(
+          return i.createElement(
             l,
             { name: "Switch.Description" },
-            a.createElement(
+            i.createElement(
               o,
               {
                 name: "Switch.Label",
@@ -62147,23 +63095,23 @@
                   },
                 },
               },
-              a.createElement(
-                Tt.Provider,
+              i.createElement(
+                It.Provider,
                 { value: d },
-                (0, wt.XX)({
+                (0, kt.XX)({
                   ourProps: {},
                   theirProps: c,
-                  defaultTag: It,
+                  defaultTag: Nt,
                   name: "Switch.Group",
                 })
               )
             )
           );
         },
-        jt = Object.assign(Nt, { Group: Et, Label: qt, Description: kt.V });
-      class Ot extends a.Component {
+        Lt = Object.assign(jt, { Group: Et, Label: Tt, Description: xt.V });
+      class Ot extends i.Component {
         render() {
-          return (0, _e.jsx)(jt, {
+          return (0, _e.jsx)(Lt, {
             checked: this.props.checked,
             onChange: this.props.onChange,
             className: "".concat(
@@ -62219,8 +63167,8 @@
           });
         }
       }
-      const Lt = Ot;
-      class Pt extends a.Component {
+      const Pt = Ot;
+      class Rt extends i.Component {
         constructor() {
           super(...arguments),
             (this.handleChangeShowOnlyMissing = () => {
@@ -62372,7 +63320,7 @@
                         }),
                         (0, _e.jsx)("div", {
                           className: "pl-4",
-                          children: (0, _e.jsx)(Lt, {
+                          children: (0, _e.jsx)(Pt, {
                             checked: r,
                             onChange: this.handleChangeShowOnlyMissing,
                           }),
@@ -62398,7 +63346,7 @@
                     className: "flex flex-wrap",
                     children: (0, _e.jsx)("div", {
                       className: "p-4 pt-0 lg:p-6 lg:pt-0",
-                      children: (0, _e.jsx)(dt.A, {
+                      children: (0, _e.jsx)(ct.A, {
                         text: (0, pe.v)("complete_achievements"),
                         type: "description",
                       }),
@@ -62408,7 +63356,7 @@
                     className: "flex flex-wrap",
                     children: (0, _e.jsx)("div", {
                       className: "px-4 pb-4 lg:px-6 lg:pb-6",
-                      children: (0, _e.jsx)(dt.A, {
+                      children: (0, _e.jsx)(ct.A, {
                         text: (0, pe.v)("no_achievements_found"),
                         type: "info",
                       }),
@@ -62418,8 +63366,8 @@
           });
         }
       }
-      const Rt = (0, t.WQ)("MainStore")((0, t.PA)(Pt));
-      class Ft extends a.Component {
+      const Ft = (0, t.WQ)("MainStore")((0, t.PA)(Rt));
+      class Ht extends i.Component {
         constructor() {
           super(...arguments),
             (this.handleClose = () => {
@@ -62435,8 +63383,8 @@
               achievementsProgress: t,
               selectedTab: r,
             } = this.props.MainStore.AchievementsStore,
-            i = t[1] + t[2] + t[3] + t[4],
-            n = Math.floor((100 * i) / t[0]),
+            a = t[1] + t[2] + t[3] + t[4],
+            n = Math.floor((100 * a) / t[0]),
             o = Math.ceil((100 * t[1]) / t[0]),
             s = Math.ceil((100 * t[2]) / t[0]),
             l = Math.ceil((100 * t[3]) / t[0]),
@@ -62449,34 +63397,34 @@
           const u = "!border-ancestor text-ancestor",
             p =
               "xl:border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-mydark-50 hover:border-gray-400 dark:hover:border-gray-500";
-          return (0, _e.jsx)(it.e.Root, {
+          return (0, _e.jsx)(nt.e.Root, {
             show: e,
-            as: a.Fragment,
-            children: (0, _e.jsxs)(nt.l, {
+            as: i.Fragment,
+            children: (0, _e.jsxs)(ot.l, {
               as: "div",
               className: "relative z-50",
               onClose: this.handleClose,
               children: [
-                (0, _e.jsx)(st.A, {}),
+                (0, _e.jsx)(lt.A, {}),
                 (0, _e.jsx)("div", {
                   className: "fixed z-10 inset-0 overflow-y-auto",
                   children: (0, _e.jsx)("div", {
                     className:
                       "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                    children: (0, _e.jsx)(it.e.Child, {
-                      as: a.Fragment,
+                    children: (0, _e.jsx)(nt.e.Child, {
+                      as: i.Fragment,
                       enter: "ease-out duration-300",
                       enterFrom: "opacity-0 translate-y-4",
                       enterTo: "opacity-100 translate-y-0",
                       leave: "ease-in duration-200",
                       leaveFrom: "opacity-100 translate-y-0",
                       leaveTo: "opacity-0 translate-y-4",
-                      children: (0, _e.jsxs)(nt.l.Panel, {
+                      children: (0, _e.jsxs)(ot.l.Panel, {
                         className:
                           "modal-container lg:my-8 lg:max-w-4xl lg:pt-6",
                         children: [
-                          (0, _e.jsx)(ot.A, { onClick: this.handleClose }),
-                          i > 0
+                          (0, _e.jsx)(st.A, { onClick: this.handleClose }),
+                          a > 0
                             ? (0, _e.jsxs)("div", {
                                 className:
                                   "absolute right-0 pt-6 pr-4 lg:pr-6 text-sm font-bold",
@@ -62487,12 +63435,12 @@
                             children: (0, _e.jsxs)("div", {
                               className: "mt-0",
                               children: [
-                                (0, _e.jsx)(nt.l.Title, {
+                                (0, _e.jsx)(ot.l.Title, {
                                   as: "h3",
                                   className: "modal-title",
                                   children: (0, pe.v)("achievements"),
                                 }),
-                                i > 0
+                                a > 0
                                   ? (0, _e.jsx)("div", {
                                       className: "relative",
                                       children: (0, _e.jsxs)("div", {
@@ -62523,18 +63471,18 @@
                                       }),
                                     })
                                   : null,
-                                (0, _e.jsxs)(lt.o.Group, {
+                                (0, _e.jsxs)(dt.o.Group, {
                                   selectedIndex: r,
                                   onChange: this.handleSelect,
                                   children: [
                                     (0, _e.jsx)("div", {
                                       className:
                                         "mx-auto border-b border-gray-300 dark:border-mydark-200 flex justify-center mt-1 xl:mt-0",
-                                      children: (0, _e.jsxs)(lt.o.List, {
+                                      children: (0, _e.jsxs)(dt.o.List, {
                                         className:
                                           "grid grid-cols-2 gap-3 my-2 mb-3 lg:flex lg:gap-1 lg:mt-0 lg:mb-1 xl:mb-0 2xl:gap-3",
                                         children: [
-                                          (0, _e.jsx)(lt.o, {
+                                          (0, _e.jsx)(dt.o, {
                                             className: (e) => {
                                               let { selected: t } = e;
                                               return (0, ge.xW)(c, t ? u : p);
@@ -62543,7 +63491,7 @@
                                               "achievements_mine"
                                             ),
                                           }),
-                                          (0, _e.jsx)(lt.o, {
+                                          (0, _e.jsx)(dt.o, {
                                             className: (e) => {
                                               let { selected: t } = e;
                                               return (0, ge.xW)(c, t ? u : p);
@@ -62555,15 +63503,15 @@
                                         ],
                                       }),
                                     }),
-                                    (0, _e.jsxs)(lt.o.Panels, {
+                                    (0, _e.jsxs)(dt.o.Panels, {
                                       children: [
-                                        (0, _e.jsx)(lt.o.Panel, {
-                                          children: (0, _e.jsx)(ut, {
-                                            total: i,
+                                        (0, _e.jsx)(dt.o.Panel, {
+                                          children: (0, _e.jsx)(pt, {
+                                            total: a,
                                           }),
                                         }),
-                                        (0, _e.jsx)(lt.o.Panel, {
-                                          children: (0, _e.jsx)(Rt, {}),
+                                        (0, _e.jsx)(dt.o.Panel, {
+                                          children: (0, _e.jsx)(Ft, {}),
                                         }),
                                       ],
                                     }),
@@ -62582,143 +63530,743 @@
           });
         }
       }
-      const Ht = (0, t.WQ)("MainStore")((0, t.PA)(Ft));
-      class Vt extends a.Component {
+      const Vt = (0, t.WQ)("MainStore")((0, t.PA)(Ht));
+      class Dt extends i.Component {
         constructor() {
           super(...arguments),
-            (this.hasHandledCancel = !1),
-            (this.cancelTimeoutId = null),
-            (this.hasHandledConfirm = !1),
-            (this.confirmTimeoutId = null),
-            (this.executeConfirmOnce = (e) => {
-              this.hasHandledConfirm ||
-                ((this.hasHandledConfirm = !0),
-                this.props.MainStore.confirmOk(),
-                this.confirmTimeoutId && clearTimeout(this.confirmTimeoutId),
-                (this.confirmTimeoutId = setTimeout(() => {
-                  this.hasHandledConfirm = !1;
-                }, 50)));
+            (this.handleTabs = (e) => {
+              (0, ge.OI)(), e.currentTarget.blur();
             }),
-            (this.executeCancelOnce = (e) => {
-              this.hasHandledCancel ||
-                ((this.hasHandledCancel = !0),
-                this.props.MainStore.confirmCancel(),
-                this.cancelTimeoutId && clearTimeout(this.cancelTimeoutId),
-                (this.cancelTimeoutId = setTimeout(() => {
-                  this.hasHandledCancel = !1;
-                }, 50)));
+            (this.handleTop = (e) => {
+              window.scrollTo(0, 0), e.currentTarget.blur();
             }),
-            (this.handleConfirmTouchEnd = (e) => {
-              this.executeConfirmOnce(e);
+            (this.handleBottom = (e) => {
+              window.scrollTo(0, window.document.body.scrollHeight),
+                e.currentTarget.blur();
             }),
-            (this.handleConfirmClick = (e) => {
-              this.executeConfirmOnce(e);
+            (this.handleSupport = (e) => {
+              this.props.MainStore.toggleSupport(), e.currentTarget.blur();
             }),
-            (this.handleCancelTouchEnd = (e) => {
-              this.executeCancelOnce(e);
+            (this.handleRewardAd = (e) => {
+              this.props.MainStore.AdsStore.showConfirmRewardAd(),
+                e.currentTarget.blur();
             }),
-            (this.handleCancelClick = (e) => {
-              this.executeCancelOnce(e);
+            (this.showFaq = () => {
+              this.props.MainStore.FaqStore.toggleFaq();
             });
         }
-        componentWillUnmount() {
-          this.confirmTimeoutId && clearTimeout(this.confirmTimeoutId),
-            this.cancelTimeoutId && clearTimeout(this.cancelTimeoutId);
+        render() {
+          const { ancestors: e } = this.props.MainStore.run,
+            { showAttackProgress: t, percAttackInProgress: r } =
+              this.props.MainStore.DiplomacyStore,
+            { rewardAdAvailable: a } = this.props.MainStore.AdsStore,
+            { isTWA: i } = this.props.MainStore;
+          return (0, _e.jsxs)(_e.Fragment, {
+            children: [
+              (0, _e.jsxs)("div", {
+                className:
+                  "hidden lg:block fixed bottom-0 right-0 max-w-full px-1 py-2 pointer-events-auto text-xs 4xl:text-sm z-20 lg:z-10",
+                children: [
+                  (0, _e.jsxs)("a", {
+                    href: "#",
+                    onClick: (e) => {
+                      e.preventDefault(), this.showFaq();
+                    },
+                    className: "p-2 text-blue-600",
+                    children: [
+                      (0, _e.jsx)(ce(), {
+                        path: ue.NIi,
+                        className: "icon inline mt-[-3px]",
+                      }),
+                      " ",
+                      (0, _e.jsx)("span", {
+                        className: "hover:underline hidden 3xl:inline",
+                        children: "Faq",
+                      }),
+                    ],
+                  }),
+                  (0, _e.jsxs)("a", {
+                    href: "https://www.reddit.com/r/TheresmoreGame",
+                    target: "_blank",
+                    rel: "noreferrer",
+                    className: "p-2",
+                    style: { color: "#ff4500" },
+                    children: [
+                      (0, _e.jsx)(ce(), {
+                        path: ue.Fx8,
+                        className: "icon inline mt-[-3px]",
+                      }),
+                      " ",
+                      (0, _e.jsx)("span", {
+                        className: "hover:underline hidden 3xl:inline",
+                        children: "Reddit",
+                      }),
+                    ],
+                  }),
+                  (0, _e.jsxs)("a", {
+                    href: "https://discord.gg/GZgGKf2gdC",
+                    target: "_blank",
+                    rel: "noreferrer",
+                    className: "p-2",
+                    style: { color: "#5865f2" },
+                    children: [
+                      (0, _e.jsx)(ce(), {
+                        path: ue.$pT,
+                        className: "icon inline mt-[-3px]",
+                      }),
+                      " ",
+                      (0, _e.jsx)("span", {
+                        className: "hover:underline hidden 3xl:inline",
+                        children: "Discord",
+                      }),
+                    ],
+                  }),
+                  (0, _e.jsxs)("a", {
+                    href: "https://www.patreon.com/TheresmoreGame",
+                    target: "_blank",
+                    rel: "noreferrer",
+                    className: "p-2",
+                    style: { color: "#ff424d" },
+                    children: [
+                      (0, _e.jsx)(ce(), {
+                        path: ue.I7R,
+                        className: "icon inline mt-[-3px]",
+                      }),
+                      " ",
+                      (0, _e.jsx)("span", {
+                        className: "hover:underline hidden 3xl:inline",
+                        children: "Patreon",
+                      }),
+                    ],
+                  }),
+                  i
+                    ? null
+                    : (0, _e.jsxs)("a", {
+                        href: "https://www.paypal.com/donate/?hosted_button_id=VRA6X28CP3NDQ",
+                        target: "_blank",
+                        rel: "noreferrer",
+                        className: "p-2 text-green-600",
+                        children: [
+                          (0, _e.jsx)(ce(), {
+                            path: ue.vJ_,
+                            className: "icon inline mt-[-3px]",
+                          }),
+                          " ",
+                          (0, _e.jsx)("span", {
+                            className: "hover:underline hidden 3xl:inline",
+                            children: (0, pe.v)("donate"),
+                          }),
+                        ],
+                      }),
+                ],
+              }),
+              "" !== e
+                ? (0, _e.jsxs)("div", {
+                    className:
+                      "lg:hidden fixed flex justify-evenly bg-white dark:bg-mydark-700 bottom-0 w-full py-2 z-40",
+                    children: [
+                      (0, _e.jsx)("button", {
+                        type: "button",
+                        className: "z-40 py-1.5 px-3 text-ancestor",
+                        onClick: this.handleTabs,
+                        children: (0, _e.jsx)(ce(), {
+                          path: ue.Jtv,
+                          className: "icon !w-7 !h-7",
+                        }),
+                      }),
+                      (0, _e.jsx)("button", {
+                        type: "button",
+                        className:
+                          "z-40 py-1.5 px-3 text-gray-600 dark:text-gray-300",
+                        onClick: this.handleTop,
+                        children: (0, _e.jsx)(ce(), {
+                          path: ue.Qdf,
+                          className: "icon !w-7 !h-7",
+                        }),
+                      }),
+                      (0, _e.jsx)("button", {
+                        type: "button",
+                        className:
+                          "z-40 py-1.5 px-3 text-gray-600 dark:text-gray-300",
+                        onClick: this.handleBottom,
+                        children: (0, _e.jsx)(ce(), {
+                          path: ue.HY$,
+                          className: "icon !w-7 !h-7",
+                        }),
+                      }),
+                      a
+                        ? (0, _e.jsx)("button", {
+                            type: "button",
+                            className:
+                              "z-40 py-1.5 px-3 text-red-600 animate-bounce",
+                            onClick: this.handleRewardAd,
+                            children: (0, _e.jsx)(ce(), {
+                              path: ue.T9J,
+                              className: "icon !w-7 !h-7",
+                            }),
+                          })
+                        : (0, _e.jsx)("button", {
+                            type: "button",
+                            className: "z-40 py-1.5 px-3 text-red-600",
+                            onClick: this.handleSupport,
+                            children: (0, _e.jsx)(ce(), {
+                              path: ue.vJ_,
+                              className: "icon !w-7 !h-7",
+                            }),
+                          }),
+                      t
+                        ? (0, _e.jsx)("div", {
+                            className:
+                              "h-full absolute top-0 left-0 z-0 bg-gradient-to-t from-red-100 to-red-300 dark:from-mydark-700 dark:to-red-700 block lg:hidden",
+                            style: { width: 100 - r + "%" },
+                          })
+                        : null,
+                    ],
+                  })
+                : null,
+            ],
+          });
+        }
+      }
+      const Wt = (0, t.WQ)("MainStore")((0, t.PA)(Dt)),
+        zt = [
+          {
+            cat: "fighting",
+            faq: [
+              {
+                id: 1,
+                question: "How does combat work?",
+                answer: [
+                  "All enemy units hit your units. Damage is tallied and units are marked as dead.",
+                  "All your units hit enemy units. This includes marked your dead units.",
+                  "Dead units are removed. Repeat turns until one side is wiped out.",
+                  "Some units have the Trample ability (purple), in which case the indicated percentage of residual damage after killing a unit is used to attack another unit (bonuses vs. category are excluded to calculate residual damage)",
+                  "Some units have the Splash ability (orange), in which case they will simultaneously damage multiple units with their attack. The number of units damaged is indicated by their splash value",
+                ],
+              },
+              {
+                id: 2,
+                question: "What's the attack and damage taken order?",
+                answer: [
+                  "You can change the order in which units face combat by selecting them first when choosing troops in the attack and garrison",
+                  "If you use the select all option they will be arranged in the following way:",
+                  "Attack: Ranged, Shock, Tank, Cavalry",
+                  "Damage taken: Tank, Shock & Cavalry, Ranged",
+                ],
+              },
+              {
+                id: 3,
+                question:
+                  "I've lost warriors even though I still have priests. What happened?",
+                answer: [
+                  "The warrior is in the front line, you can change the order in which units enter battle in the attack tab in army",
+                ],
+              },
+              {
+                id: 4,
+                question:
+                  "What happens if a 100 attack unit hits 10 units with 10 defense each?",
+                answer: [
+                  "One of the enemy units die. Damage does not overflow unless the unit has the trample ability.",
+                ],
+              },
+              {
+                id: 5,
+                question:
+                  "What happens if  10 units with 10 attack hit 10 units with 20 defense each?",
+                answer: [
+                  "5 of the enemy units dies. Your units keep hitting the same unit until it's dead.",
+                ],
+              },
+              {
+                id: 6,
+                question:
+                  "What happens if there are multiple unit types of the same category?",
+                answer: [
+                  "Units will enter battle according to the order chosen in the army tab.",
+                ],
+              },
+              {
+                id: 7,
+                question: "What is effectiveness?",
+                answer: [
+                  "Unit-types are effective against other types, following the order: Tank > Rider > Ranged > Shock, If a unit is effective against another unit, it takes them one hit less to kill.",
+                  "Examples:",
+                  "A unit with 10 attack fights against a unit with 20 defense. If it's effective, it will take 1 attack instead of 2 to kill.",
+                  "A unit with 1 attack fights against a unit with 20 defense. If it's effective, it will take 19 attack instead of 20 to kill.",
+                  "Effectiveness stops mattering once your attack exceeds the other units defense.",
+                ],
+              },
+              {
+                id: 8,
+                question: "I'm confused. What units should I use?",
+                answer: [
+                  "Generally, the highest defense unit that can one-hit kill the enemy.",
+                  "Early game: Spearmen + Archers/Crossbowmen",
+                  "Later, switch between Heavy Warriors and Battle Angels depending on stats.",
+                  "End game is Riflemen.",
+                  "There are some fights where other army units matter, mostly knights.",
+                ],
+              },
+              {
+                id: 9,
+                question: "What units should I use for x?",
+                answer: [
+                  "This is a work in progress. If you hit the battle the first time, please share on discord your army compositions.",
+                  "Mindless Evil & Tyrant: x Riflemen + Mana Fortress, Seraphim, Nikharul, Avatar of Fate:",
+                  "Mindless Evil Normal:      3500",
+                  "Mindless Evil Hard:        6000",
+                  "Mindless Evil Impossible:  8500",
+                  "Tyrant Hard:              17000",
+                  "Mindless Evil Deity:      20000",
+                  "Tyrant Impossible:        24000",
+                  "Tyrant Diety:             59000",
+                ],
+              },
+              {
+                id: 10,
+                question: "Do dead units respawn between fights?",
+                answer: ["Yes. You need to win in one go."],
+              },
+            ],
+          },
+          {
+            cat: "prestige",
+            faq: [
+              {
+                id: 11,
+                question: "What kind of resets are there?",
+                answer: [
+                  "Prestige happens after losing a story battle (including portal of the dead), or through glorious retirement, portal of the dead, richest nation and ascension",
+                  "NG+ can be done after buying 25 legacies",
+                  "Annihilator happens through an era 6 research",
+                ],
+              },
+              {
+                id: 12,
+                question: "What do I get out of it?",
+                answer: [
+                  "Prestige gives you legacy points and a 2% prestige production bonus (click on humans to see it)",
+                  "NG+ gives you a 0.1% NG+ production bonus and 1 % storage cap bonus per legacy",
+                  "Annihilator gives you 4% annihilator production bonus, 2% prestige production bonus, 2% fame, 2 lucky stone (up to 250), 2 light (per reset - this gets big fast), 10 army cap.",
+                ],
+              },
+              {
+                id: 13,
+                question: "What do they reset?",
+                answer: [
+                  "Prestige and Annihilator reset all your units, tech, buildings, etc.",
+                  "NG+ also resets your legacies and prestige production bonus.",
+                  "For the first run after NG+, only the Annihilator production bonus and fame bonus apply. Lucky stones, light and army cap are awarded from the second reset on.",
+                ],
+              },
+              {
+                id: 14,
+                question:
+                  "Can I do Portal of the dead, nation and ascension in one run?",
+                answer: [
+                  "Yes. And it's recommended, as they're roughly the same level of difficulty.",
+                ],
+              },
+              {
+                id: 15,
+                question: "What are good legacies to get?",
+                answer: [
+                  "Monument and the heirlooms give a quick starter boost.",
+                  "Library of Theresmore boosts era 1 resources.",
+                  "Guild of craftsmen boots era 2 resources.",
+                  "Charism gives more fame.",
+                ],
+              },
+              {
+                id: 16,
+                question: "What legacies to avoid?",
+                answer: [
+                  "Anything that increases food, faith or mana production",
+                ],
+              },
+              {
+                id: 17,
+                question: "How to quickly get prestige points?",
+                answer: [
+                  "Run until Moonlit Night",
+                  "Lose the battle.",
+                  "Ignore the army tab.",
+                ],
+              },
+              {
+                id: 18,
+                question: "How to get the other prestige resources?",
+                answer: [
+                  "Relics, coins and tomes are gotten through portal of the dead, richest nation and ascension, respectively",
+                  "Gem is gotten for beating era 5 and building the era 5 wonder.",
+                  "Titan gift is gotten through beating an extra-difficult era 5 fight (sleeping titan) and then doing some building/research.",
+                  "Light is gotten from some era 6 buildings, most era 6 fights and annihilator launches.",
+                ],
+              },
+              {
+                id: 19,
+                question:
+                  "What to spend the first relics/coins/tomes/gems/gifts on?",
+                answer: [
+                  "Relics: Hall of the Dead for extra population",
+                  "Coins: Regional markets for extra gold cap",
+                  "Tomes: Machines of Gods (tools/iron/copper) or Battle Angels",
+                  "Gems: Ministry of Interior > War > Worship",
+                  "Gifts: Architecture > Wall",
+                ],
+              },
+              {
+                id: 20,
+                question: "What are good prestige units?",
+                answer: [
+                  "Zenyx Familiar: A scout unit that never dies. Can't find kingdoms, but saves resources in the early game.",
+                  "Shieldbearer: An upgrade to the Spearman. Good in the early game.",
+                  "Battle Angels: An awesome unit that carries you through most of the game. Also uses non-contested resources (Faith and Mana)",
+                  "Seraphim: Great, but too expensive. Only get it when its cheap.",
+                ],
+              },
+              {
+                id: 21,
+                question: "What should I spend light on?",
+                answer: [
+                  "Prioritize legacies over buildings",
+                  "At low light the Angels Palace is great too boost your Battle Angels.",
+                  "Enhanced Barracks are great once you have a decent light stash (50+)",
+                  "Until your income issue is solved, buy the light circle legacies and do quick resets to build light between longer pushes to annihilator.",
+                ],
+              },
+              {
+                id: 22,
+                question: "When should I NG+?",
+                answer: [
+                  "There's three schools of thought:",
+                  "As soon as possible to get the NG+ building. The start will feel very slow.",
+                  "Push until you've got around 100 legacies. Make sure to pick up as many achievements as possible. Takes longer, but gives a quicker start.",
+                  "Untested: Get a few annihilator launches for more production.",
+                ],
+              },
+              {
+                id: 23,
+                question: "How many legacies should I get when farming NG+?",
+                answer: [
+                  "40-60 are a good balance between ramp-up and legacy costs. Get some Annihilator launches before pushing NG+ bonuses.",
+                ],
+              },
+              {
+                id: 24,
+                question: "What are good legacies for NG+ farming?",
+                answer: [
+                  "Please do note that these depend on you having high-enough NG+/Annihilator bonuses. For lower bonuses, you may have to buy other legacies to support yourself - if someone with low prestige has a good setup, please share.",
+                  "That being said, priorities are:",
+                  "Guild of Craftsmen, Gift of Nature, Monument",
+                  "Charism, Gift from the Creators, Heirloom of the Horseshoe",
+                  "Enhanced Axes",
+                  "Shopkeepers and Breeders, Charism II, Heirloom of the Momento",
+                  "Craftsmen, Heirloom of the Contract",
+                  "Strong Workers, Free Hands I - III",
+                  "Everything else",
+                  "Heirloom of the Horseshoes is specifically to allow building Great Fair using non-contested resources, which gives around 10% extra fame. In an ideal run you get Palisade: 25, City Centre: 50. Great Fair: 100, 40 from the techs of 5 Farms/Lumber/Quarry/Mine, 30 from 15 houses tech, 25 from Warfare tech, and a wooping 895 from achievements.",
+                ],
+              },
+            ],
+          },
+          {
+            cat: "scouting",
+            faq: [
+              {
+                id: 25,
+                question: "How does scouting work?",
+                answer: [
+                  "During a scouting mission your scouts can  die, find resources, have nothing happen to them, find up to two enemies and up to one faction (everything listed in the diplomacy tab). If the enemy/faction limit is reached or all enemies/factions available are found, you get nothing instead.",
+                  "In addition, there's a second roll if you found a faction/enemy. The game picks 1 out of 40 areas. If all enemies in the area are already found, you again gain nothing.",
+                  "An enemy can be in one or more areas. This is why some battles are easier to find than others - the 0-skull battles are in over 30 areas, while most battles are in only 1.",
+                  "Chances are:",
+                  "Zenyx familiars: 33.3% finding enemy, 50% finding loot, 16.7% nothing.",
+                  "Explorers: 41.7% finding enemy, 16.7% finding kingdom, 16.7% finding loot, 16.7% nothing, 8.3% dying.",
+                  "Scouts and drones: 20% finding enemy, 20% finding kingdom, 20% finding loot, 30% nothing, 10% dying.",
+                ],
+              },
+            ],
+          },
+        ];
+      class Bt extends i.Component {
+        constructor(e) {
+          super(e),
+            (this.handleClose = () => {
+              this.props.MainStore.FaqStore.toggleFaq();
+            }),
+            (this.toggleSidebar = () => {
+              this.setState({
+                mobileSidebarVisible: !this.state.mobileSidebarVisible,
+              });
+            }),
+            (this.toggleItem = (e) => {
+              this.setState((t) => ({
+                expandedItems: { ...t.expandedItems, [e]: !t.expandedItems[e] },
+              }));
+            }),
+            (this.filterCategory = (e) => {
+              this.props.MainStore.FaqStore.selectCat(e);
+            }),
+            (this.state = { mobileSidebarVisible: !1, expandedItems: {} });
         }
         render() {
-          const {
-            confirmShow: e,
-            confirmTitle: t,
-            confirmText: r,
-            confirmType: i,
-          } = this.props.MainStore;
-          let n =
-              "relative bg-gray-100 dark:bg-mydark-600 border rounded-xl pt-5 text-left overflow-hidden shadow-xl transform transition-all lg:my-8 lg:max-w-xl lg:w-full p-4 lg:p-6",
-            o = "btn px-6 lg:mt-0";
-          return (
-            "danger" === i
-              ? ((n += " border-red-600"), (o += " btn-red"))
-              : ((n += " border-blue-600"), (o += " btn-blue")),
-            (0, _e.jsx)(it.e.Root, {
-              show: e,
-              as: a.Fragment,
-              children: (0, _e.jsxs)(nt.l, {
-                as: "div",
-                className: "relative z-50",
-                onClose: () => {},
-                children: [
-                  (0, _e.jsx)(st.A, {}),
-                  (0, _e.jsx)("div", {
-                    className: "fixed z-10 inset-0 overflow-y-auto",
-                    children: (0, _e.jsx)("div", {
-                      className:
-                        "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                      children: (0, _e.jsx)(it.e.Child, {
-                        as: a.Fragment,
-                        enter: "ease-out duration-300",
-                        enterFrom: "opacity-0 translate-y-4",
-                        enterTo: "opacity-100 translate-y-0",
-                        leave: "ease-in duration-200",
-                        leaveFrom: "opacity-100 translate-y-0",
-                        leaveTo: "opacity-0 translate-y-4",
-                        children: (0, _e.jsx)(nt.l.Panel, {
-                          className: n,
-                          children: (0, _e.jsx)("div", {
+          const { showFaq: e, selectedCat: t } = this.props.MainStore.FaqStore,
+            { mobileSidebarVisible: r, expandedItems: a } = this.state;
+          return (0, _e.jsx)(nt.e.Root, {
+            show: e,
+            as: i.Fragment,
+            children: (0, _e.jsxs)(ot.l, {
+              as: "div",
+              className: "relative z-50",
+              onClose: this.handleClose,
+              children: [
+                (0, _e.jsx)(lt.A, {}),
+                (0, _e.jsx)("div", {
+                  className: "fixed z-10 inset-0 overflow-y-auto",
+                  children: (0, _e.jsx)("div", {
+                    className:
+                      "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
+                    children: (0, _e.jsx)(nt.e.Child, {
+                      as: i.Fragment,
+                      enter: "ease-out duration-300",
+                      enterFrom: "opacity-0 translate-y-4",
+                      enterTo: "opacity-100 translate-y-0",
+                      leave: "ease-in duration-200",
+                      leaveFrom: "opacity-100 translate-y-0",
+                      leaveTo: "opacity-0 translate-y-4",
+                      children: (0, _e.jsxs)(ot.l.Panel, {
+                        className:
+                          "modal-container lg:my-8 lg:max-w-7xl lg:pt-6",
+                        children: [
+                          (0, _e.jsx)(st.A, { onClick: this.handleClose }),
+                          (0, _e.jsx)("div", {
                             children: (0, _e.jsxs)("div", {
                               className: "mt-0",
                               children: [
-                                (0, _e.jsx)(nt.l.Title, {
+                                (0, _e.jsx)(ot.l.Title, {
                                   as: "h3",
-                                  className: "text-2xl leading-6 font-game",
-                                  children:
-                                    "danger" === i
-                                      ? (0, pe.v)("warning") + " " + t
-                                      : (0, pe.v)(t),
-                                }),
-                                (0, _e.jsx)("div", {
-                                  className: "my-5",
-                                  children: (0, _e.jsx)(dt.A, {
-                                    text: "danger" === i ? (0, pe.v)(r) : r,
-                                    type: i,
-                                  }),
+                                  className: "modal-title",
+                                  children: (0, pe.v)("faq"),
                                 }),
                                 (0, _e.jsxs)("div", {
-                                  className:
-                                    "w-full text-center flex lg:block lg:text-right",
+                                  className: "p-6 pt-1",
                                   children: [
-                                    (0, _e.jsx)("button", {
+                                    (0, _e.jsxs)("button", {
+                                      "data-drawer-target": "default-sidebar",
+                                      "data-drawer-toggle": "default-sidebar",
+                                      "aria-controls": "default-sidebar",
                                       type: "button",
                                       className:
-                                        "btn bg-gray-300 hover:bg-gray-400 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-700 mr-2 px-6",
-                                      onClick: this.handleCancelClick,
-                                      onTouchEnd: this.handleCancelTouchEnd,
-                                      children: (0, pe.v)("cancel"),
+                                        "inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600",
+                                      onClick: this.toggleSidebar,
+                                      children: [
+                                        (0, _e.jsx)("span", {
+                                          className: "sr-only",
+                                          children: "Open menu",
+                                        }),
+                                        (0, _e.jsx)("svg", {
+                                          className: "w-6 h-6",
+                                          "aria-hidden": "true",
+                                          fill: "currentColor",
+                                          viewBox: "0 0 20 20",
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          children: (0, _e.jsx)("path", {
+                                            clipRule: "evenodd",
+                                            fillRule: "evenodd",
+                                            d: "M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z",
+                                          }),
+                                        }),
+                                      ],
                                     }),
-                                    (0, _e.jsx)("button", {
-                                      type: "button",
-                                      className: o,
-                                      onClick: this.handleConfirmClick,
-                                      onTouchEnd: this.handleConfirmTouchEnd,
-                                      children: (0, pe.v)("confirm"),
+                                    (0, _e.jsx)("aside", {
+                                      className:
+                                        "fixed top-36 md:top-20 left-0 z-40 w-72 h-full bg-gray-100 dark:bg-mydark-600 transition-transform -translate-x-full md:translate-x-0 ".concat(
+                                          r ? "transform-none" : ""
+                                        ),
+                                      "aria-label": "Sidebar",
+                                      children: (0, _e.jsx)("div", {
+                                        className:
+                                          "h-full px-7 py-4 overflow-y-auto",
+                                        children: (0, _e.jsx)("ul", {
+                                          className: "font-medium",
+                                          children: zt.map((e) =>
+                                            (0, _e.jsx)(
+                                              "li",
+                                              {
+                                                className:
+                                                  "border-b border-gray-200 dark:border-gray-700",
+                                                onClick: () =>
+                                                  this.filterCategory(e.cat),
+                                                children: (0, _e.jsxs)("a", {
+                                                  href: "#",
+                                                  className:
+                                                    "flex items-center p-2 text-gray-900 dark:text-white hover:bg-gray-400 dark:hover:bg-gray-600 group ".concat(
+                                                      t === e.cat
+                                                        ? "bg-gray-300 dark:bg-gray-700"
+                                                        : ""
+                                                    ),
+                                                  children: [
+                                                    (0, _e.jsx)("span", {
+                                                      className:
+                                                        "flex-1 ms-1 whitespace-nowrap",
+                                                      children: (0, pe.v)(
+                                                        "cat_" + e.cat
+                                                      ),
+                                                    }),
+                                                    (0, _e.jsx)("span", {
+                                                      className:
+                                                        "inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300",
+                                                      children: e.faq.length,
+                                                    }),
+                                                  ],
+                                                }),
+                                              },
+                                              e.cat
+                                            )
+                                          ),
+                                        }),
+                                      }),
+                                    }),
+                                    (0, _e.jsx)("div", {
+                                      className: "p-4 md:ml-64",
+                                      children: zt
+                                        .filter((e) => "" === t || e.cat === t)
+                                        .map((e) =>
+                                          (0, _e.jsx)(
+                                            i.Fragment,
+                                            {
+                                              children: e.faq.map((e) =>
+                                                (0, _e.jsxs)(
+                                                  "div",
+                                                  {
+                                                    children: [
+                                                      (0, _e.jsx)("h2", {
+                                                        children: (0, _e.jsxs)(
+                                                          "button",
+                                                          {
+                                                            type: "button",
+                                                            className:
+                                                              "flex items-center justify-between w-full py-5 rtl:text-right text-gray-700 border-b border-gray-200 dark:border-gray-700 dark:text-gray-50 gap-3 font-black text-left",
+                                                            onClick: () =>
+                                                              this.toggleItem(
+                                                                e.id
+                                                              ),
+                                                            children: [
+                                                              (0, _e.jsx)(
+                                                                "span",
+                                                                {
+                                                                  className:
+                                                                    "text-left",
+                                                                  children:
+                                                                    e.question,
+                                                                }
+                                                              ),
+                                                              (0, _e.jsx)(
+                                                                "svg",
+                                                                {
+                                                                  "data-accordion-icon":
+                                                                    !0,
+                                                                  className:
+                                                                    "w-3 h-3 shrink-0 ".concat(
+                                                                      a[e.id]
+                                                                        ? ""
+                                                                        : "rotate-180"
+                                                                    ),
+                                                                  "aria-hidden":
+                                                                    "true",
+                                                                  xmlns:
+                                                                    "http://www.w3.org/2000/svg",
+                                                                  fill: "none",
+                                                                  viewBox:
+                                                                    "0 0 10 6",
+                                                                  children: (0,
+                                                                  _e.jsx)(
+                                                                    "path",
+                                                                    {
+                                                                      stroke:
+                                                                        "currentColor",
+                                                                      strokeLinecap:
+                                                                        "round",
+                                                                      strokeLinejoin:
+                                                                        "round",
+                                                                      strokeWidth:
+                                                                        "2",
+                                                                      d: "M9 5 5 1 1 5",
+                                                                    }
+                                                                  ),
+                                                                }
+                                                              ),
+                                                            ],
+                                                          }
+                                                        ),
+                                                      }),
+                                                      (0, _e.jsx)("div", {
+                                                        className:
+                                                          a[e.id] ||
+                                                          1 ===
+                                                            zt
+                                                              .filter(
+                                                                (e) =>
+                                                                  "" === t ||
+                                                                  e.cat === t
+                                                              )
+                                                              .flatMap(
+                                                                (e) => e.faq
+                                                              ).length
+                                                            ? ""
+                                                            : "hidden",
+                                                        children: (0, _e.jsx)(
+                                                          "div",
+                                                          {
+                                                            className:
+                                                              "py-5 border-b border-gray-200 dark:border-gray-700 pb-12",
+                                                            children:
+                                                              e.answer.map(
+                                                                (e, t) =>
+                                                                  (0, _e.jsx)(
+                                                                    "p",
+                                                                    {
+                                                                      className:
+                                                                        "mb-2 text-gray-600 dark:text-gray-400",
+                                                                      children:
+                                                                        e,
+                                                                    },
+                                                                    t
+                                                                  )
+                                                              ),
+                                                          }
+                                                        ),
+                                                      }),
+                                                    ],
+                                                  },
+                                                  "faq-" + e.id
+                                                )
+                                              ),
+                                            },
+                                            e.cat
+                                          )
+                                        ),
                                     }),
                                   ],
                                 }),
                               ],
                             }),
                           }),
-                        }),
+                        ],
                       }),
                     }),
                   }),
-                ],
-              }),
-            })
-          );
+                }),
+              ],
+            }),
+          });
         }
       }
-      const Dt = (0, t.WQ)("MainStore")((0, t.PA)(Vt));
-      var Wt = r(346);
-      class zt extends a.Component {
+      const Gt = (0, t.WQ)("MainStore")((0, t.PA)(Bt));
+      var Ut = r(346);
+      class Yt extends i.Component {
         render() {
           return (0, _e.jsx)(_e.Fragment, {
             children:
@@ -62728,7 +64276,7 @@
                     className:
                       "icon inline " +
                       (this.props.bigIcon
-                        ? " !w-[1.6rem] mt-[-0.6rem] "
+                        ? " !w-[1.6rem] "
                         : " !w-[1.4rem] mt-[-2px] ") +
                       this.props.addClasses,
                   })
@@ -62737,9 +64285,7 @@
                     path: ue.JGu,
                     className:
                       "icon inline " +
-                      (this.props.bigIcon
-                        ? " !w-[1.6rem] mt-[-0.4rem] "
-                        : " !w-[1.4rem] ") +
+                      (this.props.bigIcon ? " !w-[1.6rem] " : " !w-[1.4rem] ") +
                       this.props.addClasses,
                   })
                 : "ancestor_miner" === this.props.id
@@ -62747,9 +64293,7 @@
                     path: ue.aD$,
                     className:
                       "icon inline " +
-                      (this.props.bigIcon
-                        ? " !w-[1.6rem] mt-[-0.5rem] "
-                        : " !w-[1.4rem] ") +
+                      (this.props.bigIcon ? " !w-[1.6rem] " : " !w-[1.4rem] ") +
                       this.props.addClasses,
                   })
                 : "ancestor_trader" === this.props.id
@@ -62758,7 +64302,7 @@
                     className:
                       "icon inline " +
                       (this.props.bigIcon
-                        ? " !w-[1.6rem] mt-[-0.7rem] "
+                        ? " !w-[1.6rem] mt-[-0.3rem] "
                         : " !w-[1.4rem] mt-[-3px] ") +
                       this.props.addClasses,
                   })
@@ -62767,9 +64311,7 @@
                     path: ue.mSZ,
                     className:
                       "icon inline " +
-                      (this.props.bigIcon
-                        ? " !w-[1.5rem] mt-[-0.6rem] "
-                        : " !w-[1.4rem] ") +
+                      (this.props.bigIcon ? " !w-[1.5rem] " : " !w-[1.4rem] ") +
                       this.props.addClasses,
                   })
                 : "ancestor_researcher" === this.props.id
@@ -62778,7 +64320,7 @@
                     className:
                       "icon inline " +
                       (this.props.bigIcon
-                        ? " !w-[1.5rem] mt-[-0.5rem] "
+                        ? " !w-[1.5rem] mt-[-0.3rem] "
                         : " !w-[1.4rem] mt-[-2px] ") +
                       this.props.addClasses,
                   })
@@ -62788,7 +64330,7 @@
                     className:
                       "icon inline " +
                       (this.props.bigIcon
-                        ? " !w-[1.6rem] mt-[-0.6rem] "
+                        ? " !w-[1.6rem] mt-[-0.3rem] "
                         : " !w-[1.4rem] ") +
                       this.props.addClasses,
                   })
@@ -62797,9 +64339,7 @@
                     path: ue.pts,
                     className:
                       "icon inline " +
-                      (this.props.bigIcon
-                        ? " !w-[1.5rem] mt-[-0.4rem] "
-                        : " !w-[1.4rem] ") +
+                      (this.props.bigIcon ? " !w-[1.6rem] " : " !w-[1.4rem] ") +
                       this.props.addClasses,
                   })
                 : "ancestor_believer" === this.props.id
@@ -62808,7 +64348,7 @@
                     className:
                       "icon inline " +
                       (this.props.bigIcon
-                        ? " !w-[1.6rem] mt-[-0.5rem] "
+                        ? " !w-[1.6rem] mt-[-0.3rem] "
                         : " !w-[1.4rem] ") +
                       this.props.addClasses,
                   })
@@ -62816,7 +64356,7 @@
           });
         }
       }
-      class Bt extends a.Component {
+      class Xt extends i.Component {
         render() {
           return (0, _e.jsxs)(_e.Fragment, {
             children: [
@@ -62831,8 +64371,8 @@
           });
         }
       }
-      const Gt = Bt;
-      class Ut extends a.Component {
+      const Kt = Xt;
+      class Zt extends i.Component {
         constructor() {
           super(...arguments),
             (this.handleD = () => {
@@ -62857,7 +64397,7 @@
         render() {
           const { race: e, ancestors: t } = this.props.MainStore.run,
             { ancestorData: r } = this.props.MainStore.AncestorsStore,
-            { modTooltip: i } = this.props.MainStore.LegacyStore,
+            { modTooltip: a } = this.props.MainStore.LegacyStore,
             { showAttackProgress: n, percAttackInProgress: o } =
               this.props.MainStore.DiplomacyStore,
             {
@@ -62882,13 +64422,13 @@
                   (0, _e.jsx)("h3", {
                     className:
                       "items-center mr-auto w-1/6 hidden lg:block font-game z-30 mt-2.5 mb-2 text-[1.75rem] leading-5",
-                    children: (0, _e.jsx)(Gt, {}),
+                    children: (0, _e.jsx)(Kt, {}),
                   }),
                   "" !== t
                     ? (0, _e.jsx)("h5", {
                         className:
                           "flex items-center lg:justify-center whitespace-nowrap mb-0 w-1/3 mr-1 lg:mr-auto font-game text-xl cursor-pointer [&>*]:cursor-pointer z-30",
-                        children: (0, _e.jsx)(Wt.l, {
+                        children: (0, _e.jsx)(Ut.l, {
                           trigger: "click",
                           interactive: !0,
                           content: (0, _e.jsxs)("div", {
@@ -62910,22 +64450,25 @@
                                     children: [
                                       (0, _e.jsx)("div", {
                                         className: "px-4",
-                                        children: (0, _e.jsx)("table", {
-                                          className: "min-w-full my-2",
-                                          children: (0, _e.jsx)("tbody", {
-                                            className: "text-sm",
-                                            children: r.gen.map((e, r) =>
-                                              (0, _e.jsxs)(
-                                                "tr",
+                                        children: (0, _e.jsx)("div", {
+                                          className: "my-1 mt-2",
+                                          children: (0, _e.jsx)("div", {
+                                            className:
+                                              "rounded border border-gray-300 dark:border-gray-700 overflow-hidden",
+                                            children: r.gen.map((e, r) => {
+                                              const a = r % 2 === 0;
+                                              return (0, _e.jsxs)(
+                                                "div",
                                                 {
                                                   className:
-                                                    r % 2 === 0
-                                                      ? "bg-gray-100 dark:bg-mydark-400"
-                                                      : "bg-gray-200 dark:bg-mydark-300",
+                                                    "flex items-center justify-between px-2 py-1 text-sm " +
+                                                    (a
+                                                      ? "bg-gray-50/30 dark:bg-gray-900/20"
+                                                      : "bg-gray-50/10 dark:bg-gray-900/10"),
                                                   children: [
-                                                    (0, _e.jsx)("td", {
+                                                    (0, _e.jsx)("span", {
                                                       className:
-                                                        "px-4 2xl:py-1 text-left whitespace-nowrap",
+                                                        "whitespace-nowrap",
                                                       children:
                                                         "resource" === e.type
                                                           ? (0, pe.v)(
@@ -62937,9 +64480,9 @@
                                                             (0, pe.v)("cap")
                                                           : "",
                                                     }),
-                                                    (0, _e.jsx)("td", {
+                                                    (0, _e.jsx)("span", {
                                                       className:
-                                                        "px-4 2xl:py-1 text-right whitespace-nowrap",
+                                                        "font-medium whitespace-nowrap ml-2 px-1.5 py-0.5 rounded-md font-mono text-xs bg-gray-400/10 dark:bg-gray-500/10",
                                                       children:
                                                         "resource" === e.type
                                                           ? "+" + e.value + "%"
@@ -62953,12 +64496,12 @@
                                                   t +
                                                   "_" +
                                                   e.id
-                                              )
-                                            ),
+                                              );
+                                            }),
                                           }),
                                         }),
                                       }),
-                                      i.length > 0
+                                      a.length > 0
                                         ? (0, _e.jsx)("hr", {
                                             className:
                                               "h-px opacity-25 bg-current my-4 text-inherit border-0",
@@ -62967,10 +64510,10 @@
                                     ],
                                   })
                                 : null,
-                              i.map((e) =>
+                              a.map((e) =>
                                 e.map((e, t) =>
                                   (0, _e.jsx)(
-                                    a.Fragment,
+                                    i.Fragment,
                                     { children: e },
                                     "tooltip_mod_leg_" + t
                                   )
@@ -62990,9 +64533,9 @@
                               }),
                               (0, _e.jsxs)("span", {
                                 className: "inline lg:hidden",
-                                children: [(0, _e.jsx)(Gt, {}), " "],
+                                children: [(0, _e.jsx)(Kt, {}), " "],
                               }),
-                              (0, _e.jsx)(zt, { id: t }),
+                              (0, _e.jsx)(Yt, { id: t }),
                             ],
                           }),
                         }),
@@ -63015,7 +64558,7 @@
                             }),
                           })
                         : null,
-                      (0, _e.jsx)(Wt.l, {
+                      (0, _e.jsx)(Ut.l, {
                         content: (0, pe.v)("achievements"),
                         touch: ["hold", 500],
                         placement: "bottom",
@@ -63029,7 +64572,7 @@
                           }),
                         }),
                       }),
-                      (0, _e.jsx)(Wt.l, {
+                      (0, _e.jsx)(Ut.l, {
                         content: (0, pe.v)("statistics"),
                         touch: ["hold", 500],
                         placement: "bottom",
@@ -63043,7 +64586,7 @@
                           }),
                         }),
                       }),
-                      (0, _e.jsx)(Wt.l, {
+                      (0, _e.jsx)(Ut.l, {
                         content: (0, pe.v)("support_us"),
                         touch: ["hold", 500],
                         placement: "bottom",
@@ -63057,7 +64600,7 @@
                           }),
                         }),
                       }),
-                      (0, _e.jsx)(Wt.l, {
+                      (0, _e.jsx)(Ut.l, {
                         content: (0, pe.v)("settings"),
                         touch: ["hold", 500],
                         placement: "bottom",
@@ -63087,1644 +64630,829 @@
           );
         }
       }
-      const Yt = (0, t.WQ)("MainStore")((0, t.PA)(Ut));
-      class Xt extends a.Component {
-        render() {
-          const { logs: e } = this.props.MainStore;
-          return (0, _e.jsxs)("div", {
-            className:
-              "w-full order-2 flex-grow overflow-x-hidden overflow-y-auto pr-4",
-            children: [
-              " ",
-              e.map((e, t) =>
-                (0, _e.jsx)(
-                  "p",
-                  { className: "text-xs mb-2 " + e.c, children: e.t },
-                  "log-" + t
-                )
-              ),
-            ],
-          });
-        }
-      }
-      const Kt = (0, t.WQ)("MainStore")((0, t.PA)(Xt)),
-        Zt = a.lazy(() => r.e(455).then(r.bind(r, 4455)));
-      class Qt extends a.Component {
+      const Qt = (0, t.WQ)("MainStore")((0, t.PA)(Zt));
+      class $t extends i.Component {
         constructor() {
           super(...arguments),
-            (this.handleSoftReset = () => {
-              this.props.MainStore.LegacyStore.toggleSoftReset(
-                "tec_glorious_retirement",
-                1
-              );
-            }),
-            (this.handleSoftReset2 = () => {
-              0 === this.props.MainStore.run.flag
-                ? this.props.MainStore.showConfirm(
-                    "",
-                    "soft_reset_2_confirm",
-                    this.handleHardReset2Confirm
-                  )
-                : this.props.MainStore.LegacyStore.softReset2Confirm(1);
-            }),
-            (this.handleHardReset2Confirm = () => {
-              this.props.MainStore.confirmCancelFunc(),
-                this.props.MainStore.LegacyStore.softReset2Confirm(2);
-            }),
-            (this.handleSoftReset3 = () => {
-              this.props.MainStore.LegacyStore.toggleSoftReset(
-                "tec_theresmore_richest_nation",
-                3
-              );
-            }),
-            (this.handleMausoleum = () => {
-              this.props.MainStore.LegacyStore.toggleMausoleum();
-            }),
-            (this.handleSoftReset4 = () => {
-              this.props.MainStore.LegacyStore.toggleSoftReset("ascension", 4);
-            }),
-            (this.handleNewGamePlus = () => {
-              this.props.MainStore.LegacyStore.toggleNewGamePlus();
+            (this.handleDifficulty = (e) => {
+              this.props.MainStore.SettingsStore.updateDifficultyMode(e),
+                this.props.MainStore.toggleDifficulty();
             });
         }
         render() {
-          const { flag: e } = this.props.MainStore.run,
-            {
-              countVisibleLegacy: t,
-              visibleGloriousRetirement: r,
-              visibleLightThePortalOfTheDead: i,
-              visibleRichestNation: n,
-              visibleMausoleum: o,
-              visibleAscension: s,
-              visibleNewGamePlus: l,
-            } = this.props.MainStore.LegacyStore;
-          return (0, _e.jsx)(_e.Fragment, {
-            children:
-              t > 0
-                ? (0, _e.jsx)("div", {
-                    className: "order-1 w-full h-min mb-3",
-                    children: (0, _e.jsx)("div", {
-                      className:
-                        "p-4 xl:p-2 2xl:p-3 3xl:p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 rounded-lg shadow flex flex-col",
-                      children: (0, _e.jsx)("div", {
-                        className: "flex-1 text-center w-fit mx-auto",
-                        children: (0, _e.jsxs)("div", {
-                          className: "grid gap-3 min-w-full",
-                          children: [
-                            r
-                              ? (0, _e.jsx)("button", {
-                                  type: "button",
-                                  className:
-                                    "btn xl:text-xs 3xl:text-sm btn-red hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
-                                  onClick: this.handleSoftReset,
-                                  children: (0, pe.v)(
-                                    "tec_glorious_retirement"
-                                  ),
-                                })
-                              : null,
-                            i
-                              ? (0, _e.jsx)("button", {
-                                  type: "button",
-                                  className:
-                                    "btn xl:text-xs 3xl:text-sm btn-red !bg-red-600 dark:!bg-red-700 hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
-                                  onClick: this.handleSoftReset2,
-                                  children:
-                                    0 === e
-                                      ? (0, pe.v)("light_portal_of_the_dead")
-                                      : (0, pe.v)("tec_portal_of_the_dead"),
-                                })
-                              : null,
-                            n
-                              ? (0, _e.jsx)("button", {
-                                  type: "button",
-                                  className:
-                                    "btn xl:text-xs 3xl:text-sm btn-red !bg-red-700 dark:!bg-red-600 hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
-                                  onClick: this.handleSoftReset3,
-                                  children: (0, pe.v)(
-                                    "theresmore_richest_nation"
-                                  ),
-                                })
-                              : null,
-                            s
-                              ? (0, _e.jsx)("button", {
-                                  type: "button",
-                                  className:
-                                    "btn xl:text-xs 3xl:text-sm btn-red !bg-red-800 dark:!bg-red-500 hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
-                                  onClick: this.handleSoftReset4,
-                                  children: (0, pe.v)("ascension"),
-                                })
-                              : o
-                              ? t > 1
-                                ? (0, _e.jsx)("button", {
-                                    type: "button",
-                                    className:
-                                      "btn xl:text-xs 3xl:text-sm btn-off !text-red-900 dark:!text-red-100 border-red-800 dark:border-red-500 btn-progress-manual btn-progress-red cursor-pointer",
-                                    id: "btn-progress-mausoleum",
-                                    onClick: this.handleMausoleum,
-                                    children: (0, pe.v)("bui_mausoleum_gods"),
-                                  })
-                                : (0, _e.jsx)("div", {
-                                    children: (0, _e.jsx)("button", {
-                                      type: "button",
-                                      className:
-                                        "btn xl:text-xs 3xl:text-sm btn-off !text-red-900 dark:!text-red-100 border-red-800 dark:border-red-500 btn-progress-manual btn-progress-red cursor-pointer",
-                                      id: "btn-progress-mausoleum",
-                                      onClick: this.handleMausoleum,
-                                      children: (0, pe.v)("bui_mausoleum_gods"),
-                                    }),
-                                  })
-                              : null,
-                            s || o
-                              ? (0, _e.jsx)(a.Suspense, {
-                                  fallback: null,
-                                  children: (0, _e.jsx)(Zt, {}),
-                                })
-                              : null,
-                            l
-                              ? (0, _e.jsx)("button", {
-                                  type: "button",
-                                  className:
-                                    "btn xl:text-xs 3xl:text-sm btn-red hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
-                                  onClick: this.handleNewGamePlus,
-                                  children: (0, pe.v)("new_game_plus"),
-                                })
-                              : null,
-                          ],
-                        }),
-                      }),
-                    }),
-                  })
-                : null,
-          });
-        }
-      }
-      const $t = (0, t.WQ)("MainStore")((0, t.PA)(Qt));
-      class Jt extends a.Component {
-        constructor() {
-          super(...arguments),
-            (this.intervalId = 0),
-            (this.handleMouseEnter = () => {
-              this.intervalId = window.setInterval(() => {
-                this.handleAdd();
-              }, 1e3);
-            }),
-            (this.handleMouseLeave = () => {
-              clearInterval(this.intervalId);
-            }),
-            (this.handleAdd = () => {
-              this.props.MainStore.ResourcesStore.addResourceManual(
-                this.props.id,
-                this.props.manual
-              );
-            });
-        }
-        render() {
-          let e = "btn btn-radial w-full lg:w-3/5 4xl:w-1/2 mx-auto";
-          return (
-            (e += this.props.evid ? " btn-green" : " btn-dark"),
-            (0, _e.jsx)("button", {
-              type: "button",
-              className: e,
-              onClick: this.handleAdd,
-              onMouseEnter: this.handleMouseEnter,
-              onMouseLeave: this.handleMouseLeave,
-              children: (0, pe.v)("res_" + this.props.id),
-            })
-          );
-        }
-      }
-      const er = (0, t.WQ)("MainStore")((0, t.PA)(Jt));
-      class tr extends a.Component {
-        render() {
-          const { resources: e } = this.props.MainStore.run,
-            {
-              showManual: t,
-              manualResources: r,
-              food: a,
-            } = this.props.MainStore.ResourcesStore;
-          return (0, _e.jsx)(_e.Fragment, {
-            children: t
-              ? (0, _e.jsx)("div", {
-                  className:
-                    "order-2 flex flex-wrap gap-3 min-w-full mt-3 py-3 px-16 lg:px-3 shadow rounded-lg ring-1 ring-gray-300 dark:ring-mydark-200 bg-gray-100 dark:bg-mydark-600",
-                  children: r.map((t) => {
-                    let r = e.findIndex((e) => e.id === t.id);
-                    const i =
-                        -1 !== r && "undefined" !== typeof e[r].manual
-                          ? e[r].manual
-                          : 1,
-                      n = "food" === t.id && 0 === a;
-                    return (0, _e.jsx)(
-                      er,
-                      { id: t.id, manual: i, evid: n },
-                      "manual_" + t.id
-                    );
-                  }),
-                })
-              : null,
-          });
-        }
-      }
-      const rr = (0, t.WQ)("MainStore")((0, t.PA)(tr));
-      var ar = r(2073);
-      class ir extends a.Component {
-        constructor(e) {
-          super(e),
-            (this.state = {
-              formatId: (0, pe.v)("res_" + this.props.id),
-              formatQty: this.props.qty,
-              formatQtyStr: (0, ge.ZV)(
-                Math.floor(this.props.qty),
-                this.props.defaultNumberFormat,
-                this.props.bigNumberFormat
-              ),
-              formatCap: this.props.cap,
-              formatCapStr: (0, ge.ZV)(
-                this.props.cap,
-                this.props.defaultNumberFormat,
-                this.props.bigNumberFormat
-              ),
-              formatTimer: this.props.timer,
-              formatTimerStr: this.props.defaultNumberFormat.format(
-                this.props.timer
-              ),
-            });
-        }
-        componentDidUpdate() {
-          this.props.qty !== this.state.formatQty &&
-            this.setState({
-              formatQty: this.props.qty,
-              formatQtyStr: (0, ge.ZV)(
-                Math.floor(this.props.qty),
-                this.props.defaultNumberFormat,
-                this.props.bigNumberFormat
-              ),
-            }),
-            this.props.cap !== this.state.formatCap &&
-              this.setState({
-                formatCap: this.props.cap,
-                formatCapStr: (0, ge.ZV)(
-                  this.props.cap,
-                  this.props.defaultNumberFormat,
-                  this.props.bigNumberFormat
-                ),
-              }),
-            this.props.timer !== this.state.formatTimer &&
-              this.setState({
-                formatTimer: this.props.timer,
-                formatTimerStr: this.props.defaultNumberFormat.format(
-                  this.props.timer
-                ),
-              });
-        }
-        resRow(e, t) {
-          const r = t % 2 === 0 ? "bg-gray-200 dark:bg-mydark-300" : "",
+          const { showDifficulty: e } = this.props.MainStore,
+            { difficultyMode: t } = this.props.MainStore.SettingsStore,
+            r =
+              "p-4 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-5 cursor-pointer",
             a =
-              "px-3 3xl:px-5 py-3 lg:py-2 3xl:py-3 whitespace-nowrap w-1/3 " +
-              e,
-            i =
-              "px-3 3xl:px-5 py-3 lg:py-2 3xl:py-3 whitespace-nowrap w-1/3 text-right" +
-              e;
-          return (0, _e.jsxs)("tr", {
-            className: r + " hover:bg-gray-300 dark:hover:bg-mydark-700",
-            children: [
-              (0, _e.jsx)("td", {
-                className: a,
-                children: (0, _e.jsx)("span", {
-                  children: this.state.formatId,
-                }),
-              }),
-              (0, _e.jsxs)("td", {
-                className: i,
-                children: [
-                  this.state.formatQtyStr,
-                  " / ",
-                  this.state.formatCapStr,
-                ],
-              }),
-              (0, _e.jsxs)("td", {
-                className: i,
-                children: [this.state.formatTimerStr, "/秒"],
-              }),
-            ],
-          });
-        }
-        render() {
-          const e = Math.floor(this.props.qty),
-            t =
-              e === this.props.cap
-                ? " text-orange-500"
-                : "food" === this.props.id && 0 === e
-                ? " text-red-600"
-                : "";
-          return (0, _e.jsx)(_e.Fragment, {
-            children:
-              0 === this.props.modTooltip.length
-                ? this.resRow(t, this.props.idx)
-                : (0, _e.jsx)(Wt.l, {
-                    content: (0, _e.jsx)(ar.A, {
-                      id: this.props.id,
-                      title: (0, pe.v)("res_" + this.props.id),
-                      modTooltipData: this.props.modTooltip,
-                      prefix: "res",
-                      titleClasses: t + " pt-3",
-                      showAllMods: !0,
-                    }),
-                    touch: ["hold", 500],
-                    placement: o.Fr ? "top" : "bottom",
-                    popperOptions: {
-                      modifiers: [
-                        {
-                          name: "flip",
-                          options: {
-                            fallbackPlacements: [
-                              "bottom",
-                              "top",
-                              "right",
-                              "left",
-                            ],
-                          },
-                        },
-                      ],
-                    },
-                    children: this.resRow(t, this.props.idx),
-                  }),
-          });
-        }
-      }
-      const nr = ir;
-      class or extends a.Component {
-        render() {
-          const {
-              run: e,
-              defaultNumberFormat: t,
-              bigNumberFormat: r,
-            } = this.props.MainStore,
-            { resources: a } = this.props.MainStore.ResourcesStore;
-          return (0, _e.jsx)("div", {
-            className:
-              "overflow-hidden shadow ring-1 ring-gray-300 dark:ring-mydark-200 rounded-lg",
-            children: (0, _e.jsx)("table", {
-              className: "min-w-full",
-              children: (0, _e.jsx)("tbody", {
-                className: "bg-gray-100 dark:bg-mydark-600 text-sm",
-                children: a.map((a, i) => {
-                  let n = 0,
-                    o = 0,
-                    s = e.resources.findIndex((e) => e.id === a.id);
-                  -1 !== s &&
-                    ("undefined" !== typeof e.resources[s].value &&
-                      (o = e.resources[s].value),
-                    (n = this.props.MainStore.ResourcesStore.getTimerValue(
-                      e.resources[s]
-                    ))),
-                    (s = e.caps.findIndex((e) => e.id === a.id));
-                  const l =
-                      -1 !== s
-                        ? e.caps[s].value
-                        : "undefined" !== typeof a.cap
-                        ? a.cap
-                        : 0,
-                    d = this.props.MainStore.ModifiersStore.modTooltipData(
-                      a.id
-                    );
-                  return (0, _e.jsx)(
-                    nr,
-                    {
-                      idx: i,
-                      id: a.id,
-                      cap: l,
-                      qty: o,
-                      timer: n,
-                      modTooltip: d,
-                      bigNumberFormat: r,
-                      defaultNumberFormat: t,
-                    },
-                    "resource_" + a.id
-                  );
-                }),
-              }),
-            }),
-          });
-        }
-      }
-      const sr = (0, t.WQ)("MainStore")((0, t.PA)(or));
-      class lr extends a.Component {
-        constructor(e) {
-          super(e),
-            (this.handleAdd = () => {
-              this.props.sD
-                ? this.props.MainStore.BuildingsStore.addBuilding(this.props.id)
-                : !this.state.progress &&
-                  this.props.buildable &&
-                  (this.setState({ progress: !0 }),
-                  setTimeout(() => {
-                    this.props.MainStore.BuildingsStore.addBuilding(
-                      this.props.id
-                    ),
-                      this.setState({ progress: !1 });
-                  }, 1e3));
-            }),
-            (this.state = { progress: !1 });
-        }
-        render() {
-          const e =
-            "undefined" !== typeof this.props.cap &&
-            this.props.qty >= this.props.cap;
-          let t = [];
-          e ||
-            (t = this.props.MainStore.ReqGenStore.reqTooltipData(
-              "building",
-              this.props.req,
-              this.props.qty
-            ));
-          const r = this.props.MainStore.ReqGenStore.genTooltipData(
-            this.props.gen
-          );
-          let a = "btn btn-dark relative",
-            i = "";
-          switch (this.props.age) {
-            case 2:
-            case 6:
-              (a += " !border-blue-500 dark:!border-blue-700"),
-                (i += " !text-blue-700 dark:!text-blue-300");
-              break;
-            case 3:
-            case 7:
-              (a += " !border-violet-500 dark:!border-violet-700"),
-                (i += " !text-violet-900 dark:!text-violet-300");
-              break;
-            case 4:
-            case 8:
-              (a += " !border-teal-600 dark:!border-teal-700"),
-                (i += " !text-teal-800 dark:!text-teal-500");
-              break;
-            case 100:
-              (a += " !border-amber-500 dark:!border-amber-600"),
-                (i += " !text-amber-600 dark:!text-amber-300");
-          }
-          this.props.buildable
-            ? this.state.progress && (a += " btn-progress btn-progress-1")
-            : e
-            ? (a += " btn-off btn-cap")
-            : this.props.buildableCap
-            ? (a += " btn-off")
-            : (a += " btn-off-cap"),
-            !e && this.props.buildable && (a += i);
-          let n = {};
-          return (
-            ("oracle_b" !== this.props.id && "glory_gods" !== this.props.id) ||
-              ((a += " !text-indigo-600 dark:!text-indigo-500"),
-              (n =
-                -1 === a.indexOf("btn-off")
-                  ? {
-                      WebkitFilter: "drop-shadow(0px 0px 3px #818cf8)",
-                      filter: "drop-shadow(0px 0px 5px #818cf8)",
-                    }
-                  : {})),
-            !e || (e && this.props.MainStore.SettingsStore.showCapBuildings)
-              ? (0, _e.jsx)("div", {
-                  className: "flex flex-col",
-                  children: (0, _e.jsx)(Wt.l, {
-                    content: (0, _e.jsx)(ar.A, {
-                      id: this.props.id,
-                      title: (0, pe.v)("bui_" + this.props.id),
-                      titleClasses: i,
-                      description: (0, pe.v)(
-                        "bui_" + this.props.id + "_description"
-                      ),
-                      owned: e,
-                      reqTooltipData: t,
-                      genTooltipData: r,
-                      prefix: "bui",
-                    }),
-                    className: "!max-w-[300px]",
-                    touch: ["hold", 500],
-                    placement: o.Fr ? "top" : "bottom",
-                    popperOptions: {
-                      modifiers: [
-                        {
-                          name: "flip",
-                          options: {
-                            fallbackPlacements: [
-                              "bottom",
-                              "top",
-                              "right",
-                              "left",
-                            ],
-                          },
-                        },
-                      ],
-                    },
-                    children: (0, _e.jsxs)("button", {
-                      type: "button",
-                      className: a,
-                      onClick: this.handleAdd,
-                      children: [
-                        (0, pe.v)("bui_" + this.props.id),
-                        this.props.qty > 0 &&
-                        !this.state.progress &&
-                        (!e || (e && this.props.qty > 1))
-                          ? (0, _e.jsx)("span", {
-                              className:
-                                "absolute -top-2 right-0 inline-block py-px px-2 rounded-full font-bold text-xs bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
-                              children: this.props.qty,
-                            })
-                          : null,
-                        "oracle_b" !== this.props.id || this.state.progress
-                          ? null
-                          : (0, _e.jsx)("span", {
-                              className:
-                                "absolute -top-2 left-0 inline-block py-px px-2 rounded-full font-bold text-xs text-indigo-500",
-                              children: (0, _e.jsx)(ce(), {
-                                path: ue.Szg,
-                                className: "icon !w-4 !h-4",
-                                style: n,
-                              }),
-                            }),
-                        "glory_gods" !== this.props.id || this.state.progress
-                          ? null
-                          : (0, _e.jsx)("span", {
-                              className:
-                                "absolute -top-2 left-0 inline-block py-px px-2 rounded-full font-bold text-xs text-indigo-500",
-                              children: (0, _e.jsx)(ce(), {
-                                path: ue.M5b,
-                                className: "icon !w-4 !h-4",
-                                style: n,
-                              }),
-                            }),
-                        13 !== this.props.age || this.state.progress
-                          ? null
-                          : (0, _e.jsx)("span", {
-                              className:
-                                "absolute -top-2 left-0 inline-block py-px px-2 rounded-full font-bold text-xs text-green-600",
-                              children: (0, _e.jsx)(ce(), {
-                                path: ue.M8b,
-                                className: "icon !w-4 !h-4",
-                              }),
-                            }),
-                        5 !== this.props.age ||
-                        2 === this.props.tab ||
-                        this.state.progress
-                          ? null
-                          : (0, _e.jsx)("span", {
-                              className:
-                                "absolute -top-2 left-0 inline-block py-px px-2 rounded-full font-bold text-xs text-orange-600 dark:text-orange-500",
-                              children: (0, _e.jsx)(ce(), {
-                                path: ue.fk9,
-                                className: "icon !w-4 !h-4",
-                              }),
-                            }),
-                        6 !== this.props.age ||
-                        3 === this.props.tab ||
-                        this.state.progress
-                          ? null
-                          : (0, _e.jsx)("span", {
-                              className:
-                                "absolute -top-2 left-0 inline-block py-px px-2 rounded-full font-bold text-xs text-red-600",
-                              children: (0, _e.jsx)(ce(), {
-                                path: ue.avO,
-                                vertical: !0,
-                                className: "icon !w-4 !h-4",
-                              }),
-                            }),
-                      ],
-                    }),
-                  }),
-                })
-              : null
-          );
-        }
-      }
-      const dr = (0, t.WQ)("MainStore")((0, t.PA)(lr));
-      class cr extends a.Component {
-        render() {
-          const { run: e, sD: t } = this.props.MainStore,
-            {
-              buildings: r,
-              buildableBuildings: a,
-              buildableCapBuildings: i,
-              visibleColony: n,
-              visibleAbyss: o,
-            } = this.props.MainStore.BuildingsStore,
-            s =
-              2 === this.props.tab
-                ? "ring-green-300 dark:ring-green-900"
-                : 3 === this.props.tab
-                ? "ring-red-300 dark:ring-red-900"
-                : "ring-gray-300 dark:ring-mydark-200";
-          return (0, _e.jsx)("div", {
-            className: n || o ? "tab-container sub-container" : "tab-container",
-            children:
-              this.props.categories.length > 0
-                ? this.props.categories.map((n, o) =>
-                    (0, _e.jsxs)(
-                      "div",
-                      {
+              r +
+              " bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200",
+            n =
+              r +
+              " bg-gray-200 dark:bg-mydark-300 border border-gray-500 dark:border-gray-50";
+          return (0, _e.jsx)(nt.e.Root, {
+            show: e,
+            as: i.Fragment,
+            children: (0, _e.jsxs)(ot.l, {
+              as: "div",
+              className: "relative z-40",
+              onClose: () => {},
+              children: [
+                (0, _e.jsx)(lt.A, {}),
+                (0, _e.jsx)("div", {
+                  className: "fixed z-10 inset-0 overflow-y-auto",
+                  children: (0, _e.jsx)("div", {
+                    className:
+                      "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
+                    children: (0, _e.jsx)(nt.e.Child, {
+                      as: i.Fragment,
+                      enter: "ease-out duration-300",
+                      enterFrom: "opacity-0 translate-y-4",
+                      enterTo: "opacity-100 translate-y-0",
+                      leave: "ease-in duration-200",
+                      leaveFrom: "opacity-100 translate-y-0",
+                      leaveTo: "opacity-0 translate-y-4",
+                      children: (0, _e.jsx)(ot.l.Panel, {
                         className:
-                          "flex flex-wrap min-w-full mt-3 p-3 shadow rounded-lg ring-1 bg-gray-100 dark:bg-mydark-600 " +
-                          s,
-                        children: [
-                          (0, _e.jsxs)("div", {
-                            className:
-                              "w-full pb-3 font-bold text-center xl:text-left",
+                          "modal-container lg:my-8 lg:max-w-7xl lg:pt-6",
+                        children: (0, _e.jsx)("div", {
+                          children: (0, _e.jsxs)("div", {
+                            className: "mt-0",
                             children: [
-                              "living_quarters" === n
-                                ? (0, _e.jsx)(ce(), {
-                                    path: ue.tpY,
-                                    className: "icon inline -mt-1 mr-2",
-                                  })
-                                : "resource" === n
-                                ? (0, _e.jsx)(ce(), {
-                                    path: ue.aD$,
-                                    className: "icon inline -mt-1 mr-2",
-                                  })
-                                : "science" === n
-                                ? (0, _e.jsx)(ce(), {
-                                    path: ue.RbI,
-                                    className: "icon inline -mt-1 mr-2",
-                                  })
-                                : "commercial_area" === n
-                                ? (0, _e.jsx)(ce(), {
-                                    path: ue.dYe,
-                                    className: "icon inline -mt-1 mr-2",
-                                  })
-                                : "defense" === n
-                                ? (0, _e.jsx)(ce(), {
-                                    path: ue.wgn,
-                                    className: "icon inline -mt-1 mr-2",
-                                  })
-                                : "faith" === n
-                                ? (0, _e.jsx)(ce(), {
-                                    path: ue.NKH,
-                                    className: "icon inline -mt-1 mr-2",
-                                  })
-                                : "warehouse" === n
-                                ? (0, _e.jsx)(ce(), {
-                                    path: ue.mFy,
-                                    className: "icon inline -mt-1 mr-2",
-                                  })
-                                : "wonders" === n
-                                ? (0, _e.jsx)(ce(), {
-                                    path: ue.NbG,
-                                    className: "icon inline -mt-1 mr-2",
-                                  })
-                                : null,
-                              (0, pe.v)("cat_" + n),
-                            ],
-                          }),
-                          (0, _e.jsx)("div", {
-                            className:
-                              "grid gap-3 grid-cols-fill-180 min-w-full px-12 xl:px-0",
-                            children: r.map((r) => {
-                              if (r.cat === n && r.tab === this.props.tab) {
-                                let n = e.buildings.findIndex(
-                                  (e) => e.id === r.id
-                                );
-                                const o = -1 !== n ? e.buildings[n].value : 0;
-                                n = a.findIndex((e) => e.id === r.id);
-                                const s = -1 !== n;
-                                n = i.findIndex((e) => e.id === r.id);
-                                const l = -1 !== n;
-                                return (0, _e.jsx)(
-                                  dr,
-                                  {
-                                    id: r.id,
-                                    qty: o,
-                                    buildable: s,
-                                    buildableCap: l,
-                                    req: r.req,
-                                    gen: r.gen,
-                                    cap: r.cap,
-                                    age: r.age,
-                                    tab: r.tab,
-                                    sD: t,
-                                  },
-                                  "bui_" + r.id
-                                );
-                              }
-                              return null;
-                            }),
-                          }),
-                        ],
-                      },
-                      "bui_cat_" + o
-                    )
-                  )
-                : (0, _e.jsx)("div", {
-                    className: "flex justify-center mt-6 text-lg",
-                    children: (0, _e.jsx)("div", {
-                      className: "min-w-[40%] w-auto",
-                      children: (0, _e.jsx)(dt.A, {
-                        text: (0, pe.v)("build_empty"),
-                        type: "info",
-                      }),
-                    }),
-                  }),
-          });
-        }
-      }
-      const ur = (0, t.WQ)("MainStore")((0, t.PA)(cr));
-      class pr extends a.Component {
-        constructor() {
-          super(...arguments),
-            (this.handleSelect = (e) => {
-              this.props.MainStore.BuildingsStore.selectTab(e);
-            });
-        }
-        render() {
-          const {
-            categories: e,
-            categoriesColony: t,
-            visibleColony: r,
-            categoriesAbyss: a,
-            visibleAbyss: i,
-            selectedTab: n,
-          } = this.props.MainStore.BuildingsStore;
-          let o =
-            "inline-flex justify-center rounded-full border shadow-sm px-3 py-2 text-sm whitespace-nowrap border-gray-400 dark:border-gray-500";
-          (o +=
-            " xl:block xl:rounded-none xl:border-0 xl:shadow-none lg:px-2 xl:border-transparent xl:dark:border-transparent"),
-            (o += " xl:border-b-2 xl:m-[-1px] 4xl:px-6 3xl:text-base");
-          const s = "!border-ancestor text-ancestor",
-            l =
-              "xl:border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-mydark-50 hover:border-gray-400 dark:hover:border-gray-500";
-          let d, c, u, p;
-          return (
-            r &&
-              ((d = (0, _e.jsxs)(lt.o, {
-                className: (e) => {
-                  let { selected: t } = e;
-                  return (0, ge.xW)(o, t ? s : l);
-                },
-                children: [
-                  (0, _e.jsx)(ce(), {
-                    path: ue.fk9,
-                    className: "icon inline lg:-mt-1 mr-1",
-                  }),
-                  (0, pe.v)("colony"),
-                ],
-              })),
-              (c = (0, _e.jsx)(lt.o.Panel, {
-                children: (0, _e.jsx)(ur, { tab: 2, categories: t }),
-              }))),
-            i &&
-              ((u = (0, _e.jsxs)(lt.o, {
-                className: (e) => {
-                  let { selected: t } = e;
-                  return (0, ge.xW)(o, t ? s : l);
-                },
-                children: [
-                  (0, _e.jsx)(ce(), {
-                    path: ue.avO,
-                    vertical: !0,
-                    className: "icon inline lg:-mt-1 mr-1",
-                  }),
-                  (0, pe.v)("abyss"),
-                ],
-              })),
-              (p = (0, _e.jsx)(lt.o.Panel, {
-                children: (0, _e.jsx)(ur, { tab: 3, categories: a }),
-              }))),
-            (0, _e.jsx)(_e.Fragment, {
-              children:
-                r || i
-                  ? (0, _e.jsxs)(lt.o.Group, {
-                      selectedIndex: n,
-                      onChange: this.handleSelect,
-                      children: [
-                        (0, _e.jsx)("div", {
-                          className:
-                            "mx-auto border-b border-gray-300 dark:border-mydark-200 flex justify-center mt-1 xl:mt-0",
-                          children: (0, _e.jsxs)(lt.o.List, {
-                            className:
-                              "grid grid-cols-2 gap-3 my-2 mb-3 lg:flex lg:gap-1 lg:mt-0 lg:mb-1 xl:mb-0 2xl:gap-3",
-                            children: [
-                              (0, _e.jsxs)(lt.o, {
-                                className: (e) => {
-                                  let { selected: t } = e;
-                                  return (0, ge.xW)(o, t ? s : l);
-                                },
-                                children: [
-                                  (0, _e.jsx)(ce(), {
-                                    path: ue.lnd,
-                                    className: "icon inline 3xl:-mt-1 mr-1",
-                                  }),
-                                  (0, pe.v)("main_build"),
-                                ],
+                              (0, _e.jsx)(ot.l.Title, {
+                                as: "h3",
+                                className: "modal-title",
+                                children: (0, pe.v)("difficulty"),
                               }),
-                              d,
-                              u,
-                            ],
-                          }),
-                        }),
-                        (0, _e.jsxs)(lt.o.Panels, {
-                          children: [
-                            (0, _e.jsx)(lt.o.Panel, {
-                              children: (0, _e.jsx)(ur, {
-                                tab: 1,
-                                categories: e,
-                              }),
-                            }),
-                            c,
-                            p,
-                          ],
-                        }),
-                      ],
-                    })
-                  : (0, _e.jsx)(ur, { tab: 1, categories: e }),
-            })
-          );
-        }
-      }
-      const _r = (0, t.WQ)("MainStore")((0, t.PA)(pr));
-      class hr extends a.Component {
-        constructor(e) {
-          super(e),
-            (this.handleAdd = () => {
-              this.props.sD
-                ? this.props.MainStore.TechsStore.addTech(this.props.id)
-                : !this.state.progress &&
-                  this.props.buildable &&
-                  (!0 === this.props.confirm
-                    ? this.props.MainStore.showConfirm(
-                        "",
-                        "boss_fight",
-                        this.processAdd
-                      )
-                    : this.processAdd());
-            }),
-            (this.processAdd = () => {
-              this.props.MainStore.confirmCancelFunc(),
-                this.setState({ progress: !0 }),
-                setTimeout(() => {
-                  this.props.MainStore.TechsStore.addTech(this.props.id),
-                    this.setState({ progress: !1 });
-                }, 3e3);
-            }),
-            (this.state = { progress: !1 });
-        }
-        render() {
-          const e = this.props.MainStore.ReqGenStore.reqTooltipData(
-              "tech",
-              this.props.req
-            ),
-            t = this.props.MainStore.ReqGenStore.genTooltipData(this.props.gen);
-          let r = "btn btn-dark";
-          return (
-            this.props.owned
-              ? (r += " btn-off btn-cap")
-              : this.props.buildable
-              ? this.state.progress && (r += " btn-progress")
-              : (r += " btn-off"),
-            (0, _e.jsx)("div", {
-              className: "flex flex-col",
-              children: (0, _e.jsx)(Wt.l, {
-                content: (0, _e.jsx)(ar.A, {
-                  id: this.props.id,
-                  title: (0, pe.v)("tec_" + this.props.id),
-                  description: (0, pe.v)(
-                    "tec_" + this.props.id + "_description"
-                  ),
-                  owned: this.props.owned,
-                  reqTooltipData: e,
-                  genTooltipData: t,
-                  prefix: "tech",
-                }),
-                className: "!max-w-[260px]",
-                touch: ["hold", 500],
-                placement: o.Fr ? "top" : "bottom",
-                popperOptions: {
-                  modifiers: [
-                    {
-                      name: "flip",
-                      options: {
-                        fallbackPlacements: ["bottom", "top", "right", "left"],
-                      },
-                    },
-                  ],
-                },
-                children: (0, _e.jsx)("button", {
-                  type: "button",
-                  className: r,
-                  onClick: this.handleAdd,
-                  children: (0, pe.v)("tec_" + this.props.id),
-                }),
-              }),
-            })
-          );
-        }
-      }
-      const yr = (0, t.WQ)("MainStore")((0, t.PA)(hr));
-      class mr extends a.Component {
-        constructor() {
-          super(...arguments),
-            (this.handleSelect = (e) => {
-              this.props.MainStore.TechsStore.selectTab(e);
-            });
-        }
-        render() {
-          const { sD: e } = this.props.MainStore,
-            {
-              visibleTechs: t,
-              buildableTechs: r,
-              ownedTechs: a,
-              selectedTab: i,
-            } = this.props.MainStore.TechsStore;
-          let n =
-            "inline-flex justify-center rounded-full border shadow-sm px-3 py-2 text-sm whitespace-nowrap border-gray-400 dark:border-gray-500";
-          (n +=
-            " xl:block xl:rounded-none xl:border-0 xl:shadow-none lg:px-2 xl:border-transparent xl:dark:border-transparent"),
-            (n += " xl:border-b-2 xl:m-[-1px] 4xl:px-6 3xl:text-base");
-          const o = "!border-ancestor text-ancestor",
-            s =
-              "xl:border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-mydark-50 hover:border-gray-400 dark:hover:border-gray-500";
-          return (0, _e.jsxs)(lt.o.Group, {
-            selectedIndex: i,
-            onChange: this.handleSelect,
-            children: [
-              (0, _e.jsx)("div", {
-                className:
-                  "mx-auto border-b border-gray-300 dark:border-mydark-200 flex justify-center mt-1 xl:mt-0",
-                children: (0, _e.jsxs)(lt.o.List, {
-                  className:
-                    "grid grid-cols-2 gap-3 my-2 mb-3 lg:flex lg:gap-1 lg:mt-0 lg:mb-1 xl:mb-0 2xl:gap-3",
-                  children: [
-                    (0, _e.jsxs)(lt.o, {
-                      className: (e) => {
-                        let { selected: t } = e;
-                        return (0, ge.xW)(n, t ? o : s);
-                      },
-                      children: [
-                        (0, _e.jsx)(ce(), {
-                          path: ue.cVf,
-                          className: "icon inline 3xl:-mt-1 mr-1",
-                        }),
-                        (0, pe.v)("research"),
-                      ],
-                    }),
-                    (0, _e.jsxs)(lt.o, {
-                      className: (e) => {
-                        let { selected: t } = e;
-                        return (0, ge.xW)(n, t ? o : s);
-                      },
-                      children: [
-                        (0, _e.jsx)(ce(), {
-                          path: ue.o0C,
-                          className: "icon inline lg:-mt-1 mr-1",
-                        }),
-                        (0, pe.v)("completed"),
-                      ],
-                    }),
-                  ],
-                }),
-              }),
-              (0, _e.jsxs)(lt.o.Panels, {
-                children: [
-                  (0, _e.jsxs)(lt.o.Panel, {
-                    children: [
-                      t.length > 0
-                        ? (0, _e.jsx)("div", {
-                            className: "tab-container sub-container",
-                            children: (0, _e.jsx)("div", {
-                              className:
-                                "flex flex-wrap min-w-full mt-3 p-3 shadow rounded-lg ring-1 ring-gray-300 dark:ring-mydark-200 bg-gray-100 dark:bg-mydark-600",
-                              children: (0, _e.jsx)("div", {
-                                className:
-                                  "grid gap-3 grid-cols-fill-180 min-w-full px-12 xl:px-0",
-                                children: t.map((t) => {
-                                  const a =
-                                    -1 !== r.findIndex((e) => e.id === t.id);
-                                  return (0, _e.jsx)(
-                                    yr,
-                                    {
-                                      id: t.id,
-                                      buildable: a,
-                                      req: t.req,
-                                      gen: t.gen,
-                                      sD: e,
-                                      confirm: t.confirm,
-                                    },
-                                    "tec_" + t.id
-                                  );
+                              (0, _e.jsx)("div", {
+                                className: "m-4 lg:m-6 mt-5",
+                                children: (0, _e.jsxs)("dl", {
+                                  className:
+                                    "grid grid-cols-1 gap-4 lg:grid-cols-5 px-6 sm:px-12 mb-6 lg:mb-0 lg:px-0",
+                                  children: [
+                                    (0, _e.jsx)("div", {
+                                      className: 99 === t ? n : a,
+                                      onClick: () => this.handleDifficulty(99),
+                                      children: (0, _e.jsxs)("div", {
+                                        className:
+                                          "lg:my-3 text-center text-green-700 dark:text-green-600",
+                                        children: [
+                                          (0, _e.jsx)(ce(), {
+                                            path: ue.gp1,
+                                            className:
+                                              "inline w-2/12 lg:w-1/2 text-green-600",
+                                          }),
+                                          (0, _e.jsx)("h5", {
+                                            className: "text-xl",
+                                            children: (0, pe.v)(
+                                              "difficulty_99"
+                                            ),
+                                          }),
+                                          (0, _e.jsx)("p", {
+                                            className: "mt-5 text-left text-sm",
+                                            children: (0, pe.v)(
+                                              "difficulty_99_1_description"
+                                            ),
+                                          }),
+                                          (0, _e.jsxs)("ul", {
+                                            className: "mt-2 space-y-2",
+                                            children: [
+                                              (0, _e.jsxs)("li", {
+                                                className: "flex",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.gp1,
+                                                    className:
+                                                      "icon flex-shrink-0 text-green-600",
+                                                  }),
+                                                  (0, _e.jsx)("span", {
+                                                    className:
+                                                      "ml-2 text-left text-xs",
+                                                    children: (0, pe.v)(
+                                                      "difficulty_99_2_description"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                              (0, _e.jsxs)("li", {
+                                                className: "flex",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.gp1,
+                                                    className:
+                                                      "icon flex-shrink-0 text-green-600",
+                                                  }),
+                                                  (0, _e.jsx)("span", {
+                                                    className:
+                                                      "ml-2 text-left text-xs",
+                                                    children: (0, pe.v)(
+                                                      "difficulty_99_3_description"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                              (0, _e.jsxs)("li", {
+                                                className: "flex",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.p2H,
+                                                    className:
+                                                      "icon flex-shrink-0 text-red-600",
+                                                  }),
+                                                  (0, _e.jsx)("span", {
+                                                    className:
+                                                      "ml-2 text-left text-xs",
+                                                    children: (0, pe.v)(
+                                                      "difficulty_99_4_description"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                            ],
+                                          }),
+                                        ],
+                                      }),
+                                    }),
+                                    (0, _e.jsx)("div", {
+                                      className: 0 === t ? n : a,
+                                      onClick: () => this.handleDifficulty(0),
+                                      children: (0, _e.jsxs)("div", {
+                                        className: "lg:my-3 text-center",
+                                        children: [
+                                          (0, _e.jsx)(ce(), {
+                                            path: ue.qQT,
+                                            className: "inline w-2/12 lg:w-1/2",
+                                          }),
+                                          (0, _e.jsx)("h5", {
+                                            className: "text-xl",
+                                            children: (0, pe.v)("difficulty_0"),
+                                          }),
+                                          (0, _e.jsx)("p", {
+                                            className: "mt-5 text-left text-sm",
+                                            children: (0, pe.v)(
+                                              "difficulty_0_1_description"
+                                            ),
+                                          }),
+                                          (0, _e.jsxs)("ul", {
+                                            className: "mt-2 space-y-2",
+                                            children: [
+                                              (0, _e.jsxs)("li", {
+                                                className: "flex",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.gp1,
+                                                    className:
+                                                      "icon flex-shrink-0 text-green-600",
+                                                  }),
+                                                  (0, _e.jsx)("span", {
+                                                    className:
+                                                      "ml-2 text-left text-xs",
+                                                    children: (0, pe.v)(
+                                                      "difficulty_0_3_description"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                              (0, _e.jsxs)("li", {
+                                                className: "flex",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.qQT,
+                                                    className:
+                                                      "icon flex-shrink-0",
+                                                  }),
+                                                  (0, _e.jsx)("span", {
+                                                    className:
+                                                      "ml-2 text-left text-xs",
+                                                    children: (0, pe.v)(
+                                                      "difficulty_0_2_description"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                            ],
+                                          }),
+                                        ],
+                                      }),
+                                    }),
+                                    (0, _e.jsx)("div", {
+                                      className: 1 === t ? n : a,
+                                      onClick: () => this.handleDifficulty(1),
+                                      children: (0, _e.jsxs)("div", {
+                                        className:
+                                          "lg:my-3 text-center text-orange-700 dark:text-orange-500",
+                                        children: [
+                                          (0, _e.jsx)(ce(), {
+                                            path: ue.mSZ,
+                                            className:
+                                              "inline w-2/12 lg:w-1/2 text-orange-500",
+                                          }),
+                                          (0, _e.jsx)("h5", {
+                                            className:
+                                              "text-xl text-orange-600",
+                                            children: (0, pe.v)("difficulty_1"),
+                                          }),
+                                          (0, _e.jsx)("p", {
+                                            className: "mt-5 text-left text-sm",
+                                            children: (0, pe.v)(
+                                              "difficulty_1_1_description"
+                                            ),
+                                          }),
+                                          (0, _e.jsxs)("ul", {
+                                            className: "mt-2 space-y-2",
+                                            children: [
+                                              (0, _e.jsxs)("li", {
+                                                className: "flex",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.p2H,
+                                                    className:
+                                                      "icon flex-shrink-0",
+                                                  }),
+                                                  (0, _e.jsx)("span", {
+                                                    className:
+                                                      "ml-2 text-left text-xs",
+                                                    children: (0, pe.v)(
+                                                      "difficulty_1_4_description"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                              (0, _e.jsxs)("li", {
+                                                className: "flex",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.mSZ,
+                                                    className:
+                                                      "icon flex-shrink-0",
+                                                  }),
+                                                  (0, _e.jsx)("span", {
+                                                    className:
+                                                      "ml-2 text-left text-xs",
+                                                    children: (0, pe.v)(
+                                                      "difficulty_1_2_description"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                              (0, _e.jsxs)("li", {
+                                                className: "flex",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.mSZ,
+                                                    className:
+                                                      "icon flex-shrink-0",
+                                                  }),
+                                                  (0, _e.jsx)("span", {
+                                                    className:
+                                                      "ml-2 text-left text-xs",
+                                                    children: (0, pe.v)(
+                                                      "difficulty_1_3_description"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                            ],
+                                          }),
+                                        ],
+                                      }),
+                                    }),
+                                    (0, _e.jsx)("div", {
+                                      className: 2 === t ? n : a,
+                                      onClick: () => this.handleDifficulty(2),
+                                      children: (0, _e.jsxs)("div", {
+                                        className:
+                                          "lg:my-3 text-center text-red-600",
+                                        children: [
+                                          (0, _e.jsx)(ce(), {
+                                            path: ue.Du3,
+                                            className: "inline w-2/12 lg:w-1/2",
+                                          }),
+                                          (0, _e.jsx)("h5", {
+                                            className: "text-xl",
+                                            children: (0, pe.v)("difficulty_2"),
+                                          }),
+                                          (0, _e.jsx)("p", {
+                                            className: "mt-5 text-left text-sm",
+                                            children: (0, pe.v)(
+                                              "difficulty_2_1_description"
+                                            ),
+                                          }),
+                                          (0, _e.jsxs)("ul", {
+                                            className: "mt-2 space-y-2",
+                                            children: [
+                                              (0, _e.jsxs)("li", {
+                                                className: "flex",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.p2H,
+                                                    className:
+                                                      "icon flex-shrink-0",
+                                                  }),
+                                                  (0, _e.jsx)("span", {
+                                                    className:
+                                                      "ml-2 text-left text-xs",
+                                                    children: (0, pe.v)(
+                                                      "difficulty_2_4_description"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                              (0, _e.jsxs)("li", {
+                                                className: "flex",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.Du3,
+                                                    className:
+                                                      "icon flex-shrink-0",
+                                                  }),
+                                                  (0, _e.jsx)("span", {
+                                                    className:
+                                                      "ml-2 text-left text-xs",
+                                                    children: (0, pe.v)(
+                                                      "difficulty_2_2_description"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                              (0, _e.jsxs)("li", {
+                                                className: "flex",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.Du3,
+                                                    className:
+                                                      "icon flex-shrink-0",
+                                                  }),
+                                                  (0, _e.jsx)("span", {
+                                                    className:
+                                                      "ml-2 text-left text-xs",
+                                                    children: (0, pe.v)(
+                                                      "difficulty_2_3_description"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                            ],
+                                          }),
+                                        ],
+                                      }),
+                                    }),
+                                    (0, _e.jsx)("div", {
+                                      className: 3 === t ? n : a,
+                                      onClick: () => this.handleDifficulty(3),
+                                      children: (0, _e.jsxs)("div", {
+                                        className:
+                                          "lg:my-3 text-center text-purple-600",
+                                        children: [
+                                          (0, _e.jsx)(ce(), {
+                                            path: ue.M5b,
+                                            className: "inline w-2/12 lg:w-1/2",
+                                          }),
+                                          (0, _e.jsx)("h5", {
+                                            className: "text-xl",
+                                            children: (0, pe.v)("difficulty_3"),
+                                          }),
+                                          (0, _e.jsx)("p", {
+                                            className: "mt-5 text-left text-sm",
+                                            children: (0, pe.v)(
+                                              "difficulty_3_1_description"
+                                            ),
+                                          }),
+                                          (0, _e.jsxs)("ul", {
+                                            className: "mt-2 space-y-2",
+                                            children: [
+                                              (0, _e.jsxs)("li", {
+                                                className: "flex",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.p2H,
+                                                    className:
+                                                      "icon flex-shrink-0",
+                                                  }),
+                                                  (0, _e.jsx)("span", {
+                                                    className:
+                                                      "ml-2 text-left text-xs",
+                                                    children: (0, pe.v)(
+                                                      "difficulty_3_4_description"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                              (0, _e.jsxs)("li", {
+                                                className: "flex",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.M5b,
+                                                    className:
+                                                      "icon flex-shrink-0",
+                                                  }),
+                                                  (0, _e.jsx)("span", {
+                                                    className:
+                                                      "ml-2 text-left text-xs",
+                                                    children: (0, pe.v)(
+                                                      "difficulty_3_2_description"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                              (0, _e.jsxs)("li", {
+                                                className: "flex",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.M5b,
+                                                    className:
+                                                      "icon flex-shrink-0",
+                                                  }),
+                                                  (0, _e.jsx)("span", {
+                                                    className:
+                                                      "ml-2 text-left text-xs",
+                                                    children: (0, pe.v)(
+                                                      "difficulty_3_3_description"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                              (0, _e.jsxs)("li", {
+                                                className: "flex",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.M5b,
+                                                    className:
+                                                      "icon flex-shrink-0",
+                                                  }),
+                                                  (0, _e.jsx)("span", {
+                                                    className:
+                                                      "ml-2 text-left text-xs",
+                                                    children: (0, pe.v)(
+                                                      "difficulty_3_5_description"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                            ],
+                                          }),
+                                        ],
+                                      }),
+                                    }),
+                                  ],
                                 }),
                               }),
-                            }),
-                          })
-                        : null,
-                      0 === t.length
-                        ? (0, _e.jsx)("div", {
-                            className: "flex justify-center my-6 text-lg",
-                            children: (0, _e.jsx)("div", {
-                              className: "min-w-[40%] w-auto",
-                              children: (0, _e.jsx)(dt.A, {
-                                text: (0, pe.v)("tech_empty"),
-                                type: "info",
-                              }),
-                            }),
-                          })
-                        : null,
-                    ],
-                  }),
-                  (0, _e.jsxs)(lt.o.Panel, {
-                    children: [
-                      a.length > 0
-                        ? (0, _e.jsx)("div", {
-                            className: "tab-container sub-container",
-                            children: (0, _e.jsx)("div", {
-                              className:
-                                "flex flex-wrap min-w-full mt-3 p-3 shadow rounded-lg ring-1 ring-gray-300 dark:ring-mydark-200 bg-gray-100 dark:bg-mydark-600",
-                              children: (0, _e.jsx)("div", {
-                                className:
-                                  "grid gap-3 grid-cols-fill-180 min-w-full px-12 xl:px-0",
-                                children: a.map((t) =>
-                                  (0, _e.jsx)(
-                                    yr,
-                                    {
-                                      id: t.id,
-                                      buildable: !1,
-                                      req: t.req,
-                                      gen: t.gen,
-                                      sD: e,
-                                      owned: !0,
-                                    },
-                                    "tec_" + t.id
-                                  )
-                                ),
-                              }),
-                            }),
-                          })
-                        : null,
-                      0 === a.length
-                        ? (0, _e.jsx)("div", {
-                            className: "flex justify-center my-6 text-lg",
-                            children: (0, _e.jsx)("div", {
-                              className: "w-auto",
-                              children: (0, _e.jsx)(dt.A, {
-                                text: (0, pe.v)("log_village_empty"),
-                                type: "info",
-                              }),
-                            }),
-                          })
-                        : null,
-                    ],
-                  }),
-                ],
-              }),
-            ],
-          });
-        }
-      }
-      const gr = (0, t.WQ)("MainStore")((0, t.PA)(mr)),
-        fr = a.lazy(() => r.e(697).then(r.bind(r, 4697))),
-        vr = a.lazy(() => r.e(648).then(r.bind(r, 9648))),
-        br = a.lazy(() => r.e(673).then(r.bind(r, 6673))),
-        wr = a.lazy(() => r.e(321).then(r.bind(r, 7321))),
-        kr = a.lazy(() => r.e(180).then(r.bind(r, 1180)));
-      class xr extends a.Component {
-        constructor() {
-          super(...arguments),
-            (this.handleSelect = (e) => {
-              this.props.MainStore.selectTab(e);
-            });
-        }
-        componentDidMount() {
-          this.props.MainStore.firstStart = !1;
-        }
-        render() {
-          const { selectedTab: e } = this.props.MainStore,
-            { visibleArmy: t } = this.props.MainStore.ArmyStore,
-            { visibleDiplomacy: r } = this.props.MainStore.DiplomacyStore,
-            { qtyUnemployed: i, population: n } =
-              this.props.MainStore.PopulationStore,
-            { showMagic: o, visiblePrayers: s } =
-              this.props.MainStore.MagicStore,
-            { showMarket: l } = this.props.MainStore.MarketStore,
-            { visibleTechs: d } = this.props.MainStore.TechsStore,
-            c = (0, ge.xW)(
-              "start",
-              o ? "magic" : "",
-              t.length > 0 ? "army" : "",
-              r.length > 0 ? "diplomacy" : "",
-              n.length > 1 ? "population" : "",
-              l ? "market" : ""
-            );
-          let u =
-            "inline-flex justify-center rounded-full border shadow-sm px-7 py-2 text-base whitespace-nowrap border-gray-400 dark:border-gray-500";
-          (u +=
-            " xl:block xl:rounded-none xl:border-0 xl:shadow-none lg:px-3 lg:text-sm xl:pt-0 xl:border-transparent xl:dark:border-transparent"),
-            (u +=
-              " xl:border-b-2 xl:m-[-1px] xl:px-1 3xl:px-2 4xl:px-6 3xl:text-base");
-          const p = "!border-ancestor text-ancestor",
-            _ =
-              "xl:border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-mydark-50 hover:border-gray-400 dark:hover:border-gray-500";
-          return (0, _e.jsxs)(
-            lt.o.Group,
-            {
-              selectedIndex: e,
-              onChange: this.handleSelect,
-              children: [
-                (0, _e.jsx)("div", {
-                  className:
-                    "mx-auto border-b border-gray-300 dark:border-mydark-200 flex justify-center py-2 mt-2 lg:py-0 lg:mt-0",
-                  id: "main-tabs",
-                  children: (0, _e.jsxs)(lt.o.List, {
-                    className:
-                      "grid gap-3 lg:gap-1 grid-cols-2 lg:grid-cols-3 mb-1 xl:flex xl:mb-0 2xl:space-x-1",
-                    children: [
-                      (0, _e.jsxs)(lt.o, {
-                        className: (e) => {
-                          let { selected: t } = e;
-                          return (0, ge.xW)(u, t ? p : _);
-                        },
-                        children: [
-                          (0, _e.jsx)(ce(), {
-                            path: ue.lnd,
-                            className:
-                              "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1",
+                            ],
                           }),
-                          (0, pe.v)("build"),
-                        ],
+                        }),
                       }),
-                      (0, _e.jsxs)(lt.o, {
-                        className: (e) => {
-                          let { selected: t } = e;
-                          return (0, ge.xW)(u, t ? p : _);
-                        },
-                        children: [
-                          (0, _e.jsx)(ce(), {
-                            path: ue.cVf,
-                            className:
-                              "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1" +
-                              (d.length > 0 ? " hidden xl:inline" : ""),
-                          }),
-                          (0, pe.v)("research"),
-                          d.length > 0
-                            ? (0, _e.jsx)("span", {
-                                className:
-                                  "inline-block ml-2 lg:py-px px-2 rounded-full font-bold text-xs leading-6 lg:leading-4 bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
-                                children: d.length,
-                              })
-                            : null,
-                        ],
-                      }),
-                      n.length > 1
-                        ? (0, _e.jsxs)(lt.o, {
-                            className: (e) => {
-                              let { selected: t } = e;
-                              return (0, ge.xW)(u, t ? p : _);
-                            },
-                            children: [
-                              (0, _e.jsx)(ce(), {
-                                path: ue.DIA,
-                                className:
-                                  "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1" +
-                                  (i > 0 ? " hidden xl:inline" : ""),
-                              }),
-                              (0, pe.v)("population"),
-                              i > 0
-                                ? (0, _e.jsx)("span", {
-                                    className:
-                                      "inline-block ml-2 lg:py-px px-2 rounded-full font-bold text-xs leading-6 lg:leading-4 bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
-                                    children: i,
-                                  })
-                                : null,
-                            ],
-                          })
-                        : null,
-                      o
-                        ? (0, _e.jsxs)(lt.o, {
-                            className: (e) => {
-                              let { selected: t } = e;
-                              return (0, ge.xW)(u, t ? p : _);
-                            },
-                            children: [
-                              (0, _e.jsx)(ce(), {
-                                path: ue._r5,
-                                className:
-                                  "icon inline mt-0.5 lg:mt-0 3xl:-mt-1 mr-1" +
-                                  (s.length > 0 ? " hidden xl:inline" : ""),
-                              }),
-                              (0, pe.v)("magic"),
-                              s.length > 0
-                                ? (0, _e.jsx)("span", {
-                                    className:
-                                      "inline-block ml-2 lg:py-px px-2 rounded-full font-bold text-xs leading-6 lg:leading-4 bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
-                                    children: s.length,
-                                  })
-                                : null,
-                            ],
-                          })
-                        : null,
-                      t.length > 0
-                        ? (0, _e.jsxs)(lt.o, {
-                            className: (e) => {
-                              let { selected: t } = e;
-                              return (0, ge.xW)(u, t ? p : _);
-                            },
-                            children: [
-                              (0, _e.jsx)(ce(), {
-                                path: ue.BNE,
-                                className:
-                                  "icon inline mt-0.5 lg:mt-0 3xl:-mt-1 mr-1",
-                              }),
-                              (0, pe.v)("army"),
-                            ],
-                          })
-                        : null,
-                      r.length > 0
-                        ? (0, _e.jsxs)(lt.o, {
-                            className: (e) => {
-                              let { selected: t } = e;
-                              return (0, ge.xW)(u, t ? p : _);
-                            },
-                            children: [
-                              (0, _e.jsx)(ce(), {
-                                path: ue.n7C,
-                                className:
-                                  "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1",
-                              }),
-                              (0, pe.v)("diplomacy"),
-                            ],
-                          })
-                        : null,
-                      l
-                        ? (0, _e.jsxs)(lt.o, {
-                            className: (e) => {
-                              let { selected: t } = e;
-                              return (0, ge.xW)(u, t ? p : _);
-                            },
-                            children: [
-                              (0, _e.jsx)(ce(), {
-                                path: ue.FAn,
-                                className:
-                                  "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1",
-                              }),
-                              (0, pe.v)("bui_marketplace"),
-                            ],
-                          })
-                        : null,
-                    ],
+                    }),
                   }),
-                }),
-                (0, _e.jsxs)(lt.o.Panels, {
-                  children: [
-                    (0, _e.jsx)(lt.o.Panel, { children: (0, _e.jsx)(_r, {}) }),
-                    (0, _e.jsx)(lt.o.Panel, { children: (0, _e.jsx)(gr, {}) }),
-                    n.length > 1
-                      ? (0, _e.jsx)(lt.o.Panel, {
-                          children: (0, _e.jsx)(a.Suspense, {
-                            fallback: (0, _e.jsx)("div", {
-                              className: "h-screen lg:hidden",
-                            }),
-                            children: (0, _e.jsx)(kr, {}),
-                          }),
-                        })
-                      : null,
-                    o
-                      ? (0, _e.jsx)(lt.o.Panel, {
-                          children: (0, _e.jsx)(a.Suspense, {
-                            fallback: (0, _e.jsx)("div", {
-                              className: "h-screen lg:hidden",
-                            }),
-                            children: (0, _e.jsx)(br, {}),
-                          }),
-                        })
-                      : null,
-                    t.length > 0
-                      ? (0, _e.jsx)(lt.o.Panel, {
-                          children: (0, _e.jsx)(a.Suspense, {
-                            fallback: (0, _e.jsx)("div", {
-                              className: "h-screen lg:hidden",
-                            }),
-                            children: (0, _e.jsx)(fr, {}),
-                          }),
-                        })
-                      : null,
-                    r.length > 0
-                      ? (0, _e.jsx)(lt.o.Panel, {
-                          children: (0, _e.jsx)(a.Suspense, {
-                            fallback: (0, _e.jsx)("div", {
-                              className: "h-screen lg:hidden",
-                            }),
-                            children: (0, _e.jsx)(vr, {}),
-                          }),
-                        })
-                      : null,
-                    l
-                      ? (0, _e.jsx)(lt.o.Panel, {
-                          children: (0, _e.jsx)(a.Suspense, {
-                            fallback: (0, _e.jsx)("div", {
-                              className: "h-screen lg:hidden",
-                            }),
-                            children: (0, _e.jsx)(wr, {}),
-                          }),
-                        })
-                      : null,
-                  ],
                 }),
               ],
-            },
-            c
-          );
-        }
-      }
-      const Sr = (0, t.WQ)("MainStore")((0, t.PA)(xr));
-      class Mr extends a.Component {
-        componentDidMount() {
-          this.props.MainStore.SoundsStore.updateVolume(-1);
-        }
-        render() {
-          return (0, _e.jsxs)(_e.Fragment, {
-            children: [
-              (0, _e.jsx)("audio", {
-                id: "soundtrack_track_1",
-                preload: "auto",
-                loop: !0,
-                children: (0, _e.jsx)("source", {
-                  src:
-                    "./" +
-                    ("localhost" === window.location.hostname ? "./" : "") +
-                    "/sounds/track_1.ogg",
-                  type: "audio/ogg",
-                }),
-              }),
-              (0, _e.jsx)("audio", {
-                id: "soundtrack_track_2",
-                preload: "auto",
-                loop: !0,
-                children: (0, _e.jsx)("source", {
-                  src:
-                    "./" +
-                    ("localhost" === window.location.hostname ? "./" : "") +
-                    "/sounds/track_2.ogg",
-                  type: "audio/ogg",
-                }),
-              }),
-              (0, _e.jsx)("audio", {
-                id: "soundtrack_track_3",
-                preload: "auto",
-                loop: !0,
-                children: (0, _e.jsx)("source", {
-                  src:
-                    "./" +
-                    ("localhost" === window.location.hostname ? "./" : "") +
-                    "/sounds/track_3.ogg",
-                  type: "audio/ogg",
-                }),
-              }),
-              (0, _e.jsx)("audio", {
-                id: "soundtrack_track_4",
-                preload: "auto",
-                loop: !0,
-                children: (0, _e.jsx)("source", {
-                  src:
-                    "./" +
-                    ("localhost" === window.location.hostname ? "./" : "") +
-                    "/sounds/track_4.ogg",
-                  type: "audio/ogg",
-                }),
-              }),
-              (0, _e.jsx)("audio", {
-                id: "soundtrack_track_5",
-                preload: "auto",
-                loop: !0,
-                children: (0, _e.jsx)("source", {
-                  src:
-                    "./" +
-                    ("localhost" === window.location.hostname ? "./" : "") +
-                    "/sounds/track_5.ogg",
-                  type: "audio/ogg",
-                }),
-              }),
-              (0, _e.jsx)("audio", {
-                id: "soundtrack_incoming_attack",
-                preload: "auto",
-                loop: !0,
-                children: (0, _e.jsx)("source", {
-                  src:
-                    "./" +
-                    ("localhost" === window.location.hostname ? "./" : "") +
-                    "/sounds/incoming_attack.ogg",
-                  type: "audio/ogg",
-                }),
-              }),
-            ],
-          });
-        }
-      }
-      const Ar = (0, t.WQ)("MainStore")(Mr);
-      class Cr extends a.Component {
-        render() {
-          return (0, _e.jsxs)(_e.Fragment, {
-            children: [
-              (0, _e.jsxs)("div", {
-                className: "flex flex-wrap w-full mx-auto p-2 lg:p-3",
-                children: [
-                  (0, _e.jsx)("div", {
-                    className:
-                      "w-full lg:w-4/12 xl:w-1/4 order-1 lg:order-3 z-20 lg:pl-2",
-                    children: (0, _e.jsxs)("div", {
-                      className: "flex flex-wrap",
-                      children: [
-                        (0, _e.jsx)("div", {
-                          className: "w-full order-1",
-                          children: (0, _e.jsx)(sr, {}),
-                        }),
-                        (0, _e.jsx)(rr, {}),
-                      ],
-                    }),
-                  }),
-                  (0, _e.jsx)("div", {
-                    className:
-                      "w-full lg:w-5/12 xl:w-7/12 order-2 lg:order-2 lg:px-1",
-                    id: "maintabs-container",
-                    children: (0, _e.jsx)(Sr, {}),
-                  }),
-                  (0, _e.jsx)("div", {
-                    className:
-                      "w-full lg:w-1/4 xl:w-1/6 order-3 lg:order-1 lg:pr-2",
-                    children: (0, _e.jsxs)("div", {
-                      className:
-                        "flex flex-col mb-14 lg:mb-0 max-h-[calc(100vh-83px)]",
-                      children: [(0, _e.jsx)($t, {}), (0, _e.jsx)(Kt, {})],
-                    }),
-                  }),
-                ],
-              }),
-              (0, _e.jsx)(Ar, {}),
-            ],
-          });
-        }
-      }
-      const qr = Cr;
-      class Tr extends a.Component {
-        constructor() {
-          super(...arguments),
-            (this.handleAncestor = () => {
-              this.props.MainStore.AncestorsStore.updateAncestor(
-                this.props.data.id
-              );
-            });
-        }
-        render() {
-          return (0, _e.jsxs)("div", {
-            className:
-              "p-8 bg-white dark:bg-mydark-700 border rounded-xl shadow-sm flex flex-col",
-            style: {
-              borderColor: this.props.data.color,
-              color: this.props.data.color,
-            },
-            children: [
-              (0, _e.jsxs)("div", {
-                className: "flex-1 text-center",
-                children: [
-                  (0, _e.jsx)("h5", {
-                    className:
-                      "text-2xl font-bold whitespace-nowrap inline mr-2",
-                    children: (0, pe.v)(this.props.data.id),
-                  }),
-                  (0, _e.jsx)(zt, { id: this.props.data.id, bigIcon: !0 }),
-                  (0, _e.jsx)("p", {
-                    className: "mt-4 text-left",
-                    children: (0, pe.v)(this.props.data.id + "_description"),
-                  }),
-                  (0, _e.jsx)("ul", {
-                    className: "my-6 space-y-3",
-                    children: this.props.data.gen.map((e) =>
-                      (0, _e.jsxs)(
-                        "li",
-                        {
-                          className: "flex",
-                          children: [
-                            (0, _e.jsx)(ce(), {
-                              path: ue.o0C,
-                              className: "icon",
-                            }),
-                            "resource" === e.type
-                              ? (0, _e.jsxs)("span", {
-                                  className: "ml-3",
-                                  children: [
-                                    "+",
-                                    e.value,
-                                    "% ",
-                                    (0, pe.v)("res_" + e.id),
-                                  ],
-                                })
-                              : "cap" === e.type
-                              ? (0, _e.jsxs)("span", {
-                                  className: "ml-3",
-                                  children: [
-                                    "+",
-                                    e.value,
-                                    " ",
-                                    (0, pe.v)(e.id),
-                                    "",
-                                    (0, pe.v)("cap"),
-                                  ],
-                                })
-                              : null,
-                          ],
-                        },
-                        "ancestor_gen_" + this.props.data.id + "_" + e.id
-                      )
-                    ),
-                  }),
-                ],
-              }),
-              (0, _e.jsxs)("button", {
-                type: "button",
-                className:
-                  "btn text-white w-full text-base hover:opacity-[.85]",
-                style: { backgroundColor: this.props.data.color },
-                onClick: this.handleAncestor,
-                children: [
-                  (0, pe.v)("start_game"),
-                  (0, _e.jsx)(zt, {
-                    id: this.props.data.id,
-                    addClasses: "ml-1",
-                  }),
-                ],
-              }),
-            ],
-          });
-        }
-      }
-      const Ir = (0, t.WQ)("MainStore")((0, t.PA)(Tr));
-      class Nr extends a.Component {
-        componentDidMount() {
-          this.props.MainStore.firstStart &&
-            ((this.props.MainStore.firstStart = !1),
-            this.props.MainStore.SettingsStore.updateDifficultyFlag(0),
-            this.props.MainStore.AchievementsStore.runAchievement("prestige"),
-            this.props.MainStore.AchievementsStore.runAchievement("ng_reset"),
-            this.props.MainStore.AchievementsStore.runAchievement(
-              "annihilator"
-            ));
-        }
-        render() {
-          let { visibleAncestors: e } = this.props.MainStore.AncestorsStore;
-          let t = "mx-auto mb-14 ",
-            r = "my-5 grid gap-8 grid-cols-1 ";
-          switch (e.length) {
-            case 4:
-            case 7:
-            case 8:
-              (r += "lg:grid-cols-3 3xl:grid-cols-4"),
-                (t += "w-11/12 xl:w-10/12 3xl:w-11/12 4xl:w-9/12");
-              break;
-            case 5:
-            case 9:
-              (r += "lg:grid-cols-3 4xl:grid-cols-5"),
-                (t += "w-11/12 xl:w-10/12 3xl:w-9/12 4xl:w-11/12");
-              break;
-            default:
-              (r += "lg:grid-cols-3"),
-                (t += "w-11/12 xl:w-10/12 3xl:w-9/12 4xl:w-7/12");
-          }
-          return (0, _e.jsx)(_e.Fragment, {
-            children: (0, _e.jsx)("div", {
-              className: "mt-6 lg:mt-12 xl:mt-24 2xl:mt-12 4xl:mt-24",
-              children: (0, _e.jsxs)("div", {
-                className: "max-w-full mx-auto",
-                children: [
-                  (0, _e.jsxs)("div", {
-                    className: "text-center",
-                    children: [
-                      (0, _e.jsx)("h1", {
-                        className:
-                          "text-4xl lg:text-7xl font-game font-bold title-gradient",
-                        children: (0, _e.jsx)(Gt, {}),
-                      }),
-                      (0, _e.jsx)("p", {
-                        className:
-                          "my-2 lg:text-xl text-gray-500 dark:text-gray-400",
-                        children: (0, pe.v)("runstart_subtitle"),
-                      }),
-                      (0, _e.jsx)("p", {
-                        className:
-                          "mt-6 lg:mt-8 text-lg lg:text-xl text-gray-500 dark:text-gray-400",
-                        children: (0, pe.v)("runstart_subtitle_2"),
-                      }),
-                    ],
-                  }),
-                  (0, _e.jsx)("div", {
-                    className: t,
-                    children: (0, _e.jsx)("div", {
-                      className: r,
-                      children: e.map((e) =>
-                        (0, _e.jsx)(Ir, { data: e }, "ancestor_" + e.id)
-                      ),
-                    }),
-                  }),
-                ],
-              }),
             }),
           });
         }
       }
-      const Er = (0, t.WQ)("MainStore")(Nr),
-        jr = [
+      const Jt = (0, t.WQ)("MainStore")((0, t.PA)($t));
+      class er extends i.Component {
+        constructor() {
+          super(...arguments),
+            (this.handleChoise = () => {
+              this.props.MainStore.toggleEvilChoise();
+            });
+        }
+        render() {
+          const { showEvilChoise: e } = this.props.MainStore,
+            t = "p-4 shadow rounded-lg overflow-hidden lg:p-5",
+            r =
+              t +
+              " bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200",
+            a =
+              t +
+              " bg-gray-200 dark:bg-mydark-300 border border-gray-500 dark:border-gray-50 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 cursor-pointer";
+          return (0, _e.jsx)(nt.e.Root, {
+            show: e,
+            as: i.Fragment,
+            children: (0, _e.jsxs)(ot.l, {
+              as: "div",
+              className: "relative z-40",
+              onClose: () => {},
+              children: [
+                (0, _e.jsx)(lt.A, {}),
+                (0, _e.jsx)("div", {
+                  className: "fixed z-10 inset-0 overflow-y-auto",
+                  children: (0, _e.jsx)("div", {
+                    className:
+                      "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
+                    children: (0, _e.jsx)(nt.e.Child, {
+                      as: i.Fragment,
+                      enter: "ease-out duration-300",
+                      enterFrom: "opacity-0 translate-y-4",
+                      enterTo: "opacity-100 translate-y-0",
+                      leave: "ease-in duration-200",
+                      leaveFrom: "opacity-100 translate-y-0",
+                      leaveTo: "opacity-0 translate-y-4",
+                      children: (0, _e.jsx)(ot.l.Panel, {
+                        className:
+                          "modal-container lg:my-8 lg:max-w-2xl lg:pt-6",
+                        children: (0, _e.jsx)("div", {
+                          children: (0, _e.jsxs)("div", {
+                            className: "mt-0",
+                            children: [
+                              (0, _e.jsx)(ot.l.Title, {
+                                as: "h3",
+                                className: "modal-title",
+                                children: (0, pe.v)("path_choise"),
+                              }),
+                              (0, _e.jsx)("div", {
+                                className: "m-4 lg:m-6 mt-5",
+                                children: (0, _e.jsxs)("dl", {
+                                  className:
+                                    "grid grid-cols-1 gap-4 lg:grid-cols-2 px-6 sm:px-12 mb-6 lg:mb-0 lg:px-0",
+                                  children: [
+                                    (0, _e.jsx)("div", {
+                                      className: a,
+                                      onClick: () => this.handleChoise(),
+                                      children: (0, _e.jsxs)("div", {
+                                        className:
+                                          "lg:my-3 text-center text-green-700 dark:text-green-600",
+                                        children: [
+                                          (0, _e.jsx)(ce(), {
+                                            path: ue.n7C,
+                                            className:
+                                              "inline w-2/12 lg:w-1/2 text-green-600",
+                                          }),
+                                          (0, _e.jsx)("h5", {
+                                            className: "text-xl",
+                                            children: (0, pe.v)("humans"),
+                                          }),
+                                        ],
+                                      }),
+                                    }),
+                                    (0, _e.jsx)("div", {
+                                      className: r,
+                                      children: (0, _e.jsxs)("div", {
+                                        className:
+                                          "lg:my-3 text-center text-red-600",
+                                        children: [
+                                          (0, _e.jsx)(ce(), {
+                                            path: ue.avO,
+                                            vertical: !0,
+                                            className:
+                                              "inline w-2/12 lg:w-1/2 text-red-600",
+                                          }),
+                                          (0, _e.jsx)("h5", {
+                                            className: "text-xl",
+                                            children: (0, pe.v)("evil_path"),
+                                          }),
+                                          (0, _e.jsx)("p", {
+                                            className:
+                                              "text-center text-sm text-gray-600 italic",
+                                            children: (0, pe.v)(
+                                              "evil_path_description"
+                                            ),
+                                          }),
+                                        ],
+                                      }),
+                                    }),
+                                  ],
+                                }),
+                              }),
+                            ],
+                          }),
+                        }),
+                      }),
+                    }),
+                  }),
+                }),
+              ],
+            }),
+          });
+        }
+      }
+      const tr = (0, t.WQ)("MainStore")((0, t.PA)(er));
+      class rr extends i.Component {
+        constructor() {
+          super(...arguments),
+            (this.handleClose = () => {
+              this.props.MainStore.toggleSupport();
+            }),
+            (this.showFaq = () => {
+              this.props.MainStore.FaqStore.toggleFaq();
+            });
+        }
+        render() {
+          const { showSupport: e, isTWA: t } = this.props.MainStore;
+          return (0, _e.jsx)(nt.e.Root, {
+            show: e,
+            as: i.Fragment,
+            children: (0, _e.jsxs)(ot.l, {
+              as: "div",
+              className: "relative z-50",
+              onClose: this.handleClose,
+              children: [
+                (0, _e.jsx)(lt.A, {}),
+                (0, _e.jsx)("div", {
+                  className: "fixed z-10 inset-0 overflow-y-auto",
+                  children: (0, _e.jsx)("div", {
+                    className:
+                      "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
+                    children: (0, _e.jsx)(nt.e.Child, {
+                      as: i.Fragment,
+                      enter: "ease-out duration-300",
+                      enterFrom: "opacity-0 translate-y-4",
+                      enterTo: "opacity-100 translate-y-0",
+                      leave: "ease-in duration-200",
+                      leaveFrom: "opacity-100 translate-y-0",
+                      leaveTo: "opacity-0 translate-y-4",
+                      children: (0, _e.jsxs)(ot.l.Panel, {
+                        className:
+                          "modal-container lg:my-8 lg:max-w-4xl lg:pt-6",
+                        children: [
+                          (0, _e.jsx)(st.A, { onClick: this.handleClose }),
+                          (0, _e.jsx)("div", {
+                            children: (0, _e.jsxs)("div", {
+                              className: "mt-0",
+                              children: [
+                                (0, _e.jsx)(ot.l.Title, {
+                                  as: "h3",
+                                  className: "modal-title",
+                                  children: (0, pe.v)("support_us"),
+                                }),
+                                (0, _e.jsx)("div", {
+                                  className: "m-4 lg:m-6 mt-5",
+                                  children: (0, _e.jsxs)("dl", {
+                                    className:
+                                      "grid grid-cols-1 gap-4 lg:gap-6 lg:grid-cols-5 px-12 mb-6 lg:mb-0 lg:px-0",
+                                    children: [
+                                      t
+                                        ? null
+                                        : (0, _e.jsx)("a", {
+                                            href: "https://www.paypal.com/donate/?hosted_button_id=VRA6X28CP3NDQ",
+                                            target: "_blank",
+                                            rel: "noreferrer",
+                                            className:
+                                              "text-decoration-none cursor-pointer text-green-600",
+                                            children: (0, _e.jsx)("div", {
+                                              className:
+                                                "p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-6",
+                                              children: (0, _e.jsxs)("div", {
+                                                className:
+                                                  "lg:my-3 text-center",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.vJ_,
+                                                    className:
+                                                      "inline w-2/12 lg:w-1/2",
+                                                  }),
+                                                  (0, _e.jsx)("h5", {
+                                                    className: "text-xl",
+                                                    children: (0, pe.v)(
+                                                      "donate"
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                            }),
+                                          }),
+                                      (0, _e.jsx)("a", {
+                                        href: "https://www.patreon.com/TheresmoreGame",
+                                        target: "_blank",
+                                        rel: "noreferrer",
+                                        className:
+                                          "text-decoration-none cursor-pointer",
+                                        style: { color: "#ff424d" },
+                                        children: (0, _e.jsx)("div", {
+                                          className:
+                                            "p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-6",
+                                          children: (0, _e.jsxs)("div", {
+                                            className: "lg:my-3 text-center",
+                                            children: [
+                                              (0, _e.jsx)(ce(), {
+                                                path: ue.I7R,
+                                                className:
+                                                  "inline w-2/12 lg:w-1/2",
+                                              }),
+                                              (0, _e.jsx)("h5", {
+                                                className: "text-xl",
+                                                children: "Patreon",
+                                              }),
+                                            ],
+                                          }),
+                                        }),
+                                      }),
+                                      (0, _e.jsx)("a", {
+                                        href: "#",
+                                        onClick: (e) => {
+                                          e.preventDefault(), this.showFaq();
+                                        },
+                                        className:
+                                          "text-decoration-none cursor-pointer text-blue-600",
+                                        children: (0, _e.jsx)("div", {
+                                          className:
+                                            "p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-6",
+                                          children: (0, _e.jsxs)("div", {
+                                            className: "lg:my-3 text-center",
+                                            children: [
+                                              (0, _e.jsx)(ce(), {
+                                                path: ue.NIi,
+                                                className:
+                                                  "inline w-2/12 lg:w-1/2",
+                                              }),
+                                              (0, _e.jsx)("h5", {
+                                                className: "text-xl",
+                                                children: "Faq",
+                                              }),
+                                            ],
+                                          }),
+                                        }),
+                                      }),
+                                      (0, _e.jsx)("a", {
+                                        href: "https://discord.gg/GZgGKf2gdC",
+                                        target: "_blank",
+                                        rel: "noreferrer",
+                                        className:
+                                          "text-decoration-none cursor-pointer",
+                                        style: { color: "#5865f2" },
+                                        children: (0, _e.jsx)("div", {
+                                          className:
+                                            "p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-6",
+                                          children: (0, _e.jsxs)("div", {
+                                            className: "lg:my-3 text-center",
+                                            children: [
+                                              (0, _e.jsx)(ce(), {
+                                                path: ue.$pT,
+                                                className:
+                                                  "inline w-2/12 lg:w-1/2",
+                                              }),
+                                              (0, _e.jsx)("h5", {
+                                                className: "text-xl",
+                                                children: "Discord",
+                                              }),
+                                            ],
+                                          }),
+                                        }),
+                                      }),
+                                      (0, _e.jsx)("a", {
+                                        href: "https://www.reddit.com/r/TheresmoreGame",
+                                        target: "_blank",
+                                        rel: "noreferrer",
+                                        className:
+                                          "text-decoration-none cursor-pointer",
+                                        style: { color: "#ff4500" },
+                                        children: (0, _e.jsx)("div", {
+                                          className:
+                                            "p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-6",
+                                          children: (0, _e.jsxs)("div", {
+                                            className: "lg:my-3 text-center",
+                                            children: [
+                                              (0, _e.jsx)(ce(), {
+                                                path: ue.Fx8,
+                                                className:
+                                                  "inline w-2/12 lg:w-1/2",
+                                              }),
+                                              (0, _e.jsx)("h5", {
+                                                className: "text-xl",
+                                                children: "Reddit",
+                                              }),
+                                            ],
+                                          }),
+                                        }),
+                                      }),
+                                    ],
+                                  }),
+                                }),
+                              ],
+                            }),
+                          }),
+                        ],
+                      }),
+                    }),
+                  }),
+                }),
+              ],
+            }),
+          });
+        }
+      }
+      const ar = (0, t.WQ)("MainStore")((0, t.PA)(rr)),
+        ir = [
+          {
+            version: "1.1.0 Artes Delineandi et Pugna",
+            changes: [
+              "New detailed battle reports",
+              "Added time to produce required resources",
+              "Added time to cap a resource",
+              "Added custom army ordering",
+              "Added splash damages (orange)",
+              "Added trample damages (purple)",
+              "Added in-game FAQ",
+              "Increased max unit build quantity",
+              "Enhanced army interface",
+              "Enhanced build interface",
+              "Enhanced tooltips interface",
+              "Enhanced ancestors interface",
+              "Enhanced settings interface",
+              "Enhanced changelog interface",
+              "Improved handling of large numbers",
+            ],
+          },
           { version: "1.0.1", changes: ["Fixed mobile bugs", "Fixed typos"] },
           {
             version: "1.0 The end of the journey",
@@ -65072,325 +65800,193 @@
             ],
           },
         ];
-      class Or extends a.Component {
+      class nr extends i.Component {
         constructor() {
           super(...arguments),
             (this.handleClose = () => {
               this.props.MainStore.SettingsStore.toggleChangelog();
+            }),
+            (this.getChangeIcon = (e) => {
+              const t = e.toLowerCase();
+              return t.startsWith("new")
+                ? ue.biz
+                : t.includes("fixed") || t.includes("bug")
+                ? ue.xhV
+                : t.includes("added") || t.includes("new")
+                ? ue.biz
+                : t.includes("minor") || t.includes("improved")
+                ? ue.eWP
+                : ue.ZL5;
+            }),
+            (this.getChangeColors = (e) => {
+              const t = e.toLowerCase();
+              return t.startsWith("new")
+                ? {
+                    icon: "text-black dark:text-white",
+                    bg: "bg-yellow-300 dark:bg-yellow-600",
+                  }
+                : t.includes("fixed") || t.includes("bug")
+                ? {
+                    icon: "text-red-500 dark:text-red-400",
+                    bg: "bg-red-100 dark:bg-red-900/30",
+                  }
+                : t.includes("added") || t.includes("new")
+                ? {
+                    icon: "text-green-500 dark:text-green-300",
+                    bg: "bg-green-100 dark:bg-green-900",
+                  }
+                : t.includes("minor") || t.includes("improved")
+                ? {
+                    icon: "text-gray-400 dark:text-blue-300",
+                    bg: "bg-gray-200 dark:bg-gray-700",
+                  }
+                : {
+                    icon: "text-blue-400 dark:text-blue-300",
+                    bg: "bg-blue-100 dark:bg-blue-900",
+                  };
             });
         }
         render() {
           const { showChangelog: e } = this.props.MainStore.SettingsStore;
-          return (0, _e.jsx)(it.e.Root, {
+          return (0, _e.jsx)(nt.e.Root, {
             show: e,
-            as: a.Fragment,
-            children: (0, _e.jsxs)(nt.l, {
+            as: i.Fragment,
+            children: (0, _e.jsxs)(ot.l, {
               as: "div",
               className: "relative z-50",
               onClose: this.handleClose,
               children: [
-                (0, _e.jsx)(st.A, {}),
+                (0, _e.jsx)(lt.A, {}),
                 (0, _e.jsx)("div", {
                   className: "fixed z-10 inset-0 overflow-y-auto",
                   children: (0, _e.jsx)("div", {
                     className:
                       "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                    children: (0, _e.jsx)(it.e.Child, {
-                      as: a.Fragment,
+                    children: (0, _e.jsx)(nt.e.Child, {
+                      as: i.Fragment,
                       enter: "ease-out duration-300",
                       enterFrom: "opacity-0 translate-y-4",
                       enterTo: "opacity-100 translate-y-0",
                       leave: "ease-in duration-200",
                       leaveFrom: "opacity-100 translate-y-0",
                       leaveTo: "opacity-0 translate-y-4",
-                      children: (0, _e.jsxs)(nt.l.Panel, {
+                      children: (0, _e.jsxs)(ot.l.Panel, {
                         className:
-                          "modal-container lg:my-8 lg:max-w-xl lg:pt-6",
+                          "modal-container lg:my-8 lg:max-w-3xl lg:pt-6 max-h-[90vh] lg:max-h-[85vh]",
                         children: [
-                          (0, _e.jsx)(ot.A, { onClick: this.handleClose }),
+                          (0, _e.jsx)(st.A, { onClick: this.handleClose }),
                           (0, _e.jsx)("div", {
                             children: (0, _e.jsxs)("div", {
                               className: "mt-0",
                               children: [
-                                (0, _e.jsx)(nt.l.Title, {
+                                (0, _e.jsx)(ot.l.Title, {
                                   as: "h3",
-                                  className: "modal-title",
+                                  className: "modal-title mb-4",
                                   children: (0, pe.v)("changelog"),
                                 }),
-                                (0, _e.jsx)("div", {
-                                  className: "p-6 pt-1",
-                                  children: jr.map((e) =>
-                                    (0, _e.jsxs)(
-                                      a.Fragment,
-                                      {
-                                        children: [
-                                          (0, _e.jsx)("h5", {
-                                            className: "text-xl font-bold pt-3",
-                                            children: e.version,
-                                          }),
-                                          (0, _e.jsx)("ul", {
-                                            className: "list-disc pl-5",
-                                            children: e.changes.map((e) =>
-                                              (0, _e.jsx)(
-                                                "li",
-                                                { children: e },
-                                                Oe()
-                                              )
-                                            ),
-                                          }),
-                                        ],
-                                      },
-                                      Oe()
-                                    )
-                                  ),
-                                }),
-                              ],
-                            }),
-                          }),
-                        ],
-                      }),
-                    }),
-                  }),
-                }),
-              ],
-            }),
-          });
-        }
-      }
-      const Lr = (0, t.WQ)("MainStore")((0, t.PA)(Or));
-      class Pr extends a.Component {
-        constructor() {
-          super(...arguments),
-            (this.handleClose = () => {
-              this.props.MainStore.SettingsStore.toggleHallOfFame();
-            });
-        }
-        render() {
-          const { showHallOfFame: e } = this.props.MainStore.SettingsStore;
-          return (0, _e.jsx)(it.e.Root, {
-            show: e,
-            as: a.Fragment,
-            children: (0, _e.jsxs)(nt.l, {
-              as: "div",
-              className: "relative z-50",
-              onClose: this.handleClose,
-              children: [
-                (0, _e.jsx)(st.A, {}),
-                (0, _e.jsx)("div", {
-                  className: "fixed z-10 inset-0 overflow-y-auto",
-                  children: (0, _e.jsx)("div", {
-                    className:
-                      "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                    children: (0, _e.jsx)(it.e.Child, {
-                      as: a.Fragment,
-                      enter: "ease-out duration-300",
-                      enterFrom: "opacity-0 translate-y-4",
-                      enterTo: "opacity-100 translate-y-0",
-                      leave: "ease-in duration-200",
-                      leaveFrom: "opacity-100 translate-y-0",
-                      leaveTo: "opacity-0 translate-y-4",
-                      children: (0, _e.jsxs)(nt.l.Panel, {
-                        className:
-                          "modal-container lg:my-8 lg:max-w-3xl lg:pt-6",
-                        children: [
-                          (0, _e.jsx)(ot.A, { onClick: this.handleClose }),
-                          (0, _e.jsx)("div", {
-                            children: (0, _e.jsxs)("div", {
-                              className: "mt-0",
-                              children: [
-                                (0, _e.jsx)(nt.l.Title, {
-                                  as: "h3",
-                                  className: "modal-title",
-                                  children: (0, pe.v)("hall_of_fame"),
-                                }),
                                 (0, _e.jsxs)("div", {
-                                  className: "p-6 pt-1",
+                                  className:
+                                    "px-4 lg:px-6 pb-6 max-h-[75vh] overflow-y-auto",
                                   children: [
                                     (0, _e.jsx)("div", {
-                                      className: "py-3",
-                                      children: (0, pe.v)(
-                                        "hall_of_fame_description"
-                                      ),
+                                      className:
+                                        "hidden lg:block absolute left-[4.5rem] top-52 bottom-20 w-0.5 bg-gradient-to-b from-purple-300 via-blue-300 to-gray-200 dark:from-purple-600 dark:via-blue-600 dark:to-mydark-400 opacity-30",
                                     }),
-                                    (0, _e.jsxs)("ul", {
-                                      className: "list-disc pl-5",
-                                      children: [
-                                        (0, _e.jsx)("li", {
-                                          children: "SouL595",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Artgor",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "TrueWolves",
-                                        }),
-                                        (0, _e.jsx)("li", { children: "Kobu" }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Veldrane",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "James Q.F.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Snufkin",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Wakix.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Fatblock0816",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Kevin L.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Itsnotoriousb",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Steven S.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Cassfenrir",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Pnopp",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Ziryo ",
-                                        }),
-                                        (0, _e.jsx)("li", { children: "Zyla" }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Manuel H.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Tyrren",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Benjamin D.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Solarrat",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Icedr0p",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Somethingorother",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Mirjay",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Moonwalk",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Mr Crunchy",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Mahdeennave",
-                                        }),
-                                        (0, _e.jsx)("li", { children: "Eriy" }),
-                                        (0, _e.jsx)("li", {
-                                          children: "HolyBreadKnight",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "LinksLegends22",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Tom W.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Pdinh85",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Jack S.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Dekoserpree",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Wybenton",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Dakota M.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Marsrobin",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Erno L.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Tim F.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Mommesteffen",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Colesulley",
-                                        }),
-                                        (0, _e.jsx)("li", { children: "Tdtl" }),
-                                        (0, _e.jsx)("li", {
-                                          children: "\u6cf0\u4eba \u6cb3\u5408",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "EleanorMediocre",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Adam E.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Duckmessias",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "JayWhite",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Daniel S.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Christoph",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Arnoldmano111",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Aburke99",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Christy1865",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Owlie776",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Anders C.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Jakul F.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Clayton V.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Andrew S.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Alexander Q.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Matthijs B.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Florian O.",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Yasetacevedo",
-                                        }),
-                                        (0, _e.jsx)("li", {
-                                          children: "Vmarco V.",
-                                        }),
-                                      ],
+                                    (0, _e.jsx)("div", {
+                                      className:
+                                        "relative space-y-6 lg:space-y-8",
+                                      children: ir.map((e) =>
+                                        (0, _e.jsxs)(
+                                          "div",
+                                          {
+                                            className:
+                                              "group relative bg-white dark:bg-mydark-500 rounded-lg p-6 shadow-lg border border-gray-200 dark:border-mydark-300 overflow-hidden",
+                                            children: [
+                                              (0, _e.jsxs)("div", {
+                                                className:
+                                                  "relative flex items-center mb-6 pb-4 border-b-2 border-gray-100 dark:border-mydark-300",
+                                                children: [
+                                                  (0, _e.jsx)("div", {
+                                                    className:
+                                                      "flex-shrink-0 w-8 h-8 rounded-xl flex items-center justify-center bg-gradient-to-br from-indigo-500 via-blue-600 to-cyan-500",
+                                                    children: (0, _e.jsx)(
+                                                      ce(),
+                                                      {
+                                                        path: ue.HzW,
+                                                        className:
+                                                          "h-4 w-4 text-white",
+                                                      }
+                                                    ),
+                                                  }),
+                                                  (0, _e.jsx)("div", {
+                                                    className: "ml-5 flex-1",
+                                                    children: (0, _e.jsx)(
+                                                      "h4",
+                                                      {
+                                                        className:
+                                                          "sm:text-2xl dark:text-mydark-50 font-game mb-1",
+                                                        children: e.version,
+                                                      }
+                                                    ),
+                                                  }),
+                                                ],
+                                              }),
+                                              (0, _e.jsx)("div", {
+                                                className: "relative space-y-2",
+                                                children: e.changes.map(
+                                                  (e, t) =>
+                                                    (0, _e.jsxs)(
+                                                      "div",
+                                                      {
+                                                        className:
+                                                          "flex items-center group/item bg-gray-50 dark:bg-mydark-600 rounded-xl p-2 border-l-4 border-transparent cursor-default",
+                                                        children: [
+                                                          (0, _e.jsx)("div", {
+                                                            className:
+                                                              "flex-shrink-0 mr-4 flex items-center",
+                                                            children: (0,
+                                                            _e.jsx)("div", {
+                                                              className:
+                                                                "w-8 h-8 rounded-lg flex items-center justify-center ".concat(
+                                                                  this.getChangeColors(
+                                                                    e
+                                                                  ).bg
+                                                                ),
+                                                              children: (0,
+                                                              _e.jsx)(ce(), {
+                                                                path: this.getChangeIcon(
+                                                                  e
+                                                                ),
+                                                                className:
+                                                                  "h-4 w-4 ".concat(
+                                                                    this.getChangeColors(
+                                                                      e
+                                                                    ).icon
+                                                                  ),
+                                                              }),
+                                                            }),
+                                                          }),
+                                                          (0, _e.jsx)("div", {
+                                                            className:
+                                                              "flex-1 min-w-0 flex items-center",
+                                                            children: (0,
+                                                            _e.jsx)("p", {
+                                                              className:
+                                                                "text-base text-gray-700 dark:text-mydark-50 leading-relaxed font-medium",
+                                                              children: e,
+                                                            }),
+                                                          }),
+                                                        ],
+                                                      },
+                                                      (0, Oe.nanoid)()
+                                                    )
+                                                ),
+                                              }),
+                                            ],
+                                          },
+                                          (0, Oe.nanoid)()
+                                        )
+                                      ),
                                     }),
                                   ],
                                 }),
@@ -65407,8 +66003,170 @@
           });
         }
       }
-      const Rr = (0, t.WQ)("MainStore")((0, t.PA)(Pr));
-      class Fr extends a.Component {
+      const or = (0, t.WQ)("MainStore")((0, t.PA)(nr));
+      class sr extends i.Component {
+        constructor() {
+          super(...arguments),
+            (this.handleClose = () => {
+              this.props.MainStore.SettingsStore.toggleHallOfFame();
+            });
+        }
+        render() {
+          const { showHallOfFame: e } = this.props.MainStore.SettingsStore;
+          return (0, _e.jsx)(nt.e.Root, {
+            show: e,
+            as: i.Fragment,
+            children: (0, _e.jsxs)(ot.l, {
+              as: "div",
+              className: "relative z-50",
+              onClose: this.handleClose,
+              children: [
+                (0, _e.jsx)(lt.A, {}),
+                (0, _e.jsx)("div", {
+                  className: "fixed z-10 inset-0 overflow-y-auto",
+                  children: (0, _e.jsx)("div", {
+                    className:
+                      "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
+                    children: (0, _e.jsx)(nt.e.Child, {
+                      as: i.Fragment,
+                      enter: "ease-out duration-300",
+                      enterFrom: "opacity-0 translate-y-4",
+                      enterTo: "opacity-100 translate-y-0",
+                      leave: "ease-in duration-200",
+                      leaveFrom: "opacity-100 translate-y-0",
+                      leaveTo: "opacity-0 translate-y-4",
+                      children: (0, _e.jsxs)(ot.l.Panel, {
+                        className:
+                          "modal-container lg:my-8 lg:max-w-3xl lg:pt-6",
+                        children: [
+                          (0, _e.jsx)(st.A, { onClick: this.handleClose }),
+                          (0, _e.jsx)("div", {
+                            children: (0, _e.jsxs)("div", {
+                              className: "mt-0",
+                              children: [
+                                (0, _e.jsx)(ot.l.Title, {
+                                  as: "h3",
+                                  className: "modal-title",
+                                  children: (0, pe.v)("hall_of_fame"),
+                                }),
+                                (0, _e.jsxs)("div", {
+                                  className: "p-6 pt-1",
+                                  children: [
+                                    (0, _e.jsx)("div", {
+                                      className:
+                                        "py-3 text-gray-600 dark:text-gray-300",
+                                      children: (0, pe.v)(
+                                        "hall_of_fame_description"
+                                      ),
+                                    }),
+                                    (0, _e.jsx)("div", {
+                                      className:
+                                        "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 max-h-96 overflow-y-auto",
+                                      children: [
+                                        "SouL595",
+                                        "Artgor",
+                                        "TrueWolves",
+                                        "Kobu",
+                                        "Veldrane",
+                                        "James Q.F.",
+                                        "Snufkin",
+                                        "Wakix.",
+                                        "Fatblock0816",
+                                        "Kevin L.",
+                                        "Itsnotoriousb",
+                                        "Steven S.",
+                                        "Cassfenrir",
+                                        "Pnopp",
+                                        "Ziryo",
+                                        "Zyla",
+                                        "Manuel H.",
+                                        "Tyrren",
+                                        "Benjamin D.",
+                                        "Solarrat",
+                                        "Icedr0p",
+                                        "Somethingorother",
+                                        "Mirjay",
+                                        "Moonwalk",
+                                        "Mr Crunchy",
+                                        "Mahdeennave",
+                                        "Eriy",
+                                        "HolyBreadKnight",
+                                        "LinksLegends22",
+                                        "Tom W.",
+                                        "Pdinh85",
+                                        "Jack S.",
+                                        "Dekoserpree",
+                                        "Wybenton",
+                                        "Dakota M.",
+                                        "Marsrobin",
+                                        "Erno L.",
+                                        "Tim F.",
+                                        "Mommesteffen",
+                                        "Colesulley",
+                                        "Tdtl",
+                                        "\u6cf0\u4eba \u6cb3\u5408",
+                                        "EleanorMediocre",
+                                        "Adam E.",
+                                        "Duckmessias",
+                                        "JayWhite",
+                                        "Daniel S.",
+                                        "Christoph",
+                                        "Arnoldmano111",
+                                        "Aburke99",
+                                        "Christy1865",
+                                        "Owlie776",
+                                        "Anders C.",
+                                        "Jakul F.",
+                                        "Clayton V.",
+                                        "Andrew S.",
+                                        "Alexander Q.",
+                                        "Matthijs B.",
+                                        "Florian O.",
+                                        "Yasetacevedo",
+                                        "Vmarco V.",
+                                        "Brian H.",
+                                        "Joel T.",
+                                        "Thomas D.",
+                                        "Marco P.",
+                                        "BadShana",
+                                        "Vescar",
+                                        "Calypsoaf",
+                                        "Homercss",
+                                        "Dongjing Z.",
+                                        "Peacemaker",
+                                      ].map((e) =>
+                                        (0, _e.jsx)(
+                                          "div",
+                                          {
+                                            className:
+                                              "bg-gray-100 dark:bg-mydark-600 border border-gray-400 dark:border-mydark-200 rounded-lg p-3 text-center hover:shadow-md transition-shadow duration-200",
+                                            children: (0, _e.jsx)("div", {
+                                              className:
+                                                "text-sm font-medium text-gray-800 dark:text-mydark-50",
+                                              children: e,
+                                            }),
+                                          },
+                                          e
+                                        )
+                                      ),
+                                    }),
+                                  ],
+                                }),
+                              ],
+                            }),
+                          }),
+                        ],
+                      }),
+                    }),
+                  }),
+                }),
+              ],
+            }),
+          });
+        }
+      }
+      const lr = (0, t.WQ)("MainStore")((0, t.PA)(sr));
+      class dr extends i.Component {
         constructor(e) {
           super(e),
             (this.pastezone = null),
@@ -65590,78 +66348,81 @@
               showSettings: e,
               darkTheme: t,
               batteryMode: r,
-              difficultyMode: i,
+              difficultyMode: a,
               difficultyFlag: n,
-              showLoadFromBackup: s,
-              showCapBuildings: l,
-              showNotifications: d,
+              showLoadFromBackup: o,
+              showCapBuildings: s,
+              showNotifications: l,
             } = this.props.MainStore.SettingsStore,
             {
-              volume: c,
-              selectedSoundtrack: u,
-              randomSoundtrack: p,
+              volume: d,
+              selectedSoundtrack: c,
+              randomSoundtrack: u,
             } = this.props.MainStore.SoundsStore,
-            _ = 0 === r ? 2 : 2 === r ? 0 : 1;
-          let h = "",
-            y = "";
-          switch (i) {
+            { detectPlatformChars: p } = this.props.MainStore,
+            { ancestors: _ } = this.props.MainStore.run,
+            h = 0 === r ? 2 : 2 === r ? 0 : 1;
+          let y = "",
+            m = "";
+          switch (a) {
             case 99:
-              (h = ue.gp1),
-                (y =
+              (y = ue.gp1),
+                (m =
                   "btn w-full text-white bg-green-600 hover:bg-green-700 focus:bg-green-800 dark:bg-green-700 dark:hover:bg-green-800 dark:focus:bg-green-900");
               break;
             case 0:
-              (h = ue.qQT), (y = "btn w-full btn-dark");
+              (y = ue.qQT), (m = "btn w-full btn-dark");
               break;
             case 1:
-              (h = ue.mSZ),
-                (y =
+              (y = ue.mSZ),
+                (m =
                   "btn w-full text-white bg-orange-600 hover:bg-orange-700 focus:bg-orange-800 dark:bg-orange-700 dark:hover:bg-orange-800 dark:focus:bg-orange-900");
               break;
             case 2:
-              (h = ue.Du3),
-                (y =
+              (y = ue.Du3),
+                (m =
                   "btn w-full text-white bg-red-600 hover:bg-red-700 focus:bg-red-800 dark:bg-red-700 dark:hover:bg-red-800 dark:focus:bg-red-900");
               break;
             case 3:
-              (h = ue.M5b),
-                (y =
+              (y = ue.M5b),
+                (m =
                   "btn w-full text-white bg-purple-600 hover:bg-purple-700 focus:bg-purple-800 dark:bg-purple-700 dark:hover:bg-purple-800 dark:focus:bg-purple-900");
           }
           return (
-            2 === n && (y = "btn w-full text-white bg-transparent"),
-            (0, _e.jsx)(it.e.Root, {
+            2 === n && (m = "btn w-full text-white bg-transparent"),
+            (0, _e.jsx)(nt.e.Root, {
               show: e,
-              as: a.Fragment,
-              children: (0, _e.jsxs)(nt.l, {
+              as: i.Fragment,
+              children: (0, _e.jsxs)(ot.l, {
                 as: "div",
                 className: "relative z-50",
                 onClose: this.handleClose,
                 children: [
-                  (0, _e.jsx)(st.A, {}),
+                  (0, _e.jsx)(lt.A, {}),
                   (0, _e.jsx)("div", {
                     className: "fixed z-10 inset-0",
                     children: (0, _e.jsx)("div", {
                       className:
                         "flex items-center justify-end min-h-full text-center",
-                      children: (0, _e.jsx)(it.e.Child, {
-                        as: a.Fragment,
+                      children: (0, _e.jsx)(nt.e.Child, {
+                        as: i.Fragment,
                         enter: "transition ease-in-out duration-300 transform",
                         enterFrom: "translate-x-full",
                         enterTo: "translate-x-0",
                         leave: "transition ease-in-out duration-200 transform",
                         leaveFrom: "translate-x-0",
                         leaveTo: "translate-x-full",
-                        children: (0, _e.jsxs)(nt.l.Panel, {
+                        children: (0, _e.jsxs)(ot.l.Panel, {
                           className:
                             "relative bg-gray-100 dark:bg-mydark-600 px-4 py-5 text-left overflow-hidden shadow-xl transform transition-all h-screen lg:max-w-sm lg:w-full lg:p-6",
                           children: [
-                            (0, _e.jsx)(ot.A, { onClick: this.handleClose }),
+                            (0, _e.jsx)(st.A, { onClick: this.handleClose }),
                             (0, _e.jsx)("div", {
                               className: "lg:flex lg:items-start",
                               children: (0, _e.jsxs)("div", {
+                                className: "w-full",
                                 children: [
-                                  (0, _e.jsx)(nt.l.Title, {
+                                  (0, _e.jsx)(ot.l.Title, {
                                     as: "h3",
                                     className: "text-2xl leading-6 font-game",
                                     children: (0, pe.v)("settings"),
@@ -65671,390 +66432,575 @@
                                     children: [
                                       (0, _e.jsxs)("div", {
                                         className:
-                                          "relative flex flex-col px-5 pb-5 bg-logo h-[calc(100vh-100px)]",
+                                          "relative flex flex-col px-2 pb-5 bg-logo h-[calc(100vh-100px)] space-y-4",
                                         children: [
                                           (0, _e.jsxs)("div", {
-                                            className: "flex flex-wrap mb-5",
+                                            className:
+                                              "bg-white dark:bg-mydark-500 rounded-xl p-5 shadow-lg border border-gray-200 dark:border-mydark-300",
                                             children: [
-                                              (0, _e.jsx)("div", {
-                                                className: "w-full text-center",
-                                                children: (0, pe.v)(
-                                                  "battery_mode"
-                                                ),
-                                              }),
-                                              (0, _e.jsx)("div", {
-                                                className: "w-full",
-                                                children: (0, _e.jsx)("input", {
-                                                  type: "range",
-                                                  min: 0,
-                                                  max: 2,
-                                                  value: _,
-                                                  onChange:
-                                                    this.handleBatteryMode,
-                                                  className: "w-full",
-                                                }),
+                                              (0, _e.jsxs)("h4", {
+                                                className:
+                                                  "font-game mb-4 text-gray-800 dark:text-gray-200 flex items-center",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.nhs,
+                                                    className:
+                                                      "icon mr-2 w-5 h-5 text-blue-600 dark:text-blue-400",
+                                                  }),
+                                                  (0, pe.v)("save_load"),
+                                                ],
                                               }),
                                               (0, _e.jsxs)("div", {
-                                                className: "flex w-full",
+                                                className:
+                                                  "grid grid-cols-1 gap-3 lg:w-4/5 mx-auto",
                                                 children: [
-                                                  (0, _e.jsxs)("div", {
+                                                  (0, _e.jsxs)("button", {
+                                                    type: "button",
                                                     className:
-                                                      "w-1/2 text-left whitespace-nowrap text-xs",
+                                                      "btn btn-blue w-full flex items-center justify-center",
+                                                    onClick:
+                                                      this.handleSaveFile,
                                                     children: [
                                                       (0, _e.jsx)(ce(), {
-                                                        path: ue.a2K,
+                                                        path: ue.xKU,
                                                         className:
-                                                          "icon inline mt-[-2px] mr-0.5 w-4 h-4",
+                                                          "icon mr-2 w-4 h-4",
                                                       }),
-                                                      (0, pe.v)("battery_life"),
+                                                      (0, pe.v)("save_to_file"),
                                                     ],
                                                   }),
-                                                  (0, _e.jsxs)("div", {
+                                                  (0, _e.jsxs)("button", {
+                                                    type: "button",
                                                     className:
-                                                      "w-1/2 text-right whitespace-nowrap text-xs",
-                                                    children: [
-                                                      (0, pe.v)("performance"),
-                                                      (0, _e.jsx)(ce(), {
-                                                        path: ue.nC,
-                                                        className:
-                                                          "icon inline mt-[-2px] ml-0.5 w-4 h-4",
-                                                      }),
-                                                    ],
-                                                  }),
-                                                ],
-                                              }),
-                                            ],
-                                          }),
-                                          (0, _e.jsxs)("div", {
-                                            className: "flex flex-wrap mb-1",
-                                            children: [
-                                              "" !== u
-                                                ? (0, _e.jsxs)("div", {
-                                                    className:
-                                                      "w-full text-center cursor-pointer",
-                                                    onClick: this.changeTrack,
+                                                      "btn btn-blue w-full flex items-center justify-center bg-blue-500",
+                                                    onClick:
+                                                      this.handleSaveClipboard,
                                                     children: [
                                                       (0, _e.jsx)(ce(), {
-                                                        path: ue.GDm,
+                                                        path: ue.opG,
                                                         className:
-                                                          "icon inline mt-[-2px] mr-2 w-4 h-4 animate-pulse",
+                                                          "icon mr-2 w-4 h-4",
                                                       }),
-                                                      (0, pe.v)(u),
-                                                      (0, _e.jsx)(ce(), {
-                                                        path: ue.GDm,
-                                                        className:
-                                                          "icon inline mt-[-2px] ml-2 w-4 h-4 animate-pulse",
-                                                      }),
+                                                      (0, pe.v)(
+                                                        "save_to_clipboard"
+                                                      ),
                                                     ],
-                                                  })
-                                                : (0, _e.jsx)("div", {
+                                                  }),
+                                                  (0, _e.jsxs)("button", {
+                                                    type: "button",
                                                     className:
-                                                      "w-full text-center",
-                                                    children: (0, pe.v)(
-                                                      "sounds_volume"
-                                                    ),
+                                                      "btn btn-green w-full flex items-center justify-center dark:bg-green-700 dark:hover:bg-green-800 dark:focus:bg-green-900",
+                                                    onClick:
+                                                      this.handleLoadClipboard,
+                                                    children: [
+                                                      (0, _e.jsx)(ce(), {
+                                                        path: ue.F_M,
+                                                        className:
+                                                          "icon mr-2 w-4 h-4 mt-[1px]",
+                                                      }),
+                                                      (0, pe.v)(
+                                                        "load_from_clipboard"
+                                                      ),
+                                                    ],
                                                   }),
-                                              (0, _e.jsx)("div", {
-                                                className: "w-full",
-                                                children: (0, _e.jsx)("input", {
-                                                  type: "range",
-                                                  min: 0,
-                                                  max: 1,
-                                                  step: 0.1,
-                                                  value: c,
-                                                  onChange: this.handleVolume,
-                                                  className: "w-full",
-                                                }),
-                                              }),
-                                            ],
-                                          }),
-                                          (0, _e.jsxs)("div", {
-                                            className: "flex flex-wrap",
-                                            children: [
-                                              (0, _e.jsx)("div", {
-                                                className:
-                                                  "w-[63%] py-1 align-middle text-right whitespace-no-wrap",
-                                                children: (0, pe.v)(
-                                                  "random_soundtrack"
-                                                ),
-                                              }),
-                                              (0, _e.jsx)("div", {
-                                                className:
-                                                  "relative flex-grow max-w-full flex-1 px-4 text-left mt-1",
-                                                children: (0, _e.jsx)(Lt, {
-                                                  checked: p,
-                                                  onChange:
-                                                    this
-                                                      .handleChangeRandomSoundtrack,
-                                                }),
-                                              }),
-                                            ],
-                                          }),
-                                          (0, _e.jsxs)("div", {
-                                            className: "flex flex-wrap mt-2",
-                                            children: [
-                                              (0, _e.jsx)("div", {
-                                                className:
-                                                  "w-[63%] py-1 align-middle text-right whitespace-no-wrap",
-                                                children: (0, pe.v)(
-                                                  "dark_mode"
-                                                ),
-                                              }),
-                                              (0, _e.jsx)("div", {
-                                                className:
-                                                  "relative flex-grow max-w-full flex-1 px-4 text-left mt-1",
-                                                children: (0, _e.jsx)(Lt, {
-                                                  checked: t,
-                                                  onChange:
-                                                    this.handleChangeTheme,
-                                                }),
-                                              }),
-                                            ],
-                                          }),
-                                          (0, _e.jsxs)("div", {
-                                            className: "flex flex-wrap mt-2",
-                                            children: [
-                                              (0, _e.jsx)("div", {
-                                                className:
-                                                  "w-[63%] py-1 align-middle text-right whitespace-no-wrap",
-                                                children: (0, pe.v)(
-                                                  "enable_notifications"
-                                                ),
-                                              }),
-                                              (0, _e.jsx)("div", {
-                                                className:
-                                                  "relative flex-grow max-w-full flex-1 px-4 text-left mt-1",
-                                                children: (0, _e.jsx)(Lt, {
-                                                  checked: d,
-                                                  onChange:
-                                                    this
-                                                      .handleShowNotifications,
-                                                }),
-                                              }),
-                                            ],
-                                          }),
-                                          (0, _e.jsxs)("div", {
-                                            className:
-                                              "flex flex-wrap mt-2 mb-5",
-                                            children: [
-                                              (0, _e.jsx)("div", {
-                                                className:
-                                                  "w-[63%] py-1 align-middle text-right whitespace-no-wrap",
-                                                children: (0, pe.v)(
-                                                  "show_cap_buildings"
-                                                ),
-                                              }),
-                                              (0, _e.jsx)("div", {
-                                                className:
-                                                  "relative flex-grow max-w-full flex-1 px-4 text-left mt-1",
-                                                children: (0, _e.jsx)(Lt, {
-                                                  checked: l,
-                                                  onChange:
-                                                    this.handleShowCapBuildings,
-                                                }),
-                                              }),
-                                            ],
-                                          }),
-                                          (0, _e.jsxs)("div", {
-                                            className:
-                                              "flex flex-wrap d-grid gap-3 w-3/4 lg:w-2/3 mx-auto",
-                                            children: [
-                                              (0, _e.jsxs)("button", {
-                                                type: "button",
-                                                className:
-                                                  "btn btn-blue w-full",
-                                                onClick: this.handleSaveFile,
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.xKU,
-                                                    className: "icon mr-1",
-                                                  }),
-                                                  (0, pe.v)("save_to_file"),
-                                                ],
-                                              }),
-                                              (0, _e.jsxs)("button", {
-                                                type: "button",
-                                                className:
-                                                  "btn btn-blue w-full bg-blue-500",
-                                                onClick:
-                                                  this.handleSaveClipboard,
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.opG,
-                                                    className: "icon mr-1",
-                                                  }),
-                                                  (0, pe.v)(
-                                                    "save_to_clipboard"
-                                                  ),
-                                                ],
-                                              }),
-                                              (0, _e.jsxs)("button", {
-                                                type: "button",
-                                                className:
-                                                  "btn btn-green w-full px-4 dark:bg-green-700 dark:hover:bg-green-800 dark:focus:bg-green-900",
-                                                onClick:
-                                                  this.handleLoadClipboard,
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.F_M,
-                                                    className:
-                                                      "icon mr-1 mt-[1px]",
-                                                  }),
-                                                  (0, pe.v)(
-                                                    "load_from_clipboard"
-                                                  ),
                                                 ],
                                               }),
                                             ],
                                           }),
                                           this.state.showPaste
-                                            ? o.Fr
-                                              ? (0, _e.jsxs)("div", {
-                                                  className:
-                                                    "w-full p-0 block my-3 text-center",
-                                                  children: [
-                                                    (0, _e.jsx)("div", {
-                                                      className: "my-2",
-                                                      children: (0, pe.v)(
-                                                        "load_from_textarea_description"
-                                                      ),
-                                                    }),
-                                                    (0, _e.jsx)("textarea", {
-                                                      value:
-                                                        this.state
-                                                          .valueTextarea,
-                                                      onChange:
-                                                        this
-                                                          .handleChangeTextarea,
-                                                      rows: 5,
-                                                      className:
-                                                        "select-text w-full shadow-sm border focus:border-blue-500 block text-sm border-gray-400 rounded-lg resize-none bg-white dark:bg-mydark-300 h-[4rem]",
-                                                    }),
-                                                    (0, _e.jsx)("button", {
-                                                      type: "button",
-                                                      className:
-                                                        "btn btn-green mt-2 w-3/4 lg:w-2/3 mx-auto",
-                                                      onClick:
-                                                        this.handleLoadTextarea,
-                                                      children: (0, pe.v)(
-                                                        "load_from_textarea"
-                                                      ),
-                                                    }),
-                                                  ],
-                                                })
-                                              : (0, _e.jsx)("div", {
-                                                  className:
-                                                    "select-text w-full p-0 block",
-                                                  children: (0, _e.jsx)("div", {
-                                                    tabIndex: 0,
+                                            ? (0, _e.jsxs)("div", {
+                                                className:
+                                                  "bg-white dark:bg-mydark-500 rounded-xl p-5 shadow-lg border border-gray-200 dark:border-mydark-300",
+                                                children: [
+                                                  (0, _e.jsxs)("h4", {
                                                     className:
-                                                      "select-text flex-1 flex-col text-center my-5 p-5 rounded-xl border-2 border-dashed border-gray-400 dark:border-mydark-200 cursor-pointer " +
-                                                      (this.state.pasteFocus
-                                                        ? "border-blue-500 dark:border-blue-500"
-                                                        : ""),
-                                                    onPaste: this.onPaste,
-                                                    onClick: this.onPasteClick,
-                                                    onBlur: this.onPasteBlur,
-                                                    ref: (e) => {
-                                                      this.pastezone = e;
-                                                    },
-                                                    children: (0, _e.jsx)("p", {
-                                                      className: "select-text",
-                                                      children:
-                                                        this.state.pasteMessage,
-                                                    }),
+                                                      "font-game mb-4 text-gray-800 dark:text-gray-200 flex items-center",
+                                                    children: [
+                                                      (0, _e.jsx)(ce(), {
+                                                        path: ue.ADG,
+                                                        className:
+                                                          "icon mr-2 w-5 h-5 text-blue-600 dark:text-blue-400",
+                                                      }),
+                                                      (0, pe.v)(
+                                                        "load_from_clipboard"
+                                                      ),
+                                                    ],
                                                   }),
-                                                })
+                                                  I.Fr
+                                                    ? (0, _e.jsxs)("div", {
+                                                        className: "space-y-3",
+                                                        children: [
+                                                          (0, _e.jsx)("p", {
+                                                            className:
+                                                              "text-sm text-gray-600 dark:text-gray-400",
+                                                            children: (0, pe.v)(
+                                                              "load_from_textarea_description"
+                                                            ),
+                                                          }),
+                                                          (0, _e.jsx)(
+                                                            "textarea",
+                                                            {
+                                                              value:
+                                                                this.state
+                                                                  .valueTextarea,
+                                                              onChange:
+                                                                this
+                                                                  .handleChangeTextarea,
+                                                              rows: 5,
+                                                              className:
+                                                                "select-text w-full p-3 text-sm border border-gray-300 dark:border-mydark-300 rounded-lg resize-none bg-white dark:bg-mydark-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors",
+                                                              placeholder: (0,
+                                                              pe.v)(
+                                                                "paste_here"
+                                                              ),
+                                                            }
+                                                          ),
+                                                          (0, _e.jsxs)(
+                                                            "button",
+                                                            {
+                                                              type: "button",
+                                                              className:
+                                                                "btn btn-green w-full",
+                                                              onClick:
+                                                                this
+                                                                  .handleLoadTextarea,
+                                                              children: [
+                                                                (0, _e.jsx)(
+                                                                  ce(),
+                                                                  {
+                                                                    path: ue.ADG,
+                                                                    className:
+                                                                      "icon mr-2 w-4 h-4",
+                                                                  }
+                                                                ),
+                                                                (0, pe.v)(
+                                                                  "load_from_textarea"
+                                                                ),
+                                                              ],
+                                                            }
+                                                          ),
+                                                        ],
+                                                      })
+                                                    : (0, _e.jsx)("div", {
+                                                        className:
+                                                          "select-text space-y-3",
+                                                        children: (0, _e.jsx)(
+                                                          "div",
+                                                          {
+                                                            tabIndex: 0,
+                                                            className:
+                                                              "select-text flex-1 flex-col text-center p-6 rounded-xl border-2 border-dashed border-gray-300 dark:border-mydark-200 cursor-pointer hover:border-blue-400 dark:hover:border-blue-400 transition-colors min-h-[100px] flex items-center justify-center " +
+                                                              (this.state
+                                                                .pasteFocus
+                                                                ? "border-blue-500 dark:border-blue-500 bg-blue-50 dark:bg-blue-900/20"
+                                                                : "bg-gray-50 dark:bg-mydark-300"),
+                                                            onPaste:
+                                                              this.onPaste,
+                                                            onClick:
+                                                              this.onPasteClick,
+                                                            onBlur:
+                                                              this.onPasteBlur,
+                                                            ref: (e) => {
+                                                              this.pastezone =
+                                                                e;
+                                                            },
+                                                            children: (0,
+                                                            _e.jsx)("div", {
+                                                              className:
+                                                                "text-center",
+                                                              children: (0,
+                                                              _e.jsx)("p", {
+                                                                className:
+                                                                  "select-text text-gray-600 dark:text-gray-400",
+                                                                children:
+                                                                  this.state
+                                                                    .pasteMessage,
+                                                              }),
+                                                            }),
+                                                          }
+                                                        ),
+                                                      }),
+                                                ],
+                                              })
                                             : null,
                                           "" !== this.state.saveMessage
                                             ? (0, _e.jsx)("div", {
                                                 className:
-                                                  "flex-1 flex-col text-center my-5 py-5 border-2 border-transparent",
-                                                children: (0, _e.jsx)("p", {
-                                                  children:
-                                                    this.state.saveMessage,
+                                                  "bg-gray-50 dark:bg-mydark-400 border border-gray-200 dark:border-mydark-300 rounded-xl p-4",
+                                                children: (0, _e.jsx)("div", {
+                                                  className:
+                                                    "flex items-center justify-center",
+                                                  children: (0, _e.jsx)("p", {
+                                                    className:
+                                                      "text-gray-800 dark:text-gray-200",
+                                                    children:
+                                                      this.state.saveMessage,
+                                                  }),
                                                 }),
                                               })
                                             : null,
+                                          (0, _e.jsxs)("div", {
+                                            className:
+                                              "bg-white dark:bg-mydark-500 rounded-xl p-5 shadow-lg border border-gray-200 dark:border-mydark-300",
+                                            children: [
+                                              (0, _e.jsxs)("h4", {
+                                                className:
+                                                  "font-game mb-4 text-gray-800 dark:text-gray-200 flex items-center",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.pgw,
+                                                    className:
+                                                      "icon mr-2 w-5 h-5 text-purple-600 dark:text-purple-400",
+                                                  }),
+                                                  (0, pe.v)("sounds_volume"),
+                                                ],
+                                              }),
+                                              (0, _e.jsxs)("div", {
+                                                className: "space-y-4",
+                                                children: [
+                                                  (0, _e.jsxs)("div", {
+                                                    children: [
+                                                      "" !== c
+                                                        ? (0, _e.jsxs)("div", {
+                                                            className:
+                                                              "w-full text-center cursor-pointer p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg mb-3 hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors",
+                                                            onClick:
+                                                              this.changeTrack,
+                                                            children: [
+                                                              (0, _e.jsx)(
+                                                                ce(),
+                                                                {
+                                                                  path: ue.GDm,
+                                                                  className:
+                                                                    "icon inline mr-2 w-4 h-4 animate-pulse text-purple-600 dark:text-purple-400",
+                                                                }
+                                                              ),
+                                                              (0, _e.jsx)(
+                                                                "span",
+                                                                {
+                                                                  className:
+                                                                    "font-medium text-purple-800 dark:text-purple-200",
+                                                                  children: (0,
+                                                                  pe.v)(c),
+                                                                }
+                                                              ),
+                                                              (0, _e.jsx)(
+                                                                ce(),
+                                                                {
+                                                                  path: ue.GDm,
+                                                                  className:
+                                                                    "icon inline ml-2 w-4 h-4 animate-pulse text-purple-600 dark:text-purple-400",
+                                                                }
+                                                              ),
+                                                            ],
+                                                          })
+                                                        : (0, _e.jsx)("div", {
+                                                            className:
+                                                              "w-full text-center p-3 bg-gray-50 dark:bg-gray-700/20 rounded-lg mb-3",
+                                                            children: (0,
+                                                            _e.jsx)("span", {
+                                                              className:
+                                                                "font-medium text-gray-500 dark:text-gray-400",
+                                                              children: (0,
+                                                              pe.v)(
+                                                                "no_soundtrack_selected"
+                                                              ),
+                                                            }),
+                                                          }),
+                                                      (0, _e.jsx)("div", {
+                                                        className: "relative",
+                                                        children: (0, _e.jsx)(
+                                                          "input",
+                                                          {
+                                                            type: "range",
+                                                            min: 0,
+                                                            max: 1,
+                                                            step: 0.1,
+                                                            value: d,
+                                                            onChange:
+                                                              this.handleVolume,
+                                                            className: "w-full",
+                                                          }
+                                                        ),
+                                                      }),
+                                                    ],
+                                                  }),
+                                                  (0, _e.jsxs)("div", {
+                                                    className:
+                                                      "flex items-center justify-between py-2 px-3 bg-gray-50 dark:bg-mydark-600 rounded-lg",
+                                                    children: [
+                                                      (0, _e.jsx)("span", {
+                                                        className:
+                                                          "text-sm font-medium text-gray-700 dark:text-gray-300",
+                                                        children: (0, pe.v)(
+                                                          "random_soundtrack"
+                                                        ),
+                                                      }),
+                                                      (0, _e.jsx)(Pt, {
+                                                        checked: u,
+                                                        onChange:
+                                                          this
+                                                            .handleChangeRandomSoundtrack,
+                                                      }),
+                                                    ],
+                                                  }),
+                                                ],
+                                              }),
+                                            ],
+                                          }),
+                                          (0, _e.jsxs)("div", {
+                                            className:
+                                              "bg-white dark:bg-mydark-500 rounded-xl p-5 shadow-lg border border-gray-200 dark:border-mydark-300",
+                                            children: [
+                                              (0, _e.jsxs)("h4", {
+                                                className:
+                                                  "font-game mb-4 text-gray-800 dark:text-gray-200 flex items-center",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.um,
+                                                    className:
+                                                      "icon mr-2 w-5 h-5 text-orange-600 dark:text-orange-400",
+                                                  }),
+                                                  (0, pe.v)("performance"),
+                                                ],
+                                              }),
+                                              (0, _e.jsx)("div", {
+                                                className: "space-y-4",
+                                                children: (0, _e.jsx)("div", {
+                                                  children: (0, _e.jsxs)(
+                                                    "div",
+                                                    {
+                                                      className: "relative",
+                                                      children: [
+                                                        (0, _e.jsx)("input", {
+                                                          type: "range",
+                                                          min: 0,
+                                                          max: 2,
+                                                          value: h,
+                                                          onChange:
+                                                            this
+                                                              .handleBatteryMode,
+                                                          className: "w-full",
+                                                        }),
+                                                        (0, _e.jsxs)("div", {
+                                                          className:
+                                                            "flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-2",
+                                                          children: [
+                                                            (0, _e.jsxs)(
+                                                              "span",
+                                                              {
+                                                                className:
+                                                                  "flex items-center",
+                                                                children: [
+                                                                  (0, _e.jsx)(
+                                                                    ce(),
+                                                                    {
+                                                                      path: ue.a2K,
+                                                                      className:
+                                                                        "icon mr-1 w-4 h-4",
+                                                                    }
+                                                                  ),
+                                                                  (0, pe.v)(
+                                                                    "battery_life"
+                                                                  ),
+                                                                ],
+                                                              }
+                                                            ),
+                                                            (0, _e.jsxs)(
+                                                              "span",
+                                                              {
+                                                                className:
+                                                                  "flex items-center",
+                                                                children: [
+                                                                  (0, pe.v)(
+                                                                    "performance"
+                                                                  ),
+                                                                  (0, _e.jsx)(
+                                                                    ce(),
+                                                                    {
+                                                                      path: ue.nC,
+                                                                      className:
+                                                                        "icon ml-1 w-4 h-4",
+                                                                    }
+                                                                  ),
+                                                                ],
+                                                              }
+                                                            ),
+                                                          ],
+                                                        }),
+                                                      ],
+                                                    }
+                                                  ),
+                                                }),
+                                              }),
+                                            ],
+                                          }),
+                                          (0, _e.jsxs)("div", {
+                                            className:
+                                              "bg-white dark:bg-mydark-500 rounded-xl p-5 shadow-lg border border-gray-200 dark:border-mydark-300",
+                                            children: [
+                                              (0, _e.jsxs)("h4", {
+                                                className:
+                                                  "font-game mb-4 text-gray-800 dark:text-gray-200 flex items-center",
+                                                children: [
+                                                  (0, _e.jsx)(ce(), {
+                                                    path: ue.CLz,
+                                                    className:
+                                                      "icon mr-2 w-5 h-5 text-green-600 dark:text-green-600",
+                                                  }),
+                                                  (0, pe.v)("display"),
+                                                ],
+                                              }),
+                                              (0, _e.jsxs)("div", {
+                                                className: "space-y-1",
+                                                children: [
+                                                  (0, _e.jsxs)("div", {
+                                                    className:
+                                                      "flex items-center justify-between py-2 px-3 bg-gray-50 dark:bg-mydark-600 rounded-lg",
+                                                    children: [
+                                                      (0, _e.jsx)("span", {
+                                                        className:
+                                                          "text-sm font-medium text-gray-700 dark:text-gray-300",
+                                                        children: (0, pe.v)(
+                                                          "dark_mode"
+                                                        ),
+                                                      }),
+                                                      (0, _e.jsx)(Pt, {
+                                                        checked: t,
+                                                        onChange:
+                                                          this
+                                                            .handleChangeTheme,
+                                                      }),
+                                                    ],
+                                                  }),
+                                                  (0, _e.jsxs)("div", {
+                                                    className:
+                                                      "flex items-center justify-between py-2 px-3 bg-gray-50 dark:bg-mydark-600 rounded-lg",
+                                                    children: [
+                                                      (0, _e.jsx)("span", {
+                                                        className:
+                                                          "text-sm font-medium text-gray-700 dark:text-gray-300",
+                                                        children: (0, pe.v)(
+                                                          "enable_notifications"
+                                                        ),
+                                                      }),
+                                                      (0, _e.jsx)(Pt, {
+                                                        checked: l,
+                                                        onChange:
+                                                          this
+                                                            .handleShowNotifications,
+                                                      }),
+                                                    ],
+                                                  }),
+                                                  (0, _e.jsxs)("div", {
+                                                    className:
+                                                      "flex items-center justify-between py-2 px-3 bg-gray-50 dark:bg-mydark-600 rounded-lg",
+                                                    children: [
+                                                      (0, _e.jsx)("span", {
+                                                        className:
+                                                          "text-sm font-medium text-gray-700 dark:text-gray-300",
+                                                        children: (0, pe.v)(
+                                                          "show_cap_buildings"
+                                                        ),
+                                                      }),
+                                                      (0, _e.jsx)(Pt, {
+                                                        checked: s,
+                                                        onChange:
+                                                          this
+                                                            .handleShowCapBuildings,
+                                                      }),
+                                                    ],
+                                                  }),
+                                                ],
+                                              }),
+                                            ],
+                                          }),
                                           (0, _e.jsx)("div", {
                                             className: "mt-auto",
                                             children: (0, _e.jsxs)("div", {
                                               className:
-                                                "flex flex-wrap d-grid gap-3 w-3/4 lg:w-2/3 mx-auto mt-3",
+                                                "bg-white dark:bg-mydark-500 rounded-xl p-5 shadow-lg border border-gray-200 dark:border-mydark-300",
                                               children: [
-                                                (0, _e.jsxs)("button", {
-                                                  type: "button",
-                                                  className: y,
-                                                  onClick:
-                                                    this
-                                                      .handleChangeDifficulty1,
-                                                  disabled: 2 === n,
-                                                  children: [
-                                                    (0, _e.jsx)(ce(), {
-                                                      path: h,
-                                                      className: "icon mr-1",
-                                                    }),
-                                                    (0, pe.v)("difficulty") +
-                                                      "-" +
-                                                      (0, pe.v)(
-                                                        "difficulty_" + i
-                                                      ),
-                                                  ],
-                                                }),
-                                                s
-                                                  ? (0, _e.jsxs)("button", {
-                                                      type: "button",
-                                                      className:
-                                                        "btn btn-red w-full bg-red-500 hover:bg-red-600 focus:bg-red-700 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:bg-red-800",
-                                                      onClick:
-                                                        this
-                                                          .handleLoadFromBackup1,
-                                                      children: [
-                                                        (0, _e.jsx)(ce(), {
-                                                          path: ue.CKh,
-                                                          className:
-                                                            "icon mr-1",
-                                                          horizontal: !0,
-                                                        }),
-                                                        (0, pe.v)("soft_reset"),
-                                                      ],
-                                                    })
-                                                  : null,
-                                                (0, _e.jsxs)("button", {
-                                                  type: "button",
+                                                (0, _e.jsxs)("h4", {
                                                   className:
-                                                    "btn btn-red w-full bg-red-600 hover:bg-red-700 focus:bg-red-800 dark:bg-red-700 dark:hover:bg-red-800 dark:focus:bg-red-900",
-                                                  onClick:
-                                                    this.handleHardReset1,
+                                                    "font-game mb-4 text-gray-800 dark:text-gray-200 flex items-center",
                                                   children: [
                                                     (0, _e.jsx)(ce(), {
-                                                      path: ue._RU,
-                                                      className: "icon mr-1",
+                                                      path: ue.lTU,
+                                                      className:
+                                                        "icon mr-2 w-5 h-5 text-red-600 dark:text-red-400",
                                                     }),
-                                                    (0, pe.v)("hard_reset"),
+                                                    (0, pe.v)("danger_zone"),
                                                   ],
                                                 }),
                                                 (0, _e.jsxs)("div", {
                                                   className:
-                                                    "w-full text-center text-gray-500 cursor-pointer text-sm mb-10 sm:mb-0",
+                                                    "grid grid-cols-1 gap-3 lg:w-4/5 mx-auto",
                                                   children: [
-                                                    (0, _e.jsx)("span", {
+                                                    "" !== _ &&
+                                                      (0, _e.jsxs)("button", {
+                                                        type: "button",
+                                                        className:
+                                                          "".concat(
+                                                            m,
+                                                            " flex items-center justify-center"
+                                                          ) +
+                                                          (2 === n
+                                                            ? " text-mydark-100 border border-mydark-50 dark:border-mydark-700"
+                                                            : ""),
+                                                        onClick:
+                                                          this
+                                                            .handleChangeDifficulty1,
+                                                        disabled: 2 === n,
+                                                        children: [
+                                                          (0, _e.jsx)(ce(), {
+                                                            path: y,
+                                                            className:
+                                                              "icon mr-2 w-4 h-4",
+                                                          }),
+                                                          (0, pe.v)(
+                                                            "difficulty"
+                                                          ) +
+                                                            "-" +
+                                                            (0, pe.v)(
+                                                              "difficulty_" + a
+                                                            ),
+                                                        ],
+                                                      }),
+                                                    o
+                                                      ? (0, _e.jsxs)("button", {
+                                                          type: "button",
+                                                          className:
+                                                            "btn btn-red w-full bg-red-500 hover:bg-red-600 focus:bg-red-700 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:bg-red-800 flex items-center justify-center",
+                                                          onClick:
+                                                            this
+                                                              .handleLoadFromBackup1,
+                                                          children: [
+                                                            (0, _e.jsx)(ce(), {
+                                                              path: ue.CKh,
+                                                              className:
+                                                                "icon mr-2 w-4 h-4",
+                                                              horizontal: !0,
+                                                            }),
+                                                            (0, pe.v)(
+                                                              "soft_reset"
+                                                            ),
+                                                          ],
+                                                        })
+                                                      : null,
+                                                    (0, _e.jsxs)("button", {
+                                                      type: "button",
+                                                      className:
+                                                        "btn btn-red w-full bg-red-600 hover:bg-red-700 focus:bg-red-800 dark:bg-red-700 dark:hover:bg-red-800 dark:focus:bg-red-900 flex items-center justify-center",
                                                       onClick:
-                                                        this.showHallOfFame,
-                                                      className: "mr-2",
-                                                      children: "Hall of Fame",
-                                                    }),
-                                                    " | ",
-                                                    (0, _e.jsxs)("span", {
-                                                      onClick:
-                                                        this.showChangelog,
-                                                      className: "ml-2",
+                                                        this.handleHardReset1,
                                                       children: [
-                                                        "v ",
-                                                        "1.0.1",
-                                                        this.props.MainStore.d
-                                                          ? " d"
-                                                          : "",
+                                                        (0, _e.jsx)(ce(), {
+                                                          path: ue._RU,
+                                                          className:
+                                                            "icon mr-2 w-4 h-4",
+                                                        }),
+                                                        (0, pe.v)("hard_reset"),
                                                       ],
                                                     }),
                                                   ],
@@ -66062,10 +67008,35 @@
                                               ],
                                             }),
                                           }),
+                                          (0, _e.jsx)("div", {
+                                            className: "mt-auto",
+                                            children: (0, _e.jsxs)("div", {
+                                              className:
+                                                "w-full text-center text-gray-500 cursor-pointer text-sm mb-10 sm:mb-0",
+                                              children: [
+                                                (0, _e.jsx)("span", {
+                                                  onClick: this.showHallOfFame,
+                                                  className: "mr-2",
+                                                  children: "Hall of Fame",
+                                                }),
+                                                " | ",
+                                                (0, _e.jsxs)("span", {
+                                                  onClick: this.showChangelog,
+                                                  className: "ml-2",
+                                                  children: [
+                                                    "v ",
+                                                    "1.1.0",
+                                                    " - ",
+                                                    p,
+                                                  ],
+                                                }),
+                                              ],
+                                            }),
+                                          }),
                                         ],
                                       }),
-                                      (0, _e.jsx)(Lr, {}),
-                                      (0, _e.jsx)(Rr, {}),
+                                      (0, _e.jsx)(or, {}),
+                                      (0, _e.jsx)(lr, {}),
                                     ],
                                   }),
                                 ],
@@ -66082,8 +67053,8 @@
           );
         }
       }
-      const Hr = (0, t.WQ)("MainStore")((0, t.PA)(Fr));
-      class Vr extends a.Component {
+      const cr = (0, t.WQ)("MainStore")((0, t.PA)(dr));
+      class ur extends i.Component {
         constructor() {
           super(...arguments),
             (this.handleClose = () => {
@@ -66121,38 +67092,38 @@
         }
         render() {
           const { showStats: e, stats: t } = this.props.MainStore.StatsStore;
-          return (0, _e.jsx)(it.e.Root, {
+          return (0, _e.jsx)(nt.e.Root, {
             show: e,
-            as: a.Fragment,
-            children: (0, _e.jsxs)(nt.l, {
+            as: i.Fragment,
+            children: (0, _e.jsxs)(ot.l, {
               as: "div",
               className: "relative z-50",
               onClose: this.handleClose,
               children: [
-                (0, _e.jsx)(st.A, {}),
+                (0, _e.jsx)(lt.A, {}),
                 (0, _e.jsx)("div", {
                   className: "fixed z-10 inset-0 overflow-y-auto",
                   children: (0, _e.jsx)("div", {
                     className:
                       "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                    children: (0, _e.jsx)(it.e.Child, {
-                      as: a.Fragment,
+                    children: (0, _e.jsx)(nt.e.Child, {
+                      as: i.Fragment,
                       enter: "ease-out duration-300",
                       enterFrom: "opacity-0 translate-y-4",
                       enterTo: "opacity-100 translate-y-0",
                       leave: "ease-in duration-200",
                       leaveFrom: "opacity-100 translate-y-0",
                       leaveTo: "opacity-0 translate-y-4",
-                      children: (0, _e.jsxs)(nt.l.Panel, {
+                      children: (0, _e.jsxs)(ot.l.Panel, {
                         className:
                           "modal-container lg:my-8 lg:max-w-xl lg:pt-6",
                         children: [
-                          (0, _e.jsx)(ot.A, { onClick: this.handleClose }),
+                          (0, _e.jsx)(st.A, { onClick: this.handleClose }),
                           (0, _e.jsx)("div", {
                             children: (0, _e.jsxs)("div", {
                               className: "mt-0",
                               children: [
-                                (0, _e.jsx)(nt.l.Title, {
+                                (0, _e.jsx)(ot.l.Title, {
                                   as: "h3",
                                   className: "modal-title",
                                   children: (0, pe.v)("statistics"),
@@ -66174,7 +67145,7 @@
                                       : (0, _e.jsx)("div", {
                                           className:
                                             "px-4 pb-4 lg:px-6 lg:pb-6",
-                                          children: (0, _e.jsx)(dt.A, {
+                                          children: (0, _e.jsx)(ct.A, {
                                             text: (0, pe.v)("stat_empty"),
                                             type: "info",
                                           }),
@@ -66193,189 +67164,753 @@
           });
         }
       }
-      const Dr = (0, t.WQ)("MainStore")((0, t.PA)(Vr));
-      class Wr extends a.Component {
+      const pr = (0, t.WQ)("MainStore")((0, t.PA)(ur));
+      class _r extends i.Component {
+        constructor(e) {
+          super(e),
+            (this.toggleExpanded = (e) => {
+              const t = new Set(this.state.expandedReports);
+              t.has(e) ? t.delete(e) : t.add(e),
+                this.setState({ expandedReports: t });
+            }),
+            (this.toggleDetails = (e) => {
+              this.setState((t) => ({
+                showDetails: { ...t.showDetails, [e]: !t.showDetails[e] },
+              }));
+            }),
+            (this.deleteReport = (e) => {
+              const t = this.props.MainStore.ArmyStore.combatReports.find(
+                (t) => t.id === e
+              );
+              null !== t && void 0 !== t && t.starred
+                ? console.log("Cannot delete starred reports")
+                : this.props.MainStore.ArmyStore.deleteCombatReport(e);
+            }),
+            (this.toggleStarred = (e) => {
+              const t = this.props.MainStore.ArmyStore.combatReports.filter(
+                  (e) => e.starred
+                ).length,
+                r = this.props.MainStore.ArmyStore.combatReports.find(
+                  (t) => t.id === e
+                );
+              ((null === r || void 0 === r || !r.starred) && t >= 5) ||
+                this.props.MainStore.ArmyStore.toggleStarredReport(e);
+            }),
+            (this.formatTimestamp = (e) => new Date(e).toLocaleString()),
+            (this.getVictoryIcon = (e) => (1 === e ? ue.p2H : ue.C6v)),
+            (this.getVictoryText = (e) =>
+              1 === e ? (0, pe.v)("victory") : (0, pe.v)("defeated")),
+            (this.getVictoryColor = (e) =>
+              1 === e
+                ? "text-green-600 dark:text-green-400"
+                : "text-red-600 dark:text-red-400"),
+            (this.parseLogEntry = (e) => {
+              const t = {
+                  RoundIcon: {
+                    icon: ue.h$D,
+                    className: "w-3 h-3 text-blue-500",
+                  },
+                  AttackerIcon: {
+                    icon: ue.mSZ,
+                    className: "w-3 h-3 text-red-500",
+                  },
+                  KillIcon: {
+                    icon: ue.C6v,
+                    className: "w-3 h-3 text-gray-500",
+                  },
+                  ArmyIcon: {
+                    icon: ue.n7C,
+                    className: "w-3 h-3 text-green-600",
+                  },
+                },
+                r = /(RoundIcon|AttackerIcon|KillIcon|ArmyIcon)/g,
+                a = e.split("\n");
+              let i = 0;
+              return a.map((e, a) => {
+                const n = [];
+                let o,
+                  s = 0;
+                for (; null !== (o = r.exec(e)); ) {
+                  if (o.index > s) {
+                    const t = e.slice(s, o.index);
+                    t &&
+                      n.push(
+                        (0, _e.jsx)(
+                          "span",
+                          { className: "mt-2 sm:m-0", children: t },
+                          i++
+                        )
+                      );
+                  }
+                  const r = o[0],
+                    a = t[r];
+                  n.push(
+                    (0, _e.jsx)(
+                      ce(),
+                      {
+                        path: a.icon,
+                        className: "inline-block align-middle ".concat(
+                          a.className,
+                          " mx-1 mt-2 sm:m-0"
+                        ),
+                      },
+                      i++
+                    )
+                  ),
+                    (s = o.index + o[0].length);
+                }
+                if (s < e.length) {
+                  const t = e.slice(s);
+                  t &&
+                    n.push(
+                      (0, _e.jsx)(
+                        "span",
+                        { className: "mt-2 sm:m-0", children: t },
+                        i++
+                      )
+                    );
+                }
+                return (
+                  0 === n.length &&
+                    n.push((0, _e.jsx)("span", { children: e }, i++)),
+                  (0, _e.jsx)(
+                    "div",
+                    {
+                      className:
+                        "flex flex-row flex-wrap items-center my-0.5 text-xs sm:block",
+                      style: { lineHeight: 1.6 },
+                      children: n,
+                    },
+                    a
+                  )
+                );
+              });
+            }),
+            (this.renderReportSummary = (e, t) => {
+              const r = this.state.expandedReports.has(e.id),
+                a =
+                  t % 2 === 0
+                    ? "bg-gray-100 dark:bg-mydark-300"
+                    : "bg-gray-200 dark:bg-mydark-400",
+                i = this.props.MainStore.ArmyStore.combatReports.filter(
+                  (e) => e.starred
+                ).length,
+                n = !e.starred && i >= 5;
+              return (0, _e.jsxs)(
+                "tr",
+                {
+                  className: "".concat(
+                    a,
+                    " hover:bg-gray-300 dark:hover:bg-mydark-600 cursor-pointer"
+                  ),
+                  children: [
+                    (0, _e.jsx)("td", {
+                      className: "px-2 sm:px-3 py-2",
+                      children: (0, _e.jsxs)("div", {
+                        className: "flex items-center",
+                        children: [
+                          (0, _e.jsx)(ce(), {
+                            path: this.getVictoryIcon(e.victory),
+                            className: "w-4 h-4 mr-1 sm:mr-2 ".concat(
+                              this.getVictoryColor(e.victory)
+                            ),
+                          }),
+                          e.starred &&
+                            (0, _e.jsx)(ce(), {
+                              path: ue.ZL5,
+                              className: "w-3 h-3 mr-1 text-yellow-500",
+                            }),
+                          (0, _e.jsx)("span", {
+                            className: "".concat(
+                              this.getVictoryColor(e.victory),
+                              " text-xs sm:text-sm hidden sm:inline"
+                            ),
+                            children: this.getVictoryText(e.victory),
+                          }),
+                        ],
+                      }),
+                    }),
+                    (0, _e.jsx)("td", {
+                      className: "px-2 sm:px-3 py-2",
+                      children: (0, _e.jsx)("div", {
+                        className: "max-w-24 sm:max-w-none text-xs sm:text-sm",
+                        children: e.enemyName,
+                      }),
+                    }),
+                    (0, _e.jsx)("td", {
+                      className: "px-2 sm:px-3 py-2 hidden md:table-cell",
+                      children: (0, _e.jsx)("span", {
+                        className: "capitalize text-xs sm:text-sm",
+                        children: e.fightType,
+                      }),
+                    }),
+                    (0, _e.jsx)("td", {
+                      className:
+                        "px-2 sm:px-3 py-2 hidden lg:table-cell text-xs sm:text-sm",
+                      children: e.rounds,
+                    }),
+                    (0, _e.jsx)("td", {
+                      className: "px-2 sm:px-3 py-2 hidden sm:table-cell",
+                      children: (0, _e.jsxs)("div", {
+                        className: "flex items-center text-xs",
+                        children: [
+                          (0, _e.jsx)(ce(), {
+                            path: ue.qQT,
+                            className:
+                              "w-3 h-3 sm:w-4 sm:h-4 mr-1 text-red-500",
+                          }),
+                          (0, _e.jsx)("span", {
+                            className: "mr-1",
+                            children: e.summary.armyCasualties,
+                          }),
+                          (0, _e.jsx)(ce(), {
+                            path: ue.C6v,
+                            className:
+                              "w-3 h-3 sm:w-4 sm:h-4 mr-1 text-gray-500 dark:text-gray-500",
+                          }),
+                          (0, _e.jsx)("span", {
+                            children: e.summary.enemyCasualties,
+                          }),
+                        ],
+                      }),
+                    }),
+                    (0, _e.jsxs)("td", {
+                      className:
+                        "px-2 sm:px-3 py-2 hidden xl:table-cell text-xs",
+                      children: [
+                        (0, _e.jsx)(ce(), {
+                          path: ue.F5B,
+                          className: "w-3 h-3 mr-1 inline",
+                        }),
+                        (0, _e.jsx)("span", {
+                          className: "hidden lg:inline",
+                          children: this.formatTimestamp(e.timestamp),
+                        }),
+                      ],
+                    }),
+                    (0, _e.jsx)("td", {
+                      className: "px-2 sm:px-3 py-2 text-center",
+                      children: (0, _e.jsxs)("div", {
+                        className: "flex space-x-1 justify-center",
+                        children: [
+                          (0, _e.jsx)("button", {
+                            onClick: (t) => {
+                              t.stopPropagation(), this.toggleExpanded(e.id);
+                            },
+                            className:
+                              "p-1 sm:p-2 rounded hover:bg-gray-400 dark:hover:bg-mydark-200 hover:text-white touch-manipulation",
+                            title: r
+                              ? (0, pe.v)("collapse")
+                              : (0, pe.v)("expand"),
+                            children: (0, _e.jsx)(ce(), {
+                              path: r ? ue.Bk0 : ue.WCY,
+                              className: "w-4 h-4",
+                            }),
+                          }),
+                          (0, _e.jsx)("button", {
+                            onClick: (t) => {
+                              t.stopPropagation(), this.toggleStarred(e.id);
+                            },
+                            disabled: n,
+                            className:
+                              "p-1 sm:p-2 rounded touch-manipulation ".concat(
+                                n
+                                  ? "text-gray-300 dark:text-gray-600 cursor-not-allowed"
+                                  : e.starred
+                                  ? "text-yellow-500 hover:text-yellow-600"
+                                  : "text-gray-500 dark:text-gray-300 hover:text-yellow-600 dark:hover:text-yellow-500"
+                              ),
+                            title: n
+                              ? (0, pe.v)("max_starred_reports")
+                              : e.starred
+                              ? (0, pe.v)("unstar")
+                              : (0, pe.v)("star"),
+                            children: (0, _e.jsx)(ce(), {
+                              path: e.starred ? ue.ZL5 : ue.dF,
+                              className: "w-4 h-4",
+                            }),
+                          }),
+                          (0, _e.jsx)("button", {
+                            onClick: (t) => {
+                              t.stopPropagation(), this.deleteReport(e.id);
+                            },
+                            disabled: e.starred,
+                            className:
+                              "p-1 sm:p-2 rounded touch-manipulation ".concat(
+                                e.starred
+                                  ? "text-gray-400 dark:text-gray-600 cursor-not-allowed"
+                                  : "hover:bg-red-500 hover:text-white"
+                              ),
+                            title: e.starred
+                              ? (0, pe.v)("cannot_delete_starred")
+                              : (0, pe.v)("delete"),
+                            children: (0, _e.jsx)(ce(), {
+                              path: ue.y_G,
+                              className: "w-4 h-4",
+                            }),
+                          }),
+                        ],
+                      }),
+                    }),
+                  ],
+                },
+                e.id
+              );
+            }),
+            (this.renderReportDetails = (e) => {
+              const t = this.state.showDetails[e.id] || !1;
+              return (0, _e.jsx)(
+                "tr",
+                {
+                  className: "bg-gray-50 dark:bg-mydark-500",
+                  children: (0, _e.jsx)("td", {
+                    colSpan: 7,
+                    className: "px-2 sm:px-3 py-4",
+                    children: (0, _e.jsxs)("div", {
+                      className: "space-y-4",
+                      children: [
+                        (0, _e.jsxs)("div", {
+                          className:
+                            "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4",
+                          children: [
+                            (0, _e.jsxs)("div", {
+                              className:
+                                "bg-white dark:bg-mydark-600 p-3 rounded-lg border dark:border-mydark-300",
+                              children: [
+                                (0, _e.jsxs)("h4", {
+                                  className: "font-semibold text-sm mb-2",
+                                  children: [
+                                    (0, _e.jsx)(ce(), {
+                                      path: ue.mSZ,
+                                      className:
+                                        "w-4 h-4 mr-1 -mt-1 inline text-yellow-500",
+                                    }),
+                                    (0, pe.v)("damage_statistics"),
+                                  ],
+                                }),
+                                (0, _e.jsxs)("div", {
+                                  className: "text-xs space-y-1",
+                                  children: [
+                                    (0, _e.jsxs)("div", {
+                                      children: [
+                                        (0, pe.v)("total"),
+                                        ": ",
+                                        e.statistics.totalDamageDealt.toLocaleString(),
+                                      ],
+                                    }),
+                                    e.statistics.splashDamage > 0 &&
+                                      (0, _e.jsxs)("div", {
+                                        children: [
+                                          (0, pe.v)("splash"),
+                                          ": ",
+                                          e.statistics.splashDamage.toLocaleString(),
+                                        ],
+                                      }),
+                                    e.statistics.trampleDamage > 0 &&
+                                      (0, _e.jsxs)("div", {
+                                        children: [
+                                          (0, pe.v)("trample"),
+                                          ": ",
+                                          e.statistics.trampleDamage.toLocaleString(),
+                                        ],
+                                      }),
+                                    e.statistics.bonusDamage > 0 &&
+                                      (0, _e.jsxs)("div", {
+                                        children: [
+                                          (0, pe.v)("bonus"),
+                                          ": ",
+                                          e.statistics.bonusDamage.toLocaleString(),
+                                        ],
+                                      }),
+                                  ],
+                                }),
+                              ],
+                            }),
+                            (0, _e.jsxs)("div", {
+                              className:
+                                "bg-white dark:bg-mydark-600 p-3 rounded-lg border dark:border-mydark-300",
+                              children: [
+                                (0, _e.jsxs)("h4", {
+                                  className: "font-semibold text-sm mb-2",
+                                  children: [
+                                    (0, _e.jsx)(ce(), {
+                                      path: ue.qQT,
+                                      className:
+                                        "w-4 h-4 mr-1 -mt-1 inline text-red-500",
+                                    }),
+                                    (0, pe.v)("army_losses"),
+                                  ],
+                                }),
+                                (0, _e.jsxs)("div", {
+                                  className: "text-xs space-y-1",
+                                  children: [
+                                    (0, _e.jsxs)("span", {
+                                      className: "sm:hidden",
+                                      children: [
+                                        (0, pe.v)("total"),
+                                        ": ",
+                                        e.summary.armyCasualties,
+                                      ],
+                                    }),
+                                    Object.entries(e.summary.armyLosses).map(
+                                      (e) => {
+                                        let [t, r] = e;
+                                        return (0, _e.jsxs)(
+                                          "div",
+                                          {
+                                            children: [
+                                              r,
+                                              "x ",
+                                              (0, pe.v)("uni_" + t),
+                                            ],
+                                          },
+                                          t
+                                        );
+                                      }
+                                    ),
+                                    0 ===
+                                      Object.keys(e.summary.armyLosses)
+                                        .length &&
+                                      (0, _e.jsx)("div", {
+                                        className: "text-gray-500",
+                                        children: (0, pe.v)("no_losses"),
+                                      }),
+                                  ],
+                                }),
+                              ],
+                            }),
+                            (0, _e.jsxs)("div", {
+                              className:
+                                "bg-white dark:bg-mydark-600 p-3 rounded-lg border dark:border-mydark-300",
+                              children: [
+                                (0, _e.jsxs)("h4", {
+                                  className: "font-semibold text-sm mb-2",
+                                  children: [
+                                    (0, _e.jsx)(ce(), {
+                                      path: ue.C6v,
+                                      className:
+                                        "w-4 h-4 mr-1 -mt-1 inline text-gray-500",
+                                    }),
+                                    (0, pe.v)("enemy_losses"),
+                                  ],
+                                }),
+                                (0, _e.jsxs)("div", {
+                                  className: "text-xs space-y-1",
+                                  children: [
+                                    (0, _e.jsxs)("span", {
+                                      className: "sm:hidden",
+                                      children: [
+                                        (0, pe.v)("total"),
+                                        ": ",
+                                        e.summary.enemyCasualties,
+                                      ],
+                                    }),
+                                    Object.entries(e.summary.enemyLosses).map(
+                                      (e) => {
+                                        let [t, r] = e;
+                                        return (0, _e.jsxs)(
+                                          "div",
+                                          {
+                                            children: [
+                                              r,
+                                              "x ",
+                                              (0, pe.v)("uni_" + t),
+                                            ],
+                                          },
+                                          t
+                                        );
+                                      }
+                                    ),
+                                    0 ===
+                                      Object.keys(e.summary.enemyLosses)
+                                        .length &&
+                                      (0, _e.jsx)("div", {
+                                        className: "text-gray-500",
+                                        children: (0, pe.v)("no_losses"),
+                                      }),
+                                  ],
+                                }),
+                              ],
+                            }),
+                            (0, _e.jsxs)("div", {
+                              className:
+                                "bg-white dark:bg-mydark-600 p-3 rounded-lg border dark:border-mydark-300",
+                              children: [
+                                (0, _e.jsxs)("h4", {
+                                  className: "font-semibold text-sm mb-2",
+                                  children: [
+                                    (0, _e.jsx)(ce(), {
+                                      path: ue.YWK,
+                                      className:
+                                        "w-4 h-4 mr-1 -mt-1 inline text-blue-500",
+                                    }),
+                                    (0, pe.v)("special_units"),
+                                  ],
+                                }),
+                                (0, _e.jsxs)("div", {
+                                  className: "text-xs space-y-1",
+                                  children: [
+                                    e.summary.splashUnits > 0 &&
+                                      (0, _e.jsxs)("div", {
+                                        children: [
+                                          (0, pe.v)("splash"),
+                                          ": ",
+                                          e.summary.splashUnits,
+                                        ],
+                                      }),
+                                    e.summary.trampleUnits > 0 &&
+                                      (0, _e.jsxs)("div", {
+                                        children: [
+                                          (0, pe.v)("trample"),
+                                          ": ",
+                                          e.summary.trampleUnits,
+                                        ],
+                                      }),
+                                    e.statistics.topDamageDealer &&
+                                      (0, _e.jsxs)("div", {
+                                        children: [
+                                          (0, pe.v)("mvp"),
+                                          ": ",
+                                          (0, pe.v)(
+                                            "uni_" +
+                                              e.statistics.topDamageDealer.unit
+                                          ),
+                                        ],
+                                      }),
+                                  ],
+                                }),
+                              ],
+                            }),
+                          ],
+                        }),
+                        e.detailedLog.length > 0 &&
+                          (0, _e.jsxs)("div", {
+                            children: [
+                              (0, _e.jsx)("button", {
+                                onClick: () => this.toggleDetails(e.id),
+                                className:
+                                  "btn btn-sm text-white bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 touch-manipulation w-full sm:w-auto",
+                                children: t
+                                  ? (0, pe.v)("hide_details")
+                                  : (0, pe.v)("show_details"),
+                              }),
+                              t &&
+                                (0, _e.jsxs)("div", {
+                                  className:
+                                    "mt-3 bg-gray-100 dark:bg-mydark-700 p-3 rounded-lg max-h-64 sm:max-h-96 overflow-y-auto border dark:border-mydark-300",
+                                  children: [
+                                    (0, _e.jsx)("h5", {
+                                      className: "font-semibold text-sm",
+                                      children: (0, pe.v)(
+                                        "detailed_combat_log"
+                                      ),
+                                    }),
+                                    (0, _e.jsx)("div", {
+                                      className: "text-xs font-mono space-y-1",
+                                      children: e.detailedLog.map((e, t) =>
+                                        (0, _e.jsx)(
+                                          "div",
+                                          {
+                                            className:
+                                              "whitespace-pre-wrap break-words",
+                                            children: this.parseLogEntry(e),
+                                          },
+                                          t
+                                        )
+                                      ),
+                                    }),
+                                  ],
+                                }),
+                            ],
+                          }),
+                      ],
+                    }),
+                  }),
+                },
+                "".concat(e.id, "-details")
+              );
+            }),
+            (this.state = { expandedReports: new Set(), showDetails: {} });
+        }
         render() {
-          return (0, _e.jsx)($, {
-            position: "bottom-right",
-            closeButton: (e) => {
-              let { closeToast: t } = e;
-              return (0, _e.jsx)(ot.A, { small: !0, onClick: t });
-            },
-            closeOnClick: !1,
-            newestOnTop: !0,
-            className:
-              "!mb-14 !ml-2 lg:!m-0 !max-w-sm !w-full !overflow-hidden !font-sans",
-            toastClassName:
-              "!font-sans !mb-2 lg:!mb-4 !bg-gradient-to-r border-l-4 !p-4 !rounded-l-lg !rounded-r-none lg:!rounded-lg !shadow-lg from-slate-300 to-gray-50 dark:from-slate-700 dark:to-mydark-700 border-gray-500 dark:border-gray-400 text-sm !text-gray-700 dark:!text-mydark-50",
-            bodyClassName: "!p-0",
-            progressClassName:
-              "!bg-gradient-to-r from-slate-300 to-blue-300 dark:from-slate-700 dark:via-slate-700 dark:to-blue-500",
+          const { combatReports: e } = this.props.MainStore.ArmyStore,
+            t = [...e].sort((e, t) => t.timestamp - e.timestamp);
+          return (0, _e.jsx)(_e.Fragment, {
+            children:
+              e.length > 0
+                ? (0, _e.jsx)(_e.Fragment, {
+                    children: (0, _e.jsx)("div", {
+                      className:
+                        "bg-white dark:bg-mydark-600 rounded-lg shadow",
+                      children: (0, _e.jsx)("div", {
+                        className: "overflow-x-auto",
+                        children: (0, _e.jsxs)("table", {
+                          className: "min-w-full rounded overflow-hidden",
+                          children: [
+                            (0, _e.jsx)("thead", {
+                              className: "bg-gray-300 dark:bg-mydark-200",
+                              children: (0, _e.jsxs)("tr", {
+                                children: [
+                                  (0, _e.jsx)("th", {
+                                    className:
+                                      "px-2 sm:px-3 py-2 text-left text-xs font-medium uppercase tracking-wider",
+                                    children: (0, pe.v)("result"),
+                                  }),
+                                  (0, _e.jsx)("th", {
+                                    className:
+                                      "px-2 sm:px-3 py-2 text-left text-xs font-medium uppercase tracking-wider",
+                                    children: (0, pe.v)("enemy"),
+                                  }),
+                                  (0, _e.jsx)("th", {
+                                    className:
+                                      "px-2 sm:px-3 py-2 text-left text-xs font-medium uppercase tracking-wider hidden md:table-cell",
+                                    children: (0, pe.v)("type"),
+                                  }),
+                                  (0, _e.jsx)("th", {
+                                    className:
+                                      "px-2 sm:px-3 py-2 text-left text-xs font-medium uppercase tracking-wider hidden lg:table-cell",
+                                    children: (0, pe.v)("rounds"),
+                                  }),
+                                  (0, _e.jsx)("th", {
+                                    className:
+                                      "px-2 sm:px-3 py-2 text-left text-xs font-medium uppercase tracking-wider hidden sm:table-cell",
+                                    children: (0, pe.v)("casualties"),
+                                  }),
+                                  (0, _e.jsx)("th", {
+                                    className:
+                                      "px-2 sm:px-3 py-2 text-left text-xs font-medium uppercase tracking-wider hidden xl:table-cell",
+                                    children: (0, pe.v)("time"),
+                                  }),
+                                  (0, _e.jsx)("th", {
+                                    className:
+                                      "px-2 sm:px-3 py-2 text-center text-xs font-medium uppercase tracking-wider",
+                                    children: (0, pe.v)("actions"),
+                                  }),
+                                ],
+                              }),
+                            }),
+                            (0, _e.jsx)("tbody", {
+                              children: t
+                                .map((e, t) =>
+                                  [
+                                    this.renderReportSummary(e, t),
+                                    this.state.expandedReports.has(e.id) &&
+                                      this.renderReportDetails(e),
+                                  ].filter(Boolean)
+                                )
+                                .flat(),
+                            }),
+                          ],
+                        }),
+                      }),
+                    }),
+                  })
+                : (0, _e.jsx)("div", {
+                    className: "flex justify-center mt-6 text-lg px-4",
+                    children: (0, _e.jsx)("div", {
+                      className:
+                        "w-full max-w-md bg-gray-100 dark:bg-mydark-600 p-6 rounded-lg",
+                      children: (0, _e.jsxs)("div", {
+                        className: "text-center",
+                        children: [
+                          (0, _e.jsx)(ce(), {
+                            path: ue.qQT,
+                            className: "w-12 h-12 mx-auto mb-4 text-gray-400",
+                          }),
+                          (0, _e.jsx)("h3", {
+                            className: "text-lg font-medium mb-2",
+                            children: (0, pe.v)("no_combat_reports"),
+                          }),
+                          (0, _e.jsx)("p", {
+                            className: "text-sm text-gray-500",
+                            children: (0, pe.v)(
+                              "no_combat_reports_description"
+                            ),
+                          }),
+                        ],
+                      }),
+                    }),
+                  }),
           });
         }
       }
-      const zr = Wr;
-      class Br extends a.Component {
+      const hr = (0, t.WQ)("MainStore")((0, t.PA)(_r));
+      class yr extends i.Component {
         constructor() {
           super(...arguments),
             (this.handleClose = () => {
-              this.props.MainStore.toggleSupport();
+              this.props.MainStore.ArmyStore.toggleBattleReports();
             });
         }
         render() {
-          const { showSupport: e, isTWA: t } = this.props.MainStore;
-          return (0, _e.jsx)(it.e.Root, {
+          const { showBattleReports: e } = this.props.MainStore.ArmyStore;
+          return (0, _e.jsx)(nt.e.Root, {
             show: e,
-            as: a.Fragment,
-            children: (0, _e.jsxs)(nt.l, {
+            as: i.Fragment,
+            children: (0, _e.jsxs)(ot.l, {
               as: "div",
               className: "relative z-50",
               onClose: this.handleClose,
               children: [
-                (0, _e.jsx)(st.A, {}),
+                (0, _e.jsx)(lt.A, {}),
                 (0, _e.jsx)("div", {
                   className: "fixed z-10 inset-0 overflow-y-auto",
                   children: (0, _e.jsx)("div", {
                     className:
                       "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                    children: (0, _e.jsx)(it.e.Child, {
-                      as: a.Fragment,
+                    children: (0, _e.jsx)(nt.e.Child, {
+                      as: i.Fragment,
                       enter: "ease-out duration-300",
                       enterFrom: "opacity-0 translate-y-4",
                       enterTo: "opacity-100 translate-y-0",
                       leave: "ease-in duration-200",
                       leaveFrom: "opacity-100 translate-y-0",
                       leaveTo: "opacity-0 translate-y-4",
-                      children: (0, _e.jsxs)(nt.l.Panel, {
+                      children: (0, _e.jsxs)(ot.l.Panel, {
                         className:
-                          "modal-container lg:my-8 lg:max-w-4xl lg:pt-6",
+                          "modal-container lg:my-8 lg:max-w-7xl lg:pt-6",
                         children: [
-                          (0, _e.jsx)(ot.A, { onClick: this.handleClose }),
+                          (0, _e.jsx)(st.A, { onClick: this.handleClose }),
                           (0, _e.jsx)("div", {
                             children: (0, _e.jsxs)("div", {
                               className: "mt-0",
                               children: [
-                                (0, _e.jsx)(nt.l.Title, {
+                                (0, _e.jsxs)(ot.l.Title, {
                                   as: "h3",
-                                  className: "modal-title",
-                                  children: (0, pe.v)("support_us"),
+                                  className:
+                                    "modal-title flex items-center gap-2",
+                                  children: [
+                                    (0, pe.v)("combat_reports"),
+                                    (0, _e.jsx)(Ut.l, {
+                                      content: (0, pe.v)("combat_reports_info"),
+                                      className: "!max-w-[260px]",
+                                      touch: ["hold", 500],
+                                      placement: "bottom",
+                                      popperOptions: {
+                                        modifiers: [
+                                          {
+                                            name: "flip",
+                                            options: {
+                                              fallbackPlacements: [
+                                                "bottom",
+                                                "top",
+                                                "right",
+                                                "left",
+                                              ],
+                                            },
+                                          },
+                                        ],
+                                      },
+                                      children: (0, _e.jsx)(ce(), {
+                                        path: ue.nO4,
+                                        className: "icon",
+                                      }),
+                                    }),
+                                  ],
                                 }),
                                 (0, _e.jsx)("div", {
-                                  className: "m-4 lg:m-6 mt-5",
-                                  children: (0, _e.jsxs)("dl", {
-                                    className:
-                                      "grid grid-cols-1 gap-4 lg:gap-6 lg:grid-cols-4 px-12 mb-6 lg:mb-0 lg:px-0",
-                                    children: [
-                                      t
-                                        ? null
-                                        : (0, _e.jsx)("a", {
-                                            href: "https://www.paypal.com/donate/?hosted_button_id=VRA6X28CP3NDQ",
-                                            target: "_blank",
-                                            rel: "noreferrer",
-                                            className:
-                                              "text-decoration-none cursor-pointer text-green-600",
-                                            children: (0, _e.jsx)("div", {
-                                              className:
-                                                "p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-6",
-                                              children: (0, _e.jsxs)("div", {
-                                                className:
-                                                  "lg:my-3 text-center",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.vJ_,
-                                                    className:
-                                                      "inline w-2/12 lg:w-1/2",
-                                                  }),
-                                                  (0, _e.jsx)("h5", {
-                                                    className: "text-xl",
-                                                    children: (0, pe.v)(
-                                                      "donate"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                            }),
-                                          }),
-                                      (0, _e.jsx)("a", {
-                                        href: "https://www.patreon.com/TheresmoreGame",
-                                        target: "_blank",
-                                        rel: "noreferrer",
-                                        className:
-                                          "text-decoration-none cursor-pointer",
-                                        style: { color: "#ff424d" },
-                                        children: (0, _e.jsx)("div", {
-                                          className:
-                                            "p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-6",
-                                          children: (0, _e.jsxs)("div", {
-                                            className: "lg:my-3 text-center",
-                                            children: [
-                                              (0, _e.jsx)(ce(), {
-                                                path: ue.I7R,
-                                                className:
-                                                  "inline w-2/12 lg:w-1/2",
-                                              }),
-                                              (0, _e.jsx)("h5", {
-                                                className: "text-xl",
-                                                children: "Patreon",
-                                              }),
-                                            ],
-                                          }),
-                                        }),
-                                      }),
-                                      (0, _e.jsx)("a", {
-                                        href: "https://discord.gg/GZgGKf2gdC",
-                                        target: "_blank",
-                                        rel: "noreferrer",
-                                        className:
-                                          "text-decoration-none cursor-pointer",
-                                        style: { color: "#5865f2" },
-                                        children: (0, _e.jsx)("div", {
-                                          className:
-                                            "p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-6",
-                                          children: (0, _e.jsxs)("div", {
-                                            className: "lg:my-3 text-center",
-                                            children: [
-                                              (0, _e.jsx)(ce(), {
-                                                path: ue.$pT,
-                                                className:
-                                                  "inline w-2/12 lg:w-1/2",
-                                              }),
-                                              (0, _e.jsx)("h5", {
-                                                className: "text-xl",
-                                                children: "Discord",
-                                              }),
-                                            ],
-                                          }),
-                                        }),
-                                      }),
-                                      (0, _e.jsx)("a", {
-                                        href: "https://www.reddit.com/r/TheresmoreGame",
-                                        target: "_blank",
-                                        rel: "noreferrer",
-                                        className:
-                                          "text-decoration-none cursor-pointer",
-                                        style: { color: "#ff4500" },
-                                        children: (0, _e.jsx)("div", {
-                                          className:
-                                            "p-4 bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-6",
-                                          children: (0, _e.jsxs)("div", {
-                                            className: "lg:my-3 text-center",
-                                            children: [
-                                              (0, _e.jsx)(ce(), {
-                                                path: ue.Fx8,
-                                                className:
-                                                  "inline w-2/12 lg:w-1/2",
-                                              }),
-                                              (0, _e.jsx)("h5", {
-                                                className: "text-xl",
-                                                children: "Reddit",
-                                              }),
-                                            ],
-                                          }),
-                                        }),
-                                      }),
-                                    ],
-                                  }),
+                                  className: "p-6",
+                                  children: (0, _e.jsx)(hr, {}),
                                 }),
                               ],
                             }),
@@ -66390,185 +67925,142 @@
           });
         }
       }
-      const Gr = (0, t.WQ)("MainStore")((0, t.PA)(Br));
-      class Ur extends a.Component {
+      const mr = (0, t.WQ)("MainStore")((0, t.PA)(yr));
+      class gr extends i.Component {
         constructor() {
           super(...arguments),
-            (this.handleTabs = (e) => {
-              (0, ge.OI)(), e.currentTarget.blur();
+            (this.hasHandledCancel = !1),
+            (this.cancelTimeoutId = null),
+            (this.hasHandledConfirm = !1),
+            (this.confirmTimeoutId = null),
+            (this.executeConfirmOnce = (e) => {
+              this.hasHandledConfirm ||
+                ((this.hasHandledConfirm = !0),
+                this.props.MainStore.confirmOk(),
+                this.confirmTimeoutId && clearTimeout(this.confirmTimeoutId),
+                (this.confirmTimeoutId = setTimeout(() => {
+                  this.hasHandledConfirm = !1;
+                }, 50)));
             }),
-            (this.handleTop = (e) => {
-              window.scrollTo(0, 0), e.currentTarget.blur();
+            (this.executeCancelOnce = (e) => {
+              this.hasHandledCancel ||
+                ((this.hasHandledCancel = !0),
+                this.props.MainStore.confirmCancel(),
+                this.cancelTimeoutId && clearTimeout(this.cancelTimeoutId),
+                (this.cancelTimeoutId = setTimeout(() => {
+                  this.hasHandledCancel = !1;
+                }, 50)));
             }),
-            (this.handleBottom = (e) => {
-              window.scrollTo(0, window.document.body.scrollHeight),
-                e.currentTarget.blur();
+            (this.handleConfirmTouchEnd = (e) => {
+              this.executeConfirmOnce(e);
             }),
-            (this.handleSupport = (e) => {
-              this.props.MainStore.toggleSupport(), e.currentTarget.blur();
+            (this.handleConfirmClick = (e) => {
+              this.executeConfirmOnce(e);
             }),
-            (this.handleRewardAd = (e) => {
-              this.props.MainStore.AdsStore.showConfirmRewardAd(),
-                e.currentTarget.blur();
+            (this.handleCancelTouchEnd = (e) => {
+              this.executeCancelOnce(e);
+            }),
+            (this.handleCancelClick = (e) => {
+              this.executeCancelOnce(e);
             });
         }
+        componentWillUnmount() {
+          this.confirmTimeoutId && clearTimeout(this.confirmTimeoutId),
+            this.cancelTimeoutId && clearTimeout(this.cancelTimeoutId);
+        }
         render() {
-          const { ancestors: e } = this.props.MainStore.run,
-            { showAttackProgress: t, percAttackInProgress: r } =
-              this.props.MainStore.DiplomacyStore,
-            { rewardAdAvailable: a } = this.props.MainStore.AdsStore,
-            { isTWA: i } = this.props.MainStore;
-          return (0, _e.jsxs)(_e.Fragment, {
-            children: [
-              (0, _e.jsxs)("div", {
-                className:
-                  "hidden lg:block fixed bottom-0 right-0 max-w-full px-1 py-2 pointer-events-auto text-xs 4xl:text-sm z-20 lg:z-10",
+          const {
+            confirmShow: e,
+            confirmTitle: t,
+            confirmText: r,
+            confirmType: a,
+          } = this.props.MainStore;
+          let n =
+              "relative bg-gray-100 dark:bg-mydark-600 border rounded-xl pt-5 text-left overflow-hidden shadow-xl transform transition-all lg:my-8 lg:max-w-xl lg:w-full p-4 lg:p-6",
+            o = "btn px-6 lg:mt-0";
+          return (
+            "danger" === a
+              ? ((n += " border-red-600"), (o += " btn-red"))
+              : ((n += " border-blue-600"), (o += " btn-blue")),
+            (0, _e.jsx)(nt.e.Root, {
+              show: e,
+              as: i.Fragment,
+              children: (0, _e.jsxs)(ot.l, {
+                as: "div",
+                className: "relative z-50",
+                onClose: () => {},
                 children: [
-                  (0, _e.jsxs)("a", {
-                    href: "https://www.reddit.com/r/TheresmoreGame",
-                    target: "_blank",
-                    rel: "noreferrer",
-                    className: "p-2",
-                    style: { color: "#ff4500" },
-                    children: [
-                      (0, _e.jsx)(ce(), {
-                        path: ue.Fx8,
-                        className: "icon inline mt-[-3px]",
-                      }),
-                      " ",
-                      (0, _e.jsx)("span", {
-                        className: "hover:underline hidden 3xl:inline",
-                        children: "Reddit",
-                      }),
-                    ],
-                  }),
-                  (0, _e.jsxs)("a", {
-                    href: "https://discord.gg/GZgGKf2gdC",
-                    target: "_blank",
-                    rel: "noreferrer",
-                    className: "p-2",
-                    style: { color: "#5865f2" },
-                    children: [
-                      (0, _e.jsx)(ce(), {
-                        path: ue.$pT,
-                        className: "icon inline mt-[-3px]",
-                      }),
-                      " ",
-                      (0, _e.jsx)("span", {
-                        className: "hover:underline hidden 3xl:inline",
-                        children: "Discord",
-                      }),
-                    ],
-                  }),
-                  (0, _e.jsxs)("a", {
-                    href: "https://www.patreon.com/TheresmoreGame",
-                    target: "_blank",
-                    rel: "noreferrer",
-                    className: "p-2",
-                    style: { color: "#ff424d" },
-                    children: [
-                      (0, _e.jsx)(ce(), {
-                        path: ue.I7R,
-                        className: "icon inline mt-[-3px]",
-                      }),
-                      " ",
-                      (0, _e.jsx)("span", {
-                        className: "hover:underline hidden 3xl:inline",
-                        children: "Patreon",
-                      }),
-                    ],
-                  }),
-                  i
-                    ? null
-                    : (0, _e.jsxs)("a", {
-                        href: "https://www.paypal.com/donate/?hosted_button_id=VRA6X28CP3NDQ",
-                        target: "_blank",
-                        rel: "noreferrer",
-                        className: "p-2 text-green-600",
-                        children: [
-                          (0, _e.jsx)(ce(), {
-                            path: ue.vJ_,
-                            className: "icon inline mt-[-3px]",
+                  (0, _e.jsx)(lt.A, {}),
+                  (0, _e.jsx)("div", {
+                    className: "fixed z-10 inset-0 overflow-y-auto",
+                    children: (0, _e.jsx)("div", {
+                      className:
+                        "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
+                      children: (0, _e.jsx)(nt.e.Child, {
+                        as: i.Fragment,
+                        enter: "ease-out duration-300",
+                        enterFrom: "opacity-0 translate-y-4",
+                        enterTo: "opacity-100 translate-y-0",
+                        leave: "ease-in duration-200",
+                        leaveFrom: "opacity-100 translate-y-0",
+                        leaveTo: "opacity-0 translate-y-4",
+                        children: (0, _e.jsx)(ot.l.Panel, {
+                          className: n,
+                          children: (0, _e.jsx)("div", {
+                            children: (0, _e.jsxs)("div", {
+                              className: "mt-0",
+                              children: [
+                                (0, _e.jsx)(ot.l.Title, {
+                                  as: "h3",
+                                  className: "text-2xl leading-6 font-game",
+                                  children:
+                                    "danger" === a
+                                      ? (0, pe.v)("warning") + " " + t
+                                      : (0, pe.v)(t),
+                                }),
+                                (0, _e.jsx)("div", {
+                                  className: "my-5",
+                                  children: (0, _e.jsx)(ct.A, {
+                                    text: "danger" === a ? (0, pe.v)(r) : r,
+                                    type: a,
+                                  }),
+                                }),
+                                (0, _e.jsxs)("div", {
+                                  className:
+                                    "w-full text-center flex lg:block lg:text-right",
+                                  children: [
+                                    (0, _e.jsx)("button", {
+                                      type: "button",
+                                      className:
+                                        "btn bg-gray-300 hover:bg-gray-400 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-700 mr-2 px-6",
+                                      onClick: this.handleCancelClick,
+                                      onTouchEnd: this.handleCancelTouchEnd,
+                                      children: (0, pe.v)("cancel"),
+                                    }),
+                                    (0, _e.jsx)("button", {
+                                      type: "button",
+                                      className: o,
+                                      onClick: this.handleConfirmClick,
+                                      onTouchEnd: this.handleConfirmTouchEnd,
+                                      children: (0, pe.v)("confirm"),
+                                    }),
+                                  ],
+                                }),
+                              ],
+                            }),
                           }),
-                          " ",
-                          (0, _e.jsx)("span", {
-                            className: "hover:underline hidden 3xl:inline",
-                            children: (0, pe.v)("donate"),
-                          }),
-                        ],
+                        }),
                       }),
+                    }),
+                  }),
                 ],
               }),
-              "" !== e
-                ? (0, _e.jsxs)("div", {
-                    className:
-                      "lg:hidden fixed flex justify-evenly bg-white dark:bg-mydark-700 bottom-0 w-full py-2 z-40",
-                    children: [
-                      (0, _e.jsx)("button", {
-                        type: "button",
-                        className: "z-40 py-1.5 px-3 text-ancestor",
-                        onClick: this.handleTabs,
-                        children: (0, _e.jsx)(ce(), {
-                          path: ue.Jtv,
-                          className: "icon !w-7 !h-7",
-                        }),
-                      }),
-                      (0, _e.jsx)("button", {
-                        type: "button",
-                        className:
-                          "z-40 py-1.5 px-3 text-gray-600 dark:text-gray-300",
-                        onClick: this.handleTop,
-                        children: (0, _e.jsx)(ce(), {
-                          path: ue.Qdf,
-                          className: "icon !w-7 !h-7",
-                        }),
-                      }),
-                      (0, _e.jsx)("button", {
-                        type: "button",
-                        className:
-                          "z-40 py-1.5 px-3 text-gray-600 dark:text-gray-300",
-                        onClick: this.handleBottom,
-                        children: (0, _e.jsx)(ce(), {
-                          path: ue.HY$,
-                          className: "icon !w-7 !h-7",
-                        }),
-                      }),
-                      a
-                        ? (0, _e.jsx)("button", {
-                            type: "button",
-                            className:
-                              "z-40 py-1.5 px-3 text-red-600 animate-bounce",
-                            onClick: this.handleRewardAd,
-                            children: (0, _e.jsx)(ce(), {
-                              path: ue.T9J,
-                              className: "icon !w-7 !h-7",
-                            }),
-                          })
-                        : (0, _e.jsx)("button", {
-                            type: "button",
-                            className: "z-40 py-1.5 px-3 text-red-600",
-                            onClick: this.handleSupport,
-                            children: (0, _e.jsx)(ce(), {
-                              path: ue.vJ_,
-                              className: "icon !w-7 !h-7",
-                            }),
-                          }),
-                      t
-                        ? (0, _e.jsx)("div", {
-                            className:
-                              "h-full absolute top-0 left-0 z-0 bg-gradient-to-t from-red-100 to-red-300 dark:from-mydark-700 dark:to-red-700 block lg:hidden",
-                            style: { width: 100 - r + "%" },
-                          })
-                        : null,
-                    ],
-                  })
-                : null,
-            ],
-          });
+            })
+          );
         }
       }
-      const Yr = (0, t.WQ)("MainStore")((0, t.PA)(Ur));
-      class Xr extends a.Component {
+      const fr = (0, t.WQ)("MainStore")((0, t.PA)(gr));
+      class vr extends i.Component {
         constructor(e) {
           super(e),
             (this.handleLoad = () => {
@@ -66609,8 +68101,8 @@
           });
         }
       }
-      const Kr = Xr;
-      class Zr extends a.Component {
+      const br = vr;
+      class wr extends i.Component {
         constructor() {
           super(...arguments),
             (this.handleClose = () => {
@@ -66622,41 +68114,41 @@
             imageNotificationShow: e,
             imageNotificationKey: t,
             imageNotificationTitle: r,
-            imageNotificationText: i,
+            imageNotificationText: a,
             imageNotificationType: n,
           } = this.props.MainStore;
-          return (0, _e.jsx)(it.e.Root, {
+          return (0, _e.jsx)(nt.e.Root, {
             show: e,
-            as: a.Fragment,
-            children: (0, _e.jsxs)(nt.l, {
+            as: i.Fragment,
+            children: (0, _e.jsxs)(ot.l, {
               as: "div",
               className: "relative z-50",
               onClose: () => {},
               children: [
-                (0, _e.jsx)(st.A, {}),
+                (0, _e.jsx)(lt.A, {}),
                 (0, _e.jsx)("div", {
                   className: "fixed z-10 inset-0 overflow-y-auto",
                   children: (0, _e.jsx)("div", {
                     className:
                       "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                    children: (0, _e.jsx)(it.e.Child, {
-                      as: a.Fragment,
+                    children: (0, _e.jsx)(nt.e.Child, {
+                      as: i.Fragment,
                       enter: "ease-out duration-300",
                       enterFrom: "opacity-0 translate-y-4",
                       enterTo: "opacity-100 translate-y-0",
                       leave: "ease-in duration-200",
                       leaveFrom: "opacity-100 translate-y-0",
                       leaveTo: "opacity-0 translate-y-4",
-                      children: (0, _e.jsxs)(nt.l.Panel, {
+                      children: (0, _e.jsxs)(ot.l.Panel, {
                         className:
                           "modal-container lg:my-8 lg:max-w-[802px] lg:pt-6",
                         children: [
-                          (0, _e.jsx)(ot.A, { onClick: this.handleClose }),
+                          (0, _e.jsx)(st.A, { onClick: this.handleClose }),
                           (0, _e.jsx)("div", {
                             children: (0, _e.jsxs)("div", {
                               className: "mt-0",
                               children: [
-                                (0, _e.jsx)(nt.l.Title, {
+                                (0, _e.jsx)(ot.l.Title, {
                                   as: "h3",
                                   className: "modal-title",
                                   children: r,
@@ -66667,14 +68159,14 @@
                                     (0, _e.jsx)("div", {
                                       className:
                                         "flex flex-wrap bg-black relative",
-                                      children: (0, _e.jsx)(Kr, {
+                                      children: (0, _e.jsx)(br, {
                                         dataSrc:
                                           "./" +
                                           ("localhost" ===
                                           window.location.hostname
                                             ? "./"
                                             : "") +
-                                          "/images/" +
+                                          "images/" +
                                           t +
                                           ".webp",
                                       }),
@@ -66683,8 +68175,8 @@
                                       className: "flex flex-wrap",
                                       children: (0, _e.jsx)("div", {
                                         className: "p-4 lg:p-6",
-                                        children: (0, _e.jsx)(dt.A, {
-                                          text: i,
+                                        children: (0, _e.jsx)(ct.A, {
+                                          text: a,
                                           type:
                                             "war" === n ? "war" : "description",
                                         }),
@@ -66705,611 +68197,1789 @@
           });
         }
       }
-      const Qr = (0, t.WQ)("MainStore")((0, t.PA)(Zr));
-      class $r extends a.Component {
+      const kr = (0, t.WQ)("MainStore")((0, t.PA)(wr));
+      class xr extends i.Component {
+        render() {
+          return (0, _e.jsx)($, {
+            position: "bottom-right",
+            closeButton: (e) => {
+              let { closeToast: t } = e;
+              return (0, _e.jsx)(st.A, { small: !0, onClick: t });
+            },
+            closeOnClick: !1,
+            newestOnTop: !0,
+            className:
+              "!mb-14 !ml-2 lg:!m-0 !max-w-sm !w-full !overflow-hidden !font-sans",
+            toastClassName:
+              "!font-sans !mb-2 lg:!mb-4 !bg-gradient-to-r border-l-4 !p-4 !rounded-l-lg !rounded-r-none lg:!rounded-lg !shadow-lg from-slate-300 to-gray-50 dark:from-slate-700 dark:to-mydark-700 border-gray-500 dark:border-gray-400 text-sm !text-gray-700 dark:!text-mydark-50",
+            bodyClassName: "!p-0",
+            progressClassName:
+              "!bg-gradient-to-r from-slate-300 to-blue-300 dark:from-slate-700 dark:via-slate-700 dark:to-blue-500",
+          });
+        }
+      }
+      const Sr = xr;
+      class Mr extends i.Component {
+        render() {
+          const { logs: e } = this.props.MainStore;
+          return (0, _e.jsxs)("div", {
+            className:
+              "w-full order-2 flex-grow overflow-x-hidden overflow-y-auto pr-4",
+            children: [
+              " ",
+              e.map((e, t) =>
+                (0, _e.jsx)(
+                  "p",
+                  { className: "text-xs mb-2 " + e.c, children: e.t },
+                  "log-" + t
+                )
+              ),
+            ],
+          });
+        }
+      }
+      const Ar = (0, t.WQ)("MainStore")((0, t.PA)(Mr)),
+        Cr = i.lazy(() => r.e(455).then(r.bind(r, 4455)));
+      class qr extends i.Component {
         constructor() {
           super(...arguments),
-            (this.handleDifficulty = (e) => {
-              this.props.MainStore.SettingsStore.updateDifficultyMode(e),
-                this.props.MainStore.toggleDifficulty();
+            (this.handleSoftReset = () => {
+              this.props.MainStore.LegacyStore.toggleSoftReset(
+                "tec_glorious_retirement",
+                1
+              );
+            }),
+            (this.handleSoftReset2 = () => {
+              0 === this.props.MainStore.run.flag
+                ? this.props.MainStore.showConfirm(
+                    "",
+                    "soft_reset_2_confirm",
+                    this.handleHardReset2Confirm
+                  )
+                : this.props.MainStore.LegacyStore.softReset2Confirm(1);
+            }),
+            (this.handleHardReset2Confirm = () => {
+              this.props.MainStore.confirmCancelFunc(),
+                this.props.MainStore.LegacyStore.softReset2Confirm(2);
+            }),
+            (this.handleSoftReset3 = () => {
+              this.props.MainStore.LegacyStore.toggleSoftReset(
+                "tec_theresmore_richest_nation",
+                3
+              );
+            }),
+            (this.handleMausoleum = () => {
+              this.props.MainStore.LegacyStore.toggleMausoleum();
+            }),
+            (this.handleSoftReset4 = () => {
+              this.props.MainStore.LegacyStore.toggleSoftReset("ascension", 4);
+            }),
+            (this.handleNewGamePlus = () => {
+              this.props.MainStore.LegacyStore.toggleNewGamePlus();
             });
         }
         render() {
-          const { showDifficulty: e } = this.props.MainStore,
-            { difficultyMode: t } = this.props.MainStore.SettingsStore,
-            r =
-              "p-4 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 shadow rounded-lg overflow-hidden lg:p-5 cursor-pointer",
-            i =
-              r +
-              " bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200",
-            n =
-              r +
-              " bg-gray-200 dark:bg-mydark-300 border border-gray-500 dark:border-gray-50";
-          return (0, _e.jsx)(it.e.Root, {
-            show: e,
-            as: a.Fragment,
-            children: (0, _e.jsxs)(nt.l, {
-              as: "div",
-              className: "relative z-40",
-              onClose: () => {},
-              children: [
-                (0, _e.jsx)(st.A, {}),
-                (0, _e.jsx)("div", {
-                  className: "fixed z-10 inset-0 overflow-y-auto",
-                  children: (0, _e.jsx)("div", {
-                    className:
-                      "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                    children: (0, _e.jsx)(it.e.Child, {
-                      as: a.Fragment,
-                      enter: "ease-out duration-300",
-                      enterFrom: "opacity-0 translate-y-4",
-                      enterTo: "opacity-100 translate-y-0",
-                      leave: "ease-in duration-200",
-                      leaveFrom: "opacity-100 translate-y-0",
-                      leaveTo: "opacity-0 translate-y-4",
-                      children: (0, _e.jsx)(nt.l.Panel, {
-                        className:
-                          "modal-container lg:my-8 lg:max-w-7xl lg:pt-6",
-                        children: (0, _e.jsx)("div", {
+          const { flag: e } = this.props.MainStore.run,
+            {
+              countVisibleLegacy: t,
+              visibleGloriousRetirement: r,
+              visibleLightThePortalOfTheDead: a,
+              visibleRichestNation: n,
+              visibleMausoleum: o,
+              visibleAscension: s,
+              visibleNewGamePlus: l,
+            } = this.props.MainStore.LegacyStore;
+          return (0, _e.jsx)(_e.Fragment, {
+            children:
+              t > 0
+                ? (0, _e.jsx)("div", {
+                    className: "order-1 w-full mb-3",
+                    children: (0, _e.jsxs)("div", {
+                      className:
+                        "bg-gradient-to-br from-red-50 to-amber-50 dark:from-mydark-400 dark:to-mydark-500 border border-red-200 dark:border-mydark-200 rounded-xl shadow-lg overflow-hidden",
+                      children: [
+                        (0, _e.jsx)("div", {
+                          className:
+                            "bg-gradient-to-r from-red-400 to-red-600 dark:from-red-900 dark:to-red-950 px-6 py-2",
+                          children: (0, _e.jsx)("div", {
+                            className:
+                              "flex items-center justify-center space-x-3",
+                            children: (0, _e.jsx)("h2", {
+                              className:
+                                "sm:text-sm font-game text-white tracking-wide 3xl:text-xl",
+                              children: (0, pe.v)("prestige"),
+                            }),
+                          }),
+                        }),
+                        (0, _e.jsx)("div", {
+                          className: "p-8 sm:p-3 3xl:p-6",
                           children: (0, _e.jsxs)("div", {
-                            className: "mt-0",
+                            className: "grid gap-4 max-w-2xl mx-auto",
                             children: [
-                              (0, _e.jsx)(nt.l.Title, {
-                                as: "h3",
-                                className: "modal-title",
-                                children: (0, pe.v)("difficulty"),
-                              }),
-                              (0, _e.jsx)("div", {
-                                className: "m-4 lg:m-6 mt-5",
-                                children: (0, _e.jsxs)("dl", {
-                                  className:
-                                    "grid grid-cols-1 gap-4 lg:grid-cols-5 px-6 sm:px-12 mb-6 lg:mb-0 lg:px-0",
-                                  children: [
-                                    (0, _e.jsx)("div", {
-                                      className: 99 === t ? n : i,
-                                      onClick: () => this.handleDifficulty(99),
-                                      children: (0, _e.jsxs)("div", {
+                              r
+                                ? (0, _e.jsx)("button", {
+                                    type: "button",
+                                    className:
+                                      "btn xl:text-xs 3xl:text-sm btn-red hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
+                                    onClick: this.handleSoftReset,
+                                    children: (0, pe.v)(
+                                      "tec_glorious_retirement"
+                                    ),
+                                  })
+                                : null,
+                              a
+                                ? (0, _e.jsx)("button", {
+                                    type: "button",
+                                    className:
+                                      "btn xl:text-xs 3xl:text-sm btn-red !bg-red-600 dark:!bg-red-700 hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
+                                    onClick: this.handleSoftReset2,
+                                    children:
+                                      0 === e
+                                        ? (0, pe.v)("light_portal_of_the_dead")
+                                        : (0, pe.v)("tec_portal_of_the_dead"),
+                                  })
+                                : null,
+                              n
+                                ? (0, _e.jsx)("button", {
+                                    type: "button",
+                                    className:
+                                      "btn xl:text-xs 3xl:text-sm btn-red !bg-red-700 dark:!bg-red-600 hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
+                                    onClick: this.handleSoftReset3,
+                                    children: (0, pe.v)(
+                                      "theresmore_richest_nation"
+                                    ),
+                                  })
+                                : null,
+                              s
+                                ? (0, _e.jsx)("button", {
+                                    type: "button",
+                                    className:
+                                      "btn xl:text-xs 3xl:text-sm btn-red !bg-red-800 dark:!bg-red-500 hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
+                                    onClick: this.handleSoftReset4,
+                                    children: (0, pe.v)("ascension"),
+                                  })
+                                : o
+                                ? t > 1
+                                  ? (0, _e.jsx)("button", {
+                                      type: "button",
+                                      className:
+                                        "btn xl:text-xs 3xl:text-sm btn-off !text-red-900 dark:!text-red-100 border-red-800 dark:border-red-500 btn-progress-manual btn-progress-red cursor-pointer",
+                                      id: "btn-progress-mausoleum",
+                                      onClick: this.handleMausoleum,
+                                      children: (0, pe.v)("bui_mausoleum_gods"),
+                                    })
+                                  : (0, _e.jsx)("div", {
+                                      children: (0, _e.jsx)("button", {
+                                        type: "button",
                                         className:
-                                          "lg:my-3 text-center text-green-700 dark:text-green-600",
-                                        children: [
-                                          (0, _e.jsx)(ce(), {
-                                            path: ue.gp1,
-                                            className:
-                                              "inline w-2/12 lg:w-1/2 text-green-600",
-                                          }),
-                                          (0, _e.jsx)("h5", {
-                                            className: "text-xl",
-                                            children: (0, pe.v)(
-                                              "difficulty_99"
-                                            ),
-                                          }),
-                                          (0, _e.jsx)("p", {
-                                            className: "mt-5 text-left text-sm",
-                                            children: (0, pe.v)(
-                                              "difficulty_99_1_description"
-                                            ),
-                                          }),
-                                          (0, _e.jsxs)("ul", {
-                                            className: "mt-2 space-y-2",
-                                            children: [
-                                              (0, _e.jsxs)("li", {
-                                                className: "flex",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.gp1,
-                                                    className:
-                                                      "icon flex-shrink-0 text-green-600",
-                                                  }),
-                                                  (0, _e.jsx)("span", {
-                                                    className:
-                                                      "ml-2 text-left text-xs",
-                                                    children: (0, pe.v)(
-                                                      "difficulty_99_2_description"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                              (0, _e.jsxs)("li", {
-                                                className: "flex",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.gp1,
-                                                    className:
-                                                      "icon flex-shrink-0 text-green-600",
-                                                  }),
-                                                  (0, _e.jsx)("span", {
-                                                    className:
-                                                      "ml-2 text-left text-xs",
-                                                    children: (0, pe.v)(
-                                                      "difficulty_99_3_description"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                              (0, _e.jsxs)("li", {
-                                                className: "flex",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.p2H,
-                                                    className:
-                                                      "icon flex-shrink-0 text-red-600",
-                                                  }),
-                                                  (0, _e.jsx)("span", {
-                                                    className:
-                                                      "ml-2 text-left text-xs",
-                                                    children: (0, pe.v)(
-                                                      "difficulty_99_4_description"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                            ],
-                                          }),
-                                        ],
+                                          "btn xl:text-xs 3xl:text-sm btn-off !text-red-900 dark:!text-red-100 border-red-800 dark:border-red-500 btn-progress-manual btn-progress-red cursor-pointer",
+                                        id: "btn-progress-mausoleum",
+                                        onClick: this.handleMausoleum,
+                                        children: (0, pe.v)(
+                                          "bui_mausoleum_gods"
+                                        ),
                                       }),
-                                    }),
-                                    (0, _e.jsx)("div", {
-                                      className: 0 === t ? n : i,
-                                      onClick: () => this.handleDifficulty(0),
-                                      children: (0, _e.jsxs)("div", {
-                                        className: "lg:my-3 text-center",
-                                        children: [
-                                          (0, _e.jsx)(ce(), {
-                                            path: ue.qQT,
-                                            className: "inline w-2/12 lg:w-1/2",
-                                          }),
-                                          (0, _e.jsx)("h5", {
-                                            className: "text-xl",
-                                            children: (0, pe.v)("difficulty_0"),
-                                          }),
-                                          (0, _e.jsx)("p", {
-                                            className: "mt-5 text-left text-sm",
-                                            children: (0, pe.v)(
-                                              "difficulty_0_1_description"
-                                            ),
-                                          }),
-                                          (0, _e.jsxs)("ul", {
-                                            className: "mt-2 space-y-2",
-                                            children: [
-                                              (0, _e.jsxs)("li", {
-                                                className: "flex",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.gp1,
-                                                    className:
-                                                      "icon flex-shrink-0 text-green-600",
-                                                  }),
-                                                  (0, _e.jsx)("span", {
-                                                    className:
-                                                      "ml-2 text-left text-xs",
-                                                    children: (0, pe.v)(
-                                                      "difficulty_0_3_description"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                              (0, _e.jsxs)("li", {
-                                                className: "flex",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.qQT,
-                                                    className:
-                                                      "icon flex-shrink-0",
-                                                  }),
-                                                  (0, _e.jsx)("span", {
-                                                    className:
-                                                      "ml-2 text-left text-xs",
-                                                    children: (0, pe.v)(
-                                                      "difficulty_0_2_description"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                            ],
-                                          }),
-                                        ],
-                                      }),
-                                    }),
-                                    (0, _e.jsx)("div", {
-                                      className: 1 === t ? n : i,
-                                      onClick: () => this.handleDifficulty(1),
-                                      children: (0, _e.jsxs)("div", {
-                                        className:
-                                          "lg:my-3 text-center text-orange-700 dark:text-orange-500",
-                                        children: [
-                                          (0, _e.jsx)(ce(), {
-                                            path: ue.mSZ,
-                                            className:
-                                              "inline w-2/12 lg:w-1/2 text-orange-500",
-                                          }),
-                                          (0, _e.jsx)("h5", {
-                                            className:
-                                              "text-xl text-orange-600",
-                                            children: (0, pe.v)("difficulty_1"),
-                                          }),
-                                          (0, _e.jsx)("p", {
-                                            className: "mt-5 text-left text-sm",
-                                            children: (0, pe.v)(
-                                              "difficulty_1_1_description"
-                                            ),
-                                          }),
-                                          (0, _e.jsxs)("ul", {
-                                            className: "mt-2 space-y-2",
-                                            children: [
-                                              (0, _e.jsxs)("li", {
-                                                className: "flex",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.p2H,
-                                                    className:
-                                                      "icon flex-shrink-0",
-                                                  }),
-                                                  (0, _e.jsx)("span", {
-                                                    className:
-                                                      "ml-2 text-left text-xs",
-                                                    children: (0, pe.v)(
-                                                      "difficulty_1_4_description"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                              (0, _e.jsxs)("li", {
-                                                className: "flex",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.mSZ,
-                                                    className:
-                                                      "icon flex-shrink-0",
-                                                  }),
-                                                  (0, _e.jsx)("span", {
-                                                    className:
-                                                      "ml-2 text-left text-xs",
-                                                    children: (0, pe.v)(
-                                                      "difficulty_1_2_description"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                              (0, _e.jsxs)("li", {
-                                                className: "flex",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.mSZ,
-                                                    className:
-                                                      "icon flex-shrink-0",
-                                                  }),
-                                                  (0, _e.jsx)("span", {
-                                                    className:
-                                                      "ml-2 text-left text-xs",
-                                                    children: (0, pe.v)(
-                                                      "difficulty_1_3_description"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                            ],
-                                          }),
-                                        ],
-                                      }),
-                                    }),
-                                    (0, _e.jsx)("div", {
-                                      className: 2 === t ? n : i,
-                                      onClick: () => this.handleDifficulty(2),
-                                      children: (0, _e.jsxs)("div", {
-                                        className:
-                                          "lg:my-3 text-center text-red-600",
-                                        children: [
-                                          (0, _e.jsx)(ce(), {
-                                            path: ue.Du3,
-                                            className: "inline w-2/12 lg:w-1/2",
-                                          }),
-                                          (0, _e.jsx)("h5", {
-                                            className: "text-xl",
-                                            children: (0, pe.v)("difficulty_2"),
-                                          }),
-                                          (0, _e.jsx)("p", {
-                                            className: "mt-5 text-left text-sm",
-                                            children: (0, pe.v)(
-                                              "difficulty_2_1_description"
-                                            ),
-                                          }),
-                                          (0, _e.jsxs)("ul", {
-                                            className: "mt-2 space-y-2",
-                                            children: [
-                                              (0, _e.jsxs)("li", {
-                                                className: "flex",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.p2H,
-                                                    className:
-                                                      "icon flex-shrink-0",
-                                                  }),
-                                                  (0, _e.jsx)("span", {
-                                                    className:
-                                                      "ml-2 text-left text-xs",
-                                                    children: (0, pe.v)(
-                                                      "difficulty_2_4_description"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                              (0, _e.jsxs)("li", {
-                                                className: "flex",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.Du3,
-                                                    className:
-                                                      "icon flex-shrink-0",
-                                                  }),
-                                                  (0, _e.jsx)("span", {
-                                                    className:
-                                                      "ml-2 text-left text-xs",
-                                                    children: (0, pe.v)(
-                                                      "difficulty_2_2_description"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                              (0, _e.jsxs)("li", {
-                                                className: "flex",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.Du3,
-                                                    className:
-                                                      "icon flex-shrink-0",
-                                                  }),
-                                                  (0, _e.jsx)("span", {
-                                                    className:
-                                                      "ml-2 text-left text-xs",
-                                                    children: (0, pe.v)(
-                                                      "difficulty_2_3_description"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                            ],
-                                          }),
-                                        ],
-                                      }),
-                                    }),
-                                    (0, _e.jsx)("div", {
-                                      className: 3 === t ? n : i,
-                                      onClick: () => this.handleDifficulty(3),
-                                      children: (0, _e.jsxs)("div", {
-                                        className:
-                                          "lg:my-3 text-center text-purple-600",
-                                        children: [
-                                          (0, _e.jsx)(ce(), {
-                                            path: ue.M5b,
-                                            className: "inline w-2/12 lg:w-1/2",
-                                          }),
-                                          (0, _e.jsx)("h5", {
-                                            className: "text-xl",
-                                            children: (0, pe.v)("difficulty_3"),
-                                          }),
-                                          (0, _e.jsx)("p", {
-                                            className: "mt-5 text-left text-sm",
-                                            children: (0, pe.v)(
-                                              "difficulty_3_1_description"
-                                            ),
-                                          }),
-                                          (0, _e.jsxs)("ul", {
-                                            className: "mt-2 space-y-2",
-                                            children: [
-                                              (0, _e.jsxs)("li", {
-                                                className: "flex",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.p2H,
-                                                    className:
-                                                      "icon flex-shrink-0",
-                                                  }),
-                                                  (0, _e.jsx)("span", {
-                                                    className:
-                                                      "ml-2 text-left text-xs",
-                                                    children: (0, pe.v)(
-                                                      "difficulty_3_4_description"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                              (0, _e.jsxs)("li", {
-                                                className: "flex",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.M5b,
-                                                    className:
-                                                      "icon flex-shrink-0",
-                                                  }),
-                                                  (0, _e.jsx)("span", {
-                                                    className:
-                                                      "ml-2 text-left text-xs",
-                                                    children: (0, pe.v)(
-                                                      "difficulty_3_2_description"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                              (0, _e.jsxs)("li", {
-                                                className: "flex",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.M5b,
-                                                    className:
-                                                      "icon flex-shrink-0",
-                                                  }),
-                                                  (0, _e.jsx)("span", {
-                                                    className:
-                                                      "ml-2 text-left text-xs",
-                                                    children: (0, pe.v)(
-                                                      "difficulty_3_3_description"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                              (0, _e.jsxs)("li", {
-                                                className: "flex",
-                                                children: [
-                                                  (0, _e.jsx)(ce(), {
-                                                    path: ue.M5b,
-                                                    className:
-                                                      "icon flex-shrink-0",
-                                                  }),
-                                                  (0, _e.jsx)("span", {
-                                                    className:
-                                                      "ml-2 text-left text-xs",
-                                                    children: (0, pe.v)(
-                                                      "difficulty_3_5_description"
-                                                    ),
-                                                  }),
-                                                ],
-                                              }),
-                                            ],
-                                          }),
-                                        ],
-                                      }),
-                                    }),
-                                  ],
-                                }),
-                              }),
+                                    })
+                                : null,
+                              s || o
+                                ? (0, _e.jsx)(i.Suspense, {
+                                    fallback: null,
+                                    children: (0, _e.jsx)(Cr, {}),
+                                  })
+                                : null,
+                              l
+                                ? (0, _e.jsx)("button", {
+                                    type: "button",
+                                    className:
+                                      "btn xl:text-xs 3xl:text-sm btn-red hover:!bg-amber-300 hover:text-red-600 dark:hover:!bg-amber-400 dark:hover:text-red-700",
+                                    onClick: this.handleNewGamePlus,
+                                    children: (0, pe.v)("new_game_plus"),
+                                  })
+                                : null,
                             ],
                           }),
                         }),
-                      }),
+                      ],
                     }),
+                  })
+                : null,
+          });
+        }
+      }
+      const Tr = (0, t.WQ)("MainStore")((0, t.PA)(qr));
+      class Ir extends i.Component {
+        constructor() {
+          super(...arguments),
+            (this.intervalId = 0),
+            (this.handleMouseEnter = () => {
+              this.intervalId = window.setInterval(() => {
+                this.handleAdd();
+              }, 1e3);
+            }),
+            (this.handleMouseLeave = () => {
+              clearInterval(this.intervalId);
+            }),
+            (this.handleAdd = () => {
+              this.props.MainStore.ResourcesStore.addResourceManual(
+                this.props.id,
+                this.props.manual
+              );
+            });
+        }
+        render() {
+          let e = "btn btn-radial w-full lg:w-3/5 4xl:w-1/2 mx-auto";
+          return (
+            (e += this.props.evid ? " btn-green" : " btn-dark"),
+            (0, _e.jsx)("button", {
+              type: "button",
+              className: e,
+              onClick: this.handleAdd,
+              onMouseEnter: this.handleMouseEnter,
+              onMouseLeave: this.handleMouseLeave,
+              children: (0, pe.v)("res_" + this.props.id),
+            })
+          );
+        }
+      }
+      const Nr = (0, t.WQ)("MainStore")((0, t.PA)(Ir));
+      class jr extends i.Component {
+        render() {
+          const { resources: e } = this.props.MainStore.run,
+            {
+              showManual: t,
+              manualResources: r,
+              food: a,
+            } = this.props.MainStore.ResourcesStore;
+          return (0, _e.jsx)(_e.Fragment, {
+            children: t
+              ? (0, _e.jsx)("div", {
+                  className:
+                    "order-2 flex flex-wrap gap-3 min-w-full mt-3 py-3 px-16 lg:px-3 shadow rounded-lg ring-1 ring-gray-300 dark:ring-mydark-200 bg-gray-100 dark:bg-mydark-600",
+                  children: r.map((t) => {
+                    let r = e.findIndex((e) => e.id === t.id);
+                    const i =
+                        -1 !== r && "undefined" !== typeof e[r].manual
+                          ? e[r].manual
+                          : 1,
+                      n = "food" === t.id && 0 === a;
+                    return (0, _e.jsx)(
+                      Nr,
+                      { id: t.id, manual: i, evid: n },
+                      "manual_" + t.id
+                    );
                   }),
+                })
+              : null,
+          });
+        }
+      }
+      const Er = (0, t.WQ)("MainStore")((0, t.PA)(jr));
+      var Lr = r(2073);
+      class Or extends i.Component {
+        constructor(e) {
+          super(e),
+            (this.state = {
+              formatId: (0, pe.v)("res_" + this.props.id),
+              formatQty: this.props.qty,
+              formatQtyStr: (0, ge.ZV)(
+                Math.floor(this.props.qty),
+                this.props.defaultNumberFormat,
+                this.props.bigNumberFormat
+              ),
+              formatCap: this.props.cap,
+              formatCapStr: (0, ge.ZV)(
+                this.props.cap,
+                this.props.defaultNumberFormat,
+                this.props.bigNumberFormat
+              ),
+              formatTimer: this.props.timer,
+              formatTimerStr: (0, ge.ZV)(
+                this.props.timer,
+                this.props.defaultNumberFormat,
+                this.props.bigNumberFormat
+              ),
+            });
+        }
+        componentDidUpdate() {
+          this.props.qty !== this.state.formatQty &&
+            this.setState({
+              formatQty: this.props.qty,
+              formatQtyStr: (0, ge.ZV)(
+                Math.floor(this.props.qty),
+                this.props.defaultNumberFormat,
+                this.props.bigNumberFormat
+              ),
+            }),
+            this.props.cap !== this.state.formatCap &&
+              this.setState({
+                formatCap: this.props.cap,
+                formatCapStr: (0, ge.ZV)(
+                  this.props.cap,
+                  this.props.defaultNumberFormat,
+                  this.props.bigNumberFormat
+                ),
+              }),
+            this.props.timer !== this.state.formatTimer &&
+              this.setState({
+                formatTimer: this.props.timer,
+                formatTimerStr: (0, ge.ZV)(
+                  this.props.timer,
+                  this.props.defaultNumberFormat,
+                  this.props.bigNumberFormat
+                ),
+              });
+        }
+        resRow(e, t) {
+          const r = t % 2 === 0 ? "bg-gray-200 dark:bg-mydark-300" : "",
+            a =
+              "px-3 3xl:px-5 py-3 lg:py-2 3xl:py-3 whitespace-nowrap w-1/3 " +
+              e,
+            i =
+              "px-3 3xl:px-5 py-3 lg:py-2 3xl:py-3 whitespace-nowrap w-1/3 text-right" +
+              e;
+          return (0, _e.jsxs)("tr", {
+            className: r + " hover:bg-gray-300 dark:hover:bg-mydark-700",
+            children: [
+              (0, _e.jsx)("td", {
+                className: a,
+                children: (0, _e.jsx)("span", {
+                  children: this.state.formatId,
                 }),
-              ],
+              }),
+              (0, _e.jsxs)("td", {
+                className: i,
+                children: [
+                  this.state.formatQtyStr,
+                  " / ",
+                  this.state.formatCapStr,
+                ],
+              }),
+              (0, _e.jsxs)("td", {
+                className: i,
+                children: [this.state.formatTimerStr, "/秒"],
+              }),
+            ],
+          });
+        }
+        render() {
+          const e = Math.floor(this.props.qty),
+            t =
+              e === this.props.cap
+                ? " text-orange-500"
+                : "food" === this.props.id && 0 === e
+                ? " text-red-600"
+                : "";
+          return (0, _e.jsx)(_e.Fragment, {
+            children:
+              0 === this.props.modTooltip.length
+                ? this.resRow(t, this.props.idx)
+                : (0, _e.jsx)(Ut.l, {
+                    content: (0, _e.jsx)(Lr.A, {
+                      id: this.props.id,
+                      title: (0, pe.v)("res_" + this.props.id),
+                      modTooltipData: this.props.modTooltip,
+                      prefix: "res",
+                      titleClasses: t + " pt-3",
+                      showAllMods: !0,
+                    }),
+                    touch: ["hold", 500],
+                    placement: I.Fr ? "top" : "bottom",
+                    popperOptions: {
+                      modifiers: [
+                        {
+                          name: "flip",
+                          options: {
+                            fallbackPlacements: [
+                              "bottom",
+                              "top",
+                              "right",
+                              "left",
+                            ],
+                          },
+                        },
+                      ],
+                    },
+                    children: this.resRow(t, this.props.idx),
+                  }),
+          });
+        }
+      }
+      const Pr = Or;
+      class Rr extends i.Component {
+        render() {
+          const {
+              run: e,
+              defaultNumberFormat: t,
+              bigNumberFormat: r,
+            } = this.props.MainStore,
+            { resources: a } = this.props.MainStore.ResourcesStore;
+          return (0, _e.jsx)("div", {
+            className:
+              "overflow-hidden shadow ring-1 ring-gray-300 dark:ring-mydark-200 rounded-lg",
+            children: (0, _e.jsx)("table", {
+              className: "min-w-full",
+              children: (0, _e.jsx)("tbody", {
+                className: "bg-gray-100 dark:bg-mydark-600 text-sm",
+                children: a.map((a, i) => {
+                  let n = 0,
+                    o = 0,
+                    s = e.resources.findIndex((e) => e.id === a.id);
+                  -1 !== s &&
+                    ("undefined" !== typeof e.resources[s].value &&
+                      (o = e.resources[s].value),
+                    (n = this.props.MainStore.ResourcesStore.getTimerValue(
+                      e.resources[s]
+                    ))),
+                    (s = e.caps.findIndex((e) => e.id === a.id));
+                  const l =
+                    -1 !== s
+                      ? e.caps[s].value
+                      : "undefined" !== typeof a.cap
+                      ? a.cap
+                      : 0;
+                  let d = this.props.MainStore.ModifiersStore.modTooltipData(
+                    a.id
+                  );
+                  if (l > 0 && o < l && n > 0) {
+                    const e = (l - o) / n;
+                    d = [{ label: "time_to_cap", value: (0, ge.fU)(e) }, ...d];
+                  }
+                  return (0, _e.jsx)(
+                    Pr,
+                    {
+                      idx: i,
+                      id: a.id,
+                      cap: l,
+                      qty: o,
+                      timer: n,
+                      modTooltip: d,
+                      bigNumberFormat: r,
+                      defaultNumberFormat: t,
+                    },
+                    "resource_" + a.id
+                  );
+                }),
+              }),
             }),
           });
         }
       }
-      const Jr = (0, t.WQ)("MainStore")((0, t.PA)($r));
-      class ea extends a.Component {
-        constructor() {
-          super(...arguments),
-            (this.handleChoise = () => {
-              this.props.MainStore.toggleEvilChoise();
-            });
+      const Fr = (0, t.WQ)("MainStore")((0, t.PA)(Rr));
+      class Hr extends i.Component {
+        constructor(e) {
+          super(e),
+            (this.handleAdd = () => {
+              this.props.sD
+                ? this.props.MainStore.BuildingsStore.addBuilding(this.props.id)
+                : !this.state.progress &&
+                  this.props.buildable &&
+                  (this.setState({ progress: !0 }),
+                  setTimeout(() => {
+                    this.props.MainStore.BuildingsStore.addBuilding(
+                      this.props.id
+                    ),
+                      this.setState({ progress: !1 });
+                  }, 1e3));
+            }),
+            (this.state = { progress: !1 });
         }
         render() {
-          const { showEvilChoise: e } = this.props.MainStore,
-            t = "p-4 shadow rounded-lg overflow-hidden lg:p-5",
-            r =
-              t +
-              " bg-gray-100 dark:bg-mydark-400 border border-gray-300 dark:border-mydark-200",
-            i =
-              t +
-              " bg-gray-200 dark:bg-mydark-300 border border-gray-500 dark:border-gray-50 hover:border-gray-400 hover:dark:border-gray-500 hover:dark:bg-mydark-600 cursor-pointer";
-          return (0, _e.jsx)(it.e.Root, {
-            show: e,
-            as: a.Fragment,
-            children: (0, _e.jsxs)(nt.l, {
-              as: "div",
-              className: "relative z-40",
-              onClose: () => {},
-              children: [
-                (0, _e.jsx)(st.A, {}),
-                (0, _e.jsx)("div", {
-                  className: "fixed z-10 inset-0 overflow-y-auto",
-                  children: (0, _e.jsx)("div", {
-                    className:
-                      "flex items-center justify-center min-h-full p-4 text-center lg:p-0",
-                    children: (0, _e.jsx)(it.e.Child, {
-                      as: a.Fragment,
-                      enter: "ease-out duration-300",
-                      enterFrom: "opacity-0 translate-y-4",
-                      enterTo: "opacity-100 translate-y-0",
-                      leave: "ease-in duration-200",
-                      leaveFrom: "opacity-100 translate-y-0",
-                      leaveTo: "opacity-0 translate-y-4",
-                      children: (0, _e.jsx)(nt.l.Panel, {
+          const e =
+            "undefined" !== typeof this.props.cap &&
+            this.props.qty >= this.props.cap;
+          let t = [];
+          e ||
+            (t = this.props.MainStore.ReqGenStore.reqTooltipData(
+              "building",
+              this.props.req,
+              this.props.qty
+            ));
+          const r = this.props.MainStore.ReqGenStore.genTooltipData(
+            this.props.gen
+          );
+          let a = "btn btn-dark relative",
+            i = "";
+          switch (this.props.age) {
+            case 2:
+            case 6:
+              (a += " !border-blue-500 dark:!border-blue-700"),
+                (i += " !text-blue-700 dark:!text-blue-300");
+              break;
+            case 3:
+            case 7:
+              (a += " !border-violet-500 dark:!border-violet-700"),
+                (i += " !text-violet-900 dark:!text-violet-300");
+              break;
+            case 4:
+            case 8:
+              (a += " !border-teal-600 dark:!border-teal-700"),
+                (i += " !text-teal-800 dark:!text-teal-500");
+              break;
+            case 100:
+              (a += " !border-amber-500 dark:!border-amber-600"),
+                (i += " !text-amber-600 dark:!text-amber-300");
+          }
+          this.props.buildable
+            ? this.state.progress && (a += " btn-progress btn-progress-1")
+            : e
+            ? (a += " btn-off btn-cap")
+            : this.props.buildableCap
+            ? (a += " btn-off")
+            : (a += " btn-off-cap"),
+            !e && this.props.buildable && (a += i);
+          let n = {};
+          return (
+            ("oracle_b" !== this.props.id && "glory_gods" !== this.props.id) ||
+              ((a += " !text-indigo-600 dark:!text-indigo-500"),
+              (n =
+                -1 === a.indexOf("btn-off")
+                  ? {
+                      WebkitFilter: "drop-shadow(0px 0px 3px #818cf8)",
+                      filter: "drop-shadow(0px 0px 5px #818cf8)",
+                    }
+                  : {})),
+            !e || (e && this.props.MainStore.SettingsStore.showCapBuildings)
+              ? (0, _e.jsx)("div", {
+                  className: "flex flex-col",
+                  children: (0, _e.jsx)(Ut.l, {
+                    content: (0, _e.jsx)(Lr.A, {
+                      id: this.props.id,
+                      title: (0, pe.v)("bui_" + this.props.id),
+                      titleClasses: i,
+                      description: (0, pe.v)(
+                        "bui_" + this.props.id + "_description"
+                      ),
+                      owned: e,
+                      reqTooltipData: t,
+                      genTooltipData: r,
+                      prefix: "bui",
+                    }),
+                    className: "!max-w-[300px]",
+                    touch: ["hold", 500],
+                    placement: I.Fr ? "top" : "bottom",
+                    popperOptions: {
+                      modifiers: [
+                        {
+                          name: "flip",
+                          options: {
+                            fallbackPlacements: [
+                              "bottom",
+                              "top",
+                              "right",
+                              "left",
+                            ],
+                          },
+                        },
+                      ],
+                    },
+                    children: (0, _e.jsxs)("button", {
+                      type: "button",
+                      className: a,
+                      onClick: this.handleAdd,
+                      children: [
+                        (0, pe.v)("bui_" + this.props.id),
+                        this.props.qty > 0 &&
+                        !this.state.progress &&
+                        (!e || (e && this.props.qty > 1))
+                          ? (0, _e.jsx)("span", {
+                              className:
+                                "absolute -top-2 right-0 inline-block py-px px-2 rounded-full font-bold text-xs bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
+                              children: this.props.qty,
+                            })
+                          : null,
+                        "oracle_b" !== this.props.id || this.state.progress
+                          ? null
+                          : (0, _e.jsx)("span", {
+                              className:
+                                "absolute -top-2 left-0 inline-block py-px px-2 rounded-full font-bold text-xs text-indigo-500",
+                              children: (0, _e.jsx)(ce(), {
+                                path: ue.Szg,
+                                className: "icon !w-4 !h-4",
+                                style: n,
+                              }),
+                            }),
+                        "glory_gods" !== this.props.id || this.state.progress
+                          ? null
+                          : (0, _e.jsx)("span", {
+                              className:
+                                "absolute -top-2 left-0 inline-block py-px px-2 rounded-full font-bold text-xs text-indigo-500",
+                              children: (0, _e.jsx)(ce(), {
+                                path: ue.M5b,
+                                className: "icon !w-4 !h-4",
+                                style: n,
+                              }),
+                            }),
+                        13 !== this.props.age || this.state.progress
+                          ? null
+                          : (0, _e.jsx)("span", {
+                              className:
+                                "absolute -top-2 left-0 inline-block py-px px-2 rounded-full font-bold text-xs text-green-600",
+                              children: (0, _e.jsx)(ce(), {
+                                path: ue.M8b,
+                                className: "icon !w-4 !h-4",
+                              }),
+                            }),
+                        5 !== this.props.age ||
+                        2 === this.props.tab ||
+                        this.state.progress
+                          ? null
+                          : (0, _e.jsx)("span", {
+                              className:
+                                "absolute -top-2 left-0 inline-block py-px px-2 rounded-full font-bold text-xs text-orange-600 dark:text-orange-500",
+                              children: (0, _e.jsx)(ce(), {
+                                path: ue.fk9,
+                                className: "icon !w-4 !h-4",
+                              }),
+                            }),
+                        6 !== this.props.age ||
+                        3 === this.props.tab ||
+                        this.state.progress
+                          ? null
+                          : (0, _e.jsx)("span", {
+                              className:
+                                "absolute -top-2 left-0 inline-block py-px px-2 rounded-full font-bold text-xs text-red-600",
+                              children: (0, _e.jsx)(ce(), {
+                                path: ue.avO,
+                                vertical: !0,
+                                className: "icon !w-4 !h-4",
+                              }),
+                            }),
+                      ],
+                    }),
+                  }),
+                })
+              : null
+          );
+        }
+      }
+      const Vr = (0, t.WQ)("MainStore")((0, t.PA)(Hr));
+      class Dr extends i.Component {
+        constructor() {
+          super(...arguments),
+            (this.getCategoryIcon = (e) =>
+              ({
+                living_quarters: ue.tpY,
+                resource: ue.aD$,
+                science: ue.RbI,
+                commercial_area: ue.dYe,
+                defense: ue.wgn,
+                faith: ue.NKH,
+                warehouse: ue.mFy,
+                wonders: ue.NbG,
+              }[e] || null)),
+            (this.getCategoryGradient = (e) =>
+              ({
+                living_quarters: "from-blue-500 to-blue-600",
+                resource: "from-amber-500 to-orange-600",
+                science: "from-sky-600 to-blue-600",
+                commercial_area: "from-yellow-500 to-yellow-600",
+                defense: "from-red-500 to-red-600",
+                faith: "from-violet-500 to-purple-600",
+                warehouse: "from-gray-500 to-gray-600",
+                wonders: "from-emerald-500 to-teal-600",
+              }[e] || "from-gray-400 to-gray-500"));
+        }
+        render() {
+          const { run: e, sD: t } = this.props.MainStore,
+            {
+              buildings: r,
+              buildableBuildings: a,
+              buildableCapBuildings: i,
+              visibleColony: n,
+              visibleAbyss: o,
+            } = this.props.MainStore.BuildingsStore,
+            s =
+              2 === this.props.tab
+                ? "ring-green-300 dark:ring-green-900"
+                : 3 === this.props.tab
+                ? "ring-red-300 dark:ring-red-900"
+                : "ring-gray-300 dark:ring-mydark-200";
+          return (0, _e.jsx)("div", {
+            className: n || o ? "tab-container sub-container" : "tab-container",
+            children:
+              this.props.categories.length > 0
+                ? this.props.categories.map((n, o) => {
+                    const l = this.getCategoryIcon(n),
+                      d = this.getCategoryGradient(n);
+                    return (0, _e.jsxs)(
+                      "div",
+                      {
                         className:
-                          "modal-container lg:my-8 lg:max-w-2xl lg:pt-6",
-                        children: (0, _e.jsx)("div", {
-                          children: (0, _e.jsxs)("div", {
-                            className: "mt-0",
+                          "flex flex-wrap min-w-full mt-3 p-3 shadow rounded-lg ring-1 bg-gray-100 dark:bg-mydark-600 " +
+                          s,
+                        children: [
+                          (0, _e.jsxs)("div", {
+                            className:
+                              "w-full pb-3 font-bold text-center xl:text-left flex items-center justify-center xl:justify-start",
                             children: [
-                              (0, _e.jsx)(nt.l.Title, {
-                                as: "h3",
-                                className: "modal-title",
-                                children: (0, pe.v)("path_choise"),
-                              }),
                               (0, _e.jsx)("div", {
-                                className: "m-4 lg:m-6 mt-5",
-                                children: (0, _e.jsxs)("dl", {
-                                  className:
-                                    "grid grid-cols-1 gap-4 lg:grid-cols-2 px-6 sm:px-12 mb-6 lg:mb-0 lg:px-0",
-                                  children: [
-                                    (0, _e.jsx)("div", {
-                                      className: i,
-                                      onClick: () => this.handleChoise(),
-                                      children: (0, _e.jsxs)("div", {
-                                        className:
-                                          "lg:my-3 text-center text-green-700 dark:text-green-600",
-                                        children: [
-                                          (0, _e.jsx)(ce(), {
-                                            path: ue.n7C,
-                                            className:
-                                              "inline w-2/12 lg:w-1/2 text-green-600",
-                                          }),
-                                          (0, _e.jsx)("h5", {
-                                            className: "text-xl",
-                                            children: (0, pe.v)("humans"),
-                                          }),
-                                        ],
-                                      }),
-                                    }),
-                                    (0, _e.jsx)("div", {
-                                      className: r,
-                                      children: (0, _e.jsxs)("div", {
-                                        className:
-                                          "lg:my-3 text-center text-red-600",
-                                        children: [
-                                          (0, _e.jsx)(ce(), {
-                                            path: ue.avO,
-                                            vertical: !0,
-                                            className:
-                                              "inline w-2/12 lg:w-1/2 text-red-600",
-                                          }),
-                                          (0, _e.jsx)("h5", {
-                                            className: "text-xl",
-                                            children: (0, pe.v)("evil_path"),
-                                          }),
-                                          (0, _e.jsx)("p", {
-                                            className:
-                                              "text-center text-sm text-gray-600 italic",
-                                            children: (0, pe.v)(
-                                              "evil_path_description"
-                                            ),
-                                          }),
-                                        ],
-                                      }),
-                                    }),
-                                  ],
-                                }),
+                                className:
+                                  "p-1.5 rounded-full bg-gradient-to-br ".concat(
+                                    d,
+                                    " mr-2 shadow-md"
+                                  ),
+                                children:
+                                  l &&
+                                  (0, _e.jsx)(ce(), {
+                                    path: l,
+                                    className: "w-4 h-4 text-white",
+                                  }),
                               }),
+                              (0, pe.v)("cat_" + n),
                             ],
                           }),
-                        }),
+                          (0, _e.jsx)("div", {
+                            className:
+                              "grid gap-3 grid-cols-fill-180 min-w-full px-12 xl:px-0",
+                            children: r.map((r) => {
+                              if (r.cat === n && r.tab === this.props.tab) {
+                                let n = e.buildings.findIndex(
+                                  (e) => e.id === r.id
+                                );
+                                const o = -1 !== n ? e.buildings[n].value : 0;
+                                n = a.findIndex((e) => e.id === r.id);
+                                const s = -1 !== n;
+                                n = i.findIndex((e) => e.id === r.id);
+                                const l = -1 !== n;
+                                return (0, _e.jsx)(
+                                  Vr,
+                                  {
+                                    id: r.id,
+                                    qty: o,
+                                    buildable: s,
+                                    buildableCap: l,
+                                    req: r.req,
+                                    gen: r.gen,
+                                    cap: r.cap,
+                                    age: r.age,
+                                    tab: r.tab,
+                                    sD: t,
+                                  },
+                                  "bui_" + r.id
+                                );
+                              }
+                              return null;
+                            }),
+                          }),
+                        ],
+                      },
+                      "bui_cat_" + o
+                    );
+                  })
+                : (0, _e.jsx)("div", {
+                    className: "flex justify-center mt-6 text-lg",
+                    children: (0, _e.jsx)("div", {
+                      className: "min-w-[40%] w-auto",
+                      children: (0, _e.jsx)(ct.A, {
+                        text: (0, pe.v)("build_empty"),
+                        type: "info",
                       }),
                     }),
                   }),
+          });
+        }
+      }
+      const Wr = (0, t.WQ)("MainStore")((0, t.PA)(Dr));
+      class zr extends i.Component {
+        constructor() {
+          super(...arguments),
+            (this.handleSelect = (e) => {
+              this.props.MainStore.BuildingsStore.selectTab(e);
+            });
+        }
+        render() {
+          const {
+            categories: e,
+            categoriesColony: t,
+            visibleColony: r,
+            categoriesAbyss: a,
+            visibleAbyss: i,
+            selectedTab: n,
+          } = this.props.MainStore.BuildingsStore;
+          let o =
+            "inline-flex justify-center rounded-full border shadow-sm px-3 py-2 text-sm whitespace-nowrap border-gray-400 dark:border-gray-500";
+          (o +=
+            " xl:block xl:rounded-none xl:border-0 xl:shadow-none lg:px-2 xl:border-transparent xl:dark:border-transparent"),
+            (o += " xl:border-b-2 xl:m-[-1px] 4xl:px-6 3xl:text-base");
+          const s = "!border-ancestor text-ancestor",
+            l =
+              "xl:border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-mydark-50 hover:border-gray-400 dark:hover:border-gray-500";
+          let d, c, u, p;
+          return (
+            r &&
+              ((d = (0, _e.jsxs)(dt.o, {
+                className: (e) => {
+                  let { selected: t } = e;
+                  return (0, ge.xW)(o, t ? s : l);
+                },
+                children: [
+                  (0, _e.jsx)(ce(), {
+                    path: ue.fk9,
+                    className: "icon inline lg:-mt-1 mr-1",
+                  }),
+                  (0, pe.v)("colony"),
+                ],
+              })),
+              (c = (0, _e.jsx)(dt.o.Panel, {
+                children: (0, _e.jsx)(Wr, { tab: 2, categories: t }),
+              }))),
+            i &&
+              ((u = (0, _e.jsxs)(dt.o, {
+                className: (e) => {
+                  let { selected: t } = e;
+                  return (0, ge.xW)(o, t ? s : l);
+                },
+                children: [
+                  (0, _e.jsx)(ce(), {
+                    path: ue.avO,
+                    vertical: !0,
+                    className: "icon inline lg:-mt-1 mr-1",
+                  }),
+                  (0, pe.v)("abyss"),
+                ],
+              })),
+              (p = (0, _e.jsx)(dt.o.Panel, {
+                children: (0, _e.jsx)(Wr, { tab: 3, categories: a }),
+              }))),
+            (0, _e.jsx)(_e.Fragment, {
+              children:
+                r || i
+                  ? (0, _e.jsxs)(dt.o.Group, {
+                      selectedIndex: n,
+                      onChange: this.handleSelect,
+                      children: [
+                        (0, _e.jsx)("div", {
+                          className:
+                            "mx-auto border-b border-gray-300 dark:border-mydark-200 flex justify-center mt-1 xl:mt-0",
+                          children: (0, _e.jsxs)(dt.o.List, {
+                            className:
+                              "grid grid-cols-2 gap-3 my-2 mb-3 lg:flex lg:gap-1 lg:mt-0 lg:mb-1 xl:mb-0 2xl:gap-3",
+                            children: [
+                              (0, _e.jsxs)(dt.o, {
+                                className: (e) => {
+                                  let { selected: t } = e;
+                                  return (0, ge.xW)(o, t ? s : l);
+                                },
+                                children: [
+                                  (0, _e.jsx)(ce(), {
+                                    path: ue.lnd,
+                                    className: "icon inline 3xl:-mt-1 mr-1",
+                                  }),
+                                  (0, pe.v)("main_build"),
+                                ],
+                              }),
+                              d,
+                              u,
+                            ],
+                          }),
+                        }),
+                        (0, _e.jsxs)(dt.o.Panels, {
+                          children: [
+                            (0, _e.jsx)(dt.o.Panel, {
+                              children: (0, _e.jsx)(Wr, {
+                                tab: 1,
+                                categories: e,
+                              }),
+                            }),
+                            c,
+                            p,
+                          ],
+                        }),
+                      ],
+                    })
+                  : (0, _e.jsx)(Wr, { tab: 1, categories: e }),
+            })
+          );
+        }
+      }
+      const Br = (0, t.WQ)("MainStore")((0, t.PA)(zr));
+      class Gr extends i.Component {
+        constructor(e) {
+          super(e),
+            (this.handleAdd = () => {
+              this.props.sD
+                ? this.props.MainStore.TechsStore.addTech(this.props.id)
+                : !this.state.progress &&
+                  this.props.buildable &&
+                  (!0 === this.props.confirm
+                    ? this.props.MainStore.showConfirm(
+                        "",
+                        "boss_fight",
+                        this.processAdd
+                      )
+                    : this.processAdd());
+            }),
+            (this.processAdd = () => {
+              this.props.MainStore.confirmCancelFunc(),
+                this.setState({ progress: !0 }),
+                setTimeout(() => {
+                  this.props.MainStore.TechsStore.addTech(this.props.id),
+                    this.setState({ progress: !1 });
+                }, 3e3);
+            }),
+            (this.state = { progress: !1 });
+        }
+        render() {
+          const e = this.props.MainStore.ReqGenStore.reqTooltipData(
+              "tech",
+              this.props.req
+            ),
+            t = this.props.MainStore.ReqGenStore.genTooltipData(this.props.gen);
+          let r = "btn btn-dark";
+          return (
+            this.props.owned
+              ? (r += " btn-off btn-cap")
+              : this.props.buildable
+              ? this.state.progress && (r += " btn-progress")
+              : (r += " btn-off"),
+            (0, _e.jsx)("div", {
+              className: "flex flex-col",
+              children: (0, _e.jsx)(Ut.l, {
+                content: (0, _e.jsx)(Lr.A, {
+                  id: this.props.id,
+                  title: (0, pe.v)("tec_" + this.props.id),
+                  description: (0, pe.v)(
+                    "tec_" + this.props.id + "_description"
+                  ),
+                  owned: this.props.owned,
+                  reqTooltipData: e,
+                  genTooltipData: t,
+                  prefix: "tech",
+                }),
+                className: "!max-w-[260px]",
+                touch: ["hold", 500],
+                placement: I.Fr ? "top" : "bottom",
+                popperOptions: {
+                  modifiers: [
+                    {
+                      name: "flip",
+                      options: {
+                        fallbackPlacements: ["bottom", "top", "right", "left"],
+                      },
+                    },
+                  ],
+                },
+                children: (0, _e.jsx)("button", {
+                  type: "button",
+                  className: r,
+                  onClick: this.handleAdd,
+                  children: (0, pe.v)("tec_" + this.props.id),
+                }),
+              }),
+            })
+          );
+        }
+      }
+      const Ur = (0, t.WQ)("MainStore")((0, t.PA)(Gr));
+      class Yr extends i.Component {
+        constructor() {
+          super(...arguments),
+            (this.handleSelect = (e) => {
+              this.props.MainStore.TechsStore.selectTab(e);
+            });
+        }
+        render() {
+          const { sD: e } = this.props.MainStore,
+            {
+              visibleTechs: t,
+              buildableTechs: r,
+              ownedTechs: a,
+              selectedTab: i,
+            } = this.props.MainStore.TechsStore;
+          let n =
+            "inline-flex justify-center rounded-full border shadow-sm px-3 py-2 text-sm whitespace-nowrap border-gray-400 dark:border-gray-500";
+          (n +=
+            " xl:block xl:rounded-none xl:border-0 xl:shadow-none lg:px-2 xl:border-transparent xl:dark:border-transparent"),
+            (n += " xl:border-b-2 xl:m-[-1px] 4xl:px-6 3xl:text-base");
+          const o = "!border-ancestor text-ancestor",
+            s =
+              "xl:border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-mydark-50 hover:border-gray-400 dark:hover:border-gray-500";
+          return (0, _e.jsxs)(dt.o.Group, {
+            selectedIndex: i,
+            onChange: this.handleSelect,
+            children: [
+              (0, _e.jsx)("div", {
+                className:
+                  "mx-auto border-b border-gray-300 dark:border-mydark-200 flex justify-center mt-1 xl:mt-0",
+                children: (0, _e.jsxs)(dt.o.List, {
+                  className:
+                    "grid grid-cols-2 gap-3 my-2 mb-3 lg:flex lg:gap-1 lg:mt-0 lg:mb-1 xl:mb-0 2xl:gap-3",
+                  children: [
+                    (0, _e.jsxs)(dt.o, {
+                      className: (e) => {
+                        let { selected: t } = e;
+                        return (0, ge.xW)(n, t ? o : s);
+                      },
+                      children: [
+                        (0, _e.jsx)(ce(), {
+                          path: ue.cVf,
+                          className: "icon inline 3xl:-mt-1 mr-1",
+                        }),
+                        (0, pe.v)("research"),
+                      ],
+                    }),
+                    (0, _e.jsxs)(dt.o, {
+                      className: (e) => {
+                        let { selected: t } = e;
+                        return (0, ge.xW)(n, t ? o : s);
+                      },
+                      children: [
+                        (0, _e.jsx)(ce(), {
+                          path: ue.o0C,
+                          className: "icon inline lg:-mt-1 mr-1",
+                        }),
+                        (0, pe.v)("completed"),
+                      ],
+                    }),
+                  ],
+                }),
+              }),
+              (0, _e.jsxs)(dt.o.Panels, {
+                children: [
+                  (0, _e.jsxs)(dt.o.Panel, {
+                    children: [
+                      t.length > 0
+                        ? (0, _e.jsx)("div", {
+                            className: "tab-container sub-container",
+                            children: (0, _e.jsx)("div", {
+                              className:
+                                "flex flex-wrap min-w-full mt-3 p-3 shadow rounded-lg ring-1 ring-gray-300 dark:ring-mydark-200 bg-gray-100 dark:bg-mydark-600",
+                              children: (0, _e.jsx)("div", {
+                                className:
+                                  "grid gap-3 grid-cols-fill-180 min-w-full px-12 xl:px-0",
+                                children: t.map((t) => {
+                                  const a =
+                                    -1 !== r.findIndex((e) => e.id === t.id);
+                                  return (0, _e.jsx)(
+                                    Ur,
+                                    {
+                                      id: t.id,
+                                      buildable: a,
+                                      req: t.req,
+                                      gen: t.gen,
+                                      sD: e,
+                                      confirm: t.confirm,
+                                    },
+                                    "tec_" + t.id
+                                  );
+                                }),
+                              }),
+                            }),
+                          })
+                        : null,
+                      0 === t.length
+                        ? (0, _e.jsx)("div", {
+                            className: "flex justify-center my-6 text-lg",
+                            children: (0, _e.jsx)("div", {
+                              className: "min-w-[40%] w-auto",
+                              children: (0, _e.jsx)(ct.A, {
+                                text: (0, pe.v)("tech_empty"),
+                                type: "info",
+                              }),
+                            }),
+                          })
+                        : null,
+                    ],
+                  }),
+                  (0, _e.jsxs)(dt.o.Panel, {
+                    children: [
+                      a.length > 0
+                        ? (0, _e.jsx)("div", {
+                            className: "tab-container sub-container",
+                            children: (0, _e.jsx)("div", {
+                              className:
+                                "flex flex-wrap min-w-full mt-3 p-3 shadow rounded-lg ring-1 ring-gray-300 dark:ring-mydark-200 bg-gray-100 dark:bg-mydark-600",
+                              children: (0, _e.jsx)("div", {
+                                className:
+                                  "grid gap-3 grid-cols-fill-180 min-w-full px-12 xl:px-0",
+                                children: a.map((t) =>
+                                  (0, _e.jsx)(
+                                    Ur,
+                                    {
+                                      id: t.id,
+                                      buildable: !1,
+                                      req: t.req,
+                                      gen: t.gen,
+                                      sD: e,
+                                      owned: !0,
+                                    },
+                                    "tec_" + t.id
+                                  )
+                                ),
+                              }),
+                            }),
+                          })
+                        : null,
+                      0 === a.length
+                        ? (0, _e.jsx)("div", {
+                            className: "flex justify-center my-6 text-lg",
+                            children: (0, _e.jsx)("div", {
+                              className: "w-auto",
+                              children: (0, _e.jsx)(ct.A, {
+                                text: (0, pe.v)("log_village_empty"),
+                                type: "info",
+                              }),
+                            }),
+                          })
+                        : null,
+                    ],
+                  }),
+                ],
+              }),
+            ],
+          });
+        }
+      }
+      const Xr = (0, t.WQ)("MainStore")((0, t.PA)(Yr)),
+        Kr = i.lazy(() => r.e(697).then(r.bind(r, 4697))),
+        Zr = i.lazy(() => r.e(648).then(r.bind(r, 9648))),
+        Qr = i.lazy(() => r.e(673).then(r.bind(r, 6673))),
+        $r = i.lazy(() => r.e(321).then(r.bind(r, 7321))),
+        Jr = i.lazy(() => r.e(180).then(r.bind(r, 1180)));
+      class ea extends i.Component {
+        constructor() {
+          super(...arguments),
+            (this.handleSelect = (e) => {
+              this.props.MainStore.selectTab(e);
+            });
+        }
+        componentDidMount() {
+          this.props.MainStore.firstStart = !1;
+        }
+        render() {
+          const { selectedTab: e } = this.props.MainStore,
+            { visibleArmy: t } = this.props.MainStore.ArmyStore,
+            { visibleDiplomacy: r } = this.props.MainStore.DiplomacyStore,
+            { qtyUnemployed: a, population: n } =
+              this.props.MainStore.PopulationStore,
+            { showMagic: o, visiblePrayers: s } =
+              this.props.MainStore.MagicStore,
+            { showMarket: l } = this.props.MainStore.MarketStore,
+            { visibleTechs: d } = this.props.MainStore.TechsStore,
+            c = (0, ge.xW)(
+              "start",
+              o ? "magic" : "",
+              t.length > 0 ? "army" : "",
+              r.length > 0 ? "diplomacy" : "",
+              n.length > 1 ? "population" : "",
+              l ? "market" : ""
+            );
+          let u =
+            "inline-flex justify-center rounded-full border shadow-sm px-7 py-2 text-base whitespace-nowrap border-gray-400 dark:border-gray-500";
+          (u +=
+            " xl:block xl:rounded-none xl:border-0 xl:shadow-none lg:px-3 lg:text-sm xl:pt-0 xl:border-transparent xl:dark:border-transparent"),
+            (u +=
+              " xl:border-b-2 xl:m-[-1px] xl:px-1 3xl:px-2 4xl:px-6 3xl:text-base");
+          const p = "!border-ancestor text-ancestor",
+            _ =
+              "xl:border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-mydark-50 hover:border-gray-400 dark:hover:border-gray-500";
+          return (0, _e.jsxs)(
+            dt.o.Group,
+            {
+              selectedIndex: e,
+              onChange: this.handleSelect,
+              children: [
+                (0, _e.jsx)("div", {
+                  className:
+                    "mx-auto border-b border-gray-300 dark:border-mydark-200 flex justify-center py-2 mt-2 lg:py-0 lg:mt-0",
+                  id: "main-tabs",
+                  children: (0, _e.jsxs)(dt.o.List, {
+                    className:
+                      "grid gap-3 lg:gap-1 grid-cols-2 lg:grid-cols-3 mb-1 xl:flex xl:mb-0 2xl:space-x-1",
+                    children: [
+                      (0, _e.jsxs)(dt.o, {
+                        className: (e) => {
+                          let { selected: t } = e;
+                          return (0, ge.xW)(u, t ? p : _);
+                        },
+                        children: [
+                          (0, _e.jsx)(ce(), {
+                            path: ue.lnd,
+                            className:
+                              "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1",
+                          }),
+                          (0, pe.v)("build"),
+                        ],
+                      }),
+                      (0, _e.jsxs)(dt.o, {
+                        className: (e) => {
+                          let { selected: t } = e;
+                          return (0, ge.xW)(u, t ? p : _);
+                        },
+                        children: [
+                          (0, _e.jsx)(ce(), {
+                            path: ue.cVf,
+                            className:
+                              "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1" +
+                              (d.length > 0 ? " hidden xl:inline" : ""),
+                          }),
+                          (0, pe.v)("research"),
+                          d.length > 0
+                            ? (0, _e.jsx)("span", {
+                                className:
+                                  "inline-block ml-2 lg:py-px px-2 rounded-full font-bold text-xs leading-6 lg:leading-4 bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
+                                children: d.length,
+                              })
+                            : null,
+                        ],
+                      }),
+                      n.length > 1
+                        ? (0, _e.jsxs)(dt.o, {
+                            className: (e) => {
+                              let { selected: t } = e;
+                              return (0, ge.xW)(u, t ? p : _);
+                            },
+                            children: [
+                              (0, _e.jsx)(ce(), {
+                                path: ue.DIA,
+                                className:
+                                  "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1" +
+                                  (a > 0 ? " hidden xl:inline" : ""),
+                              }),
+                              (0, pe.v)("population"),
+                              a > 0
+                                ? (0, _e.jsx)("span", {
+                                    className:
+                                      "inline-block ml-2 lg:py-px px-2 rounded-full font-bold text-xs leading-6 lg:leading-4 bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
+                                    children: a,
+                                  })
+                                : null,
+                            ],
+                          })
+                        : null,
+                      o
+                        ? (0, _e.jsxs)(dt.o, {
+                            className: (e) => {
+                              let { selected: t } = e;
+                              return (0, ge.xW)(u, t ? p : _);
+                            },
+                            children: [
+                              (0, _e.jsx)(ce(), {
+                                path: ue._r5,
+                                className:
+                                  "icon inline mt-0.5 lg:mt-0 3xl:-mt-1 mr-1" +
+                                  (s.length > 0 ? " hidden xl:inline" : ""),
+                              }),
+                              (0, pe.v)("magic"),
+                              s.length > 0
+                                ? (0, _e.jsx)("span", {
+                                    className:
+                                      "inline-block ml-2 lg:py-px px-2 rounded-full font-bold text-xs leading-6 lg:leading-4 bg-gray-300 text-gray-600 dark:bg-mydark-200 dark:text-mydark-50",
+                                    children: s.length,
+                                  })
+                                : null,
+                            ],
+                          })
+                        : null,
+                      t.length > 0
+                        ? (0, _e.jsxs)(dt.o, {
+                            className: (e) => {
+                              let { selected: t } = e;
+                              return (0, ge.xW)(u, t ? p : _);
+                            },
+                            children: [
+                              (0, _e.jsx)(ce(), {
+                                path: ue.BNE,
+                                className:
+                                  "icon inline mt-0.5 lg:mt-0 3xl:-mt-1 mr-1",
+                              }),
+                              (0, pe.v)("army"),
+                            ],
+                          })
+                        : null,
+                      r.length > 0
+                        ? (0, _e.jsxs)(dt.o, {
+                            className: (e) => {
+                              let { selected: t } = e;
+                              return (0, ge.xW)(u, t ? p : _);
+                            },
+                            children: [
+                              (0, _e.jsx)(ce(), {
+                                path: ue.n7C,
+                                className:
+                                  "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1",
+                              }),
+                              (0, pe.v)("diplomacy"),
+                            ],
+                          })
+                        : null,
+                      l
+                        ? (0, _e.jsxs)(dt.o, {
+                            className: (e) => {
+                              let { selected: t } = e;
+                              return (0, ge.xW)(u, t ? p : _);
+                            },
+                            children: [
+                              (0, _e.jsx)(ce(), {
+                                path: ue.FAn,
+                                className:
+                                  "icon inline mt-0.5 lg:mt-0 xl:-mt-1 mr-1",
+                              }),
+                              (0, pe.v)("bui_marketplace"),
+                            ],
+                          })
+                        : null,
+                    ],
+                  }),
+                }),
+                (0, _e.jsxs)(dt.o.Panels, {
+                  children: [
+                    (0, _e.jsx)(dt.o.Panel, { children: (0, _e.jsx)(Br, {}) }),
+                    (0, _e.jsx)(dt.o.Panel, { children: (0, _e.jsx)(Xr, {}) }),
+                    n.length > 1
+                      ? (0, _e.jsx)(dt.o.Panel, {
+                          children: (0, _e.jsx)(i.Suspense, {
+                            fallback: (0, _e.jsx)("div", {
+                              className: "h-screen lg:hidden",
+                            }),
+                            children: (0, _e.jsx)(Jr, {}),
+                          }),
+                        })
+                      : null,
+                    o
+                      ? (0, _e.jsx)(dt.o.Panel, {
+                          children: (0, _e.jsx)(i.Suspense, {
+                            fallback: (0, _e.jsx)("div", {
+                              className: "h-screen lg:hidden",
+                            }),
+                            children: (0, _e.jsx)(Qr, {}),
+                          }),
+                        })
+                      : null,
+                    t.length > 0
+                      ? (0, _e.jsx)(dt.o.Panel, {
+                          children: (0, _e.jsx)(i.Suspense, {
+                            fallback: (0, _e.jsx)("div", {
+                              className: "h-screen lg:hidden",
+                            }),
+                            children: (0, _e.jsx)(Kr, {}),
+                          }),
+                        })
+                      : null,
+                    r.length > 0
+                      ? (0, _e.jsx)(dt.o.Panel, {
+                          children: (0, _e.jsx)(i.Suspense, {
+                            fallback: (0, _e.jsx)("div", {
+                              className: "h-screen lg:hidden",
+                            }),
+                            children: (0, _e.jsx)(Zr, {}),
+                          }),
+                        })
+                      : null,
+                    l
+                      ? (0, _e.jsx)(dt.o.Panel, {
+                          children: (0, _e.jsx)(i.Suspense, {
+                            fallback: (0, _e.jsx)("div", {
+                              className: "h-screen lg:hidden",
+                            }),
+                            children: (0, _e.jsx)($r, {}),
+                          }),
+                        })
+                      : null,
+                  ],
                 }),
               ],
+            },
+            c
+          );
+        }
+      }
+      const ta = (0, t.WQ)("MainStore")((0, t.PA)(ea));
+      class ra extends i.Component {
+        componentDidMount() {
+          this.props.MainStore.SoundsStore.updateVolume(-1);
+        }
+        render() {
+          return (0, _e.jsxs)(_e.Fragment, {
+            children: [
+              (0, _e.jsx)("audio", {
+                id: "soundtrack_track_1",
+                preload: "auto",
+                loop: !0,
+                children: (0, _e.jsx)("source", {
+                  src:
+                    "./" +
+                    ("localhost" === window.location.hostname ? "./" : "") +
+                    "/sounds/track_1.ogg",
+                  type: "audio/ogg",
+                }),
+              }),
+              (0, _e.jsx)("audio", {
+                id: "soundtrack_track_2",
+                preload: "auto",
+                loop: !0,
+                children: (0, _e.jsx)("source", {
+                  src:
+                    "./" +
+                    ("localhost" === window.location.hostname ? "./" : "") +
+                    "/sounds/track_2.ogg",
+                  type: "audio/ogg",
+                }),
+              }),
+              (0, _e.jsx)("audio", {
+                id: "soundtrack_track_3",
+                preload: "auto",
+                loop: !0,
+                children: (0, _e.jsx)("source", {
+                  src:
+                    "./" +
+                    ("localhost" === window.location.hostname ? "./" : "") +
+                    "/sounds/track_3.ogg",
+                  type: "audio/ogg",
+                }),
+              }),
+              (0, _e.jsx)("audio", {
+                id: "soundtrack_track_4",
+                preload: "auto",
+                loop: !0,
+                children: (0, _e.jsx)("source", {
+                  src:
+                    "./" +
+                    ("localhost" === window.location.hostname ? "./" : "") +
+                    "/sounds/track_4.ogg",
+                  type: "audio/ogg",
+                }),
+              }),
+              (0, _e.jsx)("audio", {
+                id: "soundtrack_track_5",
+                preload: "auto",
+                loop: !0,
+                children: (0, _e.jsx)("source", {
+                  src:
+                    "./" +
+                    ("localhost" === window.location.hostname ? "./" : "") +
+                    "/sounds/track_5.ogg",
+                  type: "audio/ogg",
+                }),
+              }),
+              (0, _e.jsx)("audio", {
+                id: "soundtrack_incoming_attack",
+                preload: "auto",
+                loop: !0,
+                children: (0, _e.jsx)("source", {
+                  src:
+                    "./" +
+                    ("localhost" === window.location.hostname ? "./" : "") +
+                    "/sounds/incoming_attack.ogg",
+                  type: "audio/ogg",
+                }),
+              }),
+            ],
+          });
+        }
+      }
+      const aa = (0, t.WQ)("MainStore")(ra);
+      class ia extends i.Component {
+        render() {
+          return (0, _e.jsxs)(_e.Fragment, {
+            children: [
+              (0, _e.jsxs)("div", {
+                className: "flex flex-wrap w-full mx-auto p-2 lg:p-3",
+                children: [
+                  (0, _e.jsx)("div", {
+                    className:
+                      "w-full lg:w-4/12 xl:w-1/4 order-1 lg:order-3 z-20 lg:pl-2",
+                    children: (0, _e.jsxs)("div", {
+                      className: "flex flex-wrap",
+                      children: [
+                        (0, _e.jsx)("div", {
+                          className: "w-full order-1",
+                          children: (0, _e.jsx)(Fr, {}),
+                        }),
+                        (0, _e.jsx)(Er, {}),
+                      ],
+                    }),
+                  }),
+                  (0, _e.jsx)("div", {
+                    className:
+                      "w-full lg:w-5/12 xl:w-7/12 order-2 lg:order-2 lg:px-1",
+                    id: "maintabs-container",
+                    children: (0, _e.jsx)(ta, {}),
+                  }),
+                  (0, _e.jsx)("div", {
+                    className:
+                      "w-full lg:w-1/4 xl:w-1/6 order-3 lg:order-1 lg:pr-2",
+                    children: (0, _e.jsxs)("div", {
+                      className:
+                        "flex flex-col mb-14 lg:mb-0 max-h-[calc(100vh-83px)]",
+                      children: [(0, _e.jsx)(Tr, {}), (0, _e.jsx)(Ar, {})],
+                    }),
+                  }),
+                ],
+              }),
+              (0, _e.jsx)(aa, {}),
+            ],
+          });
+        }
+      }
+      const na = ia;
+      class oa extends i.Component {
+        constructor() {
+          super(...arguments),
+            (this.handleAncestor = () => {
+              this.props.MainStore.AncestorsStore.updateAncestor(
+                this.props.data.id
+              );
+            });
+        }
+        render() {
+          return (0, _e.jsxs)("div", {
+            className:
+              "group relative overflow-hidden bg-white dark:bg-mydark-700 border-2 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform flex flex-col h-full",
+            style: { borderColor: this.props.data.color },
+            children: [
+              (0, _e.jsxs)("div", {
+                className:
+                  "relative p-4 sm:p-6 pb-4 text-center border-b border-gray-100 dark:border-mydark-500",
+                children: [
+                  (0, _e.jsx)("div", {
+                    className:
+                      "flex items-center justify-center space-x-3 mb-3",
+                    children: (0, _e.jsx)("div", {
+                      className:
+                        "p-2 sm:p-3 rounded-full shadow-lg transform group-hover:scale-110 transition-transform duration-300",
+                      style: {
+                        backgroundColor: "".concat(this.props.data.color, "15"),
+                        border: "2px solid ".concat(
+                          this.props.data.color,
+                          "30"
+                        ),
+                      },
+                      children: (0, _e.jsx)(Yt, {
+                        id: this.props.data.id,
+                        bigIcon: !0,
+                      }),
+                    }),
+                  }),
+                  (0, _e.jsx)("h5", {
+                    className: "text-xl sm:text-2xl font-bold leading-tight",
+                    style: { color: this.props.data.color },
+                    children: (0, pe.v)(this.props.data.id),
+                  }),
+                ],
+              }),
+              (0, _e.jsxs)("div", {
+                className: "relative flex-1 p-4 sm:p-6 pt-4",
+                children: [
+                  (0, _e.jsx)("p", {
+                    className:
+                      "text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-4 sm:mb-6 text-center",
+                    children: (0, pe.v)(this.props.data.id + "_description"),
+                  }),
+                  (0, _e.jsx)("div", {
+                    className: "space-y-2 sm:space-y-3",
+                    children: this.props.data.gen.map((e, t) =>
+                      (0, _e.jsxs)(
+                        "div",
+                        {
+                          className:
+                            "flex items-center space-x-2 sm:space-x-3 p-2 rounded-lg bg-gray-50 dark:bg-mydark-600 transform transition-all duration-200 hover:bg-gray-100 dark:hover:bg-mydark-500",
+                          style: { animationDelay: "".concat(100 * t, "ms") },
+                          children: [
+                            (0, _e.jsx)("div", {
+                              className: "p-1 rounded-full flex-shrink-0",
+                              style: {
+                                backgroundColor: "".concat(
+                                  this.props.data.color,
+                                  "20"
+                                ),
+                              },
+                              children: (0, _e.jsx)(ce(), {
+                                path: ue.o0C,
+                                className: "w-3 h-3 sm:w-4 sm:h-4",
+                                style: { color: this.props.data.color },
+                              }),
+                            }),
+                            (0, _e.jsx)("span", {
+                              className:
+                                "text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 flex-1",
+                              children:
+                                "resource" === e.type
+                                  ? (0, _e.jsxs)(_e.Fragment, {
+                                      children: [
+                                        "+",
+                                        e.value,
+                                        "% ",
+                                        (0, pe.v)("res_" + e.id),
+                                      ],
+                                    })
+                                  : "cap" === e.type
+                                  ? (0, _e.jsxs)(_e.Fragment, {
+                                      children: [
+                                        "+",
+                                        e.value,
+                                        " ",
+                                        (0, pe.v)(e.id),
+                                        "",
+                                        (0, pe.v)("cap"),
+                                      ],
+                                    })
+                                  : null,
+                            }),
+                          ],
+                        },
+                        "ancestor_gen_" + this.props.data.id + "_" + e.id
+                      )
+                    ),
+                  }),
+                ],
+              }),
+              (0, _e.jsx)("div", {
+                className: "relative p-4 sm:p-6 pt-0",
+                children: (0, _e.jsxs)("button", {
+                  type: "button",
+                  className:
+                    "w-full py-3 sm:py-4 px-4 sm:px-6 rounded-full text-white text-sm sm:text-base transition-all duration-300 transform shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-opacity-50 group",
+                  style: {
+                    backgroundColor: this.props.data.color,
+                    boxShadow: "0 4px 15px ".concat(
+                      this.props.data.color,
+                      "40"
+                    ),
+                  },
+                  onMouseEnter: (e) => {
+                    e.currentTarget.style.boxShadow = "0 8px 25px ".concat(
+                      this.props.data.color,
+                      "60"
+                    );
+                  },
+                  onMouseLeave: (e) => {
+                    e.currentTarget.style.boxShadow = "0 4px 15px ".concat(
+                      this.props.data.color,
+                      "40"
+                    );
+                  },
+                  onClick: this.handleAncestor,
+                  children: [
+                    (0, _e.jsxs)("div", {
+                      className: "flex items-center justify-center space-x-2",
+                      children: [
+                        (0, _e.jsx)("span", {
+                          className: "font-bold tracking-wide",
+                          children: (0, pe.v)("start_game"),
+                        }),
+                        (0, _e.jsx)(Yt, {
+                          id: this.props.data.id,
+                          addClasses: "opacity-90",
+                        }),
+                      ],
+                    }),
+                    (0, _e.jsx)("div", {
+                      className:
+                        "absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300",
+                      style: {
+                        background:
+                          "linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%)",
+                      },
+                    }),
+                  ],
+                }),
+              }),
+            ],
+          });
+        }
+      }
+      const sa = (0, t.WQ)("MainStore")((0, t.PA)(oa));
+      class la extends i.Component {
+        componentDidMount() {
+          this.props.MainStore.firstStart &&
+            ((this.props.MainStore.firstStart = !1),
+            this.props.MainStore.SettingsStore.updateDifficultyFlag(0),
+            this.props.MainStore.AchievementsStore.runAchievement("prestige"),
+            this.props.MainStore.AchievementsStore.runAchievement("ng_reset"),
+            this.props.MainStore.AchievementsStore.runAchievement(
+              "annihilator"
+            ));
+        }
+        render() {
+          let { visibleAncestors: e } = this.props.MainStore.AncestorsStore;
+          let t = "mx-auto mb-14 ",
+            r = "my-5 grid gap-8 grid-cols-1 ";
+          switch (e.length) {
+            case 4:
+            case 7:
+            case 8:
+              (r += "lg:grid-cols-3 3xl:grid-cols-4"),
+                (t += "w-11/12 xl:w-10/12 3xl:w-11/12 4xl:w-9/12");
+              break;
+            case 5:
+            case 9:
+              (r += "lg:grid-cols-3 4xl:grid-cols-5"),
+                (t += "w-11/12 xl:w-10/12 3xl:w-9/12 4xl:w-11/12");
+              break;
+            default:
+              (r += "lg:grid-cols-3"),
+                (t += "w-11/12 xl:w-10/12 3xl:w-9/12 4xl:w-7/12");
+          }
+          return (0, _e.jsx)(_e.Fragment, {
+            children: (0, _e.jsx)("div", {
+              className: "mt-8 lg:mt-12",
+              children: (0, _e.jsxs)("div", {
+                className: "max-w-full mx-auto",
+                children: [
+                  (0, _e.jsxs)("div", {
+                    className: "text-center",
+                    children: [
+                      (0, _e.jsx)("h1", {
+                        className:
+                          "text-4xl lg:text-7xl font-game font-bold title-gradient",
+                        children: (0, _e.jsx)(Kt, {}),
+                      }),
+                      (0, _e.jsx)("p", {
+                        className:
+                          "text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 font-medium leading-relaxed",
+                        children: (0, pe.v)("runstart_subtitle"),
+                      }),
+                    ],
+                  }),
+                  (0, _e.jsx)("div", {
+                    className: "w-full flex justify-center my-8",
+                    children: (0, _e.jsx)("div", {
+                      className:
+                        "h-px w-2/3 bg-gray-300 dark:bg-gray-700 opacity-60 rounded",
+                    }),
+                  }),
+                  (0, _e.jsxs)("div", {
+                    className: t,
+                    children: [
+                      (0, _e.jsxs)("div", {
+                        className: "text-center mb-6 lg:mb-8 px-4",
+                        children: [
+                          (0, _e.jsx)("h2", {
+                            className:
+                              "text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-200 mb-2",
+                            children: (0, pe.v)("runstart_choose_path"),
+                          }),
+                          (0, _e.jsx)("p", {
+                            className:
+                              "text-sm sm:text-base text-gray-600 dark:text-gray-400",
+                            children: (0, pe.v)("runstart_begin_journey"),
+                          }),
+                        ],
+                      }),
+                      (0, _e.jsx)("div", {
+                        className: r,
+                        children: e.map((e) =>
+                          (0, _e.jsx)(sa, { data: e }, "ancestor_" + e.id)
+                        ),
+                      }),
+                    ],
+                  }),
+                ],
+              }),
             }),
           });
         }
       }
-      const ta = (0, t.WQ)("MainStore")((0, t.PA)(ea)),
-        ra = a.lazy(() => r.e(51).then(r.bind(r, 8051))),
-        aa = a.lazy(() => r.e(284).then(r.bind(r, 284))),
-        ia = a.lazy(() => r.e(813).then(r.bind(r, 813)));
-      class na extends a.Component {
+      const da = (0, t.WQ)("MainStore")(la),
+        ca = i.lazy(() => r.e(51).then(r.bind(r, 8051))),
+        ua = i.lazy(() => r.e(284).then(r.bind(r, 284))),
+        pa = i.lazy(() => r.e(813).then(r.bind(r, 813)));
+      class _a extends i.Component {
         render() {
           const { ancestors: e, flag: t, flagb: r } = this.props.MainStore.run,
             {
-              softResetInProgress: i,
+              softResetInProgress: a,
               newGamePlusInProgress: n,
               askEvilChoise: o,
             } = this.props.MainStore,
@@ -67317,56 +69987,58 @@
               this.props.MainStore.LegacyStore;
           return (0, _e.jsxs)(_e.Fragment, {
             children: [
-              (0, _e.jsx)(Yt, {}),
-              (0, _e.jsx)(Ht, {}),
-              (0, _e.jsx)(Dr, {}),
-              (0, _e.jsx)(Hr, {}),
+              (0, _e.jsx)(Qt, {}),
+              (0, _e.jsx)(Vt, {}),
+              (0, _e.jsx)(pr, {}),
+              (0, _e.jsx)(mr, {}),
+              (0, _e.jsx)(cr, {}),
               "" === e || 2 === t || 2 === r
-                ? (0, _e.jsx)(Er, {})
-                : (0, _e.jsx)(qr, {}),
-              (0, _e.jsx)(Qr, {}),
-              (0, _e.jsx)(Dt, {}),
-              s > 0 || i || 2 === r
-                ? (0, _e.jsx)(a.Suspense, {
+                ? (0, _e.jsx)(da, {})
+                : (0, _e.jsx)(na, {}),
+              (0, _e.jsx)(kr, {}),
+              (0, _e.jsx)(fr, {}),
+              s > 0 || a || 2 === r
+                ? (0, _e.jsx)(i.Suspense, {
                     fallback: null,
-                    children: (0, _e.jsx)(ra, {}),
+                    children: (0, _e.jsx)(ca, {}),
                   })
                 : null,
               l || n
-                ? (0, _e.jsx)(a.Suspense, {
+                ? (0, _e.jsx)(i.Suspense, {
                     fallback: null,
-                    children: (0, _e.jsx)(aa, {}),
+                    children: (0, _e.jsx)(ua, {}),
                   })
                 : null,
               o
-                ? (0, _e.jsx)(a.Suspense, {
+                ? (0, _e.jsx)(i.Suspense, {
                     fallback: null,
-                    children: (0, _e.jsx)(ta, {}),
+                    children: (0, _e.jsx)(tr, {}),
                   })
                 : null,
               this.props.MainStore.d
-                ? (0, _e.jsx)(a.Suspense, {
+                ? (0, _e.jsx)(i.Suspense, {
                     fallback: null,
-                    children: (0, _e.jsx)(ia, {}),
+                    children: (0, _e.jsx)(pa, {}),
                   })
                 : null,
-              "" === e || 2 === t || 2 === r ? null : (0, _e.jsx)(Jr, {}),
-              (0, _e.jsx)(Gr, {}),
-              (0, _e.jsx)(Yr, {}),
-              (0, _e.jsx)(zr, {}),
+              "" === e || 2 === t || 2 === r ? null : (0, _e.jsx)(Jt, {}),
+              (0, _e.jsx)(Gt, {}),
+              (0, _e.jsx)(ar, {}),
+              (0, _e.jsx)(Wt, {}),
+              (0, _e.jsx)(Sr, {}),
             ],
           });
         }
       }
-      const oa = (0, t.WQ)("MainStore")((0, t.PA)(na)),
-        sa = Boolean(
+      const ha = (0, t.WQ)("MainStore")((0, t.PA)(_a)),
+        ya = Boolean(
           "localhost" === window.location.hostname ||
             "[::1]" === window.location.hostname ||
             window.location.hostname.match(
               /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
             )
         );
-      function la(e, t) {
+      function ma(e, t) {
         navigator.serviceWorker
           .register(e, { scope: "/" })
           .then((e) => {
@@ -67386,7 +70058,7 @@
           });
       }
       (0, e.H)(document.getElementById("root")).render(
-        (0, _e.jsx)(t.Kq, { MainStore: at, children: (0, _e.jsx)(oa, {}) })
+        (0, _e.jsx)(t.Kq, { MainStore: it, children: (0, _e.jsx)(ha, {}) })
       ),
         (function (e) {
           if ("serviceWorker" in navigator) {
@@ -67396,8 +70068,8 @@
             )
               return;
             window.addEventListener("load", () => {
-              const t = "".concat("./", "/service-worker.js");
-              sa
+              const t = "".concat("./", "service-worker.js");
+              ya
                 ? (!(function (e, t) {
                     fetch(e, { headers: { "Service-Worker": "script" } })
                       .then((r) => {
@@ -67409,17 +70081,17 @@
                                 window.location.reload();
                               });
                             })
-                          : la(e, t);
+                          : ma(e, t);
                       })
                       .catch(() => {});
                   })(t, e),
                   navigator.serviceWorker.ready.then(() => {}))
-                : la(t, e);
+                : ma(t, e);
             });
           }
         })({
           onUpdate: (e) =>
-            at.addNotification("new_version", "key", "common", !0, !1, e),
+            it.addNotification("new_version", "key", "common", !0, !1, e),
         });
     })();
 })();
