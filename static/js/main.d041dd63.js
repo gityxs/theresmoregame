@@ -42692,7 +42692,7 @@
                 const e = h,
                   t = g.filter((t) => t.round === e);
                 if (t.length > 0) {
-                  let r = "\nRoundIcon ROUND ".concat(e, " DETAILED REPORT:\n");
+                  let r = "\nRoundIcon 第".concat(e, "回合战斗记录详情：\n");
                   const a = t.reduce(
                     (e, t) => (
                       e[t.attacker] || (e[t.attacker] = []),
@@ -42705,15 +42705,15 @@
                     const a = t.filter((e) => e.killed).length,
                       i = t.reduce((e, t) => e + t.damage, 0);
                     (r += "AttackerIcon  "
-                      .concat((0, pe.v)("uni_" + e), ": ")
-                      .concat(i, " damage")),
-                      a > 0 && (r += " (".concat(a, " kills)"));
+                      .concat((0, pe.v)("uni_" + e), "：造成")
+                      .concat(i, "点伤害")),
+                      a > 0 && (r += " (击杀".concat(a, "个单位)"));
                     const n = t.filter((e) => "splash" === e.attackType).length,
                       o = t.filter((e) => "trample" === e.attackType).length,
                       s = t.filter((e) => e.categoryBonus).length;
-                    n > 0 && (r += " [".concat(n, " splash]")),
-                      o > 0 && (r += " [".concat(o, " trample]")),
-                      s > 0 && (r += " [".concat(s, " bonus dmg]")),
+                    n > 0 && (r += " [溅射".concat(n, "个单位]")),
+                      o > 0 && (r += " [践踏".concat(o, "个单位]")),
+                      s > 0 && (r += " [额外".concat(s, "点伤害]")),
                       (r += "\n");
                     const l = t
                       .filter(
@@ -42723,17 +42723,17 @@
                           "normal" !== e.attackType
                       )
                       .reduce((e, t) => {
-                        let r = "vs "
-                          .concat((0, pe.v)("uni_" + t.target), ": ")
-                          .concat(t.damage, " dmg");
+                        let r = "对战"
+                          .concat((0, pe.v)("uni_" + t.target), "：")
+                          .concat(t.damage, "点伤害");
                         return (
-                          t.categoryBonus && (r += " (2x bonus)"),
+                          t.categoryBonus && (r += " (两倍伤害加成)"),
                           t.killed && (r += " KillIcon"),
                           t.trampleRemaining &&
                             t.trampleRemaining > 0 &&
-                            (r += " (trample: ".concat(
+                            (r += " (践踏：剩余".concat(
                               t.trampleRemaining,
-                              " remaining)"
+                              "点伤害)"
                             )),
                           e[r] || (e[r] = { count: 0, event: t }),
                           e[r].count++,
@@ -42747,13 +42747,13 @@
                           : "   \u2022 ".concat(e, " (\xd7").concat(t, ")\n");
                   }
                   const i = t.filter((e) => e.killed).length;
-                  (r += "KillIcon Round kills: ".concat(
+                  (r += "KillIcon 本回合损失情况：共有".concat(
                     i,
-                    " units eliminated"
+                    "个单位阵亡"
                   )),
-                    (r += "\nArmyIcon Remaining: "
-                      .concat(d.length, " army vs ")
-                      .concat(p.length, " enemy\n")),
+                    (r += "\nArmyIcon 剩余单位：我方"
+                      .concat(d.length, "个单位对战敌方")
+                      .concat(p.length, "个单位\n")),
                     f.push(r);
                 }
               }
