@@ -42,7 +42,7 @@
     var a = t[n];
     if (void 0 !== a) return a.exports;
     var r = (t[n] = { exports: {} });
-    return e[n](r, r.exports, s), r.exports;
+    return (e[n](r, r.exports, s), r.exports);
   }
   (() => {
     s(930);
@@ -54,11 +54,11 @@
         a++
       )
         n[a - 1] = arguments[a];
-      return n.length > 0 && (t += " :: ".concat(JSON.stringify(n))), t;
+      return (n.length > 0 && (t += " :: ".concat(JSON.stringify(n))), t);
     };
     class t extends Error {
       constructor(t, s) {
-        super(e(t, s)), (this.name = t), (this.details = s);
+        (super(e(t, s)), (this.name = t), (this.details = s));
       }
     }
     const n = new Set();
@@ -86,21 +86,21 @@
     class d {
       constructor() {
         this.promise = new Promise((e, t) => {
-          (this.resolve = e), (this.reject = t);
+          ((this.resolve = e), (this.reject = t));
         });
       }
     }
     const f = (e) =>
       new URL(String(e), location.href).href.replace(
         new RegExp("^".concat(location.origin)),
-        ""
+        "",
       );
     function p(e) {
       return new Promise((t) => setTimeout(t, e));
     }
     function g(e, t) {
       const s = t();
-      return e.waitUntil(s), s;
+      return (e.waitUntil(s), s);
     }
     async function y(e, s) {
       let n = null;
@@ -121,7 +121,7 @@
             const t = new Response("");
             if ("body" in t)
               try {
-                new Response(t.body), (u = !0);
+                (new Response(t.body), (u = !0));
               } catch (e) {
                 u = !1;
               }
@@ -175,7 +175,7 @@
                 n++
               )
                 s[n] = arguments[n];
-              return e.apply(T(this), s), k(b.get(this));
+              return (e.apply(T(this), s), k(b.get(this)));
             }
           : function () {
               for (
@@ -194,7 +194,7 @@
             )
               n[a - 1] = arguments[a];
             const r = e.call(T(this), t, ...n);
-            return q.set(r, t.sort ? t.sort() : [t]), k(r);
+            return (q.set(r, t.sort ? t.sort() : [t]), k(r));
           };
     }
     function C(e) {
@@ -205,20 +205,20 @@
               if (v.has(e)) return;
               const t = new Promise((t, s) => {
                 const n = () => {
-                    e.removeEventListener("complete", a),
+                    (e.removeEventListener("complete", a),
                       e.removeEventListener("error", r),
-                      e.removeEventListener("abort", r);
+                      e.removeEventListener("abort", r));
                   },
                   a = () => {
-                    t(), n();
+                    (t(), n());
                   },
                   r = () => {
-                    s(e.error || new DOMException("AbortError", "AbortError")),
-                      n();
+                    (s(e.error || new DOMException("AbortError", "AbortError")),
+                      n());
                   };
-                e.addEventListener("complete", a),
+                (e.addEventListener("complete", a),
                   e.addEventListener("error", r),
-                  e.addEventListener("abort", r);
+                  e.addEventListener("abort", r));
               });
               v.set(e, t);
             })(e),
@@ -231,7 +231,7 @@
                 IDBIndex,
                 IDBCursor,
                 IDBTransaction,
-              ])
+              ]),
           )
             ? new Proxy(e, x)
             : e);
@@ -241,16 +241,16 @@
         return (function (e) {
           const t = new Promise((t, s) => {
             const n = () => {
-                e.removeEventListener("success", a),
-                  e.removeEventListener("error", r);
+                (e.removeEventListener("success", a),
+                  e.removeEventListener("error", r));
               },
               a = () => {
-                t(k(e.result)), n();
+                (t(k(e.result)), n());
               },
               r = () => {
-                s(e.error), n();
+                (s(e.error), n());
               };
-            e.addEventListener("success", a), e.addEventListener("error", r);
+            (e.addEventListener("success", a), e.addEventListener("error", r));
           });
           return (
             t
@@ -264,7 +264,7 @@
         })(e);
       if (R.has(e)) return R.get(e);
       const t = C(e);
-      return t !== e && (R.set(e, t), E.set(t, e)), t;
+      return (t !== e && (R.set(e, t), E.set(t, e)), t);
     }
     const T = (e) => E.get(e);
     function N(e, t) {
@@ -283,15 +283,15 @@
           }),
         s &&
           i.addEventListener("blocked", (e) =>
-            s(e.oldVersion, e.newVersion, e)
+            s(e.oldVersion, e.newVersion, e),
           ),
         o
           .then((e) => {
-            r && e.addEventListener("close", () => r()),
+            (r && e.addEventListener("close", () => r()),
               a &&
                 e.addEventListener("versionchange", (e) =>
-                  a(e.oldVersion, e.newVersion, e)
-                );
+                  a(e.oldVersion, e.newVersion, e),
+                ));
           })
           .catch(() => {}),
         o
@@ -326,7 +326,7 @@
           (await Promise.all([r[s](...o), a && t.done]))[0]
         );
       };
-      return U.set(t, r), r;
+      return (U.set(t, r), r);
     }
     x = ((e) => ({
       ...e,
@@ -337,19 +337,19 @@
     const P = "cache-entries",
       A = (e) => {
         const t = new URL(e, location.href);
-        return (t.hash = ""), t.href;
+        return ((t.hash = ""), t.href);
       };
     class O {
       constructor(e) {
-        (this._db = null), (this._cacheName = e);
+        ((this._db = null), (this._cacheName = e));
       }
       _upgradeDb(e) {
         const t = e.createObjectStore(P, { keyPath: "id" });
-        t.createIndex("cacheName", "cacheName", { unique: !1 }),
-          t.createIndex("timestamp", "timestamp", { unique: !1 });
+        (t.createIndex("cacheName", "cacheName", { unique: !1 }),
+          t.createIndex("timestamp", "timestamp", { unique: !1 }));
       }
       _upgradeDbAndDeleteOldDbs(e) {
-        this._upgradeDb(e),
+        (this._upgradeDb(e),
           this._cacheName &&
             (function (e) {
               let { blocked: t } =
@@ -357,9 +357,9 @@
                   ? arguments[1]
                   : {};
               const s = indexedDB.deleteDatabase(e);
-              t && s.addEventListener("blocked", (e) => t(e.oldVersion, e)),
-                k(s).then(() => {});
-            })(this._cacheName);
+              (t && s.addEventListener("blocked", (e) => t(e.oldVersion, e)),
+                k(s).then(() => {}));
+            })(this._cacheName));
       }
       async setTimestamp(e, t) {
         const s = {
@@ -371,7 +371,7 @@
           n = (await this.getDb()).transaction(P, "readwrite", {
             durability: "relaxed",
           });
-        await n.store.put(s), await n.done;
+        (await n.store.put(s), await n.done);
       }
       async getTimestamp(e) {
         const t = await this.getDb(),
@@ -388,12 +388,12 @@
         let r = 0;
         for (; n; ) {
           const s = n.value;
-          s.cacheName === this._cacheName &&
+          (s.cacheName === this._cacheName &&
             ((e && s.timestamp < e) || (t && r >= t) ? a.push(n.value) : r++),
-            (n = await n.continue());
+            (n = await n.continue()));
         }
         const i = [];
-        for (const o of a) await s.delete(P, o.id), i.push(o.url);
+        for (const o of a) (await s.delete(P, o.id), i.push(o.url));
         return i;
       }
       _getId(e) {
@@ -413,13 +413,13 @@
       constructor(e) {
         let t =
           arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
-        (this._isRunning = !1),
+        ((this._isRunning = !1),
           (this._rerunRequested = !1),
           (this._maxEntries = t.maxEntries),
           (this._maxAgeSeconds = t.maxAgeSeconds),
           (this._matchOptions = t.matchOptions),
           (this._cacheName = e),
-          (this._timestampModel = new O(e));
+          (this._timestampModel = new O(e)));
       }
       async expireEntries() {
         if (this._isRunning) return void (this._rerunRequested = !0);
@@ -430,9 +430,9 @@
           t = await this._timestampModel.expireEntries(e, this._maxEntries),
           s = await self.caches.open(this._cacheName);
         for (const n of t) await s.delete(n, this._matchOptions);
-        (this._isRunning = !1),
+        ((this._isRunning = !1),
           this._rerunRequested &&
-            ((this._rerunRequested = !1), l(this.expireEntries()));
+            ((this._rerunRequested = !1), l(this.expireEntries())));
       }
       async updateTimestamp(e) {
         await this._timestampModel.setTimestamp(e, Date.now());
@@ -446,8 +446,8 @@
         return !1;
       }
       async delete() {
-        (this._rerunRequested = !1),
-          await this._timestampModel.expireEntries(1 / 0);
+        ((this._rerunRequested = !1),
+          await this._timestampModel.expireEntries(1 / 0));
       }
     }
     s(769);
@@ -472,7 +472,7 @@
     }
     class M {
       constructor() {
-        (this.updatedURLs = []),
+        ((this.updatedURLs = []),
           (this.notUpdatedURLs = []),
           (this.handlerWillStart = async (e) => {
             let { request: t, state: s } = e;
@@ -490,20 +490,20 @@
               n ? this.notUpdatedURLs.push(e) : this.updatedURLs.push(e);
             }
             return n;
-          });
+          }));
       }
     }
     class j {
       constructor(e) {
         let { precacheController: t } = e;
-        (this.cacheKeyWillBeUsed = async (e) => {
+        ((this.cacheKeyWillBeUsed = async (e) => {
           let { request: t, params: s } = e;
           const n =
             (null === s || void 0 === s ? void 0 : s.cacheKey) ||
             this._precacheController.getCacheKeyForURL(t.url);
           return n ? new Request(n, { headers: t.headers }) : t;
         }),
-          (this._precacheController = t);
+          (this._precacheController = t));
       }
     }
     s(124);
@@ -512,14 +512,14 @@
     }
     class W {
       constructor(e, t) {
-        (this._cacheKeys = {}),
+        ((this._cacheKeys = {}),
           Object.assign(this, t),
           (this.event = t.event),
           (this._strategy = e),
           (this._handlerDeferred = new d()),
           (this._extendLifetimePromises = []),
           (this._plugins = [...e.plugins]),
-          (this._pluginStateMap = new Map());
+          (this._pluginStateMap = new Map()));
         for (const s of this._plugins) this._pluginStateMap.set(s, {});
         this.event.waitUntil(this._handlerDeferred.promise);
       }
@@ -549,28 +549,28 @@
           let e;
           e = await fetch(
             n,
-            "navigate" === n.mode ? void 0 : this._strategy.fetchOptions
+            "navigate" === n.mode ? void 0 : this._strategy.fetchOptions,
           );
           for (const t of this.iterateCallbacks("fetchDidSucceed"))
             e = await t({ event: s, request: r, response: e });
           return e;
         } catch (o) {
           throw (
-            (a &&
+            a &&
               (await this.runCallbacks("fetchDidFail", {
                 error: o,
                 event: s,
                 originalRequest: a.clone(),
                 request: r.clone(),
               })),
-            o)
+            o
           );
         }
       }
       async fetchAndCachePut(e) {
         const t = await this.fetch(e),
           s = t.clone();
-        return this.waitUntil(this.cachePut(e, s)), t;
+        return (this.waitUntil(this.cachePut(e, s)), t);
       }
       async cacheMatch(e) {
         const t = F(e);
@@ -616,11 +616,11 @@
         } catch (g) {
           if (g instanceof Error)
             throw (
-              ("QuotaExceededError" === g.name &&
+              "QuotaExceededError" === g.name &&
                 (await (async function () {
                   for (const e of n) await e();
                 })()),
-              g)
+              g
             );
         }
         for (const t of this.iterateCallbacks("cacheDidUpdate"))
@@ -644,7 +644,7 @@
                 request: n,
                 event: this.event,
                 params: this.params,
-              })
+              }),
             );
           this._cacheKeys[s] = n;
         }
@@ -669,7 +669,7 @@
           }
       }
       waitUntil(e) {
-        return this._extendLifetimePromises.push(e), e;
+        return (this._extendLifetimePromises.push(e), e);
       }
       async doneWaiting() {
         let e;
@@ -693,17 +693,17 @@
             !t)
           )
             break;
-        return s || (t && 200 !== t.status && (t = void 0)), t;
+        return (s || (t && 200 !== t.status && (t = void 0)), t);
       }
     }
     class H {
       constructor() {
         let e =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-        (this.cacheName = c(e.cacheName)),
+        ((this.cacheName = c(e.cacheName)),
           (this.plugins = e.plugins || []),
           (this.fetchOptions = e.fetchOptions),
-          (this.matchOptions = e.matchOptions);
+          (this.matchOptions = e.matchOptions));
       }
       handle(e) {
         const [t] = this.handleAll(e);
@@ -741,12 +741,12 @@
           a = await e;
         } catch (r) {}
         try {
-          await t.runCallbacks("handlerDidRespond", {
+          (await t.runCallbacks("handlerDidRespond", {
             event: n,
             request: s,
             response: a,
           }),
-            await t.doneWaiting();
+            await t.doneWaiting());
         } catch (i) {
           i instanceof Error && (r = i);
         }
@@ -767,10 +767,10 @@
       constructor() {
         let e =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-        (e.cacheName = o(e.cacheName)),
+        ((e.cacheName = o(e.cacheName)),
           super(e),
           (this._fallbackToNetwork = !1 !== e.fallbackToNetwork),
-          this.plugins.push(Q.copyRedirectedCacheableResponsesPlugin);
+          this.plugins.push(Q.copyRedirectedCacheableResponsesPlugin));
       }
       async _handle(e, t) {
         const s = await t.cacheMatch(e);
@@ -798,7 +798,7 @@
             ((n = await s.fetch(
               new Request(e, {
                 integrity: "no-cors" !== e.mode ? r || t : void 0,
-              })
+              }),
             )),
             t && i && "no-cors" !== e.mode)
           ) {
@@ -831,7 +831,7 @@
           : t > 1 && null !== e && this.plugins.splice(e, 1);
       }
     }
-    (Q.defaultPrecacheCacheabilityPlugin = {
+    ((Q.defaultPrecacheCacheabilityPlugin = {
       async cacheWillUpdate(e) {
         let { response: t } = e;
         return !t || t.status >= 400 ? null : t;
@@ -842,7 +842,7 @@
           let { response: t } = e;
           return t.redirected ? await y(t) : t;
         },
-      });
+      }));
     class V {
       constructor() {
         let {
@@ -850,7 +850,7 @@
           plugins: t = [],
           fallbackToNetwork: s = !0,
         } = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-        (this._urlsToCacheKeys = new Map()),
+        ((this._urlsToCacheKeys = new Map()),
           (this._urlsToCacheModes = new Map()),
           (this._cacheKeysToIntegrities = new Map()),
           (this._strategy = new Q({
@@ -859,17 +859,17 @@
             fallbackToNetwork: s,
           })),
           (this.install = this.install.bind(this)),
-          (this.activate = this.activate.bind(this));
+          (this.activate = this.activate.bind(this)));
       }
       get strategy() {
         return this._strategy;
       }
       precache(e) {
-        this.addToCacheList(e),
+        (this.addToCacheList(e),
           this._installAndActiveListenersAdded ||
             (self.addEventListener("install", this.install),
             self.addEventListener("activate", this.activate),
-            (this._installAndActiveListenersAdded = !0));
+            (this._installAndActiveListenersAdded = !0)));
       }
       addToCacheList(e) {
         const s = [];
@@ -927,7 +927,7 @@
                 params: { cacheKey: r },
                 request: n,
                 event: e,
-              })
+              }),
             );
           }
           const { updatedURLs: s, notUpdatedURLs: n } = t;
@@ -984,7 +984,7 @@
           arguments.length > 2 && void 0 !== arguments[2]
             ? arguments[2]
             : "GET";
-        (this.handler = $(t)), (this.match = e), (this.method = s);
+        ((this.handler = $(t)), (this.match = e), (this.method = s));
       }
       setCatchHandler(e) {
         this.catchHandler = $(e);
@@ -1000,13 +1000,13 @@
               return n.slice(1);
           },
           t,
-          s
+          s,
         );
       }
     }
     class Y {
       constructor() {
-        (this._routes = new Map()), (this._defaultHandlerMap = new Map());
+        ((this._routes = new Map()), (this._defaultHandlerMap = new Map()));
       }
       get routes() {
         return this._routes;
@@ -1028,10 +1028,12 @@
                 "string" === typeof t && (t = [t]);
                 const s = new Request(...t);
                 return this.handleRequest({ request: s, event: e });
-              })
+              }),
             );
-            e.waitUntil(s),
-              e.ports && e.ports[0] && s.then(() => e.ports[0].postMessage(!0));
+            (e.waitUntil(s),
+              e.ports &&
+                e.ports[0] &&
+                s.then(() => e.ports[0].postMessage(!0)));
           }
         });
       }
@@ -1119,8 +1121,8 @@
         this._catchHandler = $(e);
       }
       registerRoute(e) {
-        this._routes.has(e.method) || this._routes.set(e.method, []),
-          this._routes.get(e.method).push(e);
+        (this._routes.has(e.method) || this._routes.set(e.method, []),
+          this._routes.get(e.method).push(e));
       }
       unregisterRoute(e) {
         if (!this._routes.has(e.method))
@@ -1134,7 +1136,8 @@
     }
     let Z;
     const ee = () => (
-      Z || ((Z = new Y()), Z.addFetchListener(), Z.addCacheListener()), Z
+      Z || ((Z = new Y()), Z.addFetchListener(), Z.addCacheListener()),
+      Z
     );
     function te(e, s, n) {
       let a;
@@ -1147,7 +1150,7 @@
             return s.href === t.href;
           },
           s,
-          n
+          n,
         );
       } else if (e instanceof RegExp) a = new X(e, s, n);
       else if ("function" === typeof e) a = new J(e, s, n);
@@ -1160,7 +1163,7 @@
           });
         a = e;
       }
-      return ee().registerRoute(a), a;
+      return (ee().registerRoute(a), a);
     }
     class se extends J {
       constructor(e, t) {
@@ -1178,7 +1181,7 @@
               : {};
             return (function* () {
               const r = new URL(e, location.href);
-              (r.hash = ""), yield r.href;
+              ((r.hash = ""), yield r.href);
               const i = (function (e) {
                 let t =
                   arguments.length > 1 && void 0 !== arguments[1]
@@ -1190,11 +1193,11 @@
               })(r, t);
               if ((yield i.href, s && i.pathname.endsWith("/"))) {
                 const e = new URL(i.href);
-                (e.pathname += s), yield e.href;
+                ((e.pathname += s), yield e.href);
               }
               if (n) {
                 const e = new URL(i.href);
-                (e.pathname += ".html"), yield e.href;
+                ((e.pathname += ".html"), yield e.href);
               }
               if (a) {
                 const e = a({ url: r });
@@ -1220,10 +1223,10 @@
       constructor() {
         let e =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-        super(e),
+        (super(e),
           this.plugins.some((e) => "cacheWillUpdate" in e) ||
             this.plugins.unshift(ne),
-          (this._networkTimeoutSeconds = e.networkTimeoutSeconds || 0);
+          (this._networkTimeoutSeconds = e.networkTimeoutSeconds || 0));
       }
       async _handle(e, s) {
         const n = [];
@@ -1235,7 +1238,7 @@
             logs: n,
             handler: s,
           });
-          (r = t), a.push(i);
+          ((r = t), a.push(i));
         }
         const i = this._getNetworkPromise({
           timeoutId: r,
@@ -1245,7 +1248,7 @@
         });
         a.push(i);
         const o = await s.waitUntil(
-          (async () => (await s.waitUntil(Promise.race(a))) || (await i))()
+          (async () => (await s.waitUntil(Promise.race(a))) || (await i))(),
         );
         if (!o) throw new t("no-response", { url: e.url });
         return o;
@@ -1272,7 +1275,9 @@
           o instanceof Error && (t = o);
         }
         return (
-          n && clearTimeout(n), (!t && s) || (s = await i.cacheMatch(a)), s
+          n && clearTimeout(n),
+          (!t && s) || (s = await i.cacheMatch(a)),
+          s
         );
       }
     }
@@ -1280,7 +1285,8 @@
       constructor() {
         let e =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-        super(e), (this._networkTimeoutSeconds = e.networkTimeoutSeconds || 0);
+        (super(e),
+          (this._networkTimeoutSeconds = e.networkTimeoutSeconds || 0));
       }
       async _handle(e, s) {
         let n, a;
@@ -1293,7 +1299,7 @@
           if (((a = await Promise.race(t)), !a))
             throw new Error(
               "Timed out the network response after " +
-                "".concat(this._networkTimeoutSeconds, " seconds.")
+                "".concat(this._networkTimeoutSeconds, " seconds."),
             );
         } catch (r) {
           r instanceof Error && (n = r);
@@ -1304,11 +1310,11 @@
     }
     class ie extends H {
       constructor() {
-        super(
-          arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {}
+        (super(
+          arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
         ),
           this.plugins.some((e) => "cacheWillUpdate" in e) ||
-            this.plugins.unshift(ne);
+            this.plugins.unshift(ne));
       }
       async _handle(e, s) {
         const n = s.fetchAndCachePut(e).catch(() => {});
@@ -1339,7 +1345,7 @@
         const t = (await this.getDb()).transaction(oe, "readwrite", {
           durability: "relaxed",
         });
-        await t.store.add(e), await t.done;
+        (await t.store.add(e), await t.done);
       }
       async getFirstEntryId() {
         const e = await this.getDb(),
@@ -1391,27 +1397,27 @@
     }
     class ue {
       constructor(e) {
-        (this._queueName = e), (this._queueDb = new he());
+        ((this._queueName = e), (this._queueDb = new he()));
       }
       async pushEntry(e) {
-        delete e.id,
+        (delete e.id,
           (e.queueName = this._queueName),
-          await this._queueDb.addEntry(e);
+          await this._queueDb.addEntry(e));
       }
       async unshiftEntry(e) {
         const t = await this._queueDb.getFirstEntryId();
-        t ? (e.id = t - 1) : delete e.id,
+        (t ? (e.id = t - 1) : delete e.id,
           (e.queueName = this._queueName),
-          await this._queueDb.addEntry(e);
+          await this._queueDb.addEntry(e));
       }
       async popEntry() {
         return this._removeEntry(
-          await this._queueDb.getLastEntryByQueueName(this._queueName)
+          await this._queueDb.getLastEntryByQueueName(this._queueName),
         );
       }
       async shiftEntry() {
         return this._removeEntry(
-          await this._queueDb.getFirstEntryByQueueName(this._queueName)
+          await this._queueDb.getFirstEntryByQueueName(this._queueName),
         );
       }
       async getAll() {
@@ -1424,7 +1430,7 @@
         await this._queueDb.deleteEntry(e);
       }
       async _removeEntry(e) {
-        return e && (await this.deleteEntry(e.id)), e;
+        return (e && (await this.deleteEntry(e.id)), e);
       }
     }
     const le = [
@@ -1447,8 +1453,8 @@
         return new de(t);
       }
       constructor(e) {
-        "navigate" === e.mode && (e.mode = "same-origin"),
-          (this._requestData = e);
+        ("navigate" === e.mode && (e.mode = "same-origin"),
+          (this._requestData = e));
       }
       toObject() {
         const e = Object.assign({}, this._requestData);
@@ -1472,7 +1478,7 @@
           request: new de(e.requestData).toRequest(),
           timestamp: e.timestamp,
         };
-        return e.metadata && (t.metadata = e.metadata), t;
+        return (e.metadata && (t.metadata = e.metadata), t);
       };
     class ye {
       constructor(e) {
@@ -1487,13 +1493,13 @@
           pe.has(e))
         )
           throw new t("duplicate-queue-name", { name: e });
-        pe.add(e),
+        (pe.add(e),
           (this._name = e),
           (this._onSync = n || this.replayRequests),
           (this._maxRetentionTime = a || 10080),
           (this._forceSyncFallback = Boolean(s)),
           (this._queueStore = new ue(this._name)),
-          this._addSyncListener();
+          this._addSyncListener());
       }
       get name() {
         return this._name;
@@ -1564,8 +1570,8 @@
             await fetch(e.request.clone());
           } catch (s) {
             throw (
-              (await this.unshiftRequest(e),
-              new t("queue-replay-failed", { name: this._name }))
+              await this.unshiftRequest(e),
+              new t("queue-replay-failed", { name: this._name })
             );
           }
       }
@@ -1573,7 +1579,7 @@
         if ("sync" in self.registration && !this._forceSyncFallback)
           try {
             await self.registration.sync.register(
-              "".concat(fe, ":").concat(this._name)
+              "".concat(fe, ":").concat(this._name),
             );
           } catch (e) {
             0;
@@ -1592,11 +1598,11 @@
                   } catch (s) {
                     if (s instanceof Error) throw ((t = s), t);
                   } finally {
-                    !this._requestsAddedDuringSync ||
+                    (!this._requestsAddedDuringSync ||
                       (t && !e.lastChance) ||
                       (await this.registerSync()),
                       (this._syncInProgress = !1),
-                      (this._requestsAddedDuringSync = !1);
+                      (this._requestsAddedDuringSync = !1));
                   }
                 };
                 e.waitUntil(t());
@@ -1610,11 +1616,11 @@
     }
     class me {
       constructor(e, t) {
-        (this.fetchDidFail = async (e) => {
+        ((this.fetchDidFail = async (e) => {
           let { request: t } = e;
           await this._queue.pushRequest({ request: t });
         }),
-          (this._queue = new ye(e, t));
+          (this._queue = new ye(e, t)));
       }
     }
     s(973);
@@ -1637,7 +1643,7 @@
             return t.hostname === we && "/analytics.js" === t.pathname;
           },
           t,
-          "GET"
+          "GET",
         );
       },
       Re = (e) => {
@@ -1648,7 +1654,7 @@
             return t.hostname === _e && "/gtag/js" === t.pathname;
           },
           t,
-          "GET"
+          "GET",
         );
       },
       Ee = (e) => {
@@ -1659,11 +1665,11 @@
             return t.hostname === _e && "/gtm.js" === t.pathname;
           },
           t,
-          "GET"
+          "GET",
         );
       };
     var xe;
-    !(function () {
+    (!(function () {
       let e =
         arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
       const t = i(e.cacheName),
@@ -1689,7 +1695,7 @@
                       const s = n.parameterOverrides[e];
                       t.set(e, s);
                     }
-                  "function" === typeof n.hitFilter &&
+                  ("function" === typeof n.hitFilter &&
                     n.hitFilter.call(null, t),
                     await fetch(
                       new Request(i.origin + i.pathname, {
@@ -1698,8 +1704,8 @@
                         mode: "cors",
                         credentials: "omit",
                         headers: { "Content-Type": "text/plain" },
-                      })
-                    );
+                      }),
+                    ));
                 } catch (a) {
                   throw (await s.unshiftRequest(t), a);
                 }
@@ -1717,20 +1723,20 @@
         z().precache(e);
       })([
         {
-          revision: "16e23e74fe6202fe14982804618c57cc",
+          revision: "48512e71f06866f7ce6e5fdf6b2a1cda",
           url: "./index.html",
         },
-        { revision: null, url: "./static/css/main.b95bae00.css" },
+        { revision: null, url: "./static/css/main.d6d3399b.css" },
         { revision: null, url: "./static/js/180.5b2bdd16.chunk.js" },
         { revision: null, url: "./static/js/284.2d3ecaaf.chunk.js" },
         { revision: null, url: "./static/js/321.d9245f83.chunk.js" },
+        { revision: null, url: "./static/js/38.c2584fa3.chunk.js" },
         { revision: null, url: "./static/js/455.d84a30ae.chunk.js" },
         { revision: null, url: "./static/js/51.0cb2066f.chunk.js" },
         { revision: null, url: "./static/js/648.2113eff1.chunk.js" },
-        { revision: null, url: "./static/js/673.afa71020.chunk.js" },
-        { revision: null, url: "./static/js/697.b0a110a7.chunk.js" },
-        { revision: null, url: "./static/js/813.bf64b75e.chunk.js" },
-        { revision: null, url: "./static/js/main.d041dd63.js" },
+        { revision: null, url: "./static/js/673.ae70bf79.chunk.js" },
+        { revision: null, url: "./static/js/813.87d17a5e.chunk.js" },
+        { revision: null, url: "./static/js/main.456c3592.js" },
         {
           revision: null,
           url: "./static/media/CinzelDecorative-Bold.4701e9921703cb64dfce.ttf",
@@ -1763,17 +1769,20 @@
       (function (e) {
         const t = z();
         te(new se(t, e));
-      })(xe);
+      })(xe));
     const De = new RegExp("/[^/?]+\\.[^/]+$");
     var Ce;
-    te((e) => {
-      let { request: t, url: s } = e;
-      return (
-        "navigate" === t.mode &&
-        !s.pathname.startsWith("/_") &&
-        !s.pathname.match(De)
-      );
-    }, ((Ce = "./index.html"), z().createHandlerBoundToURL(Ce))),
+    (te(
+      (e) => {
+        let { request: t, url: s } = e;
+        return (
+          "navigate" === t.mode &&
+          !s.pathname.startsWith("/_") &&
+          !s.pathname.match(De)
+        );
+      },
+      ((Ce = "./index.html"), z().createHandlerBoundToURL(Ce)),
+    ),
       te(
         (e) => {
           let { url: t } = e;
@@ -1791,7 +1800,7 @@
                   arguments.length > 0 && void 0 !== arguments[0]
                     ? arguments[0]
                     : {};
-                (this.cachedResponseWillBeUsed = async (e) => {
+                ((this.cachedResponseWillBeUsed = async (e) => {
                   let {
                     event: t,
                     request: s,
@@ -1814,7 +1823,7 @@
                   (this.cacheDidUpdate = async (e) => {
                     let { cacheName: t, request: s } = e;
                     const n = this._getCacheExpiration(t);
-                    await n.updateTimestamp(s.url), await n.expireEntries();
+                    (await n.updateTimestamp(s.url), await n.expireEntries());
                   }),
                   (this._config = e),
                   (this._maxAgeSeconds = e.maxAgeSeconds),
@@ -1822,7 +1831,7 @@
                   e.purgeOnQuotaError &&
                     (function (e) {
                       n.add(e);
-                    })(() => this.deleteCacheAndMetadata());
+                    })(() => this.deleteCacheAndMetadata()));
               }
               _getCacheExpiration(e) {
                 if (e === c()) throw new t("expire-custom-caches-only");
@@ -1848,19 +1857,24 @@
               }
               async deleteCacheAndMetadata() {
                 for (const [e, t] of this._cacheExpirations)
-                  await self.caches.delete(e), await t.delete();
+                  (await self.caches.delete(e), await t.delete());
                 this._cacheExpirations = new Map();
               }
             })({ maxEntries: 50 }),
           ],
-        })
+        }),
       ),
-      te((e) => {
-        let { url: t } = e;
-        return t.origin === self.location.origin && t.pathname.endsWith(".css");
-      }, new ie({ cacheName: "external-cache" })),
+      te(
+        (e) => {
+          let { url: t } = e;
+          return (
+            t.origin === self.location.origin && t.pathname.endsWith(".css")
+          );
+        },
+        new ie({ cacheName: "external-cache" }),
+      ),
       self.addEventListener("message", (e) => {
         e.data && "SKIP_WAITING" === e.data.type && self.skipWaiting();
-      });
+      }));
   })();
 })();
