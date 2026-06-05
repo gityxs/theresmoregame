@@ -68611,7 +68611,7 @@
                                           window.location.hostname
                                             ? "./"
                                             : "") +
-                                          "/images/" +
+                                          "images/" +
                                           t +
                                           ".webp",
                                       }),
