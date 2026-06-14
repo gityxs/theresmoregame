@@ -70275,7 +70275,7 @@
                                           window.location.hostname
                                             ? ""
                                             : "") +
-                                          "./" +
+                                          "./images/" +
                                           t +
                                           ".webp",
                                       }),
